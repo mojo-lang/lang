@@ -2,6 +2,10 @@
 ///
 ///
 type StructType : DataType {
+    // A Field represents a Field declaration list in a struct type,
+    // a method list in an interface type, or a parameter/result declaration
+    // in a signature.
+    //
     type Field {
         id: UInt @1
         name: String @2
