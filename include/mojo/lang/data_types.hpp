@@ -5,7 +5,7 @@
 #include <mojo/lang/data_visitor.hpp>
 #include <ncraft/core/maybe.hpp>
 
-#include <mojo/std/string.hpp>
+#include <mojo/core/string.hpp>
 
 namespace mojo {
 namespace lang {

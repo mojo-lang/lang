@@ -1,0 +1,6 @@
+///
+///
+///
+type InterfaceType {
+    methods: [FuncDecl]
+}

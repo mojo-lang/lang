@@ -1,0 +1,2 @@
+type ImportDecl : Decl {
+}

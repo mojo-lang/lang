@@ -25,9 +25,9 @@ public:
     using Field = StructTypeField;
 
 public:
-    const StructType* enclosingType;
-    Array<const StructType*> nestedTypes;  // nested types
-    Array<const EnumType*> nestedEnums;    // nested enums
+    //const StructType* enclosingType;
+    //Array<const StructType*> nestedTypes;  // nested types
+    //Array<const EnumType*> nestedEnums;    // nested enums
 
     Array<Field*> fields;
 /*

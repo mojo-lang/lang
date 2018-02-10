@@ -1,6 +1,7 @@
 #ifndef MOJO_DATA_TYPE_OF_STRING_HPP
 #define MOJO_DATA_TYPE_OF_STRING_HPP
 
+#include <mojo/core/string.hpp>
 #include <mojo/lang/data_type_of.hpp>
 #include <mojo/lang/data_visitor.hpp>
 #include <mojo/lang/string_adaptor.hpp>
@@ -12,7 +13,7 @@ class StringType : public DataTypeOf<String> {
 public:
     StringType() {
         DataType::name = "String";
-        DataType::fullName = "std.String";
+        DataType::fullName = "core.String";
     }
 
     virtual ~StringType() = default;

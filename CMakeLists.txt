@@ -3,6 +3,14 @@ project(lang)
 
 set(CMAKE_CXX_STANDARD 14)
 
+INCLUDE_DIRECTORIES(
+        /usr/local/include
+        ${PROJECT_SOURCE_DIR}/../../ncraft/ncraft-core/include
+        ${PROJECT_SOURCE_DIR}/../core/include
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/test
+)
+
 set(SOURCE_FILES
         include/mojo/lang/array_adaptor.hpp
         include/mojo/lang/array_type.hpp
@@ -31,10 +39,10 @@ set(SOURCE_FILES
         include/mojo/lang/numeric_type.hpp
         include/mojo/lang/option_type.hpp
         include/mojo/lang/package.hpp
-        include/mojo/lang/service_method.hpp
-        include/mojo/lang/service_type.hpp
-        include/mojo/lang/service_type_builder.hpp
-        include/mojo/lang/service_type_of.hpp
+        include/mojo/lang/interface_method.hpp
+        include/mojo/lang/interface_type.hpp
+        include/mojo/lang/interface_type_builder.hpp
+        include/mojo/lang/interface_type_of.hpp
         include/mojo/lang/string_adaptor.hpp
         include/mojo/lang/string_type.hpp
         include/mojo/lang/struct_adaptor.hpp
