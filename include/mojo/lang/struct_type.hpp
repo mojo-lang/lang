@@ -5,19 +5,14 @@
 #include <mojo/core/numeric.hpp>
 #include <mojo/lang/data_type.hpp>
 #include <mojo/lang/enum_type.hpp>
+#include <mojo/lang/value_decl.mojo.hpp>
+#include <mojo/lang/nominal_type.mojo.hpp>
 
 namespace mojo {
 namespace lang {
 
-struct StructTypeField {
-    UInt id = 0;
-    String name;
-    String camelName;
-
-    String document;
-    Attributes attributes;
-
-    const DataType* type;
+struct StructTypeField : ValueDecl {
+    UInt index = 0;
 };
 
 class StructType : public DataType {
@@ -25,11 +20,12 @@ public:
     using Field = StructTypeField;
 
 public:
-    //const StructType* enclosingType;
-    //Array<const StructType*> nestedTypes;  // nested types
-    //Array<const EnumType*> nestedEnums;    // nested enums
-
     Array<Field*> fields;
+
+    /**
+     *
+     */
+    Array<::std::unique_ptr<NominalType>> inherits;
 /*
     class ConstFieldIterator
         : public std::iterator<std::forward_iterator_tag, const Field> {

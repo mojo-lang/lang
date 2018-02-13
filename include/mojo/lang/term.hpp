@@ -14,22 +14,12 @@ namespace lang {
 struct Term;
 using TermPtr = ::std::shared_ptr<Term>;
 
-struct Position {
-    struct Point {
-        int line = 0;
-        int column = 0;
-    };
-
-    Point start;
-    Point end;
-};
-
 struct Term {
     String type;
     String value;
     // Either<bool, int64_t, double, String> value;
 
-    Position position;
+    //Position position;
 
     TermPtr parent;
     Array<TermPtr> terms;
@@ -101,6 +91,11 @@ inline bool operator==(const Term &l, const Term &r) {
     }
 }
 }
+
+using Term = lang::Term;
+using TermPtr = lang::TermPtr;
+using lang::make_term;
+
 }
 
 #endif  // MOJO_TERM_HPP

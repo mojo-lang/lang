@@ -24,51 +24,11 @@ class DataType : ::ncraft::NonCopyable {
 public:
     enum Kind { kNull, kScalar, kArray, kDictionary, kEnum, kStruct };
 
-    /**
-     *
-     */
-    struct Inherit {
-        /**
-         *
-         */
-        const DataType* dataType = nullptr;
-
-        /**
-         *
-         */
-        Attributes attributes;
-    };
-
 public:
     /**
      *
      */
     String name;
-
-    /**
-     * the type's fully-qualified name (eg. foo.bar.Object).
-     */
-    String fullName;
-
-    /**
-     *
-     */
-    String document;
-
-    /**
-     *
-     */
-    Attributes attributes;
-
-    /**
-     *
-     */
-    ::std::shared_ptr<Package> package;
-
-    /**
-     *
-     */
-    Array<::std::unique_ptr<Inherit>> inherits;
 
 public:
     virtual ~DataType() = default;

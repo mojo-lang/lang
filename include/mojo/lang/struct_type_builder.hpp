@@ -96,11 +96,6 @@ MOJO_BUILD_STRUCT_TYPE(mojo, lang, DataType) {
     field(&mojo::lang::DataType::package, "package", 3);
 }
 
-MOJO_BUILD_STRUCT_TYPE(mojo, lang, DataType, Inherit) {
-    field(&mojo::lang::DataType::Inherit::dataType, "data_type", "dataType", 1);
-    field(&mojo::lang::DataType::Inherit::attributes, "attributes", 2);
-}
-
 MOJO_BUILD_STRUCT_TYPE(mojo, lang, StructType) {
 }
 

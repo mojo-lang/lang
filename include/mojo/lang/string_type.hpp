@@ -13,7 +13,6 @@ class StringType : public DataTypeOf<String> {
 public:
     StringType() {
         DataType::name = "String";
-        DataType::fullName = "core.String";
     }
 
     virtual ~StringType() = default;

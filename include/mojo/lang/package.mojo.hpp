@@ -1,5 +1,5 @@
-#ifndef MOJO_LANG_PACKAGE_HPP
-#define MOJO_LANG_PACKAGE_HPP
+#ifndef MOJO_LANG_PACKAGE_MOJO_HPP
+#define MOJO_LANG_PACKAGE_MOJO_HPP
 
 #include <vector>
 #include <memory>
@@ -24,4 +24,4 @@ struct Package {
 }
 }
 
-#endif //MOJO_LANG_PACKAGE_HPP
+#endif //MOJO_LANG_PACKAGE_MOJO_HPP

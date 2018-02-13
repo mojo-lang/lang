@@ -1,4 +1,4 @@
 /// \brief Abstract base class for numeric literals, potentially with a sign.
-type NumberLiteralExpr : LiteralExpr {
+type NumericLiteralExpr : LiteralExpr {
     is_negative : Bool
 }
