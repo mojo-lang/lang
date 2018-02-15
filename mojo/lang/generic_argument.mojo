@@ -1,3 +1,1 @@
-type GenericArgument {
-    
-}
+type GenericArgument = NominalType

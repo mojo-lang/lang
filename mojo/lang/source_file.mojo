@@ -4,12 +4,12 @@
 type SourceFile {
     name:      String @1
     full_name: String @2
-    package: Package  @3
+    package:  Package @3
 
-    // statements
+    /// statements
     statements: [Statement] @5
 
-    // decls' index
+    /// decls' index
     import_decls:    [ImportDecl] @10 @linked
 
     const_decls:     [ConstDecl] @11 @linked

@@ -14,5 +14,10 @@
 
 /// A type declaration that can have generic parameters attached to it.  Because
 /// it has these generic parameters, it is always a DeclContext.
-type GenericParam {
+type GenericParameter : TypeDecl @skip_fields() {
+    ///
+    name: String @10
+
+    ///
+    constraint: NominalType @11
 }

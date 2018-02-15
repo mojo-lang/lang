@@ -4,13 +4,15 @@
 #include <mojo/lang/decl.mojo.hpp>
 #include <mojo/lang/attribute.mojo.hpp>
 #include <mojo/lang/struct_type_builder.hpp>
+#include <mojo/lang/generic_parameter_ptr.hpp>
 
 namespace mojo {
 namespace lang {
 
 struct TypeDecl : Decl {
     String name;
-    //Array<GenericParam> genericParams;
+
+    Array<GenericParameterPtr> genericParams;
 
     Array<Attribute> attributes;
 };

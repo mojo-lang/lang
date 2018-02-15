@@ -63,6 +63,12 @@ inline TermPtr make_term(const String &type) {
     return ::std::move(ptr);
 }
 
+inline TermPtr make_term(String &&type) {
+    auto ptr = ::std::make_shared<Term>();
+    ptr->type = std::move(type);
+    return ::std::move(ptr);
+}
+
 inline TermPtr make_term(const String &type, const String &value) {
     auto ptr = ::std::make_shared<Term>();
     ptr->type = type;

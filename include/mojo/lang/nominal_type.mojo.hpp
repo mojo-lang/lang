@@ -2,22 +2,38 @@
 #define LANG_NOMINAL_TYPE_MOJO_HPP
 
 #include <mojo/core/string.hpp>
+#include <mojo/lang/attribute.mojo.hpp>
+#include <mojo/lang/type_declaration.mojo.hpp>
+#include <mojo/lang/nominal_type_ptr.hpp>
 
 namespace mojo {
 namespace lang {
 
+/**
+ *
+ */
 struct NominalType {
-    ///
+    /**
+     *
+     */
     String name;
 
-    ///
-    //type_declaration: TypeDeclaration
+    /**
+     *
+     */
+    TypeDeclaration typeDeclaration;
 
-    ///
-    //generic_arguments: [GenericArgument]
+    /**
+     *
+     */
+    Array<NominalTypePtr> genericArguments;
 
-    ///
-    //attributes: [Attribute]
+    /**
+     *
+     */
+    Array<Attribute> attributes;
+
+    NominalType() : typeDeclaration(DataDeclPtr{}) {}
 };
 
 }

@@ -11,15 +11,21 @@ public:
     StringAdaptor() = default;
     virtual ~StringAdaptor() = default;
 
-    virtual int size(const String& str) const noexcept {
-        return str.size();
+    virtual int size(AnyConstRef str) const noexcept {
+        return  (*str.get<String>()).size();
     }
 
-    virtual bool has() const noexcept = 0;
+    virtual bool has() const noexcept {
+        return false;
+    }
 
-    virtual AnyConstRef at(const String& str, const String&) const noexcept = 0;
+    virtual AnyConstRef at(AnyConstRef str, const String&) const noexcept {
 
-    virtual AnyConstRef at(const String& str, int) const noexcept = 0;
+    }
+
+    virtual AnyConstRef at(AnyConstRef str, int) const noexcept {
+
+    }
 
     virtual ncraft::Status setNull(AnyRef) const noexcept {
     }
@@ -27,31 +33,31 @@ public:
     virtual ncraft::Status setBool(AnyRef, bool) const noexcept {
     }
 
-    virtual ncraft::Status set(String& str, AnyConstRef) const noexcept {
+    virtual ncraft::Status set(AnyRef str, AnyConstRef) const noexcept {
     }
 
-    virtual MResult mutableAt(String& str, const String&) const noexcept {
+    virtual MResult mutableAt(AnyRef str, const String&) const noexcept {
     }
 
-    virtual MResult mutableAt(String& str, int) const noexcept {
+    virtual MResult mutableAt(AnyRef str, int) const noexcept {
     }
 
-    virtual MResult mutateField(String&,
+    virtual MResult mutateField(AnyRef,
                                 const String&,
                                 const StructTypeField* = nullptr) const noexcept {
     }
 
-    virtual MResult add(String& str) const noexcept {
+    virtual MResult add(AnyRef str) const noexcept {
     }
 
-    virtual void erase(String& str, const String&) const noexcept {
+    virtual void erase(AnyRef str, const String&) const noexcept {
     }
 
-    virtual void erase(String& str, int) const noexcept {
+    virtual void erase(AnyRef, int) const noexcept {
     }
 
-    virtual void clear(String& str) const noexcept {
-        str.clear();
+    virtual void clear(AnyRef str) const noexcept {
+        //str.clear();
     }
 };
 

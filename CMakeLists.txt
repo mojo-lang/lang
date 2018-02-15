@@ -19,7 +19,7 @@ set(MOJO_HEADER_FILES
         include/mojo/lang/numeric_literal_expr.mojo.hpp
         include/mojo/lang/decl.mojo.hpp
         include/mojo/lang/expression.mojo.hpp
-        include/mojo/lang/literal_expr.mojo.hpp include/mojo/lang/integer_literal_expr.mojo.hpp include/mojo/lang/data_decl.mojo.hpp include/mojo/lang/value_decl.mojo.hpp include/mojo/lang/type_alias_decl.mojo.hpp include/mojo/lang/enum_decl.mojo.hpp)
+        include/mojo/lang/literal_expr.mojo.hpp include/mojo/lang/integer_literal_expr.mojo.hpp include/mojo/lang/data_decl.mojo.hpp include/mojo/lang/value_decl.mojo.hpp include/mojo/lang/type_alias_decl.mojo.hpp include/mojo/lang/enum_decl.mojo.hpp include/mojo/lang/interface_decl.mojo.hpp include/mojo/lang/func_decl.mojo.hpp include/mojo/lang/type_declaration.mojo.hpp include/mojo/lang/generic_parameter.mojo.hpp include/mojo/lang/generic_argument.mojo.hpp include/mojo/lang/func_type.mojo.hpp include/mojo/lang/declaration.mojo.hpp include/mojo/lang/data_decl_ptr.hpp include/mojo/lang/enum_decl_ptr.hpp include/mojo/lang/struct_decl_ptr.hpp include/mojo/lang/interface_decl_ptr.hpp include/mojo/lang/func_decl_ptr.hpp include/mojo/lang/package_ptr.hpp include/mojo/lang/source_file_ptr.hpp include/mojo/lang/type_alias_decl_ptr.hpp include/mojo/lang/generic_parameter_ptr.hpp)
 
 set(SOURCE_FILES
         include/mojo/lang/array_adaptor.hpp
@@ -42,9 +42,9 @@ set(SOURCE_FILES
         include/mojo/lang/enum_type_builder.hpp
         include/mojo/lang/enum_type_of.hpp
         include/mojo/lang/enum_value.hpp
-        include/mojo/lang/function.hpp
+        include/mojo/lang/func.hpp
         include/mojo/lang/generic_type.hpp
-        include/mojo/lang/source_file.hpp
+        include/mojo/lang/source_file.mojo.hpp
         include/mojo/lang/numeric_adaptor.hpp
         include/mojo/lang/numeric_type.hpp
         include/mojo/lang/optional_type.hpp
@@ -69,6 +69,7 @@ set(SOURCE_FILES
         src/mojo/lang/data_type.cpp
         src/mojo/lang/numeric_type.cpp
         src/mojo/lang/string_type.cpp
-        test/mojo/lang/data_type_test.cpp include/mojo/lang/string_literal_expr.mojo.hpp include/mojo/lang/nominal_type.mojo.hpp include/mojo/lang/struct_decl_builder.hpp include/mojo/lang/decl.hpp)
+        include/mojo/lang/string_literal_expr.mojo.hpp include/mojo/lang/nominal_type.mojo.hpp include/mojo/lang/struct_decl_builder.hpp include/mojo/lang/decl.hpp include/mojo/lang/nominal_type_ptr.hpp include/mojo/lang/statement.mojo.hpp src/mojo.cpp)
 
 add_executable(lang ${SOURCE_FILES} ${MOJO_HEADER_FILES})
+target_link_libraries(lang boost_system boost_filesystem)

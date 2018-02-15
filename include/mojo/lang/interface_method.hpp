@@ -1,7 +1,7 @@
 #ifndef MOJO_LANG_SERVICE_METHOD_HPP
 #define MOJO_LANG_SERVICE_METHOD_HPP
 
-#include <mojo/lang/function.hpp>
+#include <mojo/lang/func.hpp>
 #include <mojo/lang/interface_type.hpp>
 
 namespace mojo {

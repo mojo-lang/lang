@@ -6,6 +6,7 @@
 namespace mojo {
 namespace lang {
 
+
 struct DataDecl : TypeDecl {
     DataType* type;
 };

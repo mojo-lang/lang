@@ -1,6 +1,7 @@
 #ifndef MOJO_FUNCTION_HPP
 #define MOJO_FUNCTION_HPP
 
+#include <mojo/core/string.hpp>
 #include <mojo/lang/callable.hpp>
 
 namespace mojo {

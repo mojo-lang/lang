@@ -3,7 +3,8 @@
 
 #include <ncraft/core/noncopyable.hpp>
 #include <mojo/lang/data_type.hpp>
-#include <mojo/lang/function.hpp>
+#include <mojo/lang/func.hpp>
+#include <mojo/lang/func_decl.mojo.hpp>
 #include <mojo/lang/struct_type_builder.hpp>
 
 namespace mojo {
@@ -17,73 +18,26 @@ public:
     /**
      *
      */
-    struct Inherit {
-        /**
-         *
-         */
-        const InterfaceType* serviceType = nullptr;
-
-        /**
-         *
-         */
-        Attributes attributes;
-    };
-
-public:
-    /**
-     *
-     */
     String name;
 
     /**
-     * the type's fully-qualified name (eg. foo.bar.Object).
+     *
      */
-    String fullName;
+    Array<::std::unique_ptr<NominalType>> inherits;
 
     /**
      *
      */
-    String document;
-
-    /**
-     *
-     */
-    Attributes attributes;
-
-    /**
-     *
-     */
-    PackagePtr package;
-
-    /**
-     *
-     */
-    Array<std::unique_ptr<Inherit>> inherits;
-
-    /**
-     *
-     */
-    Array<FunctionPtr> methods;
-
-public:
-
+    Array<FuncDeclPtr> methods;
 };
 
+}  // namespace lang
+}  // namespace mojo
+
 MOJO_BUILD_STRUCT_TYPE(mojo, lang, InterfaceType) {
-    type->attributes = {{},{}};
-    type->document = "";
-
-    field(&InterfaceType::name, "name", 1);
-    field(&InterfaceType::full_name, "full_name", 2);
-    field(&InterfaceType::package, "", 3);
+    field(&::mojo::lang::InterfaceType::name, "name", 1);
+    field(&::mojo::lang::InterfaceType::inherits, "inherits", 2);
+    field(&::mojo::lang::InterfaceType::methods, "methods", 3);
 }
 
-MOJO_BUILD_STRUCT_TYPE(mojo, lang, InterfaceType, Inherit) {
-    field(&InterfaceType::Inherit::serviceType, "interface_type", 1);
-    field(&InterfaceType::Inherit::attributes, "attributes", 2);
-}
-
-}
-}
-
-#endif //MOJO_LANG_SERVICE_TYPE_HPP
+#endif  // MOJO_LANG_SERVICE_TYPE_HPP

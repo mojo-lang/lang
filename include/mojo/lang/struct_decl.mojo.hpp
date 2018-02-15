@@ -6,12 +6,10 @@
 #include <mojo/lang/enum_decl.mojo.hpp>
 #include <mojo/lang/nominal_type.mojo.hpp>
 #include <mojo/lang/type_alias_decl.mojo.hpp>
+#include <mojo/lang/struct_decl_ptr.hpp>
 
 namespace mojo {
 namespace lang {
-
-struct StructDecl;
-using StructTypePtr = std::shared_ptr<StructDecl>;
 
 /**
  *
@@ -19,11 +17,11 @@ using StructTypePtr = std::shared_ptr<StructDecl>;
 struct StructDecl : TypeDecl {
     StructType* type;
 
-    StructTypePtr enclosingDecl;
+    StructDeclPtr enclosingDecl;
 
     Array<TypeAliasDecl> typeAliasDecls;
 
-    Array<StructTypePtr> structDecls;
+    Array<StructDeclPtr> structDecls;
 
     Array<std::shared_ptr<EnumDecl>> enumDecls;
 };

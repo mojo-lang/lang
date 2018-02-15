@@ -4,7 +4,7 @@ type ValueDecl : Decl {
     name: Identifier @10
 
     ///
-    type: NominalType @12 @link
+    type: NominalType @12
 
     ///
     attributes: [Attribute] @13

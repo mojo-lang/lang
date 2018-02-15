@@ -9,7 +9,7 @@ namespace mojo {
 namespace lang {
 
 using Expression = Union<IntegerLiteralExpr,
-                         StringLiteralExpr>
+                         StringLiteralExpr>;
 
 }
 }

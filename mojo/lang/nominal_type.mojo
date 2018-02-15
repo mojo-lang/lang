@@ -2,7 +2,7 @@
 ///
 type NominalType {
     ///
-    name: TypeName @1
+    name: String @1
     
     ///
     type_declaration: TypeDeclaration

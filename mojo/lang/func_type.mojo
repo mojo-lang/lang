@@ -1,5 +1,8 @@
 ///
 type FuncType {
+    ///
     parameters: [ValueDecl]
-    return: Type
+
+    ///
+    return_type: Type
 }

@@ -20,7 +20,7 @@ struct StructTypeBuilder {
     };
 
     void fullName(String&& fullName) {
-        type->fullName = ::std::move(fullName);
+        //type->fullName = ::std::move(fullName);
     }
 
     template <typename M>
@@ -92,14 +92,20 @@ private:
 
 MOJO_BUILD_STRUCT_TYPE(mojo, lang, DataType) {
     field(&mojo::lang::DataType::name, "name", 1);
-    field(&mojo::lang::DataType::fullName, "full_name", "fullName", 2);
-    field(&mojo::lang::DataType::package, "package", 3);
+    //field(&mojo::lang::DataType::fullName, "full_name", "fullName", 2);
+    //field(&mojo::lang::DataType::package, "package", 3);
 }
 
 MOJO_BUILD_STRUCT_TYPE(mojo, lang, StructType) {
 }
 
 MOJO_BUILD_STRUCT_TYPE(mojo, lang, StructType, Field) {
+}
+
+MOJO_BUILD_STRUCT_TYPE(mojo, lang, Attribute) {
+    field(&mojo::lang::Attribute::name, "name", 1);
+    field(&mojo::lang::Attribute::expression, "expression", 3);
+    field(&mojo::lang::Attribute::package, "package", 4);
 }
 
 #endif  // MOJO_LANG_STRUCT_TYPE_BUILDER_HPP

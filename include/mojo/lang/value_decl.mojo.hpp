@@ -6,16 +6,34 @@
 #include <mojo/lang/decl.mojo.hpp>
 #include <mojo/lang/attribute.mojo.hpp>
 #include <mojo/lang/expression.mojo.hpp>
+#include <mojo/lang/nominal_type.mojo.hpp>
 
 namespace mojo {
 namespace lang {
 
+/**
+ *
+ */
 struct ValueDecl : Decl {
+    /**
+     *
+     */
     String name;
 
-    //type: NominalType @12 @link
+    /**
+     *
+     */
+    NominalType type;
+
+    /**
+     *
+     */
     Array<Attribute> attributes;
-    Expression value;
+
+    /**
+     *
+     */
+    //Expression value;
 };
 
 }

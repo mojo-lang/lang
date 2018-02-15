@@ -1,12 +1,15 @@
-/// ProtocolDecl - A declaration of a protocol, for example:
+/// `InterfaceDecl` - A declaration of an interface, for example:
 ///
+/// ```mojo
 ///   interface Drawable {
 ///      draw()
 ///   }
-type InterfaceDecl : TypeDecl @disable_fields(generic_params) {
+/// ```
+///
+type InterfaceDecl : TypeDecl {
     ///
     type: InterfaceType @13
-    
+
     ///
-    attributes: [Attribute] @13
+    type_alias_decls: [TypeAliasDecl] @15
 }

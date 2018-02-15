@@ -53,11 +53,14 @@ struct StructDeclBuilder {
     }                                                                    \
     }                                                                    \
     }                                                                    \
-    inline void MOJO_STRUCT_BUILDER_NAME(types)::build()
+    inline void MOJO_STRUCT_DECL_BUILDER_NAME(types)::build()
 
 #define MOJO_BUILD_STRUCT_DECL(...) MOJO_BUILD_STRUCT_DECL_HELPER(MOJO_TYPES(__VA_ARGS__))
 
 MOJO_BUILD_STRUCT_DECL(mojo, lang, StructDecl) {
 }
+
+//MOJO_BUILD_STRUCT_DECL(mojo, lang, Attribute) {
+//}
 
 #endif  // LANG_STRUCT_DECL_BUILDER_HPP

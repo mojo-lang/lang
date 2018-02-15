@@ -12,7 +12,7 @@ class NumericType : public DataTypeOf<T> {
 public:
     NumericType(String&& name, String&& fullName) {
         DataType::name = ::std::move(name);
-        DataType::fullName = ::std::move(fullName);
+        //DataType::fullName = ::std::move(fullName);
     }
 
     virtual~NumericType() = default;
@@ -38,7 +38,7 @@ public:
     }
 
     void visit(T& value, DataVisitor& visitor) const noexcept final {
-        visitor(value);
+        //visitor(value);
     }
 };
 

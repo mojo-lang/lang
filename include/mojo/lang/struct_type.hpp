@@ -11,8 +11,13 @@
 namespace mojo {
 namespace lang {
 
+class StructType;
+using StructTypePtr = std::shared_ptr<StructType>;
+
 struct StructTypeField : ValueDecl {
     UInt index = 0;
+
+    StructTypeField() {}
 };
 
 class StructType : public DataType {
@@ -85,21 +90,27 @@ public:
      * The number of fields that belong to the ObjectType.
      * @return
      */
-    virtual size_t fieldCount() const = 0;
+    virtual size_t fieldCount() const {
+        return fields.size();
+    }
 
     /**
      *
      * @param name
      * @return
      */
-    virtual const Field* field(const String& name) const = 0;
+    virtual const Field* field(const String& name) const {
+        return nullptr;
+    }
 
     /**
      *
      * @param number
      * @return
      */
-    virtual const Field* field(size_t number) const = 0;
+    virtual const Field* field(size_t number) const {
+        return nullptr;
+    }
 
     /**
      *

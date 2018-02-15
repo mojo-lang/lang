@@ -7,7 +7,6 @@ namespace mojo {
 namespace lang {
 
 struct EnumDecl : TypeDecl {
-
 };
 
 }

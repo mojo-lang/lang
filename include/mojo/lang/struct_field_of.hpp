@@ -14,8 +14,10 @@ public:
     MemberPtr ptr_;
 
     StructFieldOf(MemberPtr ptr, String name, int idx) : ptr_(ptr) {
-        StructType::Field::type = getType<M>();
+        //StructType::Field::type = getType<M>();
     }
+
+    virtual ~StructFieldOf() {}
 
     void visit(T& record, DataVisitor& visitor) const override {
         // visitor[this->column()](get_known(record));

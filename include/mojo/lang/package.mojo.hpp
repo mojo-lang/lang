@@ -2,16 +2,14 @@
 #define MOJO_LANG_PACKAGE_MOJO_HPP
 
 #include <vector>
-#include <memory>
-#include <mojo/core/string.hpp>
 #include <mojo/core/array.hpp>
+#include <mojo/core/string.hpp>
+#include <mojo/lang/package_ptr.hpp>
+#include <mojo/lang/source_file_ptr.hpp>
 #include <mojo/lang/struct_type_builder.hpp>
 
 namespace mojo {
 namespace lang {
-
-struct Package;
-using PackagePtr = ::std::shared_ptr<Package>;
 
 struct Package {
     String name;
@@ -19,9 +17,11 @@ struct Package {
 
     PackagePtr parent;
     Array<PackagePtr> children;
+
+    Array<SourceFilePtr> sourceFiles;
 };
 
-}
-}
+}  // namespace lang
+}  // namespace mojo
 
-#endif //MOJO_LANG_PACKAGE_MOJO_HPP
+#endif  // MOJO_LANG_PACKAGE_MOJO_HPP

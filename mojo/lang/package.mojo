@@ -2,11 +2,20 @@
 ///
 ///
 type Package {
+    ///
+    name : String
+
+    ///
+    full_name: String
+
+    ///
+    version: Version
+
+    ///
     parent: Package
 
-    version: Version
-    name : String
-    full_name: String
+    ///
+    children: [Package]
 
     summary: String
 
@@ -15,9 +24,11 @@ type Package {
     license: String
 
     imports: [Import]
+
     exports: [String]
 
     source_directories: [String]
+
     source_files: [SourceFile]
 
     //?dependencies: {String, Range<Version>}
@@ -33,4 +44,8 @@ type Package {
     type_alias_decls:{String, TypeAliasDecl} @26 @linked
 
     func_decls:      {String, FunctionDecl} @27 @linked
+}
+
+func to<T:String>(package: Package) -> T {
+    package.full_name
 }

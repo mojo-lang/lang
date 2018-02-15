@@ -5,7 +5,7 @@ namespace lang {
 
 #define DEFINE_NUMERIC_TYPE(T)                                              \
     const NumericType<T>* buildType(const TypeIdentifier<T>*) {             \
-        static const NumericType<T>* p = new NumericType<T>{#T, "std." #T}; \
+        static const NumericType<T>* p = new NumericType<T>{#T, "core." #T}; \
         return p;                                                           \
     }
 

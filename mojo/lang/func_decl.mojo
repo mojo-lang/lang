@@ -1,9 +1,11 @@
+///
+///
 type FuncDecl : Decl {
     ///
     name: String @10
     
     ///
-    generic_params: [GenericParam] @11
+    generic_parameters: [GenericParameter] @11
     
     ///
     type: FuncType @12
