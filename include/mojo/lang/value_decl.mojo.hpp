@@ -28,7 +28,7 @@ struct ValueDecl : Decl {
     /**
      *
      */
-    Array<Attribute> attributes;
+    //Array<Attribute> attributes;
 
     /**
      *

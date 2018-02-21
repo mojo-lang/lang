@@ -1,49 +1,47 @@
-///
-///
-///
+/// A Package represents a set of source files
+/// collectively building a Mojo package.
 type Package {
-    ///
-    name : String
+    /// package name
+    name : String @1
 
     ///
-    full_name: String
+    full_name: String @2
 
     ///
-    version: Version
+    version: Version @3
 
     ///
-    parent: Package
+    parent: Package @4
 
     ///
-    children: [Package]
+    children: [Package] @5
 
-    summary: String
+    ///
+    summary: String @10
 
-    repository: Uri
+    ///
+    repository: Uri @11
 
-    license: String
+    ///
+    license: String @12
 
+    ///
     imports: [Import]
 
+    ///
     exports: [String]
 
+    ///
+    //dependencies: {String: Range<Version>}
+
+    ///
     source_directories: [String]
 
+    ///
     source_files: [SourceFile]
 
-    //?dependencies: {String, Range<Version>}
-
-    // auto generated
-    attribute_decls: {String, AttributeDecl} @20 @linked
-    const_decls:     {String, ConstDecl} @21 @linked
-
-    data_decls:      {String, DataDecl} @22 @linked
-    struct_decls:    {String, StructDecl} @23 @linked
-    enum_decls:      {String, EnumDecl} @24 @linked
-    interface_decls: {String, InterfaceDecl} @25 @linked
-    type_alias_decls:{String, TypeAliasDecl} @26 @linked
-
-    func_decls:      {String, FunctionDecl} @27 @linked
+    ///
+    scope: Scope
 }
 
 func to<T:String>(package: Package) -> T {

@@ -3,7 +3,6 @@
 
 #include <ncraft/core/noncopyable.hpp>
 #include <mojo/lang/data_type.hpp>
-#include <mojo/lang/func.hpp>
 #include <mojo/lang/func_decl.mojo.hpp>
 #include <mojo/lang/struct_type_builder.hpp>
 

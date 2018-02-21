@@ -3,12 +3,10 @@
 
 #include <mojo/core/array.hpp>
 #include <mojo/lang/value_decl.mojo.hpp>
+#include <mojo/lang/func_decl_ptr.hpp>
 
 namespace mojo {
 namespace lang {
-
-struct FuncType;
-using FuncTypePtr = std::shared_ptr<FuncType>;
 
 /**
  *

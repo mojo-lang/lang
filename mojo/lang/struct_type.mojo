@@ -9,5 +9,8 @@ type StructType : DataType {
     fields: [ValueDecl] @10
 
     ///
-    inherits: [NominalType] @11
+    field_groups: [DeclGroup] @11
+
+    ///
+    inherits: [NominalType] @12
 }

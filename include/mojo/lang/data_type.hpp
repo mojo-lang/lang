@@ -6,7 +6,7 @@
 #include <ncraft/core/type_info.hpp>
 #include <mojo/core/any.hpp>
 #include <mojo/core/dictionary.hpp>
-#include <mojo/lang/term.hpp>
+#include <mojo/lang/term.mojo.hpp>
 
 namespace mojo {
 namespace lang {

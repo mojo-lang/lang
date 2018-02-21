@@ -4,8 +4,8 @@
 #include <mojo/lang/attribute.mojo.hpp>
 #include <mojo/lang/decl.mojo.hpp>
 #include <mojo/lang/func_decl_ptr.hpp>
-#include <mojo/lang/func_type.mojo.hpp>
-#include <mojo/lang/generic_parameter.mojo.hpp>
+#include <mojo/lang/func_type_ptr.hpp>
+#include <mojo/lang/generic_parameter_ptr.hpp>
 
 namespace mojo {
 namespace lang {

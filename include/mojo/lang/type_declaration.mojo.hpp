@@ -15,6 +15,11 @@ namespace lang {
 using TypeDeclaration =
     Union<DataDeclPtr, EnumDeclPtr, StructDeclPtr, InterfaceDeclPtr, GenericParameterPtr>;
 
+bool isDataDecl(const TypeDeclaration& typeDeclaration) {
+    auto const& decl = typeDeclaration.get<DataDeclPtr>();
+    return decl && *decl;
+}
+
 }
 }  // namespace mojo
 
