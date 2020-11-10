@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package mojo.lang;
+
+option go_package = "github.com/mojo-lang/lang/go/pkg/lang;lang";
+
+option java_multiple_files = true;
+option java_outer_classname = "PositionProto";
+option java_package = "org.mojolang.mojo.lang";
+
+/// Positions
+
+/// Position describes an arbitrary source position
+/// including the file, line, and column location.
+/// A Position is valid if the line number is > 0.
+///
+message Position {
+  	string filename = 1; // filename, if any
+  	int32 offset = 2;    // offset, starting at 0 (byte count)
+  	int32 line = 3; //< line number, starting at 1
+  	int32 column = 4; //< column number, starting at 1 (byte count)
+}
+
+message PositionSpan {
+    Position start = 1;
+    Position end = 2;
+}
+
+// Pos is a compact encoding of a source position within a file.
+// It can be converted into a Position for a more convenient, but much
+// larger, representation.
+//
+// The Pos value for a given file is a number in the range [base, base+size],
+// where base and size are specified when adding the file to the file set via
+// AddFile.
+//
+// To create the Pos value for a specific source offset (measured in bytes),
+// first add the respective file to the current file set using FileSet.AddFile
+// and then call File.Pos(offset) for that file. Given a Pos value p
+// for a specific file set fset, the corresponding Position value is
+// obtained by calling fset.Position(p).
+//
+// Pos values can be compared directly with the usual comparison operators:
+// If two Pos values p and q are in the same file, comparing p and q is
+// equivalent to comparing the respective source file offsets. If p and q
+// are in different files, p < q is true if the file implied by p was added
+// to the respective file set before the file implied by q.
+//
+//type Pos = Int
+
+// The zero value for Pos is NoPos; there is no file and line information
+// associated with it, and NoPos.IsValid() is false. NoPos is always
+// smaller than any other Pos value. The corresponding Position value
+// for NoPos is the zero value for Position.
+//
+//const no_pos = 0
+
+// IsValid reports whether the position is valid.

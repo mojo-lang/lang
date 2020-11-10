@@ -1,0 +1,2 @@
+///
+type Comment : [String]

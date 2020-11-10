@@ -1,0 +1,481 @@
+syntax = "proto3";
+
+package mojo.lang;
+
+import "mojo/lang/position.proto";
+import "mojo/lang/document.proto";
+import "mojo/lang/expression.proto";
+
+option go_package = "github.com/mojo-lang/lang/go/pkg/lang;lang";
+
+option java_multiple_files = true;
+option java_outer_classname = "TypeProto";
+option java_package = "org.mojolang.mojo.lang";
+
+///
+message Type {
+  oneof type {
+    EnumType enum_type = 2;
+    StructType struct_type = 3;
+    InterfaceType interface_type = 4;
+    FuncType func_type = 5;
+    NominalType nominal_type = 6;
+  }
+}
+
+message EnumType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  //
+  repeated ValueDecl enumerators = 10;
+
+  //
+  NominalType underlying_type = 11;
+}
+
+message StructType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  /// A Field represents a Field declaration list in a struct type,
+  /// a method list in an interface type, or a parameter/result declaration
+  /// in a signature.
+  ///
+  repeated ValueDecl fields = 10;
+
+  ///
+  repeated NominalType inherits = 11;
+}
+
+message InterfaceType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  ///
+  repeated FuncDecl methods = 10;
+
+  ///
+  repeated NominalType inherits = 11;
+}
+
+message FuncType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  ///
+  repeated ValueDecl parameters = 10;
+
+  ///
+  NominalType return_type = 11;
+}
+
+message NominalType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  TypeDeclaration type_declaration = 11;
+
+  ///
+  repeated GenericArgument generic_arguments = 12;
+
+  ///
+  repeated Attribute attributes = 13;
+
+  ///
+  NominalType enclosing_type = 14;
+}
+
+message TypeDeclaration {
+  oneof type_declaration {
+    EnumDecl enum_decl = 2;
+    StructDecl struct_decl = 3;
+    InterfaceDecl interface_decl = 4;
+    NominalDecl nominal_decl = 5;
+    TypeAliasDecl type_alias_decl = 6;
+
+    FuncDecl func_decl = 7;
+  }
+}
+
+/// \brief This is the declaration of an enum.
+///
+/// For example:
+///
+/// \code
+/// \endcode
+///
+/// The type of the decl itself is a MetatypeType; use getDeclaredType()
+/// to get the declared type ("Bool" or "Optional" in the above example).
+message EnumDecl { // :TypeDecl
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType enclosing_type = 13;
+
+  //
+  EnumType type = 15;
+}
+
+message FuncDecl { //: Decl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  FuncType type = 12;
+
+  ///
+  repeated Attribute attributes = 13;
+
+  ///
+  // BlockStmt body = 14;
+}
+
+message NominalDecl { // : TypeDecl
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType enclosing_type = 13;
+
+  ///
+  NominalType type = 15;
+}
+
+/// `InterfaceDecl` - A declaration of an interface, for example:
+///
+/// ```mojo
+///   interface Drawable {
+///      draw()
+///   }
+/// ```
+///
+message InterfaceDecl { //: TypeDecl @skip_fields(enclosing_type) {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  // NominalType enclosing_type = 13;
+
+  ///
+  InterfaceType type = 15;
+
+  ///
+  // repeated TypeAliasDecl type_alias_decls = 16;
+
+  ///
+  repeated NominalDecl nominal_type_decls = 17;
+}
+
+/// StructDecl - This is the declaration of a struct, for example:
+///
+/// ``` mojo
+/// struct Complex { r : Double, i : Double }
+/// ```
+///
+/// The type of the decl itself is a MetaType; use `Complex.type`
+/// to get the `Complex`'s declared type.
+///
+message StructDecl { //: TypeDecl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType enclosing_type = 13;
+
+  ///
+  StructType type = 15;
+
+  ///
+  // repeated TypeAliasDecl type_alias_decls = 16;
+
+  ///
+  repeated NominalDecl nominal_type_decls = 17;
+
+  ///
+  repeated StructDecl struct_type_decls = 18;
+
+  ///
+  repeated EnumDecl enum_type_decls = 19;
+}
+
+message TypeAliasDecl {
+    /// position of first character belonging to the Expr
+    Position start_position = 1;
+
+    /// position of first character immediately after the Expr
+    Position end_position = 2;
+  
+    /// reserved field no. 3 for string document
+    Document document = 4;
+  
+    ///
+    string package = 6;
+  
+    ///
+    string name = 10;
+}
+
+/// VarDecl - 'var' and 'const' declarations.
+message ValueDecl { //: Decl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType type = 15;
+
+  ///
+  Expression default_value = 13;
+
+  ///
+  // group: DeclGroup @14
+}
+
+///
+message ConstDecl { //: ValueDecl
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType type = 15;
+
+  ///
+  Expression value = 13;
+}
+
+/// A declaration of a generic type parameter.
+///
+/// A generic type parameter introduces a new, named type parameter along
+/// with some set of requirements on any type argument used to realize this
+/// type parameter. The requirements involve conformances to specific
+/// protocols or inheritance from a specific class type.
+///
+/// In the following example, 'T' is a generic type parameter with the
+/// requirement that the type argument conform to the 'Comparable' protocol.
+///
+/// \code
+/// func min<T : Comparable>(x : T, y : T) -> T { ... }
+/// \endcode
+
+/// A type declaration that can have generic parameters attached to it.  Because
+/// it has these generic parameters, it is always a DeclContext.
+message GenericParameter { // : TypeDecl @skip_fields() {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType constraint = 15;
+}
+
+message GenericArgument { //= NominalType
+
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  TypeDeclaration type_declaration = 13;
+
+  ///
+  repeated GenericArgument generic_arguments = 14;
+
+  ///
+  repeated Attribute attributes = 15;
+}
+
+///
+message Attribute {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  /// the package which this attribute belong to
+  string name = 10;
+
+  repeated GenericArgument generic_arguments = 14;
+
+  repeated Expression expressions = 15;
+}

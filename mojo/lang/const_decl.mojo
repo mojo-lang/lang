@@ -1,0 +1,2 @@
+///
+type ConstDecl : ValueDecl

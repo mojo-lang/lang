@@ -1,0 +1,4 @@
+///
+///
+type ControlTransferStmt : Stmt {
+}

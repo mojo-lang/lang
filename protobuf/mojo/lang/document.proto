@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mojo.lang;
+
+import "mojo/lang/position.proto";
+
+option go_package = "github.com/mojo-lang/lang/go/pkg/lang;lang";
+option java_multiple_files = true;
+option java_outer_classname = "DocumentProto";
+option java_package = "org.mojolang.mojo.lang";
+
+/// The 'null' literal.
+///
+message Document { //: LiteralExpr
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  repeated LineDocument lines = 10;
+}
+
+message LineDocument {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  string line = 10;
+}

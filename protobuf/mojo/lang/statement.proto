@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mojo.lang;
+
+import "mojo/lang/declaration.proto";
+import "mojo/lang/expression.proto";
+
+option go_package = "github.com/mojo-lang/lang/go/pkg/lang;lang";
+
+option java_multiple_files = true;
+option java_outer_classname = "StatementProto";
+option java_package = "org.mojolang.mojo.lang";
+
+/// There are 3 main classes of nodes: Expressions nodes,
+/// statement nodes, and declaration nodes. The node names usually
+/// match the corresponding Go spec production names to which they
+/// correspond. The node fields correspond to the individual parts
+/// of the respective productions.
+///
+/// All nodes contain position information marking the beginning of
+/// the corresponding source text segment; it is accessible via the
+/// Pos accessor method. Nodes may contain additional position info
+/// for language constructs where comments may be found between parts
+/// of the construct (typically any larger, parenthesized subpart).
+/// That position information is needed to properly position comments
+/// when printing the construct.
+///
+///
+message Statement {
+  oneof statement {
+    // ReturnStmt   @1 |
+    // BreakStmt    @2 |
+    // ContinueStmt @3 |
+    // MatchStmt    @4 |
+    // IfStmt       @5 |
+    // ForStmt      @6 |
+    // WhileStmt    @7 |
+    // RepeatStmt   @8 |
+    // BlockStmt    @9 |
+    Declaration declaration = 10;
+    Expression expression = 11;
+  }
+}
