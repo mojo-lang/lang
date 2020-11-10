@@ -6,7 +6,7 @@ type InterfaceType {
     name: String @1
 
     ///
-    package: Package @5 @link
+    package: String @4 | Package @5 @reference
 
     ///
     methods: [FuncDecl] @10

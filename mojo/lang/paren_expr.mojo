@@ -3,4 +3,4 @@
 /// Semantically, however, it serves only as grouping parentheses and
 /// does not form an expression of tuple type (unless the sub-expression
 /// has tuple type, of course).
-type ParenExpr : public IdentityExpr
+type ParenExpr : Expr

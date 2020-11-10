@@ -9,4 +9,10 @@ type TypeDecl : Decl {
 
     ///
     attributes: [Attribute] @12
+
+    ///
+    enclosing_type : NominalType @13
+
+    ///
+    group: DeclGroup @14
 }

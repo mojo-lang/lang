@@ -20,7 +20,7 @@
 type SourceFile {
     name:      String @1
     full_name: String @2
-    package:  Package @3
+    package:  Package @3 @reference
     scope:      Scope @4
 
     /// statements

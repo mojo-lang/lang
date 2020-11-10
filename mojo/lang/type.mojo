@@ -1,9 +1,8 @@
 ///
 ///
-type Type : NominalType @1 |
-            DataType    @2 |
-            EnumType    @3 |
-            StructType  @4 |
-            InterfaceType @5 |
-            FuncType    @6 {
-}
+type Type = DataType      @1 |
+            EnumType      @2 |
+            StructType    @3 |
+            InterfaceType @4 |
+            FuncType      @5 |
+            NominalType   @6 |

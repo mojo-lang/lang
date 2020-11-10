@@ -8,8 +8,8 @@ type Decl {
     end_pos  : Pos @2
 
     ///
-    document : Document @3
+    document : String @3 | Document @4
 
     ///
-    package: Package @4 @link
+    package: Package @5 @reference
 }

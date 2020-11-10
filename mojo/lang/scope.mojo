@@ -1,14 +1,14 @@
 ///
 type Scope {
-    attribute_decls: {String: AttributeDecl} @1 @linked
-    const_decls:     {String: ConstDecl} @2 @linked
-    var_decls:       {String: VarDecl} @3
+    attribute_decls: {String: AttributeDecl @reference} @1 
+    const_decls:     {String: ConstDecl @reference} @2
+    var_decls:       {String: VarDecl reference} @3
 
-    data_decls:      {String: DataDecl} @4 @linked
-    struct_decls:    {String: StructDecl} @5 @linked
-    enum_decls:      {String: EnumDecl} @6 @linked
-    interface_decls: {String: InterfaceDecl} @7 @linked
-    type_alias_decls:{String: TypeAliasDecl} @8 @linked
+    data_decls:      {String: DataDecl @reference} @4
+    struct_decls:    {String: StructDecl @reference} @5
+    enum_decls:      {String: EnumDecl @reference} @6
+    interface_decls: {String: InterfaceDecl @reference} @7
+    type_alias_decls:{String: TypeAliasDecl @reference} @8
 
-    func_decls:      {String: FuncDecl} @9 @linked
+    func_decls:      {String: FuncDecl @reference} @10
 }

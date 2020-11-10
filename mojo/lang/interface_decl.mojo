@@ -6,10 +6,13 @@
 ///   }
 /// ```
 ///
-type InterfaceDecl : TypeDecl {
+type InterfaceDecl : TypeDecl @skip_fields(enclosing_type) {
     ///
-    type: InterfaceType @13
+    type: InterfaceType @15
 
     ///
-    type_alias_decls: [TypeAliasDecl] @15
+    type_alias_decls: [TypeAliasDecl] @16
+
+    ///
+    nominal_decls: [NominalDecl] @17
 }

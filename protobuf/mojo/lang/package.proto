@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package mojo.lang;
+
+import "mojo/core/version.proto";
+import "mojo/core/url.proto";
+import "mojo/lang/source_file.proto";
+
+option go_package = "github.com/mojo-lang/lang/go/pkg/lang;lang";
+
+option java_multiple_files = true;
+option java_outer_classname = "PackageProto";
+option java_package = "org.mojolang.mojo.lang";
+
+/// A Package represents a set of source files
+/// collectively building a Mojo package.
+message Package {
+    /// package name
+    string name = 1;
+
+    ///
+    string full_name = 2;
+
+    ///
+    core.Version version = 3;
+
+    ///
+    Package parent = 4;
+
+    ///
+    repeated Package children = 5;
+
+    ///
+    string summary = 10;
+
+    ///
+    core.Url repository = 11;
+
+    ///
+    string license = 12;
+
+    ///
+    //Import imports = 13;
+
+    ///
+    //repeated string exports = 14;
+
+    ///
+    //dependencies: {String: Range<Version>}
+
+    ///
+    //source_directories: [String] @16
+
+    ///
+    repeated SourceFile source_files = 17;
+
+    ///
+    //scope: Scope @20
+}
+

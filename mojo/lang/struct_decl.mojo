@@ -9,17 +9,17 @@
 ///
 type StructDecl : TypeDecl {
     ///
-    type: StructType @13
+    type: StructType @15
 
     ///
-    enclosing_type : NominalType @14
+    type_alias_decls: [TypeAliasDecl] @16
 
     ///
-    type_alias_decls: [TypeAliasDecl] @15
+    nominal_decls: [NominalDecl] @17
+    
+    ///
+    struct_decls: [StructDecl] @18
 
     ///
-    struct_decls: [StructDecl] @17
-
-    ///
-    enum_decls: [EnumDecl] @18
+    enum_decls: [EnumDecl] @19
 }

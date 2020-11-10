@@ -1,8 +1,11 @@
 ///
 type FuncType {
     ///
-    parameters: [ValueDecl]
+    package: String @4 | Package @5 @reference
 
     ///
-    return_type: Type
+    parameters: [ValueDecl] @10
+
+    ///
+    return_type: NominalType @11
 }

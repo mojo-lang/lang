@@ -17,7 +17,7 @@ type Position {
   	column:   int    @4 //< column number, starting at 1 (byte count)
 }
 
-type PositionSpan = [Int] @fixed(2)
+type PositionSpan = [Position] @fixed(2)
 
 /// valid reports whether the position is valid.
 func valid(pos: Position) -> Bool {
@@ -34,7 +34,7 @@ func valid(pos: Position) -> Bool {
 func to<String>(pos: Position) -> String {
 }
 
-// Pos is a compact encoding of a source position within a file set.
+// Pos is a compact encoding of a source position within a file.
 // It can be converted into a Position for a more convenient, but much
 // larger, representation.
 //

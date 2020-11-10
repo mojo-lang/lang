@@ -5,4 +5,4 @@
 /// type-checked and well-formed subscript expression refers to a subscript
 /// declaration, which provides a getter and (optionally) a setter that will
 /// be used to perform reads/writes.
-class SubscriptExpr final : public Expr
+type SubscriptExpr : Expr

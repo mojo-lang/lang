@@ -1,11 +1,11 @@
 type Expression = NoneLiteralExpr |
                   IntegerLiteralExpr |
                   FloatLiteralExpr |
-                  BooleanLiteralExpr |
+                  BoolLiteralExpr |
                   StringLiteralExpr |
                   ObjectLiteralExpr |
-                  ArrayExpr |
-                  DictionaryExpr
+                  ArrayLiteralExpr |
+                  DictionaryLiteralExpr
 
 /// DiscardAssignmentExpr - A '_' in the left-hand side of an assignment, which
 /// discards the corresponding tuple element on the right-hand side.
@@ -70,7 +70,7 @@ class OpaqueValueExpr
 /// CallExpr - Application of an argument to a function, which occurs
 /// syntactically through juxtaposition with a TupleExpr whose
 /// leading '(' is un-spaced.
-class CallExpr : ApplyExpr
+type CallExpr : ApplyExpr
 
 /// PrefixUnaryExpr - Prefix unary expressions like '!y'.
 class PrefixUnaryExpr : public ApplyExpr

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package mojo.lang;
+
+import "mojo/lang/position.proto";
+
+option go_package = "github.com/mojo-lang/lang/go/pkg/lang;lang";
+
+option java_multiple_files = true;
+option java_outer_classname = "ImportDeclProto";
+option java_package = "org.mojolang.mojo.lang";
+
+message ImportDecl { //: Decl {
+    message Identifier {
+        string name = 10;
+        string alias = 11;
+    }
+
+    /// position of first character belonging to the Expr
+    Position start_position = 1;
+
+    /// position of first character immediately after the Expr
+    Position end_position = 2;
+
+    ///
+    string package = 6; // current the package
+    
+    string import_package = 10;
+    string import_package_alias = 11;
+    string import_package_full_name = 12;
+
+    repeated Identifier identifiers = 15;
+}

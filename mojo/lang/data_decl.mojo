@@ -2,5 +2,5 @@
 ///
 type DataDecl : TypeDecl {
     ///
-    type: DataType @13 | NominalType @14
+    type: DataType @15
 }

@@ -20,28 +20,28 @@ type Package {
     summary: String @10
 
     ///
-    repository: Uri @11
+    repository: Url @11
 
     ///
     license: String @12
 
     ///
-    imports: [Import]
+    imports: [Import] @13
 
     ///
-    exports: [String]
+    exports: [String] @14
 
     ///
     //dependencies: {String: Range<Version>}
 
     ///
-    source_directories: [String]
+    source_directories: [String] @16
 
     ///
-    source_files: [SourceFile]
+    source_files: [SourceFile] @17
 
     ///
-    scope: Scope
+    scope: Scope @20
 }
 
 func to<T:String>(package: Package) -> T {

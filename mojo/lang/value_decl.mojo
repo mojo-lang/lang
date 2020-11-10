@@ -1,14 +1,14 @@
 /// VarDecl - 'var' and 'const' declarations.
 type ValueDecl : Decl {
     ///
-    name: Identifier @10
+    name: String @10
 
     ///
     type: NominalType @12
 
     ///
-    attributes: [Attribute] @13
+    default_value: Expression @13
 
     ///
-    value: Expression @14
+    group: DeclGroup @14
 }

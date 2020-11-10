@@ -18,7 +18,7 @@ type ConstructorDecl : Decl {
     generic_arguments: [GenericArgument]
 
     ///
-    attributes: [Attribute] 
+    attributes: [Attribute]
 
     ///
     body: BlockStmt @14

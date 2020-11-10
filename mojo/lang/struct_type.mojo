@@ -1,7 +1,10 @@
 ///
 ///
 ///
-type StructType : DataType {
+type StructType {
+    ///
+    package: String @4 | Package @5 @reference
+
     /// A Field represents a Field declaration list in a struct type,
     /// a method list in an interface type, or a parameter/result declaration
     /// in a signature.
@@ -9,8 +12,5 @@ type StructType : DataType {
     fields: [ValueDecl] @10
 
     ///
-    field_groups: [DeclGroup] @11
-
-    ///
-    inherits: [NominalType] @12
+    inherits: [NominalType] @11
 }

@@ -3,7 +3,7 @@
 /// ```
 ///    type Foo = Int
 /// ```
-type TypeAliasDecl : TypeDecl @skip_fields(attributes) {
+type TypeAliasDecl : TypeDecl {
     ///
-    type: NominalType @13
+    type: DataType @15 | NominalType @16
 }

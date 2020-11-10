@@ -1,4 +1,4 @@
-/// There are 3 main classes of nodes: Expressions and type nodes,
+/// There are 3 main classes of nodes: Expressions nodes,
 /// statement nodes, and declaration nodes. The node names usually
 /// match the corresponding Go spec production names to which they
 /// correspond. The node fields correspond to the individual parts
