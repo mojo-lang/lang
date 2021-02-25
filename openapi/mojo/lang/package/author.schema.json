@@ -1,0 +1,1 @@
+{"title":"mojo.lang.Package.Author","type":"object","properties":{"email":{"$ref":"#/components/schemas/mojo.core.EmailAddress"},"author":{"type":"string"},"organization":{"type":"string"}}}

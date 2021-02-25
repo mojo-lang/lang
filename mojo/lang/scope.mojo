@@ -1,14 +1,10 @@
+/// A Scope maintains the set of named language entities declared
+/// in the scope and a link to the immediately surrounding (enclosing)
+/// scope.
 ///
 type Scope {
-    attribute_decls: {String: AttributeDecl @reference} @1 
-    const_decls:     {String: ConstDecl @reference} @2
-    var_decls:       {String: VarDecl reference} @3
+    /// `full_name` => `Identifier`
+    identifiers: {String: Identifier} @1
 
-    data_decls:      {String: DataDecl @reference} @4
-    struct_decls:    {String: StructDecl @reference} @5
-    enum_decls:      {String: EnumDecl @reference} @6
-    interface_decls: {String: InterfaceDecl @reference} @7
-    type_alias_decls:{String: TypeAliasDecl @reference} @8
-
-    func_decls:      {String: FuncDecl @reference} @10
+    enclosing: Scope @10
 }

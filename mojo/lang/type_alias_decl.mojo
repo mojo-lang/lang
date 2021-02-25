@@ -5,5 +5,8 @@
 /// ```
 type TypeAliasDecl : TypeDecl {
     ///
-    type: DataType @15 | NominalType @16
+    type: NominalType @20
+
+    /// the 'generic-parameter' type identifier will be in here
+    scope:       Scope @30
 }

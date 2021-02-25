@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.BranchStmt"},{"title":"mojo.lang.MatchStmt","type":"object","properties":{"subject":{},"cases":{"$ref":"#/components/schemas/mojo.lang.MatchCase"}}}]}

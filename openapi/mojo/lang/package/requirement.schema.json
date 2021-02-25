@@ -1,0 +1,1 @@
+{"title":"mojo.lang.Package.Requirement","type":"object","properties":{"version":{"$ref":"#/components/schemas/mojo.lang.Requirement.Version"},"registry":{"type":"string"},"path":{"type":"string"},"repository":{"type":"string","format":"url"},"branch":{"type":"string"}}}

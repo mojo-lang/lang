@@ -1,0 +1,1 @@
+{"title":"mojo.lang.Position","type":"object","properties":{"column":{"type":"integer","format":"int"},"filename":{"type":"string"},"offset":{"type":"integer","format":"int"},"line":{"type":"integer","format":"int"}}}

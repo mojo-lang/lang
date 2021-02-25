@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.Decl"},{"title":"mojo.lang.ImportDecl","type":"object","properties":{"package":{"type":"string"},"packageAlias":{"type":"string"},"identifiers":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Identifier"}}}}]}

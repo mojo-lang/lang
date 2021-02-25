@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.LiteralExpr"},{"title":"mojo.lang.InterpolatedStringLiteralExpr","type":"object","properties":{"semanticExpr":{"$ref":"#/components/schemas/mojo.lang.Expr"},"segments":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Expr"}}}}]}

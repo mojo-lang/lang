@@ -9,17 +9,33 @@
 ///    x = i
 /// }
 /// ```
+/// type X<T> {
+///	    x : T
+/// }
+///
+/// X<Int @argument>(i : Int)
+///
+/// X<T>(i: T) {
+/// }
 type ConstructorDecl : Decl {
+    ///
+    name: String @10
 
     ///
-    type_declaration: TypeDeclaration
+    full_name: String @11
 
     ///
-    generic_arguments: [GenericArgument]
+    attributes: [Attribute] @12
 
     ///
-    attributes: [Attribute]
+    generic_parameters: [GenericParameter] @13
 
     ///
-    body: BlockStmt @14
+    signature: FunctionDecl.Signature @20
+
+    ///
+    body: BlockStmt @21
+
+    ///
+    scope: Scope @30
 }

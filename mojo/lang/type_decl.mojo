@@ -3,16 +3,25 @@
 type TypeDecl : Decl {
     ///
     name: String @10
-    
-    ///
-    generic_parameters: [GenericParameter] @11
 
+    // mojo.core.Cached
+    //full_name: String @11
+    
     ///
     attributes: [Attribute] @12
 
     ///
-    enclosing_type : NominalType @13
+    generic_parameters: [GenericParameter] @13
 
     ///
-    group: DeclGroup @14
+    enclosing_type : NominalType @14
+
+    ///
+    group: GroupDecl @15
+
+    ///
+    resolved_identifiers: [Identifier] @16
+
+    ///
+    unresolved_identifiers:  [Identifier] @17 //< unresolved identifiers in this file
 }

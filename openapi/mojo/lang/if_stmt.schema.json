@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.BranchStmt"},{"title":"mojo.lang.IfStmt","type":"object","properties":{"condition":{},"thenBranch":{"$ref":"#/components/schemas/mojo.lang.BlockStmt"},"elseBranch":{"oneOf":[{"$ref":"#/components/schemas/mojo.lang.BlockStmt"},{"$ref":"#/components/schemas/mojo.lang.IfStmt"}]}}}]}

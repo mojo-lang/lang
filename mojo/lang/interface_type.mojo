@@ -2,14 +2,12 @@
 ///
 ///
 type InterfaceType {
-    ///
-    name: String @1
+    start_position: Position @1 // identifier position
+
+    end_position: Position @2 // identifier position
 
     ///
-    package: String @4 | Package @5 @reference
-
-    ///
-    methods: [FuncDecl] @10
+    methods: [FunctionDecl] @10
 
     ///
     inherits: [NominalType] @11

@@ -8,6 +8,6 @@
 /// }
 /// ```
 type ForStmt : LoopStmt {
-    iterator: Expression
-    sequence: Expression
+    iterator: Expression @10
+    sequence: Expression @20
 }

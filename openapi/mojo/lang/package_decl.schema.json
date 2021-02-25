@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.Decl"},{"title":"mojo.lang.PackageDecl","type":"object","properties":{"name":{"type":"string"},"packageLiteralExpr":{"$ref":"#/components/schemas/mojo.lang.ObjectLiteralExpr"},"package":{"$ref":"#/components/schemas/mojo.lang.Package"}}}]}

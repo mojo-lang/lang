@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.Expr"},{"title":"mojo.lang.IdentifierExpr","type":"object","properties":{"identifier":{"$ref":"#/components/schemas/mojo.lang.Identifier"},"genericArguments":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.NominalType"}}}}]}

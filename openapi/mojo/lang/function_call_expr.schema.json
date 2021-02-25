@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.Expr"},{"title":"mojo.lang.FunctionCallExpr","type":"object","properties":{"arguments":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Argument"}},"callee":{},"genericArguments":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.NominalType"}}}}]}

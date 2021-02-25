@@ -1,0 +1,1 @@
+{"title":"mojo.lang.InterfaceType","type":"object","properties":{"startPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"endPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"methods":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.FunctionDecl"}},"inherits":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.NominalType"}}}}

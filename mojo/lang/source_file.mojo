@@ -1,4 +1,4 @@
-// A File node represents a Go source file.
+// A File node represents a Mojo source file.
 //
 // The Comments list contains all comments in the source file in order of
 // appearance, including the comments that are pointed to from other nodes
@@ -18,14 +18,27 @@
 // are "free-floating" (see also issues #18593, #20744).
 //
 type SourceFile {
-    name:      String @1
-    full_name: String @2
-    package:  Package @3 @reference
-    scope:      Scope @4
+    name:       String @1
 
-    /// statements
-    statements: [Statement]  @5
+    full_name:  String @2
 
-    ///
-    decl_groups: [DeclGroup] @6
+    url: Url @3 // file://xx
+
+    /// 循环依赖文件名称 'circle_dependency'
+    attributes: [Attribute]  @4
+
+    package_name:  String  @10
+
+    imports:    [ImportDecl] @11 //< imports in this file
+
+    statements: [Statement]  @12
+
+    // resolved identifiers not in this source file
+    resolved_identifiers: [Identifier] @16
+
+    unresolved_identifiers:  [Identifier] @17 //< unresolved identifiers in this file
+
+    dependencies: [SourceFile @reference] @21 //<
+
+    scope:       Scope @30 //< package scope (this file only)
 }

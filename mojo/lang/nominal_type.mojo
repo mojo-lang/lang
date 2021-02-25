@@ -1,30 +1,41 @@
 ///
 ///
 type NominalType {
-    ///
-    name: String @1
+    /// position of first character belonging to the Expr
+    start_position: Position @1
+
+    /// position of first character immediately after the Expr
+    end_position: Position @2
 
     ///
-    package: String @4 | Package @5 @reference
+    document: Document @4
+
+    /// user writing package name
+    /// var foo : package.name.Bar
+    /// ==> mojo.package.name.Bar
+    package: String @5
 
     ///
-    type_declaration: TypeDeclaration @10 @reference
+    name: String @10
 
     ///
-    generic_arguments: [GenericArgument] @11
+    type_declaration: TypeDeclaration @11 @reference
 
     ///
-    attributes: [Attribute] @12
+    generic_arguments: [GenericArgument] @12
 
     ///
-    enclosing_type : NominalType @14
+    attributes: [Attribute] @13
+
+    ///
+    enclosing_type: NominalType @14
 }
 
-func enclosing_types(NominalType type) -> [NominalType] {
-    var enclosing_types
-    while enclosing = type.enclosing_type {
-        enclosing_types.append(enclosing)
-        type = enclosing
-    }
-    return enclosing_types.reverse
-}
+//func enclosing_types(NominalType type) -> [NominalType] {
+//    var enclosing_types
+//    while enclosing = type.enclosing_type {
+//        enclosing_types.append(enclosing)
+//        type = enclosing
+//    }
+//    return enclosing_types.reverse
+//}

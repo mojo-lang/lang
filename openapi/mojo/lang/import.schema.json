@@ -1,0 +1,1 @@
+{"title":"mojo.lang.Import","type":"object","properties":{"package":{"type":"string"},"identifiers":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Identifier"}}}}

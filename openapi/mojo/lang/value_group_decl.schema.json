@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.Decl"},{"title":"mojo.lang.ValueGroupDecl","type":"object","properties":{"name":{"type":"string"},"attributes":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Attribute"}},"declarations":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.ValueDecl"}}}}]}

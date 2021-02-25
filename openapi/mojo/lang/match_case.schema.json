@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.BranchStmt"},{"title":"mojo.lang.MatchCase","type":"object","properties":{"pattern":{"$ref":"#/components/schemas/mojo.lang.Pattern"},"body":{"oneOf":[{"$ref":"#/components/schemas/mojo.lang.BlockStmt"},{}]}}}]}

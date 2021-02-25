@@ -1,8 +1,9 @@
 ///
 ///
-type TypeDeclaration = DataDecl      @1 |
-                       EnumDecl      @2 |
-                       StructDecl    @3 |
-                       InterfaceDecl @4 |
-                       NominalDecl   @6 |
-                       TypeAliasDecl @10 
+@discriminator('@type')
+@label_format('{}')
+type TypeDeclaration = EnumDecl        @3
+                     | StructDecl      @4
+                     | TypeAliasDecl   @5
+                     | InterfaceDecl   @6
+                     | GenericParameter @19

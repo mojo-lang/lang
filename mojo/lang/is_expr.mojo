@@ -3,4 +3,7 @@
 /// of the type and 'a as T' would succeed, false otherwise.
 ///
 /// FIXME: We should support type queries with a runtime metatype value too.
-class IsExpr : public CheckedCastExpr 
+type IsExpr : CheckedCastExpr 
+
+
+type CheckedCastExpr : Expr

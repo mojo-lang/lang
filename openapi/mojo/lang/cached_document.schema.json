@@ -1,0 +1,1 @@
+{"title":"mojo.lang.CachedDocument","type":"object","properties":{"cache":{"type":"string"},"value":{"$ref":"#/components/schemas/mojo.document.Document"}}}

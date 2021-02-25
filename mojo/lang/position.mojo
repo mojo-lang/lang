@@ -4,7 +4,7 @@
 
 
 /// Positions
-
+///
 /// Position describes an arbitrary source position
 /// including the file, line, and column location.
 /// A Position is valid if the line number is > 0.
@@ -12,12 +12,12 @@
 @template()
 type Position {
   	filename: String @1 //< filename, if any
-  	offset:   int    @2 //< offset, starting at 0 (byte count)
-  	line:     int    @3 //< line number, starting at 1
-  	column:   int    @4 //< column number, starting at 1 (byte count)
+  	offset:   Int    @2 //< offset, starting at 0 (byte count)
+  	line:     Int    @3 //< line number, starting at 1
+  	column:   Int    @4 //< column number, starting at 1 (byte count)
 }
 
-type PositionSpan = [Position] @fixed(2)
+type PositionSpan : [Position] @fixed(2)
 
 /// valid reports whether the position is valid.
 func valid(pos: Position) -> Bool {

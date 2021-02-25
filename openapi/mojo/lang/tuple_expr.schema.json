@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.Expr"},{"title":"mojo.lang.TupleExpr","type":"object","properties":{"hasElementNames":{"type":"boolean"},"hasElementLocations":{"type":"boolean"}}}]}

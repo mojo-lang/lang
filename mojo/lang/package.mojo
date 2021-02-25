@@ -1,6 +1,49 @@
 /// A Package represents a set of source files
 /// collectively building a Mojo package.
 type Package {
+    ///
+    ///
+    type Requirement {
+        type Version {
+            enum Type {
+                caret @0
+                tilde @1
+                wildcard @2
+                comparison @3
+            }
+            type: Type @1
+            range: VersionRange @2
+        }
+
+        /// ^1.2.3
+        /// ~1.2.3
+        /// >= 1.2, < 1.5
+        version: Version @1
+
+        ///
+        registry: String @3
+        
+        ///
+        path: String @4
+        
+        ///
+        repository: Url @5
+        
+        ///
+        branch: String @6
+    }
+
+    type Author {
+        /// the people that are considered the "author" of the package.
+        author: String @1
+        
+        /// the organization that are considered the "author" of the package.
+        organization: String @2
+        
+        ///
+        email: EmailAddress @3
+    }
+
     /// package name
     name : String @1
 
@@ -11,39 +54,51 @@ type Package {
     version: Version @3
 
     ///
-    parent: Package @4
+    parent: Referenced<Package> @4 @reference('full_name')
 
     ///
     children: [Package] @5
 
-    ///
-    summary: String @10
+    //
+    authors: [Author] @6
+
+    summary: String @7
+
+    /// A description of the package.
+    description: String @10
+
+    /// 
+    document: Cached<document.Document> @11
+
+    /// URL of the package source repository.
+    repository: Url @12
+
+    /// The package license.
+    license: String @13
+
+    //
+    //imports: [Import] @14
 
     ///
-    repository: Url @11
+    exports: [String] @15
 
     ///
-    license: String @12
+    source_files: [SourceFile] @16
 
-    ///
-    imports: [Import] @13
-
-    ///
-    exports: [String] @14
-
-    ///
-    //dependencies: {String: Range<Version>}
-
-    ///
-    source_directories: [String] @16
-
-    ///
-    source_files: [SourceFile] @17
-
-    ///
+    /// package scope across all files
     scope: Scope @20
+
+    extra_info: Object @25
+
+    ///
+    dependencies: {String: Requirement} @30
+
+    /// 
+    resolved_dependencies: {String: Package} @31
 }
 
+//type ReferencedPackage = Referenced<Package>
+
 func to<T:String>(package: Package) -> T {
-    package.full_name
+    return package.full_name
 }

@@ -27,21 +27,21 @@ type Test {
     a: Foobar
 }
 
-TypeAlias {
+Type_alias {
 }
 
-DataTypeDecl {
+Data_type_decl {
     name: 'Int'
 }
 
-DataTypeDecl {
+Data_type_decl {
     name: 'Array'
     generic_params: [{
         name: 'T'
     }]
 }
 
-DataTypeDecl {
+Data_type_decl {
     name: 'Dictionary'
     generic_params: [{
         name: 'Key'
@@ -50,24 +50,24 @@ DataTypeDecl {
     }]
 }
 
-TypeDecl {
+Type_decl {
     name: 'A'
-    type: TypeName {
+    type: Type_name {
         name: 'Array'
         generic_arguments: [{
-            TypeName{
+            Type_name{
                 name: 'Int'
             }
         }]
     }
 }
 
-StructDecl {
+Struct_decl {
     name: 'B'
     generic_params: [{
         name: 'T'
     }]
-    type: StructType {
+    type: Struct_type {
         fields: [{
             name: 'a',
             type: ''
