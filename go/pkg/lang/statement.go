@@ -74,24 +74,36 @@ func NewInterfaceDeclStatement(decl *InterfaceDecl) *Statement {
 	}
 }
 
-func NewTypeAliasDeclStatement(decl *NominalDecl) *Statement {
+func NewTypeAliasDeclStatement(decl *TypeAliasDecl) *Statement {
 	return &Statement{
 		Statement: &Statement_Declaration{
 			Declaration: &Declaration{
-				Declaration: &Declaration_NominalDecl{
-					NominalDecl: decl,
+				Declaration: &Declaration_TypeAliasDecl{
+					TypeAliasDecl: decl,
 				},
 			},
 		},
 	}
 }
 
-func NewFunctionDeclStatement(decl *FuncDecl) *Statement {
+func NewFunctionDeclStatement(decl *FunctionDecl) *Statement {
 	return &Statement{
 		Statement: &Statement_Declaration{
 			Declaration: &Declaration{
-				Declaration: &Declaration_FuncDecl{
-					FuncDecl: decl,
+				Declaration: &Declaration_FunctionDecl{
+					FunctionDecl: decl,
+				},
+			},
+		},
+	}
+}
+
+func NewVariableDeclStatement(decl *VariableDecl) *Statement {
+	return &Statement{
+		Statement: &Statement_Declaration{
+			Declaration: &Declaration{
+				Declaration: &Declaration_VariableDecl{
+					VariableDecl: decl,
 				},
 			},
 		},

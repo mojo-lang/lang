@@ -1,14 +1,9 @@
 ///
-package lang {
-    license: ''
-    exports: [
-    ],
-    imports: [ {
-        name: core
-        version: 0.1
-    }, {
-        name: document
-        version: 0.1
+package mojo.lang {
+    license: 'Apache'
+
+    dependencies: {
+        'mojo.core': '^0.1'
+        'mojo.document': '^0.1'
     }
-    ]
 }

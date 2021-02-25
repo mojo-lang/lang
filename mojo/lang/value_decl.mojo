@@ -7,8 +7,8 @@ type ValueDecl : Decl {
     type: NominalType @12
 
     ///
-    default_value: Expression @13
+    initial_value: Expression @13
 
     ///
-    group: DeclGroup @14
+    group: GroupDecl @14
 }

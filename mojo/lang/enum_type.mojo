@@ -3,7 +3,7 @@
 ///
 type EnumType {
     ///
-    package: String @4 | Package @5 @reference
+    package: String @4 | Package @5 @Reference
 
     //
     enumerators: [ValueDecl] @10

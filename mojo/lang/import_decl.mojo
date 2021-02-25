@@ -2,6 +2,7 @@ type ImportDecl : Decl {
     type Identifier {
          name : String @1
          alias : String @2
+         type: String @3
     }
 
     import_package : String @10

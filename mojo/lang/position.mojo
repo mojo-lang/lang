@@ -17,7 +17,7 @@ type Position {
   	column:   int    @4 //< column number, starting at 1 (byte count)
 }
 
-type PositionSpan = [Position] @fixed(2)
+type PositionSpan : [Position] @fixed(2)
 
 /// valid reports whether the position is valid.
 func valid(pos: Position) -> Bool {

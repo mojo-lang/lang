@@ -5,5 +5,5 @@
 /// ```
 type TypeAliasDecl : TypeDecl {
     ///
-    type: DataType @15 | NominalType @16
+    type: NominalType @15
 }

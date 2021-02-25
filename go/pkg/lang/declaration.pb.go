@@ -22,15 +22,16 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type Declaration struct {
 	// Types that are valid to be assigned to Declaration:
-	//	*Declaration_EnumDecl
-	//	*Declaration_StructDecl
-	//	*Declaration_InterfaceDecl
-	//	*Declaration_NominalDecl
-	//	*Declaration_FuncDecl
-	//	*Declaration_ConstDecl
-	//	*Declaration_ValueDecl
 	//	*Declaration_PackageDecl
 	//	*Declaration_ImportDecl
+	//	*Declaration_EnumDecl
+	//	*Declaration_StructDecl
+	//	*Declaration_TypeAliasDecl
+	//	*Declaration_InterfaceDecl
+	//	*Declaration_ConstantDecl
+	//	*Declaration_VariableDecl
+	//	*Declaration_AttributeDecl
+	//	*Declaration_FunctionDecl
 	Declaration          isDeclaration_Declaration `protobuf_oneof:"declaration"`
 	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
 	XXX_unrecognized     []byte                    `json:"-"`
@@ -66,112 +67,69 @@ type isDeclaration_Declaration interface {
 	isDeclaration_Declaration()
 }
 
-type Declaration_EnumDecl struct {
-	EnumDecl *EnumDecl `protobuf:"bytes,2,opt,name=enum_decl,json=enumDecl,proto3,oneof"`
-}
-
-type Declaration_StructDecl struct {
-	StructDecl *StructDecl `protobuf:"bytes,3,opt,name=struct_decl,json=structDecl,proto3,oneof"`
-}
-
-type Declaration_InterfaceDecl struct {
-	InterfaceDecl *InterfaceDecl `protobuf:"bytes,4,opt,name=interface_decl,json=interfaceDecl,proto3,oneof"`
-}
-
-type Declaration_NominalDecl struct {
-	NominalDecl *NominalDecl `protobuf:"bytes,5,opt,name=nominal_decl,json=nominalDecl,proto3,oneof"`
-}
-
-type Declaration_FuncDecl struct {
-	FuncDecl *FuncDecl `protobuf:"bytes,7,opt,name=func_decl,json=funcDecl,proto3,oneof"`
-}
-
-type Declaration_ConstDecl struct {
-	ConstDecl *ConstDecl `protobuf:"bytes,10,opt,name=const_decl,json=constDecl,proto3,oneof"`
-}
-
-type Declaration_ValueDecl struct {
-	ValueDecl *ValueDecl `protobuf:"bytes,11,opt,name=value_decl,json=valueDecl,proto3,oneof"`
-}
-
 type Declaration_PackageDecl struct {
-	PackageDecl *PackageDecl `protobuf:"bytes,12,opt,name=package_decl,json=packageDecl,proto3,oneof"`
+	PackageDecl *PackageDecl `protobuf:"bytes,1,opt,name=package_decl,json=packageDecl,proto3,oneof"`
 }
 
 type Declaration_ImportDecl struct {
-	ImportDecl *ImportDecl `protobuf:"bytes,13,opt,name=import_decl,json=importDecl,proto3,oneof"`
+	ImportDecl *ImportDecl `protobuf:"bytes,2,opt,name=import_decl,json=importDecl,proto3,oneof"`
 }
 
-func (*Declaration_EnumDecl) isDeclaration_Declaration() {}
+type Declaration_EnumDecl struct {
+	EnumDecl *EnumDecl `protobuf:"bytes,3,opt,name=enum_decl,json=enumDecl,proto3,oneof"`
+}
 
-func (*Declaration_StructDecl) isDeclaration_Declaration() {}
+type Declaration_StructDecl struct {
+	StructDecl *StructDecl `protobuf:"bytes,4,opt,name=struct_decl,json=structDecl,proto3,oneof"`
+}
 
-func (*Declaration_InterfaceDecl) isDeclaration_Declaration() {}
+type Declaration_TypeAliasDecl struct {
+	TypeAliasDecl *TypeAliasDecl `protobuf:"bytes,5,opt,name=type_alias_decl,json=typeAliasDecl,proto3,oneof"`
+}
 
-func (*Declaration_NominalDecl) isDeclaration_Declaration() {}
+type Declaration_InterfaceDecl struct {
+	InterfaceDecl *InterfaceDecl `protobuf:"bytes,6,opt,name=interface_decl,json=interfaceDecl,proto3,oneof"`
+}
 
-func (*Declaration_FuncDecl) isDeclaration_Declaration() {}
+type Declaration_ConstantDecl struct {
+	ConstantDecl *ConstantDecl `protobuf:"bytes,10,opt,name=constant_decl,json=constantDecl,proto3,oneof"`
+}
 
-func (*Declaration_ConstDecl) isDeclaration_Declaration() {}
+type Declaration_VariableDecl struct {
+	VariableDecl *VariableDecl `protobuf:"bytes,11,opt,name=variable_decl,json=variableDecl,proto3,oneof"`
+}
 
-func (*Declaration_ValueDecl) isDeclaration_Declaration() {}
+type Declaration_AttributeDecl struct {
+	AttributeDecl *AttributeDecl `protobuf:"bytes,12,opt,name=attribute_decl,json=attributeDecl,proto3,oneof"`
+}
+
+type Declaration_FunctionDecl struct {
+	FunctionDecl *FunctionDecl `protobuf:"bytes,13,opt,name=function_decl,json=functionDecl,proto3,oneof"`
+}
 
 func (*Declaration_PackageDecl) isDeclaration_Declaration() {}
 
 func (*Declaration_ImportDecl) isDeclaration_Declaration() {}
 
+func (*Declaration_EnumDecl) isDeclaration_Declaration() {}
+
+func (*Declaration_StructDecl) isDeclaration_Declaration() {}
+
+func (*Declaration_TypeAliasDecl) isDeclaration_Declaration() {}
+
+func (*Declaration_InterfaceDecl) isDeclaration_Declaration() {}
+
+func (*Declaration_ConstantDecl) isDeclaration_Declaration() {}
+
+func (*Declaration_VariableDecl) isDeclaration_Declaration() {}
+
+func (*Declaration_AttributeDecl) isDeclaration_Declaration() {}
+
+func (*Declaration_FunctionDecl) isDeclaration_Declaration() {}
+
 func (m *Declaration) GetDeclaration() isDeclaration_Declaration {
 	if m != nil {
 		return m.Declaration
-	}
-	return nil
-}
-
-func (m *Declaration) GetEnumDecl() *EnumDecl {
-	if x, ok := m.GetDeclaration().(*Declaration_EnumDecl); ok {
-		return x.EnumDecl
-	}
-	return nil
-}
-
-func (m *Declaration) GetStructDecl() *StructDecl {
-	if x, ok := m.GetDeclaration().(*Declaration_StructDecl); ok {
-		return x.StructDecl
-	}
-	return nil
-}
-
-func (m *Declaration) GetInterfaceDecl() *InterfaceDecl {
-	if x, ok := m.GetDeclaration().(*Declaration_InterfaceDecl); ok {
-		return x.InterfaceDecl
-	}
-	return nil
-}
-
-func (m *Declaration) GetNominalDecl() *NominalDecl {
-	if x, ok := m.GetDeclaration().(*Declaration_NominalDecl); ok {
-		return x.NominalDecl
-	}
-	return nil
-}
-
-func (m *Declaration) GetFuncDecl() *FuncDecl {
-	if x, ok := m.GetDeclaration().(*Declaration_FuncDecl); ok {
-		return x.FuncDecl
-	}
-	return nil
-}
-
-func (m *Declaration) GetConstDecl() *ConstDecl {
-	if x, ok := m.GetDeclaration().(*Declaration_ConstDecl); ok {
-		return x.ConstDecl
-	}
-	return nil
-}
-
-func (m *Declaration) GetValueDecl() *ValueDecl {
-	if x, ok := m.GetDeclaration().(*Declaration_ValueDecl); ok {
-		return x.ValueDecl
 	}
 	return nil
 }
@@ -190,18 +148,75 @@ func (m *Declaration) GetImportDecl() *ImportDecl {
 	return nil
 }
 
+func (m *Declaration) GetEnumDecl() *EnumDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_EnumDecl); ok {
+		return x.EnumDecl
+	}
+	return nil
+}
+
+func (m *Declaration) GetStructDecl() *StructDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_StructDecl); ok {
+		return x.StructDecl
+	}
+	return nil
+}
+
+func (m *Declaration) GetTypeAliasDecl() *TypeAliasDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_TypeAliasDecl); ok {
+		return x.TypeAliasDecl
+	}
+	return nil
+}
+
+func (m *Declaration) GetInterfaceDecl() *InterfaceDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_InterfaceDecl); ok {
+		return x.InterfaceDecl
+	}
+	return nil
+}
+
+func (m *Declaration) GetConstantDecl() *ConstantDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_ConstantDecl); ok {
+		return x.ConstantDecl
+	}
+	return nil
+}
+
+func (m *Declaration) GetVariableDecl() *VariableDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_VariableDecl); ok {
+		return x.VariableDecl
+	}
+	return nil
+}
+
+func (m *Declaration) GetAttributeDecl() *AttributeDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_AttributeDecl); ok {
+		return x.AttributeDecl
+	}
+	return nil
+}
+
+func (m *Declaration) GetFunctionDecl() *FunctionDecl {
+	if x, ok := m.GetDeclaration().(*Declaration_FunctionDecl); ok {
+		return x.FunctionDecl
+	}
+	return nil
+}
+
 // XXX_OneofFuncs is for the internal use of the proto package.
 func (*Declaration) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
 	return _Declaration_OneofMarshaler, _Declaration_OneofUnmarshaler, _Declaration_OneofSizer, []interface{}{
-		(*Declaration_EnumDecl)(nil),
-		(*Declaration_StructDecl)(nil),
-		(*Declaration_InterfaceDecl)(nil),
-		(*Declaration_NominalDecl)(nil),
-		(*Declaration_FuncDecl)(nil),
-		(*Declaration_ConstDecl)(nil),
-		(*Declaration_ValueDecl)(nil),
 		(*Declaration_PackageDecl)(nil),
 		(*Declaration_ImportDecl)(nil),
+		(*Declaration_EnumDecl)(nil),
+		(*Declaration_StructDecl)(nil),
+		(*Declaration_TypeAliasDecl)(nil),
+		(*Declaration_InterfaceDecl)(nil),
+		(*Declaration_ConstantDecl)(nil),
+		(*Declaration_VariableDecl)(nil),
+		(*Declaration_AttributeDecl)(nil),
+		(*Declaration_FunctionDecl)(nil),
 	}
 }
 
@@ -209,49 +224,54 @@ func _Declaration_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 	m := msg.(*Declaration)
 	// declaration
 	switch x := m.Declaration.(type) {
-	case *Declaration_EnumDecl:
-		b.EncodeVarint(2<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.EnumDecl); err != nil {
-			return err
-		}
-	case *Declaration_StructDecl:
-		b.EncodeVarint(3<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.StructDecl); err != nil {
-			return err
-		}
-	case *Declaration_InterfaceDecl:
-		b.EncodeVarint(4<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.InterfaceDecl); err != nil {
-			return err
-		}
-	case *Declaration_NominalDecl:
-		b.EncodeVarint(5<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.NominalDecl); err != nil {
-			return err
-		}
-	case *Declaration_FuncDecl:
-		b.EncodeVarint(7<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.FuncDecl); err != nil {
-			return err
-		}
-	case *Declaration_ConstDecl:
-		b.EncodeVarint(10<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.ConstDecl); err != nil {
-			return err
-		}
-	case *Declaration_ValueDecl:
-		b.EncodeVarint(11<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.ValueDecl); err != nil {
-			return err
-		}
 	case *Declaration_PackageDecl:
-		b.EncodeVarint(12<<3 | proto.WireBytes)
+		b.EncodeVarint(1<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.PackageDecl); err != nil {
 			return err
 		}
 	case *Declaration_ImportDecl:
-		b.EncodeVarint(13<<3 | proto.WireBytes)
+		b.EncodeVarint(2<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.ImportDecl); err != nil {
+			return err
+		}
+	case *Declaration_EnumDecl:
+		b.EncodeVarint(3<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.EnumDecl); err != nil {
+			return err
+		}
+	case *Declaration_StructDecl:
+		b.EncodeVarint(4<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.StructDecl); err != nil {
+			return err
+		}
+	case *Declaration_TypeAliasDecl:
+		b.EncodeVarint(5<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.TypeAliasDecl); err != nil {
+			return err
+		}
+	case *Declaration_InterfaceDecl:
+		b.EncodeVarint(6<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.InterfaceDecl); err != nil {
+			return err
+		}
+	case *Declaration_ConstantDecl:
+		b.EncodeVarint(10<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.ConstantDecl); err != nil {
+			return err
+		}
+	case *Declaration_VariableDecl:
+		b.EncodeVarint(11<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.VariableDecl); err != nil {
+			return err
+		}
+	case *Declaration_AttributeDecl:
+		b.EncodeVarint(12<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.AttributeDecl); err != nil {
+			return err
+		}
+	case *Declaration_FunctionDecl:
+		b.EncodeVarint(13<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.FunctionDecl); err != nil {
 			return err
 		}
 	case nil:
@@ -264,63 +284,7 @@ func _Declaration_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 func _Declaration_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
 	m := msg.(*Declaration)
 	switch tag {
-	case 2: // declaration.enum_decl
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(EnumDecl)
-		err := b.DecodeMessage(msg)
-		m.Declaration = &Declaration_EnumDecl{msg}
-		return true, err
-	case 3: // declaration.struct_decl
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(StructDecl)
-		err := b.DecodeMessage(msg)
-		m.Declaration = &Declaration_StructDecl{msg}
-		return true, err
-	case 4: // declaration.interface_decl
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(InterfaceDecl)
-		err := b.DecodeMessage(msg)
-		m.Declaration = &Declaration_InterfaceDecl{msg}
-		return true, err
-	case 5: // declaration.nominal_decl
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(NominalDecl)
-		err := b.DecodeMessage(msg)
-		m.Declaration = &Declaration_NominalDecl{msg}
-		return true, err
-	case 7: // declaration.func_decl
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(FuncDecl)
-		err := b.DecodeMessage(msg)
-		m.Declaration = &Declaration_FuncDecl{msg}
-		return true, err
-	case 10: // declaration.const_decl
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(ConstDecl)
-		err := b.DecodeMessage(msg)
-		m.Declaration = &Declaration_ConstDecl{msg}
-		return true, err
-	case 11: // declaration.value_decl
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(ValueDecl)
-		err := b.DecodeMessage(msg)
-		m.Declaration = &Declaration_ValueDecl{msg}
-		return true, err
-	case 12: // declaration.package_decl
+	case 1: // declaration.package_decl
 		if wire != proto.WireBytes {
 			return true, proto.ErrInternalBadWireType
 		}
@@ -328,13 +292,77 @@ func _Declaration_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Bu
 		err := b.DecodeMessage(msg)
 		m.Declaration = &Declaration_PackageDecl{msg}
 		return true, err
-	case 13: // declaration.import_decl
+	case 2: // declaration.import_decl
 		if wire != proto.WireBytes {
 			return true, proto.ErrInternalBadWireType
 		}
 		msg := new(ImportDecl)
 		err := b.DecodeMessage(msg)
 		m.Declaration = &Declaration_ImportDecl{msg}
+		return true, err
+	case 3: // declaration.enum_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(EnumDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_EnumDecl{msg}
+		return true, err
+	case 4: // declaration.struct_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(StructDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_StructDecl{msg}
+		return true, err
+	case 5: // declaration.type_alias_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(TypeAliasDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_TypeAliasDecl{msg}
+		return true, err
+	case 6: // declaration.interface_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(InterfaceDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_InterfaceDecl{msg}
+		return true, err
+	case 10: // declaration.constant_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(ConstantDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_ConstantDecl{msg}
+		return true, err
+	case 11: // declaration.variable_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(VariableDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_VariableDecl{msg}
+		return true, err
+	case 12: // declaration.attribute_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(AttributeDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_AttributeDecl{msg}
+		return true, err
+	case 13: // declaration.function_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(FunctionDecl)
+		err := b.DecodeMessage(msg)
+		m.Declaration = &Declaration_FunctionDecl{msg}
 		return true, err
 	default:
 		return false, nil
@@ -345,41 +373,6 @@ func _Declaration_OneofSizer(msg proto.Message) (n int) {
 	m := msg.(*Declaration)
 	// declaration
 	switch x := m.Declaration.(type) {
-	case *Declaration_EnumDecl:
-		s := proto.Size(x.EnumDecl)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *Declaration_StructDecl:
-		s := proto.Size(x.StructDecl)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *Declaration_InterfaceDecl:
-		s := proto.Size(x.InterfaceDecl)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *Declaration_NominalDecl:
-		s := proto.Size(x.NominalDecl)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *Declaration_FuncDecl:
-		s := proto.Size(x.FuncDecl)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *Declaration_ConstDecl:
-		s := proto.Size(x.ConstDecl)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *Declaration_ValueDecl:
-		s := proto.Size(x.ValueDecl)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
 	case *Declaration_PackageDecl:
 		s := proto.Size(x.PackageDecl)
 		n += 1 // tag and wire
@@ -390,6 +383,46 @@ func _Declaration_OneofSizer(msg proto.Message) (n int) {
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
+	case *Declaration_EnumDecl:
+		s := proto.Size(x.EnumDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *Declaration_StructDecl:
+		s := proto.Size(x.StructDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *Declaration_TypeAliasDecl:
+		s := proto.Size(x.TypeAliasDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *Declaration_InterfaceDecl:
+		s := proto.Size(x.InterfaceDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *Declaration_ConstantDecl:
+		s := proto.Size(x.ConstantDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *Declaration_VariableDecl:
+		s := proto.Size(x.VariableDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *Declaration_AttributeDecl:
+		s := proto.Size(x.AttributeDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *Declaration_FunctionDecl:
+		s := proto.Size(x.FunctionDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
 	case nil:
 	default:
 		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
@@ -397,35 +430,2001 @@ func _Declaration_OneofSizer(msg proto.Message) (n int) {
 	return n
 }
 
+type EnumType struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	//
+	Enumerators []*ValueDecl `protobuf:"bytes,10,rep,name=enumerators,proto3" json:"enumerators,omitempty"`
+	//
+	UnderlyingType       *NominalType `protobuf:"bytes,11,opt,name=underlying_type,json=underlyingType,proto3" json:"underlying_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *EnumType) Reset()         { *m = EnumType{} }
+func (m *EnumType) String() string { return proto.CompactTextString(m) }
+func (*EnumType) ProtoMessage()    {}
+func (*EnumType) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{1}
+}
+
+func (m *EnumType) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EnumType.Unmarshal(m, b)
+}
+func (m *EnumType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EnumType.Marshal(b, m, deterministic)
+}
+func (m *EnumType) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EnumType.Merge(m, src)
+}
+func (m *EnumType) XXX_Size() int {
+	return xxx_messageInfo_EnumType.Size(m)
+}
+func (m *EnumType) XXX_DiscardUnknown() {
+	xxx_messageInfo_EnumType.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EnumType proto.InternalMessageInfo
+
+func (m *EnumType) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *EnumType) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *EnumType) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *EnumType) GetEnumerators() []*ValueDecl {
+	if m != nil {
+		return m.Enumerators
+	}
+	return nil
+}
+
+func (m *EnumType) GetUnderlyingType() *NominalType {
+	if m != nil {
+		return m.UnderlyingType
+	}
+	return nil
+}
+
+type StructType struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	/// A Field represents a Field declaration list in a struct type,
+	/// a method list in an interface type, or a parameter/result declaration
+	/// in a signature.
+	///
+	Fields []*ValueDecl `protobuf:"bytes,10,rep,name=fields,proto3" json:"fields,omitempty"`
+	///
+	Inherits             []*NominalType `protobuf:"bytes,11,rep,name=inherits,proto3" json:"inherits,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *StructType) Reset()         { *m = StructType{} }
+func (m *StructType) String() string { return proto.CompactTextString(m) }
+func (*StructType) ProtoMessage()    {}
+func (*StructType) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{2}
+}
+
+func (m *StructType) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StructType.Unmarshal(m, b)
+}
+func (m *StructType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StructType.Marshal(b, m, deterministic)
+}
+func (m *StructType) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StructType.Merge(m, src)
+}
+func (m *StructType) XXX_Size() int {
+	return xxx_messageInfo_StructType.Size(m)
+}
+func (m *StructType) XXX_DiscardUnknown() {
+	xxx_messageInfo_StructType.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StructType proto.InternalMessageInfo
+
+func (m *StructType) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *StructType) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *StructType) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *StructType) GetFields() []*ValueDecl {
+	if m != nil {
+		return m.Fields
+	}
+	return nil
+}
+
+func (m *StructType) GetInherits() []*NominalType {
+	if m != nil {
+		return m.Inherits
+	}
+	return nil
+}
+
+type InterfaceType struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Methods []*FunctionDecl `protobuf:"bytes,10,rep,name=methods,proto3" json:"methods,omitempty"`
+	///
+	Inherits             []*NominalType `protobuf:"bytes,11,rep,name=inherits,proto3" json:"inherits,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *InterfaceType) Reset()         { *m = InterfaceType{} }
+func (m *InterfaceType) String() string { return proto.CompactTextString(m) }
+func (*InterfaceType) ProtoMessage()    {}
+func (*InterfaceType) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{3}
+}
+
+func (m *InterfaceType) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InterfaceType.Unmarshal(m, b)
+}
+func (m *InterfaceType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InterfaceType.Marshal(b, m, deterministic)
+}
+func (m *InterfaceType) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InterfaceType.Merge(m, src)
+}
+func (m *InterfaceType) XXX_Size() int {
+	return xxx_messageInfo_InterfaceType.Size(m)
+}
+func (m *InterfaceType) XXX_DiscardUnknown() {
+	xxx_messageInfo_InterfaceType.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InterfaceType proto.InternalMessageInfo
+
+func (m *InterfaceType) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *InterfaceType) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *InterfaceType) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *InterfaceType) GetMethods() []*FunctionDecl {
+	if m != nil {
+		return m.Methods
+	}
+	return nil
+}
+
+func (m *InterfaceType) GetInherits() []*NominalType {
+	if m != nil {
+		return m.Inherits
+	}
+	return nil
+}
+
+type NominalType struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	TypeDeclaration *TypeDeclaration `protobuf:"bytes,11,opt,name=type_declaration,json=typeDeclaration,proto3" json:"type_declaration,omitempty"`
+	///
+	GenericArguments []*NominalType `protobuf:"bytes,12,rep,name=generic_arguments,json=genericArguments,proto3" json:"generic_arguments,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,13,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	EnclosingType        *NominalType `protobuf:"bytes,14,opt,name=enclosing_type,json=enclosingType,proto3" json:"enclosing_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *NominalType) Reset()         { *m = NominalType{} }
+func (m *NominalType) String() string { return proto.CompactTextString(m) }
+func (*NominalType) ProtoMessage()    {}
+func (*NominalType) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{4}
+}
+
+func (m *NominalType) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_NominalType.Unmarshal(m, b)
+}
+func (m *NominalType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_NominalType.Marshal(b, m, deterministic)
+}
+func (m *NominalType) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NominalType.Merge(m, src)
+}
+func (m *NominalType) XXX_Size() int {
+	return xxx_messageInfo_NominalType.Size(m)
+}
+func (m *NominalType) XXX_DiscardUnknown() {
+	xxx_messageInfo_NominalType.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NominalType proto.InternalMessageInfo
+
+func (m *NominalType) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *NominalType) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *NominalType) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *NominalType) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *NominalType) GetTypeDeclaration() *TypeDeclaration {
+	if m != nil {
+		return m.TypeDeclaration
+	}
+	return nil
+}
+
+func (m *NominalType) GetGenericArguments() []*NominalType {
+	if m != nil {
+		return m.GenericArguments
+	}
+	return nil
+}
+
+func (m *NominalType) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *NominalType) GetEnclosingType() *NominalType {
+	if m != nil {
+		return m.EnclosingType
+	}
+	return nil
+}
+
+type TypeDeclaration struct {
+	// Types that are valid to be assigned to TypeDeclaration:
+	//	*TypeDeclaration_EnumDecl
+	//	*TypeDeclaration_StructDecl
+	//	*TypeDeclaration_TypeAliasDecl
+	//	*TypeDeclaration_InterfaceDecl
+	TypeDeclaration      isTypeDeclaration_TypeDeclaration `protobuf_oneof:"type_declaration"`
+	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
+	XXX_unrecognized     []byte                            `json:"-"`
+	XXX_sizecache        int32                             `json:"-"`
+}
+
+func (m *TypeDeclaration) Reset()         { *m = TypeDeclaration{} }
+func (m *TypeDeclaration) String() string { return proto.CompactTextString(m) }
+func (*TypeDeclaration) ProtoMessage()    {}
+func (*TypeDeclaration) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{5}
+}
+
+func (m *TypeDeclaration) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TypeDeclaration.Unmarshal(m, b)
+}
+func (m *TypeDeclaration) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TypeDeclaration.Marshal(b, m, deterministic)
+}
+func (m *TypeDeclaration) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TypeDeclaration.Merge(m, src)
+}
+func (m *TypeDeclaration) XXX_Size() int {
+	return xxx_messageInfo_TypeDeclaration.Size(m)
+}
+func (m *TypeDeclaration) XXX_DiscardUnknown() {
+	xxx_messageInfo_TypeDeclaration.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TypeDeclaration proto.InternalMessageInfo
+
+type isTypeDeclaration_TypeDeclaration interface {
+	isTypeDeclaration_TypeDeclaration()
+}
+
+type TypeDeclaration_EnumDecl struct {
+	EnumDecl *EnumDecl `protobuf:"bytes,3,opt,name=enum_decl,json=enumDecl,proto3,oneof"`
+}
+
+type TypeDeclaration_StructDecl struct {
+	StructDecl *StructDecl `protobuf:"bytes,4,opt,name=struct_decl,json=structDecl,proto3,oneof"`
+}
+
+type TypeDeclaration_TypeAliasDecl struct {
+	TypeAliasDecl *TypeAliasDecl `protobuf:"bytes,5,opt,name=type_alias_decl,json=typeAliasDecl,proto3,oneof"`
+}
+
+type TypeDeclaration_InterfaceDecl struct {
+	InterfaceDecl *InterfaceDecl `protobuf:"bytes,6,opt,name=interface_decl,json=interfaceDecl,proto3,oneof"`
+}
+
+func (*TypeDeclaration_EnumDecl) isTypeDeclaration_TypeDeclaration() {}
+
+func (*TypeDeclaration_StructDecl) isTypeDeclaration_TypeDeclaration() {}
+
+func (*TypeDeclaration_TypeAliasDecl) isTypeDeclaration_TypeDeclaration() {}
+
+func (*TypeDeclaration_InterfaceDecl) isTypeDeclaration_TypeDeclaration() {}
+
+func (m *TypeDeclaration) GetTypeDeclaration() isTypeDeclaration_TypeDeclaration {
+	if m != nil {
+		return m.TypeDeclaration
+	}
+	return nil
+}
+
+func (m *TypeDeclaration) GetEnumDecl() *EnumDecl {
+	if x, ok := m.GetTypeDeclaration().(*TypeDeclaration_EnumDecl); ok {
+		return x.EnumDecl
+	}
+	return nil
+}
+
+func (m *TypeDeclaration) GetStructDecl() *StructDecl {
+	if x, ok := m.GetTypeDeclaration().(*TypeDeclaration_StructDecl); ok {
+		return x.StructDecl
+	}
+	return nil
+}
+
+func (m *TypeDeclaration) GetTypeAliasDecl() *TypeAliasDecl {
+	if x, ok := m.GetTypeDeclaration().(*TypeDeclaration_TypeAliasDecl); ok {
+		return x.TypeAliasDecl
+	}
+	return nil
+}
+
+func (m *TypeDeclaration) GetInterfaceDecl() *InterfaceDecl {
+	if x, ok := m.GetTypeDeclaration().(*TypeDeclaration_InterfaceDecl); ok {
+		return x.InterfaceDecl
+	}
+	return nil
+}
+
+// XXX_OneofFuncs is for the internal use of the proto package.
+func (*TypeDeclaration) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
+	return _TypeDeclaration_OneofMarshaler, _TypeDeclaration_OneofUnmarshaler, _TypeDeclaration_OneofSizer, []interface{}{
+		(*TypeDeclaration_EnumDecl)(nil),
+		(*TypeDeclaration_StructDecl)(nil),
+		(*TypeDeclaration_TypeAliasDecl)(nil),
+		(*TypeDeclaration_InterfaceDecl)(nil),
+	}
+}
+
+func _TypeDeclaration_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
+	m := msg.(*TypeDeclaration)
+	// type_declaration
+	switch x := m.TypeDeclaration.(type) {
+	case *TypeDeclaration_EnumDecl:
+		b.EncodeVarint(3<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.EnumDecl); err != nil {
+			return err
+		}
+	case *TypeDeclaration_StructDecl:
+		b.EncodeVarint(4<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.StructDecl); err != nil {
+			return err
+		}
+	case *TypeDeclaration_TypeAliasDecl:
+		b.EncodeVarint(5<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.TypeAliasDecl); err != nil {
+			return err
+		}
+	case *TypeDeclaration_InterfaceDecl:
+		b.EncodeVarint(6<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.InterfaceDecl); err != nil {
+			return err
+		}
+	case nil:
+	default:
+		return fmt.Errorf("TypeDeclaration.TypeDeclaration has unexpected type %T", x)
+	}
+	return nil
+}
+
+func _TypeDeclaration_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
+	m := msg.(*TypeDeclaration)
+	switch tag {
+	case 3: // type_declaration.enum_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(EnumDecl)
+		err := b.DecodeMessage(msg)
+		m.TypeDeclaration = &TypeDeclaration_EnumDecl{msg}
+		return true, err
+	case 4: // type_declaration.struct_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(StructDecl)
+		err := b.DecodeMessage(msg)
+		m.TypeDeclaration = &TypeDeclaration_StructDecl{msg}
+		return true, err
+	case 5: // type_declaration.type_alias_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(TypeAliasDecl)
+		err := b.DecodeMessage(msg)
+		m.TypeDeclaration = &TypeDeclaration_TypeAliasDecl{msg}
+		return true, err
+	case 6: // type_declaration.interface_decl
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(InterfaceDecl)
+		err := b.DecodeMessage(msg)
+		m.TypeDeclaration = &TypeDeclaration_InterfaceDecl{msg}
+		return true, err
+	default:
+		return false, nil
+	}
+}
+
+func _TypeDeclaration_OneofSizer(msg proto.Message) (n int) {
+	m := msg.(*TypeDeclaration)
+	// type_declaration
+	switch x := m.TypeDeclaration.(type) {
+	case *TypeDeclaration_EnumDecl:
+		s := proto.Size(x.EnumDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *TypeDeclaration_StructDecl:
+		s := proto.Size(x.StructDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *TypeDeclaration_TypeAliasDecl:
+		s := proto.Size(x.TypeAliasDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case *TypeDeclaration_InterfaceDecl:
+		s := proto.Size(x.InterfaceDecl)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case nil:
+	default:
+		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
+	}
+	return n
+}
+
+/// \brief This is the declaration of an enum.
+///
+/// For example:
+///
+/// \code
+/// \endcode
+///
+/// The type of the decl itself is a MetatypeType; use getDeclaredType()
+/// to get the declared type ("Bool" or "Optional" in the above example).
+type EnumDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	GenericParameters []*GenericParameter `protobuf:"bytes,11,rep,name=generic_parameters,json=genericParameters,proto3" json:"generic_parameters,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	EnclosingType *NominalType `protobuf:"bytes,13,opt,name=enclosing_type,json=enclosingType,proto3" json:"enclosing_type,omitempty"`
+	//
+	Type                 *EnumType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *EnumDecl) Reset()         { *m = EnumDecl{} }
+func (m *EnumDecl) String() string { return proto.CompactTextString(m) }
+func (*EnumDecl) ProtoMessage()    {}
+func (*EnumDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{6}
+}
+
+func (m *EnumDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EnumDecl.Unmarshal(m, b)
+}
+func (m *EnumDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EnumDecl.Marshal(b, m, deterministic)
+}
+func (m *EnumDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EnumDecl.Merge(m, src)
+}
+func (m *EnumDecl) XXX_Size() int {
+	return xxx_messageInfo_EnumDecl.Size(m)
+}
+func (m *EnumDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_EnumDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EnumDecl proto.InternalMessageInfo
+
+func (m *EnumDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *EnumDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *EnumDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *EnumDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *EnumDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *EnumDecl) GetGenericParameters() []*GenericParameter {
+	if m != nil {
+		return m.GenericParameters
+	}
+	return nil
+}
+
+func (m *EnumDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *EnumDecl) GetEnclosingType() *NominalType {
+	if m != nil {
+		return m.EnclosingType
+	}
+	return nil
+}
+
+func (m *EnumDecl) GetType() *EnumType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+type FunctionDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	GenericParameters []*GenericParameter `protobuf:"bytes,11,rep,name=generic_parameters,json=genericParameters,proto3" json:"generic_parameters,omitempty"`
+	///
+	Signature *FunctionDecl_Signature `protobuf:"bytes,12,opt,name=signature,proto3" json:"signature,omitempty"`
+	///
+	Attributes           []*Attribute `protobuf:"bytes,13,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *FunctionDecl) Reset()         { *m = FunctionDecl{} }
+func (m *FunctionDecl) String() string { return proto.CompactTextString(m) }
+func (*FunctionDecl) ProtoMessage()    {}
+func (*FunctionDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{7}
+}
+
+func (m *FunctionDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FunctionDecl.Unmarshal(m, b)
+}
+func (m *FunctionDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FunctionDecl.Marshal(b, m, deterministic)
+}
+func (m *FunctionDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FunctionDecl.Merge(m, src)
+}
+func (m *FunctionDecl) XXX_Size() int {
+	return xxx_messageInfo_FunctionDecl.Size(m)
+}
+func (m *FunctionDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_FunctionDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FunctionDecl proto.InternalMessageInfo
+
+func (m *FunctionDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *FunctionDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *FunctionDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *FunctionDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *FunctionDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *FunctionDecl) GetGenericParameters() []*GenericParameter {
+	if m != nil {
+		return m.GenericParameters
+	}
+	return nil
+}
+
+func (m *FunctionDecl) GetSignature() *FunctionDecl_Signature {
+	if m != nil {
+		return m.Signature
+	}
+	return nil
+}
+
+func (m *FunctionDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+type FunctionDecl_Signature struct {
+	Parameters           []*ValueDecl `protobuf:"bytes,1,rep,name=parameters,proto3" json:"parameters,omitempty"`
+	Result               *NominalType `protobuf:"bytes,2,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *FunctionDecl_Signature) Reset()         { *m = FunctionDecl_Signature{} }
+func (m *FunctionDecl_Signature) String() string { return proto.CompactTextString(m) }
+func (*FunctionDecl_Signature) ProtoMessage()    {}
+func (*FunctionDecl_Signature) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{7, 0}
+}
+
+func (m *FunctionDecl_Signature) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FunctionDecl_Signature.Unmarshal(m, b)
+}
+func (m *FunctionDecl_Signature) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FunctionDecl_Signature.Marshal(b, m, deterministic)
+}
+func (m *FunctionDecl_Signature) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FunctionDecl_Signature.Merge(m, src)
+}
+func (m *FunctionDecl_Signature) XXX_Size() int {
+	return xxx_messageInfo_FunctionDecl_Signature.Size(m)
+}
+func (m *FunctionDecl_Signature) XXX_DiscardUnknown() {
+	xxx_messageInfo_FunctionDecl_Signature.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FunctionDecl_Signature proto.InternalMessageInfo
+
+func (m *FunctionDecl_Signature) GetParameters() []*ValueDecl {
+	if m != nil {
+		return m.Parameters
+	}
+	return nil
+}
+
+func (m *FunctionDecl_Signature) GetResult() *NominalType {
+	if m != nil {
+		return m.Result
+	}
+	return nil
+}
+
+/// `InterfaceDecl` - A declaration of an interface, for example:
+///
+/// ```mojo
+///   interface Drawable {
+///      draw()
+///   }
+/// ```
+///
+type InterfaceDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	GenericParameters []*GenericParameter `protobuf:"bytes,11,rep,name=generic_parameters,json=genericParameters,proto3" json:"generic_parameters,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	Type                 *InterfaceType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *InterfaceDecl) Reset()         { *m = InterfaceDecl{} }
+func (m *InterfaceDecl) String() string { return proto.CompactTextString(m) }
+func (*InterfaceDecl) ProtoMessage()    {}
+func (*InterfaceDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{8}
+}
+
+func (m *InterfaceDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InterfaceDecl.Unmarshal(m, b)
+}
+func (m *InterfaceDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InterfaceDecl.Marshal(b, m, deterministic)
+}
+func (m *InterfaceDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InterfaceDecl.Merge(m, src)
+}
+func (m *InterfaceDecl) XXX_Size() int {
+	return xxx_messageInfo_InterfaceDecl.Size(m)
+}
+func (m *InterfaceDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_InterfaceDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InterfaceDecl proto.InternalMessageInfo
+
+func (m *InterfaceDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *InterfaceDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *InterfaceDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *InterfaceDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *InterfaceDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *InterfaceDecl) GetGenericParameters() []*GenericParameter {
+	if m != nil {
+		return m.GenericParameters
+	}
+	return nil
+}
+
+func (m *InterfaceDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *InterfaceDecl) GetType() *InterfaceType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+/// StructDecl - This is the declaration of a struct, for example:
+///
+/// ``` mojo
+/// struct Complex { r : Double, i : Double }
+/// ```
+///
+/// The type of the decl itself is a MetaType; use `Complex.type`
+/// to get the `Complex`'s declared type.
+///
+type StructDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	GenericParameters []*GenericParameter `protobuf:"bytes,11,rep,name=generic_parameters,json=genericParameters,proto3" json:"generic_parameters,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	EnclosingType *NominalType `protobuf:"bytes,13,opt,name=enclosing_type,json=enclosingType,proto3" json:"enclosing_type,omitempty"`
+	///
+	Type *StructType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	///
+	TypeAliasDecls []*TypeAliasDecl `protobuf:"bytes,16,rep,name=type_alias_decls,json=typeAliasDecls,proto3" json:"type_alias_decls,omitempty"`
+	///
+	StructTypeDecls []*StructDecl `protobuf:"bytes,18,rep,name=struct_type_decls,json=structTypeDecls,proto3" json:"struct_type_decls,omitempty"`
+	///
+	EnumTypeDecls        []*EnumDecl `protobuf:"bytes,19,rep,name=enum_type_decls,json=enumTypeDecls,proto3" json:"enum_type_decls,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *StructDecl) Reset()         { *m = StructDecl{} }
+func (m *StructDecl) String() string { return proto.CompactTextString(m) }
+func (*StructDecl) ProtoMessage()    {}
+func (*StructDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{9}
+}
+
+func (m *StructDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StructDecl.Unmarshal(m, b)
+}
+func (m *StructDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StructDecl.Marshal(b, m, deterministic)
+}
+func (m *StructDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StructDecl.Merge(m, src)
+}
+func (m *StructDecl) XXX_Size() int {
+	return xxx_messageInfo_StructDecl.Size(m)
+}
+func (m *StructDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_StructDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StructDecl proto.InternalMessageInfo
+
+func (m *StructDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *StructDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *StructDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *StructDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *StructDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *StructDecl) GetGenericParameters() []*GenericParameter {
+	if m != nil {
+		return m.GenericParameters
+	}
+	return nil
+}
+
+func (m *StructDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *StructDecl) GetEnclosingType() *NominalType {
+	if m != nil {
+		return m.EnclosingType
+	}
+	return nil
+}
+
+func (m *StructDecl) GetType() *StructType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+func (m *StructDecl) GetTypeAliasDecls() []*TypeAliasDecl {
+	if m != nil {
+		return m.TypeAliasDecls
+	}
+	return nil
+}
+
+func (m *StructDecl) GetStructTypeDecls() []*StructDecl {
+	if m != nil {
+		return m.StructTypeDecls
+	}
+	return nil
+}
+
+func (m *StructDecl) GetEnumTypeDecls() []*EnumDecl {
+	if m != nil {
+		return m.EnumTypeDecls
+	}
+	return nil
+}
+
+type TypeAliasDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	GenericParameters []*GenericParameter `protobuf:"bytes,11,rep,name=generic_parameters,json=genericParameters,proto3" json:"generic_parameters,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	EnclosingType *NominalType `protobuf:"bytes,13,opt,name=enclosing_type,json=enclosingType,proto3" json:"enclosing_type,omitempty"`
+	///
+	Type                 *NominalType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *TypeAliasDecl) Reset()         { *m = TypeAliasDecl{} }
+func (m *TypeAliasDecl) String() string { return proto.CompactTextString(m) }
+func (*TypeAliasDecl) ProtoMessage()    {}
+func (*TypeAliasDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{10}
+}
+
+func (m *TypeAliasDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TypeAliasDecl.Unmarshal(m, b)
+}
+func (m *TypeAliasDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TypeAliasDecl.Marshal(b, m, deterministic)
+}
+func (m *TypeAliasDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TypeAliasDecl.Merge(m, src)
+}
+func (m *TypeAliasDecl) XXX_Size() int {
+	return xxx_messageInfo_TypeAliasDecl.Size(m)
+}
+func (m *TypeAliasDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_TypeAliasDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TypeAliasDecl proto.InternalMessageInfo
+
+func (m *TypeAliasDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *TypeAliasDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *TypeAliasDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *TypeAliasDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *TypeAliasDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *TypeAliasDecl) GetGenericParameters() []*GenericParameter {
+	if m != nil {
+		return m.GenericParameters
+	}
+	return nil
+}
+
+func (m *TypeAliasDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *TypeAliasDecl) GetEnclosingType() *NominalType {
+	if m != nil {
+		return m.EnclosingType
+	}
+	return nil
+}
+
+func (m *TypeAliasDecl) GetType() *NominalType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+/// VarDecl - 'var' and 'const' declarations.
+type AttributeDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	Type *NominalType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	///
+	InitialValue         *Expression `protobuf:"bytes,13,opt,name=initial_value,json=initialValue,proto3" json:"initial_value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *AttributeDecl) Reset()         { *m = AttributeDecl{} }
+func (m *AttributeDecl) String() string { return proto.CompactTextString(m) }
+func (*AttributeDecl) ProtoMessage()    {}
+func (*AttributeDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{11}
+}
+
+func (m *AttributeDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttributeDecl.Unmarshal(m, b)
+}
+func (m *AttributeDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttributeDecl.Marshal(b, m, deterministic)
+}
+func (m *AttributeDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttributeDecl.Merge(m, src)
+}
+func (m *AttributeDecl) XXX_Size() int {
+	return xxx_messageInfo_AttributeDecl.Size(m)
+}
+func (m *AttributeDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttributeDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttributeDecl proto.InternalMessageInfo
+
+func (m *AttributeDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *AttributeDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *AttributeDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *AttributeDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *AttributeDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *AttributeDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *AttributeDecl) GetType() *NominalType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+func (m *AttributeDecl) GetInitialValue() *Expression {
+	if m != nil {
+		return m.InitialValue
+	}
+	return nil
+}
+
+/// VarDecl - 'var' and 'const' declarations.
+type ValueDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	Type *NominalType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	///
+	InitialValue         *Expression `protobuf:"bytes,13,opt,name=initial_value,json=initialValue,proto3" json:"initial_value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ValueDecl) Reset()         { *m = ValueDecl{} }
+func (m *ValueDecl) String() string { return proto.CompactTextString(m) }
+func (*ValueDecl) ProtoMessage()    {}
+func (*ValueDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{12}
+}
+
+func (m *ValueDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ValueDecl.Unmarshal(m, b)
+}
+func (m *ValueDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ValueDecl.Marshal(b, m, deterministic)
+}
+func (m *ValueDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ValueDecl.Merge(m, src)
+}
+func (m *ValueDecl) XXX_Size() int {
+	return xxx_messageInfo_ValueDecl.Size(m)
+}
+func (m *ValueDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_ValueDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ValueDecl proto.InternalMessageInfo
+
+func (m *ValueDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *ValueDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *ValueDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *ValueDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *ValueDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *ValueDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *ValueDecl) GetType() *NominalType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+func (m *ValueDecl) GetInitialValue() *Expression {
+	if m != nil {
+		return m.InitialValue
+	}
+	return nil
+}
+
+///
+type VariableDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	Type *NominalType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	///
+	InitialValue         *Expression `protobuf:"bytes,13,opt,name=initial_value,json=initialValue,proto3" json:"initial_value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *VariableDecl) Reset()         { *m = VariableDecl{} }
+func (m *VariableDecl) String() string { return proto.CompactTextString(m) }
+func (*VariableDecl) ProtoMessage()    {}
+func (*VariableDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{13}
+}
+
+func (m *VariableDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariableDecl.Unmarshal(m, b)
+}
+func (m *VariableDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariableDecl.Marshal(b, m, deterministic)
+}
+func (m *VariableDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariableDecl.Merge(m, src)
+}
+func (m *VariableDecl) XXX_Size() int {
+	return xxx_messageInfo_VariableDecl.Size(m)
+}
+func (m *VariableDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariableDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariableDecl proto.InternalMessageInfo
+
+func (m *VariableDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *VariableDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *VariableDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *VariableDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *VariableDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *VariableDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *VariableDecl) GetType() *NominalType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+func (m *VariableDecl) GetInitialValue() *Expression {
+	if m != nil {
+		return m.InitialValue
+	}
+	return nil
+}
+
+///
+type ConstantDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	Type *NominalType `protobuf:"bytes,15,opt,name=type,proto3" json:"type,omitempty"`
+	///
+	InitialValue         *Expression `protobuf:"bytes,13,opt,name=initial_value,json=initialValue,proto3" json:"initial_value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ConstantDecl) Reset()         { *m = ConstantDecl{} }
+func (m *ConstantDecl) String() string { return proto.CompactTextString(m) }
+func (*ConstantDecl) ProtoMessage()    {}
+func (*ConstantDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{14}
+}
+
+func (m *ConstantDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ConstantDecl.Unmarshal(m, b)
+}
+func (m *ConstantDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ConstantDecl.Marshal(b, m, deterministic)
+}
+func (m *ConstantDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ConstantDecl.Merge(m, src)
+}
+func (m *ConstantDecl) XXX_Size() int {
+	return xxx_messageInfo_ConstantDecl.Size(m)
+}
+func (m *ConstantDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_ConstantDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ConstantDecl proto.InternalMessageInfo
+
+func (m *ConstantDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *ConstantDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *ConstantDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *ConstantDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *ConstantDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *ConstantDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *ConstantDecl) GetType() *NominalType {
+	if m != nil {
+		return m.Type
+	}
+	return nil
+}
+
+func (m *ConstantDecl) GetInitialValue() *Expression {
+	if m != nil {
+		return m.InitialValue
+	}
+	return nil
+}
+
+/// A type declaration that can have generic parameters attached to it.  Because
+/// it has these generic parameters, it is always a DeclContext.
+type GenericParameter struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	///
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	///
+	GenericParameters []*GenericParameter `protobuf:"bytes,11,rep,name=generic_parameters,json=genericParameters,proto3" json:"generic_parameters,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	Constraint           *NominalType `protobuf:"bytes,15,opt,name=constraint,proto3" json:"constraint,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *GenericParameter) Reset()         { *m = GenericParameter{} }
+func (m *GenericParameter) String() string { return proto.CompactTextString(m) }
+func (*GenericParameter) ProtoMessage()    {}
+func (*GenericParameter) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{15}
+}
+
+func (m *GenericParameter) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GenericParameter.Unmarshal(m, b)
+}
+func (m *GenericParameter) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GenericParameter.Marshal(b, m, deterministic)
+}
+func (m *GenericParameter) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GenericParameter.Merge(m, src)
+}
+func (m *GenericParameter) XXX_Size() int {
+	return xxx_messageInfo_GenericParameter.Size(m)
+}
+func (m *GenericParameter) XXX_DiscardUnknown() {
+	xxx_messageInfo_GenericParameter.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GenericParameter proto.InternalMessageInfo
+
+func (m *GenericParameter) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *GenericParameter) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *GenericParameter) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *GenericParameter) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *GenericParameter) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *GenericParameter) GetGenericParameters() []*GenericParameter {
+	if m != nil {
+		return m.GenericParameters
+	}
+	return nil
+}
+
+func (m *GenericParameter) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *GenericParameter) GetConstraint() *NominalType {
+	if m != nil {
+		return m.Constraint
+	}
+	return nil
+}
+
+///
+type Attribute struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	/// the package which this attribute belong to
+	Name                 string         `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	GenericArguments     []*NominalType `protobuf:"bytes,14,rep,name=generic_arguments,json=genericArguments,proto3" json:"generic_arguments,omitempty"`
+	Expressions          []*Expression  `protobuf:"bytes,15,rep,name=expressions,proto3" json:"expressions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *Attribute) Reset()         { *m = Attribute{} }
+func (m *Attribute) String() string { return proto.CompactTextString(m) }
+func (*Attribute) ProtoMessage()    {}
+func (*Attribute) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{16}
+}
+
+func (m *Attribute) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Attribute.Unmarshal(m, b)
+}
+func (m *Attribute) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Attribute.Marshal(b, m, deterministic)
+}
+func (m *Attribute) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Attribute.Merge(m, src)
+}
+func (m *Attribute) XXX_Size() int {
+	return xxx_messageInfo_Attribute.Size(m)
+}
+func (m *Attribute) XXX_DiscardUnknown() {
+	xxx_messageInfo_Attribute.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Attribute proto.InternalMessageInfo
+
+func (m *Attribute) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *Attribute) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *Attribute) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *Attribute) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *Attribute) GetGenericArguments() []*NominalType {
+	if m != nil {
+		return m.GenericArguments
+	}
+	return nil
+}
+
+func (m *Attribute) GetExpressions() []*Expression {
+	if m != nil {
+		return m.Expressions
+	}
+	return nil
+}
+
+///
+///
+type GroupDecl struct {
+	/// position of first character belonging to the Expr
+	StartPosition *Position `protobuf:"bytes,1,opt,name=start_position,json=startPosition,proto3" json:"start_position,omitempty"`
+	/// position of first character immediately after the Expr
+	EndPosition *Position `protobuf:"bytes,2,opt,name=end_position,json=endPosition,proto3" json:"end_position,omitempty"`
+	/// reserved field no. 3 for string document
+	Document *Document `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
+	///
+	Package string `protobuf:"bytes,6,opt,name=package,proto3" json:"package,omitempty"`
+	/// come from `decl_group_name` attribute, otherwise will be the index from "0"
+	Name string `protobuf:"bytes,11,opt,name=name,proto3" json:"name,omitempty"`
+	/// may be the `struct`, `enum`, `const`, `var`, `attribute`, `interface`
+	Type string `protobuf:"bytes,12,opt,name=type,proto3" json:"type,omitempty"`
+	///
+	Attributes []*Attribute `protobuf:"bytes,13,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	///
+	Declarations         []*Declaration `protobuf:"bytes,14,rep,name=declarations,proto3" json:"declarations,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *GroupDecl) Reset()         { *m = GroupDecl{} }
+func (m *GroupDecl) String() string { return proto.CompactTextString(m) }
+func (*GroupDecl) ProtoMessage()    {}
+func (*GroupDecl) Descriptor() ([]byte, []int) {
+	return fileDescriptor_993ae8e969e37896, []int{17}
+}
+
+func (m *GroupDecl) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GroupDecl.Unmarshal(m, b)
+}
+func (m *GroupDecl) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GroupDecl.Marshal(b, m, deterministic)
+}
+func (m *GroupDecl) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GroupDecl.Merge(m, src)
+}
+func (m *GroupDecl) XXX_Size() int {
+	return xxx_messageInfo_GroupDecl.Size(m)
+}
+func (m *GroupDecl) XXX_DiscardUnknown() {
+	xxx_messageInfo_GroupDecl.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GroupDecl proto.InternalMessageInfo
+
+func (m *GroupDecl) GetStartPosition() *Position {
+	if m != nil {
+		return m.StartPosition
+	}
+	return nil
+}
+
+func (m *GroupDecl) GetEndPosition() *Position {
+	if m != nil {
+		return m.EndPosition
+	}
+	return nil
+}
+
+func (m *GroupDecl) GetDocument() *Document {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
+func (m *GroupDecl) GetPackage() string {
+	if m != nil {
+		return m.Package
+	}
+	return ""
+}
+
+func (m *GroupDecl) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *GroupDecl) GetType() string {
+	if m != nil {
+		return m.Type
+	}
+	return ""
+}
+
+func (m *GroupDecl) GetAttributes() []*Attribute {
+	if m != nil {
+		return m.Attributes
+	}
+	return nil
+}
+
+func (m *GroupDecl) GetDeclarations() []*Declaration {
+	if m != nil {
+		return m.Declarations
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*Declaration)(nil), "mojo.lang.Declaration")
+	proto.RegisterType((*EnumType)(nil), "mojo.lang.EnumType")
+	proto.RegisterType((*StructType)(nil), "mojo.lang.StructType")
+	proto.RegisterType((*InterfaceType)(nil), "mojo.lang.InterfaceType")
+	proto.RegisterType((*NominalType)(nil), "mojo.lang.NominalType")
+	proto.RegisterType((*TypeDeclaration)(nil), "mojo.lang.TypeDeclaration")
+	proto.RegisterType((*EnumDecl)(nil), "mojo.lang.EnumDecl")
+	proto.RegisterType((*FunctionDecl)(nil), "mojo.lang.FunctionDecl")
+	proto.RegisterType((*FunctionDecl_Signature)(nil), "mojo.lang.FunctionDecl.Signature")
+	proto.RegisterType((*InterfaceDecl)(nil), "mojo.lang.InterfaceDecl")
+	proto.RegisterType((*StructDecl)(nil), "mojo.lang.StructDecl")
+	proto.RegisterType((*TypeAliasDecl)(nil), "mojo.lang.TypeAliasDecl")
+	proto.RegisterType((*AttributeDecl)(nil), "mojo.lang.AttributeDecl")
+	proto.RegisterType((*ValueDecl)(nil), "mojo.lang.ValueDecl")
+	proto.RegisterType((*VariableDecl)(nil), "mojo.lang.VariableDecl")
+	proto.RegisterType((*ConstantDecl)(nil), "mojo.lang.ConstantDecl")
+	proto.RegisterType((*GenericParameter)(nil), "mojo.lang.GenericParameter")
+	proto.RegisterType((*Attribute)(nil), "mojo.lang.Attribute")
+	proto.RegisterType((*GroupDecl)(nil), "mojo.lang.GroupDecl")
 }
 
 func init() { proto.RegisterFile("mojo/lang/declaration.proto", fileDescriptor_993ae8e969e37896) }
 
 var fileDescriptor_993ae8e969e37896 = []byte{
-	// 367 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x92, 0xdb, 0x4b, 0xc3, 0x30,
-	0x14, 0xc6, 0x9d, 0xce, 0xcb, 0xd2, 0x4d, 0xa4, 0xce, 0x51, 0xa6, 0x0f, 0xe2, 0x93, 0x08, 0xb6,
-	0x30, 0x11, 0x84, 0x3d, 0x39, 0x2f, 0xb8, 0x17, 0x19, 0x0a, 0x22, 0xbe, 0x48, 0x16, 0xbb, 0x1a,
-	0xd7, 0x26, 0x25, 0x4b, 0x06, 0xfe, 0x3d, 0xfe, 0xa3, 0x72, 0x72, 0x69, 0x03, 0x7d, 0x29, 0x39,
-	0xf9, 0xce, 0xef, 0x4b, 0x3f, 0xce, 0x41, 0xc7, 0x05, 0xff, 0xe1, 0x49, 0x8e, 0x59, 0x96, 0x7c,
-	0xa5, 0x24, 0xc7, 0x02, 0x4b, 0xca, 0x59, 0x5c, 0x0a, 0x2e, 0x79, 0xd8, 0x01, 0x31, 0x06, 0x71,
-	0xd8, 0xaf, 0xfb, 0xe4, 0x6f, 0x99, 0x9a, 0x86, 0xe1, 0x49, 0x7d, 0x5b, 0x62, 0xb2, 0xc4, 0x59,
-	0xfa, 0x09, 0x2e, 0x56, 0xf5, 0xbc, 0x69, 0x51, 0x72, 0x21, 0x3d, 0xf1, 0xec, 0xaf, 0x8d, 0x82,
-	0xfb, 0xfa, 0xc5, 0x70, 0x84, 0x3a, 0x29, 0x53, 0x85, 0x6e, 0x89, 0x36, 0x4f, 0x5b, 0xe7, 0xc1,
-	0xe8, 0x30, 0xae, 0xde, 0x8f, 0x1f, 0x98, 0x2a, 0xa0, 0xfd, 0x69, 0xe3, 0x65, 0x2f, 0xb5, 0xe7,
-	0xf0, 0x06, 0x05, 0x2b, 0x29, 0x14, 0x31, 0xc6, 0xd1, 0x96, 0xa6, 0x8e, 0x3c, 0xea, 0x55, 0xab,
-	0x96, 0x43, 0xab, 0xaa, 0x0a, 0x6f, 0xd1, 0x3e, 0x65, 0x32, 0x15, 0x0b, 0x4c, 0xcc, 0x2f, 0x47,
-	0x6d, 0x0d, 0x47, 0x1e, 0x3c, 0x75, 0x0d, 0x96, 0xef, 0x51, 0xff, 0x22, 0x1c, 0xa3, 0x2e, 0xe3,
-	0x05, 0x65, 0x38, 0x37, 0x06, 0xdb, 0xda, 0x60, 0xe0, 0x19, 0x3c, 0x1b, 0xd9, 0xe2, 0x01, 0xab,
-	0x4b, 0x48, 0xbb, 0x50, 0x8c, 0x18, 0x72, 0xb7, 0x91, 0xf6, 0x51, 0x31, 0xe2, 0xd2, 0x2e, 0xec,
-	0x39, 0xbc, 0x46, 0x88, 0x70, 0xb6, 0xb2, 0x61, 0x91, 0x86, 0xfa, 0x1e, 0x74, 0x07, 0xa2, 0xa5,
-	0x3a, 0xc4, 0x15, 0x80, 0xad, 0x71, 0xae, 0x6c, 0xcc, 0xa0, 0x81, 0xbd, 0x81, 0xe8, 0xb0, 0xb5,
-	0x2b, 0x20, 0x9e, 0x3f, 0xd2, 0xa8, 0xdb, 0x88, 0x37, 0x33, 0xb2, 0x8b, 0x57, 0xd6, 0x25, 0x0c,
-	0xc6, 0x9b, 0x78, 0xd4, 0x6b, 0x0c, 0x66, 0xaa, 0x55, 0x37, 0x18, 0x5a, 0x55, 0x93, 0x1e, 0x0a,
-	0xbc, 0x3d, 0x9c, 0xbc, 0xa3, 0x01, 0x17, 0x99, 0x06, 0x35, 0x57, 0x39, 0x4c, 0x0e, 0xbc, 0xe5,
-	0x99, 0xc1, 0x46, 0xcd, 0x5a, 0x1f, 0x17, 0x19, 0x95, 0xdf, 0x6a, 0x1e, 0x13, 0x5e, 0x24, 0xd0,
-	0x79, 0xa9, 0x77, 0x4f, 0x7f, 0x32, 0x9e, 0x94, 0x4b, 0x73, 0x1e, 0xc3, 0x67, 0xbe, 0xa3, 0xd7,
-	0xf0, 0xea, 0x3f, 0x00, 0x00, 0xff, 0xff, 0x38, 0x27, 0xa4, 0x26, 0x01, 0x03, 0x00, 0x00,
+	// 1160 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x59, 0x4f, 0x6f, 0x1b, 0x45,
+	0x14, 0x27, 0x76, 0x9a, 0xc6, 0x6f, 0x77, 0xed, 0x74, 0x0a, 0x65, 0x95, 0x72, 0x28, 0x7b, 0xa1,
+	0x54, 0xc5, 0x11, 0x01, 0x05, 0x94, 0x08, 0xaa, 0xb8, 0x0d, 0xa5, 0x1c, 0x50, 0xd8, 0x20, 0x0e,
+	0x5c, 0xac, 0xc9, 0x7a, 0xe2, 0x0c, 0x5d, 0xcf, 0x2e, 0xb3, 0xb3, 0x11, 0xb9, 0x71, 0xe0, 0xc6,
+	0x01, 0xc1, 0x05, 0x89, 0x0b, 0x1f, 0x80, 0x0b, 0xdf, 0x82, 0x23, 0x5f, 0x82, 0x8f, 0x51, 0x09,
+	0x34, 0xb3, 0xb3, 0xbb, 0xcf, 0xb1, 0x1d, 0x94, 0x48, 0x6d, 0x4d, 0xf1, 0xc5, 0xf2, 0xcc, 0xfb,
+	0xfd, 0xde, 0xcc, 0xbc, 0xbf, 0xa3, 0x59, 0xb8, 0x39, 0x4a, 0xbe, 0x4a, 0x36, 0x62, 0x2a, 0x86,
+	0x1b, 0x03, 0x16, 0xc5, 0x54, 0x52, 0xc5, 0x13, 0xd1, 0x4d, 0x65, 0xa2, 0x12, 0xd2, 0xd2, 0xc2,
+	0xae, 0x16, 0xae, 0xfb, 0x35, 0x2e, 0x4d, 0x32, 0x5e, 0x83, 0xb0, 0x64, 0x90, 0x44, 0xf9, 0x88,
+	0x09, 0x65, 0x25, 0xeb, 0xb5, 0x84, 0x7d, 0x93, 0x4a, 0x96, 0x65, 0x35, 0x0b, 0xad, 0xcb, 0x47,
+	0x69, 0x22, 0x55, 0x5f, 0x2f, 0x6f, 0x85, 0xaf, 0xa1, 0xc5, 0x68, 0xf4, 0x98, 0x0e, 0x19, 0x92,
+	0x06, 0xdf, 0x5f, 0x01, 0xe7, 0x41, 0xbd, 0x57, 0xb2, 0x03, 0x2e, 0x46, 0xf9, 0x4b, 0xb7, 0x96,
+	0x6e, 0x3b, 0x9b, 0x37, 0xba, 0xd5, 0xe6, 0xbb, 0xfb, 0x85, 0x58, 0x93, 0x3e, 0x7e, 0x29, 0x74,
+	0xd2, 0x7a, 0x48, 0xde, 0x07, 0x07, 0xad, 0xef, 0x37, 0x0c, 0xf7, 0x15, 0xc4, 0x7d, 0x64, 0xa4,
+	0x96, 0x0a, 0xbc, 0x1a, 0x91, 0x4d, 0x68, 0x31, 0x91, 0x8f, 0x0a, 0x5e, 0xd3, 0xf0, 0xae, 0x23,
+	0xde, 0x9e, 0xc8, 0x47, 0x96, 0xb5, 0xca, 0xec, 0x7f, 0xbd, 0x5a, 0xa6, 0x64, 0x1e, 0xd9, 0xd5,
+	0x96, 0x27, 0x56, 0x3b, 0x30, 0xd2, 0x72, 0xb5, 0xac, 0x1a, 0x91, 0x1e, 0x74, 0xd4, 0x69, 0xca,
+	0xfa, 0x34, 0xe6, 0x34, 0x2b, 0xd8, 0x57, 0x0c, 0xdb, 0x47, 0xec, 0xcf, 0x4f, 0x53, 0xb6, 0xab,
+	0x01, 0x56, 0x81, 0xa7, 0xf0, 0x04, 0xd9, 0x85, 0x36, 0x17, 0x8a, 0xc9, 0x23, 0x1a, 0x59, 0x53,
+	0xad, 0x4c, 0xa8, 0x78, 0x54, 0x02, 0x4a, 0x15, 0x1c, 0x4f, 0x90, 0x0f, 0xc1, 0x8b, 0x12, 0x91,
+	0x29, 0x2a, 0xec, 0x11, 0xc0, 0x68, 0x78, 0x15, 0x69, 0xb8, 0x6f, 0xe5, 0x56, 0x81, 0x1b, 0xa1,
+	0xb1, 0xe6, 0x9f, 0x50, 0xc9, 0xe9, 0x61, 0x6c, 0x77, 0xe0, 0x4c, 0xf0, 0xbf, 0xb0, 0xf2, 0x92,
+	0x7f, 0x82, 0xc6, 0xfa, 0x08, 0x54, 0x29, 0xc9, 0x0f, 0x73, 0x65, 0x15, 0xb8, 0x13, 0x47, 0xd8,
+	0x2d, 0x01, 0xe5, 0x11, 0x28, 0x9e, 0xd0, 0x5b, 0x38, 0xca, 0x45, 0xa4, 0x43, 0xa7, 0xd0, 0xe0,
+	0x4d, 0x6c, 0xe1, 0x23, 0x2b, 0x2f, 0xb7, 0x70, 0x84, 0xc6, 0x3d, 0x0f, 0x1c, 0x94, 0x29, 0xc1,
+	0x8f, 0x0d, 0x58, 0xd5, 0xbe, 0xd6, 0xb6, 0x27, 0xdb, 0xd0, 0xce, 0x14, 0x95, 0xaa, 0x5f, 0xe6,
+	0x88, 0x0d, 0x46, 0x1c, 0x18, 0xfb, 0x56, 0x14, 0x7a, 0x06, 0x5a, 0x0e, 0xc9, 0x16, 0xb8, 0x4c,
+	0x0c, 0x6a, 0x66, 0x63, 0x36, 0xd3, 0x61, 0x62, 0x50, 0xf1, 0x7c, 0xb8, 0x6a, 0x03, 0xda, 0xb8,
+	0xb3, 0x15, 0x96, 0x43, 0xb2, 0x05, 0x8e, 0x8e, 0x3c, 0x26, 0xa9, 0x4a, 0x64, 0xe6, 0xc3, 0xad,
+	0xe6, 0x6d, 0x67, 0xf3, 0xe5, 0x31, 0x53, 0xc7, 0xb9, 0x31, 0x4a, 0x88, 0x81, 0xe4, 0x1e, 0x74,
+	0x72, 0x31, 0x60, 0x32, 0x3e, 0xe5, 0x62, 0xd8, 0xd7, 0x31, 0x64, 0xdd, 0x84, 0x73, 0xea, 0xd3,
+	0x64, 0xc4, 0x05, 0x8d, 0xf5, 0xb1, 0xc3, 0x76, 0x0d, 0xd7, 0xe3, 0xe0, 0xc9, 0x12, 0x40, 0x11,
+	0xc9, 0x73, 0x68, 0x95, 0xbb, 0xb0, 0x72, 0xc4, 0x59, 0x3c, 0x38, 0xdf, 0x20, 0x16, 0x43, 0x36,
+	0x61, 0x95, 0x8b, 0x63, 0x26, 0xb9, 0xca, 0x7c, 0xc7, 0xe0, 0x67, 0x19, 0xa1, 0xc2, 0x05, 0xdf,
+	0x35, 0xc0, 0xab, 0xf2, 0x68, 0x0e, 0x2d, 0xf0, 0x36, 0x5c, 0x1d, 0x31, 0x75, 0x9c, 0x54, 0x26,
+	0x98, 0x15, 0xfb, 0x61, 0x89, 0xbb, 0x94, 0x19, 0x7e, 0x6f, 0x82, 0x83, 0x24, 0x73, 0x66, 0x04,
+	0x02, 0xcb, 0x82, 0x8e, 0x98, 0x29, 0x60, 0xad, 0xd0, 0xfc, 0x27, 0x7b, 0xb0, 0x66, 0x8a, 0x2c,
+	0xca, 0x6f, 0x1b, 0xf9, 0xeb, 0x67, 0xaa, 0x2c, 0xea, 0x3f, 0xa1, 0x29, 0xcc, 0xb8, 0x21, 0xdd,
+	0x87, 0x6b, 0x43, 0x26, 0x98, 0xe4, 0x51, 0x9f, 0xca, 0xa1, 0xe9, 0x88, 0x99, 0xef, 0x9e, 0x6b,
+	0xb5, 0x35, 0x4b, 0xd8, 0x2d, 0xf1, 0xe4, 0x5d, 0x80, 0xaa, 0x6e, 0x65, 0xbe, 0x37, 0x11, 0xaa,
+	0x55, 0x95, 0x0b, 0x11, 0x8e, 0x7c, 0x00, 0x6d, 0x26, 0xa2, 0x38, 0xc9, 0xaa, 0xcc, 0x6d, 0x9f,
+	0x9b, 0xb9, 0x5e, 0x85, 0x36, 0x89, 0xfb, 0x4b, 0x03, 0x3a, 0x67, 0x8e, 0xf7, 0xbf, 0xec, 0x73,
+	0x3d, 0x32, 0x19, 0x09, 0xc1, 0x1f, 0xcd, 0xa2, 0xd2, 0x9b, 0x35, 0x9e, 0x47, 0x30, 0x6f, 0xc0,
+	0x6a, 0x79, 0xc3, 0xb2, 0x26, 0xc5, 0x9c, 0x07, 0x56, 0x14, 0x56, 0xa0, 0x0b, 0x46, 0xff, 0x27,
+	0x40, 0xca, 0xb0, 0x4d, 0xa9, 0xa4, 0x23, 0xa6, 0x98, 0x2c, 0xb3, 0xfd, 0x26, 0x5a, 0xe8, 0x61,
+	0x01, 0xda, 0x2f, 0x31, 0x61, 0x19, 0xed, 0xd5, 0xcc, 0xd9, 0xe8, 0x75, 0x2f, 0x1d, 0xbd, 0xde,
+	0x05, 0xa2, 0x97, 0xbc, 0x01, 0xcb, 0x86, 0xd4, 0x99, 0x1a, 0xa4, 0x86, 0x61, 0x00, 0xc1, 0xcf,
+	0xcb, 0xe0, 0xe2, 0x3a, 0xb7, 0xf0, 0xe6, 0xf9, 0xde, 0xbc, 0x07, 0xad, 0x8c, 0x0f, 0x05, 0x55,
+	0xb9, 0x64, 0xf6, 0xc2, 0xf5, 0xfa, 0x8c, 0x96, 0xd1, 0x3d, 0x28, 0x81, 0x61, 0xcd, 0xb9, 0x5c,
+	0x31, 0x5b, 0xff, 0x1a, 0x5a, 0x07, 0x58, 0x05, 0x3a, 0xc7, 0xd2, 0x39, 0xad, 0x1b, 0xe1, 0x48,
+	0x17, 0x56, 0x24, 0xcb, 0xf2, 0x58, 0x59, 0xb7, 0xcc, 0x8a, 0x24, 0x8b, 0x0a, 0x7e, 0x6a, 0xa2,
+	0xd6, 0xbd, 0x08, 0x8d, 0xa7, 0x95, 0xe8, 0x77, 0xc7, 0x32, 0x75, 0x6a, 0x5d, 0x46, 0xe9, 0xfa,
+	0xc3, 0x95, 0xf2, 0x3a, 0xb9, 0xf0, 0xc8, 0x9c, 0x96, 0xde, 0x37, 0xc7, 0x1c, 0x3a, 0xd9, 0xe9,
+	0x6b, 0x6f, 0x92, 0x9e, 0x6d, 0xad, 0x75, 0x87, 0xcf, 0xfc, 0x35, 0xb3, 0xcb, 0x99, 0x2d, 0x3e,
+	0x6c, 0x8f, 0x35, 0xf8, 0x8c, 0xec, 0xc2, 0x35, 0x7b, 0xbf, 0xa8, 0xba, 0x74, 0xe6, 0x13, 0xa3,
+	0x64, 0xfa, 0x2d, 0x23, 0xec, 0x64, 0xd5, 0x3e, 0x0a, 0x15, 0x3b, 0xd0, 0x31, 0xd7, 0x1a, 0xa4,
+	0xe0, 0xba, 0x51, 0x30, 0xed, 0x72, 0xa3, 0x8f, 0x5b, 0x74, 0x10, 0x43, 0x0e, 0xfe, 0x6c, 0x82,
+	0x37, 0xb6, 0xc3, 0x45, 0x50, 0xce, 0x61, 0x50, 0xde, 0x19, 0x0b, 0xca, 0x59, 0xa4, 0xa2, 0xc6,
+	0x7c, 0xdb, 0x04, 0x6f, 0xec, 0xe1, 0xe0, 0x45, 0xf4, 0xe8, 0xe5, 0xbc, 0x70, 0x01, 0x33, 0x92,
+	0x6d, 0xf0, 0xb8, 0xe0, 0x8a, 0xd3, 0xb8, 0x7f, 0xa2, 0x1b, 0xb2, 0x75, 0x18, 0x4e, 0xca, 0xbd,
+	0xea, 0x29, 0x30, 0x74, 0x2d, 0xd6, 0xf4, 0xee, 0xe0, 0x49, 0x03, 0x5a, 0x55, 0x17, 0x5f, 0x98,
+	0xff, 0x59, 0x9b, 0xff, 0xef, 0x06, 0xb8, 0xf8, 0xed, 0x6d, 0xe1, 0x81, 0xe7, 0xe1, 0x01, 0xfc,
+	0x7a, 0xba, 0xf0, 0xc0, 0xb3, 0xf6, 0xc0, 0xaf, 0x4d, 0x58, 0x3b, 0xdb, 0xce, 0x16, 0xad, 0xfd,
+	0x69, 0xb4, 0xf6, 0x2d, 0x00, 0xf3, 0x61, 0x40, 0x52, 0x2e, 0xd4, 0xbf, 0xf8, 0x15, 0x21, 0x83,
+	0xdf, 0x1a, 0xd0, 0xaa, 0x34, 0xfe, 0x07, 0x9e, 0x14, 0xa7, 0xbe, 0x05, 0xb6, 0x2f, 0xf8, 0x16,
+	0xf8, 0x1e, 0x38, 0xf5, 0x07, 0xb4, 0xcc, 0xef, 0x4c, 0x5c, 0x74, 0x51, 0x40, 0x63, 0x64, 0xf0,
+	0x57, 0x03, 0x5a, 0x0f, 0x65, 0x92, 0xa7, 0x2f, 0x52, 0x39, 0x71, 0x90, 0x79, 0x89, 0x2d, 0x0c,
+	0x6e, 0x31, 0x67, 0x0a, 0xc0, 0xe5, 0x5e, 0x4e, 0xb7, 0xc1, 0x45, 0x8f, 0x7d, 0xd3, 0x7c, 0x84,
+	0xdf, 0x7c, 0xc7, 0xb0, 0xbd, 0xcf, 0xe0, 0x46, 0x22, 0x87, 0x06, 0x6a, 0x90, 0x15, 0xa7, 0xd7,
+	0xd2, 0x1e, 0xdd, 0x97, 0x89, 0x4a, 0xf6, 0x97, 0xbe, 0xbc, 0x33, 0xe4, 0xea, 0x38, 0x3f, 0xec,
+	0x46, 0xc9, 0x68, 0x43, 0x43, 0xde, 0x32, 0x5f, 0x38, 0xcd, 0xcf, 0x30, 0xd9, 0x48, 0x1f, 0x17,
+	0xff, 0x77, 0xf4, 0xcf, 0xe1, 0x8a, 0xf9, 0xd6, 0xf9, 0xce, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff,
+	0x0b, 0x0f, 0x35, 0x55, 0xa0, 0x1d, 0x00, 0x00,
 }

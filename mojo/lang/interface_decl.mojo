@@ -12,7 +12,4 @@ type InterfaceDecl : TypeDecl @skip_fields(enclosing_type) {
 
     ///
     type_alias_decls: [TypeAliasDecl] @16
-
-    ///
-    nominal_decls: [NominalDecl] @17
 }

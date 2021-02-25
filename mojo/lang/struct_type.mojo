@@ -13,4 +13,7 @@ type StructType {
 
     ///
     inherits: [NominalType] @11
+
+    ///
+    groups: [ValueGroupDecl] @12
 }

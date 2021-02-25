@@ -15,10 +15,10 @@ option java_package = "org.mojolang.mojo.lang";
 /// A Position is valid if the line number is > 0.
 ///
 message Position {
-  	string filename = 1; // filename, if any
-  	int32 offset = 2;    // offset, starting at 0 (byte count)
-  	int32 line = 3; //< line number, starting at 1
-  	int32 column = 4; //< column number, starting at 1 (byte count)
+  	string filename = 1; //< filename, if any
+  	int32 offset = 2;    //< offset, starting at 0 (byte count)
+  	int32 line = 3;      //< line number, starting at 1
+  	int32 column = 4;    //< column number, starting at 1 (byte count)
 }
 
 message PositionSpan {
