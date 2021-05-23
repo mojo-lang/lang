@@ -1,11 +1,12 @@
-type Expression = NoneLiteralExpr
-                | IntegerLiteralExpr
-                | FloatLiteralExpr
-                | BoolLiteralExpr
-                | StringLiteralExpr
-                | ObjectLiteralExpr
-                | ArrayLiteralExpr
-                | DictionaryLiteralExpr
+type Expression = NoneLiteralExpr    @1
+                | IntegerLiteralExpr @2
+                | FloatLiteralExpr   @3
+                | BoolLiteralExpr    @4
+                | StringLiteralExpr  @5
+                | ObjectLiteralExpr  @6
+                | ArrayLiteralExpr   @7
+                | DictionaryLiteralExpr @8
+                | IdentifierExpr @9
 
 /// DiscardAssignmentExpr - A '_' in the left-hand side of an assignment, which
 /// discards the corresponding tuple element on the right-hand side.
@@ -27,17 +28,17 @@ type DynamicLookupExpr : Expr
 /// UnresolvedMemberExpr - This represents '.foo', an unresolved reference to a
 /// member, which is to be resolved with context sensitive type information into
 /// bar.foo.  These always have unresolved type.
-//class UnresolvedMemberExpr
+type UnresolvedMemberExpr
 
 /// An expression node that does not affect the evaluation of its subexpression.
-//class IdentityExpr : public Expr
+type IdentityExpr : Expr
 
 /// Subscripting expression that applies a keypath to a base.
-//class KeyPathApplicationExpr : public Expr
+type KeyPathApplicationExpr : Expr
 
 /// TupleElementExpr - Refer to an element of a tuple,
 /// e.g. "(1,field:2).field".
-//class TupleElementExpr : public Expr 
+type TupleElementExpr : Expr 
 
 /// ImplicitConversionExpr - An abstract class for expressions which
 /// implicitly convert the value of an expression in some way.

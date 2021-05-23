@@ -2,5 +2,5 @@
 ///
 type PackageDecl : Decl {
     ///
-    package: Package @15
+    package: Package @20
 }

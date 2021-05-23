@@ -3,8 +3,8 @@
 /// scope.
 ///
 type Scope {
-    ///
-    identifiers: {String, Identifier} @1
+    /// `full_name` => `Identifier`
+    identifiers: {String: Identifier} @1
 
     enclosing: Scope @10
 }

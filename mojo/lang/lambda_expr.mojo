@@ -7,4 +7,5 @@
 ///     { (a : Int, b : Int) -> a + b }
 ///     { a : Int -> a + c.getFoo() }
 /// ```
-type ClosureExpr
+type LambdaExpr : Expr {
+}

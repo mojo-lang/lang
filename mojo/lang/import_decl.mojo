@@ -1,12 +1,11 @@
 type ImportDecl : Decl {
-    type Identifier {
-         name : String @1
-         alias : String @2
-         type: String @3
-    }
 
-    import_package : String @10
-    import_package_alias : String @11
+    /// import package name
+    package:       String @10
 
-    identifiers : [Identifier] @12
+    /// alias for the package name
+    package_alias: String @11
+
+    /// imported identifiers
+    identifiers: [Identifier] @13
 }

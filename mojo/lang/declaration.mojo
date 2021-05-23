@@ -1,7 +1,7 @@
 ///
 ///
 @discriminator('@type')
-type Declaration : PackageDecl     @1
+type Declaration = PackageDecl     @1
                  | ImportDecl      @2
                  | EnumDecl        @3
                  | StructDecl      @4
@@ -12,4 +12,5 @@ type Declaration : PackageDecl     @1
                  | AttributeDecl   @12
                  | FunctionDecl    @13
                  | ConstructorDecl @14
+                 | GenericParameter @19
                  | GroupDecl       @20

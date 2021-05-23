@@ -4,11 +4,11 @@ type ValueDecl : Decl {
     name: String @10
 
     ///
-    type: NominalType @12
+    group: GroupDecl @15
 
     ///
-    initial_value: Expression @13
+    type: NominalType @20
 
     ///
-    group: GroupDecl @14
+    initial_value: Expression @22
 }

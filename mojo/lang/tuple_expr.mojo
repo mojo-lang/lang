@@ -3,8 +3,8 @@
 /// expressions like '(4)' are represented with a ParenExpr.
 type TupleExpr : Expr {
     /// Whether this tuple has any labels.
-    has_element_names : Bool
+    has_element_names : Bool @20
 
     /// Whether this tuple has label locations.
-    has_element_locations : Bool
+    has_element_locations : Bool @21
 }

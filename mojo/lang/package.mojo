@@ -2,15 +2,23 @@
 /// collectively building a Mojo package.
 type Package {
     ///
-    type RequiredVersion = Cached<VersionRange>
-
-    ///
     ///
     type Requirement {
+        type Version {
+            enum Type {
+                caret @0
+                tilde @1
+                wildcard @2
+                comparison @3
+            }
+            type: Type @1
+            range: VersionRange @2
+        }
+
         /// ^1.2.3
         /// ~1.2.3
         /// >= 1.2, < 1.5
-        version: RequiredVersion @1
+        version: Version @1
 
         ///
         registry: String @3
@@ -19,7 +27,7 @@ type Package {
         path: String @4
         
         ///
-        git: Url @5
+        repository: Url @5
         
         ///
         branch: String @6
@@ -47,7 +55,7 @@ type Package {
     description: String @10
 
     /// 
-    document: Cached<Document> @11
+    document: Cached<document.Document> @11
 
     /// URL of the package source repository.
     repository: Url @12
@@ -55,11 +63,11 @@ type Package {
     /// The package license.
     license: String @13
 
-    ///
-    imports: [Import] @14
+    //
+    //imports: [Import] @14
 
     ///
-    exports: [string] @15
+    exports: [String] @15
 
     ///
     source_files: [SourceFile] @16
@@ -71,7 +79,7 @@ type Package {
     dependencies: {String: Requirement} @30
 
     /// 
-    resolved_dependencies: {String, Package} @31
+    resolved_dependencies: {String: Package} @31
 }
 
 func to<T:String>(package: Package) -> T {

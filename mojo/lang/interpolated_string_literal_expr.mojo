@@ -7,6 +7,6 @@
 /// "[\(min)..\(max)]"
 /// \endcode
 type InterpolatedStringLiteralExpr : LiteralExpr {
-    segments: [Expr]
-    semantic_expr: Expr
+    segments: [Expr] @20
+    semantic_expr: Expr @21
 }

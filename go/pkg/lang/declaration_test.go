@@ -12,7 +12,7 @@ func TestDeclarationCodec_Encode(t *testing.T) {
 	decl := NewEnumDecl(&EnumDecl{
 		Name: "Foo",
 		Type: &EnumType{
-			Package: "mojo.lang.test",
+			//Package: "mojo.lang.test",
 		},
 	})
 

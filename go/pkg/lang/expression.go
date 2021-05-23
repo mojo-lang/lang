@@ -64,6 +64,14 @@ func NewObjectLiteralExpr(expr *ObjectLiteralExpr) *Expression {
 	}
 }
 
+func NewIdentifierExpr(expr *IdentifierExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_IdentifierExpr{
+			IdentifierExpr: expr,
+		},
+	}
+}
+
 func (i IntegerLiteralExpr) EvalValue() int64 {
 	if i.IsNegative {
 		return -i.Value

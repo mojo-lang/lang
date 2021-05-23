@@ -19,4 +19,6 @@ type StructDecl : TypeDecl {
 
     ///
     struct_decls: [StructDecl] @23
+
+    scope:       Scope @30
 }

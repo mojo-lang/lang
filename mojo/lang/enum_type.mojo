@@ -2,8 +2,14 @@
 ///
 ///
 type EnumType {
+    /// position of first character belonging to the Expr
+    start_position: Position @1
+
+    /// position of first character immediately after the Expr
+    end_position: Position @2
+
     ///
-    package: String @4 | Package @5 @Reference
+    //package: String @5
 
     //
     enumerators: [ValueDecl] @10

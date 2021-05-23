@@ -22,8 +22,10 @@ type SourceFile {
 
     full_name:  String @2
 
-    /// 循环依赖文件名称
-    attributes: [Attribute]  @3
+    url: Url @3 // file://xx
+
+    /// 循环依赖文件名称 'circle_dependency'
+    attributes: [Attribute]  @4
 
     package:    PackageDecl  @10 @reference
 
@@ -31,9 +33,12 @@ type SourceFile {
 
     statements: [Statement]  @12
 
-    scope:       Scope @20 //< package scope (this file only)
+    // resolved identifiers not in this source file
+    resolved_identifiers: [Identifier] @16
 
-    dependencies:[Identifier] @21 //<
+    unresolved_identifiers:  [Identifier] @17 //< unresolved identifiers in this file
 
-    unresolved:  [Identifier] @22 //< unresolved identifiers in this file
+    dependencies: [SourceFile @reference] @21 //<
+
+    scope:       Scope @30 //< package scope (this file only)
 }

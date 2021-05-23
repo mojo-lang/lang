@@ -1,10 +1,10 @@
 ///
 type Expr {
     /// position of first character belonging to the Expr
-    start_pos: Position @1
+    start_position: Position @1
 
     /// position of first character immediately after the Expr
-    end_pos: Position @2
+    end_position: Position @2
 
     ///
     kind: Int8 @3

@@ -12,16 +12,22 @@ type FunctionDecl : Decl {
 
     ///
     name: String @10
-    
-    ///
-    generic_parameters: [GenericParameter] @11
-    
-    ///
-    signature: Signature @12
 
     ///
-    attributes: [Attribute] @13
+    full_name: String @11
 
     ///
-    body: BlockStmt @14
+    attributes: [Attribute] @12
+    
+    ///
+    generic_parameters: [GenericParameter] @13
+    
+    ///
+    signature: Signature @20
+
+    ///
+    body: BlockStmt @21
+
+    ///
+    scope: Scope @30
 }

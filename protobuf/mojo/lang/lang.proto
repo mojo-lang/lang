@@ -1,0 +1,1055 @@
+syntax = "proto3";
+
+package mojo.lang;
+
+import "mojo/core/version.proto";
+import "mojo/core/version_range.proto";
+import "mojo/core/url.proto";
+import "mojo/core/value.proto";
+import "mojo/lang/position.proto";
+import "mojo/lang/document.proto";
+import "mojo/lang/expression.proto";
+
+
+option go_package = "github.com/mojo-lang/lang/go/pkg/lang;lang";
+
+option java_multiple_files = true;
+option java_outer_classname = "TypeProto";
+option java_package = "org.mojolang.mojo.lang";
+
+message Declaration {
+  oneof declaration {
+    PackageDecl package_decl = 1;
+    ImportDecl import_decl = 2;
+
+    EnumDecl enum_decl = 3;
+    StructDecl struct_decl = 4;
+    TypeAliasDecl type_alias_decl = 5;
+    InterfaceDecl interface_decl = 6;
+
+    ConstantDecl constant_decl = 10;
+    VariableDecl variable_decl = 11;
+    
+    AttributeDecl attribute_decl = 12;
+    FunctionDecl function_decl = 13;
+
+    GenericParameter generic_parameter = 19;
+  }
+}
+
+message EnumType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  //string package = 6;
+
+  //
+  repeated ValueDecl enumerators = 10;
+
+  //
+  NominalType underlying_type = 11;
+}
+
+message StructType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  //string package = 6;
+
+  /// A Field represents a Field declaration list in a struct type,
+  /// a method list in an interface type, or a parameter/result declaration
+  /// in a signature.
+  ///
+  repeated ValueDecl fields = 10;
+
+  ///
+  repeated NominalType inherits = 11;
+}
+
+message InterfaceType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  //string package = 6;
+
+  ///
+  repeated FunctionDecl methods = 10;
+
+  ///
+  repeated NominalType inherits = 11;
+}
+
+message NominalType {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  ///
+  string name = 10;
+
+  ///
+  TypeDeclaration type_declaration = 11;
+
+  ///
+  repeated NominalType generic_arguments = 12;
+
+  ///
+  repeated Attribute attributes = 13;
+
+  ///
+  NominalType enclosing_type = 14;
+}
+
+message TypeDeclaration {
+  oneof type_declaration {
+    EnumDecl enum_decl = 3;
+    StructDecl struct_decl = 4;
+    TypeAliasDecl type_alias_decl = 5;
+    InterfaceDecl interface_decl = 6;
+    GenericParameter generic_parameter = 19;
+  }
+}
+
+/// \brief This is the declaration of an enum.
+///
+/// For example:
+///
+/// \code
+/// \endcode
+///
+/// The type of the decl itself is a MetatypeType; use getDeclaredType()
+/// to get the declared type ("Bool" or "Optional" in the above example).
+message EnumDecl { // :TypeDecl
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType enclosing_type = 13;
+
+  //
+  EnumType type = 15;
+
+  Scope scope = 20;
+
+  repeated Identifier resolved_identifiers = 40;
+
+  repeated Identifier unresolved_identifiers = 22;
+}
+
+message FunctionDecl { //: Decl {
+  message Signature {
+      repeated ValueDecl parameters = 1;
+      NominalType            result = 2;
+  }
+
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  Signature signature = 12;
+
+  ///
+  repeated Attribute attributes = 13;
+
+  ///
+  // BlockStmt body = 14;
+
+  Scope scope = 20;
+}
+
+/// `InterfaceDecl` - A declaration of an interface, for example:
+///
+/// ```mojo
+///   interface Drawable {
+///      draw()
+///   }
+/// ```
+///
+message InterfaceDecl { //: TypeDecl @skip_fields(enclosing_type) {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  // NominalType enclosing_type = 13;
+
+  ///
+  InterfaceType type = 15;
+
+  Scope scope = 20;
+
+  repeated Identifier resolved_identifiers = 40;
+
+  repeated Identifier unresolved_identifiers = 22;
+
+  ///
+  // repeated TypeAliasDecl type_alias_decls = 16;
+}
+
+/// StructDecl - This is the declaration of a struct, for example:
+///
+/// ``` mojo
+/// struct Complex { r : Double, i : Double }
+/// ```
+///
+/// The type of the decl itself is a MetaType; use `Complex.type`
+/// to get the `Complex`'s declared type.
+///
+message StructDecl { //: TypeDecl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType enclosing_type = 13;
+
+  ///
+  StructType type = 15;
+
+  ///
+  repeated TypeAliasDecl type_alias_decls = 16;
+
+  ///
+  repeated StructDecl struct_type_decls = 18;
+
+  ///
+  repeated EnumDecl enum_type_decls = 19;
+
+  Scope scope = 20;
+
+  repeated Identifier resolved_identifiers = 40;
+
+  repeated Identifier unresolved_identifiers = 22;
+}
+
+message TypeAliasDecl {
+    /// position of first character belonging to the Expr
+    Position start_position = 1;
+
+    /// position of first character immediately after the Expr
+    Position end_position = 2;
+  
+    /// reserved field no. 3 for string document
+    Document document = 4;
+  
+    ///
+    string package_name = 6;
+
+    /// source file full name which the decl in
+    string source_file_name = 7;
+
+    bool implicit = 8;
+  
+    ///
+    string name = 10;
+
+    ///
+    repeated GenericParameter generic_parameters = 11;
+
+    ///
+    repeated Attribute attributes = 12;
+
+    ///
+    NominalType enclosing_type = 13;
+
+    ///
+    NominalType type = 15;
+
+    repeated Identifier resolved_identifiers = 16;
+
+    repeated Identifier unresolved_identifiers = 22;
+
+    Scope scope = 20;
+}
+
+/// VarDecl - 'var' and 'const' declarations.
+message AttributeDecl { //: Decl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType type = 15;
+
+  ///
+  Expression initial_value = 13;
+
+  ///
+  // group: DeclGroup @14
+}
+
+/// VarDecl - 'var' and 'const' declarations.
+message ValueDecl { //: Decl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType type = 15;
+
+  ///
+  Expression initial_value = 13;
+
+  ///
+  //DeclGroup group = 14;
+}
+
+///
+message VariableDecl { //: ValueDecl
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType type = 15;
+
+  ///
+  Expression initial_value = 13;
+
+  ///
+  //DeclGroup group = 14;
+}
+
+///
+message ConstantDecl { //: ValueDecl
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// source file full name which the decl in
+  string source_file_name = 7;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType type = 15;
+
+  ///
+  Expression initial_value = 13;
+
+  ///
+  //DeclGroup group = 14;
+}
+
+/// A declaration of a generic type parameter.
+///
+/// A generic type parameter introduces a new, named type parameter along
+/// with some set of requirements on any type argument used to realize this
+/// type parameter. The requirements involve conformances to specific
+/// protocols or inheritance from a specific class type.
+///
+/// In the following example, 'T' is a generic type parameter with the
+/// requirement that the type argument conform to the 'Comparable' protocol.
+///
+/// \code
+/// func min<T : Comparable>(x : T, y : T) -> T { ... }
+/// \endcode
+
+/// A type declaration that can have generic parameters attached to it.  Because
+/// it has these generic parameters, it is always a DeclContext.
+message GenericParameter { // : TypeDecl @skip_fields() {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  bool implicit = 8;
+
+  ///
+  string name = 10;
+
+  ///
+  repeated GenericParameter generic_parameters = 11;
+
+  ///
+  repeated Attribute attributes = 12;
+
+  ///
+  NominalType constraint = 15;
+}
+
+///
+message Attribute {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6;
+
+  /// the package which this attribute belong to
+  string name = 10;
+
+  repeated NominalType generic_arguments = 14;
+
+  repeated Expression arguments = 15;
+}
+
+///
+///
+message GroupDecl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  string package_name = 6;
+
+  /// come from `decl_group_name` attribute, otherwise will be the index from "0"
+  string name = 11;
+
+  /// may be the `struct`, `enum`, `const`, `var`, `attribute`, `interface`
+  string type = 12;
+  
+  ///
+  repeated Attribute attributes = 13;
+
+  ///
+  repeated Declaration declarations = 14;
+}
+
+
+message ReferencedPackage {
+  oneof referenced_package {
+      string      key = 1;
+      Package package = 2;
+  }
+}
+
+/// A Package represents a set of source files
+/// collectively building a Mojo package.
+message Package {
+  message Requirement {
+    message Version {
+      enum Type {
+          caret = 0;
+          tilde = 1;
+          wildcard = 2;
+          comparison = 3;
+      }
+      Type type = 1;
+      mojo.core.VersionRange range = 2;
+    }
+
+    Version version = 1;
+
+    ///
+    string registry = 3;
+    
+    ///
+    string path = 4;
+    
+    ///
+    mojo.core.Url repository = 5;
+    
+    ///
+    string branch = 6;
+  }
+
+  /// package name
+  string name = 1;
+
+  ///
+  string full_name = 2;
+
+  ///
+  mojo.core.Version version = 3;
+
+  ///
+  ReferencedPackage parent = 4;
+
+  ///
+  repeated Package children = 5;
+
+  ///
+  string summary = 10;
+
+  ///
+  mojo.core.Url repository = 11;
+
+  ///
+  string license = 12;
+
+  ///
+  //Import imports = 13;
+
+  ///
+  //repeated string exports = 14;
+
+  ///
+  map<string, Requirement> dependencies = 15;
+
+  ///
+  //source_directories: [String] @16
+
+  ///
+  repeated SourceFile source_files = 17;
+
+  ///
+  Scope scope = 20;
+
+  /// User information added to the field.
+  mojo.core.Object extra_info = 30;
+
+  //
+  map<string, Package> resolved_dependencies = 31;
+}
+
+message Scope {
+  map<string, Identifier> identifiers = 1;
+}
+
+message Identifier {
+  string package = 1;
+  string source_file = 2;
+
+  Position start_position = 3;
+
+  repeated string enclosing_type_names = 4;
+
+  string kind = 5; // type-alias, enum, struct, interface, attribute, function, constant, variable
+
+  string name = 6;
+
+  string full_name = 7;
+
+  Declaration declaration = 10;
+
+  Scope domain = 11;
+
+  repeated Attribute attributes = 30;
+}
+
+// A File node represents a Go source file.
+//
+// The Comments list contains all comments in the source file in order of
+// appearance, including the comments that are pointed to from other nodes
+// via Doc and Comment fields.
+//
+// For correct printing of source code containing comments (using packages
+// go/format and go/printer), special care must be taken to update comments
+// when a File's syntax tree is modified: For printing, comments are
+// interspersed between tokens based on their position. If syntax tree nodes are
+// removed or moved, relevant comments in their vicinity must also be removed
+// (from the File.Comments list) or moved accordingly (by updating their
+// positions). A CommentMap may be used to facilitate some of these operations.
+//
+// Whether and how a comment is associated with a node depends on the
+// interpretation of the syntax tree by the manipulating program: Except for Doc
+// and Comment comments directly associated with nodes, the remaining comments
+// are "free-floating" (see also issues #18593, #20744).
+//
+message SourceFile {
+  string name = 1;
+  string full_name = 2;
+  string package = 10;
+  // scope:      Scope @4
+
+  repeated Attribute attributes = 3;
+
+  /// statements
+  repeated Statement statements = 5;
+
+  ///
+  // decl_groups: [DeclGroup] @6
+
+  Scope scope = 20;
+
+  repeated Identifier resolved_identifiers = 21;
+
+  repeated Identifier unresolved_identifiers = 22;
+}
+
+/// There are 3 main classes of nodes: Expressions nodes,
+/// statement nodes, and declaration nodes. The node names usually
+/// match the corresponding Go spec production names to which they
+/// correspond. The node fields correspond to the individual parts
+/// of the respective productions.
+///
+/// All nodes contain position information marking the beginning of
+/// the corresponding source text segment; it is accessible via the
+/// Pos accessor method. Nodes may contain additional position info
+/// for language constructs where comments may be found between parts
+/// of the construct (typically any larger, parenthesized subpart).
+/// That position information is needed to properly position comments
+/// when printing the construct.
+///
+///
+message Statement {
+  oneof statement {
+    // ReturnStmt   @1 |
+    // BreakStmt    @2 |
+    // ContinueStmt @3 |
+    // MatchStmt    @4 |
+    // IfStmt       @5 |
+    // ForStmt      @6 |
+    // WhileStmt    @7 |
+    // RepeatStmt   @8 |
+    // BlockStmt    @9 |
+    Declaration declaration = 10;
+    Expression expression = 11;
+  }
+}
+
+message ImportDecl { //: Decl {
+  message Identifier {
+      string name = 10;
+      string alias = 11;
+  }
+
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  string package = 6; // current the package
+  
+  string import_package = 10;
+  string import_package_alias = 11;
+  string import_package_full_name = 12;
+
+  repeated Identifier identifiers = 15;
+}
+
+message PackageDecl {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  /// reserved field no. 3 for string document
+  Document document = 4;
+
+  ///
+  Package package = 5;
+
+  string name = 10;
+
+  ObjectLiteralExpr package_literal_expr = 11;
+
+  //repeated Package enclosing_packages = 11;
+}
+
+
+message Expression {
+  oneof expression {
+    NullLiteralExpr null_literal_expr = 1;
+    BoolLiteralExpr bool_literal_expr = 2;
+    IntegerLiteralExpr integer_literal_expr = 3;
+    FloatLiteralExpr float_literal_expr = 4;
+    StringLiteralExpr string_literal_expr = 5;
+    ArrayLiteralExpr array_literal_expr = 6;
+    DictionaryLiteralExpr dictionary_literal_expr = 7;
+    ObjectLiteralExpr object_literal_expr = 8;
+    IdentifierExpr identifier_expr = 10;
+  }
+}
+
+/// The 'null' literal.
+///
+message NullLiteralExpr { //: LiteralExpr
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  int32 kind = 3;
+
+  /// Whether the Expr represents something directly written in source or
+  /// it was implicitly generated by the type-checker.
+  bool implicit = 4;
+}
+
+/// \brief Integer literal with a '+' or '-' sign, like '+4' or '- 2'.
+///
+/// After semantic analysis assigns types, this is guaranteed to only have
+/// a BuiltinIntegerType.
+message IntegerLiteralExpr { //: NumericLiteralExpr {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  int32 kind = 3;
+
+  /// Whether the Expr represents something directly written in source or
+  /// it was implicitly generated by the type-checker.
+  bool implicit = 4;
+
+  bool is_negative = 9;
+
+  int64 value = 10;
+}
+
+/// FloatLiteralExpr - Floating point literal, like '4.0'.  After semantic
+/// analysis assigns types, this is guaranteed to only have a
+/// BuiltinFloatingPointType.
+message FloatLiteralExpr { //: NumberLiteralExpr {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  int32 kind = 3;
+
+  /// Whether the Expr represents something directly written in source or
+  /// it was implicitly generated by the type-checker.
+  bool implicit = 4;
+
+  bool is_negative = 9;
+
+  double value = 10;
+}
+
+/// A Boolean literal ('true' or 'false')
+///
+message BoolLiteralExpr { //: LiteralExpr {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  int32 kind = 3;
+
+  /// Whether the Expr represents something directly written in source or
+  /// it was implicitly generated by the type-checker.
+  bool implicit = 4;
+
+  bool value = 10;
+}
+
+/// StringLiteralExpr - String literal, like '"foo"'.
+message StringLiteralExpr { //: LiteralExpr {
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  int32 kind = 3;
+
+  /// Whether the Expr represents something directly written in source or
+  /// it was implicitly generated by the type-checker.
+  bool implicit = 4;
+
+  string value = 10;
+}
+
+/// An array literal expression [a, b, c].
+message ArrayLiteralExpr { //: CollectionExpr
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  int32 kind = 3;
+
+  /// Whether the Expr represents something directly written in source or
+  /// it was implicitly generated by the type-checker.
+  bool implicit = 4;
+
+  repeated Expression values = 10;
+}
+
+/// \brief A dictionary literal expression {a : x, b : y, c : z}.
+message DictionaryLiteralExpr { // : public CollectionLiteralExpr
+  /// position of first character belonging to the Expr
+  Position start_position = 1;
+
+  /// position of first character immediately after the Expr
+  Position end_position = 2;
+
+  ///
+  int32 kind = 3;
+
+  /// Whether the Expr represents something directly written in source or
+  /// it was implicitly generated by the type-checker.
+  bool implicit = 4;
+
+  map<string, string> value = 10;
+}
+
+// ObjectLiteralExpr - An expression of the form
+// '{red: 1, blue: 0, green: 0, alpha: 1}' with a name and a list
+// argument. The components of the list argument are meant to be themselves
+// constant.
+message ObjectLiteralExpr {//: LiteralExpr
+    message Field {
+      Expression name = 1;
+      Expression value = 2;
+    }
+
+    /// position of first character belonging to the Expr
+    Position start_position = 1;
+
+    /// position of first character immediately after the Expr
+    Position end_position = 2;
+
+    ///
+    int32 kind = 3;
+
+    /// Whether the Expr represents something directly written in source or
+    /// it was implicitly generated by the type-checker.
+    bool implicit = 4;
+
+    repeated Field fields = 15;
+}
+
+/// TupleExpr - Parenthesized expressions like `(a: x+x)` and '(x, y, 4)'.  Also
+/// used to represent the operands to a binary operator.  Note that
+/// expressions like '(4)' are represented with a ParenExpr.
+message TupleExpr {//: Expr {
+  /// Whether this tuple has any labels.
+  //has_element_names : Bool
+
+  /// Whether this tuple has label locations.
+  //has_element_locations : Bool
+}
+
+/// DiscardAssignmentExpr - A '_' in the left-hand side of an assignment, which
+/// discards the corresponding tuple element on the right-hand side.
+// type DiscardAssignmentExpr : Expr
+
+
+/// MemberRefExpr - This represents 'a.b' where we are referring to a member
+/// of a type, such as a property or variable.
+///
+/// Note that methods found via 'dot' syntax are expressed as DotSyntaxCallExpr
+/// nodes, because 'a.f' is actually an application of 'a' (the implicit object
+/// argument) to the function 'f'.
+message MemberExpr {
+    /// position of first character belonging to the Expr
+    Position start_position = 1;
+
+    /// position of first character immediately after the Expr
+    Position end_position = 2;
+
+    ///
+    int32 kind = 3;
+
+    /// Whether the Expr represents something directly written in source or
+    /// it was implicitly generated by the type-checker.
+    bool implicit = 4;
+}
+
+message IdentifierExpr {
+    /// position of first character belonging to the Expr
+    Position start_position = 1;
+
+    /// position of first character immediately after the Expr
+    Position end_position = 2;
+
+    ///
+    int32 kind = 3;
+
+    /// Whether the Expr represents something directly written in source or
+    /// it was implicitly generated by the type-checker.
+    bool implicit = 4;
+
+    Identifier identifier = 10;
+
+    repeated NominalType generic_arguments = 11;
+}

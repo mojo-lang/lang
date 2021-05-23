@@ -9,19 +9,41 @@
 //	Con     int               iota for the respective declaration
 //
 type Identifier {
-    package: String @1
+    enum Kind {
+        unspecified @0
+        enum @3
+        struct @4
+        type_alias @5 @alias("type-alias")
+        interface @6
+        constant @10
+        variable @11
+        attribute @12
+        function @13
+        generic_parameter @14 @alias("generic-parameter")
+
+        type @20
+        value @21
+    }
+
+    start_position: Position @1 // identifier position
+
+    end_position: Position @2 // identifier position
+
+    kind: Kind @3
+
+    package: String @5
     
-    source_file: String @2
+    source_file: String @6
 
-    position: Position @3 // identifier position
+    name: String @10
 
-    enclosing_type_names: [String] @4
+    declaration: Declaration @11 @reference @serialization(false)
 
-    type: String @5 // type-alias, enum, struct, interface, attribute, function, constant, variable
+    alias: String @12
 
-    name: String @6
+    full_name: String @20
 
-    full_name: String @7
+    enclosing_type_names: [String] @21
 
-    declaration: Declaration @10 @reference @serialization(false)
+    //domain: Scope @11
 }

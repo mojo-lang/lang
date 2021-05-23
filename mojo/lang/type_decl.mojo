@@ -8,10 +8,10 @@ type TypeDecl : Decl {
     full_name: String @11
     
     ///
-    generic_parameters: [GenericParameter] @12
+    attributes: [Attribute] @12
 
     ///
-    attributes: [Attribute] @13
+    generic_parameters: [GenericParameter] @13
 
     ///
     enclosing_type : NominalType @14
@@ -20,5 +20,8 @@ type TypeDecl : Decl {
     group: GroupDecl @15
 
     ///
-    dependencies: [Identifier] @16
+    resolved_identifiers: [Identifier] @16
+
+    ///
+    unresolved_identifiers:  [Identifier] @17 //< unresolved identifiers in this file
 }
