@@ -5,7 +5,7 @@ type TypeDecl : Decl {
     name: String @10
 
     // mojo.core.Cached
-    full_name: String @11
+    //full_name: String @11
     
     ///
     attributes: [Attribute] @12

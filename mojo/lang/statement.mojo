@@ -14,7 +14,9 @@
 
 ///
 ///
-type Statement : ReturnStmt   @1 |
+@discriminator('@type')
+@label_format('{}')
+type Statement = ReturnStmt   @1 |
                  BreakStmt    @2 |
                  ContinueStmt @3 |
                  MatchStmt    @4 |

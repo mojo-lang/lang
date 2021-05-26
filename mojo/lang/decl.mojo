@@ -8,7 +8,7 @@ type Decl {
     end_position:   Position @2
 
     ///
-    document : Cached<document.Document> @4
+    document : Cached<Document> @4
 
     /// package full name which the decl in
     package_name: String @5

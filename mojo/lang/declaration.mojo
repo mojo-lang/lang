@@ -1,6 +1,7 @@
 ///
 ///
 @discriminator('@type')
+@label_format('{}')
 type Declaration = PackageDecl     @1
                  | ImportDecl      @2
                  | EnumDecl        @3

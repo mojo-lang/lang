@@ -27,7 +27,7 @@ type SourceFile {
     /// 循环依赖文件名称 'circle_dependency'
     attributes: [Attribute]  @4
 
-    package:    PackageDecl  @10 @reference
+    package_name:  String  @10
 
     imports:    [ImportDecl] @11 //< imports in this file
 

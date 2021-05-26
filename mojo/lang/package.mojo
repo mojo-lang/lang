@@ -43,13 +43,15 @@ type Package {
     version: Version @3
 
     ///
-    parent: Package @4 @reference('full_name')
+    parent: Referenced<Package> @4 @reference('full_name')
 
     ///
     children: [Package] @5
 
     //
     authors: [String] @6
+
+    summary: String @7
 
     /// A description of the package.
     description: String @10
@@ -75,6 +77,8 @@ type Package {
     /// package scope across all files
     scope: Scope @20
 
+    extra_info: Object @25
+
     ///
     dependencies: {String: Requirement} @30
 
@@ -82,7 +86,8 @@ type Package {
     resolved_dependencies: {String: Package} @31
 }
 
+//type ReferencedPackage = Referenced<Package>
+
 func to<T:String>(package: Package) -> T {
     return package.full_name
 }
-

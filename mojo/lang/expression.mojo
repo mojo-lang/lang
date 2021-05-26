@@ -1,4 +1,7 @@
-type Expression = NoneLiteralExpr    @1
+
+@discriminator('@type')
+@label_format('{}')
+type Expression = NullLiteralExpr    @1
                 | IntegerLiteralExpr @2
                 | FloatLiteralExpr   @3
                 | BoolLiteralExpr    @4

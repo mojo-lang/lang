@@ -29,4 +29,6 @@
 type EnumDecl : TypeDecl @disable_fields("generic_parameters") {
     ///
     type: EnumType @20
+
+    scope:   Scope @30
 }

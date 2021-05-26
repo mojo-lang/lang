@@ -4,6 +4,9 @@ type ValueDecl : Decl {
     name: String @10
 
     ///
+    attributes: [Attribute] @12
+
+    ///
     group: GroupDecl @15
 
     ///
