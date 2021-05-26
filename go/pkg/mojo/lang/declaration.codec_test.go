@@ -6,13 +6,18 @@ import (
 	"testing"
 )
 
-const EnumDeclStr = `{"@type":"EnumDecl","name":"Foo","type":{"package":"mojo.lang.test"}}`
+const EnumDeclStr = `{"@type":"EnumDecl","name":"Foo","packageName":"mojo.lang.test","type":{"enumerators":[{"name":"a"}]}}`
 
 func TestDeclarationCodec_Encode(t *testing.T) {
 	decl := NewEnumDecl(&EnumDecl{
-		Name: "Foo",
+		Name:        "Foo",
+		PackageName: "mojo.lang.test",
 		Type: &EnumType{
-			//Package: "mojo.lang.test",
+			Enumerators: []*ValueDecl{
+				{
+					Name: "a",
+				},
+			},
 		},
 	})
 
