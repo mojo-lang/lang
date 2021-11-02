@@ -6,7 +6,7 @@
 ///   }
 /// ```
 ///
-type InterfaceDecl : TypeDecl @skip_fields(enclosing_type) {
+type InterfaceDecl : TypeDecl @ignore_fields(enclosing_type) {
     ///
     type: InterfaceType @20
 

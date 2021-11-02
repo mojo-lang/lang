@@ -26,7 +26,7 @@
 //}
 
 ///
-type EnumDecl : TypeDecl @disable_fields("generic_parameters") {
+type EnumDecl : TypeDecl @ignore_fields("generic_parameters") {
     ///
     type: EnumType @20
 

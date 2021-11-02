@@ -1,6 +1,7 @@
 package lang
 
 import (
+	"fmt"
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"strings"
 )
@@ -40,6 +41,21 @@ func GetPackageParentNames(fullName string) []string {
 		parents = append(parents, strings.Join(segments[:i+1], "."))
 	}
 	return parents
+}
+
+func GetGoPackageName(fullName string) string {
+	segments := strings.Split(fullName, ".")
+	if len(segments) > 0 {
+		name := segments[len(segments)-1]
+		if core.IsVersionTag(name) {
+			if len(segments) > 1 {
+				name = segments[len(segments)-2]
+			}
+		}
+		return name
+	}
+
+	return ""
 }
 
 func (m *Package) ParentName() string {
@@ -135,6 +151,44 @@ func (m *Package) GetOrganization() string {
 		}
 	}
 
+	return ""
+}
+
+func (m *Package) HasChild(name string) bool {
+	for _, p := range m.Children {
+		if p.FullName == name {
+			return true
+		}
+	}
+	return false
+}
+
+func (m *Package) GoModName() string {
+	if m.Repository != nil {
+		return fmt.Sprintf("%s%s/go", m.Repository.GetAuthority().GetHost(), m.Repository.GetPath())
+	}
+	return ""
+}
+
+func (m *Package) GoFullPackageName() string {
+	if m.Repository != nil {
+		fullName := strings.ReplaceAll(m.FullName, ".", "/")
+		return fmt.Sprintf("%s/pkg/%s", m.GoModName(), fullName)
+	}
+	return ""
+}
+
+func (m *Package) GoPackageName() string {
+	if m.Repository != nil {
+		name := m.Name
+		if core.IsVersionTag(name) {
+			segments := strings.Split(m.FullName, ".")
+			if len(segments) > 1 {
+				name = segments[len(segments)-2]
+			}
+		}
+		return name
+	}
 	return ""
 }
 

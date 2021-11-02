@@ -77,15 +77,6 @@ func (m *Argument) GetStringLiteralExpr() *StringLiteralExpr {
 	return nil
 }
 
-func (m *Argument) GetString() *string {
-	if m != nil && m.Value != nil {
-		if expr := m.Value.GetStringLiteralExpr(); expr != nil {
-			return &expr.Value
-		}
-	}
-	return nil
-}
-
 func (m *Argument) GetObjectLiteralExpr() *ObjectLiteralExpr {
 	if m != nil && m.Value != nil {
 		return m.Value.GetObjectLiteralExpr()
@@ -112,4 +103,44 @@ func (m *Argument) GetIdentifierExpr() *IdentifierExpr {
 		return m.Value.GetIdentifierExpr()
 	}
 	return nil
+}
+
+func (m *Argument) GetBool() (bool, error) {
+	return m.GetValue().EvalBoolLiteral()
+}
+
+func (m *Argument) GetInteger() (int64, error) {
+	return m.GetValue().EvalIntegerLiteral()
+}
+
+func (m *Argument) GetFloat() (float64, error) {
+	return m.GetValue().EvalFloatLiteral()
+}
+
+func (m *Argument) GetString() (string, error) {
+	return m.GetValue().EvalStringLiteral()
+}
+
+func (m *Argument) GetArray() ([]*Expression, error) {
+	return m.GetValue().EvalArrayLiteral()
+}
+
+func (m *Argument) GetIntegerArray() ([]int64, error) {
+	return m.GetValue().EvalIntegerArrayLiteral()
+}
+
+func (m *Argument) GetFloatArray() ([]float64, error) {
+	return m.GetValue().EvalFloatArrayLiteral()
+}
+
+func (m *Argument) GetStringArray() ([]string, error) {
+	return m.GetValue().EvalStringArrayLiteral()
+}
+
+func (m *Argument) IterateDictionary(iterator func(key *Expression, value *Expression) error) error {
+	return m.GetValue().EvalDictionaryLiteral(iterator)
+}
+
+func (m *Argument) IterateStringDictionary(iterator func(key string, value *Expression) error) error {
+	return m.GetValue().EvalStringDictionaryLiteral(iterator)
 }

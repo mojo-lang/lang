@@ -55,6 +55,33 @@ func (m *NominalType) IsEnum() bool {
 	return m.TypeDeclaration != nil && m.TypeDeclaration.GetEnumDecl() != nil
 }
 
+func (m *NominalType) IsScalar() bool {
+	if m == nil {
+		return false
+	}
+	if m.TypeDeclaration != nil {
+		if decl := m.TypeDeclaration.GetStructDecl(); decl != nil {
+			switch decl.GetFullName() {
+			case "mojo.core.Bool", "mojo.core.Int8", "mojo.core.Int16", "mojo.core.Int32", "mojo.core.Int64",
+				"mojo.core.Int", "mojo.core.UInt8", "mojo.core.UInt16", "mojo.core.UInt32", "mojo.core.UInt64",
+				"mojo.core.UInt", "mojo.core.Float", "mojo.core.Double", "mojo.core.Float32", "mojo.core.Float64",
+				"mojo.core.String", "mojo.core.Bytes":
+				return true
+			default:
+				return false
+			}
+		} else if alias := m.TypeDeclaration.GetTypeAliasDecl(); alias != nil {
+			switch alias.GetFullName() {
+			case "mojo.core.Int", "mojo.core.UInt", "mojo.core.Float", "mojo.core.Double":
+				return true
+			default:
+				return false
+			}
+		}
+	}
+	return false
+}
+
 func (m *NominalType) IsArrayType() bool {
 	return m.isType("mojo.core.Array")
 }

@@ -9,7 +9,7 @@
 /// including the file, line, and column location.
 /// A Position is valid if the line number is > 0.
 ///
-@template()
+@format()
 type Position {
   	filename: String @1 //< filename, if any
   	offset:   Int    @2 //< offset, starting at 0 (byte count)
@@ -17,7 +17,7 @@ type Position {
   	column:   Int    @4 //< column number, starting at 1 (byte count)
 }
 
-type PositionSpan : [Position] @fixed(2)
+type PositionSpan : [Position] @fixed_length(2)
 
 /// valid reports whether the position is valid.
 func valid(pos: Position) -> Bool {
@@ -68,7 +68,7 @@ func valid(p: Pos) -> Bool {
     return p != no_pos
 }
 
-type PosSpan = [Int] @fixed(2)
+type PosSpan = [Int] @fixed_length(2)
 
 func start(span: PosSpan) -> Pos {
     return span[0];

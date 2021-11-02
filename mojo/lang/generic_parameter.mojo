@@ -14,7 +14,7 @@
 
 /// A type declaration that can have generic parameters attached to it.  Because
 /// it has these generic parameters, it is always a DeclContext.
-type GenericParameter : TypeDecl @skip_fields("full_name") {
+type GenericParameter : TypeDecl @ignore_fields("full_name") {
     ///
     constraint: NominalType @20
 }

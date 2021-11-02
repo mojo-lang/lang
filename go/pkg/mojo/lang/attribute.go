@@ -2,18 +2,67 @@ package lang
 
 import "errors"
 
-func sameName(attribute *Attribute, fullName string) bool {
+func (m *Attribute) SameName(fullName string) bool {
+	if m == nil {
+		return false
+	}
+
 	pkg, name := ParseIdentifierName(fullName)
 	if len(pkg) > 0 {
-		return attribute.Package == pkg && attribute.Name == name
+		return m.Package == pkg && m.Name == name
 	} else {
-		return attribute.Name == name
+		return m.Name == name
 	}
+}
+
+func GetAttribute(attributes []*Attribute, name string) *Attribute {
+	for _, attribute := range attributes {
+		if attribute.SameName(name) {
+			return attribute
+		}
+	}
+	return nil
+}
+
+// make sure returned Argument list which length greater than 0
+func GetAttributeArguments(attributes []*Attribute, name string) ([]*Argument, error) {
+	for _, attribute := range attributes {
+		if attribute.SameName(name) {
+			if len(attribute.Arguments) > 0 {
+				return attribute.Arguments, nil
+			} else {
+				break
+			}
+		}
+	}
+	return nil, errors.New("NotFound")
+}
+
+func GetAttributeArgument(attributes []*Attribute, name string) (*Argument, error) {
+	for _, attribute := range attributes {
+		if attribute.SameName(name) {
+			if len(attribute.Arguments) > 0 {
+				return attribute.Arguments[0], nil
+			} else {
+				break
+			}
+		}
+	}
+	return nil, errors.New("NotFound")
+}
+
+func HasAttribute(attributes []*Attribute, name string) bool {
+	for _, attribute := range attributes {
+		if attribute.SameName(name) {
+			return true
+		}
+	}
+	return false
 }
 
 func GetBoolAttribute(attributes []*Attribute, name string) (bool, error) {
 	for _, attribute := range attributes {
-		if sameName(attribute, name) {
+		if attribute.SameName(name) {
 			if len(attribute.Arguments) > 0 {
 				if value := attribute.Arguments[0].Value.GetBoolLiteralExpr(); value != nil {
 					return value.Value, nil
@@ -28,7 +77,7 @@ func GetBoolAttribute(attributes []*Attribute, name string) (bool, error) {
 
 func SetBoolAttribute(attributes []*Attribute, name string, value bool) []*Attribute {
 	for _, attribute := range attributes {
-		if sameName(attribute, name) {
+		if attribute.SameName(name) {
 			if len(attribute.Arguments) > 0 {
 				attribute.Arguments[0].Value = NewBoolLiteralExpr(&BoolLiteralExpr{
 					Kind:     0,
@@ -40,8 +89,10 @@ func SetBoolAttribute(attributes []*Attribute, name string, value bool) []*Attri
 		}
 	}
 
+	pkg, n := ParseIdentifierName(name)
 	attributes = append(attributes, &Attribute{
-		Name: name,
+		Package: pkg,
+		Name:    n,
 		Arguments: []*Argument{
 			{
 				Value: NewBoolLiteralExpr(&BoolLiteralExpr{
@@ -57,21 +108,16 @@ func SetBoolAttribute(attributes []*Attribute, name string, value bool) []*Attri
 }
 
 func GetIntegerAttribute(attributes []*Attribute, name string) (int64, error) {
-	for _, attribute := range attributes {
-		if sameName(attribute, name) {
-			if len(attribute.Arguments) > 0 {
-				if integer := attribute.Arguments[0].GetIntegerLiteralExpr(); integer != nil {
-					return integer.EvalValue(), nil
-				}
-			}
-		}
+	argument, err := GetAttributeArgument(attributes, name)
+	if err != nil {
+		return 0, err
 	}
-	return 0, errors.New("NotFound")
+	return argument.GetInteger()
 }
 
 func SetIntegerAttribute(attributes []*Attribute, name string, value int64) []*Attribute {
 	for _, attribute := range attributes {
-		if sameName(attribute, name) {
+		if attribute.SameName(name) {
 			if len(attribute.Arguments) > 0 {
 				attribute.Arguments[0] = NewIntegerLiteralArgument(&IntegerLiteralExpr{
 					Kind:     0,
@@ -83,8 +129,10 @@ func SetIntegerAttribute(attributes []*Attribute, name string, value int64) []*A
 		}
 	}
 
+	pkg, n := ParseIdentifierName(name)
 	attributes = append(attributes, &Attribute{
-		Name: name,
+		Package: pkg,
+		Name:    n,
 		Arguments: []*Argument{NewIntegerLiteralArgument(&IntegerLiteralExpr{
 			Kind:     0,
 			Implicit: false,
@@ -97,21 +145,16 @@ func SetIntegerAttribute(attributes []*Attribute, name string, value int64) []*A
 }
 
 func GetStringAttribute(attributes []*Attribute, name string) (string, error) {
-	for _, attribute := range attributes {
-		if sameName(attribute, name) {
-			if len(attribute.Arguments) > 0 {
-				if value := attribute.Arguments[0].GetStringLiteralExpr(); value != nil {
-					return value.Value, nil
-				}
-			}
-		}
+	argument, err := GetAttributeArgument(attributes, name)
+	if err != nil {
+		return "", err
 	}
-	return "", errors.New("NotFound")
+	return argument.GetString()
 }
 
 func SetStringAttribute(attributes []*Attribute, name string, value string) []*Attribute {
 	for _, attribute := range attributes {
-		if sameName(attribute, name) {
+		if attribute.SameName(name) {
 			if len(attribute.Arguments) > 0 {
 				attribute.Arguments[0] = NewStringLiteralArgument(&StringLiteralExpr{
 					Kind:     0,
@@ -123,8 +166,10 @@ func SetStringAttribute(attributes []*Attribute, name string, value string) []*A
 		}
 	}
 
+	pkg, n := ParseIdentifierName(name)
 	attributes = append(attributes, &Attribute{
-		Name: name,
+		Package: pkg,
+		Name:    n,
 		Arguments: []*Argument{NewStringLiteralArgument(&StringLiteralExpr{
 			Kind:     0,
 			Implicit: false,
@@ -138,7 +183,7 @@ func SetStringAttribute(attributes []*Attribute, name string, value string) []*A
 func RemoveAttribute(attributes []*Attribute, name string) []*Attribute {
 	var newAttributes []*Attribute
 	for _, attribute := range attributes {
-		if sameName(attribute, name) {
+		if attribute.SameName(name) {
 			continue
 		}
 		newAttributes = append(newAttributes, attribute)
