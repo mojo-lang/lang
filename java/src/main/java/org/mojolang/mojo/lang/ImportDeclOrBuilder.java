@@ -83,28 +83,28 @@ public interface ImportDeclOrBuilder extends
   boolean getImplicit();
 
   /**
-   * <code>string package = 10;</code>
-   * @return The package.
+   * <code>string import_package_name = 10;</code>
+   * @return The importPackageName.
    */
-  java.lang.String getPackage();
+  java.lang.String getImportPackageName();
   /**
-   * <code>string package = 10;</code>
-   * @return The bytes for package.
+   * <code>string import_package_name = 10;</code>
+   * @return The bytes for importPackageName.
    */
   com.google.protobuf.ByteString
-      getPackageBytes();
+      getImportPackageNameBytes();
 
   /**
-   * <code>string package_alias = 11;</code>
-   * @return The packageAlias.
+   * <code>string import_package_alias = 11;</code>
+   * @return The importPackageAlias.
    */
-  java.lang.String getPackageAlias();
+  java.lang.String getImportPackageAlias();
   /**
-   * <code>string package_alias = 11;</code>
-   * @return The bytes for packageAlias.
+   * <code>string import_package_alias = 11;</code>
+   * @return The bytes for importPackageAlias.
    */
   com.google.protobuf.ByteString
-      getPackageAliasBytes();
+      getImportPackageAliasBytes();
 
   /**
    * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>

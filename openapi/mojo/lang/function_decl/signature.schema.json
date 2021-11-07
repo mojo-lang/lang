@@ -1,1 +1,1 @@
-{"title":"mojo.lang.FunctionDecl.Signature","type":"object","properties":{"parameters":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.ValueDecl"}},"result":{"$ref":"#/components/schemas/mojo.lang.NominalType"}}}
+{"title":"mojo.lang.FunctionDecl.Signature","description":"","type":"object","properties":{"parameters":{"description":"","type":"array","items":{"$ref":"#/components/schemas/mojo.lang.ValueDecl"}},"result":{"$ref":"#/components/schemas/mojo.lang.NominalType"}}}

@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Import() {
-    package_ = "";
+    packageName_ = "";
     identifiers_ = java.util.Collections.emptyList();
   }
 
@@ -54,7 +54,7 @@ private static final long serialVersionUID = 0L;
           case 82: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            package_ = s;
+            packageName_ = s;
             break;
           }
           case 106: {
@@ -101,38 +101,38 @@ private static final long serialVersionUID = 0L;
             org.mojolang.mojo.lang.Import.class, org.mojolang.mojo.lang.Import.Builder.class);
   }
 
-  public static final int PACKAGE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object package_;
+  public static final int PACKAGE_NAME_FIELD_NUMBER = 10;
+  private volatile java.lang.Object packageName_;
   /**
-   * <code>string package = 10;</code>
-   * @return The package.
+   * <code>string package_name = 10;</code>
+   * @return The packageName.
    */
   @java.lang.Override
-  public java.lang.String getPackage() {
-    java.lang.Object ref = package_;
+  public java.lang.String getPackageName() {
+    java.lang.Object ref = packageName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      package_ = s;
+      packageName_ = s;
       return s;
     }
   }
   /**
-   * <code>string package = 10;</code>
-   * @return The bytes for package.
+   * <code>string package_name = 10;</code>
+   * @return The bytes for packageName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPackageBytes() {
-    java.lang.Object ref = package_;
+      getPackageNameBytes() {
+    java.lang.Object ref = packageName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      package_ = b;
+      packageName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -193,8 +193,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getPackageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, package_);
+    if (!getPackageNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, packageName_);
     }
     for (int i = 0; i < identifiers_.size(); i++) {
       output.writeMessage(13, identifiers_.get(i));
@@ -208,8 +208,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getPackageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, package_);
+    if (!getPackageNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, packageName_);
     }
     for (int i = 0; i < identifiers_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -230,8 +230,8 @@ private static final long serialVersionUID = 0L;
     }
     org.mojolang.mojo.lang.Import other = (org.mojolang.mojo.lang.Import) obj;
 
-    if (!getPackage()
-        .equals(other.getPackage())) return false;
+    if (!getPackageName()
+        .equals(other.getPackageName())) return false;
     if (!getIdentifiersList()
         .equals(other.getIdentifiersList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -245,8 +245,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PACKAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getPackage().hashCode();
+    hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getPackageName().hashCode();
     if (getIdentifiersCount() > 0) {
       hash = (37 * hash) + IDENTIFIERS_FIELD_NUMBER;
       hash = (53 * hash) + getIdentifiersList().hashCode();
@@ -385,7 +385,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      package_ = "";
+      packageName_ = "";
 
       if (identifiersBuilder_ == null) {
         identifiers_ = java.util.Collections.emptyList();
@@ -420,7 +420,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.Import buildPartial() {
       org.mojolang.mojo.lang.Import result = new org.mojolang.mojo.lang.Import(this);
       int from_bitField0_ = bitField0_;
-      result.package_ = package_;
+      result.packageName_ = packageName_;
       if (identifiersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           identifiers_ = java.util.Collections.unmodifiableList(identifiers_);
@@ -478,8 +478,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.mojolang.mojo.lang.Import other) {
       if (other == org.mojolang.mojo.lang.Import.getDefaultInstance()) return this;
-      if (!other.getPackage().isEmpty()) {
-        package_ = other.package_;
+      if (!other.getPackageName().isEmpty()) {
+        packageName_ = other.packageName_;
         onChanged();
       }
       if (identifiersBuilder_ == null) {
@@ -538,78 +538,78 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object package_ = "";
+    private java.lang.Object packageName_ = "";
     /**
-     * <code>string package = 10;</code>
-     * @return The package.
+     * <code>string package_name = 10;</code>
+     * @return The packageName.
      */
-    public java.lang.String getPackage() {
-      java.lang.Object ref = package_;
+    public java.lang.String getPackageName() {
+      java.lang.Object ref = packageName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        package_ = s;
+        packageName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string package = 10;</code>
-     * @return The bytes for package.
+     * <code>string package_name = 10;</code>
+     * @return The bytes for packageName.
      */
     public com.google.protobuf.ByteString
-        getPackageBytes() {
-      java.lang.Object ref = package_;
+        getPackageNameBytes() {
+      java.lang.Object ref = packageName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        package_ = b;
+        packageName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string package = 10;</code>
-     * @param value The package to set.
+     * <code>string package_name = 10;</code>
+     * @param value The packageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackage(
+    public Builder setPackageName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      package_ = value;
+      packageName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 10;</code>
+     * <code>string package_name = 10;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPackage() {
+    public Builder clearPackageName() {
       
-      package_ = getDefaultInstance().getPackage();
+      packageName_ = getDefaultInstance().getPackageName();
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 10;</code>
-     * @param value The bytes for package to set.
+     * <code>string package_name = 10;</code>
+     * @param value The bytes for packageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackageBytes(
+    public Builder setPackageNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      package_ = value;
+      packageName_ = value;
       onChanged();
       return this;
     }

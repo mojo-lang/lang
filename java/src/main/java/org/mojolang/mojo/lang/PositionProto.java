@@ -25,10 +25,10 @@ public final class PositionProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_mojo_lang_PositionSpan_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_mojo_lang_Ints_descriptor;
+    internal_static_mojo_lang_PosSpan_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_mojo_lang_Ints_fieldAccessorTable;
+      internal_static_mojo_lang_PosSpan_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -42,10 +42,10 @@ public final class PositionProto {
       "\010Position\022\020\n\010filename\030\001 \001(\t\022\016\n\006offset\030\002 " +
       "\001(\003\022\014\n\004line\030\003 \001(\003\022\016\n\006column\030\004 \001(\003\"3\n\014Pos" +
       "itionSpan\022#\n\006values\030\001 \003(\0132\023.mojo.lang.Po" +
-      "sition\"\026\n\004Ints\022\016\n\006values\030\001 \003(\003BZ\n\026org.mo" +
-      "jolang.mojo.langB\rPositionProtoP\001Z/githu" +
-      "b.com/mojo-lang/lang/go/pkg/mojo/lang;la" +
-      "ngb\006proto3"
+      "sition\"\031\n\007PosSpan\022\016\n\006values\030\001 \003(\003BZ\n\026org" +
+      ".mojolang.mojo.langB\rPositionProtoP\001Z/gi" +
+      "thub.com/mojo-lang/lang/go/pkg/mojo/lang" +
+      ";langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -63,11 +63,11 @@ public final class PositionProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_PositionSpan_descriptor,
         new java.lang.String[] { "Values", });
-    internal_static_mojo_lang_Ints_descriptor =
+    internal_static_mojo_lang_PosSpan_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_mojo_lang_Ints_fieldAccessorTable = new
+    internal_static_mojo_lang_PosSpan_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_mojo_lang_Ints_descriptor,
+        internal_static_mojo_lang_PosSpan_descriptor,
         new java.lang.String[] { "Values", });
   }
 

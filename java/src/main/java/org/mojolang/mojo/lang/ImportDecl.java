@@ -18,8 +18,8 @@ private static final long serialVersionUID = 0L;
   private ImportDecl() {
     packageName_ = "";
     sourceFileName_ = "";
-    package_ = "";
-    packageAlias_ = "";
+    importPackageName_ = "";
+    importPackageAlias_ = "";
     identifiers_ = java.util.Collections.emptyList();
   }
 
@@ -113,13 +113,13 @@ private static final long serialVersionUID = 0L;
           case 82: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            package_ = s;
+            importPackageName_ = s;
             break;
           }
           case 90: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            packageAlias_ = s;
+            importPackageAlias_ = s;
             break;
           }
           case 106: {
@@ -331,76 +331,76 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int PACKAGE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object package_;
+  public static final int IMPORT_PACKAGE_NAME_FIELD_NUMBER = 10;
+  private volatile java.lang.Object importPackageName_;
   /**
-   * <code>string package = 10;</code>
-   * @return The package.
+   * <code>string import_package_name = 10;</code>
+   * @return The importPackageName.
    */
   @java.lang.Override
-  public java.lang.String getPackage() {
-    java.lang.Object ref = package_;
+  public java.lang.String getImportPackageName() {
+    java.lang.Object ref = importPackageName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      package_ = s;
+      importPackageName_ = s;
       return s;
     }
   }
   /**
-   * <code>string package = 10;</code>
-   * @return The bytes for package.
+   * <code>string import_package_name = 10;</code>
+   * @return The bytes for importPackageName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPackageBytes() {
-    java.lang.Object ref = package_;
+      getImportPackageNameBytes() {
+    java.lang.Object ref = importPackageName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      package_ = b;
+      importPackageName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int PACKAGE_ALIAS_FIELD_NUMBER = 11;
-  private volatile java.lang.Object packageAlias_;
+  public static final int IMPORT_PACKAGE_ALIAS_FIELD_NUMBER = 11;
+  private volatile java.lang.Object importPackageAlias_;
   /**
-   * <code>string package_alias = 11;</code>
-   * @return The packageAlias.
+   * <code>string import_package_alias = 11;</code>
+   * @return The importPackageAlias.
    */
   @java.lang.Override
-  public java.lang.String getPackageAlias() {
-    java.lang.Object ref = packageAlias_;
+  public java.lang.String getImportPackageAlias() {
+    java.lang.Object ref = importPackageAlias_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      packageAlias_ = s;
+      importPackageAlias_ = s;
       return s;
     }
   }
   /**
-   * <code>string package_alias = 11;</code>
-   * @return The bytes for packageAlias.
+   * <code>string import_package_alias = 11;</code>
+   * @return The bytes for importPackageAlias.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPackageAliasBytes() {
-    java.lang.Object ref = packageAlias_;
+      getImportPackageAliasBytes() {
+    java.lang.Object ref = importPackageAlias_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      packageAlias_ = b;
+      importPackageAlias_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -479,11 +479,11 @@ private static final long serialVersionUID = 0L;
     if (implicit_ != false) {
       output.writeBool(7, implicit_);
     }
-    if (!getPackageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, package_);
+    if (!getImportPackageNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, importPackageName_);
     }
-    if (!getPackageAliasBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, packageAlias_);
+    if (!getImportPackageAliasBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, importPackageAlias_);
     }
     for (int i = 0; i < identifiers_.size(); i++) {
       output.writeMessage(13, identifiers_.get(i));
@@ -519,11 +519,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, implicit_);
     }
-    if (!getPackageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, package_);
+    if (!getImportPackageNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, importPackageName_);
     }
-    if (!getPackageAliasBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, packageAlias_);
+    if (!getImportPackageAliasBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, importPackageAlias_);
     }
     for (int i = 0; i < identifiers_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -565,10 +565,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSourceFileName())) return false;
     if (getImplicit()
         != other.getImplicit()) return false;
-    if (!getPackage()
-        .equals(other.getPackage())) return false;
-    if (!getPackageAlias()
-        .equals(other.getPackageAlias())) return false;
+    if (!getImportPackageName()
+        .equals(other.getImportPackageName())) return false;
+    if (!getImportPackageAlias()
+        .equals(other.getImportPackageAlias())) return false;
     if (!getIdentifiersList()
         .equals(other.getIdentifiersList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -601,10 +601,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getImplicit());
-    hash = (37 * hash) + PACKAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getPackage().hashCode();
-    hash = (37 * hash) + PACKAGE_ALIAS_FIELD_NUMBER;
-    hash = (53 * hash) + getPackageAlias().hashCode();
+    hash = (37 * hash) + IMPORT_PACKAGE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getImportPackageName().hashCode();
+    hash = (37 * hash) + IMPORT_PACKAGE_ALIAS_FIELD_NUMBER;
+    hash = (53 * hash) + getImportPackageAlias().hashCode();
     if (getIdentifiersCount() > 0) {
       hash = (37 * hash) + IDENTIFIERS_FIELD_NUMBER;
       hash = (53 * hash) + getIdentifiersList().hashCode();
@@ -767,9 +767,9 @@ private static final long serialVersionUID = 0L;
 
       implicit_ = false;
 
-      package_ = "";
+      importPackageName_ = "";
 
-      packageAlias_ = "";
+      importPackageAlias_ = "";
 
       if (identifiersBuilder_ == null) {
         identifiers_ = java.util.Collections.emptyList();
@@ -822,8 +822,8 @@ private static final long serialVersionUID = 0L;
       result.packageName_ = packageName_;
       result.sourceFileName_ = sourceFileName_;
       result.implicit_ = implicit_;
-      result.package_ = package_;
-      result.packageAlias_ = packageAlias_;
+      result.importPackageName_ = importPackageName_;
+      result.importPackageAlias_ = importPackageAlias_;
       if (identifiersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           identifiers_ = java.util.Collections.unmodifiableList(identifiers_);
@@ -901,12 +901,12 @@ private static final long serialVersionUID = 0L;
       if (other.getImplicit() != false) {
         setImplicit(other.getImplicit());
       }
-      if (!other.getPackage().isEmpty()) {
-        package_ = other.package_;
+      if (!other.getImportPackageName().isEmpty()) {
+        importPackageName_ = other.importPackageName_;
         onChanged();
       }
-      if (!other.getPackageAlias().isEmpty()) {
-        packageAlias_ = other.packageAlias_;
+      if (!other.getImportPackageAlias().isEmpty()) {
+        importPackageAlias_ = other.importPackageAlias_;
         onChanged();
       }
       if (identifiersBuilder_ == null) {
@@ -1505,154 +1505,154 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object package_ = "";
+    private java.lang.Object importPackageName_ = "";
     /**
-     * <code>string package = 10;</code>
-     * @return The package.
+     * <code>string import_package_name = 10;</code>
+     * @return The importPackageName.
      */
-    public java.lang.String getPackage() {
-      java.lang.Object ref = package_;
+    public java.lang.String getImportPackageName() {
+      java.lang.Object ref = importPackageName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        package_ = s;
+        importPackageName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string package = 10;</code>
-     * @return The bytes for package.
+     * <code>string import_package_name = 10;</code>
+     * @return The bytes for importPackageName.
      */
     public com.google.protobuf.ByteString
-        getPackageBytes() {
-      java.lang.Object ref = package_;
+        getImportPackageNameBytes() {
+      java.lang.Object ref = importPackageName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        package_ = b;
+        importPackageName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string package = 10;</code>
-     * @param value The package to set.
+     * <code>string import_package_name = 10;</code>
+     * @param value The importPackageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackage(
+    public Builder setImportPackageName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      package_ = value;
+      importPackageName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 10;</code>
+     * <code>string import_package_name = 10;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPackage() {
+    public Builder clearImportPackageName() {
       
-      package_ = getDefaultInstance().getPackage();
+      importPackageName_ = getDefaultInstance().getImportPackageName();
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 10;</code>
-     * @param value The bytes for package to set.
+     * <code>string import_package_name = 10;</code>
+     * @param value The bytes for importPackageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackageBytes(
+    public Builder setImportPackageNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      package_ = value;
+      importPackageName_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object packageAlias_ = "";
+    private java.lang.Object importPackageAlias_ = "";
     /**
-     * <code>string package_alias = 11;</code>
-     * @return The packageAlias.
+     * <code>string import_package_alias = 11;</code>
+     * @return The importPackageAlias.
      */
-    public java.lang.String getPackageAlias() {
-      java.lang.Object ref = packageAlias_;
+    public java.lang.String getImportPackageAlias() {
+      java.lang.Object ref = importPackageAlias_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        packageAlias_ = s;
+        importPackageAlias_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string package_alias = 11;</code>
-     * @return The bytes for packageAlias.
+     * <code>string import_package_alias = 11;</code>
+     * @return The bytes for importPackageAlias.
      */
     public com.google.protobuf.ByteString
-        getPackageAliasBytes() {
-      java.lang.Object ref = packageAlias_;
+        getImportPackageAliasBytes() {
+      java.lang.Object ref = importPackageAlias_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        packageAlias_ = b;
+        importPackageAlias_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string package_alias = 11;</code>
-     * @param value The packageAlias to set.
+     * <code>string import_package_alias = 11;</code>
+     * @param value The importPackageAlias to set.
      * @return This builder for chaining.
      */
-    public Builder setPackageAlias(
+    public Builder setImportPackageAlias(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      packageAlias_ = value;
+      importPackageAlias_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string package_alias = 11;</code>
+     * <code>string import_package_alias = 11;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPackageAlias() {
+    public Builder clearImportPackageAlias() {
       
-      packageAlias_ = getDefaultInstance().getPackageAlias();
+      importPackageAlias_ = getDefaultInstance().getImportPackageAlias();
       onChanged();
       return this;
     }
     /**
-     * <code>string package_alias = 11;</code>
-     * @param value The bytes for packageAlias to set.
+     * <code>string import_package_alias = 11;</code>
+     * @param value The bytes for importPackageAlias to set.
      * @return This builder for chaining.
      */
-    public Builder setPackageAliasBytes(
+    public Builder setImportPackageAliasBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      packageAlias_ = value;
+      importPackageAlias_ = value;
       onChanged();
       return this;
     }

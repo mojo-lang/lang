@@ -1,1 +1,1 @@
-{"allOf":[{"$ref":"#/components/schemas/mojo.lang.LoopStmt"},{"title":"mojo.lang.WhileStmt","type":"object","properties":{"condition":{}}}]}
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.LoopStmt"},{"title":"mojo.lang.WhileStmt","description":"WhileStmt - while statement. After type-checking, the condition is of\ntype Builtin.Int1.","type":"object","properties":{"condition":{"$ref":"#/components/schemas/mojo.lang.Expression"}}}]}

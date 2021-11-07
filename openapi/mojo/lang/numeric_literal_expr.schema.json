@@ -1,1 +1,1 @@
-{"allOf":[{"$ref":"#/components/schemas/mojo.lang.LiteralExpr"},{"title":"mojo.lang.NumericLiteralExpr","type":"object","properties":{"isNegative":{"type":"boolean"}}}]}
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.LiteralExpr"},{"title":"mojo.lang.NumericLiteralExpr","description":"\\brief Abstract base class for numeric literals, potentially with a sign.","type":"object","properties":{"isNegative":{"type":"boolean"}}}]}

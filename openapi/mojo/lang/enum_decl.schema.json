@@ -1,1 +1,1 @@
-{"allOf":[{"$ref":"#/components/schemas/mojo.lang.TypeDecl"},{"title":"mojo.lang.EnumDecl","type":"object","properties":{"type":{"$ref":"#/components/schemas/mojo.lang.EnumType"},"scope":{"$ref":"#/components/schemas/mojo.lang.Scope"}}}]}
+{"allOf":[{"$ref":"#/components/schemas/mojo.lang.TypeDecl"},{"title":"mojo.lang.EnumDecl","description":"","type":"object","properties":{"type":{"$ref":"#/components/schemas/mojo.lang.EnumType"},"scope":{"$ref":"#/components/schemas/mojo.lang.Scope"}}}]}

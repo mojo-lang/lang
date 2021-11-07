@@ -5,5 +5,3 @@ func (m *SourceFile) SetScope(scope *Scope) {
 		m.Scope = scope
 	}
 }
-
-

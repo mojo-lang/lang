@@ -8,16 +8,16 @@ public interface ImportOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string package = 10;</code>
-   * @return The package.
+   * <code>string package_name = 10;</code>
+   * @return The packageName.
    */
-  java.lang.String getPackage();
+  java.lang.String getPackageName();
   /**
-   * <code>string package = 10;</code>
-   * @return The bytes for package.
+   * <code>string package_name = 10;</code>
+   * @return The bytes for packageName.
    */
   com.google.protobuf.ByteString
-      getPackageBytes();
+      getPackageNameBytes();
 
   /**
    * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>

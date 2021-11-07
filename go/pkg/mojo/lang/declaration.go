@@ -25,7 +25,7 @@ func init() {
 	)
 }
 
-func NewEnumDecl(decl *EnumDecl) *Declaration {
+func NewEnumDeclaration(decl *EnumDecl) *Declaration {
 	return &Declaration{
 		Declaration: &Declaration_EnumDecl{
 			EnumDecl: decl,
@@ -33,7 +33,7 @@ func NewEnumDecl(decl *EnumDecl) *Declaration {
 	}
 }
 
-func NewStructDecl(decl *StructDecl) *Declaration {
+func NewStructDeclaration(decl *StructDecl) *Declaration {
 	return &Declaration{
 		Declaration: &Declaration_StructDecl{
 			StructDecl: decl,
@@ -41,7 +41,7 @@ func NewStructDecl(decl *StructDecl) *Declaration {
 	}
 }
 
-func NewInterfaceDecl(decl *InterfaceDecl) *Declaration {
+func NewInterfaceDeclaration(decl *InterfaceDecl) *Declaration {
 	return &Declaration{
 		Declaration: &Declaration_InterfaceDecl{
 			InterfaceDecl: decl,
@@ -49,7 +49,7 @@ func NewInterfaceDecl(decl *InterfaceDecl) *Declaration {
 	}
 }
 
-func NewTypeAliasDecl(decl *TypeAliasDecl) *Declaration {
+func NewTypeAliasDeclaration(decl *TypeAliasDecl) *Declaration {
 	return &Declaration{
 		Declaration: &Declaration_TypeAliasDecl{
 			TypeAliasDecl: decl,

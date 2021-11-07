@@ -29,11 +29,11 @@ public final class ImportProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\026mojo/lang/import.proto\022\tmojo.lang\032\024moj" +
-      "o/lang/lang.proto\"E\n\006Import\022\017\n\007package\030\n" +
-      " \001(\t\022*\n\013identifiers\030\r \003(\0132\025.mojo.lang.Id" +
-      "entifierBX\n\026org.mojolang.mojo.langB\013Impo" +
-      "rtProtoP\001Z/github.com/mojo-lang/lang/go/" +
-      "pkg/mojo/lang;langb\006proto3"
+      "o/lang/lang.proto\"J\n\006Import\022\024\n\014package_n" +
+      "ame\030\n \001(\t\022*\n\013identifiers\030\r \003(\0132\025.mojo.la" +
+      "ng.IdentifierBX\n\026org.mojolang.mojo.langB" +
+      "\013ImportProtoP\001Z/github.com/mojo-lang/lan" +
+      "g/go/pkg/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -45,7 +45,7 @@ public final class ImportProto {
     internal_static_mojo_lang_Import_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_Import_descriptor,
-        new java.lang.String[] { "Package", "Identifiers", });
+        new java.lang.String[] { "PackageName", "Identifiers", });
     org.mojolang.mojo.lang.LangProto.getDescriptor();
   }
 

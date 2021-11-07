@@ -1,4 +1,4 @@
 | 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
 |---|---|---|---|---|---|
-| blocks |  |  |  |  |
-| metaData | mojo.document.MetaData |  |  |  |
+| `blocks` | `Array<0>` |  | 否 |  |  |
+| `metaData` |  |  | 否 |  |  |

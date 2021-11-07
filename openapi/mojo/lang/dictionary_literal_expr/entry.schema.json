@@ -1,1 +1,1 @@
-{"title":"mojo.lang.DictionaryLiteralExpr.Entry","type":"object","properties":{"key":{},"value":{}}}
+{"title":"mojo.lang.DictionaryLiteralExpr.Entry","description":"","type":"object","properties":{"key":{"$ref":"#/components/schemas/mojo.lang.Expression"},"value":{"$ref":"#/components/schemas/mojo.lang.Expression"}}}

@@ -1,1 +1,1 @@
-{"title":"mojo.lang.Term","type":"object","properties":{"terms":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Term"}},"type":{"type":"string"},"value":{"type":"string"},"location":{"$ref":"#/components/schemas/mojo.lang.PositionSpan"}}}
+{"title":"mojo.lang.Term","description":"","type":"object","properties":{"terms":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Term"}},"type":{"type":"string"},"value":{"type":"string"},"location":{"$ref":"#/components/schemas/mojo.lang.PositionSpan"}}}

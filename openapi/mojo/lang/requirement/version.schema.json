@@ -1,1 +1,1 @@
-{"title":"mojo.lang.Requirement.Version","type":"object","properties":{"type":{"type":"string","enum":["caret","tilde","wildcard","comparison"]},"range":{}}}
+{"title":"mojo.lang.Requirement.Version","description":"","type":"object","properties":{"type":{"title":"mojo.lang.Version.Type","type":"string","enum":["caret","tilde","wildcard","comparison"]},"range":{"$ref":"#/components/schemas/mojo.core.Range"}}}
