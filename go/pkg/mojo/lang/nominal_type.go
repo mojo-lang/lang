@@ -5,9 +5,9 @@ import "strings"
 func (m *NominalType) GetFullName() string {
 	if m != nil {
 		if strings.Contains(m.Name, ".") {
-			return GetFullName(m.Package, nil, m.Name)
+			return GetFullName(m.PackageName, nil, m.Name)
 		} else {
-			return GetFullName(m.Package, m.GetEnclosingNames(), m.Name)
+			return GetFullName(m.PackageName, m.GetEnclosingNames(), m.Name)
 		}
 	}
 	return ""
@@ -63,9 +63,8 @@ func (m *NominalType) IsScalar() bool {
 		if decl := m.TypeDeclaration.GetStructDecl(); decl != nil {
 			switch decl.GetFullName() {
 			case "mojo.core.Bool", "mojo.core.Int8", "mojo.core.Int16", "mojo.core.Int32", "mojo.core.Int64",
-				"mojo.core.Int", "mojo.core.UInt8", "mojo.core.UInt16", "mojo.core.UInt32", "mojo.core.UInt64",
-				"mojo.core.UInt", "mojo.core.Float", "mojo.core.Double", "mojo.core.Float32", "mojo.core.Float64",
-				"mojo.core.String", "mojo.core.Bytes":
+				"mojo.core.UInt8", "mojo.core.UInt16", "mojo.core.UInt32", "mojo.core.UInt64", "mojo.core.Float32",
+				"mojo.core.Float64", "mojo.core.String", "mojo.core.Bytes":
 				return true
 			default:
 				return false
@@ -86,8 +85,8 @@ func (m *NominalType) IsArrayType() bool {
 	return m.isType("mojo.core.Array")
 }
 
-func (m *NominalType) IsDictionaryType() bool {
-	return m.isType("mojo.core.Dictionary")
+func (m *NominalType) IsMapType() bool {
+	return m.isType("mojo.core.Map")
 }
 
 func (m *NominalType) IsTupleType() bool {

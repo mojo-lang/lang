@@ -1,8 +1,9 @@
 package lang
 
 import (
-	"github.com/iancoleman/strcase"
 	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
 )
 
 func GetFullName(pkg string, enclosingNames []string, decl string) string {
@@ -17,6 +18,55 @@ func GetFullName(pkg string, enclosingNames []string, decl string) string {
 	return fullName
 }
 
+func GetTypePackageName(fullName string) string {
+	if len(fullName) == 0 {
+		return ""
+	}
+
+	segments := strings.Split(fullName, ".")
+	for i, segment := range segments {
+		if IsTypeName(segment) {
+			if i == 0 {
+				return ""
+			}
+			return strings.Join(segments[:i], ".")
+		}
+	}
+	return fullName
+}
+
+func GetTypeTypeName(fullName string) string {
+	if len(fullName) == 0 {
+		return ""
+	}
+
+	segments := strings.Split(fullName, ".")
+	for i, segment := range segments {
+		if IsTypeName(segment) {
+			return strings.Join(segments[i:], ".")
+		}
+	}
+	return ""
+}
+
+///
+func IsTypeName(name string) bool {
+	if len(name) == 0 {
+		return false
+	}
+
+	if !strings.Contains(name, ".") {
+		return name[0] >= 'A' && name[0] <= 'Z'
+	} else {
+		segments := strings.Split(name, ".")
+		n := segments[len(segments)-1]
+		if len(n) > 0 {
+			return n[0] >= 'A' && n[0] <= 'Z'
+		}
+	}
+	return false
+}
+
 /// get enclosing names from enclosing type in `NominalType` or `Declaration`
 func GetEnclosingNames(t *NominalType) []string {
 	var enclosingNames []string
@@ -25,6 +75,13 @@ func GetEnclosingNames(t *NominalType) []string {
 		enclosingNames = append(enclosingNames, enclosing.Name)
 		enclosing = enclosing.EnclosingType
 	}
+	if len(enclosingNames) > 1 {
+		last := len(enclosingNames) - 1
+		for i := 0; i < len(enclosingNames)/2; i++ {
+			enclosingNames[i], enclosingNames[last-i] = enclosingNames[last-i], enclosingNames[i]
+		}
+	}
+
 	return enclosingNames
 }
 

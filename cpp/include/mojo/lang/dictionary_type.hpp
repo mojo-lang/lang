@@ -8,14 +8,14 @@ namespace mojo {
 namespace lang {
 
 template<typename K, typename V>
-class DictionaryType : public DataTypeOf<GenericType<>> {
+class MapType : public DataTypeOf<GenericType<>> {
 public:
 
 };
 
 template <typename K, typename V> inline
-const DictionaryType<K,V>* buildType(const TypeIdentifier<DictionaryType<K,V>>*) {
-    static const DictionaryType<K,V>* p = new DictionaryType<K,V>{};
+const MapType<K,V>* buildType(const TypeIdentifier<MapType<K,V>>*) {
+    static const MapType<K,V>* p = new MapType<K,V>{};
     return p;
 }
 

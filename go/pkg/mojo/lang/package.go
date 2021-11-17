@@ -13,29 +13,29 @@ func NewGlobalPackage() *Package {
 	}
 }
 
-func GetPackageName(fullName string) string {
-	if len(fullName) == 0 {
+func GetPackageName(fullPkgName string) string {
+	if len(fullPkgName) == 0 {
 		return ""
 	}
 
-	segments := strings.Split(fullName, ".")
+	segments := strings.Split(fullPkgName, ".")
 	return segments[len(segments)-1]
 }
 
-func GetPackageParentName(fullName string) string {
-	if len(fullName) == 0 {
+func GetPackageParentName(fullPkgName string) string {
+	if len(fullPkgName) == 0 {
 		return ""
 	}
 
-	segments := strings.Split(fullName, ".")
+	segments := strings.Split(fullPkgName, ".")
 	if len(segments) > 1 {
 		return strings.Join(segments[:len(segments)-1], ".")
 	}
 	return ""
 }
 
-func GetPackageParentNames(fullName string) []string {
-	segments := strings.Split(fullName, ".")
+func GetPackageParentNames(fullPkgName string) []string {
+	segments := strings.Split(fullPkgName, ".")
 	var parents []string
 	for i := 0; i < len(segments)-1; i++ {
 		parents = append(parents, strings.Join(segments[:i+1], "."))
@@ -190,6 +190,23 @@ func (m *Package) GoPackageName() string {
 		return name
 	}
 	return ""
+}
+
+func (m *Package) GetIdentifier(name string) *Identifier {
+	if m != nil {
+		id := m.Scope.GetIdentifier(name)
+		if id != nil {
+			return id
+		}
+
+		for _, pkg := range m.ResolvedDependencies {
+			id = pkg.GetIdentifier(name)
+			if id != nil {
+				return id
+			}
+		}
+	}
+	return nil
 }
 
 //func (m *Package) Merge(pkg *Package)  {

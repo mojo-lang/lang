@@ -12,11 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-type FunctionCallExpr : Expr {
-    // 函数名称调用
-    // lambda 匿名调用
-    callee: Expression @10
-
+type FunctionCallExpr : ApplyExpr {
     ///
     generic_arguments: [GenericArgument] @11
 

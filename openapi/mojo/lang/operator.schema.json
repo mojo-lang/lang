@@ -1,0 +1,1 @@
+{"title":"mojo.lang.Operator","description":"","type":"object","properties":{"precedence":{"type":"integer","format":"int32"},"symbol":{"type":"string"},"title":{"type":"string"}}}

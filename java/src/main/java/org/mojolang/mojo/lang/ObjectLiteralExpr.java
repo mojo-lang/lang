@@ -135,19 +135,16 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.mojo.lang.Expression name = 1;</code>
-     * @return Whether the name field is set.
-     */
-    boolean hasName();
-    /**
-     * <code>.mojo.lang.Expression name = 1;</code>
+     * <code>string name = 1;</code>
      * @return The name.
      */
-    org.mojolang.mojo.lang.Expression getName();
+    java.lang.String getName();
     /**
-     * <code>.mojo.lang.Expression name = 1;</code>
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
-    org.mojolang.mojo.lang.ExpressionOrBuilder getNameOrBuilder();
+    com.google.protobuf.ByteString
+        getNameBytes();
 
     /**
      * <code>.mojo.lang.Expression value = 2;</code>
@@ -177,6 +174,7 @@ private static final long serialVersionUID = 0L;
       super(builder);
     }
     private Field() {
+      name_ = "";
     }
 
     @java.lang.Override
@@ -210,16 +208,9 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
-              if (name_ != null) {
-                subBuilder = name_.toBuilder();
-              }
-              name_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(name_);
-                name_ = subBuilder.buildPartial();
-              }
+              java.lang.String s = input.readStringRequireUtf8();
 
+              name_ = s;
               break;
             }
             case 18: {
@@ -268,29 +259,41 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private org.mojolang.mojo.lang.Expression name_;
+    private volatile java.lang.Object name_;
     /**
-     * <code>.mojo.lang.Expression name = 1;</code>
-     * @return Whether the name field is set.
-     */
-    @java.lang.Override
-    public boolean hasName() {
-      return name_ != null;
-    }
-    /**
-     * <code>.mojo.lang.Expression name = 1;</code>
+     * <code>string name = 1;</code>
      * @return The name.
      */
     @java.lang.Override
-    public org.mojolang.mojo.lang.Expression getName() {
-      return name_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : name_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.mojo.lang.Expression name = 1;</code>
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
     @java.lang.Override
-    public org.mojolang.mojo.lang.ExpressionOrBuilder getNameOrBuilder() {
-      return getName();
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
@@ -333,8 +336,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (name_ != null) {
-        output.writeMessage(1, getName());
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
       if (value_ != null) {
         output.writeMessage(2, getValue());
@@ -348,9 +351,8 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      if (name_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getName());
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
       if (value_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -371,11 +373,8 @@ private static final long serialVersionUID = 0L;
       }
       org.mojolang.mojo.lang.ObjectLiteralExpr.Field other = (org.mojolang.mojo.lang.ObjectLiteralExpr.Field) obj;
 
-      if (hasName() != other.hasName()) return false;
-      if (hasName()) {
-        if (!getName()
-            .equals(other.getName())) return false;
-      }
+      if (!getName()
+          .equals(other.getName())) return false;
       if (hasValue() != other.hasValue()) return false;
       if (hasValue()) {
         if (!getValue()
@@ -392,10 +391,8 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasName()) {
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
-      }
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       if (hasValue()) {
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getValue().hashCode();
@@ -533,12 +530,8 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (nameBuilder_ == null) {
-          name_ = null;
-        } else {
-          name_ = null;
-          nameBuilder_ = null;
-        }
+        name_ = "";
+
         if (valueBuilder_ == null) {
           value_ = null;
         } else {
@@ -571,11 +564,7 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public org.mojolang.mojo.lang.ObjectLiteralExpr.Field buildPartial() {
         org.mojolang.mojo.lang.ObjectLiteralExpr.Field result = new org.mojolang.mojo.lang.ObjectLiteralExpr.Field(this);
-        if (nameBuilder_ == null) {
-          result.name_ = name_;
-        } else {
-          result.name_ = nameBuilder_.build();
-        }
+        result.name_ = name_;
         if (valueBuilder_ == null) {
           result.value_ = value_;
         } else {
@@ -629,8 +618,9 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(org.mojolang.mojo.lang.ObjectLiteralExpr.Field other) {
         if (other == org.mojolang.mojo.lang.ObjectLiteralExpr.Field.getDefaultInstance()) return this;
-        if (other.hasName()) {
-          mergeName(other.getName());
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
         }
         if (other.hasValue()) {
           mergeValue(other.getValue());
@@ -664,123 +654,80 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private org.mojolang.mojo.lang.Expression name_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> nameBuilder_;
+      private java.lang.Object name_ = "";
       /**
-       * <code>.mojo.lang.Expression name = 1;</code>
-       * @return Whether the name field is set.
-       */
-      public boolean hasName() {
-        return nameBuilder_ != null || name_ != null;
-      }
-      /**
-       * <code>.mojo.lang.Expression name = 1;</code>
+       * <code>string name = 1;</code>
        * @return The name.
        */
-      public org.mojolang.mojo.lang.Expression getName() {
-        if (nameBuilder_ == null) {
-          return name_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : name_;
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
         } else {
-          return nameBuilder_.getMessage();
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <code>.mojo.lang.Expression name = 1;</code>
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
        */
-      public Builder setName(org.mojolang.mojo.lang.Expression value) {
-        if (nameBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          name_ = value;
-          onChanged();
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
         } else {
-          nameBuilder_.setMessage(value);
+          return (com.google.protobuf.ByteString) ref;
         }
-
-        return this;
       }
       /**
-       * <code>.mojo.lang.Expression name = 1;</code>
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
-          org.mojolang.mojo.lang.Expression.Builder builderForValue) {
-        if (nameBuilder_ == null) {
-          name_ = builderForValue.build();
-          onChanged();
-        } else {
-          nameBuilder_.setMessage(builderForValue.build());
-        }
-
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>.mojo.lang.Expression name = 1;</code>
-       */
-      public Builder mergeName(org.mojolang.mojo.lang.Expression value) {
-        if (nameBuilder_ == null) {
-          if (name_ != null) {
-            name_ =
-              org.mojolang.mojo.lang.Expression.newBuilder(name_).mergeFrom(value).buildPartial();
-          } else {
-            name_ = value;
-          }
-          onChanged();
-        } else {
-          nameBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.mojo.lang.Expression name = 1;</code>
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
-        if (nameBuilder_ == null) {
-          name_ = null;
-          onChanged();
-        } else {
-          name_ = null;
-          nameBuilder_ = null;
-        }
-
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
         return this;
       }
       /**
-       * <code>.mojo.lang.Expression name = 1;</code>
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
-      public org.mojolang.mojo.lang.Expression.Builder getNameBuilder() {
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         
+        name_ = value;
         onChanged();
-        return getNameFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.mojo.lang.Expression name = 1;</code>
-       */
-      public org.mojolang.mojo.lang.ExpressionOrBuilder getNameOrBuilder() {
-        if (nameBuilder_ != null) {
-          return nameBuilder_.getMessageOrBuilder();
-        } else {
-          return name_ == null ?
-              org.mojolang.mojo.lang.Expression.getDefaultInstance() : name_;
-        }
-      }
-      /**
-       * <code>.mojo.lang.Expression name = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
-          getNameFieldBuilder() {
-        if (nameBuilder_ == null) {
-          nameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder>(
-                  getName(),
-                  getParentForChildren(),
-                  isClean());
-          name_ = null;
-        }
-        return nameBuilder_;
+        return this;
       }
 
       private org.mojolang.mojo.lang.Expression value_;

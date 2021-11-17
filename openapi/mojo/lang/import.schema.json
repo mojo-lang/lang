@@ -1,1 +1,1 @@
-{"title":"mojo.lang.Import","description":"","type":"object","properties":{"packageName":{"type":"string"},"identifiers":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Identifier"}}}}
+{"title":"mojo.lang.Import","description":"","type":"object","properties":{"identifiers":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Identifier"}},"packageName":{"type":"string"}}}

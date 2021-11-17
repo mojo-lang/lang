@@ -27,7 +27,7 @@ type NominalType {
     /// user writing package name
     /// var foo : package.name.Bar
     /// ==> mojo.package.name.Bar
-    package: String @5
+    package_name: String @5
 
     ///
     name: String @10

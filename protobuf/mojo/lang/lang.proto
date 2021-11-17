@@ -9,8 +9,6 @@ import "mojo/core/url.proto";
 import "mojo/core/value.proto";
 import "mojo/core/version.proto";
 import "mojo/core/version_range.proto";
-import "mojo/lang/apply_expr.proto";
-import "mojo/lang/block_stmt.proto";
 import "mojo/lang/bool_literal_expr.proto";
 import "mojo/lang/branch_stmt.proto";
 import "mojo/lang/break_stmt.proto";
@@ -19,21 +17,35 @@ import "mojo/lang/continue_stmt.proto";
 import "mojo/lang/control_transfer_stmt.proto";
 import "mojo/lang/decl.proto";
 import "mojo/lang/document.proto";
+import "mojo/lang/error_expr.proto";
 import "mojo/lang/expr.proto";
 import "mojo/lang/float_literal_expr.proto";
+import "mojo/lang/implicit_member_expr.proto";
 import "mojo/lang/integer_literal_expr.proto";
 import "mojo/lang/literal_expr.proto";
-import "mojo/lang/loop_stmt.proto";
 import "mojo/lang/null_literal_expr.proto";
+import "mojo/lang/operator.proto";
+import "mojo/lang/parenthesized_expr.proto";
 import "mojo/lang/pattern.proto";
 import "mojo/lang/position.proto";
 import "mojo/lang/stmt.proto";
 import "mojo/lang/string_literal_expr.proto";
+import "mojo/lang/struct_construction_expr.proto";
+import "mojo/lang/type_casting_expr.proto";
+import "mojo/lang/wildcard_expr.proto";
 
 option go_package = "github.com/mojo-lang/lang/go/pkg/mojo/lang;lang";
 option java_multiple_files = true;
 option java_outer_classname = "LangProto";
 option java_package = "org.mojolang.mojo.lang";
+
+message ApplyExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+}
 
 message Argument {
     Position start_position = 1;
@@ -50,10 +62,22 @@ message ArrayLiteralExpr {
     repeated Expression elements = 15;
 }
 
+message AssignmentExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    Operator operator = 15;
+    Expression left_hand_argument = 16;
+    Expression right_hand_argument = 17;
+}
+
 message Attribute {
     Position start_position = 1;
     Position end_position = 2;
-    string package = 5;
+    string package_name = 5;
+    bool implicit = 7;
     string name = 10;
     AttributeDecl declaration = 11;
     repeated NominalType generic_arguments = 12;
@@ -80,6 +104,52 @@ message AttributeDecl {
         StructType struct_type = 21;
     }
     Expression initial_value = 22;
+}
+
+message BinaryExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    Operator operator = 15;
+    Expression left_hand_argument = 16;
+    Expression right_hand_argument = 17;
+}
+
+message BlockStmt {
+    Position start_position = 1;
+    Position end_position = 2;
+    int64 kind = 3;
+    bool implicit = 4;
+    repeated Statement statements = 10;
+}
+
+message ClosureExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    Document document = 4;
+    string package_name = 5;
+    string source_file_name = 6;
+    bool implicit = 7;
+    string name = 10;
+    string full_name = 11;
+    repeated Attribute attributes = 12;
+    repeated GenericParameter generic_parameters = 13;
+    FunctionDecl.Signature signature = 20;
+    BlockStmt body = 21;
+    Scope scope = 30;
+    repeated string captures = 40;
+}
+
+message ConditionalExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression condition = 10;
+    Expression then_branch = 11;
+    Expression else_branch = 12;
 }
 
 message ConstantDecl {
@@ -130,11 +200,12 @@ message Declaration {
     }
 }
 
-message DictionaryLiteralExpr {
+message MapLiteralExpr {
     
     message Entry {
-        Expression key = 1;
+        string key = 1;
         Expression value = 2;
+        bool numeric = 3;
     }
     Position start_position = 1;
     Position end_position = 2;
@@ -168,6 +239,15 @@ message EnumType {
     NominalType underlying_type = 11;
 }
 
+message ExplicitMemberExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    string member = 20;
+}
+
 message Expression {
     oneof expression {
         NullLiteralExpr null_literal_expr = 1;
@@ -177,19 +257,28 @@ message Expression {
         StringLiteralExpr string_literal_expr = 5;
         ObjectLiteralExpr object_literal_expr = 6;
         ArrayLiteralExpr array_literal_expr = 7;
-        DictionaryLiteralExpr dictionary_literal_expr = 8;
-        IdentifierExpr identifier_expr = 9;
+        MapLiteralExpr map_literal_expr = 8;
+        IdentifierExpr identifier_expr = 10;
+        NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;
+        StringLiteralUnaryExpr string_literal_unary_expr = 12;
+        StructLiteralExpr struct_literal_expr = 13;
+        ClosureExpr closure_expr = 14;
+        ParenthesizedExpr parenthesized_expr = 15;
+        ImplicitMemberExpr implicit_member_expr = 16;
+        WildcardExpr wildcard_expr = 17;
+        StructConstructionExpr struct_construction_expr = 18;
+        TupleExpr tuple_expr = 19;
+        PrefixUnaryExpr prefix_unary_expr = 30;
+        PostfixUnaryExpr postfix_unary_expr = 31;
+        FunctionCallExpr function_call_expr = 32;
+        ExplicitMemberExpr explicit_member_expr = 33;
+        SubscriptExpr subscript_expr = 34;
+        BinaryExpr binary_expr = 40;
+        ConditionalExpr conditional_expr = 41;
+        TypeCastingExpr type_casting_expr = 42;
+        AssignmentExpr assignment_expr = 43;
+        ErrorExpr error_expr = 60;
     }
-}
-
-message DiscardAssignmentExpr {
-    Position start_position = 1;
-    Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
-}
-
-message MemberExpr {
 }
 
 message DynamicLookupExpr {
@@ -226,20 +315,6 @@ message TupleElementExpr {
 message KeyPathExpr {
 }
 
-message CallExpr {
-    Position start_position = 1;
-    Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
-}
-
-message ErrorExpr {
-    Position start_position = 1;
-    Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
-}
-
 message ForStmt {
     Position start_position = 1;
     Position end_position = 2;
@@ -248,6 +323,16 @@ message ForStmt {
     BlockStmt body = 21;
     Expression iterator = 10;
     Expression sequence = 20;
+}
+
+message FunctionCallExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    repeated NominalType generic_arguments = 11;
+    repeated Argument arguments = 12;
 }
 
 message FunctionDecl {
@@ -266,7 +351,7 @@ message FunctionDecl {
     string full_name = 11;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
-    Signature signature = 20;
+    FunctionDecl.Signature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
 }
@@ -305,23 +390,24 @@ message Identifier {
     
     enum Kind {
         KIND_UNSPECIFIED=0;
-        KIND_ENUM=1;
-        KIND_STRUCT=2;
-        KIND_TYPE_ALIAS=3;
-        KIND_INTERFACE=4;
-        KIND_CONSTANT=5;
-        KIND_VARIABLE=6;
-        KIND_ATTRIBUTE=7;
-        KIND_FUNCTION=8;
-        KIND_GENERIC_PARAMETER=9;
-        KIND_TYPE=10;
-        KIND_VALUE=11;
+        KIND_ENUM=3;
+        KIND_STRUCT=4;
+        KIND_TYPE_ALIAS=5;
+        KIND_INTERFACE=6;
+        KIND_CONSTANT=10;
+        KIND_VARIABLE=11;
+        KIND_ATTRIBUTE=12;
+        KIND_FUNCTION=13;
+        KIND_GENERIC_PARAMETER=14;
+        KIND_TYPE=20;
+        KIND_VALUE=21;
     }
     Position start_position = 1;
     Position end_position = 2;
     Kind kind = 3;
-    string package = 5;
-    string source_file = 6;
+    string package_name = 5;
+    string source_file_name = 6;
+    bool implicit = 7;
     string name = 10;
     Declaration declaration = 11;
     string alias = 12;
@@ -389,6 +475,14 @@ message InterfaceType {
     repeated NominalType inherits = 11;
 }
 
+message LoopStmt {
+    Position start_position = 1;
+    Position end_position = 2;
+    int64 kind = 3;
+    bool implicit = 4;
+    BlockStmt body = 21;
+}
+
 message MatchCase {
     Position start_position = 1;
     Position end_position = 2;
@@ -414,7 +508,7 @@ message NominalType {
     Position start_position = 1;
     Position end_position = 2;
     Document document = 4;
-    string package = 5;
+    string package_name = 5;
     string name = 10;
     TypeDeclaration type_declaration = 11;
     repeated NominalType generic_arguments = 12;
@@ -422,10 +516,20 @@ message NominalType {
     NominalType enclosing_type = 14;
 }
 
+message NumericLiteralUnaryExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    string operator = 15;
+    Expression expression = 16;
+}
+
 message ObjectLiteralExpr {
     
     message Field {
-        Expression name = 1;
+        string name = 1;
         Expression value = 2;
     }
     Position start_position = 1;
@@ -493,6 +597,26 @@ message PackageDecl {
     Package package = 20;
 }
 
+message PostfixUnaryExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    string operator = 15;
+    Expression expression = 16;
+}
+
+message PrefixUnaryExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    string operator = 15;
+    Expression expression = 16;
+}
+
 message RepeatStmt {
     Position start_position = 1;
     Position end_position = 2;
@@ -545,6 +669,16 @@ message Statement {
     }
 }
 
+message StringLiteralUnaryExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    string operator = 15;
+    Expression expression = 16;
+}
+
 message StructDecl {
     Position start_position = 1;
     Position end_position = 2;
@@ -566,12 +700,38 @@ message StructDecl {
     Scope scope = 30;
 }
 
+message StructLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+}
+
 message StructType {
     Position start_position = 1;
     Position end_position = 2;
     repeated ValueDecl fields = 10;
     repeated NominalType inherits = 11;
     repeated ValueGroupDecl groups = 12;
+}
+
+message SubscriptExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    repeated Argument arguments = 20;
+}
+
+message TupleExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    bool has_element_labels = 10;
+    repeated Argument elements = 20;
 }
 
 message TypeAliasDecl {
@@ -616,6 +776,16 @@ message TypeDeclaration {
         InterfaceDecl interface_decl = 6;
         GenericParameter generic_parameter = 19;
     }
+}
+
+message UnaryExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression callee = 10;
+    string operator = 15;
+    Expression expression = 16;
 }
 
 message ValueDecl {

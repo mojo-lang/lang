@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Attribute() {
-    package_ = "";
+    packageName_ = "";
     name_ = "";
     genericArguments_ = java.util.Collections.emptyList();
     arguments_ = java.util.Collections.emptyList();
@@ -82,7 +82,12 @@ private static final long serialVersionUID = 0L;
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            package_ = s;
+            packageName_ = s;
+            break;
+          }
+          case 56: {
+
+            implicit_ = input.readBool();
             break;
           }
           case 82: {
@@ -225,42 +230,53 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int PACKAGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object package_;
+  public static final int PACKAGE_NAME_FIELD_NUMBER = 5;
+  private volatile java.lang.Object packageName_;
   /**
-   * <code>string package = 5;</code>
-   * @return The package.
+   * <code>string package_name = 5;</code>
+   * @return The packageName.
    */
   @java.lang.Override
-  public java.lang.String getPackage() {
-    java.lang.Object ref = package_;
+  public java.lang.String getPackageName() {
+    java.lang.Object ref = packageName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      package_ = s;
+      packageName_ = s;
       return s;
     }
   }
   /**
-   * <code>string package = 5;</code>
-   * @return The bytes for package.
+   * <code>string package_name = 5;</code>
+   * @return The bytes for packageName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPackageBytes() {
-    java.lang.Object ref = package_;
+      getPackageNameBytes() {
+    java.lang.Object ref = packageName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      package_ = b;
+      packageName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int IMPLICIT_FIELD_NUMBER = 7;
+  private boolean implicit_;
+  /**
+   * <code>bool implicit = 7;</code>
+   * @return The implicit.
+   */
+  @java.lang.Override
+  public boolean getImplicit() {
+    return implicit_;
   }
 
   public static final int NAME_FIELD_NUMBER = 10;
@@ -453,8 +469,11 @@ private static final long serialVersionUID = 0L;
     if (endPosition_ != null) {
       output.writeMessage(2, getEndPosition());
     }
-    if (!getPackageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, package_);
+    if (!getPackageNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, packageName_);
+    }
+    if (implicit_ != false) {
+      output.writeBool(7, implicit_);
     }
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
@@ -488,8 +507,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getEndPosition());
     }
-    if (!getPackageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, package_);
+    if (!getPackageNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, packageName_);
+    }
+    if (implicit_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, implicit_);
     }
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
@@ -535,8 +558,10 @@ private static final long serialVersionUID = 0L;
       if (!getEndPosition()
           .equals(other.getEndPosition())) return false;
     }
-    if (!getPackage()
-        .equals(other.getPackage())) return false;
+    if (!getPackageName()
+        .equals(other.getPackageName())) return false;
+    if (getImplicit()
+        != other.getImplicit()) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (hasDeclaration() != other.hasDeclaration()) return false;
@@ -572,8 +597,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + END_POSITION_FIELD_NUMBER;
       hash = (53 * hash) + getEndPosition().hashCode();
     }
-    hash = (37 * hash) + PACKAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getPackage().hashCode();
+    hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getPackageName().hashCode();
+    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getImplicit());
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     if (hasDeclaration()) {
@@ -739,7 +767,9 @@ private static final long serialVersionUID = 0L;
         endPosition_ = null;
         endPositionBuilder_ = null;
       }
-      package_ = "";
+      packageName_ = "";
+
+      implicit_ = false;
 
       name_ = "";
 
@@ -804,7 +834,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.endPosition_ = endPositionBuilder_.build();
       }
-      result.package_ = package_;
+      result.packageName_ = packageName_;
+      result.implicit_ = implicit_;
       result.name_ = name_;
       if (declarationBuilder_ == null) {
         result.declaration_ = declaration_;
@@ -888,9 +919,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasEndPosition()) {
         mergeEndPosition(other.getEndPosition());
       }
-      if (!other.getPackage().isEmpty()) {
-        package_ = other.package_;
+      if (!other.getPackageName().isEmpty()) {
+        packageName_ = other.packageName_;
         onChanged();
+      }
+      if (other.getImplicit() != false) {
+        setImplicit(other.getImplicit());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
@@ -1222,78 +1256,109 @@ private static final long serialVersionUID = 0L;
       return endPositionBuilder_;
     }
 
-    private java.lang.Object package_ = "";
+    private java.lang.Object packageName_ = "";
     /**
-     * <code>string package = 5;</code>
-     * @return The package.
+     * <code>string package_name = 5;</code>
+     * @return The packageName.
      */
-    public java.lang.String getPackage() {
-      java.lang.Object ref = package_;
+    public java.lang.String getPackageName() {
+      java.lang.Object ref = packageName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        package_ = s;
+        packageName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string package = 5;</code>
-     * @return The bytes for package.
+     * <code>string package_name = 5;</code>
+     * @return The bytes for packageName.
      */
     public com.google.protobuf.ByteString
-        getPackageBytes() {
-      java.lang.Object ref = package_;
+        getPackageNameBytes() {
+      java.lang.Object ref = packageName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        package_ = b;
+        packageName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string package = 5;</code>
-     * @param value The package to set.
+     * <code>string package_name = 5;</code>
+     * @param value The packageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackage(
+    public Builder setPackageName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      package_ = value;
+      packageName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 5;</code>
+     * <code>string package_name = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPackage() {
+    public Builder clearPackageName() {
       
-      package_ = getDefaultInstance().getPackage();
+      packageName_ = getDefaultInstance().getPackageName();
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 5;</code>
-     * @param value The bytes for package to set.
+     * <code>string package_name = 5;</code>
+     * @param value The bytes for packageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackageBytes(
+    public Builder setPackageNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      package_ = value;
+      packageName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean implicit_ ;
+    /**
+     * <code>bool implicit = 7;</code>
+     * @return The implicit.
+     */
+    @java.lang.Override
+    public boolean getImplicit() {
+      return implicit_;
+    }
+    /**
+     * <code>bool implicit = 7;</code>
+     * @param value The implicit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImplicit(boolean value) {
+      
+      implicit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool implicit = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImplicit() {
+      
+      implicit_ = false;
       onChanged();
       return this;
     }

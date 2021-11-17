@@ -2,43 +2,43 @@ package lang
 
 func NewBoolLiteralArgument(expr *BoolLiteralExpr) *Argument {
 	return &Argument{
-		Value: NewBoolLiteralExpr(expr),
+		Value: NewBoolLiteralExpression(expr),
 	}
 }
 
 func NewIntegerLiteralArgument(expr *IntegerLiteralExpr) *Argument {
 	return &Argument{
-		Value: NewIntegerLiteralExpr(expr),
+		Value: NewIntegerLiteralExpression(expr),
 	}
 }
 
 func NewFloatLiteralArgument(expr *FloatLiteralExpr) *Argument {
 	return &Argument{
-		Value: NewFloatLiteralExpr(expr),
+		Value: NewFloatLiteralExpression(expr),
 	}
 }
 
 func NewStringLiteralArgument(expr *StringLiteralExpr) *Argument {
 	return &Argument{
-		Value: NewStringLiteralExpr(expr),
+		Value: NewStringLiteralExpression(expr),
 	}
 }
 
 func NewArrayLiteralArgument(expr *ArrayLiteralExpr) *Argument {
 	return &Argument{
-		Value: NewArrayLiteralExpr(expr),
+		Value: NewArrayLiteralExpression(expr),
 	}
 }
 
-func NewDictionaryLiteralArgument(expr *DictionaryLiteralExpr) *Argument {
+func NewMapLiteralArgument(expr *MapLiteralExpr) *Argument {
 	return &Argument{
-		Value: NewDictionaryLiteralExpr(expr),
+		Value: NewMapLiteralExpression(expr),
 	}
 }
 
 func NewObjectLiteralArgument(expr *ObjectLiteralExpr) *Argument {
 	return &Argument{
-		Value: NewObjectLiteralExpr(expr),
+		Value: NewObjectLiteralExpression(expr),
 	}
 }
 
@@ -91,9 +91,9 @@ func (m *Argument) GetArrayLiteralExpr() *ArrayLiteralExpr {
 	return nil
 }
 
-func (m *Argument) GetDictionaryLiteralExpr() *DictionaryLiteralExpr {
+func (m *Argument) GetMapLiteralExpr() *MapLiteralExpr {
 	if m != nil && m.Value != nil {
-		return m.Value.GetDictionaryLiteralExpr()
+		return m.Value.GetMapLiteralExpr()
 	}
 	return nil
 }
@@ -137,10 +137,6 @@ func (m *Argument) GetStringArray() ([]string, error) {
 	return m.GetValue().EvalStringArrayLiteral()
 }
 
-func (m *Argument) IterateDictionary(iterator func(key *Expression, value *Expression) error) error {
-	return m.GetValue().EvalDictionaryLiteral(iterator)
-}
-
-func (m *Argument) IterateStringDictionary(iterator func(key string, value *Expression) error) error {
-	return m.GetValue().EvalStringDictionaryLiteral(iterator)
+func (m *Argument) IterateStringMap(iterator func(key string, value *Expression) error) error {
+	return m.GetValue().EvalStringMapLiteral(iterator)
 }

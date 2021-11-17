@@ -17,8 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private Identifier() {
     kind_ = 0;
-    package_ = "";
-    sourceFile_ = "";
+    packageName_ = "";
+    sourceFileName_ = "";
     name_ = "";
     alias_ = "";
     fullName_ = "";
@@ -91,13 +91,18 @@ private static final long serialVersionUID = 0L;
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            package_ = s;
+            packageName_ = s;
             break;
           }
           case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            sourceFile_ = s;
+            sourceFileName_ = s;
+            break;
+          }
+          case 56: {
+
+            implicit_ = input.readBool();
             break;
           }
           case 82: {
@@ -185,49 +190,49 @@ private static final long serialVersionUID = 0L;
      */
     KIND_UNSPECIFIED(0),
     /**
-     * <code>KIND_ENUM = 1;</code>
+     * <code>KIND_ENUM = 3;</code>
      */
-    KIND_ENUM(1),
+    KIND_ENUM(3),
     /**
-     * <code>KIND_STRUCT = 2;</code>
+     * <code>KIND_STRUCT = 4;</code>
      */
-    KIND_STRUCT(2),
+    KIND_STRUCT(4),
     /**
-     * <code>KIND_TYPE_ALIAS = 3;</code>
+     * <code>KIND_TYPE_ALIAS = 5;</code>
      */
-    KIND_TYPE_ALIAS(3),
+    KIND_TYPE_ALIAS(5),
     /**
-     * <code>KIND_INTERFACE = 4;</code>
+     * <code>KIND_INTERFACE = 6;</code>
      */
-    KIND_INTERFACE(4),
+    KIND_INTERFACE(6),
     /**
-     * <code>KIND_CONSTANT = 5;</code>
+     * <code>KIND_CONSTANT = 10;</code>
      */
-    KIND_CONSTANT(5),
+    KIND_CONSTANT(10),
     /**
-     * <code>KIND_VARIABLE = 6;</code>
+     * <code>KIND_VARIABLE = 11;</code>
      */
-    KIND_VARIABLE(6),
+    KIND_VARIABLE(11),
     /**
-     * <code>KIND_ATTRIBUTE = 7;</code>
+     * <code>KIND_ATTRIBUTE = 12;</code>
      */
-    KIND_ATTRIBUTE(7),
+    KIND_ATTRIBUTE(12),
     /**
-     * <code>KIND_FUNCTION = 8;</code>
+     * <code>KIND_FUNCTION = 13;</code>
      */
-    KIND_FUNCTION(8),
+    KIND_FUNCTION(13),
     /**
-     * <code>KIND_GENERIC_PARAMETER = 9;</code>
+     * <code>KIND_GENERIC_PARAMETER = 14;</code>
      */
-    KIND_GENERIC_PARAMETER(9),
+    KIND_GENERIC_PARAMETER(14),
     /**
-     * <code>KIND_TYPE = 10;</code>
+     * <code>KIND_TYPE = 20;</code>
      */
-    KIND_TYPE(10),
+    KIND_TYPE(20),
     /**
-     * <code>KIND_VALUE = 11;</code>
+     * <code>KIND_VALUE = 21;</code>
      */
-    KIND_VALUE(11),
+    KIND_VALUE(21),
     UNRECOGNIZED(-1),
     ;
 
@@ -236,49 +241,49 @@ private static final long serialVersionUID = 0L;
      */
     public static final int KIND_UNSPECIFIED_VALUE = 0;
     /**
-     * <code>KIND_ENUM = 1;</code>
+     * <code>KIND_ENUM = 3;</code>
      */
-    public static final int KIND_ENUM_VALUE = 1;
+    public static final int KIND_ENUM_VALUE = 3;
     /**
-     * <code>KIND_STRUCT = 2;</code>
+     * <code>KIND_STRUCT = 4;</code>
      */
-    public static final int KIND_STRUCT_VALUE = 2;
+    public static final int KIND_STRUCT_VALUE = 4;
     /**
-     * <code>KIND_TYPE_ALIAS = 3;</code>
+     * <code>KIND_TYPE_ALIAS = 5;</code>
      */
-    public static final int KIND_TYPE_ALIAS_VALUE = 3;
+    public static final int KIND_TYPE_ALIAS_VALUE = 5;
     /**
-     * <code>KIND_INTERFACE = 4;</code>
+     * <code>KIND_INTERFACE = 6;</code>
      */
-    public static final int KIND_INTERFACE_VALUE = 4;
+    public static final int KIND_INTERFACE_VALUE = 6;
     /**
-     * <code>KIND_CONSTANT = 5;</code>
+     * <code>KIND_CONSTANT = 10;</code>
      */
-    public static final int KIND_CONSTANT_VALUE = 5;
+    public static final int KIND_CONSTANT_VALUE = 10;
     /**
-     * <code>KIND_VARIABLE = 6;</code>
+     * <code>KIND_VARIABLE = 11;</code>
      */
-    public static final int KIND_VARIABLE_VALUE = 6;
+    public static final int KIND_VARIABLE_VALUE = 11;
     /**
-     * <code>KIND_ATTRIBUTE = 7;</code>
+     * <code>KIND_ATTRIBUTE = 12;</code>
      */
-    public static final int KIND_ATTRIBUTE_VALUE = 7;
+    public static final int KIND_ATTRIBUTE_VALUE = 12;
     /**
-     * <code>KIND_FUNCTION = 8;</code>
+     * <code>KIND_FUNCTION = 13;</code>
      */
-    public static final int KIND_FUNCTION_VALUE = 8;
+    public static final int KIND_FUNCTION_VALUE = 13;
     /**
-     * <code>KIND_GENERIC_PARAMETER = 9;</code>
+     * <code>KIND_GENERIC_PARAMETER = 14;</code>
      */
-    public static final int KIND_GENERIC_PARAMETER_VALUE = 9;
+    public static final int KIND_GENERIC_PARAMETER_VALUE = 14;
     /**
-     * <code>KIND_TYPE = 10;</code>
+     * <code>KIND_TYPE = 20;</code>
      */
-    public static final int KIND_TYPE_VALUE = 10;
+    public static final int KIND_TYPE_VALUE = 20;
     /**
-     * <code>KIND_VALUE = 11;</code>
+     * <code>KIND_VALUE = 21;</code>
      */
-    public static final int KIND_VALUE_VALUE = 11;
+    public static final int KIND_VALUE_VALUE = 21;
 
 
     public final int getNumber() {
@@ -306,17 +311,17 @@ private static final long serialVersionUID = 0L;
     public static Kind forNumber(int value) {
       switch (value) {
         case 0: return KIND_UNSPECIFIED;
-        case 1: return KIND_ENUM;
-        case 2: return KIND_STRUCT;
-        case 3: return KIND_TYPE_ALIAS;
-        case 4: return KIND_INTERFACE;
-        case 5: return KIND_CONSTANT;
-        case 6: return KIND_VARIABLE;
-        case 7: return KIND_ATTRIBUTE;
-        case 8: return KIND_FUNCTION;
-        case 9: return KIND_GENERIC_PARAMETER;
-        case 10: return KIND_TYPE;
-        case 11: return KIND_VALUE;
+        case 3: return KIND_ENUM;
+        case 4: return KIND_STRUCT;
+        case 5: return KIND_TYPE_ALIAS;
+        case 6: return KIND_INTERFACE;
+        case 10: return KIND_CONSTANT;
+        case 11: return KIND_VARIABLE;
+        case 12: return KIND_ATTRIBUTE;
+        case 13: return KIND_FUNCTION;
+        case 14: return KIND_GENERIC_PARAMETER;
+        case 20: return KIND_TYPE;
+        case 21: return KIND_VALUE;
         default: return null;
       }
     }
@@ -444,80 +449,91 @@ private static final long serialVersionUID = 0L;
     return result == null ? org.mojolang.mojo.lang.Identifier.Kind.UNRECOGNIZED : result;
   }
 
-  public static final int PACKAGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object package_;
+  public static final int PACKAGE_NAME_FIELD_NUMBER = 5;
+  private volatile java.lang.Object packageName_;
   /**
-   * <code>string package = 5;</code>
-   * @return The package.
+   * <code>string package_name = 5;</code>
+   * @return The packageName.
    */
   @java.lang.Override
-  public java.lang.String getPackage() {
-    java.lang.Object ref = package_;
+  public java.lang.String getPackageName() {
+    java.lang.Object ref = packageName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      package_ = s;
+      packageName_ = s;
       return s;
     }
   }
   /**
-   * <code>string package = 5;</code>
-   * @return The bytes for package.
+   * <code>string package_name = 5;</code>
+   * @return The bytes for packageName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getPackageBytes() {
-    java.lang.Object ref = package_;
+      getPackageNameBytes() {
+    java.lang.Object ref = packageName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      package_ = b;
+      packageName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int SOURCE_FILE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object sourceFile_;
+  public static final int SOURCE_FILE_NAME_FIELD_NUMBER = 6;
+  private volatile java.lang.Object sourceFileName_;
   /**
-   * <code>string source_file = 6;</code>
-   * @return The sourceFile.
+   * <code>string source_file_name = 6;</code>
+   * @return The sourceFileName.
    */
   @java.lang.Override
-  public java.lang.String getSourceFile() {
-    java.lang.Object ref = sourceFile_;
+  public java.lang.String getSourceFileName() {
+    java.lang.Object ref = sourceFileName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      sourceFile_ = s;
+      sourceFileName_ = s;
       return s;
     }
   }
   /**
-   * <code>string source_file = 6;</code>
-   * @return The bytes for sourceFile.
+   * <code>string source_file_name = 6;</code>
+   * @return The bytes for sourceFileName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSourceFileBytes() {
-    java.lang.Object ref = sourceFile_;
+      getSourceFileNameBytes() {
+    java.lang.Object ref = sourceFileName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      sourceFile_ = b;
+      sourceFileName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int IMPLICIT_FIELD_NUMBER = 7;
+  private boolean implicit_;
+  /**
+   * <code>bool implicit = 7;</code>
+   * @return The implicit.
+   */
+  @java.lang.Override
+  public boolean getImplicit() {
+    return implicit_;
   }
 
   public static final int NAME_FIELD_NUMBER = 10;
@@ -718,11 +734,14 @@ private static final long serialVersionUID = 0L;
     if (kind_ != org.mojolang.mojo.lang.Identifier.Kind.KIND_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, kind_);
     }
-    if (!getPackageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, package_);
+    if (!getPackageNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, packageName_);
     }
-    if (!getSourceFileBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sourceFile_);
+    if (!getSourceFileNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sourceFileName_);
+    }
+    if (implicit_ != false) {
+      output.writeBool(7, implicit_);
     }
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
@@ -760,11 +779,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, kind_);
     }
-    if (!getPackageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, package_);
+    if (!getPackageNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, packageName_);
     }
-    if (!getSourceFileBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sourceFile_);
+    if (!getSourceFileNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sourceFileName_);
+    }
+    if (implicit_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, implicit_);
     }
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
@@ -813,10 +836,12 @@ private static final long serialVersionUID = 0L;
           .equals(other.getEndPosition())) return false;
     }
     if (kind_ != other.kind_) return false;
-    if (!getPackage()
-        .equals(other.getPackage())) return false;
-    if (!getSourceFile()
-        .equals(other.getSourceFile())) return false;
+    if (!getPackageName()
+        .equals(other.getPackageName())) return false;
+    if (!getSourceFileName()
+        .equals(other.getSourceFileName())) return false;
+    if (getImplicit()
+        != other.getImplicit()) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (hasDeclaration() != other.hasDeclaration()) return false;
@@ -851,10 +876,13 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + KIND_FIELD_NUMBER;
     hash = (53 * hash) + kind_;
-    hash = (37 * hash) + PACKAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getPackage().hashCode();
-    hash = (37 * hash) + SOURCE_FILE_FIELD_NUMBER;
-    hash = (53 * hash) + getSourceFile().hashCode();
+    hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getPackageName().hashCode();
+    hash = (37 * hash) + SOURCE_FILE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getSourceFileName().hashCode();
+    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getImplicit());
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     if (hasDeclaration()) {
@@ -1016,9 +1044,11 @@ private static final long serialVersionUID = 0L;
       }
       kind_ = 0;
 
-      package_ = "";
+      packageName_ = "";
 
-      sourceFile_ = "";
+      sourceFileName_ = "";
+
+      implicit_ = false;
 
       name_ = "";
 
@@ -1072,8 +1102,9 @@ private static final long serialVersionUID = 0L;
         result.endPosition_ = endPositionBuilder_.build();
       }
       result.kind_ = kind_;
-      result.package_ = package_;
-      result.sourceFile_ = sourceFile_;
+      result.packageName_ = packageName_;
+      result.sourceFileName_ = sourceFileName_;
+      result.implicit_ = implicit_;
       result.name_ = name_;
       if (declarationBuilder_ == null) {
         result.declaration_ = declaration_;
@@ -1144,13 +1175,16 @@ private static final long serialVersionUID = 0L;
       if (other.kind_ != 0) {
         setKindValue(other.getKindValue());
       }
-      if (!other.getPackage().isEmpty()) {
-        package_ = other.package_;
+      if (!other.getPackageName().isEmpty()) {
+        packageName_ = other.packageName_;
         onChanged();
       }
-      if (!other.getSourceFile().isEmpty()) {
-        sourceFile_ = other.sourceFile_;
+      if (!other.getSourceFileName().isEmpty()) {
+        sourceFileName_ = other.sourceFileName_;
         onChanged();
+      }
+      if (other.getImplicit() != false) {
+        setImplicit(other.getImplicit());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
@@ -1499,154 +1533,185 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object package_ = "";
+    private java.lang.Object packageName_ = "";
     /**
-     * <code>string package = 5;</code>
-     * @return The package.
+     * <code>string package_name = 5;</code>
+     * @return The packageName.
      */
-    public java.lang.String getPackage() {
-      java.lang.Object ref = package_;
+    public java.lang.String getPackageName() {
+      java.lang.Object ref = packageName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        package_ = s;
+        packageName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string package = 5;</code>
-     * @return The bytes for package.
+     * <code>string package_name = 5;</code>
+     * @return The bytes for packageName.
      */
     public com.google.protobuf.ByteString
-        getPackageBytes() {
-      java.lang.Object ref = package_;
+        getPackageNameBytes() {
+      java.lang.Object ref = packageName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        package_ = b;
+        packageName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string package = 5;</code>
-     * @param value The package to set.
+     * <code>string package_name = 5;</code>
+     * @param value The packageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackage(
+    public Builder setPackageName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      package_ = value;
+      packageName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 5;</code>
+     * <code>string package_name = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPackage() {
+    public Builder clearPackageName() {
       
-      package_ = getDefaultInstance().getPackage();
+      packageName_ = getDefaultInstance().getPackageName();
       onChanged();
       return this;
     }
     /**
-     * <code>string package = 5;</code>
-     * @param value The bytes for package to set.
+     * <code>string package_name = 5;</code>
+     * @param value The bytes for packageName to set.
      * @return This builder for chaining.
      */
-    public Builder setPackageBytes(
+    public Builder setPackageNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      package_ = value;
+      packageName_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object sourceFile_ = "";
+    private java.lang.Object sourceFileName_ = "";
     /**
-     * <code>string source_file = 6;</code>
-     * @return The sourceFile.
+     * <code>string source_file_name = 6;</code>
+     * @return The sourceFileName.
      */
-    public java.lang.String getSourceFile() {
-      java.lang.Object ref = sourceFile_;
+    public java.lang.String getSourceFileName() {
+      java.lang.Object ref = sourceFileName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        sourceFile_ = s;
+        sourceFileName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string source_file = 6;</code>
-     * @return The bytes for sourceFile.
+     * <code>string source_file_name = 6;</code>
+     * @return The bytes for sourceFileName.
      */
     public com.google.protobuf.ByteString
-        getSourceFileBytes() {
-      java.lang.Object ref = sourceFile_;
+        getSourceFileNameBytes() {
+      java.lang.Object ref = sourceFileName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        sourceFile_ = b;
+        sourceFileName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string source_file = 6;</code>
-     * @param value The sourceFile to set.
+     * <code>string source_file_name = 6;</code>
+     * @param value The sourceFileName to set.
      * @return This builder for chaining.
      */
-    public Builder setSourceFile(
+    public Builder setSourceFileName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      sourceFile_ = value;
+      sourceFileName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string source_file = 6;</code>
+     * <code>string source_file_name = 6;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSourceFile() {
+    public Builder clearSourceFileName() {
       
-      sourceFile_ = getDefaultInstance().getSourceFile();
+      sourceFileName_ = getDefaultInstance().getSourceFileName();
       onChanged();
       return this;
     }
     /**
-     * <code>string source_file = 6;</code>
-     * @param value The bytes for sourceFile to set.
+     * <code>string source_file_name = 6;</code>
+     * @param value The bytes for sourceFileName to set.
      * @return This builder for chaining.
      */
-    public Builder setSourceFileBytes(
+    public Builder setSourceFileNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      sourceFile_ = value;
+      sourceFileName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean implicit_ ;
+    /**
+     * <code>bool implicit = 7;</code>
+     * @return The implicit.
+     */
+    @java.lang.Override
+    public boolean getImplicit() {
+      return implicit_;
+    }
+    /**
+     * <code>bool implicit = 7;</code>
+     * @param value The implicit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImplicit(boolean value) {
+      
+      implicit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool implicit = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImplicit() {
+      
+      implicit_ = false;
       onChanged();
       return this;
     }

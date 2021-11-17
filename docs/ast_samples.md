@@ -42,7 +42,7 @@ Data_type_decl {
 }
 
 Data_type_decl {
-    name: 'Dictionary'
+    name: 'Map'
     generic_params: [{
         name: 'Key'
     },{

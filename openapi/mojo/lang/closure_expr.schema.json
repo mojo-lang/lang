@@ -1,0 +1,1 @@
+{"title":"mojo.lang.ClosureExpr","description":"","allOf":[{"$ref":"#/components/schemas/mojo.lang.FunctionDecl"},{"title":"mojo.lang.ClosureExpr","type":"object","properties":{"captures":{"type":"array","items":{"type":"string"}}}}]}

@@ -2,7 +2,7 @@ package lang
 
 import "errors"
 
-func NewNullLiteralExpr(expr *NullLiteralExpr) *Expression {
+func NewNullLiteralExpression(expr *NullLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_NullLiteralExpr{
 			NullLiteralExpr: expr,
@@ -10,7 +10,7 @@ func NewNullLiteralExpr(expr *NullLiteralExpr) *Expression {
 	}
 }
 
-func NewBoolLiteralExpr(expr *BoolLiteralExpr) *Expression {
+func NewBoolLiteralExpression(expr *BoolLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_BoolLiteralExpr{
 			BoolLiteralExpr: expr,
@@ -18,7 +18,7 @@ func NewBoolLiteralExpr(expr *BoolLiteralExpr) *Expression {
 	}
 }
 
-func NewIntegerLiteralExpr(expr *IntegerLiteralExpr) *Expression {
+func NewIntegerLiteralExpression(expr *IntegerLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_IntegerLiteralExpr{
 			IntegerLiteralExpr: expr,
@@ -26,7 +26,7 @@ func NewIntegerLiteralExpr(expr *IntegerLiteralExpr) *Expression {
 	}
 }
 
-func NewFloatLiteralExpr(expr *FloatLiteralExpr) *Expression {
+func NewFloatLiteralExpression(expr *FloatLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_FloatLiteralExpr{
 			FloatLiteralExpr: expr,
@@ -34,7 +34,7 @@ func NewFloatLiteralExpr(expr *FloatLiteralExpr) *Expression {
 	}
 }
 
-func NewStringLiteralExpr(expr *StringLiteralExpr) *Expression {
+func NewStringLiteralExpression(expr *StringLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_StringLiteralExpr{
 			StringLiteralExpr: expr,
@@ -42,7 +42,7 @@ func NewStringLiteralExpr(expr *StringLiteralExpr) *Expression {
 	}
 }
 
-func NewArrayLiteralExpr(expr *ArrayLiteralExpr) *Expression {
+func NewArrayLiteralExpression(expr *ArrayLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_ArrayLiteralExpr{
 			ArrayLiteralExpr: expr,
@@ -50,15 +50,15 @@ func NewArrayLiteralExpr(expr *ArrayLiteralExpr) *Expression {
 	}
 }
 
-func NewDictionaryLiteralExpr(expr *DictionaryLiteralExpr) *Expression {
+func NewMapLiteralExpression(expr *MapLiteralExpr) *Expression {
 	return &Expression{
-		Expression: &Expression_DictionaryLiteralExpr{
-			DictionaryLiteralExpr: expr,
+		Expression: &Expression_MapLiteralExpr{
+			MapLiteralExpr: expr,
 		},
 	}
 }
 
-func NewObjectLiteralExpr(expr *ObjectLiteralExpr) *Expression {
+func NewObjectLiteralExpression(expr *ObjectLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_ObjectLiteralExpr{
 			ObjectLiteralExpr: expr,
@@ -66,10 +66,58 @@ func NewObjectLiteralExpr(expr *ObjectLiteralExpr) *Expression {
 	}
 }
 
-func NewIdentifierExpr(expr *IdentifierExpr) *Expression {
+func NewIdentifierExpression(expr *IdentifierExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_IdentifierExpr{
 			IdentifierExpr: expr,
+		},
+	}
+}
+
+func NewPrefixUnaryExpression(expr *PrefixUnaryExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_PrefixUnaryExpr{
+			PrefixUnaryExpr: expr,
+		},
+	}
+}
+
+func NewPostfixUnaryExpression(expr *PostfixUnaryExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_PostfixUnaryExpr{
+			PostfixUnaryExpr: expr,
+		},
+	}
+}
+
+func NewBinaryExpression(expr *BinaryExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_BinaryExpr{
+			BinaryExpr: expr,
+		},
+	}
+}
+
+func NewWildcardExpression(expr *WildcardExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_WildcardExpr{
+			WildcardExpr: expr,
+		},
+	}
+}
+
+func NewClosureExpression(expr *ClosureExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_ClosureExpr{
+			ClosureExpr: expr,
+		},
+	}
+}
+
+func NewTupleExpression(expr *TupleExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_TupleExpr{
+			TupleExpr: expr,
 		},
 	}
 }
@@ -79,7 +127,7 @@ func (m *Expression) EvalBoolLiteral() (bool, error) {
 	if valueExpr != nil {
 		return valueExpr.Value, nil
 	}
-	return false, errors.New("Expression can NOT be evaluated to the BoolLiteralExpr")
+	return false, errors.New("expression can NOT be evaluated to the BoolLiteralExpr")
 }
 
 func (m *Expression) EvalIntegerLiteral() (int64, error) {
@@ -87,7 +135,7 @@ func (m *Expression) EvalIntegerLiteral() (int64, error) {
 	if valueExpr != nil {
 		return valueExpr.EvalValue(), nil
 	}
-	return 0, errors.New("Expression can NOT be evaluated to the Int64LiteralExpr")
+	return 0, errors.New("expression can NOT be evaluated to the Int64LiteralExpr")
 }
 
 func (m *Expression) EvalFloatLiteral() (float64, error) {
@@ -138,8 +186,8 @@ func (m *Expression) EvalStringArrayLiteral() ([]string, error) {
 	return nil, errors.New("Expression can NOT be evaluated to the BoolLiteralExpr")
 }
 
-func (m *Expression) EvalDictionaryLiteral(iterator func(key *Expression, value *Expression) error) error {
-	valueExpr := m.GetDictionaryLiteralExpr()
+func (m *Expression) EvalStringMapLiteral(iterator func(key string, value *Expression) error) error {
+	valueExpr := m.GetMapLiteralExpr()
 	if valueExpr != nil {
 		for _, entry := range valueExpr.Entries {
 			err := iterator(entry.Key, entry.Value)
@@ -149,26 +197,7 @@ func (m *Expression) EvalDictionaryLiteral(iterator func(key *Expression, value 
 		}
 		return nil
 	}
-	return errors.New("Expression can NOT be evaluated to the DictionaryLiteralExpr")
-}
-
-func (m *Expression) EvalStringDictionaryLiteral(iterator func(key string, value *Expression) error) error {
-	valueExpr := m.GetDictionaryLiteralExpr()
-	if valueExpr != nil {
-		for _, entry := range valueExpr.Entries {
-			key, err := entry.Key.EvalStringLiteral()
-			if err != nil {
-				return err
-			}
-
-			err = iterator(key, entry.Value)
-			if err != nil {
-				break
-			}
-		}
-		return nil
-	}
-	return errors.New("Expression can NOT be evaluated to the DictionaryLiteralExpr")
+	return errors.New("Expression can NOT be evaluated to the MapLiteralExpr")
 }
 
 func (m *Expression) EvalIdentifier() (string, error) {

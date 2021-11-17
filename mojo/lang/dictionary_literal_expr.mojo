@@ -12,11 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// \brief A dictionary literal expression {a : x, b : y, c : z}.
-type DictionaryLiteralExpr : LiteralExpr {
+/// \brief A map literal expression {"a" : x, "b" : y, "c" : z}.
+type MapLiteralExpr : LiteralExpr {
     type Entry {
-        key: Expression @1
+        key: String @1
         value: Expression @2
+        
+        numeric: Bool @3
     }
 
     entries: [Entry] @15

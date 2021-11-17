@@ -24,7 +24,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
 		fullName := GetFullName(packageName, enclosingNames, decl.Name)
 
 		identifier := &Identifier{
-			Package:            packageName,
+			PackageName:        packageName,
 			EnclosingTypeNames: enclosingNames,
 			Kind:               Identifier_KIND_STRUCT,
 			Name:               decl.Name,
@@ -41,7 +41,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
 		fullName := GetFullName(packageName, enclosingNames, decl.Name)
 
 		identifier := &Identifier{
-			Package:            packageName,
+			PackageName:        packageName,
 			EnclosingTypeNames: enclosingNames,
 			Kind:               Identifier_KIND_ENUM,
 			Name:               decl.Name,
@@ -57,7 +57,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
 		fullName := strings.Join([]string{packageName, decl.Name}, ".")
 
 		identifier := &Identifier{
-			Package:            packageName,
+			PackageName:        packageName,
 			EnclosingTypeNames: nil,
 			Kind:               Identifier_KIND_INTERFACE,
 			Name:               decl.Name,
@@ -73,7 +73,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
 		fullName := strings.Join([]string{packageName, decl.Name}, ".")
 
 		identifier := &Identifier{
-			Package:            packageName,
+			PackageName:        packageName,
 			EnclosingTypeNames: nil,
 			Kind:               Identifier_KIND_TYPE_ALIAS,
 			Name:               decl.Name,
@@ -92,13 +92,20 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
 		parameter := declaration.GetGenericParameter()
 
 		identifier := &Identifier{
-			Package:     parameter.PackageName,
+			PackageName: parameter.PackageName,
 			Kind:        Identifier_KIND_GENERIC_PARAMETER,
 			Name:        parameter.Name,
 			Declaration: declaration,
 		}
 		m.Identifiers[identifier.Name] = identifier
 		return identifier
+	}
+	return nil
+}
+
+func (m *Scope) GetIdentifier(name string) *Identifier {
+	if m != nil && m.Identifiers != nil {
+		return m.Identifiers[GetTypeTypeName(name)]
 	}
 	return nil
 }

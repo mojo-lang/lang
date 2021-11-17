@@ -2,14 +2,14 @@
 #define MOJO_LANG_DATA_TYPE_HPP
 
 #include <ncraft/data/data_type.hpp>
-#include <mojo/core/dictionary.hpp>
+#include <mojo/core/map.hpp>
 
 namespace mojo {
 namespace lang {
 
 class Package;
 
-//using Attributes = Dictionary<String, Attribute>;
+//using Attributes = Map<String, Attribute>;
 
 class DataType : public ::ncraft::data::DataType {
 public:

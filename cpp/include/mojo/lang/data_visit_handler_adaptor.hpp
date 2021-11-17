@@ -59,7 +59,7 @@ struct DataVisitHandlerAdaptor : public DataVisitor {
     void visitValue(AnyRef data, const DataType* type);
 
     void visitKey(const std::string& key) {
-        if (!inDictionary) {
+        if (!inMap) {
             handler_.objectStart();
         }
 
@@ -83,9 +83,9 @@ struct DataVisitHandlerAdaptor : public DataVisitor {
 private:
     enum class State {
         kNone,
-        kDictionary,
-        kDictionaryKey,
-        kDictionaryValue,
+        kMap,
+        kMapKey,
+        kMapValue,
         kArray,
         kStructType
     };

@@ -21,3 +21,10 @@ func (m *StructDecl) IsBoxedType() bool {
 	}
 	return false
 }
+
+func (m *StructDecl) FieldNames() []string {
+	if m != nil {
+		return m.Type.FieldNames()
+	}
+	return nil
+}

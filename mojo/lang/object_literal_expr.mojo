@@ -18,7 +18,7 @@
 // constant.
 type ObjectLiteralExpr : LiteralExpr {
     type Field {
-        name: Expression @1
+        name: String @1
         value: Expression @2
     }
 

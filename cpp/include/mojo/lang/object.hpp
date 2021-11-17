@@ -49,9 +49,9 @@ struct Object final : DataReaderOf<Object, const Object&>, DataWriterOf<Object, 
     Object(const char* str) : data_(std::string{str}) {
     }
 
-    static Object dictionary() {
+    static Object map() {
         Object o;
-        o.data_ = Dictionary{};
+        o.data_ = Map{};
         return std::move(o);
     }
 
@@ -168,9 +168,9 @@ struct Object final : DataReaderOf<Object, const Object&>, DataWriterOf<Object, 
 
 private:
     using List = std::vector<CloningPtr<Object>>;
-    using Dictionary = std::map<std::string, CloningPtr<Object>>;
+    using Map = std::map<std::string, CloningPtr<Object>>;
 
-    Either<NothingType, Boolean, Integer, Real, String, List, Dictionary> data_;
+    Either<NothingType, Boolean, Integer, Real, String, List, Map> data_;
 
     static const Object g_null_object;
 
@@ -308,7 +308,7 @@ public:
             case sdata::SDataType::List:
                 // Formatter(val_.at(arg.splitIntKey())).format(arg, cb);
                 break;
-            case sdata::SDataType::Dictionary:
+            case sdata::SDataType::Map:
                 // Formatter(val_.at(arg.splitKey().toFbstring())).format(arg, cb);
                 break;
         }

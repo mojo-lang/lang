@@ -1,8 +1,8 @@
 package lang
 
 import (
-	"github.com/iancoleman/strcase"
 	"github.com/mojo-lang/core/go/pkg/logs"
+	"github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
 )
 
 type CaseStyle struct {

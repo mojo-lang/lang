@@ -4,7 +4,7 @@
 #include <mojo/core/any.hpp>
 #include <mojo/core/array.hpp>
 #include <mojo/core/string.hpp>
-#include <mojo/core/dictionary.hpp>
+#include <mojo/core/map.hpp>
 #include <mojo/lang/data_type.hpp>
 #include <mojo/lang/attribute.mojo.hpp>
 
@@ -27,7 +27,7 @@ public:
     };
 
     const StructType* enclosingType = nullptr;
-    Dictionary<String, ::std::unique_ptr<Value>> values;
+    Map<String, ::std::unique_ptr<Value>> values;
 };
 }
 }

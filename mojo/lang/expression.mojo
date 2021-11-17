@@ -23,20 +23,28 @@ type Expression = NullLiteralExpr    @1
                 | StringLiteralExpr  @5
                 | ObjectLiteralExpr  @6
                 | ArrayLiteralExpr   @7
-                | DictionaryLiteralExpr @8
-                | IdentifierExpr @9
+                | MapLiteralExpr @8
+                | IdentifierExpr @10
+                | NumericLiteralUnaryExpr       @11
+                | StringLiteralUnaryExpr @12
+                | StructLiteralExpr @13
+                | ClosureExpr @14
+                | ParenthesizedExpr @15
+                | ImplicitMemberExpr @16
+                | WildcardExpr @17
+                | StructConstructionExpr @18
+                | TupleExpr @19
+                | PrefixUnaryExpr       @30
+                | PostfixUnaryExpr @31
+                | FunctionCallExpr @32
+                | ExplicitMemberExpr @33
+                | SubscriptExpr @34
+                | BinaryExpr @40
+                | ConditionalExpr @41
+                | TypeCastingExpr @42
+                | AssignmentExpr @43
+                | ErrorExpr @60
 
-/// DiscardAssignmentExpr - A '_' in the left-hand side of an assignment, which
-/// discards the corresponding tuple element on the right-hand side.
-type DiscardAssignmentExpr : Expr
-
-/// MemberRefExpr - This represents 'a.b' where we are referring to a member
-/// of a type, such as a property or variable.
-///
-/// Note that methods found via 'dot' syntax are expressed as DotSyntaxCallExpr
-/// nodes, because 'a.f' is actually an application of 'a' (the implicit object
-/// argument) to the function 'f'.
-type MemberExpr
 
 /// Common base for expressions that involve dynamic lookup, which
 /// determines at runtime whether a particular method, property, or
@@ -86,22 +94,6 @@ type KeyPathExpr
 /// subexpressions of that AST node.
 //class OpaqueValueExpr
 
-/// CallExpr - Application of an argument to a function, which occurs
-/// syntactically through juxtaposition with a TupleExpr whose
-/// leading '(' is un-spaced.
-type CallExpr : ApplyExpr
-
-/// PrefixUnaryExpr - Prefix unary expressions like '!y'.
-//class PrefixUnaryExpr : public ApplyExpr
-
-/// PostfixUnaryExpr - Prefix unary expressions like '!y'.
-//class PostfixUnaryExpr : public ApplyExpr
-
-/// BinaryExpr - Infix binary expressions like 'x+y'.  The argument is always
-/// an implicit tuple expression of the type expected by the function.
-//class BinaryExpr : public ApplyExpr {
-//}
-
 /// DotSyntaxCallExpr - Refer to a method of a type, e.g. P.x.  'x'
 /// is modeled as a DeclRefExpr or OverloadSetRefExpr on the method.
 //class DotSyntaxCallExpr : public SelfApplyExpr
@@ -129,6 +121,3 @@ type CallExpr : ApplyExpr
 /// \.[0] and \Foo.?.
 //class KeyPathDotExpr : public Expr
 
-/// ErrorExpr - Represents a semantically erroneous subexpression in the AST,
-/// typically this will have an ErrorType.
-type ErrorExpr : Expr 

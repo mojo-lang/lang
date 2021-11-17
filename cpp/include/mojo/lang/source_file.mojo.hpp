@@ -2,7 +2,7 @@
 #define MOJO_LANG_SOURCE_FILE_HPP
 
 #include <mojo/core/array.hpp>
-#include <mojo/core/dictionary.hpp>
+#include <mojo/core/map.hpp>
 #include <mojo/core/string.hpp>
 #include <mojo/lang/data_decl_ptr.hpp>
 #include <mojo/lang/enum_decl_ptr.hpp>
@@ -36,11 +36,11 @@ struct SourceFile {
     // const_decls:     [ConstDecl] @11 @linked
     // attribute_decls: [AttributeDecl] @12 @linked
 
-    Dictionary<String, DataDeclPtr> dataDecls;
-    Dictionary<String, EnumDeclPtr> enumDecls;
-    Dictionary<String, StructDeclPtr> structDecls;
-    Dictionary<String, InterfaceDeclPtr> interfaceDecls;
-    Dictionary<String, FuncDeclPtr> funcDecls;
+    Map<String, DataDeclPtr> dataDecls;
+    Map<String, EnumDeclPtr> enumDecls;
+    Map<String, StructDeclPtr> structDecls;
+    Map<String, InterfaceDeclPtr> interfaceDecls;
+    Map<String, FuncDeclPtr> funcDecls;
 };
 
 }  // namespace lang

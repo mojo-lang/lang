@@ -19,4 +19,6 @@
 /// type-checked and well-formed subscript expression refers to a subscript
 /// declaration, which provides a getter and (optionally) a setter that will
 /// be used to perform reads/writes.
-type SubscriptExpr : Expr
+type SubscriptExpr : ApplyExpr {
+    arguments: [Argument] @20
+}

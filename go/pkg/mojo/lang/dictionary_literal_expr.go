@@ -1,4 +1,4 @@
 package lang
 
-func (m *DictionaryLiteralExpr) RangeStringKeys(iter func(key string, value *Expression)error) {
+func (m *MapLiteralExpr) RangeStringKeys(iter func(key string, value *Expression) error) {
 }

@@ -1,1 +1,0 @@
-{"allOf":[{"$ref":"#/components/schemas/mojo.lang.LiteralExpr"},{"title":"mojo.lang.DictionaryLiteralExpr","description":"\\brief A dictionary literal expression {a : x, b : y, c : z}.","type":"object","properties":{"entries":{"type":"array","items":{"$ref":"#/components/schemas/mojo.lang.DictionaryLiteralExpr.Entry"}}}}]}

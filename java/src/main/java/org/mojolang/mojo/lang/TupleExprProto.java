@@ -29,20 +29,22 @@ public final class TupleExprProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/lang/tuple_expr.proto\022\tmojo.lang\032" +
-      "\024mojo/lang/expr.proto\032\030mojo/lang/positio" +
-      "n.proto\"\275\001\n\tTupleExpr\022+\n\016start_position\030" +
-      "\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_positi" +
-      "on\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\003 " +
-      "\001(\005\022\020\n\010implicit\030\004 \001(\010\022\031\n\021has_element_nam" +
-      "es\030\024 \001(\010\022\035\n\025has_element_locations\030\025 \001(\010B" +
-      "[\n\026org.mojolang.mojo.langB\016TupleExprProt" +
-      "oP\001Z/github.com/mojo-lang/lang/go/pkg/mo" +
-      "jo/lang;langb\006proto3"
+      "\024mojo/lang/expr.proto\032\024mojo/lang/lang.pr" +
+      "oto\032\030mojo/lang/position.proto\"\306\001\n\tTupleE" +
+      "xpr\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang." +
+      "Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.la" +
+      "ng.Position\022\014\n\004kind\030\003 \001(\005\022\020\n\010implicit\030\004 " +
+      "\001(\010\022\032\n\022has_element_labels\030\n \001(\010\022%\n\010eleme" +
+      "nts\030\024 \003(\0132\023.mojo.lang.ArgumentB[\n\026org.mo" +
+      "jolang.mojo.langB\016TupleExprProtoP\001Z/gith" +
+      "ub.com/mojo-lang/lang/go/pkg/mojo/lang;l" +
+      "angb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.mojolang.mojo.lang.ExprProto.getDescriptor(),
+          org.mojolang.mojo.lang.LangProto.getDescriptor(),
           org.mojolang.mojo.lang.PositionProto.getDescriptor(),
         });
     internal_static_mojo_lang_TupleExpr_descriptor =
@@ -50,8 +52,9 @@ public final class TupleExprProto {
     internal_static_mojo_lang_TupleExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_TupleExpr_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", "HasElementNames", "HasElementLocations", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", "HasElementLabels", "Elements", });
     org.mojolang.mojo.lang.ExprProto.getDescriptor();
+    org.mojolang.mojo.lang.LangProto.getDescriptor();
     org.mojolang.mojo.lang.PositionProto.getDescriptor();
   }
 

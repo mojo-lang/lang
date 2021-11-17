@@ -38,16 +38,22 @@ public interface AttributeOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>string package = 5;</code>
-   * @return The package.
+   * <code>string package_name = 5;</code>
+   * @return The packageName.
    */
-  java.lang.String getPackage();
+  java.lang.String getPackageName();
   /**
-   * <code>string package = 5;</code>
-   * @return The bytes for package.
+   * <code>string package_name = 5;</code>
+   * @return The bytes for packageName.
    */
   com.google.protobuf.ByteString
-      getPackageBytes();
+      getPackageNameBytes();
+
+  /**
+   * <code>bool implicit = 7;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
 
   /**
    * <code>string name = 10;</code>

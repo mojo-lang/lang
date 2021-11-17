@@ -2,6 +2,52 @@ package lang
 
 import "errors"
 
+func NewBoolAttribute(pkg string, name string) *Attribute {
+	return newBoolAttribute(pkg, name, false)
+}
+
+func NewStringAttribute(pkg string, name string, value string) *Attribute {
+	return newStringAttribute(pkg, name, value, false)
+}
+
+func NewImplicitStringAttribute(pkg string, name string, value string) *Attribute {
+	return newStringAttribute(pkg, name, value, false)
+}
+
+func NewImplicitBoolAttribute(pkg string, name string) *Attribute {
+	return newBoolAttribute(pkg, name, true)
+}
+
+func newBoolAttribute(pkg string, name string, implicit bool) *Attribute {
+	return &Attribute{
+		PackageName: pkg,
+		Name:        name,
+		Arguments: []*Argument{{
+			Value: NewBoolLiteralExpression(&BoolLiteralExpr{
+				Kind:     0,
+				Implicit: implicit,
+				Value:    true,
+			}),
+		},
+		},
+	}
+}
+
+func newStringAttribute(pkg string, name string, value string, implicit bool) *Attribute {
+	return &Attribute{
+		PackageName: pkg,
+		Name:        name,
+		Arguments: []*Argument{{
+			Value: NewStringLiteralExpression(&StringLiteralExpr{
+				Kind:     0,
+				Implicit: implicit,
+				Value:    value,
+			}),
+		},
+		},
+	}
+}
+
 func (m *Attribute) SameName(fullName string) bool {
 	if m == nil {
 		return false
@@ -9,7 +55,7 @@ func (m *Attribute) SameName(fullName string) bool {
 
 	pkg, name := ParseIdentifierName(fullName)
 	if len(pkg) > 0 {
-		return m.Package == pkg && m.Name == name
+		return m.PackageName == pkg && m.Name == name
 	} else {
 		return m.Name == name
 	}
@@ -79,7 +125,7 @@ func SetBoolAttribute(attributes []*Attribute, name string, value bool) []*Attri
 	for _, attribute := range attributes {
 		if attribute.SameName(name) {
 			if len(attribute.Arguments) > 0 {
-				attribute.Arguments[0].Value = NewBoolLiteralExpr(&BoolLiteralExpr{
+				attribute.Arguments[0].Value = NewBoolLiteralExpression(&BoolLiteralExpr{
 					Kind:     0,
 					Implicit: false,
 					Value:    value,
@@ -91,11 +137,11 @@ func SetBoolAttribute(attributes []*Attribute, name string, value bool) []*Attri
 
 	pkg, n := ParseIdentifierName(name)
 	attributes = append(attributes, &Attribute{
-		Package: pkg,
-		Name:    n,
+		PackageName: pkg,
+		Name:        n,
 		Arguments: []*Argument{
 			{
-				Value: NewBoolLiteralExpr(&BoolLiteralExpr{
+				Value: NewBoolLiteralExpression(&BoolLiteralExpr{
 					Kind:     0,
 					Implicit: false,
 					Value:    value,
@@ -131,8 +177,8 @@ func SetIntegerAttribute(attributes []*Attribute, name string, value int64) []*A
 
 	pkg, n := ParseIdentifierName(name)
 	attributes = append(attributes, &Attribute{
-		Package: pkg,
-		Name:    n,
+		PackageName: pkg,
+		Name:        n,
 		Arguments: []*Argument{NewIntegerLiteralArgument(&IntegerLiteralExpr{
 			Kind:     0,
 			Implicit: false,
@@ -168,8 +214,8 @@ func SetStringAttribute(attributes []*Attribute, name string, value string) []*A
 
 	pkg, n := ParseIdentifierName(name)
 	attributes = append(attributes, &Attribute{
-		Package: pkg,
-		Name:    n,
+		PackageName: pkg,
+		Name:        n,
 		Arguments: []*Argument{NewStringLiteralArgument(&StringLiteralExpr{
 			Kind:     0,
 			Implicit: false,

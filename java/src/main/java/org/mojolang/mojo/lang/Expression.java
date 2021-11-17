@@ -147,22 +147,22 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 66: {
-            org.mojolang.mojo.lang.DictionaryLiteralExpr.Builder subBuilder = null;
+            org.mojolang.mojo.lang.MapLiteralExpr.Builder subBuilder = null;
             if (expressionCase_ == 8) {
-              subBuilder = ((org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_).toBuilder();
+              subBuilder = ((org.mojolang.mojo.lang.MapLiteralExpr) expression_).toBuilder();
             }
             expression_ =
-                input.readMessage(org.mojolang.mojo.lang.DictionaryLiteralExpr.parser(), extensionRegistry);
+                input.readMessage(org.mojolang.mojo.lang.MapLiteralExpr.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_);
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.MapLiteralExpr) expression_);
               expression_ = subBuilder.buildPartial();
             }
             expressionCase_ = 8;
             break;
           }
-          case 74: {
+          case 82: {
             org.mojolang.mojo.lang.IdentifierExpr.Builder subBuilder = null;
-            if (expressionCase_ == 9) {
+            if (expressionCase_ == 10) {
               subBuilder = ((org.mojolang.mojo.lang.IdentifierExpr) expression_).toBuilder();
             }
             expression_ =
@@ -171,7 +171,273 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom((org.mojolang.mojo.lang.IdentifierExpr) expression_);
               expression_ = subBuilder.buildPartial();
             }
-            expressionCase_ = 9;
+            expressionCase_ = 10;
+            break;
+          }
+          case 90: {
+            org.mojolang.mojo.lang.NumericLiteralUnaryExpr.Builder subBuilder = null;
+            if (expressionCase_ == 11) {
+              subBuilder = ((org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.NumericLiteralUnaryExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 11;
+            break;
+          }
+          case 98: {
+            org.mojolang.mojo.lang.StringLiteralUnaryExpr.Builder subBuilder = null;
+            if (expressionCase_ == 12) {
+              subBuilder = ((org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.StringLiteralUnaryExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 12;
+            break;
+          }
+          case 106: {
+            org.mojolang.mojo.lang.StructLiteralExpr.Builder subBuilder = null;
+            if (expressionCase_ == 13) {
+              subBuilder = ((org.mojolang.mojo.lang.StructLiteralExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.StructLiteralExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.StructLiteralExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 13;
+            break;
+          }
+          case 114: {
+            org.mojolang.mojo.lang.ClosureExpr.Builder subBuilder = null;
+            if (expressionCase_ == 14) {
+              subBuilder = ((org.mojolang.mojo.lang.ClosureExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.ClosureExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.ClosureExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 14;
+            break;
+          }
+          case 122: {
+            org.mojolang.mojo.lang.ParenthesizedExpr.Builder subBuilder = null;
+            if (expressionCase_ == 15) {
+              subBuilder = ((org.mojolang.mojo.lang.ParenthesizedExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.ParenthesizedExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.ParenthesizedExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 15;
+            break;
+          }
+          case 130: {
+            org.mojolang.mojo.lang.ImplicitMemberExpr.Builder subBuilder = null;
+            if (expressionCase_ == 16) {
+              subBuilder = ((org.mojolang.mojo.lang.ImplicitMemberExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.ImplicitMemberExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.ImplicitMemberExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 16;
+            break;
+          }
+          case 138: {
+            org.mojolang.mojo.lang.WildcardExpr.Builder subBuilder = null;
+            if (expressionCase_ == 17) {
+              subBuilder = ((org.mojolang.mojo.lang.WildcardExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.WildcardExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.WildcardExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 17;
+            break;
+          }
+          case 146: {
+            org.mojolang.mojo.lang.StructConstructionExpr.Builder subBuilder = null;
+            if (expressionCase_ == 18) {
+              subBuilder = ((org.mojolang.mojo.lang.StructConstructionExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.StructConstructionExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.StructConstructionExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 18;
+            break;
+          }
+          case 154: {
+            org.mojolang.mojo.lang.TupleExpr.Builder subBuilder = null;
+            if (expressionCase_ == 19) {
+              subBuilder = ((org.mojolang.mojo.lang.TupleExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.TupleExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.TupleExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 19;
+            break;
+          }
+          case 242: {
+            org.mojolang.mojo.lang.PrefixUnaryExpr.Builder subBuilder = null;
+            if (expressionCase_ == 30) {
+              subBuilder = ((org.mojolang.mojo.lang.PrefixUnaryExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.PrefixUnaryExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.PrefixUnaryExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 30;
+            break;
+          }
+          case 250: {
+            org.mojolang.mojo.lang.PostfixUnaryExpr.Builder subBuilder = null;
+            if (expressionCase_ == 31) {
+              subBuilder = ((org.mojolang.mojo.lang.PostfixUnaryExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.PostfixUnaryExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.PostfixUnaryExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 31;
+            break;
+          }
+          case 258: {
+            org.mojolang.mojo.lang.FunctionCallExpr.Builder subBuilder = null;
+            if (expressionCase_ == 32) {
+              subBuilder = ((org.mojolang.mojo.lang.FunctionCallExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.FunctionCallExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.FunctionCallExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 32;
+            break;
+          }
+          case 266: {
+            org.mojolang.mojo.lang.ExplicitMemberExpr.Builder subBuilder = null;
+            if (expressionCase_ == 33) {
+              subBuilder = ((org.mojolang.mojo.lang.ExplicitMemberExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.ExplicitMemberExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.ExplicitMemberExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 33;
+            break;
+          }
+          case 274: {
+            org.mojolang.mojo.lang.SubscriptExpr.Builder subBuilder = null;
+            if (expressionCase_ == 34) {
+              subBuilder = ((org.mojolang.mojo.lang.SubscriptExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.SubscriptExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.SubscriptExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 34;
+            break;
+          }
+          case 322: {
+            org.mojolang.mojo.lang.BinaryExpr.Builder subBuilder = null;
+            if (expressionCase_ == 40) {
+              subBuilder = ((org.mojolang.mojo.lang.BinaryExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.BinaryExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.BinaryExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 40;
+            break;
+          }
+          case 330: {
+            org.mojolang.mojo.lang.ConditionalExpr.Builder subBuilder = null;
+            if (expressionCase_ == 41) {
+              subBuilder = ((org.mojolang.mojo.lang.ConditionalExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.ConditionalExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.ConditionalExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 41;
+            break;
+          }
+          case 338: {
+            org.mojolang.mojo.lang.TypeCastingExpr.Builder subBuilder = null;
+            if (expressionCase_ == 42) {
+              subBuilder = ((org.mojolang.mojo.lang.TypeCastingExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.TypeCastingExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.TypeCastingExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 42;
+            break;
+          }
+          case 346: {
+            org.mojolang.mojo.lang.AssignmentExpr.Builder subBuilder = null;
+            if (expressionCase_ == 43) {
+              subBuilder = ((org.mojolang.mojo.lang.AssignmentExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.AssignmentExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.AssignmentExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 43;
+            break;
+          }
+          case 482: {
+            org.mojolang.mojo.lang.ErrorExpr.Builder subBuilder = null;
+            if (expressionCase_ == 60) {
+              subBuilder = ((org.mojolang.mojo.lang.ErrorExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.ErrorExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.ErrorExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 60;
             break;
           }
           default: {
@@ -218,8 +484,27 @@ private static final long serialVersionUID = 0L;
     STRING_LITERAL_EXPR(5),
     OBJECT_LITERAL_EXPR(6),
     ARRAY_LITERAL_EXPR(7),
-    DICTIONARY_LITERAL_EXPR(8),
-    IDENTIFIER_EXPR(9),
+    MAP_LITERAL_EXPR(8),
+    IDENTIFIER_EXPR(10),
+    NUMERIC_LITERAL_UNARY_EXPR(11),
+    STRING_LITERAL_UNARY_EXPR(12),
+    STRUCT_LITERAL_EXPR(13),
+    CLOSURE_EXPR(14),
+    PARENTHESIZED_EXPR(15),
+    IMPLICIT_MEMBER_EXPR(16),
+    WILDCARD_EXPR(17),
+    STRUCT_CONSTRUCTION_EXPR(18),
+    TUPLE_EXPR(19),
+    PREFIX_UNARY_EXPR(30),
+    POSTFIX_UNARY_EXPR(31),
+    FUNCTION_CALL_EXPR(32),
+    EXPLICIT_MEMBER_EXPR(33),
+    SUBSCRIPT_EXPR(34),
+    BINARY_EXPR(40),
+    CONDITIONAL_EXPR(41),
+    TYPE_CASTING_EXPR(42),
+    ASSIGNMENT_EXPR(43),
+    ERROR_EXPR(60),
     EXPRESSION_NOT_SET(0);
     private final int value;
     private ExpressionCase(int value) {
@@ -244,8 +529,27 @@ private static final long serialVersionUID = 0L;
         case 5: return STRING_LITERAL_EXPR;
         case 6: return OBJECT_LITERAL_EXPR;
         case 7: return ARRAY_LITERAL_EXPR;
-        case 8: return DICTIONARY_LITERAL_EXPR;
-        case 9: return IDENTIFIER_EXPR;
+        case 8: return MAP_LITERAL_EXPR;
+        case 10: return IDENTIFIER_EXPR;
+        case 11: return NUMERIC_LITERAL_UNARY_EXPR;
+        case 12: return STRING_LITERAL_UNARY_EXPR;
+        case 13: return STRUCT_LITERAL_EXPR;
+        case 14: return CLOSURE_EXPR;
+        case 15: return PARENTHESIZED_EXPR;
+        case 16: return IMPLICIT_MEMBER_EXPR;
+        case 17: return WILDCARD_EXPR;
+        case 18: return STRUCT_CONSTRUCTION_EXPR;
+        case 19: return TUPLE_EXPR;
+        case 30: return PREFIX_UNARY_EXPR;
+        case 31: return POSTFIX_UNARY_EXPR;
+        case 32: return FUNCTION_CALL_EXPR;
+        case 33: return EXPLICIT_MEMBER_EXPR;
+        case 34: return SUBSCRIPT_EXPR;
+        case 40: return BINARY_EXPR;
+        case 41: return CONDITIONAL_EXPR;
+        case 42: return TYPE_CASTING_EXPR;
+        case 43: return ASSIGNMENT_EXPR;
+        case 60: return ERROR_EXPR;
         case 0: return EXPRESSION_NOT_SET;
         default: return null;
       }
@@ -478,66 +782,655 @@ private static final long serialVersionUID = 0L;
     return org.mojolang.mojo.lang.ArrayLiteralExpr.getDefaultInstance();
   }
 
-  public static final int DICTIONARY_LITERAL_EXPR_FIELD_NUMBER = 8;
+  public static final int MAP_LITERAL_EXPR_FIELD_NUMBER = 8;
   /**
-   * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
-   * @return Whether the dictionaryLiteralExpr field is set.
+   * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
+   * @return Whether the mapLiteralExpr field is set.
    */
   @java.lang.Override
-  public boolean hasDictionaryLiteralExpr() {
+  public boolean hasMapLiteralExpr() {
     return expressionCase_ == 8;
   }
   /**
-   * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
-   * @return The dictionaryLiteralExpr.
+   * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
+   * @return The mapLiteralExpr.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.DictionaryLiteralExpr getDictionaryLiteralExpr() {
+  public org.mojolang.mojo.lang.MapLiteralExpr getMapLiteralExpr() {
     if (expressionCase_ == 8) {
-       return (org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_;
+       return (org.mojolang.mojo.lang.MapLiteralExpr) expression_;
     }
-    return org.mojolang.mojo.lang.DictionaryLiteralExpr.getDefaultInstance();
+    return org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+   * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.DictionaryLiteralExprOrBuilder getDictionaryLiteralExprOrBuilder() {
+  public org.mojolang.mojo.lang.MapLiteralExprOrBuilder getMapLiteralExprOrBuilder() {
     if (expressionCase_ == 8) {
-       return (org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_;
+       return (org.mojolang.mojo.lang.MapLiteralExpr) expression_;
     }
-    return org.mojolang.mojo.lang.DictionaryLiteralExpr.getDefaultInstance();
+    return org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance();
   }
 
-  public static final int IDENTIFIER_EXPR_FIELD_NUMBER = 9;
+  public static final int IDENTIFIER_EXPR_FIELD_NUMBER = 10;
   /**
-   * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+   * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
    * @return Whether the identifierExpr field is set.
    */
   @java.lang.Override
   public boolean hasIdentifierExpr() {
-    return expressionCase_ == 9;
+    return expressionCase_ == 10;
   }
   /**
-   * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+   * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
    * @return The identifierExpr.
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.IdentifierExpr getIdentifierExpr() {
-    if (expressionCase_ == 9) {
+    if (expressionCase_ == 10) {
        return (org.mojolang.mojo.lang.IdentifierExpr) expression_;
     }
     return org.mojolang.mojo.lang.IdentifierExpr.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+   * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.IdentifierExprOrBuilder getIdentifierExprOrBuilder() {
-    if (expressionCase_ == 9) {
+    if (expressionCase_ == 10) {
        return (org.mojolang.mojo.lang.IdentifierExpr) expression_;
     }
     return org.mojolang.mojo.lang.IdentifierExpr.getDefaultInstance();
+  }
+
+  public static final int NUMERIC_LITERAL_UNARY_EXPR_FIELD_NUMBER = 11;
+  /**
+   * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+   * @return Whether the numericLiteralUnaryExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasNumericLiteralUnaryExpr() {
+    return expressionCase_ == 11;
+  }
+  /**
+   * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+   * @return The numericLiteralUnaryExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.NumericLiteralUnaryExpr getNumericLiteralUnaryExpr() {
+    if (expressionCase_ == 11) {
+       return (org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.NumericLiteralUnaryExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.NumericLiteralUnaryExprOrBuilder getNumericLiteralUnaryExprOrBuilder() {
+    if (expressionCase_ == 11) {
+       return (org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.NumericLiteralUnaryExpr.getDefaultInstance();
+  }
+
+  public static final int STRING_LITERAL_UNARY_EXPR_FIELD_NUMBER = 12;
+  /**
+   * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+   * @return Whether the stringLiteralUnaryExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasStringLiteralUnaryExpr() {
+    return expressionCase_ == 12;
+  }
+  /**
+   * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+   * @return The stringLiteralUnaryExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.StringLiteralUnaryExpr getStringLiteralUnaryExpr() {
+    if (expressionCase_ == 12) {
+       return (org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.StringLiteralUnaryExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.StringLiteralUnaryExprOrBuilder getStringLiteralUnaryExprOrBuilder() {
+    if (expressionCase_ == 12) {
+       return (org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.StringLiteralUnaryExpr.getDefaultInstance();
+  }
+
+  public static final int STRUCT_LITERAL_EXPR_FIELD_NUMBER = 13;
+  /**
+   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+   * @return Whether the structLiteralExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasStructLiteralExpr() {
+    return expressionCase_ == 13;
+  }
+  /**
+   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+   * @return The structLiteralExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.StructLiteralExpr getStructLiteralExpr() {
+    if (expressionCase_ == 13) {
+       return (org.mojolang.mojo.lang.StructLiteralExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.StructLiteralExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.StructLiteralExprOrBuilder getStructLiteralExprOrBuilder() {
+    if (expressionCase_ == 13) {
+       return (org.mojolang.mojo.lang.StructLiteralExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.StructLiteralExpr.getDefaultInstance();
+  }
+
+  public static final int CLOSURE_EXPR_FIELD_NUMBER = 14;
+  /**
+   * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+   * @return Whether the closureExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasClosureExpr() {
+    return expressionCase_ == 14;
+  }
+  /**
+   * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+   * @return The closureExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ClosureExpr getClosureExpr() {
+    if (expressionCase_ == 14) {
+       return (org.mojolang.mojo.lang.ClosureExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ClosureExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ClosureExprOrBuilder getClosureExprOrBuilder() {
+    if (expressionCase_ == 14) {
+       return (org.mojolang.mojo.lang.ClosureExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ClosureExpr.getDefaultInstance();
+  }
+
+  public static final int PARENTHESIZED_EXPR_FIELD_NUMBER = 15;
+  /**
+   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+   * @return Whether the parenthesizedExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasParenthesizedExpr() {
+    return expressionCase_ == 15;
+  }
+  /**
+   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+   * @return The parenthesizedExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ParenthesizedExpr getParenthesizedExpr() {
+    if (expressionCase_ == 15) {
+       return (org.mojolang.mojo.lang.ParenthesizedExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ParenthesizedExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ParenthesizedExprOrBuilder getParenthesizedExprOrBuilder() {
+    if (expressionCase_ == 15) {
+       return (org.mojolang.mojo.lang.ParenthesizedExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ParenthesizedExpr.getDefaultInstance();
+  }
+
+  public static final int IMPLICIT_MEMBER_EXPR_FIELD_NUMBER = 16;
+  /**
+   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+   * @return Whether the implicitMemberExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasImplicitMemberExpr() {
+    return expressionCase_ == 16;
+  }
+  /**
+   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+   * @return The implicitMemberExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ImplicitMemberExpr getImplicitMemberExpr() {
+    if (expressionCase_ == 16) {
+       return (org.mojolang.mojo.lang.ImplicitMemberExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ImplicitMemberExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ImplicitMemberExprOrBuilder getImplicitMemberExprOrBuilder() {
+    if (expressionCase_ == 16) {
+       return (org.mojolang.mojo.lang.ImplicitMemberExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ImplicitMemberExpr.getDefaultInstance();
+  }
+
+  public static final int WILDCARD_EXPR_FIELD_NUMBER = 17;
+  /**
+   * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+   * @return Whether the wildcardExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasWildcardExpr() {
+    return expressionCase_ == 17;
+  }
+  /**
+   * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+   * @return The wildcardExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.WildcardExpr getWildcardExpr() {
+    if (expressionCase_ == 17) {
+       return (org.mojolang.mojo.lang.WildcardExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.WildcardExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.WildcardExprOrBuilder getWildcardExprOrBuilder() {
+    if (expressionCase_ == 17) {
+       return (org.mojolang.mojo.lang.WildcardExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.WildcardExpr.getDefaultInstance();
+  }
+
+  public static final int STRUCT_CONSTRUCTION_EXPR_FIELD_NUMBER = 18;
+  /**
+   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+   * @return Whether the structConstructionExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasStructConstructionExpr() {
+    return expressionCase_ == 18;
+  }
+  /**
+   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+   * @return The structConstructionExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.StructConstructionExpr getStructConstructionExpr() {
+    if (expressionCase_ == 18) {
+       return (org.mojolang.mojo.lang.StructConstructionExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.StructConstructionExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.StructConstructionExprOrBuilder getStructConstructionExprOrBuilder() {
+    if (expressionCase_ == 18) {
+       return (org.mojolang.mojo.lang.StructConstructionExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.StructConstructionExpr.getDefaultInstance();
+  }
+
+  public static final int TUPLE_EXPR_FIELD_NUMBER = 19;
+  /**
+   * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+   * @return Whether the tupleExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasTupleExpr() {
+    return expressionCase_ == 19;
+  }
+  /**
+   * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+   * @return The tupleExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.TupleExpr getTupleExpr() {
+    if (expressionCase_ == 19) {
+       return (org.mojolang.mojo.lang.TupleExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.TupleExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.TupleExprOrBuilder getTupleExprOrBuilder() {
+    if (expressionCase_ == 19) {
+       return (org.mojolang.mojo.lang.TupleExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.TupleExpr.getDefaultInstance();
+  }
+
+  public static final int PREFIX_UNARY_EXPR_FIELD_NUMBER = 30;
+  /**
+   * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+   * @return Whether the prefixUnaryExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasPrefixUnaryExpr() {
+    return expressionCase_ == 30;
+  }
+  /**
+   * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+   * @return The prefixUnaryExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PrefixUnaryExpr getPrefixUnaryExpr() {
+    if (expressionCase_ == 30) {
+       return (org.mojolang.mojo.lang.PrefixUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.PrefixUnaryExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PrefixUnaryExprOrBuilder getPrefixUnaryExprOrBuilder() {
+    if (expressionCase_ == 30) {
+       return (org.mojolang.mojo.lang.PrefixUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.PrefixUnaryExpr.getDefaultInstance();
+  }
+
+  public static final int POSTFIX_UNARY_EXPR_FIELD_NUMBER = 31;
+  /**
+   * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+   * @return Whether the postfixUnaryExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasPostfixUnaryExpr() {
+    return expressionCase_ == 31;
+  }
+  /**
+   * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+   * @return The postfixUnaryExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PostfixUnaryExpr getPostfixUnaryExpr() {
+    if (expressionCase_ == 31) {
+       return (org.mojolang.mojo.lang.PostfixUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.PostfixUnaryExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PostfixUnaryExprOrBuilder getPostfixUnaryExprOrBuilder() {
+    if (expressionCase_ == 31) {
+       return (org.mojolang.mojo.lang.PostfixUnaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.PostfixUnaryExpr.getDefaultInstance();
+  }
+
+  public static final int FUNCTION_CALL_EXPR_FIELD_NUMBER = 32;
+  /**
+   * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+   * @return Whether the functionCallExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasFunctionCallExpr() {
+    return expressionCase_ == 32;
+  }
+  /**
+   * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+   * @return The functionCallExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.FunctionCallExpr getFunctionCallExpr() {
+    if (expressionCase_ == 32) {
+       return (org.mojolang.mojo.lang.FunctionCallExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.FunctionCallExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.FunctionCallExprOrBuilder getFunctionCallExprOrBuilder() {
+    if (expressionCase_ == 32) {
+       return (org.mojolang.mojo.lang.FunctionCallExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.FunctionCallExpr.getDefaultInstance();
+  }
+
+  public static final int EXPLICIT_MEMBER_EXPR_FIELD_NUMBER = 33;
+  /**
+   * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+   * @return Whether the explicitMemberExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasExplicitMemberExpr() {
+    return expressionCase_ == 33;
+  }
+  /**
+   * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+   * @return The explicitMemberExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ExplicitMemberExpr getExplicitMemberExpr() {
+    if (expressionCase_ == 33) {
+       return (org.mojolang.mojo.lang.ExplicitMemberExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ExplicitMemberExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ExplicitMemberExprOrBuilder getExplicitMemberExprOrBuilder() {
+    if (expressionCase_ == 33) {
+       return (org.mojolang.mojo.lang.ExplicitMemberExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ExplicitMemberExpr.getDefaultInstance();
+  }
+
+  public static final int SUBSCRIPT_EXPR_FIELD_NUMBER = 34;
+  /**
+   * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+   * @return Whether the subscriptExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasSubscriptExpr() {
+    return expressionCase_ == 34;
+  }
+  /**
+   * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+   * @return The subscriptExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.SubscriptExpr getSubscriptExpr() {
+    if (expressionCase_ == 34) {
+       return (org.mojolang.mojo.lang.SubscriptExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.SubscriptExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.SubscriptExprOrBuilder getSubscriptExprOrBuilder() {
+    if (expressionCase_ == 34) {
+       return (org.mojolang.mojo.lang.SubscriptExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.SubscriptExpr.getDefaultInstance();
+  }
+
+  public static final int BINARY_EXPR_FIELD_NUMBER = 40;
+  /**
+   * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+   * @return Whether the binaryExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasBinaryExpr() {
+    return expressionCase_ == 40;
+  }
+  /**
+   * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+   * @return The binaryExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.BinaryExpr getBinaryExpr() {
+    if (expressionCase_ == 40) {
+       return (org.mojolang.mojo.lang.BinaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.BinaryExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.BinaryExprOrBuilder getBinaryExprOrBuilder() {
+    if (expressionCase_ == 40) {
+       return (org.mojolang.mojo.lang.BinaryExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.BinaryExpr.getDefaultInstance();
+  }
+
+  public static final int CONDITIONAL_EXPR_FIELD_NUMBER = 41;
+  /**
+   * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+   * @return Whether the conditionalExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasConditionalExpr() {
+    return expressionCase_ == 41;
+  }
+  /**
+   * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+   * @return The conditionalExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ConditionalExpr getConditionalExpr() {
+    if (expressionCase_ == 41) {
+       return (org.mojolang.mojo.lang.ConditionalExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ConditionalExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ConditionalExprOrBuilder getConditionalExprOrBuilder() {
+    if (expressionCase_ == 41) {
+       return (org.mojolang.mojo.lang.ConditionalExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ConditionalExpr.getDefaultInstance();
+  }
+
+  public static final int TYPE_CASTING_EXPR_FIELD_NUMBER = 42;
+  /**
+   * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+   * @return Whether the typeCastingExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasTypeCastingExpr() {
+    return expressionCase_ == 42;
+  }
+  /**
+   * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+   * @return The typeCastingExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.TypeCastingExpr getTypeCastingExpr() {
+    if (expressionCase_ == 42) {
+       return (org.mojolang.mojo.lang.TypeCastingExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.TypeCastingExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.TypeCastingExprOrBuilder getTypeCastingExprOrBuilder() {
+    if (expressionCase_ == 42) {
+       return (org.mojolang.mojo.lang.TypeCastingExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.TypeCastingExpr.getDefaultInstance();
+  }
+
+  public static final int ASSIGNMENT_EXPR_FIELD_NUMBER = 43;
+  /**
+   * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+   * @return Whether the assignmentExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasAssignmentExpr() {
+    return expressionCase_ == 43;
+  }
+  /**
+   * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+   * @return The assignmentExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.AssignmentExpr getAssignmentExpr() {
+    if (expressionCase_ == 43) {
+       return (org.mojolang.mojo.lang.AssignmentExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.AssignmentExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.AssignmentExprOrBuilder getAssignmentExprOrBuilder() {
+    if (expressionCase_ == 43) {
+       return (org.mojolang.mojo.lang.AssignmentExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.AssignmentExpr.getDefaultInstance();
+  }
+
+  public static final int ERROR_EXPR_FIELD_NUMBER = 60;
+  /**
+   * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+   * @return Whether the errorExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasErrorExpr() {
+    return expressionCase_ == 60;
+  }
+  /**
+   * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+   * @return The errorExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ErrorExpr getErrorExpr() {
+    if (expressionCase_ == 60) {
+       return (org.mojolang.mojo.lang.ErrorExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ErrorExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ErrorExprOrBuilder getErrorExprOrBuilder() {
+    if (expressionCase_ == 60) {
+       return (org.mojolang.mojo.lang.ErrorExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.ErrorExpr.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -576,10 +1469,67 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(7, (org.mojolang.mojo.lang.ArrayLiteralExpr) expression_);
     }
     if (expressionCase_ == 8) {
-      output.writeMessage(8, (org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_);
+      output.writeMessage(8, (org.mojolang.mojo.lang.MapLiteralExpr) expression_);
     }
-    if (expressionCase_ == 9) {
-      output.writeMessage(9, (org.mojolang.mojo.lang.IdentifierExpr) expression_);
+    if (expressionCase_ == 10) {
+      output.writeMessage(10, (org.mojolang.mojo.lang.IdentifierExpr) expression_);
+    }
+    if (expressionCase_ == 11) {
+      output.writeMessage(11, (org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 12) {
+      output.writeMessage(12, (org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 13) {
+      output.writeMessage(13, (org.mojolang.mojo.lang.StructLiteralExpr) expression_);
+    }
+    if (expressionCase_ == 14) {
+      output.writeMessage(14, (org.mojolang.mojo.lang.ClosureExpr) expression_);
+    }
+    if (expressionCase_ == 15) {
+      output.writeMessage(15, (org.mojolang.mojo.lang.ParenthesizedExpr) expression_);
+    }
+    if (expressionCase_ == 16) {
+      output.writeMessage(16, (org.mojolang.mojo.lang.ImplicitMemberExpr) expression_);
+    }
+    if (expressionCase_ == 17) {
+      output.writeMessage(17, (org.mojolang.mojo.lang.WildcardExpr) expression_);
+    }
+    if (expressionCase_ == 18) {
+      output.writeMessage(18, (org.mojolang.mojo.lang.StructConstructionExpr) expression_);
+    }
+    if (expressionCase_ == 19) {
+      output.writeMessage(19, (org.mojolang.mojo.lang.TupleExpr) expression_);
+    }
+    if (expressionCase_ == 30) {
+      output.writeMessage(30, (org.mojolang.mojo.lang.PrefixUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 31) {
+      output.writeMessage(31, (org.mojolang.mojo.lang.PostfixUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 32) {
+      output.writeMessage(32, (org.mojolang.mojo.lang.FunctionCallExpr) expression_);
+    }
+    if (expressionCase_ == 33) {
+      output.writeMessage(33, (org.mojolang.mojo.lang.ExplicitMemberExpr) expression_);
+    }
+    if (expressionCase_ == 34) {
+      output.writeMessage(34, (org.mojolang.mojo.lang.SubscriptExpr) expression_);
+    }
+    if (expressionCase_ == 40) {
+      output.writeMessage(40, (org.mojolang.mojo.lang.BinaryExpr) expression_);
+    }
+    if (expressionCase_ == 41) {
+      output.writeMessage(41, (org.mojolang.mojo.lang.ConditionalExpr) expression_);
+    }
+    if (expressionCase_ == 42) {
+      output.writeMessage(42, (org.mojolang.mojo.lang.TypeCastingExpr) expression_);
+    }
+    if (expressionCase_ == 43) {
+      output.writeMessage(43, (org.mojolang.mojo.lang.AssignmentExpr) expression_);
+    }
+    if (expressionCase_ == 60) {
+      output.writeMessage(60, (org.mojolang.mojo.lang.ErrorExpr) expression_);
     }
     unknownFields.writeTo(output);
   }
@@ -620,11 +1570,87 @@ private static final long serialVersionUID = 0L;
     }
     if (expressionCase_ == 8) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, (org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_);
+        .computeMessageSize(8, (org.mojolang.mojo.lang.MapLiteralExpr) expression_);
     }
-    if (expressionCase_ == 9) {
+    if (expressionCase_ == 10) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, (org.mojolang.mojo.lang.IdentifierExpr) expression_);
+        .computeMessageSize(10, (org.mojolang.mojo.lang.IdentifierExpr) expression_);
+    }
+    if (expressionCase_ == 11) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, (org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 12) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, (org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 13) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, (org.mojolang.mojo.lang.StructLiteralExpr) expression_);
+    }
+    if (expressionCase_ == 14) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, (org.mojolang.mojo.lang.ClosureExpr) expression_);
+    }
+    if (expressionCase_ == 15) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, (org.mojolang.mojo.lang.ParenthesizedExpr) expression_);
+    }
+    if (expressionCase_ == 16) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, (org.mojolang.mojo.lang.ImplicitMemberExpr) expression_);
+    }
+    if (expressionCase_ == 17) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, (org.mojolang.mojo.lang.WildcardExpr) expression_);
+    }
+    if (expressionCase_ == 18) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(18, (org.mojolang.mojo.lang.StructConstructionExpr) expression_);
+    }
+    if (expressionCase_ == 19) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, (org.mojolang.mojo.lang.TupleExpr) expression_);
+    }
+    if (expressionCase_ == 30) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(30, (org.mojolang.mojo.lang.PrefixUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 31) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(31, (org.mojolang.mojo.lang.PostfixUnaryExpr) expression_);
+    }
+    if (expressionCase_ == 32) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(32, (org.mojolang.mojo.lang.FunctionCallExpr) expression_);
+    }
+    if (expressionCase_ == 33) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(33, (org.mojolang.mojo.lang.ExplicitMemberExpr) expression_);
+    }
+    if (expressionCase_ == 34) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(34, (org.mojolang.mojo.lang.SubscriptExpr) expression_);
+    }
+    if (expressionCase_ == 40) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(40, (org.mojolang.mojo.lang.BinaryExpr) expression_);
+    }
+    if (expressionCase_ == 41) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(41, (org.mojolang.mojo.lang.ConditionalExpr) expression_);
+    }
+    if (expressionCase_ == 42) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(42, (org.mojolang.mojo.lang.TypeCastingExpr) expression_);
+    }
+    if (expressionCase_ == 43) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(43, (org.mojolang.mojo.lang.AssignmentExpr) expression_);
+    }
+    if (expressionCase_ == 60) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(60, (org.mojolang.mojo.lang.ErrorExpr) expression_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -672,12 +1698,88 @@ private static final long serialVersionUID = 0L;
             .equals(other.getArrayLiteralExpr())) return false;
         break;
       case 8:
-        if (!getDictionaryLiteralExpr()
-            .equals(other.getDictionaryLiteralExpr())) return false;
+        if (!getMapLiteralExpr()
+            .equals(other.getMapLiteralExpr())) return false;
         break;
-      case 9:
+      case 10:
         if (!getIdentifierExpr()
             .equals(other.getIdentifierExpr())) return false;
+        break;
+      case 11:
+        if (!getNumericLiteralUnaryExpr()
+            .equals(other.getNumericLiteralUnaryExpr())) return false;
+        break;
+      case 12:
+        if (!getStringLiteralUnaryExpr()
+            .equals(other.getStringLiteralUnaryExpr())) return false;
+        break;
+      case 13:
+        if (!getStructLiteralExpr()
+            .equals(other.getStructLiteralExpr())) return false;
+        break;
+      case 14:
+        if (!getClosureExpr()
+            .equals(other.getClosureExpr())) return false;
+        break;
+      case 15:
+        if (!getParenthesizedExpr()
+            .equals(other.getParenthesizedExpr())) return false;
+        break;
+      case 16:
+        if (!getImplicitMemberExpr()
+            .equals(other.getImplicitMemberExpr())) return false;
+        break;
+      case 17:
+        if (!getWildcardExpr()
+            .equals(other.getWildcardExpr())) return false;
+        break;
+      case 18:
+        if (!getStructConstructionExpr()
+            .equals(other.getStructConstructionExpr())) return false;
+        break;
+      case 19:
+        if (!getTupleExpr()
+            .equals(other.getTupleExpr())) return false;
+        break;
+      case 30:
+        if (!getPrefixUnaryExpr()
+            .equals(other.getPrefixUnaryExpr())) return false;
+        break;
+      case 31:
+        if (!getPostfixUnaryExpr()
+            .equals(other.getPostfixUnaryExpr())) return false;
+        break;
+      case 32:
+        if (!getFunctionCallExpr()
+            .equals(other.getFunctionCallExpr())) return false;
+        break;
+      case 33:
+        if (!getExplicitMemberExpr()
+            .equals(other.getExplicitMemberExpr())) return false;
+        break;
+      case 34:
+        if (!getSubscriptExpr()
+            .equals(other.getSubscriptExpr())) return false;
+        break;
+      case 40:
+        if (!getBinaryExpr()
+            .equals(other.getBinaryExpr())) return false;
+        break;
+      case 41:
+        if (!getConditionalExpr()
+            .equals(other.getConditionalExpr())) return false;
+        break;
+      case 42:
+        if (!getTypeCastingExpr()
+            .equals(other.getTypeCastingExpr())) return false;
+        break;
+      case 43:
+        if (!getAssignmentExpr()
+            .equals(other.getAssignmentExpr())) return false;
+        break;
+      case 60:
+        if (!getErrorExpr()
+            .equals(other.getErrorExpr())) return false;
         break;
       case 0:
       default:
@@ -723,12 +1825,88 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getArrayLiteralExpr().hashCode();
         break;
       case 8:
-        hash = (37 * hash) + DICTIONARY_LITERAL_EXPR_FIELD_NUMBER;
-        hash = (53 * hash) + getDictionaryLiteralExpr().hashCode();
+        hash = (37 * hash) + MAP_LITERAL_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getMapLiteralExpr().hashCode();
         break;
-      case 9:
+      case 10:
         hash = (37 * hash) + IDENTIFIER_EXPR_FIELD_NUMBER;
         hash = (53 * hash) + getIdentifierExpr().hashCode();
+        break;
+      case 11:
+        hash = (37 * hash) + NUMERIC_LITERAL_UNARY_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getNumericLiteralUnaryExpr().hashCode();
+        break;
+      case 12:
+        hash = (37 * hash) + STRING_LITERAL_UNARY_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getStringLiteralUnaryExpr().hashCode();
+        break;
+      case 13:
+        hash = (37 * hash) + STRUCT_LITERAL_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getStructLiteralExpr().hashCode();
+        break;
+      case 14:
+        hash = (37 * hash) + CLOSURE_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getClosureExpr().hashCode();
+        break;
+      case 15:
+        hash = (37 * hash) + PARENTHESIZED_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getParenthesizedExpr().hashCode();
+        break;
+      case 16:
+        hash = (37 * hash) + IMPLICIT_MEMBER_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getImplicitMemberExpr().hashCode();
+        break;
+      case 17:
+        hash = (37 * hash) + WILDCARD_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getWildcardExpr().hashCode();
+        break;
+      case 18:
+        hash = (37 * hash) + STRUCT_CONSTRUCTION_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getStructConstructionExpr().hashCode();
+        break;
+      case 19:
+        hash = (37 * hash) + TUPLE_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getTupleExpr().hashCode();
+        break;
+      case 30:
+        hash = (37 * hash) + PREFIX_UNARY_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getPrefixUnaryExpr().hashCode();
+        break;
+      case 31:
+        hash = (37 * hash) + POSTFIX_UNARY_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getPostfixUnaryExpr().hashCode();
+        break;
+      case 32:
+        hash = (37 * hash) + FUNCTION_CALL_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getFunctionCallExpr().hashCode();
+        break;
+      case 33:
+        hash = (37 * hash) + EXPLICIT_MEMBER_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getExplicitMemberExpr().hashCode();
+        break;
+      case 34:
+        hash = (37 * hash) + SUBSCRIPT_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getSubscriptExpr().hashCode();
+        break;
+      case 40:
+        hash = (37 * hash) + BINARY_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getBinaryExpr().hashCode();
+        break;
+      case 41:
+        hash = (37 * hash) + CONDITIONAL_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getConditionalExpr().hashCode();
+        break;
+      case 42:
+        hash = (37 * hash) + TYPE_CASTING_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getTypeCastingExpr().hashCode();
+        break;
+      case 43:
+        hash = (37 * hash) + ASSIGNMENT_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getAssignmentExpr().hashCode();
+        break;
+      case 60:
+        hash = (37 * hash) + ERROR_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getErrorExpr().hashCode();
         break;
       case 0:
       default:
@@ -944,17 +2122,150 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (expressionCase_ == 8) {
-        if (dictionaryLiteralExprBuilder_ == null) {
+        if (mapLiteralExprBuilder_ == null) {
           result.expression_ = expression_;
         } else {
-          result.expression_ = dictionaryLiteralExprBuilder_.build();
+          result.expression_ = mapLiteralExprBuilder_.build();
         }
       }
-      if (expressionCase_ == 9) {
+      if (expressionCase_ == 10) {
         if (identifierExprBuilder_ == null) {
           result.expression_ = expression_;
         } else {
           result.expression_ = identifierExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 11) {
+        if (numericLiteralUnaryExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = numericLiteralUnaryExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 12) {
+        if (stringLiteralUnaryExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = stringLiteralUnaryExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 13) {
+        if (structLiteralExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = structLiteralExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 14) {
+        if (closureExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = closureExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 15) {
+        if (parenthesizedExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = parenthesizedExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 16) {
+        if (implicitMemberExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = implicitMemberExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 17) {
+        if (wildcardExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = wildcardExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 18) {
+        if (structConstructionExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = structConstructionExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 19) {
+        if (tupleExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = tupleExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 30) {
+        if (prefixUnaryExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = prefixUnaryExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 31) {
+        if (postfixUnaryExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = postfixUnaryExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 32) {
+        if (functionCallExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = functionCallExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 33) {
+        if (explicitMemberExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = explicitMemberExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 34) {
+        if (subscriptExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = subscriptExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 40) {
+        if (binaryExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = binaryExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 41) {
+        if (conditionalExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = conditionalExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 42) {
+        if (typeCastingExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = typeCastingExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 43) {
+        if (assignmentExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = assignmentExprBuilder_.build();
+        }
+      }
+      if (expressionCase_ == 60) {
+        if (errorExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = errorExprBuilder_.build();
         }
       }
       result.expressionCase_ = expressionCase_;
@@ -1035,12 +2346,88 @@ private static final long serialVersionUID = 0L;
           mergeArrayLiteralExpr(other.getArrayLiteralExpr());
           break;
         }
-        case DICTIONARY_LITERAL_EXPR: {
-          mergeDictionaryLiteralExpr(other.getDictionaryLiteralExpr());
+        case MAP_LITERAL_EXPR: {
+          mergeMapLiteralExpr(other.getMapLiteralExpr());
           break;
         }
         case IDENTIFIER_EXPR: {
           mergeIdentifierExpr(other.getIdentifierExpr());
+          break;
+        }
+        case NUMERIC_LITERAL_UNARY_EXPR: {
+          mergeNumericLiteralUnaryExpr(other.getNumericLiteralUnaryExpr());
+          break;
+        }
+        case STRING_LITERAL_UNARY_EXPR: {
+          mergeStringLiteralUnaryExpr(other.getStringLiteralUnaryExpr());
+          break;
+        }
+        case STRUCT_LITERAL_EXPR: {
+          mergeStructLiteralExpr(other.getStructLiteralExpr());
+          break;
+        }
+        case CLOSURE_EXPR: {
+          mergeClosureExpr(other.getClosureExpr());
+          break;
+        }
+        case PARENTHESIZED_EXPR: {
+          mergeParenthesizedExpr(other.getParenthesizedExpr());
+          break;
+        }
+        case IMPLICIT_MEMBER_EXPR: {
+          mergeImplicitMemberExpr(other.getImplicitMemberExpr());
+          break;
+        }
+        case WILDCARD_EXPR: {
+          mergeWildcardExpr(other.getWildcardExpr());
+          break;
+        }
+        case STRUCT_CONSTRUCTION_EXPR: {
+          mergeStructConstructionExpr(other.getStructConstructionExpr());
+          break;
+        }
+        case TUPLE_EXPR: {
+          mergeTupleExpr(other.getTupleExpr());
+          break;
+        }
+        case PREFIX_UNARY_EXPR: {
+          mergePrefixUnaryExpr(other.getPrefixUnaryExpr());
+          break;
+        }
+        case POSTFIX_UNARY_EXPR: {
+          mergePostfixUnaryExpr(other.getPostfixUnaryExpr());
+          break;
+        }
+        case FUNCTION_CALL_EXPR: {
+          mergeFunctionCallExpr(other.getFunctionCallExpr());
+          break;
+        }
+        case EXPLICIT_MEMBER_EXPR: {
+          mergeExplicitMemberExpr(other.getExplicitMemberExpr());
+          break;
+        }
+        case SUBSCRIPT_EXPR: {
+          mergeSubscriptExpr(other.getSubscriptExpr());
+          break;
+        }
+        case BINARY_EXPR: {
+          mergeBinaryExpr(other.getBinaryExpr());
+          break;
+        }
+        case CONDITIONAL_EXPR: {
+          mergeConditionalExpr(other.getConditionalExpr());
+          break;
+        }
+        case TYPE_CASTING_EXPR: {
+          mergeTypeCastingExpr(other.getTypeCastingExpr());
+          break;
+        }
+        case ASSIGNMENT_EXPR: {
+          mergeAssignmentExpr(other.getAssignmentExpr());
+          break;
+        }
+        case ERROR_EXPR: {
+          mergeErrorExpr(other.getErrorExpr());
           break;
         }
         case EXPRESSION_NOT_SET: {
@@ -2079,71 +3466,71 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.DictionaryLiteralExpr, org.mojolang.mojo.lang.DictionaryLiteralExpr.Builder, org.mojolang.mojo.lang.DictionaryLiteralExprOrBuilder> dictionaryLiteralExprBuilder_;
+        org.mojolang.mojo.lang.MapLiteralExpr, org.mojolang.mojo.lang.MapLiteralExpr.Builder, org.mojolang.mojo.lang.MapLiteralExprOrBuilder> mapLiteralExprBuilder_;
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
-     * @return Whether the dictionaryLiteralExpr field is set.
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
+     * @return Whether the mapLiteralExpr field is set.
      */
     @java.lang.Override
-    public boolean hasDictionaryLiteralExpr() {
+    public boolean hasMapLiteralExpr() {
       return expressionCase_ == 8;
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
-     * @return The dictionaryLiteralExpr.
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
+     * @return The mapLiteralExpr.
      */
     @java.lang.Override
-    public org.mojolang.mojo.lang.DictionaryLiteralExpr getDictionaryLiteralExpr() {
-      if (dictionaryLiteralExprBuilder_ == null) {
+    public org.mojolang.mojo.lang.MapLiteralExpr getMapLiteralExpr() {
+      if (mapLiteralExprBuilder_ == null) {
         if (expressionCase_ == 8) {
-          return (org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_;
+          return (org.mojolang.mojo.lang.MapLiteralExpr) expression_;
         }
-        return org.mojolang.mojo.lang.DictionaryLiteralExpr.getDefaultInstance();
+        return org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance();
       } else {
         if (expressionCase_ == 8) {
-          return dictionaryLiteralExprBuilder_.getMessage();
+          return mapLiteralExprBuilder_.getMessage();
         }
-        return org.mojolang.mojo.lang.DictionaryLiteralExpr.getDefaultInstance();
+        return org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
      */
-    public Builder setDictionaryLiteralExpr(org.mojolang.mojo.lang.DictionaryLiteralExpr value) {
-      if (dictionaryLiteralExprBuilder_ == null) {
+    public Builder setMapLiteralExpr(org.mojolang.mojo.lang.MapLiteralExpr value) {
+      if (mapLiteralExprBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         expression_ = value;
         onChanged();
       } else {
-        dictionaryLiteralExprBuilder_.setMessage(value);
+        mapLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 8;
       return this;
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
      */
-    public Builder setDictionaryLiteralExpr(
-        org.mojolang.mojo.lang.DictionaryLiteralExpr.Builder builderForValue) {
-      if (dictionaryLiteralExprBuilder_ == null) {
+    public Builder setMapLiteralExpr(
+        org.mojolang.mojo.lang.MapLiteralExpr.Builder builderForValue) {
+      if (mapLiteralExprBuilder_ == null) {
         expression_ = builderForValue.build();
         onChanged();
       } else {
-        dictionaryLiteralExprBuilder_.setMessage(builderForValue.build());
+        mapLiteralExprBuilder_.setMessage(builderForValue.build());
       }
       expressionCase_ = 8;
       return this;
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
      */
-    public Builder mergeDictionaryLiteralExpr(org.mojolang.mojo.lang.DictionaryLiteralExpr value) {
-      if (dictionaryLiteralExprBuilder_ == null) {
+    public Builder mergeMapLiteralExpr(org.mojolang.mojo.lang.MapLiteralExpr value) {
+      if (mapLiteralExprBuilder_ == null) {
         if (expressionCase_ == 8 &&
-            expression_ != org.mojolang.mojo.lang.DictionaryLiteralExpr.getDefaultInstance()) {
-          expression_ = org.mojolang.mojo.lang.DictionaryLiteralExpr.newBuilder((org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_)
+            expression_ != org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.MapLiteralExpr.newBuilder((org.mojolang.mojo.lang.MapLiteralExpr) expression_)
               .mergeFrom(value).buildPartial();
         } else {
           expression_ = value;
@@ -2151,18 +3538,18 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } else {
         if (expressionCase_ == 8) {
-          dictionaryLiteralExprBuilder_.mergeFrom(value);
+          mapLiteralExprBuilder_.mergeFrom(value);
         }
-        dictionaryLiteralExprBuilder_.setMessage(value);
+        mapLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 8;
       return this;
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
      */
-    public Builder clearDictionaryLiteralExpr() {
-      if (dictionaryLiteralExprBuilder_ == null) {
+    public Builder clearMapLiteralExpr() {
+      if (mapLiteralExprBuilder_ == null) {
         if (expressionCase_ == 8) {
           expressionCase_ = 0;
           expression_ = null;
@@ -2173,82 +3560,82 @@ private static final long serialVersionUID = 0L;
           expressionCase_ = 0;
           expression_ = null;
         }
-        dictionaryLiteralExprBuilder_.clear();
+        mapLiteralExprBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
      */
-    public org.mojolang.mojo.lang.DictionaryLiteralExpr.Builder getDictionaryLiteralExprBuilder() {
-      return getDictionaryLiteralExprFieldBuilder().getBuilder();
+    public org.mojolang.mojo.lang.MapLiteralExpr.Builder getMapLiteralExprBuilder() {
+      return getMapLiteralExprFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
      */
     @java.lang.Override
-    public org.mojolang.mojo.lang.DictionaryLiteralExprOrBuilder getDictionaryLiteralExprOrBuilder() {
-      if ((expressionCase_ == 8) && (dictionaryLiteralExprBuilder_ != null)) {
-        return dictionaryLiteralExprBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.lang.MapLiteralExprOrBuilder getMapLiteralExprOrBuilder() {
+      if ((expressionCase_ == 8) && (mapLiteralExprBuilder_ != null)) {
+        return mapLiteralExprBuilder_.getMessageOrBuilder();
       } else {
         if (expressionCase_ == 8) {
-          return (org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_;
+          return (org.mojolang.mojo.lang.MapLiteralExpr) expression_;
         }
-        return org.mojolang.mojo.lang.DictionaryLiteralExpr.getDefaultInstance();
+        return org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.DictionaryLiteralExpr dictionary_literal_expr = 8;</code>
+     * <code>.mojo.lang.MapLiteralExpr map_literal_expr = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.DictionaryLiteralExpr, org.mojolang.mojo.lang.DictionaryLiteralExpr.Builder, org.mojolang.mojo.lang.DictionaryLiteralExprOrBuilder> 
-        getDictionaryLiteralExprFieldBuilder() {
-      if (dictionaryLiteralExprBuilder_ == null) {
+        org.mojolang.mojo.lang.MapLiteralExpr, org.mojolang.mojo.lang.MapLiteralExpr.Builder, org.mojolang.mojo.lang.MapLiteralExprOrBuilder> 
+        getMapLiteralExprFieldBuilder() {
+      if (mapLiteralExprBuilder_ == null) {
         if (!(expressionCase_ == 8)) {
-          expression_ = org.mojolang.mojo.lang.DictionaryLiteralExpr.getDefaultInstance();
+          expression_ = org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance();
         }
-        dictionaryLiteralExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.DictionaryLiteralExpr, org.mojolang.mojo.lang.DictionaryLiteralExpr.Builder, org.mojolang.mojo.lang.DictionaryLiteralExprOrBuilder>(
-                (org.mojolang.mojo.lang.DictionaryLiteralExpr) expression_,
+        mapLiteralExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.MapLiteralExpr, org.mojolang.mojo.lang.MapLiteralExpr.Builder, org.mojolang.mojo.lang.MapLiteralExprOrBuilder>(
+                (org.mojolang.mojo.lang.MapLiteralExpr) expression_,
                 getParentForChildren(),
                 isClean());
         expression_ = null;
       }
       expressionCase_ = 8;
       onChanged();;
-      return dictionaryLiteralExprBuilder_;
+      return mapLiteralExprBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.IdentifierExpr, org.mojolang.mojo.lang.IdentifierExpr.Builder, org.mojolang.mojo.lang.IdentifierExprOrBuilder> identifierExprBuilder_;
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      * @return Whether the identifierExpr field is set.
      */
     @java.lang.Override
     public boolean hasIdentifierExpr() {
-      return expressionCase_ == 9;
+      return expressionCase_ == 10;
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      * @return The identifierExpr.
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.IdentifierExpr getIdentifierExpr() {
       if (identifierExprBuilder_ == null) {
-        if (expressionCase_ == 9) {
+        if (expressionCase_ == 10) {
           return (org.mojolang.mojo.lang.IdentifierExpr) expression_;
         }
         return org.mojolang.mojo.lang.IdentifierExpr.getDefaultInstance();
       } else {
-        if (expressionCase_ == 9) {
+        if (expressionCase_ == 10) {
           return identifierExprBuilder_.getMessage();
         }
         return org.mojolang.mojo.lang.IdentifierExpr.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      */
     public Builder setIdentifierExpr(org.mojolang.mojo.lang.IdentifierExpr value) {
       if (identifierExprBuilder_ == null) {
@@ -2260,11 +3647,11 @@ private static final long serialVersionUID = 0L;
       } else {
         identifierExprBuilder_.setMessage(value);
       }
-      expressionCase_ = 9;
+      expressionCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      */
     public Builder setIdentifierExpr(
         org.mojolang.mojo.lang.IdentifierExpr.Builder builderForValue) {
@@ -2274,15 +3661,15 @@ private static final long serialVersionUID = 0L;
       } else {
         identifierExprBuilder_.setMessage(builderForValue.build());
       }
-      expressionCase_ = 9;
+      expressionCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      */
     public Builder mergeIdentifierExpr(org.mojolang.mojo.lang.IdentifierExpr value) {
       if (identifierExprBuilder_ == null) {
-        if (expressionCase_ == 9 &&
+        if (expressionCase_ == 10 &&
             expression_ != org.mojolang.mojo.lang.IdentifierExpr.getDefaultInstance()) {
           expression_ = org.mojolang.mojo.lang.IdentifierExpr.newBuilder((org.mojolang.mojo.lang.IdentifierExpr) expression_)
               .mergeFrom(value).buildPartial();
@@ -2291,26 +3678,26 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (expressionCase_ == 9) {
+        if (expressionCase_ == 10) {
           identifierExprBuilder_.mergeFrom(value);
         }
         identifierExprBuilder_.setMessage(value);
       }
-      expressionCase_ = 9;
+      expressionCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      */
     public Builder clearIdentifierExpr() {
       if (identifierExprBuilder_ == null) {
-        if (expressionCase_ == 9) {
+        if (expressionCase_ == 10) {
           expressionCase_ = 0;
           expression_ = null;
           onChanged();
         }
       } else {
-        if (expressionCase_ == 9) {
+        if (expressionCase_ == 10) {
           expressionCase_ = 0;
           expression_ = null;
         }
@@ -2319,33 +3706,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      */
     public org.mojolang.mojo.lang.IdentifierExpr.Builder getIdentifierExprBuilder() {
       return getIdentifierExprFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.IdentifierExprOrBuilder getIdentifierExprOrBuilder() {
-      if ((expressionCase_ == 9) && (identifierExprBuilder_ != null)) {
+      if ((expressionCase_ == 10) && (identifierExprBuilder_ != null)) {
         return identifierExprBuilder_.getMessageOrBuilder();
       } else {
-        if (expressionCase_ == 9) {
+        if (expressionCase_ == 10) {
           return (org.mojolang.mojo.lang.IdentifierExpr) expression_;
         }
         return org.mojolang.mojo.lang.IdentifierExpr.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.IdentifierExpr identifier_expr = 9;</code>
+     * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.IdentifierExpr, org.mojolang.mojo.lang.IdentifierExpr.Builder, org.mojolang.mojo.lang.IdentifierExprOrBuilder> 
         getIdentifierExprFieldBuilder() {
       if (identifierExprBuilder_ == null) {
-        if (!(expressionCase_ == 9)) {
+        if (!(expressionCase_ == 10)) {
           expression_ = org.mojolang.mojo.lang.IdentifierExpr.getDefaultInstance();
         }
         identifierExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2355,9 +3742,2688 @@ private static final long serialVersionUID = 0L;
                 isClean());
         expression_ = null;
       }
-      expressionCase_ = 9;
+      expressionCase_ = 10;
       onChanged();;
       return identifierExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.NumericLiteralUnaryExpr, org.mojolang.mojo.lang.NumericLiteralUnaryExpr.Builder, org.mojolang.mojo.lang.NumericLiteralUnaryExprOrBuilder> numericLiteralUnaryExprBuilder_;
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     * @return Whether the numericLiteralUnaryExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasNumericLiteralUnaryExpr() {
+      return expressionCase_ == 11;
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     * @return The numericLiteralUnaryExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.NumericLiteralUnaryExpr getNumericLiteralUnaryExpr() {
+      if (numericLiteralUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 11) {
+          return (org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.NumericLiteralUnaryExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 11) {
+          return numericLiteralUnaryExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.NumericLiteralUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     */
+    public Builder setNumericLiteralUnaryExpr(org.mojolang.mojo.lang.NumericLiteralUnaryExpr value) {
+      if (numericLiteralUnaryExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        numericLiteralUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 11;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     */
+    public Builder setNumericLiteralUnaryExpr(
+        org.mojolang.mojo.lang.NumericLiteralUnaryExpr.Builder builderForValue) {
+      if (numericLiteralUnaryExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        numericLiteralUnaryExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 11;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     */
+    public Builder mergeNumericLiteralUnaryExpr(org.mojolang.mojo.lang.NumericLiteralUnaryExpr value) {
+      if (numericLiteralUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 11 &&
+            expression_ != org.mojolang.mojo.lang.NumericLiteralUnaryExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.NumericLiteralUnaryExpr.newBuilder((org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 11) {
+          numericLiteralUnaryExprBuilder_.mergeFrom(value);
+        }
+        numericLiteralUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 11;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     */
+    public Builder clearNumericLiteralUnaryExpr() {
+      if (numericLiteralUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 11) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 11) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        numericLiteralUnaryExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     */
+    public org.mojolang.mojo.lang.NumericLiteralUnaryExpr.Builder getNumericLiteralUnaryExprBuilder() {
+      return getNumericLiteralUnaryExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.NumericLiteralUnaryExprOrBuilder getNumericLiteralUnaryExprOrBuilder() {
+      if ((expressionCase_ == 11) && (numericLiteralUnaryExprBuilder_ != null)) {
+        return numericLiteralUnaryExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 11) {
+          return (org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.NumericLiteralUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.NumericLiteralUnaryExpr, org.mojolang.mojo.lang.NumericLiteralUnaryExpr.Builder, org.mojolang.mojo.lang.NumericLiteralUnaryExprOrBuilder> 
+        getNumericLiteralUnaryExprFieldBuilder() {
+      if (numericLiteralUnaryExprBuilder_ == null) {
+        if (!(expressionCase_ == 11)) {
+          expression_ = org.mojolang.mojo.lang.NumericLiteralUnaryExpr.getDefaultInstance();
+        }
+        numericLiteralUnaryExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.NumericLiteralUnaryExpr, org.mojolang.mojo.lang.NumericLiteralUnaryExpr.Builder, org.mojolang.mojo.lang.NumericLiteralUnaryExprOrBuilder>(
+                (org.mojolang.mojo.lang.NumericLiteralUnaryExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 11;
+      onChanged();;
+      return numericLiteralUnaryExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.StringLiteralUnaryExpr, org.mojolang.mojo.lang.StringLiteralUnaryExpr.Builder, org.mojolang.mojo.lang.StringLiteralUnaryExprOrBuilder> stringLiteralUnaryExprBuilder_;
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     * @return Whether the stringLiteralUnaryExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasStringLiteralUnaryExpr() {
+      return expressionCase_ == 12;
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     * @return The stringLiteralUnaryExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.StringLiteralUnaryExpr getStringLiteralUnaryExpr() {
+      if (stringLiteralUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 12) {
+          return (org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.StringLiteralUnaryExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 12) {
+          return stringLiteralUnaryExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.StringLiteralUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     */
+    public Builder setStringLiteralUnaryExpr(org.mojolang.mojo.lang.StringLiteralUnaryExpr value) {
+      if (stringLiteralUnaryExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        stringLiteralUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 12;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     */
+    public Builder setStringLiteralUnaryExpr(
+        org.mojolang.mojo.lang.StringLiteralUnaryExpr.Builder builderForValue) {
+      if (stringLiteralUnaryExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        stringLiteralUnaryExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 12;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     */
+    public Builder mergeStringLiteralUnaryExpr(org.mojolang.mojo.lang.StringLiteralUnaryExpr value) {
+      if (stringLiteralUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 12 &&
+            expression_ != org.mojolang.mojo.lang.StringLiteralUnaryExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.StringLiteralUnaryExpr.newBuilder((org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 12) {
+          stringLiteralUnaryExprBuilder_.mergeFrom(value);
+        }
+        stringLiteralUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 12;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     */
+    public Builder clearStringLiteralUnaryExpr() {
+      if (stringLiteralUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 12) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 12) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        stringLiteralUnaryExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     */
+    public org.mojolang.mojo.lang.StringLiteralUnaryExpr.Builder getStringLiteralUnaryExprBuilder() {
+      return getStringLiteralUnaryExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.StringLiteralUnaryExprOrBuilder getStringLiteralUnaryExprOrBuilder() {
+      if ((expressionCase_ == 12) && (stringLiteralUnaryExprBuilder_ != null)) {
+        return stringLiteralUnaryExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 12) {
+          return (org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.StringLiteralUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.StringLiteralUnaryExpr, org.mojolang.mojo.lang.StringLiteralUnaryExpr.Builder, org.mojolang.mojo.lang.StringLiteralUnaryExprOrBuilder> 
+        getStringLiteralUnaryExprFieldBuilder() {
+      if (stringLiteralUnaryExprBuilder_ == null) {
+        if (!(expressionCase_ == 12)) {
+          expression_ = org.mojolang.mojo.lang.StringLiteralUnaryExpr.getDefaultInstance();
+        }
+        stringLiteralUnaryExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.StringLiteralUnaryExpr, org.mojolang.mojo.lang.StringLiteralUnaryExpr.Builder, org.mojolang.mojo.lang.StringLiteralUnaryExprOrBuilder>(
+                (org.mojolang.mojo.lang.StringLiteralUnaryExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 12;
+      onChanged();;
+      return stringLiteralUnaryExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.StructLiteralExpr, org.mojolang.mojo.lang.StructLiteralExpr.Builder, org.mojolang.mojo.lang.StructLiteralExprOrBuilder> structLiteralExprBuilder_;
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     * @return Whether the structLiteralExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasStructLiteralExpr() {
+      return expressionCase_ == 13;
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     * @return The structLiteralExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.StructLiteralExpr getStructLiteralExpr() {
+      if (structLiteralExprBuilder_ == null) {
+        if (expressionCase_ == 13) {
+          return (org.mojolang.mojo.lang.StructLiteralExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.StructLiteralExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 13) {
+          return structLiteralExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.StructLiteralExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     */
+    public Builder setStructLiteralExpr(org.mojolang.mojo.lang.StructLiteralExpr value) {
+      if (structLiteralExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        structLiteralExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     */
+    public Builder setStructLiteralExpr(
+        org.mojolang.mojo.lang.StructLiteralExpr.Builder builderForValue) {
+      if (structLiteralExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        structLiteralExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     */
+    public Builder mergeStructLiteralExpr(org.mojolang.mojo.lang.StructLiteralExpr value) {
+      if (structLiteralExprBuilder_ == null) {
+        if (expressionCase_ == 13 &&
+            expression_ != org.mojolang.mojo.lang.StructLiteralExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.StructLiteralExpr.newBuilder((org.mojolang.mojo.lang.StructLiteralExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 13) {
+          structLiteralExprBuilder_.mergeFrom(value);
+        }
+        structLiteralExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     */
+    public Builder clearStructLiteralExpr() {
+      if (structLiteralExprBuilder_ == null) {
+        if (expressionCase_ == 13) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 13) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        structLiteralExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     */
+    public org.mojolang.mojo.lang.StructLiteralExpr.Builder getStructLiteralExprBuilder() {
+      return getStructLiteralExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.StructLiteralExprOrBuilder getStructLiteralExprOrBuilder() {
+      if ((expressionCase_ == 13) && (structLiteralExprBuilder_ != null)) {
+        return structLiteralExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 13) {
+          return (org.mojolang.mojo.lang.StructLiteralExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.StructLiteralExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.StructLiteralExpr, org.mojolang.mojo.lang.StructLiteralExpr.Builder, org.mojolang.mojo.lang.StructLiteralExprOrBuilder> 
+        getStructLiteralExprFieldBuilder() {
+      if (structLiteralExprBuilder_ == null) {
+        if (!(expressionCase_ == 13)) {
+          expression_ = org.mojolang.mojo.lang.StructLiteralExpr.getDefaultInstance();
+        }
+        structLiteralExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.StructLiteralExpr, org.mojolang.mojo.lang.StructLiteralExpr.Builder, org.mojolang.mojo.lang.StructLiteralExprOrBuilder>(
+                (org.mojolang.mojo.lang.StructLiteralExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 13;
+      onChanged();;
+      return structLiteralExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ClosureExpr, org.mojolang.mojo.lang.ClosureExpr.Builder, org.mojolang.mojo.lang.ClosureExprOrBuilder> closureExprBuilder_;
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     * @return Whether the closureExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasClosureExpr() {
+      return expressionCase_ == 14;
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     * @return The closureExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ClosureExpr getClosureExpr() {
+      if (closureExprBuilder_ == null) {
+        if (expressionCase_ == 14) {
+          return (org.mojolang.mojo.lang.ClosureExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ClosureExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 14) {
+          return closureExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.ClosureExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     */
+    public Builder setClosureExpr(org.mojolang.mojo.lang.ClosureExpr value) {
+      if (closureExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        closureExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 14;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     */
+    public Builder setClosureExpr(
+        org.mojolang.mojo.lang.ClosureExpr.Builder builderForValue) {
+      if (closureExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        closureExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 14;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     */
+    public Builder mergeClosureExpr(org.mojolang.mojo.lang.ClosureExpr value) {
+      if (closureExprBuilder_ == null) {
+        if (expressionCase_ == 14 &&
+            expression_ != org.mojolang.mojo.lang.ClosureExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.ClosureExpr.newBuilder((org.mojolang.mojo.lang.ClosureExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 14) {
+          closureExprBuilder_.mergeFrom(value);
+        }
+        closureExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 14;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     */
+    public Builder clearClosureExpr() {
+      if (closureExprBuilder_ == null) {
+        if (expressionCase_ == 14) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 14) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        closureExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     */
+    public org.mojolang.mojo.lang.ClosureExpr.Builder getClosureExprBuilder() {
+      return getClosureExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ClosureExprOrBuilder getClosureExprOrBuilder() {
+      if ((expressionCase_ == 14) && (closureExprBuilder_ != null)) {
+        return closureExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 14) {
+          return (org.mojolang.mojo.lang.ClosureExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ClosureExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ClosureExpr, org.mojolang.mojo.lang.ClosureExpr.Builder, org.mojolang.mojo.lang.ClosureExprOrBuilder> 
+        getClosureExprFieldBuilder() {
+      if (closureExprBuilder_ == null) {
+        if (!(expressionCase_ == 14)) {
+          expression_ = org.mojolang.mojo.lang.ClosureExpr.getDefaultInstance();
+        }
+        closureExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.ClosureExpr, org.mojolang.mojo.lang.ClosureExpr.Builder, org.mojolang.mojo.lang.ClosureExprOrBuilder>(
+                (org.mojolang.mojo.lang.ClosureExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 14;
+      onChanged();;
+      return closureExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ParenthesizedExpr, org.mojolang.mojo.lang.ParenthesizedExpr.Builder, org.mojolang.mojo.lang.ParenthesizedExprOrBuilder> parenthesizedExprBuilder_;
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     * @return Whether the parenthesizedExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasParenthesizedExpr() {
+      return expressionCase_ == 15;
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     * @return The parenthesizedExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ParenthesizedExpr getParenthesizedExpr() {
+      if (parenthesizedExprBuilder_ == null) {
+        if (expressionCase_ == 15) {
+          return (org.mojolang.mojo.lang.ParenthesizedExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ParenthesizedExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 15) {
+          return parenthesizedExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.ParenthesizedExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     */
+    public Builder setParenthesizedExpr(org.mojolang.mojo.lang.ParenthesizedExpr value) {
+      if (parenthesizedExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        parenthesizedExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 15;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     */
+    public Builder setParenthesizedExpr(
+        org.mojolang.mojo.lang.ParenthesizedExpr.Builder builderForValue) {
+      if (parenthesizedExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        parenthesizedExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 15;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     */
+    public Builder mergeParenthesizedExpr(org.mojolang.mojo.lang.ParenthesizedExpr value) {
+      if (parenthesizedExprBuilder_ == null) {
+        if (expressionCase_ == 15 &&
+            expression_ != org.mojolang.mojo.lang.ParenthesizedExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.ParenthesizedExpr.newBuilder((org.mojolang.mojo.lang.ParenthesizedExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 15) {
+          parenthesizedExprBuilder_.mergeFrom(value);
+        }
+        parenthesizedExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 15;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     */
+    public Builder clearParenthesizedExpr() {
+      if (parenthesizedExprBuilder_ == null) {
+        if (expressionCase_ == 15) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 15) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        parenthesizedExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     */
+    public org.mojolang.mojo.lang.ParenthesizedExpr.Builder getParenthesizedExprBuilder() {
+      return getParenthesizedExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ParenthesizedExprOrBuilder getParenthesizedExprOrBuilder() {
+      if ((expressionCase_ == 15) && (parenthesizedExprBuilder_ != null)) {
+        return parenthesizedExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 15) {
+          return (org.mojolang.mojo.lang.ParenthesizedExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ParenthesizedExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ParenthesizedExpr, org.mojolang.mojo.lang.ParenthesizedExpr.Builder, org.mojolang.mojo.lang.ParenthesizedExprOrBuilder> 
+        getParenthesizedExprFieldBuilder() {
+      if (parenthesizedExprBuilder_ == null) {
+        if (!(expressionCase_ == 15)) {
+          expression_ = org.mojolang.mojo.lang.ParenthesizedExpr.getDefaultInstance();
+        }
+        parenthesizedExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.ParenthesizedExpr, org.mojolang.mojo.lang.ParenthesizedExpr.Builder, org.mojolang.mojo.lang.ParenthesizedExprOrBuilder>(
+                (org.mojolang.mojo.lang.ParenthesizedExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 15;
+      onChanged();;
+      return parenthesizedExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ImplicitMemberExpr, org.mojolang.mojo.lang.ImplicitMemberExpr.Builder, org.mojolang.mojo.lang.ImplicitMemberExprOrBuilder> implicitMemberExprBuilder_;
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     * @return Whether the implicitMemberExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasImplicitMemberExpr() {
+      return expressionCase_ == 16;
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     * @return The implicitMemberExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ImplicitMemberExpr getImplicitMemberExpr() {
+      if (implicitMemberExprBuilder_ == null) {
+        if (expressionCase_ == 16) {
+          return (org.mojolang.mojo.lang.ImplicitMemberExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ImplicitMemberExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 16) {
+          return implicitMemberExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.ImplicitMemberExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     */
+    public Builder setImplicitMemberExpr(org.mojolang.mojo.lang.ImplicitMemberExpr value) {
+      if (implicitMemberExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        implicitMemberExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 16;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     */
+    public Builder setImplicitMemberExpr(
+        org.mojolang.mojo.lang.ImplicitMemberExpr.Builder builderForValue) {
+      if (implicitMemberExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        implicitMemberExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 16;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     */
+    public Builder mergeImplicitMemberExpr(org.mojolang.mojo.lang.ImplicitMemberExpr value) {
+      if (implicitMemberExprBuilder_ == null) {
+        if (expressionCase_ == 16 &&
+            expression_ != org.mojolang.mojo.lang.ImplicitMemberExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.ImplicitMemberExpr.newBuilder((org.mojolang.mojo.lang.ImplicitMemberExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 16) {
+          implicitMemberExprBuilder_.mergeFrom(value);
+        }
+        implicitMemberExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 16;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     */
+    public Builder clearImplicitMemberExpr() {
+      if (implicitMemberExprBuilder_ == null) {
+        if (expressionCase_ == 16) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 16) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        implicitMemberExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     */
+    public org.mojolang.mojo.lang.ImplicitMemberExpr.Builder getImplicitMemberExprBuilder() {
+      return getImplicitMemberExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ImplicitMemberExprOrBuilder getImplicitMemberExprOrBuilder() {
+      if ((expressionCase_ == 16) && (implicitMemberExprBuilder_ != null)) {
+        return implicitMemberExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 16) {
+          return (org.mojolang.mojo.lang.ImplicitMemberExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ImplicitMemberExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ImplicitMemberExpr, org.mojolang.mojo.lang.ImplicitMemberExpr.Builder, org.mojolang.mojo.lang.ImplicitMemberExprOrBuilder> 
+        getImplicitMemberExprFieldBuilder() {
+      if (implicitMemberExprBuilder_ == null) {
+        if (!(expressionCase_ == 16)) {
+          expression_ = org.mojolang.mojo.lang.ImplicitMemberExpr.getDefaultInstance();
+        }
+        implicitMemberExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.ImplicitMemberExpr, org.mojolang.mojo.lang.ImplicitMemberExpr.Builder, org.mojolang.mojo.lang.ImplicitMemberExprOrBuilder>(
+                (org.mojolang.mojo.lang.ImplicitMemberExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 16;
+      onChanged();;
+      return implicitMemberExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.WildcardExpr, org.mojolang.mojo.lang.WildcardExpr.Builder, org.mojolang.mojo.lang.WildcardExprOrBuilder> wildcardExprBuilder_;
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     * @return Whether the wildcardExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasWildcardExpr() {
+      return expressionCase_ == 17;
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     * @return The wildcardExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.WildcardExpr getWildcardExpr() {
+      if (wildcardExprBuilder_ == null) {
+        if (expressionCase_ == 17) {
+          return (org.mojolang.mojo.lang.WildcardExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.WildcardExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 17) {
+          return wildcardExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.WildcardExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     */
+    public Builder setWildcardExpr(org.mojolang.mojo.lang.WildcardExpr value) {
+      if (wildcardExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        wildcardExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 17;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     */
+    public Builder setWildcardExpr(
+        org.mojolang.mojo.lang.WildcardExpr.Builder builderForValue) {
+      if (wildcardExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        wildcardExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 17;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     */
+    public Builder mergeWildcardExpr(org.mojolang.mojo.lang.WildcardExpr value) {
+      if (wildcardExprBuilder_ == null) {
+        if (expressionCase_ == 17 &&
+            expression_ != org.mojolang.mojo.lang.WildcardExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.WildcardExpr.newBuilder((org.mojolang.mojo.lang.WildcardExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 17) {
+          wildcardExprBuilder_.mergeFrom(value);
+        }
+        wildcardExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 17;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     */
+    public Builder clearWildcardExpr() {
+      if (wildcardExprBuilder_ == null) {
+        if (expressionCase_ == 17) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 17) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        wildcardExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     */
+    public org.mojolang.mojo.lang.WildcardExpr.Builder getWildcardExprBuilder() {
+      return getWildcardExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.WildcardExprOrBuilder getWildcardExprOrBuilder() {
+      if ((expressionCase_ == 17) && (wildcardExprBuilder_ != null)) {
+        return wildcardExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 17) {
+          return (org.mojolang.mojo.lang.WildcardExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.WildcardExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.WildcardExpr, org.mojolang.mojo.lang.WildcardExpr.Builder, org.mojolang.mojo.lang.WildcardExprOrBuilder> 
+        getWildcardExprFieldBuilder() {
+      if (wildcardExprBuilder_ == null) {
+        if (!(expressionCase_ == 17)) {
+          expression_ = org.mojolang.mojo.lang.WildcardExpr.getDefaultInstance();
+        }
+        wildcardExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.WildcardExpr, org.mojolang.mojo.lang.WildcardExpr.Builder, org.mojolang.mojo.lang.WildcardExprOrBuilder>(
+                (org.mojolang.mojo.lang.WildcardExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 17;
+      onChanged();;
+      return wildcardExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.StructConstructionExpr, org.mojolang.mojo.lang.StructConstructionExpr.Builder, org.mojolang.mojo.lang.StructConstructionExprOrBuilder> structConstructionExprBuilder_;
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     * @return Whether the structConstructionExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasStructConstructionExpr() {
+      return expressionCase_ == 18;
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     * @return The structConstructionExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.StructConstructionExpr getStructConstructionExpr() {
+      if (structConstructionExprBuilder_ == null) {
+        if (expressionCase_ == 18) {
+          return (org.mojolang.mojo.lang.StructConstructionExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.StructConstructionExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 18) {
+          return structConstructionExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.StructConstructionExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     */
+    public Builder setStructConstructionExpr(org.mojolang.mojo.lang.StructConstructionExpr value) {
+      if (structConstructionExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        structConstructionExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 18;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     */
+    public Builder setStructConstructionExpr(
+        org.mojolang.mojo.lang.StructConstructionExpr.Builder builderForValue) {
+      if (structConstructionExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        structConstructionExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 18;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     */
+    public Builder mergeStructConstructionExpr(org.mojolang.mojo.lang.StructConstructionExpr value) {
+      if (structConstructionExprBuilder_ == null) {
+        if (expressionCase_ == 18 &&
+            expression_ != org.mojolang.mojo.lang.StructConstructionExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.StructConstructionExpr.newBuilder((org.mojolang.mojo.lang.StructConstructionExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 18) {
+          structConstructionExprBuilder_.mergeFrom(value);
+        }
+        structConstructionExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 18;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     */
+    public Builder clearStructConstructionExpr() {
+      if (structConstructionExprBuilder_ == null) {
+        if (expressionCase_ == 18) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 18) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        structConstructionExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     */
+    public org.mojolang.mojo.lang.StructConstructionExpr.Builder getStructConstructionExprBuilder() {
+      return getStructConstructionExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.StructConstructionExprOrBuilder getStructConstructionExprOrBuilder() {
+      if ((expressionCase_ == 18) && (structConstructionExprBuilder_ != null)) {
+        return structConstructionExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 18) {
+          return (org.mojolang.mojo.lang.StructConstructionExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.StructConstructionExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.StructConstructionExpr, org.mojolang.mojo.lang.StructConstructionExpr.Builder, org.mojolang.mojo.lang.StructConstructionExprOrBuilder> 
+        getStructConstructionExprFieldBuilder() {
+      if (structConstructionExprBuilder_ == null) {
+        if (!(expressionCase_ == 18)) {
+          expression_ = org.mojolang.mojo.lang.StructConstructionExpr.getDefaultInstance();
+        }
+        structConstructionExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.StructConstructionExpr, org.mojolang.mojo.lang.StructConstructionExpr.Builder, org.mojolang.mojo.lang.StructConstructionExprOrBuilder>(
+                (org.mojolang.mojo.lang.StructConstructionExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 18;
+      onChanged();;
+      return structConstructionExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.TupleExpr, org.mojolang.mojo.lang.TupleExpr.Builder, org.mojolang.mojo.lang.TupleExprOrBuilder> tupleExprBuilder_;
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     * @return Whether the tupleExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasTupleExpr() {
+      return expressionCase_ == 19;
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     * @return The tupleExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.TupleExpr getTupleExpr() {
+      if (tupleExprBuilder_ == null) {
+        if (expressionCase_ == 19) {
+          return (org.mojolang.mojo.lang.TupleExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.TupleExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 19) {
+          return tupleExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.TupleExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     */
+    public Builder setTupleExpr(org.mojolang.mojo.lang.TupleExpr value) {
+      if (tupleExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        tupleExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 19;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     */
+    public Builder setTupleExpr(
+        org.mojolang.mojo.lang.TupleExpr.Builder builderForValue) {
+      if (tupleExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        tupleExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 19;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     */
+    public Builder mergeTupleExpr(org.mojolang.mojo.lang.TupleExpr value) {
+      if (tupleExprBuilder_ == null) {
+        if (expressionCase_ == 19 &&
+            expression_ != org.mojolang.mojo.lang.TupleExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.TupleExpr.newBuilder((org.mojolang.mojo.lang.TupleExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 19) {
+          tupleExprBuilder_.mergeFrom(value);
+        }
+        tupleExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 19;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     */
+    public Builder clearTupleExpr() {
+      if (tupleExprBuilder_ == null) {
+        if (expressionCase_ == 19) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 19) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        tupleExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     */
+    public org.mojolang.mojo.lang.TupleExpr.Builder getTupleExprBuilder() {
+      return getTupleExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.TupleExprOrBuilder getTupleExprOrBuilder() {
+      if ((expressionCase_ == 19) && (tupleExprBuilder_ != null)) {
+        return tupleExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 19) {
+          return (org.mojolang.mojo.lang.TupleExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.TupleExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.TupleExpr, org.mojolang.mojo.lang.TupleExpr.Builder, org.mojolang.mojo.lang.TupleExprOrBuilder> 
+        getTupleExprFieldBuilder() {
+      if (tupleExprBuilder_ == null) {
+        if (!(expressionCase_ == 19)) {
+          expression_ = org.mojolang.mojo.lang.TupleExpr.getDefaultInstance();
+        }
+        tupleExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.TupleExpr, org.mojolang.mojo.lang.TupleExpr.Builder, org.mojolang.mojo.lang.TupleExprOrBuilder>(
+                (org.mojolang.mojo.lang.TupleExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 19;
+      onChanged();;
+      return tupleExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.PrefixUnaryExpr, org.mojolang.mojo.lang.PrefixUnaryExpr.Builder, org.mojolang.mojo.lang.PrefixUnaryExprOrBuilder> prefixUnaryExprBuilder_;
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     * @return Whether the prefixUnaryExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasPrefixUnaryExpr() {
+      return expressionCase_ == 30;
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     * @return The prefixUnaryExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.PrefixUnaryExpr getPrefixUnaryExpr() {
+      if (prefixUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 30) {
+          return (org.mojolang.mojo.lang.PrefixUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.PrefixUnaryExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 30) {
+          return prefixUnaryExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.PrefixUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     */
+    public Builder setPrefixUnaryExpr(org.mojolang.mojo.lang.PrefixUnaryExpr value) {
+      if (prefixUnaryExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        prefixUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 30;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     */
+    public Builder setPrefixUnaryExpr(
+        org.mojolang.mojo.lang.PrefixUnaryExpr.Builder builderForValue) {
+      if (prefixUnaryExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        prefixUnaryExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 30;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     */
+    public Builder mergePrefixUnaryExpr(org.mojolang.mojo.lang.PrefixUnaryExpr value) {
+      if (prefixUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 30 &&
+            expression_ != org.mojolang.mojo.lang.PrefixUnaryExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.PrefixUnaryExpr.newBuilder((org.mojolang.mojo.lang.PrefixUnaryExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 30) {
+          prefixUnaryExprBuilder_.mergeFrom(value);
+        }
+        prefixUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 30;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     */
+    public Builder clearPrefixUnaryExpr() {
+      if (prefixUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 30) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 30) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        prefixUnaryExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     */
+    public org.mojolang.mojo.lang.PrefixUnaryExpr.Builder getPrefixUnaryExprBuilder() {
+      return getPrefixUnaryExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.PrefixUnaryExprOrBuilder getPrefixUnaryExprOrBuilder() {
+      if ((expressionCase_ == 30) && (prefixUnaryExprBuilder_ != null)) {
+        return prefixUnaryExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 30) {
+          return (org.mojolang.mojo.lang.PrefixUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.PrefixUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.PrefixUnaryExpr prefix_unary_expr = 30;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.PrefixUnaryExpr, org.mojolang.mojo.lang.PrefixUnaryExpr.Builder, org.mojolang.mojo.lang.PrefixUnaryExprOrBuilder> 
+        getPrefixUnaryExprFieldBuilder() {
+      if (prefixUnaryExprBuilder_ == null) {
+        if (!(expressionCase_ == 30)) {
+          expression_ = org.mojolang.mojo.lang.PrefixUnaryExpr.getDefaultInstance();
+        }
+        prefixUnaryExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.PrefixUnaryExpr, org.mojolang.mojo.lang.PrefixUnaryExpr.Builder, org.mojolang.mojo.lang.PrefixUnaryExprOrBuilder>(
+                (org.mojolang.mojo.lang.PrefixUnaryExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 30;
+      onChanged();;
+      return prefixUnaryExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.PostfixUnaryExpr, org.mojolang.mojo.lang.PostfixUnaryExpr.Builder, org.mojolang.mojo.lang.PostfixUnaryExprOrBuilder> postfixUnaryExprBuilder_;
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     * @return Whether the postfixUnaryExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasPostfixUnaryExpr() {
+      return expressionCase_ == 31;
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     * @return The postfixUnaryExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.PostfixUnaryExpr getPostfixUnaryExpr() {
+      if (postfixUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 31) {
+          return (org.mojolang.mojo.lang.PostfixUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.PostfixUnaryExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 31) {
+          return postfixUnaryExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.PostfixUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     */
+    public Builder setPostfixUnaryExpr(org.mojolang.mojo.lang.PostfixUnaryExpr value) {
+      if (postfixUnaryExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        postfixUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 31;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     */
+    public Builder setPostfixUnaryExpr(
+        org.mojolang.mojo.lang.PostfixUnaryExpr.Builder builderForValue) {
+      if (postfixUnaryExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        postfixUnaryExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 31;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     */
+    public Builder mergePostfixUnaryExpr(org.mojolang.mojo.lang.PostfixUnaryExpr value) {
+      if (postfixUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 31 &&
+            expression_ != org.mojolang.mojo.lang.PostfixUnaryExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.PostfixUnaryExpr.newBuilder((org.mojolang.mojo.lang.PostfixUnaryExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 31) {
+          postfixUnaryExprBuilder_.mergeFrom(value);
+        }
+        postfixUnaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 31;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     */
+    public Builder clearPostfixUnaryExpr() {
+      if (postfixUnaryExprBuilder_ == null) {
+        if (expressionCase_ == 31) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 31) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        postfixUnaryExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     */
+    public org.mojolang.mojo.lang.PostfixUnaryExpr.Builder getPostfixUnaryExprBuilder() {
+      return getPostfixUnaryExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.PostfixUnaryExprOrBuilder getPostfixUnaryExprOrBuilder() {
+      if ((expressionCase_ == 31) && (postfixUnaryExprBuilder_ != null)) {
+        return postfixUnaryExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 31) {
+          return (org.mojolang.mojo.lang.PostfixUnaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.PostfixUnaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.PostfixUnaryExpr postfix_unary_expr = 31;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.PostfixUnaryExpr, org.mojolang.mojo.lang.PostfixUnaryExpr.Builder, org.mojolang.mojo.lang.PostfixUnaryExprOrBuilder> 
+        getPostfixUnaryExprFieldBuilder() {
+      if (postfixUnaryExprBuilder_ == null) {
+        if (!(expressionCase_ == 31)) {
+          expression_ = org.mojolang.mojo.lang.PostfixUnaryExpr.getDefaultInstance();
+        }
+        postfixUnaryExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.PostfixUnaryExpr, org.mojolang.mojo.lang.PostfixUnaryExpr.Builder, org.mojolang.mojo.lang.PostfixUnaryExprOrBuilder>(
+                (org.mojolang.mojo.lang.PostfixUnaryExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 31;
+      onChanged();;
+      return postfixUnaryExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.FunctionCallExpr, org.mojolang.mojo.lang.FunctionCallExpr.Builder, org.mojolang.mojo.lang.FunctionCallExprOrBuilder> functionCallExprBuilder_;
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     * @return Whether the functionCallExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasFunctionCallExpr() {
+      return expressionCase_ == 32;
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     * @return The functionCallExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.FunctionCallExpr getFunctionCallExpr() {
+      if (functionCallExprBuilder_ == null) {
+        if (expressionCase_ == 32) {
+          return (org.mojolang.mojo.lang.FunctionCallExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.FunctionCallExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 32) {
+          return functionCallExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.FunctionCallExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     */
+    public Builder setFunctionCallExpr(org.mojolang.mojo.lang.FunctionCallExpr value) {
+      if (functionCallExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        functionCallExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 32;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     */
+    public Builder setFunctionCallExpr(
+        org.mojolang.mojo.lang.FunctionCallExpr.Builder builderForValue) {
+      if (functionCallExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        functionCallExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 32;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     */
+    public Builder mergeFunctionCallExpr(org.mojolang.mojo.lang.FunctionCallExpr value) {
+      if (functionCallExprBuilder_ == null) {
+        if (expressionCase_ == 32 &&
+            expression_ != org.mojolang.mojo.lang.FunctionCallExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.FunctionCallExpr.newBuilder((org.mojolang.mojo.lang.FunctionCallExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 32) {
+          functionCallExprBuilder_.mergeFrom(value);
+        }
+        functionCallExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 32;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     */
+    public Builder clearFunctionCallExpr() {
+      if (functionCallExprBuilder_ == null) {
+        if (expressionCase_ == 32) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 32) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        functionCallExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     */
+    public org.mojolang.mojo.lang.FunctionCallExpr.Builder getFunctionCallExprBuilder() {
+      return getFunctionCallExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.FunctionCallExprOrBuilder getFunctionCallExprOrBuilder() {
+      if ((expressionCase_ == 32) && (functionCallExprBuilder_ != null)) {
+        return functionCallExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 32) {
+          return (org.mojolang.mojo.lang.FunctionCallExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.FunctionCallExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.FunctionCallExpr function_call_expr = 32;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.FunctionCallExpr, org.mojolang.mojo.lang.FunctionCallExpr.Builder, org.mojolang.mojo.lang.FunctionCallExprOrBuilder> 
+        getFunctionCallExprFieldBuilder() {
+      if (functionCallExprBuilder_ == null) {
+        if (!(expressionCase_ == 32)) {
+          expression_ = org.mojolang.mojo.lang.FunctionCallExpr.getDefaultInstance();
+        }
+        functionCallExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.FunctionCallExpr, org.mojolang.mojo.lang.FunctionCallExpr.Builder, org.mojolang.mojo.lang.FunctionCallExprOrBuilder>(
+                (org.mojolang.mojo.lang.FunctionCallExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 32;
+      onChanged();;
+      return functionCallExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ExplicitMemberExpr, org.mojolang.mojo.lang.ExplicitMemberExpr.Builder, org.mojolang.mojo.lang.ExplicitMemberExprOrBuilder> explicitMemberExprBuilder_;
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     * @return Whether the explicitMemberExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasExplicitMemberExpr() {
+      return expressionCase_ == 33;
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     * @return The explicitMemberExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ExplicitMemberExpr getExplicitMemberExpr() {
+      if (explicitMemberExprBuilder_ == null) {
+        if (expressionCase_ == 33) {
+          return (org.mojolang.mojo.lang.ExplicitMemberExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ExplicitMemberExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 33) {
+          return explicitMemberExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.ExplicitMemberExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     */
+    public Builder setExplicitMemberExpr(org.mojolang.mojo.lang.ExplicitMemberExpr value) {
+      if (explicitMemberExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        explicitMemberExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 33;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     */
+    public Builder setExplicitMemberExpr(
+        org.mojolang.mojo.lang.ExplicitMemberExpr.Builder builderForValue) {
+      if (explicitMemberExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        explicitMemberExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 33;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     */
+    public Builder mergeExplicitMemberExpr(org.mojolang.mojo.lang.ExplicitMemberExpr value) {
+      if (explicitMemberExprBuilder_ == null) {
+        if (expressionCase_ == 33 &&
+            expression_ != org.mojolang.mojo.lang.ExplicitMemberExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.ExplicitMemberExpr.newBuilder((org.mojolang.mojo.lang.ExplicitMemberExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 33) {
+          explicitMemberExprBuilder_.mergeFrom(value);
+        }
+        explicitMemberExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 33;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     */
+    public Builder clearExplicitMemberExpr() {
+      if (explicitMemberExprBuilder_ == null) {
+        if (expressionCase_ == 33) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 33) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        explicitMemberExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     */
+    public org.mojolang.mojo.lang.ExplicitMemberExpr.Builder getExplicitMemberExprBuilder() {
+      return getExplicitMemberExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ExplicitMemberExprOrBuilder getExplicitMemberExprOrBuilder() {
+      if ((expressionCase_ == 33) && (explicitMemberExprBuilder_ != null)) {
+        return explicitMemberExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 33) {
+          return (org.mojolang.mojo.lang.ExplicitMemberExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ExplicitMemberExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ExplicitMemberExpr explicit_member_expr = 33;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ExplicitMemberExpr, org.mojolang.mojo.lang.ExplicitMemberExpr.Builder, org.mojolang.mojo.lang.ExplicitMemberExprOrBuilder> 
+        getExplicitMemberExprFieldBuilder() {
+      if (explicitMemberExprBuilder_ == null) {
+        if (!(expressionCase_ == 33)) {
+          expression_ = org.mojolang.mojo.lang.ExplicitMemberExpr.getDefaultInstance();
+        }
+        explicitMemberExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.ExplicitMemberExpr, org.mojolang.mojo.lang.ExplicitMemberExpr.Builder, org.mojolang.mojo.lang.ExplicitMemberExprOrBuilder>(
+                (org.mojolang.mojo.lang.ExplicitMemberExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 33;
+      onChanged();;
+      return explicitMemberExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.SubscriptExpr, org.mojolang.mojo.lang.SubscriptExpr.Builder, org.mojolang.mojo.lang.SubscriptExprOrBuilder> subscriptExprBuilder_;
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     * @return Whether the subscriptExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasSubscriptExpr() {
+      return expressionCase_ == 34;
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     * @return The subscriptExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.SubscriptExpr getSubscriptExpr() {
+      if (subscriptExprBuilder_ == null) {
+        if (expressionCase_ == 34) {
+          return (org.mojolang.mojo.lang.SubscriptExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.SubscriptExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 34) {
+          return subscriptExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.SubscriptExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     */
+    public Builder setSubscriptExpr(org.mojolang.mojo.lang.SubscriptExpr value) {
+      if (subscriptExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        subscriptExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 34;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     */
+    public Builder setSubscriptExpr(
+        org.mojolang.mojo.lang.SubscriptExpr.Builder builderForValue) {
+      if (subscriptExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        subscriptExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 34;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     */
+    public Builder mergeSubscriptExpr(org.mojolang.mojo.lang.SubscriptExpr value) {
+      if (subscriptExprBuilder_ == null) {
+        if (expressionCase_ == 34 &&
+            expression_ != org.mojolang.mojo.lang.SubscriptExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.SubscriptExpr.newBuilder((org.mojolang.mojo.lang.SubscriptExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 34) {
+          subscriptExprBuilder_.mergeFrom(value);
+        }
+        subscriptExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 34;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     */
+    public Builder clearSubscriptExpr() {
+      if (subscriptExprBuilder_ == null) {
+        if (expressionCase_ == 34) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 34) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        subscriptExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     */
+    public org.mojolang.mojo.lang.SubscriptExpr.Builder getSubscriptExprBuilder() {
+      return getSubscriptExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.SubscriptExprOrBuilder getSubscriptExprOrBuilder() {
+      if ((expressionCase_ == 34) && (subscriptExprBuilder_ != null)) {
+        return subscriptExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 34) {
+          return (org.mojolang.mojo.lang.SubscriptExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.SubscriptExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.SubscriptExpr subscript_expr = 34;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.SubscriptExpr, org.mojolang.mojo.lang.SubscriptExpr.Builder, org.mojolang.mojo.lang.SubscriptExprOrBuilder> 
+        getSubscriptExprFieldBuilder() {
+      if (subscriptExprBuilder_ == null) {
+        if (!(expressionCase_ == 34)) {
+          expression_ = org.mojolang.mojo.lang.SubscriptExpr.getDefaultInstance();
+        }
+        subscriptExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.SubscriptExpr, org.mojolang.mojo.lang.SubscriptExpr.Builder, org.mojolang.mojo.lang.SubscriptExprOrBuilder>(
+                (org.mojolang.mojo.lang.SubscriptExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 34;
+      onChanged();;
+      return subscriptExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.BinaryExpr, org.mojolang.mojo.lang.BinaryExpr.Builder, org.mojolang.mojo.lang.BinaryExprOrBuilder> binaryExprBuilder_;
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     * @return Whether the binaryExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasBinaryExpr() {
+      return expressionCase_ == 40;
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     * @return The binaryExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.BinaryExpr getBinaryExpr() {
+      if (binaryExprBuilder_ == null) {
+        if (expressionCase_ == 40) {
+          return (org.mojolang.mojo.lang.BinaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.BinaryExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 40) {
+          return binaryExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.BinaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     */
+    public Builder setBinaryExpr(org.mojolang.mojo.lang.BinaryExpr value) {
+      if (binaryExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        binaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 40;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     */
+    public Builder setBinaryExpr(
+        org.mojolang.mojo.lang.BinaryExpr.Builder builderForValue) {
+      if (binaryExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        binaryExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 40;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     */
+    public Builder mergeBinaryExpr(org.mojolang.mojo.lang.BinaryExpr value) {
+      if (binaryExprBuilder_ == null) {
+        if (expressionCase_ == 40 &&
+            expression_ != org.mojolang.mojo.lang.BinaryExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.BinaryExpr.newBuilder((org.mojolang.mojo.lang.BinaryExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 40) {
+          binaryExprBuilder_.mergeFrom(value);
+        }
+        binaryExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 40;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     */
+    public Builder clearBinaryExpr() {
+      if (binaryExprBuilder_ == null) {
+        if (expressionCase_ == 40) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 40) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        binaryExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     */
+    public org.mojolang.mojo.lang.BinaryExpr.Builder getBinaryExprBuilder() {
+      return getBinaryExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.BinaryExprOrBuilder getBinaryExprOrBuilder() {
+      if ((expressionCase_ == 40) && (binaryExprBuilder_ != null)) {
+        return binaryExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 40) {
+          return (org.mojolang.mojo.lang.BinaryExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.BinaryExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.BinaryExpr binary_expr = 40;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.BinaryExpr, org.mojolang.mojo.lang.BinaryExpr.Builder, org.mojolang.mojo.lang.BinaryExprOrBuilder> 
+        getBinaryExprFieldBuilder() {
+      if (binaryExprBuilder_ == null) {
+        if (!(expressionCase_ == 40)) {
+          expression_ = org.mojolang.mojo.lang.BinaryExpr.getDefaultInstance();
+        }
+        binaryExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.BinaryExpr, org.mojolang.mojo.lang.BinaryExpr.Builder, org.mojolang.mojo.lang.BinaryExprOrBuilder>(
+                (org.mojolang.mojo.lang.BinaryExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 40;
+      onChanged();;
+      return binaryExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ConditionalExpr, org.mojolang.mojo.lang.ConditionalExpr.Builder, org.mojolang.mojo.lang.ConditionalExprOrBuilder> conditionalExprBuilder_;
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     * @return Whether the conditionalExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasConditionalExpr() {
+      return expressionCase_ == 41;
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     * @return The conditionalExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ConditionalExpr getConditionalExpr() {
+      if (conditionalExprBuilder_ == null) {
+        if (expressionCase_ == 41) {
+          return (org.mojolang.mojo.lang.ConditionalExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ConditionalExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 41) {
+          return conditionalExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.ConditionalExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     */
+    public Builder setConditionalExpr(org.mojolang.mojo.lang.ConditionalExpr value) {
+      if (conditionalExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        conditionalExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 41;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     */
+    public Builder setConditionalExpr(
+        org.mojolang.mojo.lang.ConditionalExpr.Builder builderForValue) {
+      if (conditionalExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        conditionalExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 41;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     */
+    public Builder mergeConditionalExpr(org.mojolang.mojo.lang.ConditionalExpr value) {
+      if (conditionalExprBuilder_ == null) {
+        if (expressionCase_ == 41 &&
+            expression_ != org.mojolang.mojo.lang.ConditionalExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.ConditionalExpr.newBuilder((org.mojolang.mojo.lang.ConditionalExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 41) {
+          conditionalExprBuilder_.mergeFrom(value);
+        }
+        conditionalExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 41;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     */
+    public Builder clearConditionalExpr() {
+      if (conditionalExprBuilder_ == null) {
+        if (expressionCase_ == 41) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 41) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        conditionalExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     */
+    public org.mojolang.mojo.lang.ConditionalExpr.Builder getConditionalExprBuilder() {
+      return getConditionalExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ConditionalExprOrBuilder getConditionalExprOrBuilder() {
+      if ((expressionCase_ == 41) && (conditionalExprBuilder_ != null)) {
+        return conditionalExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 41) {
+          return (org.mojolang.mojo.lang.ConditionalExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ConditionalExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ConditionalExpr conditional_expr = 41;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ConditionalExpr, org.mojolang.mojo.lang.ConditionalExpr.Builder, org.mojolang.mojo.lang.ConditionalExprOrBuilder> 
+        getConditionalExprFieldBuilder() {
+      if (conditionalExprBuilder_ == null) {
+        if (!(expressionCase_ == 41)) {
+          expression_ = org.mojolang.mojo.lang.ConditionalExpr.getDefaultInstance();
+        }
+        conditionalExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.ConditionalExpr, org.mojolang.mojo.lang.ConditionalExpr.Builder, org.mojolang.mojo.lang.ConditionalExprOrBuilder>(
+                (org.mojolang.mojo.lang.ConditionalExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 41;
+      onChanged();;
+      return conditionalExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.TypeCastingExpr, org.mojolang.mojo.lang.TypeCastingExpr.Builder, org.mojolang.mojo.lang.TypeCastingExprOrBuilder> typeCastingExprBuilder_;
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     * @return Whether the typeCastingExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasTypeCastingExpr() {
+      return expressionCase_ == 42;
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     * @return The typeCastingExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.TypeCastingExpr getTypeCastingExpr() {
+      if (typeCastingExprBuilder_ == null) {
+        if (expressionCase_ == 42) {
+          return (org.mojolang.mojo.lang.TypeCastingExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.TypeCastingExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 42) {
+          return typeCastingExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.TypeCastingExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     */
+    public Builder setTypeCastingExpr(org.mojolang.mojo.lang.TypeCastingExpr value) {
+      if (typeCastingExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        typeCastingExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 42;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     */
+    public Builder setTypeCastingExpr(
+        org.mojolang.mojo.lang.TypeCastingExpr.Builder builderForValue) {
+      if (typeCastingExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        typeCastingExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 42;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     */
+    public Builder mergeTypeCastingExpr(org.mojolang.mojo.lang.TypeCastingExpr value) {
+      if (typeCastingExprBuilder_ == null) {
+        if (expressionCase_ == 42 &&
+            expression_ != org.mojolang.mojo.lang.TypeCastingExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.TypeCastingExpr.newBuilder((org.mojolang.mojo.lang.TypeCastingExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 42) {
+          typeCastingExprBuilder_.mergeFrom(value);
+        }
+        typeCastingExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 42;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     */
+    public Builder clearTypeCastingExpr() {
+      if (typeCastingExprBuilder_ == null) {
+        if (expressionCase_ == 42) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 42) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        typeCastingExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     */
+    public org.mojolang.mojo.lang.TypeCastingExpr.Builder getTypeCastingExprBuilder() {
+      return getTypeCastingExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.TypeCastingExprOrBuilder getTypeCastingExprOrBuilder() {
+      if ((expressionCase_ == 42) && (typeCastingExprBuilder_ != null)) {
+        return typeCastingExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 42) {
+          return (org.mojolang.mojo.lang.TypeCastingExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.TypeCastingExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.TypeCastingExpr type_casting_expr = 42;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.TypeCastingExpr, org.mojolang.mojo.lang.TypeCastingExpr.Builder, org.mojolang.mojo.lang.TypeCastingExprOrBuilder> 
+        getTypeCastingExprFieldBuilder() {
+      if (typeCastingExprBuilder_ == null) {
+        if (!(expressionCase_ == 42)) {
+          expression_ = org.mojolang.mojo.lang.TypeCastingExpr.getDefaultInstance();
+        }
+        typeCastingExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.TypeCastingExpr, org.mojolang.mojo.lang.TypeCastingExpr.Builder, org.mojolang.mojo.lang.TypeCastingExprOrBuilder>(
+                (org.mojolang.mojo.lang.TypeCastingExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 42;
+      onChanged();;
+      return typeCastingExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.AssignmentExpr, org.mojolang.mojo.lang.AssignmentExpr.Builder, org.mojolang.mojo.lang.AssignmentExprOrBuilder> assignmentExprBuilder_;
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     * @return Whether the assignmentExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasAssignmentExpr() {
+      return expressionCase_ == 43;
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     * @return The assignmentExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.AssignmentExpr getAssignmentExpr() {
+      if (assignmentExprBuilder_ == null) {
+        if (expressionCase_ == 43) {
+          return (org.mojolang.mojo.lang.AssignmentExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.AssignmentExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 43) {
+          return assignmentExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.AssignmentExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     */
+    public Builder setAssignmentExpr(org.mojolang.mojo.lang.AssignmentExpr value) {
+      if (assignmentExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        assignmentExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 43;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     */
+    public Builder setAssignmentExpr(
+        org.mojolang.mojo.lang.AssignmentExpr.Builder builderForValue) {
+      if (assignmentExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        assignmentExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 43;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     */
+    public Builder mergeAssignmentExpr(org.mojolang.mojo.lang.AssignmentExpr value) {
+      if (assignmentExprBuilder_ == null) {
+        if (expressionCase_ == 43 &&
+            expression_ != org.mojolang.mojo.lang.AssignmentExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.AssignmentExpr.newBuilder((org.mojolang.mojo.lang.AssignmentExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 43) {
+          assignmentExprBuilder_.mergeFrom(value);
+        }
+        assignmentExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 43;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     */
+    public Builder clearAssignmentExpr() {
+      if (assignmentExprBuilder_ == null) {
+        if (expressionCase_ == 43) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 43) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        assignmentExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     */
+    public org.mojolang.mojo.lang.AssignmentExpr.Builder getAssignmentExprBuilder() {
+      return getAssignmentExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.AssignmentExprOrBuilder getAssignmentExprOrBuilder() {
+      if ((expressionCase_ == 43) && (assignmentExprBuilder_ != null)) {
+        return assignmentExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 43) {
+          return (org.mojolang.mojo.lang.AssignmentExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.AssignmentExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.AssignmentExpr assignment_expr = 43;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.AssignmentExpr, org.mojolang.mojo.lang.AssignmentExpr.Builder, org.mojolang.mojo.lang.AssignmentExprOrBuilder> 
+        getAssignmentExprFieldBuilder() {
+      if (assignmentExprBuilder_ == null) {
+        if (!(expressionCase_ == 43)) {
+          expression_ = org.mojolang.mojo.lang.AssignmentExpr.getDefaultInstance();
+        }
+        assignmentExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.AssignmentExpr, org.mojolang.mojo.lang.AssignmentExpr.Builder, org.mojolang.mojo.lang.AssignmentExprOrBuilder>(
+                (org.mojolang.mojo.lang.AssignmentExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 43;
+      onChanged();;
+      return assignmentExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ErrorExpr, org.mojolang.mojo.lang.ErrorExpr.Builder, org.mojolang.mojo.lang.ErrorExprOrBuilder> errorExprBuilder_;
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     * @return Whether the errorExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasErrorExpr() {
+      return expressionCase_ == 60;
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     * @return The errorExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ErrorExpr getErrorExpr() {
+      if (errorExprBuilder_ == null) {
+        if (expressionCase_ == 60) {
+          return (org.mojolang.mojo.lang.ErrorExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ErrorExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 60) {
+          return errorExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.ErrorExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     */
+    public Builder setErrorExpr(org.mojolang.mojo.lang.ErrorExpr value) {
+      if (errorExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        errorExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 60;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     */
+    public Builder setErrorExpr(
+        org.mojolang.mojo.lang.ErrorExpr.Builder builderForValue) {
+      if (errorExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        errorExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 60;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     */
+    public Builder mergeErrorExpr(org.mojolang.mojo.lang.ErrorExpr value) {
+      if (errorExprBuilder_ == null) {
+        if (expressionCase_ == 60 &&
+            expression_ != org.mojolang.mojo.lang.ErrorExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.ErrorExpr.newBuilder((org.mojolang.mojo.lang.ErrorExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 60) {
+          errorExprBuilder_.mergeFrom(value);
+        }
+        errorExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 60;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     */
+    public Builder clearErrorExpr() {
+      if (errorExprBuilder_ == null) {
+        if (expressionCase_ == 60) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 60) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        errorExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     */
+    public org.mojolang.mojo.lang.ErrorExpr.Builder getErrorExprBuilder() {
+      return getErrorExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ErrorExprOrBuilder getErrorExprOrBuilder() {
+      if ((expressionCase_ == 60) && (errorExprBuilder_ != null)) {
+        return errorExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 60) {
+          return (org.mojolang.mojo.lang.ErrorExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.ErrorExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ErrorExpr error_expr = 60;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ErrorExpr, org.mojolang.mojo.lang.ErrorExpr.Builder, org.mojolang.mojo.lang.ErrorExprOrBuilder> 
+        getErrorExprFieldBuilder() {
+      if (errorExprBuilder_ == null) {
+        if (!(expressionCase_ == 60)) {
+          expression_ = org.mojolang.mojo.lang.ErrorExpr.getDefaultInstance();
+        }
+        errorExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.ErrorExpr, org.mojolang.mojo.lang.ErrorExpr.Builder, org.mojolang.mojo.lang.ErrorExprOrBuilder>(
+                (org.mojolang.mojo.lang.ErrorExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 60;
+      onChanged();;
+      return errorExprBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
