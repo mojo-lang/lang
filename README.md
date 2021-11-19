@@ -6,11 +6,11 @@
 
 1. install protoc
 2. install gogoproto
-3. install wand
+3. install mojo
 
 ## Build
 
-wand build go // from protobuf to go
+mojo build go // from protobuf to go
 
 
 *.pb.go
