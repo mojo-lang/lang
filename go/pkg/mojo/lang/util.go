@@ -89,8 +89,12 @@ func GetEnclosingNames(t *NominalType) []string {
 func TypeNameToFileName(fullName string) string {
 	segments := strings.Split(fullName, ".")
 	for i, segment := range segments {
-		if len(segment) > 0 && segment[0] >= 'A' && segment[0] <= 'Z' {
-			segments[i] = strcase.ToSnake(segment)
+		if i < len(segments) - 1 {
+			segments[i] = strcase.ToKebab(segment)
+		} else {
+			if len(segment) > 0 && segment[0] >= 'A' && segment[0] <= 'Z' {
+				segments[i] = strcase.ToSnake(segment)
+			}
 		}
 	}
 	return strings.Join(segments, "/")
