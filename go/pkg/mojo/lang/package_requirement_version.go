@@ -2,7 +2,6 @@ package lang
 
 import (
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
-	"strconv"
 	"strings"
 )
 
@@ -33,32 +32,15 @@ func NewPackageRequirementVersion(str string) *Package_Requirement_Version {
 	return v
 }
 
-type version []string
-
-func newVersion(v string) version {
-	v = strings.TrimSpace(v)
-	return strings.Split(v, ".")
-}
-
-func (v version) firstNonZero() int {
-	for i, segment := range v {
-		if segment > "0" {
-			return i
-		}
+func firstNonZero(v *core.Version) int {
+	if v.Major > 0 {
+		return 0
+	} else if v.Minor > 0 {
+		return 1
+	} else if v.Major > 0 {
+		return 2
 	}
-	return len(v) - 1
-}
-
-func (v version) toVersion() *core.Version {
-	version := &core.Version{}
-	values := []*uint64{&version.Major, &version.Minor, &version.Patch}
-	for i, segment := range v {
-		value, err := strconv.Atoi(segment)
-		if err != nil {
-		}
-		*values[i] = uint64(value)
-	}
-	return version
+	return 2
 }
 
 func parseWildcard(v string) *core.VersionRange {
@@ -67,15 +49,17 @@ func parseWildcard(v string) *core.VersionRange {
 
 func parseCaret(v string) *core.VersionRange {
 	vr := &core.VersionRange{}
-	version := newVersion(v)
-	vr.Min = version.toVersion()
+
+	version, _ := core.ParseVersion(v)
+
+	vr.Min = version
 	vr.Max = &core.Version{
 		Major: vr.Min.Major,
 		Minor: vr.Min.Minor,
 		Patch: vr.Min.Patch,
 	}
 
-	if i := version.firstNonZero(); i >= 0 && i < 3 {
+	if i := firstNonZero(version); i >= 0 && i < 3 {
 		values := []*uint64{&vr.Max.Major, &vr.Max.Minor, &vr.Max.Patch}
 		*values[i]++
 		for j := i + 1; j < 3; j++ {
