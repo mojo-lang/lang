@@ -3,6 +3,7 @@ package lang
 import (
 	"fmt"
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
+	"github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
 	"strings"
 )
 
@@ -56,6 +57,11 @@ func GetGoPackageName(fullName string) string {
 	}
 
 	return ""
+}
+
+// the segment of the package name will to be a folder, using kebab-case style
+func PackageNameToPath(fullName string) string {
+	return strings.ReplaceAll(strcase.ToKebabWithIgnore(fullName, "."),".", "/")
 }
 
 func (m *Package) ParentName() string {
@@ -171,8 +177,12 @@ func (m *Package) GoModName() string {
 }
 
 func (m *Package) GoFullPackageName() string {
-	if m.Repository != nil {
-		fullName := strings.ReplaceAll(m.FullName, ".", "/")
+	if len(m.FullName) > 0 {
+		segments := strings.Split(m.FullName, ".")
+		for i := 0; i < len(segments) - 1; i++ {
+			segments[i] = strcase.ToKebab(segments[i])
+		}
+		fullName := strings.Join(segments, "/")
 		return fmt.Sprintf("%s/pkg/%s", m.GoModName(), fullName)
 	}
 	return ""
