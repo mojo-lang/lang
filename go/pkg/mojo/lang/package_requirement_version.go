@@ -33,9 +33,9 @@ func NewPackageRequirementVersion(str string) *Package_Requirement_Version {
 }
 
 func firstNonZero(v *core.Version) int {
-	if v.Major > 0 {
+	if v.Major > 0 || v.Level == 1 {
 		return 0
-	} else if v.Minor > 0 {
+	} else if v.Minor > 0 || v.Level == 2 {
 		return 1
 	} else if v.Major > 0 {
 		return 2
