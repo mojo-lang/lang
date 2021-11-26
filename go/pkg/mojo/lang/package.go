@@ -61,7 +61,7 @@ func GetGoPackageName(fullName string) string {
 
 // the segment of the package name will to be a folder, using kebab-case style
 func PackageNameToPath(fullName string) string {
-	return strings.ReplaceAll(strcase.ToKebabWithIgnore(fullName, "."),".", "/")
+	return strings.ReplaceAll(strcase.ToKebabWithIgnore(fullName, "."), ".", "/")
 }
 
 func (m *Package) ParentName() string {
@@ -179,7 +179,7 @@ func (m *Package) GoModName() string {
 func (m *Package) GoFullPackageName() string {
 	if len(m.FullName) > 0 {
 		segments := strings.Split(m.FullName, ".")
-		for i := 0; i < len(segments) - 1; i++ {
+		for i := 0; i < len(segments)-1; i++ {
 			segments[i] = strcase.ToKebab(segments[i])
 		}
 		fullName := strings.Join(segments, "/")
@@ -207,6 +207,13 @@ func (m *Package) GetIdentifier(name string) *Identifier {
 		id := m.Scope.GetIdentifier(name)
 		if id != nil {
 			return id
+		}
+
+		for _, pkg := range m.Children {
+			id = pkg.GetIdentifier(name)
+			if id != nil {
+				return id
+			}
 		}
 
 		for _, pkg := range m.ResolvedDependencies {
