@@ -1,1 +1,1 @@
-{"title":"mojo.lang.Pattern","description":"","type":"object","properties":{"value":{"type":"string"}}}
+{"title":"mojo.lang.Pattern","description":"","type":"object","properties":{"val":{"type":"string"}}}

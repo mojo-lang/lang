@@ -3,6 +3,7 @@ package lang
 import (
 	jsoniter "github.com/json-iterator/go"
 	"reflect"
+	"strings"
 )
 
 const (
@@ -177,4 +178,8 @@ func (m *Declaration) SetPackageName(name string) {
 			m.GetGenericParameter().PackageName = name
 		}
 	}
+}
+
+func (m *Declaration) IsInstantiatedGeneric() bool {
+	return strings.ContainsAny(m.GetStructDecl().GetName(), "<>")
 }

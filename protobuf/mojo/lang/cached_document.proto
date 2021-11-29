@@ -13,5 +13,5 @@ option java_package = "org.mojolang.mojo.lang";
 
 message CachedDocument {
     string cache = 1;
-    mojo.document.Document value = 2;
+    mojo.document.Document val = 2;
 }

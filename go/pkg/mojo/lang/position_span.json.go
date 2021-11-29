@@ -34,20 +34,20 @@ func (codec *PositionSpanCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterat
 	any := iter.ReadAny()
 	positionSpan := (*PositionSpan)(ptr)
 	if any.ValueType() == jsoniter.ArrayValue {
-		any.ToVal(&positionSpan.Values)
+		any.ToVal(&positionSpan.Vals)
 	}
 }
 
 func (codec *PositionSpanCodec) IsEmpty(ptr unsafe.Pointer) bool {
 	positionSpan := (*PositionSpan)(ptr)
-	return positionSpan == nil || len(positionSpan.Values) == 0
+	return positionSpan == nil || len(positionSpan.Vals) == 0
 }
 
 func (codec *PositionSpanCodec) Encode(ptr unsafe.Pointer, stream *jsoniter.Stream) {
 	positionSpan := (*PositionSpan)(ptr)
 
 	stream.WriteArrayStart()
-	for i, v := range positionSpan.Values {
+	for i, v := range positionSpan.Vals {
 		if i > 0 {
 			stream.WriteMore()
 		}

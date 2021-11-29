@@ -29,12 +29,12 @@ public final class CachedDocumentProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\037mojo/lang/cached_document.proto\022\tmojo." +
-      "lang\032\034mojo/document/document.proto\"G\n\016Ca" +
-      "chedDocument\022\r\n\005cache\030\001 \001(\t\022&\n\005value\030\002 \001" +
-      "(\0132\027.mojo.document.DocumentB`\n\026org.mojol" +
-      "ang.mojo.langB\023CachedDocumentProtoP\001Z/gi" +
-      "thub.com/mojo-lang/lang/go/pkg/mojo/lang" +
-      ";langb\006proto3"
+      "lang\032\034mojo/document/document.proto\"E\n\016Ca" +
+      "chedDocument\022\r\n\005cache\030\001 \001(\t\022$\n\003val\030\002 \001(\013" +
+      "2\027.mojo.document.DocumentB`\n\026org.mojolan" +
+      "g.mojo.langB\023CachedDocumentProtoP\001Z/gith" +
+      "ub.com/mojo-lang/lang/go/pkg/mojo/lang;l" +
+      "angb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -46,7 +46,7 @@ public final class CachedDocumentProto {
     internal_static_mojo_lang_CachedDocument_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_CachedDocument_descriptor,
-        new java.lang.String[] { "Cache", "Value", });
+        new java.lang.String[] { "Cache", "Val", });
     org.mojolang.mojo.document.DocumentProto.getDescriptor();
   }
 

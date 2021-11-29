@@ -10,5 +10,5 @@ option java_outer_classname = "PatternProto";
 option java_package = "org.mojolang.mojo.lang";
 
 message Pattern {
-    string value = 1;
+    string val = 1;
 }

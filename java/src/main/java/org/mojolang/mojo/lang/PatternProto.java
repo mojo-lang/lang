@@ -28,11 +28,10 @@ public final class PatternProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027mojo/lang/pattern.proto\022\tmojo.lang\"\030\n\007" +
-      "Pattern\022\r\n\005value\030\001 \001(\tBY\n\026org.mojolang.m" +
-      "ojo.langB\014PatternProtoP\001Z/github.com/moj" +
-      "o-lang/lang/go/pkg/mojo/lang;langb\006proto" +
-      "3"
+      "\n\027mojo/lang/pattern.proto\022\tmojo.lang\"\026\n\007" +
+      "Pattern\022\013\n\003val\030\001 \001(\tBY\n\026org.mojolang.moj" +
+      "o.langB\014PatternProtoP\001Z/github.com/mojo-" +
+      "lang/lang/go/pkg/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -43,7 +42,7 @@ public final class PatternProto {
     internal_static_mojo_lang_Pattern_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_Pattern_descriptor,
-        new java.lang.String[] { "Value", });
+        new java.lang.String[] { "Val", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -255,6 +255,21 @@ public interface PackageOrBuilder extends
   org.mojolang.mojo.core.ObjectOrBuilder getExtraInfoOrBuilder();
 
   /**
+   * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+   * @return Whether the entityRelationship field is set.
+   */
+  boolean hasEntityRelationship();
+  /**
+   * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+   * @return The entityRelationship.
+   */
+  org.mojolang.mojo.lang.EntityRelationship getEntityRelationship();
+  /**
+   * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+   */
+  org.mojolang.mojo.lang.EntityRelationshipOrBuilder getEntityRelationshipOrBuilder();
+
+  /**
    * <code>map&lt;string, .mojo.lang.Package.Requirement&gt; dependencies = 30;</code>
    */
   int getDependenciesCount();

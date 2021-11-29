@@ -57,13 +57,13 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             org.mojolang.mojo.document.Document.Builder subBuilder = null;
-            if (value_ != null) {
-              subBuilder = value_.toBuilder();
+            if (val_ != null) {
+              subBuilder = val_.toBuilder();
             }
-            value_ = input.readMessage(org.mojolang.mojo.document.Document.parser(), extensionRegistry);
+            val_ = input.readMessage(org.mojolang.mojo.document.Document.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(value_);
-              value_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(val_);
+              val_ = subBuilder.buildPartial();
             }
 
             break;
@@ -138,30 +138,30 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int VALUE_FIELD_NUMBER = 2;
-  private org.mojolang.mojo.document.Document value_;
+  public static final int VAL_FIELD_NUMBER = 2;
+  private org.mojolang.mojo.document.Document val_;
   /**
-   * <code>.mojo.document.Document value = 2;</code>
-   * @return Whether the value field is set.
+   * <code>.mojo.document.Document val = 2;</code>
+   * @return Whether the val field is set.
    */
   @java.lang.Override
-  public boolean hasValue() {
-    return value_ != null;
+  public boolean hasVal() {
+    return val_ != null;
   }
   /**
-   * <code>.mojo.document.Document value = 2;</code>
-   * @return The value.
+   * <code>.mojo.document.Document val = 2;</code>
+   * @return The val.
    */
   @java.lang.Override
-  public org.mojolang.mojo.document.Document getValue() {
-    return value_ == null ? org.mojolang.mojo.document.Document.getDefaultInstance() : value_;
+  public org.mojolang.mojo.document.Document getVal() {
+    return val_ == null ? org.mojolang.mojo.document.Document.getDefaultInstance() : val_;
   }
   /**
-   * <code>.mojo.document.Document value = 2;</code>
+   * <code>.mojo.document.Document val = 2;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.document.DocumentOrBuilder getValueOrBuilder() {
-    return getValue();
+  public org.mojolang.mojo.document.DocumentOrBuilder getValOrBuilder() {
+    return getVal();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -181,8 +181,8 @@ private static final long serialVersionUID = 0L;
     if (!getCacheBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cache_);
     }
-    if (value_ != null) {
-      output.writeMessage(2, getValue());
+    if (val_ != null) {
+      output.writeMessage(2, getVal());
     }
     unknownFields.writeTo(output);
   }
@@ -196,9 +196,9 @@ private static final long serialVersionUID = 0L;
     if (!getCacheBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cache_);
     }
-    if (value_ != null) {
+    if (val_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getValue());
+        .computeMessageSize(2, getVal());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -217,10 +217,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getCache()
         .equals(other.getCache())) return false;
-    if (hasValue() != other.hasValue()) return false;
-    if (hasValue()) {
-      if (!getValue()
-          .equals(other.getValue())) return false;
+    if (hasVal() != other.hasVal()) return false;
+    if (hasVal()) {
+      if (!getVal()
+          .equals(other.getVal())) return false;
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -235,9 +235,9 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + CACHE_FIELD_NUMBER;
     hash = (53 * hash) + getCache().hashCode();
-    if (hasValue()) {
-      hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getValue().hashCode();
+    if (hasVal()) {
+      hash = (37 * hash) + VAL_FIELD_NUMBER;
+      hash = (53 * hash) + getVal().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -374,11 +374,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       cache_ = "";
 
-      if (valueBuilder_ == null) {
-        value_ = null;
+      if (valBuilder_ == null) {
+        val_ = null;
       } else {
-        value_ = null;
-        valueBuilder_ = null;
+        val_ = null;
+        valBuilder_ = null;
       }
       return this;
     }
@@ -407,10 +407,10 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.CachedDocument buildPartial() {
       org.mojolang.mojo.lang.CachedDocument result = new org.mojolang.mojo.lang.CachedDocument(this);
       result.cache_ = cache_;
-      if (valueBuilder_ == null) {
-        result.value_ = value_;
+      if (valBuilder_ == null) {
+        result.val_ = val_;
       } else {
-        result.value_ = valueBuilder_.build();
+        result.val_ = valBuilder_.build();
       }
       onBuilt();
       return result;
@@ -464,8 +464,8 @@ private static final long serialVersionUID = 0L;
         cache_ = other.cache_;
         onChanged();
       }
-      if (other.hasValue()) {
-        mergeValue(other.getValue());
+      if (other.hasVal()) {
+        mergeVal(other.getVal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -572,123 +572,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.document.Document value_;
+    private org.mojolang.mojo.document.Document val_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.document.Document, org.mojolang.mojo.document.Document.Builder, org.mojolang.mojo.document.DocumentOrBuilder> valueBuilder_;
+        org.mojolang.mojo.document.Document, org.mojolang.mojo.document.Document.Builder, org.mojolang.mojo.document.DocumentOrBuilder> valBuilder_;
     /**
-     * <code>.mojo.document.Document value = 2;</code>
-     * @return Whether the value field is set.
+     * <code>.mojo.document.Document val = 2;</code>
+     * @return Whether the val field is set.
      */
-    public boolean hasValue() {
-      return valueBuilder_ != null || value_ != null;
+    public boolean hasVal() {
+      return valBuilder_ != null || val_ != null;
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
-     * @return The value.
+     * <code>.mojo.document.Document val = 2;</code>
+     * @return The val.
      */
-    public org.mojolang.mojo.document.Document getValue() {
-      if (valueBuilder_ == null) {
-        return value_ == null ? org.mojolang.mojo.document.Document.getDefaultInstance() : value_;
+    public org.mojolang.mojo.document.Document getVal() {
+      if (valBuilder_ == null) {
+        return val_ == null ? org.mojolang.mojo.document.Document.getDefaultInstance() : val_;
       } else {
-        return valueBuilder_.getMessage();
+        return valBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
+     * <code>.mojo.document.Document val = 2;</code>
      */
-    public Builder setValue(org.mojolang.mojo.document.Document value) {
-      if (valueBuilder_ == null) {
+    public Builder setVal(org.mojolang.mojo.document.Document value) {
+      if (valBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        value_ = value;
+        val_ = value;
         onChanged();
       } else {
-        valueBuilder_.setMessage(value);
+        valBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
+     * <code>.mojo.document.Document val = 2;</code>
      */
-    public Builder setValue(
+    public Builder setVal(
         org.mojolang.mojo.document.Document.Builder builderForValue) {
-      if (valueBuilder_ == null) {
-        value_ = builderForValue.build();
+      if (valBuilder_ == null) {
+        val_ = builderForValue.build();
         onChanged();
       } else {
-        valueBuilder_.setMessage(builderForValue.build());
+        valBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
+     * <code>.mojo.document.Document val = 2;</code>
      */
-    public Builder mergeValue(org.mojolang.mojo.document.Document value) {
-      if (valueBuilder_ == null) {
-        if (value_ != null) {
-          value_ =
-            org.mojolang.mojo.document.Document.newBuilder(value_).mergeFrom(value).buildPartial();
+    public Builder mergeVal(org.mojolang.mojo.document.Document value) {
+      if (valBuilder_ == null) {
+        if (val_ != null) {
+          val_ =
+            org.mojolang.mojo.document.Document.newBuilder(val_).mergeFrom(value).buildPartial();
         } else {
-          value_ = value;
+          val_ = value;
         }
         onChanged();
       } else {
-        valueBuilder_.mergeFrom(value);
+        valBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
+     * <code>.mojo.document.Document val = 2;</code>
      */
-    public Builder clearValue() {
-      if (valueBuilder_ == null) {
-        value_ = null;
+    public Builder clearVal() {
+      if (valBuilder_ == null) {
+        val_ = null;
         onChanged();
       } else {
-        value_ = null;
-        valueBuilder_ = null;
+        val_ = null;
+        valBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
+     * <code>.mojo.document.Document val = 2;</code>
      */
-    public org.mojolang.mojo.document.Document.Builder getValueBuilder() {
+    public org.mojolang.mojo.document.Document.Builder getValBuilder() {
       
       onChanged();
-      return getValueFieldBuilder().getBuilder();
+      return getValFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
+     * <code>.mojo.document.Document val = 2;</code>
      */
-    public org.mojolang.mojo.document.DocumentOrBuilder getValueOrBuilder() {
-      if (valueBuilder_ != null) {
-        return valueBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.document.DocumentOrBuilder getValOrBuilder() {
+      if (valBuilder_ != null) {
+        return valBuilder_.getMessageOrBuilder();
       } else {
-        return value_ == null ?
-            org.mojolang.mojo.document.Document.getDefaultInstance() : value_;
+        return val_ == null ?
+            org.mojolang.mojo.document.Document.getDefaultInstance() : val_;
       }
     }
     /**
-     * <code>.mojo.document.Document value = 2;</code>
+     * <code>.mojo.document.Document val = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.document.Document, org.mojolang.mojo.document.Document.Builder, org.mojolang.mojo.document.DocumentOrBuilder> 
-        getValueFieldBuilder() {
-      if (valueBuilder_ == null) {
-        valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getValFieldBuilder() {
+      if (valBuilder_ == null) {
+        valBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.document.Document, org.mojolang.mojo.document.Document.Builder, org.mojolang.mojo.document.DocumentOrBuilder>(
-                getValue(),
+                getVal(),
                 getParentForChildren(),
                 isClean());
-        value_ = null;
+        val_ = null;
       }
-      return valueBuilder_;
+      return valBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

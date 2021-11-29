@@ -17,9 +17,9 @@ message Position {
 }
 
 message PositionSpan {
-    repeated Position values = 1;
+    repeated Position vals = 1;
 }
 
 message PosSpan {
-    repeated int64 values = 1;
+    repeated int64 vals = 1;
 }

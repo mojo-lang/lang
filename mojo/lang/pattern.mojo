@@ -13,5 +13,5 @@
 // limitations under the License.
 
 type Pattern {
-    value: String @1
+    val: String @1
 }

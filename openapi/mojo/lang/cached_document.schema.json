@@ -1,1 +1,1 @@
-{"title":"mojo.lang.CachedDocument","description":"the Generic Cached type\n\n","type":"object","properties":{"cache":{"type":"string"},"value":{"$ref":"#/components/schemas/mojo.document.Document"}}}
+{"title":"mojo.lang.CachedDocument","description":"the Generic Cached type\n\n","type":"object","properties":{"cache":{"type":"string"},"val":{"$ref":"#/components/schemas/mojo.document.Document"}}}

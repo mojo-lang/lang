@@ -214,6 +214,33 @@ message MapLiteralExpr {
     repeated Entry entries = 15;
 }
 
+message EntityEdge {
+    string id = 1;
+    string name = 2;
+    bool implicit = 3;
+    EntityNode from = 5;
+    EntityNode to = 6;
+    bool inverse = 10;
+    bool multiple = 11;
+}
+
+message EntityEdges {
+    repeated EntityEdge vals = 1;
+}
+
+message EntityNode {
+    string name = 1;
+    TypeDeclaration type_declaration = 2;
+    ValueDecl key_field = 5;
+}
+
+message EntityRelationship {
+    map<string, EntityNode> nodes = 1;
+    map<string, EntityEdge> edges = 2;
+    map<string, EntityEdges> node_from_edges = 10;
+    map<string, EntityEdges> node_to_edges = 11;
+}
+
 message EnumDecl {
     Position start_position = 1;
     Position end_position = 2;
@@ -581,6 +608,7 @@ message Package {
     repeated SourceFile source_files = 16;
     Scope scope = 20;
     mojo.core.Object extra_info = 25;
+    EntityRelationship entity_relationship = 26;
     map<string, Package.Requirement> dependencies = 30;
     map<string, Package> resolved_dependencies = 31;
 }

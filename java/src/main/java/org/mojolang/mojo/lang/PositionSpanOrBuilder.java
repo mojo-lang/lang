@@ -8,26 +8,26 @@ public interface PositionSpanOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .mojo.lang.Position values = 1;</code>
+   * <code>repeated .mojo.lang.Position vals = 1;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Position> 
-      getValuesList();
+      getValsList();
   /**
-   * <code>repeated .mojo.lang.Position values = 1;</code>
+   * <code>repeated .mojo.lang.Position vals = 1;</code>
    */
-  org.mojolang.mojo.lang.Position getValues(int index);
+  org.mojolang.mojo.lang.Position getVals(int index);
   /**
-   * <code>repeated .mojo.lang.Position values = 1;</code>
+   * <code>repeated .mojo.lang.Position vals = 1;</code>
    */
-  int getValuesCount();
+  int getValsCount();
   /**
-   * <code>repeated .mojo.lang.Position values = 1;</code>
+   * <code>repeated .mojo.lang.Position vals = 1;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.PositionOrBuilder> 
-      getValuesOrBuilderList();
+      getValsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Position values = 1;</code>
+   * <code>repeated .mojo.lang.Position vals = 1;</code>
    */
-  org.mojolang.mojo.lang.PositionOrBuilder getValuesOrBuilder(
+  org.mojolang.mojo.lang.PositionOrBuilder getValsOrBuilder(
       int index);
 }

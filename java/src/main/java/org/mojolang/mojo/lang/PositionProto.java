@@ -40,12 +40,12 @@ public final class PositionProto {
     java.lang.String[] descriptorData = {
       "\n\030mojo/lang/position.proto\022\tmojo.lang\"J\n" +
       "\010Position\022\020\n\010filename\030\001 \001(\t\022\016\n\006offset\030\002 " +
-      "\001(\003\022\014\n\004line\030\003 \001(\003\022\016\n\006column\030\004 \001(\003\"3\n\014Pos" +
-      "itionSpan\022#\n\006values\030\001 \003(\0132\023.mojo.lang.Po" +
-      "sition\"\031\n\007PosSpan\022\016\n\006values\030\001 \003(\003BZ\n\026org" +
-      ".mojolang.mojo.langB\rPositionProtoP\001Z/gi" +
-      "thub.com/mojo-lang/lang/go/pkg/mojo/lang" +
-      ";langb\006proto3"
+      "\001(\003\022\014\n\004line\030\003 \001(\003\022\016\n\006column\030\004 \001(\003\"1\n\014Pos" +
+      "itionSpan\022!\n\004vals\030\001 \003(\0132\023.mojo.lang.Posi" +
+      "tion\"\027\n\007PosSpan\022\014\n\004vals\030\001 \003(\003BZ\n\026org.moj" +
+      "olang.mojo.langB\rPositionProtoP\001Z/github" +
+      ".com/mojo-lang/lang/go/pkg/mojo/lang;lan" +
+      "gb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -62,13 +62,13 @@ public final class PositionProto {
     internal_static_mojo_lang_PositionSpan_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_PositionSpan_descriptor,
-        new java.lang.String[] { "Values", });
+        new java.lang.String[] { "Vals", });
     internal_static_mojo_lang_PosSpan_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_mojo_lang_PosSpan_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_PosSpan_descriptor,
-        new java.lang.String[] { "Values", });
+        new java.lang.String[] { "Vals", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

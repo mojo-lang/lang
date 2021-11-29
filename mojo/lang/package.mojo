@@ -104,6 +104,9 @@ type Package {
 
     extra_info: Object @25
 
+    /// entity relationship analysis in the package
+    entity_relationship: EntityRelationship @26
+
     ///
     dependencies: {String: Requirement} @30
 

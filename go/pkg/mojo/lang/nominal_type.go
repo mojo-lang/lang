@@ -1,6 +1,9 @@
 package lang
 
-import "strings"
+import (
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
+	"strings"
+)
 
 func (m *NominalType) GetFullName() string {
 	if m != nil {
@@ -25,6 +28,22 @@ func (m *NominalType) IsTypeAlias() bool {
 		return false
 	}
 	return m.TypeDeclaration != nil && m.TypeDeclaration.GetTypeAliasDecl() != nil
+}
+
+func (m *NominalType) IsInstantiatedGeneric() bool {
+	if m.IsGeneric() {
+		for _, argument := range m.GetGenericArguments() {
+			if argument.IsGenericParameter() {
+				return false
+			}
+		}
+		return true
+	}
+	return false
+}
+
+func (m *NominalType) IsGeneric() bool {
+	return len(m.GetGenericArguments()) > 0
 }
 
 func (m *NominalType) IsGenericParameter() bool {
@@ -62,16 +81,16 @@ func (m *NominalType) IsScalar() bool {
 	if m.TypeDeclaration != nil {
 		if decl := m.TypeDeclaration.GetStructDecl(); decl != nil {
 			switch decl.GetFullName() {
-			case "mojo.core.Bool", "mojo.core.Int8", "mojo.core.Int16", "mojo.core.Int32", "mojo.core.Int64",
-				"mojo.core.UInt8", "mojo.core.UInt16", "mojo.core.UInt32", "mojo.core.UInt64", "mojo.core.Float32",
-				"mojo.core.Float64", "mojo.core.String", "mojo.core.Bytes":
+			case core.BoolTypeName, core.Int8TypeName, core.Int16TypeName, core.Int32TypeName, core.Int64TypeName,
+				core.UInt8TypeName, core.UInt16TypeName, core.UInt32TypeName, core.UInt64TypeName, core.Float32TypeName,
+				core.Float64TypeName, core.StringTypeName, core.BytesTypeName:
 				return true
 			default:
 				return false
 			}
 		} else if alias := m.TypeDeclaration.GetTypeAliasDecl(); alias != nil {
 			switch alias.GetFullName() {
-			case "mojo.core.Int", "mojo.core.UInt", "mojo.core.Float", "mojo.core.Double":
+			case core.IntTypeName, core.UIntTypeName, core.FloatTypeName, core.DoubleTypeName:
 				return true
 			default:
 				return false
@@ -82,23 +101,23 @@ func (m *NominalType) IsScalar() bool {
 }
 
 func (m *NominalType) IsArrayType() bool {
-	return m.isType("mojo.core.Array")
+	return m.isType(core.ArrayTypeName)
 }
 
 func (m *NominalType) IsMapType() bool {
-	return m.isType("mojo.core.Map")
+	return m.isType(core.MapTypeName)
 }
 
 func (m *NominalType) IsTupleType() bool {
-	return m.isType("mojo.core.Tuple")
+	return m.isType(core.TupleTypeName)
 }
 
 func (m *NominalType) IsIntersectionType() bool {
-	return m.isType("mojo.core.Intersection")
+	return m.isType(core.IntersectionTypeName)
 }
 
 func (m *NominalType) IsUnionType() bool {
-	return m.isType("mojo.core.Union")
+	return m.isType(core.UnionTypeName)
 }
 
 func (m *NominalType) isType(typeName string) bool {

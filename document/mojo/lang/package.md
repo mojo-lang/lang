@@ -15,5 +15,6 @@
 | `sourceFiles` | `Array<mojo.lang.SourceFile>` | `` | 否 |  |  |
 | `scope` | `mojo.lang.Scope` | `` | 否 |  | package scope across all files |
 | `extraInfo` | `Map<string, unspecified>` | `` | 否 |  |
+| `entityRelationship` | `mojo.lang.EntityRelationship` | `` | 否 |  | entity relationship analysis in the package |
 | `dependencies` | `Map<string, mojo.lang.Package.Requirement>` | `` | 否 |  |  |
 | `resolvedDependencies` | `Map<string, mojo.lang.Package>` | `` | 否 |  |  |

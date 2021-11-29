@@ -28,11 +28,10 @@ public final class CommentProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027mojo/lang/comment.proto\022\tmojo.lang\"\031\n\007" +
-      "Comment\022\016\n\006values\030\001 \003(\tBY\n\026org.mojolang." +
-      "mojo.langB\014CommentProtoP\001Z/github.com/mo" +
-      "jo-lang/lang/go/pkg/mojo/lang;langb\006prot" +
-      "o3"
+      "\n\027mojo/lang/comment.proto\022\tmojo.lang\"\027\n\007" +
+      "Comment\022\014\n\004vals\030\001 \003(\tBY\n\026org.mojolang.mo" +
+      "jo.langB\014CommentProtoP\001Z/github.com/mojo" +
+      "-lang/lang/go/pkg/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -43,7 +42,7 @@ public final class CommentProto {
     internal_static_mojo_lang_Comment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_Comment_descriptor,
-        new java.lang.String[] { "Values", });
+        new java.lang.String[] { "Vals", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

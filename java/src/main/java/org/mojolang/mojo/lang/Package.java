@@ -202,6 +202,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 210: {
+            org.mojolang.mojo.lang.EntityRelationship.Builder subBuilder = null;
+            if (entityRelationship_ != null) {
+              subBuilder = entityRelationship_.toBuilder();
+            }
+            entityRelationship_ = input.readMessage(org.mojolang.mojo.lang.EntityRelationship.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(entityRelationship_);
+              entityRelationship_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           case 242: {
             if (!((mutable_bitField0_ & 0x00000010) != 0)) {
               dependencies_ = com.google.protobuf.MapField.newMapField(
@@ -3836,6 +3849,32 @@ private static final long serialVersionUID = 0L;
     return getExtraInfo();
   }
 
+  public static final int ENTITY_RELATIONSHIP_FIELD_NUMBER = 26;
+  private org.mojolang.mojo.lang.EntityRelationship entityRelationship_;
+  /**
+   * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+   * @return Whether the entityRelationship field is set.
+   */
+  @java.lang.Override
+  public boolean hasEntityRelationship() {
+    return entityRelationship_ != null;
+  }
+  /**
+   * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+   * @return The entityRelationship.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.EntityRelationship getEntityRelationship() {
+    return entityRelationship_ == null ? org.mojolang.mojo.lang.EntityRelationship.getDefaultInstance() : entityRelationship_;
+  }
+  /**
+   * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.EntityRelationshipOrBuilder getEntityRelationshipOrBuilder() {
+    return getEntityRelationship();
+  }
+
   public static final int DEPENDENCIES_FIELD_NUMBER = 30;
   private static final class DependenciesDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -4057,6 +4096,9 @@ private static final long serialVersionUID = 0L;
     if (extraInfo_ != null) {
       output.writeMessage(25, getExtraInfo());
     }
+    if (entityRelationship_ != null) {
+      output.writeMessage(26, getEntityRelationship());
+    }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
@@ -4136,6 +4178,10 @@ private static final long serialVersionUID = 0L;
     if (extraInfo_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(25, getExtraInfo());
+    }
+    if (entityRelationship_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(26, getEntityRelationship());
     }
     for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.lang.Package.Requirement> entry
          : internalGetDependencies().getMap().entrySet()) {
@@ -4220,6 +4266,11 @@ private static final long serialVersionUID = 0L;
       if (!getExtraInfo()
           .equals(other.getExtraInfo())) return false;
     }
+    if (hasEntityRelationship() != other.hasEntityRelationship()) return false;
+    if (hasEntityRelationship()) {
+      if (!getEntityRelationship()
+          .equals(other.getEntityRelationship())) return false;
+    }
     if (!internalGetDependencies().equals(
         other.internalGetDependencies())) return false;
     if (!internalGetResolvedDependencies().equals(
@@ -4284,6 +4335,10 @@ private static final long serialVersionUID = 0L;
     if (hasExtraInfo()) {
       hash = (37 * hash) + EXTRA_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getExtraInfo().hashCode();
+    }
+    if (hasEntityRelationship()) {
+      hash = (37 * hash) + ENTITY_RELATIONSHIP_FIELD_NUMBER;
+      hash = (53 * hash) + getEntityRelationship().hashCode();
     }
     if (!internalGetDependencies().getMap().isEmpty()) {
       hash = (37 * hash) + DEPENDENCIES_FIELD_NUMBER;
@@ -4521,6 +4576,12 @@ private static final long serialVersionUID = 0L;
         extraInfo_ = null;
         extraInfoBuilder_ = null;
       }
+      if (entityRelationshipBuilder_ == null) {
+        entityRelationship_ = null;
+      } else {
+        entityRelationship_ = null;
+        entityRelationshipBuilder_ = null;
+      }
       internalGetMutableDependencies().clear();
       internalGetMutableResolvedDependencies().clear();
       return this;
@@ -4616,6 +4677,11 @@ private static final long serialVersionUID = 0L;
         result.extraInfo_ = extraInfo_;
       } else {
         result.extraInfo_ = extraInfoBuilder_.build();
+      }
+      if (entityRelationshipBuilder_ == null) {
+        result.entityRelationship_ = entityRelationship_;
+      } else {
+        result.entityRelationship_ = entityRelationshipBuilder_.build();
       }
       result.dependencies_ = internalGetDependencies();
       result.dependencies_.makeImmutable();
@@ -4794,6 +4860,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasExtraInfo()) {
         mergeExtraInfo(other.getExtraInfo());
+      }
+      if (other.hasEntityRelationship()) {
+        mergeEntityRelationship(other.getEntityRelationship());
       }
       internalGetMutableDependencies().mergeFrom(
           other.internalGetDependencies());
@@ -6751,6 +6820,125 @@ private static final long serialVersionUID = 0L;
         extraInfo_ = null;
       }
       return extraInfoBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.EntityRelationship entityRelationship_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.EntityRelationship, org.mojolang.mojo.lang.EntityRelationship.Builder, org.mojolang.mojo.lang.EntityRelationshipOrBuilder> entityRelationshipBuilder_;
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     * @return Whether the entityRelationship field is set.
+     */
+    public boolean hasEntityRelationship() {
+      return entityRelationshipBuilder_ != null || entityRelationship_ != null;
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     * @return The entityRelationship.
+     */
+    public org.mojolang.mojo.lang.EntityRelationship getEntityRelationship() {
+      if (entityRelationshipBuilder_ == null) {
+        return entityRelationship_ == null ? org.mojolang.mojo.lang.EntityRelationship.getDefaultInstance() : entityRelationship_;
+      } else {
+        return entityRelationshipBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     */
+    public Builder setEntityRelationship(org.mojolang.mojo.lang.EntityRelationship value) {
+      if (entityRelationshipBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        entityRelationship_ = value;
+        onChanged();
+      } else {
+        entityRelationshipBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     */
+    public Builder setEntityRelationship(
+        org.mojolang.mojo.lang.EntityRelationship.Builder builderForValue) {
+      if (entityRelationshipBuilder_ == null) {
+        entityRelationship_ = builderForValue.build();
+        onChanged();
+      } else {
+        entityRelationshipBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     */
+    public Builder mergeEntityRelationship(org.mojolang.mojo.lang.EntityRelationship value) {
+      if (entityRelationshipBuilder_ == null) {
+        if (entityRelationship_ != null) {
+          entityRelationship_ =
+            org.mojolang.mojo.lang.EntityRelationship.newBuilder(entityRelationship_).mergeFrom(value).buildPartial();
+        } else {
+          entityRelationship_ = value;
+        }
+        onChanged();
+      } else {
+        entityRelationshipBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     */
+    public Builder clearEntityRelationship() {
+      if (entityRelationshipBuilder_ == null) {
+        entityRelationship_ = null;
+        onChanged();
+      } else {
+        entityRelationship_ = null;
+        entityRelationshipBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     */
+    public org.mojolang.mojo.lang.EntityRelationship.Builder getEntityRelationshipBuilder() {
+      
+      onChanged();
+      return getEntityRelationshipFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     */
+    public org.mojolang.mojo.lang.EntityRelationshipOrBuilder getEntityRelationshipOrBuilder() {
+      if (entityRelationshipBuilder_ != null) {
+        return entityRelationshipBuilder_.getMessageOrBuilder();
+      } else {
+        return entityRelationship_ == null ?
+            org.mojolang.mojo.lang.EntityRelationship.getDefaultInstance() : entityRelationship_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.EntityRelationship entity_relationship = 26;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.EntityRelationship, org.mojolang.mojo.lang.EntityRelationship.Builder, org.mojolang.mojo.lang.EntityRelationshipOrBuilder> 
+        getEntityRelationshipFieldBuilder() {
+      if (entityRelationshipBuilder_ == null) {
+        entityRelationshipBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.EntityRelationship, org.mojolang.mojo.lang.EntityRelationship.Builder, org.mojolang.mojo.lang.EntityRelationshipOrBuilder>(
+                getEntityRelationship(),
+                getParentForChildren(),
+                isClean());
+        entityRelationship_ = null;
+      }
+      return entityRelationshipBuilder_;
     }
 
     private com.google.protobuf.MapField<

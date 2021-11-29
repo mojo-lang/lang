@@ -20,17 +20,17 @@ public interface CachedDocumentOrBuilder extends
       getCacheBytes();
 
   /**
-   * <code>.mojo.document.Document value = 2;</code>
-   * @return Whether the value field is set.
+   * <code>.mojo.document.Document val = 2;</code>
+   * @return Whether the val field is set.
    */
-  boolean hasValue();
+  boolean hasVal();
   /**
-   * <code>.mojo.document.Document value = 2;</code>
-   * @return The value.
+   * <code>.mojo.document.Document val = 2;</code>
+   * @return The val.
    */
-  org.mojolang.mojo.document.Document getValue();
+  org.mojolang.mojo.document.Document getVal();
   /**
-   * <code>.mojo.document.Document value = 2;</code>
+   * <code>.mojo.document.Document val = 2;</code>
    */
-  org.mojolang.mojo.document.DocumentOrBuilder getValueOrBuilder();
+  org.mojolang.mojo.document.DocumentOrBuilder getValOrBuilder();
 }

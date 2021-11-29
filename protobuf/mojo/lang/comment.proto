@@ -10,5 +10,5 @@ option java_outer_classname = "CommentProto";
 option java_package = "org.mojolang.mojo.lang";
 
 message Comment {
-    repeated string values = 1;
+    repeated string vals = 1;
 }
