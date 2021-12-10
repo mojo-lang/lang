@@ -14,3 +14,7 @@ func (m *TypeAliasDecl) SetScope(scope *Scope) {
 		m.Scope = scope
 	}
 }
+
+func (m *TypeAliasDecl) IsGeneric() bool {
+	return m != nil && len(m.GenericParameters) > 0
+}

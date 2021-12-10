@@ -61,6 +61,26 @@ func (m *Attribute) SameName(fullName string) bool {
 	}
 }
 
+func (m *Attribute) GetFullName() string {
+	fullName := ""
+	if m != nil {
+		if len(m.PackageName) > 0 {
+			fullName = m.PackageName + "."
+		}
+		fullName = fullName + m.Name
+	}
+	return fullName
+}
+
+func (m *Attribute) Repeatable() bool {
+	if m != nil && m.Declaration != nil {
+		if v, err := GetBoolAttribute(m.Declaration.Attributes, "repeatable"); err == nil {
+			return v
+		}
+	}
+	return false
+}
+
 func GetAttribute(attributes []*Attribute, name string) *Attribute {
 	for _, attribute := range attributes {
 		if attribute.SameName(name) {
@@ -236,4 +256,24 @@ func RemoveAttribute(attributes []*Attribute, name string) []*Attribute {
 	}
 
 	return newAttributes
+}
+
+func MergeAttributes(dst []*Attribute, src []*Attribute) []*Attribute {
+	index := make(map[string][]*Attribute)
+	setAttributes := func(attributes []*Attribute) {
+		for _, attr := range attributes {
+			fullName := attr.GetFullName()
+			if attr.Repeatable() || len(index[fullName]) == 0 {
+				index[fullName] = append(index[fullName], attr)
+			}
+		}
+	}
+	setAttributes(dst)
+	setAttributes(src)
+
+	var attributes []*Attribute
+	for _, attrs := range index {
+		attributes = append(attributes, attrs...)
+	}
+	return attributes
 }

@@ -3,7 +3,7 @@
 | `name` | `string` | `` | 否 |  | package name |
 | `fullName` | `string` | `` | 否 |  |  |
 | `version` | `mojo.core.Version` | `` | 否 |  |  |
-| `parent` | `unspecified` | `` | 否 |  |  |
+| `parent` | `mojo.lang.Package` | `` | 否 |  |  |
 | `children` | `Array<mojo.lang.Package>` | `` | 否 |  |  |
 | `authors` | `Array<mojo.lang.Package.Author>` | `` | 否 |  |
 | `summary` | `string` | `` | 否 |  |

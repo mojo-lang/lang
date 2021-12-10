@@ -180,6 +180,16 @@ func (m *Declaration) SetPackageName(name string) {
 	}
 }
 
+func (m *Declaration) IsGeneric() bool {
+	switch decl := m.Declaration.(type) {
+	case *Declaration_TypeAliasDecl:
+		return decl.TypeAliasDecl.IsGeneric()
+	case *Declaration_StructDecl:
+		return decl.StructDecl.IsGeneric()
+	}
+	return false
+}
+
 func (m *Declaration) IsInstantiatedGeneric() bool {
 	return strings.ContainsAny(m.GetStructDecl().GetName(), "<>")
 }

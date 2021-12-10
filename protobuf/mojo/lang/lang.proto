@@ -596,7 +596,7 @@ message Package {
     string name = 1;
     string full_name = 2;
     mojo.core.Version version = 3;
-    ReferencedPackage parent = 4;
+    Package parent = 4;
     repeated Package children = 5;
     repeated Author authors = 6;
     string summary = 7;
@@ -863,11 +863,4 @@ message WhileStmt {
     bool implicit = 4;
     BlockStmt body = 21;
     Expression condition = 20;
-}
-
-message ReferencedPackage {
-    oneof referenced_package {
-        string key = 1;
-        Package package = 2;
-    }
 }

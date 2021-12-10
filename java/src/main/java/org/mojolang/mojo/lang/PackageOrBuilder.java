@@ -47,19 +47,19 @@ public interface PackageOrBuilder extends
   org.mojolang.mojo.core.VersionOrBuilder getVersionOrBuilder();
 
   /**
-   * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+   * <code>.mojo.lang.Package parent = 4;</code>
    * @return Whether the parent field is set.
    */
   boolean hasParent();
   /**
-   * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+   * <code>.mojo.lang.Package parent = 4;</code>
    * @return The parent.
    */
-  org.mojolang.mojo.lang.ReferencedPackage getParent();
+  org.mojolang.mojo.lang.Package getParent();
   /**
-   * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+   * <code>.mojo.lang.Package parent = 4;</code>
    */
-  org.mojolang.mojo.lang.ReferencedPackageOrBuilder getParentOrBuilder();
+  org.mojolang.mojo.lang.PackageOrBuilder getParentOrBuilder();
 
   /**
    * <code>repeated .mojo.lang.Package children = 5;</code>

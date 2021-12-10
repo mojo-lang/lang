@@ -87,7 +87,10 @@ func (m *Package) GetAllPackage() map[string]*Package {
 	packages[m.FullName] = m
 
 	for _, pkg := range m.Children {
-		packages[pkg.FullName] = pkg
+		ps := pkg.GetAllPackage()
+		for k, v := range ps {
+			packages[k] = v
+		}
 	}
 	return packages
 }
@@ -222,6 +225,26 @@ func (m *Package) GetIdentifier(name string) *Identifier {
 				return id
 			}
 		}
+	}
+	return nil
+}
+
+// resolved identifier may be defined in self package or defined in the dependent package
+func (m *Package) GetResolvedIdentifier(fullName string) *Identifier {
+	if m != nil {
+		for _, file := range m.SourceFiles {
+			if id := FindIdentifier(file.ResolvedIdentifiers, fullName); id != nil {
+				return id
+			}
+		}
+
+		for _, pkg := range m.ResolvedDependencies {
+			if id := pkg.GetResolvedIdentifier(fullName); id != nil {
+				return id
+			}
+		}
+
+		return m.GetIdentifier(fullName)
 	}
 	return nil
 }

@@ -68,7 +68,7 @@ type Package {
     version: Version @3
 
     ///
-    parent: Referenced<Package> @4 @reference('full_name')
+    parent: Package @4 @reference('full_name')
 
     ///
     children: [Package] @5

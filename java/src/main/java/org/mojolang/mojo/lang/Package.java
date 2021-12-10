@@ -84,11 +84,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            org.mojolang.mojo.lang.ReferencedPackage.Builder subBuilder = null;
+            org.mojolang.mojo.lang.Package.Builder subBuilder = null;
             if (parent_ != null) {
               subBuilder = parent_.toBuilder();
             }
-            parent_ = input.readMessage(org.mojolang.mojo.lang.ReferencedPackage.parser(), extensionRegistry);
+            parent_ = input.readMessage(org.mojolang.mojo.lang.Package.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(parent_);
               parent_ = subBuilder.buildPartial();
@@ -3451,9 +3451,9 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 4;
-  private org.mojolang.mojo.lang.ReferencedPackage parent_;
+  private org.mojolang.mojo.lang.Package parent_;
   /**
-   * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+   * <code>.mojo.lang.Package parent = 4;</code>
    * @return Whether the parent field is set.
    */
   @java.lang.Override
@@ -3461,18 +3461,18 @@ private static final long serialVersionUID = 0L;
     return parent_ != null;
   }
   /**
-   * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+   * <code>.mojo.lang.Package parent = 4;</code>
    * @return The parent.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ReferencedPackage getParent() {
-    return parent_ == null ? org.mojolang.mojo.lang.ReferencedPackage.getDefaultInstance() : parent_;
+  public org.mojolang.mojo.lang.Package getParent() {
+    return parent_ == null ? org.mojolang.mojo.lang.Package.getDefaultInstance() : parent_;
   }
   /**
-   * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+   * <code>.mojo.lang.Package parent = 4;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ReferencedPackageOrBuilder getParentOrBuilder() {
+  public org.mojolang.mojo.lang.PackageOrBuilder getParentOrBuilder() {
     return getParent();
   }
 
@@ -5169,31 +5169,31 @@ private static final long serialVersionUID = 0L;
       return versionBuilder_;
     }
 
-    private org.mojolang.mojo.lang.ReferencedPackage parent_;
+    private org.mojolang.mojo.lang.Package parent_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.ReferencedPackage, org.mojolang.mojo.lang.ReferencedPackage.Builder, org.mojolang.mojo.lang.ReferencedPackageOrBuilder> parentBuilder_;
+        org.mojolang.mojo.lang.Package, org.mojolang.mojo.lang.Package.Builder, org.mojolang.mojo.lang.PackageOrBuilder> parentBuilder_;
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      * @return Whether the parent field is set.
      */
     public boolean hasParent() {
       return parentBuilder_ != null || parent_ != null;
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      * @return The parent.
      */
-    public org.mojolang.mojo.lang.ReferencedPackage getParent() {
+    public org.mojolang.mojo.lang.Package getParent() {
       if (parentBuilder_ == null) {
-        return parent_ == null ? org.mojolang.mojo.lang.ReferencedPackage.getDefaultInstance() : parent_;
+        return parent_ == null ? org.mojolang.mojo.lang.Package.getDefaultInstance() : parent_;
       } else {
         return parentBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      */
-    public Builder setParent(org.mojolang.mojo.lang.ReferencedPackage value) {
+    public Builder setParent(org.mojolang.mojo.lang.Package value) {
       if (parentBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -5207,10 +5207,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      */
     public Builder setParent(
-        org.mojolang.mojo.lang.ReferencedPackage.Builder builderForValue) {
+        org.mojolang.mojo.lang.Package.Builder builderForValue) {
       if (parentBuilder_ == null) {
         parent_ = builderForValue.build();
         onChanged();
@@ -5221,13 +5221,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      */
-    public Builder mergeParent(org.mojolang.mojo.lang.ReferencedPackage value) {
+    public Builder mergeParent(org.mojolang.mojo.lang.Package value) {
       if (parentBuilder_ == null) {
         if (parent_ != null) {
           parent_ =
-            org.mojolang.mojo.lang.ReferencedPackage.newBuilder(parent_).mergeFrom(value).buildPartial();
+            org.mojolang.mojo.lang.Package.newBuilder(parent_).mergeFrom(value).buildPartial();
         } else {
           parent_ = value;
         }
@@ -5239,7 +5239,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      */
     public Builder clearParent() {
       if (parentBuilder_ == null) {
@@ -5253,33 +5253,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      */
-    public org.mojolang.mojo.lang.ReferencedPackage.Builder getParentBuilder() {
+    public org.mojolang.mojo.lang.Package.Builder getParentBuilder() {
       
       onChanged();
       return getParentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      */
-    public org.mojolang.mojo.lang.ReferencedPackageOrBuilder getParentOrBuilder() {
+    public org.mojolang.mojo.lang.PackageOrBuilder getParentOrBuilder() {
       if (parentBuilder_ != null) {
         return parentBuilder_.getMessageOrBuilder();
       } else {
         return parent_ == null ?
-            org.mojolang.mojo.lang.ReferencedPackage.getDefaultInstance() : parent_;
+            org.mojolang.mojo.lang.Package.getDefaultInstance() : parent_;
       }
     }
     /**
-     * <code>.mojo.lang.ReferencedPackage parent = 4;</code>
+     * <code>.mojo.lang.Package parent = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.ReferencedPackage, org.mojolang.mojo.lang.ReferencedPackage.Builder, org.mojolang.mojo.lang.ReferencedPackageOrBuilder> 
+        org.mojolang.mojo.lang.Package, org.mojolang.mojo.lang.Package.Builder, org.mojolang.mojo.lang.PackageOrBuilder> 
         getParentFieldBuilder() {
       if (parentBuilder_ == null) {
         parentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.ReferencedPackage, org.mojolang.mojo.lang.ReferencedPackage.Builder, org.mojolang.mojo.lang.ReferencedPackageOrBuilder>(
+            org.mojolang.mojo.lang.Package, org.mojolang.mojo.lang.Package.Builder, org.mojolang.mojo.lang.PackageOrBuilder>(
                 getParent(),
                 getParentForChildren(),
                 isClean());
