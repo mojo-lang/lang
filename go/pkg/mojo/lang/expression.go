@@ -143,7 +143,7 @@ func (m *Expression) EvalFloatLiteral() (float64, error) {
 	if valueExpr != nil {
 		return valueExpr.Value, nil
 	}
-	return 0, errors.New("Expression can NOT be evaluated to the FloatLiteralExpr")
+	return 0, errors.New("expression can NOT be evaluated to the FloatLiteralExpr")
 }
 
 func (m *Expression) EvalStringLiteral() (string, error) {
@@ -151,7 +151,7 @@ func (m *Expression) EvalStringLiteral() (string, error) {
 	if valueExpr != nil {
 		return valueExpr.Value, nil
 	}
-	return "", errors.New("Expression can NOT be evaluated to the StringLiteralExpr")
+	return "", errors.New("expression can NOT be evaluated to the StringLiteralExpr")
 }
 
 func (m *Expression) EvalArrayLiteral() ([]*Expression, error) {
@@ -159,7 +159,7 @@ func (m *Expression) EvalArrayLiteral() ([]*Expression, error) {
 	if valueExpr != nil {
 		return valueExpr.Elements, nil
 	}
-	return nil, errors.New("Expression can NOT be evaluated to the BoolLiteralExpr")
+	return nil, errors.New("expression can NOT be evaluated to the BoolLiteralExpr")
 }
 
 func (m *Expression) EvalIntegerArrayLiteral() ([]int64, error) {
@@ -167,7 +167,7 @@ func (m *Expression) EvalIntegerArrayLiteral() ([]int64, error) {
 	if valueExpr != nil {
 		return valueExpr.EvalIntegerArray()
 	}
-	return nil, errors.New("Expression can NOT be evaluated to the BoolLiteralExpr")
+	return nil, errors.New("expression can NOT be evaluated to the BoolLiteralExpr")
 }
 
 func (m *Expression) EvalFloatArrayLiteral() ([]float64, error) {
@@ -175,7 +175,7 @@ func (m *Expression) EvalFloatArrayLiteral() ([]float64, error) {
 	if valueExpr != nil {
 		return valueExpr.EvalFloatArray()
 	}
-	return nil, errors.New("Expression can NOT be evaluated to the BoolLiteralExpr")
+	return nil, errors.New("expression can NOT be evaluated to the BoolLiteralExpr")
 }
 
 func (m *Expression) EvalStringArrayLiteral() ([]string, error) {
@@ -183,7 +183,7 @@ func (m *Expression) EvalStringArrayLiteral() ([]string, error) {
 	if valueExpr != nil {
 		return valueExpr.EvalStringArray()
 	}
-	return nil, errors.New("Expression can NOT be evaluated to the BoolLiteralExpr")
+	return nil, errors.New("expression can NOT be evaluated to the BoolLiteralExpr")
 }
 
 func (m *Expression) EvalStringMapLiteral(iterator func(key string, value *Expression) error) error {
@@ -197,7 +197,7 @@ func (m *Expression) EvalStringMapLiteral(iterator func(key string, value *Expre
 		}
 		return nil
 	}
-	return errors.New("Expression can NOT be evaluated to the MapLiteralExpr")
+	return errors.New("expression can NOT be evaluated to the MapLiteralExpr")
 }
 
 func (m *Expression) EvalIdentifier() (string, error) {
@@ -205,5 +205,5 @@ func (m *Expression) EvalIdentifier() (string, error) {
 	if valueExpr != nil {
 		return valueExpr.Identifier.Name, nil
 	}
-	return "", errors.New("Expression can NOT be evaluated to the IdentifierExpr")
+	return "", errors.New("expression can NOT be evaluated to the IdentifierExpr")
 }

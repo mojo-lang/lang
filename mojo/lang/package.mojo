@@ -68,15 +68,15 @@ type Package {
     version: Version @3
 
     ///
-    parent: Package @4 @reference('full_name')
+    //parent: Package @4 @reference('full_name')
 
     ///
-    children: [Package] @5
+    children: [Package] @6
 
     //
-    authors: [Author] @6
+    authors: [Author] @7
 
-    summary: String @7
+    summary: String @8
 
     /// A description of the package.
     description: String @10
