@@ -1,3 +1,3 @@
 | 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
 |---|---|---|---|---|---|
-| `elements` | `Array<unspecified>` | `` | 否 |  |
+| `elements` | `Array<mojo.lang.Expression>` |  | 否 |  |

@@ -34,9 +34,9 @@ func (m *StructDecl) FieldCount() int {
 	return len(m.GetType().GetFields())
 }
 
-func (m *StructDecl) FieldNames() []string {
+func (m *StructDecl) FieldNames(option FieldNamOption) []string {
 	if m != nil {
-		return m.Type.FieldNames()
+		return m.Type.FieldNames(option)
 	}
 	return nil
 }

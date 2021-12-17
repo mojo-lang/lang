@@ -596,10 +596,9 @@ message Package {
     string name = 1;
     string full_name = 2;
     mojo.core.Version version = 3;
-    Package parent = 4;
-    repeated Package children = 5;
-    repeated Author authors = 6;
-    string summary = 7;
+    repeated Package children = 6;
+    repeated Author authors = 7;
+    string summary = 8;
     string description = 10;
     CachedDocument document = 11;
     mojo.core.Url repository = 12;

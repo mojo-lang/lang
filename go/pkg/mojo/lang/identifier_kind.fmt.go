@@ -60,7 +60,7 @@ func (x Identifier_Kind) Format() string {
 	return strconv.Itoa(int(x))
 }
 
-func (x *Identifier_Kind) Parse(value string) {
+func (x *Identifier_Kind) Parse(value string) error {
 	if x != nil {
 		s, ok := IdentifierKindValues[value]
 		if ok {
@@ -71,4 +71,5 @@ func (x *Identifier_Kind) Parse(value string) {
 	} else {
 		*x = Identifier_KIND_ENUM
 	}
+	return nil
 }

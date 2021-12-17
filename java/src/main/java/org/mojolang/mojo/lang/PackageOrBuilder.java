@@ -47,75 +47,60 @@ public interface PackageOrBuilder extends
   org.mojolang.mojo.core.VersionOrBuilder getVersionOrBuilder();
 
   /**
-   * <code>.mojo.lang.Package parent = 4;</code>
-   * @return Whether the parent field is set.
-   */
-  boolean hasParent();
-  /**
-   * <code>.mojo.lang.Package parent = 4;</code>
-   * @return The parent.
-   */
-  org.mojolang.mojo.lang.Package getParent();
-  /**
-   * <code>.mojo.lang.Package parent = 4;</code>
-   */
-  org.mojolang.mojo.lang.PackageOrBuilder getParentOrBuilder();
-
-  /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Package> 
       getChildrenList();
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   org.mojolang.mojo.lang.Package getChildren(int index);
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   int getChildrenCount();
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.PackageOrBuilder> 
       getChildrenOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   org.mojolang.mojo.lang.PackageOrBuilder getChildrenOrBuilder(
       int index);
 
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Package.Author> 
       getAuthorsList();
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   org.mojolang.mojo.lang.Package.Author getAuthors(int index);
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   int getAuthorsCount();
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.Package.AuthorOrBuilder> 
       getAuthorsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   org.mojolang.mojo.lang.Package.AuthorOrBuilder getAuthorsOrBuilder(
       int index);
 
   /**
-   * <code>string summary = 7;</code>
+   * <code>string summary = 8;</code>
    * @return The summary.
    */
   java.lang.String getSummary();
   /**
-   * <code>string summary = 7;</code>
+   * <code>string summary = 8;</code>
    * @return The bytes for summary.
    */
   com.google.protobuf.ByteString

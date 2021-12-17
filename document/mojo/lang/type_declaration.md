@@ -1,7 +1,7 @@
 | 类型 | 说明 |
 |---|---|
-| `unspecified` |  |
-| `unspecified` |  |
-| `unspecified` |  |
-| `unspecified` |  |
-| `unspecified` |  |
+| `mojo.lang.EnumDecl` |  |
+| `mojo.lang.StructDecl` |  |
+| `mojo.lang.TypeAliasDecl` |  |
+| `mojo.lang.InterfaceDecl` |  |
+| `mojo.lang.GenericParameter` |  |

@@ -67,7 +67,6 @@ type Package {
     ///
     version: Version @3
 
-    ///
     //parent: Package @4 @reference('full_name')
 
     ///

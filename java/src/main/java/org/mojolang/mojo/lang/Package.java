@@ -83,20 +83,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 34: {
-            org.mojolang.mojo.lang.Package.Builder subBuilder = null;
-            if (parent_ != null) {
-              subBuilder = parent_.toBuilder();
-            }
-            parent_ = input.readMessage(org.mojolang.mojo.lang.Package.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(parent_);
-              parent_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
+          case 50: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               children_ = new java.util.ArrayList<org.mojolang.mojo.lang.Package>();
               mutable_bitField0_ |= 0x00000001;
@@ -105,7 +92,7 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(org.mojolang.mojo.lang.Package.parser(), extensionRegistry));
             break;
           }
-          case 50: {
+          case 58: {
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               authors_ = new java.util.ArrayList<org.mojolang.mojo.lang.Package.Author>();
               mutable_bitField0_ |= 0x00000002;
@@ -114,7 +101,7 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(org.mojolang.mojo.lang.Package.Author.parser(), extensionRegistry));
             break;
           }
-          case 58: {
+          case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
             summary_ = s;
@@ -3450,43 +3437,17 @@ private static final long serialVersionUID = 0L;
     return getVersion();
   }
 
-  public static final int PARENT_FIELD_NUMBER = 4;
-  private org.mojolang.mojo.lang.Package parent_;
-  /**
-   * <code>.mojo.lang.Package parent = 4;</code>
-   * @return Whether the parent field is set.
-   */
-  @java.lang.Override
-  public boolean hasParent() {
-    return parent_ != null;
-  }
-  /**
-   * <code>.mojo.lang.Package parent = 4;</code>
-   * @return The parent.
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.lang.Package getParent() {
-    return parent_ == null ? org.mojolang.mojo.lang.Package.getDefaultInstance() : parent_;
-  }
-  /**
-   * <code>.mojo.lang.Package parent = 4;</code>
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.lang.PackageOrBuilder getParentOrBuilder() {
-    return getParent();
-  }
-
-  public static final int CHILDREN_FIELD_NUMBER = 5;
+  public static final int CHILDREN_FIELD_NUMBER = 6;
   private java.util.List<org.mojolang.mojo.lang.Package> children_;
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.Package> getChildrenList() {
     return children_;
   }
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.PackageOrBuilder> 
@@ -3494,21 +3455,21 @@ private static final long serialVersionUID = 0L;
     return children_;
   }
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   @java.lang.Override
   public int getChildrenCount() {
     return children_.size();
   }
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Package getChildren(int index) {
     return children_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.Package children = 5;</code>
+   * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.PackageOrBuilder getChildrenOrBuilder(
@@ -3516,17 +3477,17 @@ private static final long serialVersionUID = 0L;
     return children_.get(index);
   }
 
-  public static final int AUTHORS_FIELD_NUMBER = 6;
+  public static final int AUTHORS_FIELD_NUMBER = 7;
   private java.util.List<org.mojolang.mojo.lang.Package.Author> authors_;
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.Package.Author> getAuthorsList() {
     return authors_;
   }
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.Package.AuthorOrBuilder> 
@@ -3534,21 +3495,21 @@ private static final long serialVersionUID = 0L;
     return authors_;
   }
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   @java.lang.Override
   public int getAuthorsCount() {
     return authors_.size();
   }
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Package.Author getAuthors(int index) {
     return authors_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+   * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Package.AuthorOrBuilder getAuthorsOrBuilder(
@@ -3556,10 +3517,10 @@ private static final long serialVersionUID = 0L;
     return authors_.get(index);
   }
 
-  public static final int SUMMARY_FIELD_NUMBER = 7;
+  public static final int SUMMARY_FIELD_NUMBER = 8;
   private volatile java.lang.Object summary_;
   /**
-   * <code>string summary = 7;</code>
+   * <code>string summary = 8;</code>
    * @return The summary.
    */
   @java.lang.Override
@@ -3576,7 +3537,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string summary = 7;</code>
+   * <code>string summary = 8;</code>
    * @return The bytes for summary.
    */
   @java.lang.Override
@@ -4060,17 +4021,14 @@ private static final long serialVersionUID = 0L;
     if (version_ != null) {
       output.writeMessage(3, getVersion());
     }
-    if (parent_ != null) {
-      output.writeMessage(4, getParent());
-    }
     for (int i = 0; i < children_.size(); i++) {
-      output.writeMessage(5, children_.get(i));
+      output.writeMessage(6, children_.get(i));
     }
     for (int i = 0; i < authors_.size(); i++) {
-      output.writeMessage(6, authors_.get(i));
+      output.writeMessage(7, authors_.get(i));
     }
     if (!getSummaryBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, summary_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, summary_);
     }
     if (!getDescriptionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, description_);
@@ -4130,20 +4088,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getVersion());
     }
-    if (parent_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getParent());
-    }
     for (int i = 0; i < children_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, children_.get(i));
+        .computeMessageSize(6, children_.get(i));
     }
     for (int i = 0; i < authors_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, authors_.get(i));
+        .computeMessageSize(7, authors_.get(i));
     }
     if (!getSummaryBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, summary_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, summary_);
     }
     if (!getDescriptionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, description_);
@@ -4227,11 +4181,6 @@ private static final long serialVersionUID = 0L;
       if (!getVersion()
           .equals(other.getVersion())) return false;
     }
-    if (hasParent() != other.hasParent()) return false;
-    if (hasParent()) {
-      if (!getParent()
-          .equals(other.getParent())) return false;
-    }
     if (!getChildrenList()
         .equals(other.getChildrenList())) return false;
     if (!getAuthorsList()
@@ -4293,10 +4242,6 @@ private static final long serialVersionUID = 0L;
     if (hasVersion()) {
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
-    }
-    if (hasParent()) {
-      hash = (37 * hash) + PARENT_FIELD_NUMBER;
-      hash = (53 * hash) + getParent().hashCode();
     }
     if (getChildrenCount() > 0) {
       hash = (37 * hash) + CHILDREN_FIELD_NUMBER;
@@ -4520,12 +4465,6 @@ private static final long serialVersionUID = 0L;
         version_ = null;
         versionBuilder_ = null;
       }
-      if (parentBuilder_ == null) {
-        parent_ = null;
-      } else {
-        parent_ = null;
-        parentBuilder_ = null;
-      }
       if (childrenBuilder_ == null) {
         children_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -4617,11 +4556,6 @@ private static final long serialVersionUID = 0L;
         result.version_ = version_;
       } else {
         result.version_ = versionBuilder_.build();
-      }
-      if (parentBuilder_ == null) {
-        result.parent_ = parent_;
-      } else {
-        result.parent_ = parentBuilder_.build();
       }
       if (childrenBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -4745,9 +4679,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasVersion()) {
         mergeVersion(other.getVersion());
-      }
-      if (other.hasParent()) {
-        mergeParent(other.getParent());
       }
       if (childrenBuilder_ == null) {
         if (!other.children_.isEmpty()) {
@@ -5169,125 +5100,6 @@ private static final long serialVersionUID = 0L;
       return versionBuilder_;
     }
 
-    private org.mojolang.mojo.lang.Package parent_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Package, org.mojolang.mojo.lang.Package.Builder, org.mojolang.mojo.lang.PackageOrBuilder> parentBuilder_;
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     * @return Whether the parent field is set.
-     */
-    public boolean hasParent() {
-      return parentBuilder_ != null || parent_ != null;
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     * @return The parent.
-     */
-    public org.mojolang.mojo.lang.Package getParent() {
-      if (parentBuilder_ == null) {
-        return parent_ == null ? org.mojolang.mojo.lang.Package.getDefaultInstance() : parent_;
-      } else {
-        return parentBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     */
-    public Builder setParent(org.mojolang.mojo.lang.Package value) {
-      if (parentBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        parent_ = value;
-        onChanged();
-      } else {
-        parentBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     */
-    public Builder setParent(
-        org.mojolang.mojo.lang.Package.Builder builderForValue) {
-      if (parentBuilder_ == null) {
-        parent_ = builderForValue.build();
-        onChanged();
-      } else {
-        parentBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     */
-    public Builder mergeParent(org.mojolang.mojo.lang.Package value) {
-      if (parentBuilder_ == null) {
-        if (parent_ != null) {
-          parent_ =
-            org.mojolang.mojo.lang.Package.newBuilder(parent_).mergeFrom(value).buildPartial();
-        } else {
-          parent_ = value;
-        }
-        onChanged();
-      } else {
-        parentBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     */
-    public Builder clearParent() {
-      if (parentBuilder_ == null) {
-        parent_ = null;
-        onChanged();
-      } else {
-        parent_ = null;
-        parentBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     */
-    public org.mojolang.mojo.lang.Package.Builder getParentBuilder() {
-      
-      onChanged();
-      return getParentFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     */
-    public org.mojolang.mojo.lang.PackageOrBuilder getParentOrBuilder() {
-      if (parentBuilder_ != null) {
-        return parentBuilder_.getMessageOrBuilder();
-      } else {
-        return parent_ == null ?
-            org.mojolang.mojo.lang.Package.getDefaultInstance() : parent_;
-      }
-    }
-    /**
-     * <code>.mojo.lang.Package parent = 4;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Package, org.mojolang.mojo.lang.Package.Builder, org.mojolang.mojo.lang.PackageOrBuilder> 
-        getParentFieldBuilder() {
-      if (parentBuilder_ == null) {
-        parentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.Package, org.mojolang.mojo.lang.Package.Builder, org.mojolang.mojo.lang.PackageOrBuilder>(
-                getParent(),
-                getParentForChildren(),
-                isClean());
-        parent_ = null;
-      }
-      return parentBuilder_;
-    }
-
     private java.util.List<org.mojolang.mojo.lang.Package> children_ =
       java.util.Collections.emptyList();
     private void ensureChildrenIsMutable() {
@@ -5301,7 +5113,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Package, org.mojolang.mojo.lang.Package.Builder, org.mojolang.mojo.lang.PackageOrBuilder> childrenBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Package> getChildrenList() {
       if (childrenBuilder_ == null) {
@@ -5311,7 +5123,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public int getChildrenCount() {
       if (childrenBuilder_ == null) {
@@ -5321,7 +5133,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public org.mojolang.mojo.lang.Package getChildren(int index) {
       if (childrenBuilder_ == null) {
@@ -5331,7 +5143,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder setChildren(
         int index, org.mojolang.mojo.lang.Package value) {
@@ -5348,7 +5160,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder setChildren(
         int index, org.mojolang.mojo.lang.Package.Builder builderForValue) {
@@ -5362,7 +5174,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder addChildren(org.mojolang.mojo.lang.Package value) {
       if (childrenBuilder_ == null) {
@@ -5378,7 +5190,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder addChildren(
         int index, org.mojolang.mojo.lang.Package value) {
@@ -5395,7 +5207,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder addChildren(
         org.mojolang.mojo.lang.Package.Builder builderForValue) {
@@ -5409,7 +5221,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder addChildren(
         int index, org.mojolang.mojo.lang.Package.Builder builderForValue) {
@@ -5423,7 +5235,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder addAllChildren(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.Package> values) {
@@ -5438,7 +5250,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder clearChildren() {
       if (childrenBuilder_ == null) {
@@ -5451,7 +5263,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public Builder removeChildren(int index) {
       if (childrenBuilder_ == null) {
@@ -5464,14 +5276,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public org.mojolang.mojo.lang.Package.Builder getChildrenBuilder(
         int index) {
       return getChildrenFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public org.mojolang.mojo.lang.PackageOrBuilder getChildrenOrBuilder(
         int index) {
@@ -5481,7 +5293,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.PackageOrBuilder> 
          getChildrenOrBuilderList() {
@@ -5492,14 +5304,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public org.mojolang.mojo.lang.Package.Builder addChildrenBuilder() {
       return getChildrenFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.Package.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public org.mojolang.mojo.lang.Package.Builder addChildrenBuilder(
         int index) {
@@ -5507,7 +5319,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.Package.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Package children = 5;</code>
+     * <code>repeated .mojo.lang.Package children = 6;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Package.Builder> 
          getChildrenBuilderList() {
@@ -5541,7 +5353,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Package.Author, org.mojolang.mojo.lang.Package.Author.Builder, org.mojolang.mojo.lang.Package.AuthorOrBuilder> authorsBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Package.Author> getAuthorsList() {
       if (authorsBuilder_ == null) {
@@ -5551,7 +5363,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public int getAuthorsCount() {
       if (authorsBuilder_ == null) {
@@ -5561,7 +5373,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public org.mojolang.mojo.lang.Package.Author getAuthors(int index) {
       if (authorsBuilder_ == null) {
@@ -5571,7 +5383,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder setAuthors(
         int index, org.mojolang.mojo.lang.Package.Author value) {
@@ -5588,7 +5400,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder setAuthors(
         int index, org.mojolang.mojo.lang.Package.Author.Builder builderForValue) {
@@ -5602,7 +5414,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder addAuthors(org.mojolang.mojo.lang.Package.Author value) {
       if (authorsBuilder_ == null) {
@@ -5618,7 +5430,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder addAuthors(
         int index, org.mojolang.mojo.lang.Package.Author value) {
@@ -5635,7 +5447,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder addAuthors(
         org.mojolang.mojo.lang.Package.Author.Builder builderForValue) {
@@ -5649,7 +5461,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder addAuthors(
         int index, org.mojolang.mojo.lang.Package.Author.Builder builderForValue) {
@@ -5663,7 +5475,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder addAllAuthors(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.Package.Author> values) {
@@ -5678,7 +5490,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder clearAuthors() {
       if (authorsBuilder_ == null) {
@@ -5691,7 +5503,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public Builder removeAuthors(int index) {
       if (authorsBuilder_ == null) {
@@ -5704,14 +5516,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public org.mojolang.mojo.lang.Package.Author.Builder getAuthorsBuilder(
         int index) {
       return getAuthorsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public org.mojolang.mojo.lang.Package.AuthorOrBuilder getAuthorsOrBuilder(
         int index) {
@@ -5721,7 +5533,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.Package.AuthorOrBuilder> 
          getAuthorsOrBuilderList() {
@@ -5732,14 +5544,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public org.mojolang.mojo.lang.Package.Author.Builder addAuthorsBuilder() {
       return getAuthorsFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.Package.Author.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public org.mojolang.mojo.lang.Package.Author.Builder addAuthorsBuilder(
         int index) {
@@ -5747,7 +5559,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.Package.Author.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Package.Author authors = 6;</code>
+     * <code>repeated .mojo.lang.Package.Author authors = 7;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Package.Author.Builder> 
          getAuthorsBuilderList() {
@@ -5770,7 +5582,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object summary_ = "";
     /**
-     * <code>string summary = 7;</code>
+     * <code>string summary = 8;</code>
      * @return The summary.
      */
     public java.lang.String getSummary() {
@@ -5786,7 +5598,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string summary = 7;</code>
+     * <code>string summary = 8;</code>
      * @return The bytes for summary.
      */
     public com.google.protobuf.ByteString
@@ -5803,7 +5615,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string summary = 7;</code>
+     * <code>string summary = 8;</code>
      * @param value The summary to set.
      * @return This builder for chaining.
      */
@@ -5818,7 +5630,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string summary = 7;</code>
+     * <code>string summary = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearSummary() {
@@ -5828,7 +5640,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string summary = 7;</code>
+     * <code>string summary = 8;</code>
      * @param value The bytes for summary to set.
      * @return This builder for chaining.
      */

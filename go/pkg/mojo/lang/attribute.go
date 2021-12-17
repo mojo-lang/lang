@@ -81,6 +81,73 @@ func (m *Attribute) Repeatable() bool {
 	return false
 }
 
+func (m *Attribute) GetArrayLiteralArgument() *ArrayLiteralExpr {
+	array := &ArrayLiteralExpr{
+		Implicit: true,
+	}
+
+	if len(m.Arguments) == 1 {
+		if arrayLiteral := m.Arguments[0].Value.GetArrayLiteralExpr(); arrayLiteral != nil {
+			return arrayLiteral
+		}
+	}
+
+	for _, argument := range m.Arguments {
+		if len(argument.Label) > 0 {
+			return nil
+		}
+
+		array.Elements = append(array.Elements, argument.Value)
+	}
+	return array
+}
+
+func (m *Attribute) GetObjectLiteralArgument() *ObjectLiteralExpr {
+	object := &ObjectLiteralExpr{
+		Implicit: true,
+	}
+	if len(m.Arguments) == 1 {
+		if objectLiteral := m.Arguments[0].Value.GetObjectLiteralExpr(); objectLiteral != nil {
+			return objectLiteral
+		}
+	}
+
+	for _, argument := range m.Arguments {
+		if len(argument.Label) == 0 {
+			return nil
+		}
+
+		object.Fields = append(object.Fields, &ObjectLiteralExpr_Field{
+			Name:  argument.Label,
+			Value: argument.Value,
+		})
+	}
+	return object
+}
+
+func (m *Attribute) GetMapLiteralArgument() *MapLiteralExpr {
+	if len(m.Arguments) == 1 {
+		if mapLiteral := m.Arguments[0].Value.GetMapLiteralExpr(); mapLiteral != nil {
+			return mapLiteral
+		}
+	}
+
+	object := m.GetObjectLiteralArgument()
+	if object != nil {
+		mapLiteral := &MapLiteralExpr{
+			Implicit: true,
+		}
+		for _, field := range object.Fields {
+			mapLiteral.Entries = append(mapLiteral.Entries, &MapLiteralExpr_Entry{
+				Key:   field.Name,
+				Value: field.Value,
+			})
+		}
+		return mapLiteral
+	}
+	return nil
+}
+
 func GetAttribute(attributes []*Attribute, name string) *Attribute {
 	for _, attribute := range attributes {
 		if attribute.SameName(name) {
@@ -216,6 +283,29 @@ func GetStringAttribute(attributes []*Attribute, name string) (string, error) {
 		return "", err
 	}
 	return argument.GetString()
+}
+
+func GetStringValuesAttribute(attributes []*Attribute, name string) ([]string, error) {
+	var values []string
+	arguments, err := GetAttributeArguments(attributes, name)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(arguments) == 1 {
+		if strArray, err := arguments[0].GetStringArray(); err == nil {
+			return strArray, nil
+		}
+	}
+
+	for _, argument := range arguments {
+		if val, err := argument.GetString(); err != nil {
+			return nil, err
+		} else {
+			values = append(values, val)
+		}
+	}
+	return values, nil
 }
 
 func SetStringAttribute(attributes []*Attribute, name string, value string) []*Attribute {

@@ -46,7 +46,7 @@ func (x Package_Requirement_Version_Type) Format() string {
 	return strconv.Itoa(int(x))
 }
 
-func (x *Package_Requirement_Version_Type) Parse(value string) {
+func (x *Package_Requirement_Version_Type) Parse(value string) error {
 	if x != nil {
 		s, ok := PackageRequirementVersionTypeValues[value]
 		if ok {
@@ -57,4 +57,5 @@ func (x *Package_Requirement_Version_Type) Parse(value string) {
 	} else {
 		*x = Package_Requirement_Version_TYPE_CARET
 	}
+	return nil
 }
