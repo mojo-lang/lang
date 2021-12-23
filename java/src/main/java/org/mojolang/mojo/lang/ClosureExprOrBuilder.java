@@ -155,6 +155,21 @@ public interface ClosureExprOrBuilder extends
       int index);
 
   /**
+   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   * @return Whether the enclosingType field is set.
+   */
+  boolean hasEnclosingType();
+  /**
+   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   * @return The enclosingType.
+   */
+  org.mojolang.mojo.lang.NominalType getEnclosingType();
+  /**
+   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   */
+  org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingTypeOrBuilder();
+
+  /**
    * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
    * @return Whether the signature field is set.
    */

@@ -2,15 +2,17 @@ package lang
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"github.com/mojo-lang/core/go/pkg/mojo/core/strcase"
-	"strings"
 )
 
 func NewGlobalPackage() *Package {
 	return &Package{
-		Summary: "Global",
-		Scope:   NewScope(),
+		Summary:  "Global",
+		Scope:    NewScope(),
+		Implicit: true,
 	}
 }
 
@@ -76,18 +78,34 @@ func (m *Package) IsGlobal() bool {
 	return len(m.Name) == 0 && m.Summary == "Global" && m.Scope != nil
 }
 
+// auto genereated package, used to padding package tree
+// Global Package is also a padding package
+func (m *Package) IsPadding() bool {
+	return m.Implicit && len(m.SourceFiles) == 0
+}
+
 func (m *Package) SetScope(scope *Scope) {
 	if m != nil {
 		m.Scope = scope
 	}
 }
 
-func (m *Package) GetAllPackage() map[string]*Package {
+func (m *Package) GetAllPackageArray() []*Package {
+	packages := []*Package{m}
+
+	for _, pkg := range m.Children {
+		ps := pkg.GetAllPackageArray()
+		packages = append(packages, ps...)
+	}
+	return packages
+}
+
+func (m *Package) GetAllPackages() map[string]*Package {
 	packages := make(map[string]*Package)
 	packages[m.FullName] = m
 
 	for _, pkg := range m.Children {
-		ps := pkg.GetAllPackage()
+		ps := pkg.GetAllPackages()
 		for k, v := range ps {
 			packages[k] = v
 		}
@@ -249,9 +267,3 @@ func (m *Package) GetResolvedIdentifier(fullName string) *Identifier {
 	return nil
 }
 
-//func (m *Package) Merge(pkg *Package)  {
-//	//m.ResolvedDependencies = pkg.ResolvedDependencies
-//	m.Children = pkg.Children
-//	m.Scope = pkg.Scope
-//	m.SourceFiles = pkg.SourceFiles
-//}

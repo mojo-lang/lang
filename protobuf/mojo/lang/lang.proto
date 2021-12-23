@@ -136,6 +136,7 @@ message ClosureExpr {
     string full_name = 11;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
+    NominalType enclosing_type = 14;
     FunctionDecl.Signature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
@@ -378,6 +379,7 @@ message FunctionDecl {
     string full_name = 11;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
+    NominalType enclosing_type = 14;
     FunctionDecl.Signature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
@@ -606,6 +608,7 @@ message Package {
     repeated string exports = 15;
     repeated SourceFile source_files = 16;
     Scope scope = 20;
+    bool implicit = 21;
     mojo.core.Object extra_info = 25;
     EntityRelationship entity_relationship = 26;
     map<string, Package.Requirement> dependencies = 30;

@@ -176,6 +176,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 168: {
+
+            implicit_ = input.readBool();
+            break;
+          }
           case 202: {
             org.mojolang.mojo.core.Object.Builder subBuilder = null;
             if (extraInfo_ != null) {
@@ -3784,6 +3789,17 @@ private static final long serialVersionUID = 0L;
     return getScope();
   }
 
+  public static final int IMPLICIT_FIELD_NUMBER = 21;
+  private boolean implicit_;
+  /**
+   * <code>bool implicit = 21;</code>
+   * @return The implicit.
+   */
+  @java.lang.Override
+  public boolean getImplicit() {
+    return implicit_;
+  }
+
   public static final int EXTRA_INFO_FIELD_NUMBER = 25;
   private org.mojolang.mojo.core.Object extraInfo_;
   /**
@@ -4051,6 +4067,9 @@ private static final long serialVersionUID = 0L;
     if (scope_ != null) {
       output.writeMessage(20, getScope());
     }
+    if (implicit_ != false) {
+      output.writeBool(21, implicit_);
+    }
     if (extraInfo_ != null) {
       output.writeMessage(25, getExtraInfo());
     }
@@ -4128,6 +4147,10 @@ private static final long serialVersionUID = 0L;
     if (scope_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getScope());
+    }
+    if (implicit_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(21, implicit_);
     }
     if (extraInfo_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -4210,6 +4233,8 @@ private static final long serialVersionUID = 0L;
       if (!getScope()
           .equals(other.getScope())) return false;
     }
+    if (getImplicit()
+        != other.getImplicit()) return false;
     if (hasExtraInfo() != other.hasExtraInfo()) return false;
     if (hasExtraInfo()) {
       if (!getExtraInfo()
@@ -4277,6 +4302,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SCOPE_FIELD_NUMBER;
       hash = (53 * hash) + getScope().hashCode();
     }
+    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getImplicit());
     if (hasExtraInfo()) {
       hash = (37 * hash) + EXTRA_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getExtraInfo().hashCode();
@@ -4509,6 +4537,8 @@ private static final long serialVersionUID = 0L;
         scope_ = null;
         scopeBuilder_ = null;
       }
+      implicit_ = false;
+
       if (extraInfoBuilder_ == null) {
         extraInfo_ = null;
       } else {
@@ -4607,6 +4637,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.scope_ = scopeBuilder_.build();
       }
+      result.implicit_ = implicit_;
       if (extraInfoBuilder_ == null) {
         result.extraInfo_ = extraInfo_;
       } else {
@@ -4788,6 +4819,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasScope()) {
         mergeScope(other.getScope());
+      }
+      if (other.getImplicit() != false) {
+        setImplicit(other.getImplicit());
       }
       if (other.hasExtraInfo()) {
         mergeExtraInfo(other.getExtraInfo());
@@ -6513,6 +6547,37 @@ private static final long serialVersionUID = 0L;
         scope_ = null;
       }
       return scopeBuilder_;
+    }
+
+    private boolean implicit_ ;
+    /**
+     * <code>bool implicit = 21;</code>
+     * @return The implicit.
+     */
+    @java.lang.Override
+    public boolean getImplicit() {
+      return implicit_;
+    }
+    /**
+     * <code>bool implicit = 21;</code>
+     * @param value The implicit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImplicit(boolean value) {
+      
+      implicit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool implicit = 21;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImplicit() {
+      
+      implicit_ = false;
+      onChanged();
+      return this;
     }
 
     private org.mojolang.mojo.core.Object extraInfo_;

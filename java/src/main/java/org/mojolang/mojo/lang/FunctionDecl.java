@@ -141,6 +141,19 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(org.mojolang.mojo.lang.GenericParameter.parser(), extensionRegistry));
             break;
           }
+          case 114: {
+            org.mojolang.mojo.lang.NominalType.Builder subBuilder = null;
+            if (enclosingType_ != null) {
+              subBuilder = enclosingType_.toBuilder();
+            }
+            enclosingType_ = input.readMessage(org.mojolang.mojo.lang.NominalType.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(enclosingType_);
+              enclosingType_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           case 162: {
             org.mojolang.mojo.lang.FunctionDecl.Signature.Builder subBuilder = null;
             if (signature_ != null) {
@@ -1535,6 +1548,32 @@ private static final long serialVersionUID = 0L;
     return genericParameters_.get(index);
   }
 
+  public static final int ENCLOSING_TYPE_FIELD_NUMBER = 14;
+  private org.mojolang.mojo.lang.NominalType enclosingType_;
+  /**
+   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   * @return Whether the enclosingType field is set.
+   */
+  @java.lang.Override
+  public boolean hasEnclosingType() {
+    return enclosingType_ != null;
+  }
+  /**
+   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   * @return The enclosingType.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.NominalType getEnclosingType() {
+    return enclosingType_ == null ? org.mojolang.mojo.lang.NominalType.getDefaultInstance() : enclosingType_;
+  }
+  /**
+   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingTypeOrBuilder() {
+    return getEnclosingType();
+  }
+
   public static final int SIGNATURE_FIELD_NUMBER = 20;
   private org.mojolang.mojo.lang.FunctionDecl.Signature signature_;
   /**
@@ -1657,6 +1696,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < genericParameters_.size(); i++) {
       output.writeMessage(13, genericParameters_.get(i));
     }
+    if (enclosingType_ != null) {
+      output.writeMessage(14, getEnclosingType());
+    }
     if (signature_ != null) {
       output.writeMessage(20, getSignature());
     }
@@ -1710,6 +1752,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < genericParameters_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, genericParameters_.get(i));
+    }
+    if (enclosingType_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, getEnclosingType());
     }
     if (signature_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -1767,6 +1813,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAttributesList())) return false;
     if (!getGenericParametersList()
         .equals(other.getGenericParametersList())) return false;
+    if (hasEnclosingType() != other.hasEnclosingType()) return false;
+    if (hasEnclosingType()) {
+      if (!getEnclosingType()
+          .equals(other.getEnclosingType())) return false;
+    }
     if (hasSignature() != other.hasSignature()) return false;
     if (hasSignature()) {
       if (!getSignature()
@@ -1823,6 +1874,10 @@ private static final long serialVersionUID = 0L;
     if (getGenericParametersCount() > 0) {
       hash = (37 * hash) + GENERIC_PARAMETERS_FIELD_NUMBER;
       hash = (53 * hash) + getGenericParametersList().hashCode();
+    }
+    if (hasEnclosingType()) {
+      hash = (37 * hash) + ENCLOSING_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getEnclosingType().hashCode();
     }
     if (hasSignature()) {
       hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
@@ -2011,6 +2066,12 @@ private static final long serialVersionUID = 0L;
       } else {
         genericParametersBuilder_.clear();
       }
+      if (enclosingTypeBuilder_ == null) {
+        enclosingType_ = null;
+      } else {
+        enclosingType_ = null;
+        enclosingTypeBuilder_ = null;
+      }
       if (signatureBuilder_ == null) {
         signature_ = null;
       } else {
@@ -2093,6 +2154,11 @@ private static final long serialVersionUID = 0L;
         result.genericParameters_ = genericParameters_;
       } else {
         result.genericParameters_ = genericParametersBuilder_.build();
+      }
+      if (enclosingTypeBuilder_ == null) {
+        result.enclosingType_ = enclosingType_;
+      } else {
+        result.enclosingType_ = enclosingTypeBuilder_.build();
       }
       if (signatureBuilder_ == null) {
         result.signature_ = signature_;
@@ -2236,6 +2302,9 @@ private static final long serialVersionUID = 0L;
             genericParametersBuilder_.addAllMessages(other.genericParameters_);
           }
         }
+      }
+      if (other.hasEnclosingType()) {
+        mergeEnclosingType(other.getEnclosingType());
       }
       if (other.hasSignature()) {
         mergeSignature(other.getSignature());
@@ -3446,6 +3515,125 @@ private static final long serialVersionUID = 0L;
         genericParameters_ = null;
       }
       return genericParametersBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.NominalType enclosingType_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder> enclosingTypeBuilder_;
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     * @return Whether the enclosingType field is set.
+     */
+    public boolean hasEnclosingType() {
+      return enclosingTypeBuilder_ != null || enclosingType_ != null;
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     * @return The enclosingType.
+     */
+    public org.mojolang.mojo.lang.NominalType getEnclosingType() {
+      if (enclosingTypeBuilder_ == null) {
+        return enclosingType_ == null ? org.mojolang.mojo.lang.NominalType.getDefaultInstance() : enclosingType_;
+      } else {
+        return enclosingTypeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     */
+    public Builder setEnclosingType(org.mojolang.mojo.lang.NominalType value) {
+      if (enclosingTypeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        enclosingType_ = value;
+        onChanged();
+      } else {
+        enclosingTypeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     */
+    public Builder setEnclosingType(
+        org.mojolang.mojo.lang.NominalType.Builder builderForValue) {
+      if (enclosingTypeBuilder_ == null) {
+        enclosingType_ = builderForValue.build();
+        onChanged();
+      } else {
+        enclosingTypeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     */
+    public Builder mergeEnclosingType(org.mojolang.mojo.lang.NominalType value) {
+      if (enclosingTypeBuilder_ == null) {
+        if (enclosingType_ != null) {
+          enclosingType_ =
+            org.mojolang.mojo.lang.NominalType.newBuilder(enclosingType_).mergeFrom(value).buildPartial();
+        } else {
+          enclosingType_ = value;
+        }
+        onChanged();
+      } else {
+        enclosingTypeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     */
+    public Builder clearEnclosingType() {
+      if (enclosingTypeBuilder_ == null) {
+        enclosingType_ = null;
+        onChanged();
+      } else {
+        enclosingType_ = null;
+        enclosingTypeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     */
+    public org.mojolang.mojo.lang.NominalType.Builder getEnclosingTypeBuilder() {
+      
+      onChanged();
+      return getEnclosingTypeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     */
+    public org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingTypeOrBuilder() {
+      if (enclosingTypeBuilder_ != null) {
+        return enclosingTypeBuilder_.getMessageOrBuilder();
+      } else {
+        return enclosingType_ == null ?
+            org.mojolang.mojo.lang.NominalType.getDefaultInstance() : enclosingType_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder> 
+        getEnclosingTypeFieldBuilder() {
+      if (enclosingTypeBuilder_ == null) {
+        enclosingTypeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder>(
+                getEnclosingType(),
+                getParentForChildren(),
+                isClean());
+        enclosingType_ = null;
+      }
+      return enclosingTypeBuilder_;
     }
 
     private org.mojolang.mojo.lang.FunctionDecl.Signature signature_;

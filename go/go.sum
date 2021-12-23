@@ -176,8 +176,12 @@ github.com/modern-go/reflect2 v1.0.2 h1:xBagoLtFs94CBntxluKeaWgTMpvLxC4ur3nMaC9G
 github.com/modern-go/reflect2 v1.0.2/go.mod h1:yWuevngMOJpCy52FWWMvUC8ws7m/LJsjYzDa0/r8luk=
 github.com/mojo-lang/core/go v0.0.0-20211217054003-aa2685cde731 h1:gg92arbX6BHAVZZMRQKWyFoYl7cA+Lx5lwv2SCegKio=
 github.com/mojo-lang/core/go v0.0.0-20211217054003-aa2685cde731/go.mod h1:/OxRlMkDnfHCVDWGTVW+ZD7OUgV3AMfuH5rhdSxpzCM=
+github.com/mojo-lang/core/go v0.0.0-20211223004040-601d32e5cd0a h1:WaIIvBlxq4HAnNg9mfdns0fCnhcI0bW1xrvvI6ZYijg=
+github.com/mojo-lang/core/go v0.0.0-20211223004040-601d32e5cd0a/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
 github.com/mojo-lang/document/go v0.0.0-20211217054243-5f99395f7054 h1:/XgfKtgJXKMD8rOwaZVAoBXkXxdtddyx3uqqOLycGnQ=
 github.com/mojo-lang/document/go v0.0.0-20211217054243-5f99395f7054/go.mod h1:VQ10MLbKXbWYRhiSAbVQjb4Dv4ZGUSoApPo0OpuNcmU=
+github.com/mojo-lang/document/go v0.0.0-20211223004737-9f1cfeafe18c h1:T8qKUiOrpt1MBXz37AD027PEhSLBEMvvSPxZ+XvsJ+I=
+github.com/mojo-lang/document/go v0.0.0-20211223004737-9f1cfeafe18c/go.mod h1:ULPDf35xfVMmepcROU2T51y8jqqBi85FUGx4WL27bUs=
 github.com/pascaldekloe/name v0.0.0-20180628100202-0fd16699aae1/go.mod h1:eD5JxqMiuNYyFNmyY9rkJ/slN8y59oEu4Ei7F8OoKWQ=
 github.com/phpdave11/gofpdf v1.4.2 h1:KPKiIbfwbvC/wOncwhrpRdXVj2CZTCFlw4wnoyjtHfQ=
 github.com/phpdave11/gofpdf v1.4.2/go.mod h1:zpO6xFn9yxo3YLyMvW8HcKWVdbNqgIfOOp2dXMnm1mY=

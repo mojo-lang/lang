@@ -225,6 +225,12 @@ public interface PackageOrBuilder extends
   org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder();
 
   /**
+   * <code>bool implicit = 21;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
+
+  /**
    * <code>.mojo.core.Object extra_info = 25;</code>
    * @return Whether the extraInfo field is set.
    */

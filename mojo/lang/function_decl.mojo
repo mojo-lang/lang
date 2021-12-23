@@ -32,9 +32,12 @@ type FunctionDecl : Decl {
 
     ///
     attributes: [Attribute] @12
-    
+
     ///
     generic_parameters: [GenericParameter] @13
+
+    ///
+    enclosing_type : NominalType @14
     
     ///
     signature: Signature @20
