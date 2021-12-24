@@ -56,7 +56,7 @@ public interface IntegerLiteralExprOrBuilder extends
   boolean getIsNegative();
 
   /**
-   * <code>int64 value = 16;</code>
+   * <code>uint64 value = 16;</code>
    * @return The value.
    */
   long getValue();

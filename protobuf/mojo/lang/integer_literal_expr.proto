@@ -20,5 +20,5 @@ message IntegerLiteralExpr {
     int32 kind = 3;
     bool implicit = 4;
     bool is_negative = 15;
-    int64 value = 16;
+    uint64 value = 16;
 }

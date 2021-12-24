@@ -97,6 +97,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 98: {
+            org.mojolang.mojo.lang.ObjectLiteralExpr.Builder subBuilder = null;
+            if (value_ != null) {
+              subBuilder = value_.toBuilder();
+            }
+            value_ = input.readMessage(org.mojolang.mojo.lang.ObjectLiteralExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(value_);
+              value_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -229,6 +242,32 @@ private static final long serialVersionUID = 0L;
     return getCallee();
   }
 
+  public static final int VALUE_FIELD_NUMBER = 12;
+  private org.mojolang.mojo.lang.ObjectLiteralExpr value_;
+  /**
+   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * @return Whether the value field is set.
+   */
+  @java.lang.Override
+  public boolean hasValue() {
+    return value_ != null;
+  }
+  /**
+   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * @return The value.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ObjectLiteralExpr getValue() {
+    return value_ == null ? org.mojolang.mojo.lang.ObjectLiteralExpr.getDefaultInstance() : value_;
+  }
+  /**
+   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder getValueOrBuilder() {
+    return getValue();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -258,6 +297,9 @@ private static final long serialVersionUID = 0L;
     if (callee_ != null) {
       output.writeMessage(10, getCallee());
     }
+    if (value_ != null) {
+      output.writeMessage(12, getValue());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -286,6 +328,10 @@ private static final long serialVersionUID = 0L;
     if (callee_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getCallee());
+    }
+    if (value_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, getValue());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -321,6 +367,11 @@ private static final long serialVersionUID = 0L;
       if (!getCallee()
           .equals(other.getCallee())) return false;
     }
+    if (hasValue() != other.hasValue()) return false;
+    if (hasValue()) {
+      if (!getValue()
+          .equals(other.getValue())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -348,6 +399,10 @@ private static final long serialVersionUID = 0L;
     if (hasCallee()) {
       hash = (37 * hash) + CALLEE_FIELD_NUMBER;
       hash = (53 * hash) + getCallee().hashCode();
+    }
+    if (hasValue()) {
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -504,6 +559,12 @@ private static final long serialVersionUID = 0L;
         callee_ = null;
         calleeBuilder_ = null;
       }
+      if (valueBuilder_ == null) {
+        value_ = null;
+      } else {
+        value_ = null;
+        valueBuilder_ = null;
+      }
       return this;
     }
 
@@ -546,6 +607,11 @@ private static final long serialVersionUID = 0L;
         result.callee_ = callee_;
       } else {
         result.callee_ = calleeBuilder_.build();
+      }
+      if (valueBuilder_ == null) {
+        result.value_ = value_;
+      } else {
+        result.value_ = valueBuilder_.build();
       }
       onBuilt();
       return result;
@@ -609,6 +675,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCallee()) {
         mergeCallee(other.getCallee());
+      }
+      if (other.hasValue()) {
+        mergeValue(other.getValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1056,6 +1125,125 @@ private static final long serialVersionUID = 0L;
         callee_ = null;
       }
       return calleeBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.ObjectLiteralExpr value_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ObjectLiteralExpr, org.mojolang.mojo.lang.ObjectLiteralExpr.Builder, org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder> valueBuilder_;
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * @return Whether the value field is set.
+     */
+    public boolean hasValue() {
+      return valueBuilder_ != null || value_ != null;
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * @return The value.
+     */
+    public org.mojolang.mojo.lang.ObjectLiteralExpr getValue() {
+      if (valueBuilder_ == null) {
+        return value_ == null ? org.mojolang.mojo.lang.ObjectLiteralExpr.getDefaultInstance() : value_;
+      } else {
+        return valueBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     */
+    public Builder setValue(org.mojolang.mojo.lang.ObjectLiteralExpr value) {
+      if (valueBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        value_ = value;
+        onChanged();
+      } else {
+        valueBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     */
+    public Builder setValue(
+        org.mojolang.mojo.lang.ObjectLiteralExpr.Builder builderForValue) {
+      if (valueBuilder_ == null) {
+        value_ = builderForValue.build();
+        onChanged();
+      } else {
+        valueBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     */
+    public Builder mergeValue(org.mojolang.mojo.lang.ObjectLiteralExpr value) {
+      if (valueBuilder_ == null) {
+        if (value_ != null) {
+          value_ =
+            org.mojolang.mojo.lang.ObjectLiteralExpr.newBuilder(value_).mergeFrom(value).buildPartial();
+        } else {
+          value_ = value;
+        }
+        onChanged();
+      } else {
+        valueBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     */
+    public Builder clearValue() {
+      if (valueBuilder_ == null) {
+        value_ = null;
+        onChanged();
+      } else {
+        value_ = null;
+        valueBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     */
+    public org.mojolang.mojo.lang.ObjectLiteralExpr.Builder getValueBuilder() {
+      
+      onChanged();
+      return getValueFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     */
+    public org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder getValueOrBuilder() {
+      if (valueBuilder_ != null) {
+        return valueBuilder_.getMessageOrBuilder();
+      } else {
+        return value_ == null ?
+            org.mojolang.mojo.lang.ObjectLiteralExpr.getDefaultInstance() : value_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.ObjectLiteralExpr, org.mojolang.mojo.lang.ObjectLiteralExpr.Builder, org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder> 
+        getValueFieldBuilder() {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.ObjectLiteralExpr, org.mojolang.mojo.lang.ObjectLiteralExpr.Builder, org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder>(
+                getValue(),
+                getParentForChildren(),
+                isClean());
+        value_ = null;
+      }
+      return valueBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

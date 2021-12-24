@@ -252,11 +252,7 @@ func SetIntegerAttribute(attributes []*Attribute, name string, value int64) []*A
 	for _, attribute := range attributes {
 		if attribute.SameName(name) {
 			if len(attribute.Arguments) > 0 {
-				attribute.Arguments[0] = NewIntegerLiteralArgument(&IntegerLiteralExpr{
-					Kind:     0,
-					Implicit: false,
-					Value:    value,
-				})
+				attribute.Arguments[0] = NewIntegerLiteralArgument(NewIntegerLiteral(value))
 				return attributes
 			}
 		}
@@ -266,11 +262,7 @@ func SetIntegerAttribute(attributes []*Attribute, name string, value int64) []*A
 	attributes = append(attributes, &Attribute{
 		PackageName: pkg,
 		Name:        n,
-		Arguments: []*Argument{NewIntegerLiteralArgument(&IntegerLiteralExpr{
-			Kind:     0,
-			Implicit: false,
-			Value:    value,
-		}),
+		Arguments: []*Argument{NewIntegerLiteralArgument(NewIntegerLiteral(value)),
 		},
 	})
 

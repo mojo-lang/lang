@@ -1,12 +1,31 @@
 package lang
 
+func NewIntegerLiteral(value int64) *IntegerLiteralExpr {
+	isNegative := value < 0
+	if isNegative {
+		value = -value
+	}
+	return &IntegerLiteralExpr{
+		Kind:       0,
+		IsNegative: isNegative,
+		Value:      uint64(value),
+	}
+}
+
 func (m *IntegerLiteralExpr) EvalValue() int64 {
 	if m != nil {
 		if m.IsNegative {
-			return -m.Value
+			return -int64(m.Value)
 		}
-		return m.Value
+		return int64(m.Value)
 	} else {
 		return 0
 	}
+}
+
+func (m *IntegerLiteralExpr) SetNegative() *IntegerLiteralExpr {
+	if m != nil {
+		m.IsNegative = true
+	}
+	return m
 }

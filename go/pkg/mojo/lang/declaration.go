@@ -59,40 +59,43 @@ func NewTypeAliasDeclaration(decl *TypeAliasDecl) *Declaration {
 }
 
 func NewDeclarationFromTypeDeclaration(decl *TypeDeclaration) *Declaration {
-	switch decl.TypeDeclaration.(type) {
-	case *TypeDeclaration_StructDecl:
-		return &Declaration{
-			Declaration: &Declaration_StructDecl{
-				StructDecl: decl.GetStructDecl(),
-			},
+	if decl != nil {
+		switch decl.TypeDeclaration.(type) {
+		case *TypeDeclaration_StructDecl:
+			return &Declaration{
+				Declaration: &Declaration_StructDecl{
+					StructDecl: decl.GetStructDecl(),
+				},
+			}
+		case *TypeDeclaration_InterfaceDecl:
+			return &Declaration{
+				Declaration: &Declaration_InterfaceDecl{
+					InterfaceDecl: decl.GetInterfaceDecl(),
+				},
+			}
+		case *TypeDeclaration_EnumDecl:
+			return &Declaration{
+				Declaration: &Declaration_EnumDecl{
+					EnumDecl: decl.GetEnumDecl(),
+				},
+			}
+		case *TypeDeclaration_TypeAliasDecl:
+			return &Declaration{
+				Declaration: &Declaration_TypeAliasDecl{
+					TypeAliasDecl: decl.GetTypeAliasDecl(),
+				},
+			}
+		case *TypeDeclaration_GenericParameter:
+			return &Declaration{
+				Declaration: &Declaration_GenericParameter{
+					GenericParameter: decl.GetGenericParameter(),
+				},
+			}
+		default:
+			return nil
 		}
-	case *TypeDeclaration_InterfaceDecl:
-		return &Declaration{
-			Declaration: &Declaration_InterfaceDecl{
-				InterfaceDecl: decl.GetInterfaceDecl(),
-			},
-		}
-	case *TypeDeclaration_EnumDecl:
-		return &Declaration{
-			Declaration: &Declaration_EnumDecl{
-				EnumDecl: decl.GetEnumDecl(),
-			},
-		}
-	case *TypeDeclaration_TypeAliasDecl:
-		return &Declaration{
-			Declaration: &Declaration_TypeAliasDecl{
-				TypeAliasDecl: decl.GetTypeAliasDecl(),
-			},
-		}
-	case *TypeDeclaration_GenericParameter:
-		return &Declaration{
-			Declaration: &Declaration_GenericParameter{
-				GenericParameter: decl.GetGenericParameter(),
-			},
-		}
-	default:
-		return nil
 	}
+	return nil
 }
 
 func NewGenericParameterDeclaration(parameter *GenericParameter) *Declaration {

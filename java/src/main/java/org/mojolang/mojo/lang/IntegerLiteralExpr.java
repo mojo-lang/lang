@@ -91,7 +91,7 @@ private static final long serialVersionUID = 0L;
           }
           case 128: {
 
-            value_ = input.readInt64();
+            value_ = input.readUInt64();
             break;
           }
           default: {
@@ -214,7 +214,7 @@ private static final long serialVersionUID = 0L;
   public static final int VALUE_FIELD_NUMBER = 16;
   private long value_;
   /**
-   * <code>int64 value = 16;</code>
+   * <code>uint64 value = 16;</code>
    * @return The value.
    */
   @java.lang.Override
@@ -252,7 +252,7 @@ private static final long serialVersionUID = 0L;
       output.writeBool(15, isNegative_);
     }
     if (value_ != 0L) {
-      output.writeInt64(16, value_);
+      output.writeUInt64(16, value_);
     }
     unknownFields.writeTo(output);
   }
@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
     }
     if (value_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(16, value_);
+        .computeUInt64Size(16, value_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -971,7 +971,7 @@ private static final long serialVersionUID = 0L;
 
     private long value_ ;
     /**
-     * <code>int64 value = 16;</code>
+     * <code>uint64 value = 16;</code>
      * @return The value.
      */
     @java.lang.Override
@@ -979,7 +979,7 @@ private static final long serialVersionUID = 0L;
       return value_;
     }
     /**
-     * <code>int64 value = 16;</code>
+     * <code>uint64 value = 16;</code>
      * @param value The value to set.
      * @return This builder for chaining.
      */
@@ -990,7 +990,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 value = 16;</code>
+     * <code>uint64 value = 16;</code>
      * @return This builder for chaining.
      */
     public Builder clearValue() {

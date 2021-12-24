@@ -36,7 +36,7 @@ public final class IntegerLiteralExprProto {
       "sition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end" +
       "_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004" +
       "kind\030\003 \001(\005\022\020\n\010implicit\030\004 \001(\010\022\023\n\013is_negat" +
-      "ive\030\017 \001(\010\022\r\n\005value\030\020 \001(\003Bd\n\026org.mojolang" +
+      "ive\030\017 \001(\010\022\r\n\005value\030\020 \001(\004Bd\n\026org.mojolang" +
       ".mojo.langB\027IntegerLiteralExprProtoP\001Z/g" +
       "ithub.com/mojo-lang/lang/go/pkg/mojo/lan" +
       "g;langb\006proto3"

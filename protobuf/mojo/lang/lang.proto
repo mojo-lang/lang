@@ -736,6 +736,7 @@ message StructLiteralExpr {
     int32 kind = 3;
     bool implicit = 4;
     Expression callee = 10;
+    ObjectLiteralExpr value = 12;
 }
 
 message StructType {

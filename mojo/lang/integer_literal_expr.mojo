@@ -17,5 +17,5 @@
 /// After semantic analysis assigns types, this is guaranteed to only have
 /// a BuiltinIntegerType.
 type IntegerLiteralExpr : NumericLiteralExpr {
-    value : Int64 @16
+    value : UInt64 @16
 }

@@ -63,4 +63,19 @@ public interface StructLiteralExprOrBuilder extends
    * <code>.mojo.lang.Expression callee = 10;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
+
+  /**
+   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * @return Whether the value field is set.
+   */
+  boolean hasValue();
+  /**
+   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * @return The value.
+   */
+  org.mojolang.mojo.lang.ObjectLiteralExpr getValue();
+  /**
+   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   */
+  org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder getValueOrBuilder();
 }
