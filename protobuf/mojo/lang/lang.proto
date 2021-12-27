@@ -25,7 +25,6 @@ import "mojo/lang/integer_literal_expr.proto";
 import "mojo/lang/literal_expr.proto";
 import "mojo/lang/null_literal_expr.proto";
 import "mojo/lang/operator.proto";
-import "mojo/lang/parenthesized_expr.proto";
 import "mojo/lang/pattern.proto";
 import "mojo/lang/position.proto";
 import "mojo/lang/stmt.proto";
@@ -551,8 +550,8 @@ message NumericLiteralUnaryExpr {
     int32 kind = 3;
     bool implicit = 4;
     Expression callee = 10;
-    string operator = 15;
-    Expression expression = 16;
+    Operator operator = 15;
+    Expression argument = 16;
 }
 
 message ObjectLiteralExpr {
@@ -627,14 +626,22 @@ message PackageDecl {
     Package package = 20;
 }
 
+message ParenthesizedExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 3;
+    bool implicit = 4;
+    Expression expression = 10;
+}
+
 message PostfixUnaryExpr {
     Position start_position = 1;
     Position end_position = 2;
     int32 kind = 3;
     bool implicit = 4;
     Expression callee = 10;
-    string operator = 15;
-    Expression expression = 16;
+    Operator operator = 15;
+    Expression argument = 16;
 }
 
 message PrefixUnaryExpr {
@@ -643,8 +650,8 @@ message PrefixUnaryExpr {
     int32 kind = 3;
     bool implicit = 4;
     Expression callee = 10;
-    string operator = 15;
-    Expression expression = 16;
+    Operator operator = 15;
+    Expression argument = 16;
 }
 
 message RepeatStmt {
@@ -705,8 +712,8 @@ message StringLiteralUnaryExpr {
     int32 kind = 3;
     bool implicit = 4;
     Expression callee = 10;
-    string operator = 15;
-    Expression expression = 16;
+    Operator operator = 15;
+    Expression argument = 16;
 }
 
 message StructDecl {
@@ -815,8 +822,8 @@ message UnaryExpr {
     int32 kind = 3;
     bool implicit = 4;
     Expression callee = 10;
-    string operator = 15;
-    Expression expression = 16;
+    Operator operator = 15;
+    Expression argument = 16;
 }
 
 message ValueDecl {

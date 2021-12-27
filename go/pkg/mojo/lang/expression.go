@@ -140,6 +140,12 @@ func NewWildcardExpression(expr *WildcardExpr) *Expression {
 	}
 }
 
+func NewParenthesizedExpression(expr *ParenthesizedExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_ParenthesizedExpr{ParenthesizedExpr: expr},
+	}
+}
+
 func NewClosureExpression(expr *ClosureExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_ClosureExpr{ClosureExpr: expr},

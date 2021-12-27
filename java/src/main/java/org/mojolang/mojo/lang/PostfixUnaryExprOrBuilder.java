@@ -65,29 +65,32 @@ public interface PostfixUnaryExprOrBuilder extends
   org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
 
   /**
-   * <code>string operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 15;</code>
+   * @return Whether the operator field is set.
+   */
+  boolean hasOperator();
+  /**
+   * <code>.mojo.lang.Operator operator = 15;</code>
    * @return The operator.
    */
-  java.lang.String getOperator();
+  org.mojolang.mojo.lang.Operator getOperator();
   /**
-   * <code>string operator = 15;</code>
-   * @return The bytes for operator.
+   * <code>.mojo.lang.Operator operator = 15;</code>
    */
-  com.google.protobuf.ByteString
-      getOperatorBytes();
+  org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression expression = 16;</code>
-   * @return Whether the expression field is set.
+   * <code>.mojo.lang.Expression argument = 16;</code>
+   * @return Whether the argument field is set.
    */
-  boolean hasExpression();
+  boolean hasArgument();
   /**
-   * <code>.mojo.lang.Expression expression = 16;</code>
-   * @return The expression.
+   * <code>.mojo.lang.Expression argument = 16;</code>
+   * @return The argument.
    */
-  org.mojolang.mojo.lang.Expression getExpression();
+  org.mojolang.mojo.lang.Expression getArgument();
   /**
-   * <code>.mojo.lang.Expression expression = 16;</code>
+   * <code>.mojo.lang.Expression argument = 16;</code>
    */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder();
+  org.mojolang.mojo.lang.ExpressionOrBuilder getArgumentOrBuilder();
 }

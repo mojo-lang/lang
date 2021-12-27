@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private PostfixUnaryExpr() {
-    operator_ = "";
   }
 
   @java.lang.Override
@@ -99,20 +98,27 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
+            org.mojolang.mojo.lang.Operator.Builder subBuilder = null;
+            if (operator_ != null) {
+              subBuilder = operator_.toBuilder();
+            }
+            operator_ = input.readMessage(org.mojolang.mojo.lang.Operator.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(operator_);
+              operator_ = subBuilder.buildPartial();
+            }
 
-            operator_ = s;
             break;
           }
           case 130: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
-            if (expression_ != null) {
-              subBuilder = expression_.toBuilder();
+            if (argument_ != null) {
+              subBuilder = argument_.toBuilder();
             }
-            expression_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
+            argument_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(expression_);
-              expression_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(argument_);
+              argument_ = subBuilder.buildPartial();
             }
 
             break;
@@ -250,67 +256,55 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATOR_FIELD_NUMBER = 15;
-  private volatile java.lang.Object operator_;
+  private org.mojolang.mojo.lang.Operator operator_;
   /**
-   * <code>string operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 15;</code>
+   * @return Whether the operator field is set.
+   */
+  @java.lang.Override
+  public boolean hasOperator() {
+    return operator_ != null;
+  }
+  /**
+   * <code>.mojo.lang.Operator operator = 15;</code>
    * @return The operator.
    */
   @java.lang.Override
-  public java.lang.String getOperator() {
-    java.lang.Object ref = operator_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      operator_ = s;
-      return s;
-    }
+  public org.mojolang.mojo.lang.Operator getOperator() {
+    return operator_ == null ? org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
   }
   /**
-   * <code>string operator = 15;</code>
-   * @return The bytes for operator.
+   * <code>.mojo.lang.Operator operator = 15;</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getOperatorBytes() {
-    java.lang.Object ref = operator_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      operator_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
+    return getOperator();
   }
 
-  public static final int EXPRESSION_FIELD_NUMBER = 16;
-  private org.mojolang.mojo.lang.Expression expression_;
+  public static final int ARGUMENT_FIELD_NUMBER = 16;
+  private org.mojolang.mojo.lang.Expression argument_;
   /**
-   * <code>.mojo.lang.Expression expression = 16;</code>
-   * @return Whether the expression field is set.
+   * <code>.mojo.lang.Expression argument = 16;</code>
+   * @return Whether the argument field is set.
    */
   @java.lang.Override
-  public boolean hasExpression() {
-    return expression_ != null;
+  public boolean hasArgument() {
+    return argument_ != null;
   }
   /**
-   * <code>.mojo.lang.Expression expression = 16;</code>
-   * @return The expression.
+   * <code>.mojo.lang.Expression argument = 16;</code>
+   * @return The argument.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.Expression getExpression() {
-    return expression_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : expression_;
+  public org.mojolang.mojo.lang.Expression getArgument() {
+    return argument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : argument_;
   }
   /**
-   * <code>.mojo.lang.Expression expression = 16;</code>
+   * <code>.mojo.lang.Expression argument = 16;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder() {
-    return getExpression();
+  public org.mojolang.mojo.lang.ExpressionOrBuilder getArgumentOrBuilder() {
+    return getArgument();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -342,11 +336,11 @@ private static final long serialVersionUID = 0L;
     if (callee_ != null) {
       output.writeMessage(10, getCallee());
     }
-    if (!getOperatorBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, operator_);
+    if (operator_ != null) {
+      output.writeMessage(15, getOperator());
     }
-    if (expression_ != null) {
-      output.writeMessage(16, getExpression());
+    if (argument_ != null) {
+      output.writeMessage(16, getArgument());
     }
     unknownFields.writeTo(output);
   }
@@ -377,12 +371,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getCallee());
     }
-    if (!getOperatorBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, operator_);
-    }
-    if (expression_ != null) {
+    if (operator_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(16, getExpression());
+        .computeMessageSize(15, getOperator());
+    }
+    if (argument_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, getArgument());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -418,12 +413,15 @@ private static final long serialVersionUID = 0L;
       if (!getCallee()
           .equals(other.getCallee())) return false;
     }
-    if (!getOperator()
-        .equals(other.getOperator())) return false;
-    if (hasExpression() != other.hasExpression()) return false;
-    if (hasExpression()) {
-      if (!getExpression()
-          .equals(other.getExpression())) return false;
+    if (hasOperator() != other.hasOperator()) return false;
+    if (hasOperator()) {
+      if (!getOperator()
+          .equals(other.getOperator())) return false;
+    }
+    if (hasArgument() != other.hasArgument()) return false;
+    if (hasArgument()) {
+      if (!getArgument()
+          .equals(other.getArgument())) return false;
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -453,11 +451,13 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CALLEE_FIELD_NUMBER;
       hash = (53 * hash) + getCallee().hashCode();
     }
-    hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
-    hash = (53 * hash) + getOperator().hashCode();
-    if (hasExpression()) {
-      hash = (37 * hash) + EXPRESSION_FIELD_NUMBER;
-      hash = (53 * hash) + getExpression().hashCode();
+    if (hasOperator()) {
+      hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
+      hash = (53 * hash) + getOperator().hashCode();
+    }
+    if (hasArgument()) {
+      hash = (37 * hash) + ARGUMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getArgument().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -614,13 +614,17 @@ private static final long serialVersionUID = 0L;
         callee_ = null;
         calleeBuilder_ = null;
       }
-      operator_ = "";
-
-      if (expressionBuilder_ == null) {
-        expression_ = null;
+      if (operatorBuilder_ == null) {
+        operator_ = null;
       } else {
-        expression_ = null;
-        expressionBuilder_ = null;
+        operator_ = null;
+        operatorBuilder_ = null;
+      }
+      if (argumentBuilder_ == null) {
+        argument_ = null;
+      } else {
+        argument_ = null;
+        argumentBuilder_ = null;
       }
       return this;
     }
@@ -665,11 +669,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.callee_ = calleeBuilder_.build();
       }
-      result.operator_ = operator_;
-      if (expressionBuilder_ == null) {
-        result.expression_ = expression_;
+      if (operatorBuilder_ == null) {
+        result.operator_ = operator_;
       } else {
-        result.expression_ = expressionBuilder_.build();
+        result.operator_ = operatorBuilder_.build();
+      }
+      if (argumentBuilder_ == null) {
+        result.argument_ = argument_;
+      } else {
+        result.argument_ = argumentBuilder_.build();
       }
       onBuilt();
       return result;
@@ -734,12 +742,11 @@ private static final long serialVersionUID = 0L;
       if (other.hasCallee()) {
         mergeCallee(other.getCallee());
       }
-      if (!other.getOperator().isEmpty()) {
-        operator_ = other.operator_;
-        onChanged();
+      if (other.hasOperator()) {
+        mergeOperator(other.getOperator());
       }
-      if (other.hasExpression()) {
-        mergeExpression(other.getExpression());
+      if (other.hasArgument()) {
+        mergeArgument(other.getArgument());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1189,199 +1196,242 @@ private static final long serialVersionUID = 0L;
       return calleeBuilder_;
     }
 
-    private java.lang.Object operator_ = "";
+    private org.mojolang.mojo.lang.Operator operator_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> operatorBuilder_;
     /**
-     * <code>string operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 15;</code>
+     * @return Whether the operator field is set.
+     */
+    public boolean hasOperator() {
+      return operatorBuilder_ != null || operator_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Operator operator = 15;</code>
      * @return The operator.
      */
-    public java.lang.String getOperator() {
-      java.lang.Object ref = operator_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        operator_ = s;
-        return s;
+    public org.mojolang.mojo.lang.Operator getOperator() {
+      if (operatorBuilder_ == null) {
+        return operator_ == null ? org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
       } else {
-        return (java.lang.String) ref;
+        return operatorBuilder_.getMessage();
       }
     }
     /**
-     * <code>string operator = 15;</code>
-     * @return The bytes for operator.
+     * <code>.mojo.lang.Operator operator = 15;</code>
      */
-    public com.google.protobuf.ByteString
-        getOperatorBytes() {
-      java.lang.Object ref = operator_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        operator_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string operator = 15;</code>
-     * @param value The operator to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperator(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      operator_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string operator = 15;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOperator() {
-      
-      operator_ = getDefaultInstance().getOperator();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string operator = 15;</code>
-     * @param value The bytes for operator to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOperatorBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      operator_ = value;
-      onChanged();
-      return this;
-    }
-
-    private org.mojolang.mojo.lang.Expression expression_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> expressionBuilder_;
-    /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
-     * @return Whether the expression field is set.
-     */
-    public boolean hasExpression() {
-      return expressionBuilder_ != null || expression_ != null;
-    }
-    /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
-     * @return The expression.
-     */
-    public org.mojolang.mojo.lang.Expression getExpression() {
-      if (expressionBuilder_ == null) {
-        return expression_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : expression_;
-      } else {
-        return expressionBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
-     */
-    public Builder setExpression(org.mojolang.mojo.lang.Expression value) {
-      if (expressionBuilder_ == null) {
+    public Builder setOperator(org.mojolang.mojo.lang.Operator value) {
+      if (operatorBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        expression_ = value;
+        operator_ = value;
         onChanged();
       } else {
-        expressionBuilder_.setMessage(value);
+        operatorBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
+     * <code>.mojo.lang.Operator operator = 15;</code>
      */
-    public Builder setExpression(
-        org.mojolang.mojo.lang.Expression.Builder builderForValue) {
-      if (expressionBuilder_ == null) {
-        expression_ = builderForValue.build();
+    public Builder setOperator(
+        org.mojolang.mojo.lang.Operator.Builder builderForValue) {
+      if (operatorBuilder_ == null) {
+        operator_ = builderForValue.build();
         onChanged();
       } else {
-        expressionBuilder_.setMessage(builderForValue.build());
+        operatorBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
+     * <code>.mojo.lang.Operator operator = 15;</code>
      */
-    public Builder mergeExpression(org.mojolang.mojo.lang.Expression value) {
-      if (expressionBuilder_ == null) {
-        if (expression_ != null) {
-          expression_ =
-            org.mojolang.mojo.lang.Expression.newBuilder(expression_).mergeFrom(value).buildPartial();
+    public Builder mergeOperator(org.mojolang.mojo.lang.Operator value) {
+      if (operatorBuilder_ == null) {
+        if (operator_ != null) {
+          operator_ =
+            org.mojolang.mojo.lang.Operator.newBuilder(operator_).mergeFrom(value).buildPartial();
         } else {
-          expression_ = value;
+          operator_ = value;
         }
         onChanged();
       } else {
-        expressionBuilder_.mergeFrom(value);
+        operatorBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
+     * <code>.mojo.lang.Operator operator = 15;</code>
      */
-    public Builder clearExpression() {
-      if (expressionBuilder_ == null) {
-        expression_ = null;
+    public Builder clearOperator() {
+      if (operatorBuilder_ == null) {
+        operator_ = null;
         onChanged();
       } else {
-        expression_ = null;
-        expressionBuilder_ = null;
+        operator_ = null;
+        operatorBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
+     * <code>.mojo.lang.Operator operator = 15;</code>
      */
-    public org.mojolang.mojo.lang.Expression.Builder getExpressionBuilder() {
+    public org.mojolang.mojo.lang.Operator.Builder getOperatorBuilder() {
       
       onChanged();
-      return getExpressionFieldBuilder().getBuilder();
+      return getOperatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
+     * <code>.mojo.lang.Operator operator = 15;</code>
      */
-    public org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder() {
-      if (expressionBuilder_ != null) {
-        return expressionBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
+      if (operatorBuilder_ != null) {
+        return operatorBuilder_.getMessageOrBuilder();
       } else {
-        return expression_ == null ?
-            org.mojolang.mojo.lang.Expression.getDefaultInstance() : expression_;
+        return operator_ == null ?
+            org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
       }
     }
     /**
-     * <code>.mojo.lang.Expression expression = 16;</code>
+     * <code>.mojo.lang.Operator operator = 15;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> 
+        getOperatorFieldBuilder() {
+      if (operatorBuilder_ == null) {
+        operatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder>(
+                getOperator(),
+                getParentForChildren(),
+                isClean());
+        operator_ = null;
+      }
+      return operatorBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.Expression argument_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> argumentBuilder_;
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     * @return Whether the argument field is set.
+     */
+    public boolean hasArgument() {
+      return argumentBuilder_ != null || argument_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     * @return The argument.
+     */
+    public org.mojolang.mojo.lang.Expression getArgument() {
+      if (argumentBuilder_ == null) {
+        return argument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : argument_;
+      } else {
+        return argumentBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     */
+    public Builder setArgument(org.mojolang.mojo.lang.Expression value) {
+      if (argumentBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        argument_ = value;
+        onChanged();
+      } else {
+        argumentBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     */
+    public Builder setArgument(
+        org.mojolang.mojo.lang.Expression.Builder builderForValue) {
+      if (argumentBuilder_ == null) {
+        argument_ = builderForValue.build();
+        onChanged();
+      } else {
+        argumentBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     */
+    public Builder mergeArgument(org.mojolang.mojo.lang.Expression value) {
+      if (argumentBuilder_ == null) {
+        if (argument_ != null) {
+          argument_ =
+            org.mojolang.mojo.lang.Expression.newBuilder(argument_).mergeFrom(value).buildPartial();
+        } else {
+          argument_ = value;
+        }
+        onChanged();
+      } else {
+        argumentBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     */
+    public Builder clearArgument() {
+      if (argumentBuilder_ == null) {
+        argument_ = null;
+        onChanged();
+      } else {
+        argument_ = null;
+        argumentBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     */
+    public org.mojolang.mojo.lang.Expression.Builder getArgumentBuilder() {
+      
+      onChanged();
+      return getArgumentFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
+     */
+    public org.mojolang.mojo.lang.ExpressionOrBuilder getArgumentOrBuilder() {
+      if (argumentBuilder_ != null) {
+        return argumentBuilder_.getMessageOrBuilder();
+      } else {
+        return argument_ == null ?
+            org.mojolang.mojo.lang.Expression.getDefaultInstance() : argument_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Expression argument = 16;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
-        getExpressionFieldBuilder() {
-      if (expressionBuilder_ == null) {
-        expressionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getArgumentFieldBuilder() {
+      if (argumentBuilder_ == null) {
+        argumentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder>(
-                getExpression(),
+                getArgument(),
                 getParentForChildren(),
                 isClean());
-        expression_ = null;
+        argument_ = null;
       }
-      return expressionBuilder_;
+      return argumentBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

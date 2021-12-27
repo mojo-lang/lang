@@ -7,6 +7,16 @@ func NewFloatLiteral(value float64) *FloatLiteralExpr {
 	}
 }
 
+func (m *FloatLiteralExpr) EvalValue() float64 {
+	if m != nil {
+		if m.IsNegative {
+			return -m.Value
+		}
+		return m.Value
+	}
+	return 0
+}
+
 func (m *FloatLiteralExpr) SetNegative() *FloatLiteralExpr {
 	if m != nil {
 		m.IsNegative = true
