@@ -12,13 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-type EntityNode {
-    /// full name of the type
-    name: String @1 @key
+type EntityRelationSet {
+    nodes: {String: EntityNode} @1
+    edges: {String: EntityEdge} @2
 
-    /// the type declaration
-    type_declaration: TypeDeclaration @2
+    relations: {String: EntityRelation} @5
 
-
-    key_field: ValueDecl @5
+    node_edges: {String: EntityEdges} @14 @ignored
+    node_relations: {String: EntityRelations} @15 @ignored
 }

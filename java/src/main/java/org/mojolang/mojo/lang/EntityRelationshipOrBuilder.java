@@ -4,7 +4,7 @@
 package org.mojolang.mojo.lang;
 
 public interface EntityRelationshipOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:mojo.lang.EntityRelationship)
+    // @@protoc_insertion_point(interface_extends:mojo.lang.EntityRelation)
     com.google.protobuf.MessageOrBuilder {
 
   /**

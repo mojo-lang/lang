@@ -4,25 +4,25 @@
 package org.mojolang.mojo.lang;
 
 /**
- * Protobuf type {@code mojo.lang.EntityRelation}
+ * Protobuf type {@code mojo.lang.EntityRelationSet}
  */
-public final class EntityRelation extends
+public final class EntityRelationSet extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:mojo.lang.EntityRelation)
-    EntityRelationshipOrBuilder {
+    // @@protoc_insertion_point(message_implements:mojo.lang.EntityRelationSet)
+    EntityRelationSetOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use EntityRelation.newBuilder() to construct.
-  private EntityRelation(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use EntityRelationSet.newBuilder() to construct.
+  private EntityRelationSet(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private EntityRelation() {
+  private EntityRelationSet() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new EntityRelation();
+    return new EntityRelationSet();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EntityRelation(
+  private EntityRelationSet(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -75,30 +75,43 @@ private static final long serialVersionUID = 0L;
                 edges__.getKey(), edges__.getValue());
             break;
           }
-          case 82: {
+          case 42: {
             if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              nodeFromEdges_ = com.google.protobuf.MapField.newMapField(
-                  NodeFromEdgesDefaultEntryHolder.defaultEntry);
+              relations_ = com.google.protobuf.MapField.newMapField(
+                  RelationsDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000004;
             }
-            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-            nodeFromEdges__ = input.readMessage(
-                NodeFromEdgesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            nodeFromEdges_.getMutableMap().put(
-                nodeFromEdges__.getKey(), nodeFromEdges__.getValue());
+            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
+            relations__ = input.readMessage(
+                RelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            relations_.getMutableMap().put(
+                relations__.getKey(), relations__.getValue());
             break;
           }
-          case 90: {
+          case 114: {
             if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              nodeToEdges_ = com.google.protobuf.MapField.newMapField(
-                  NodeToEdgesDefaultEntryHolder.defaultEntry);
+              nodeEdges_ = com.google.protobuf.MapField.newMapField(
+                  NodeEdgesDefaultEntryHolder.defaultEntry);
               mutable_bitField0_ |= 0x00000008;
             }
             com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-            nodeToEdges__ = input.readMessage(
-                NodeToEdgesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            nodeToEdges_.getMutableMap().put(
-                nodeToEdges__.getKey(), nodeToEdges__.getValue());
+            nodeEdges__ = input.readMessage(
+                NodeEdgesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            nodeEdges_.getMutableMap().put(
+                nodeEdges__.getKey(), nodeEdges__.getValue());
+            break;
+          }
+          case 122: {
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+              nodeRelations_ = com.google.protobuf.MapField.newMapField(
+                  NodeRelationsDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000010;
+            }
+            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
+            nodeRelations__ = input.readMessage(
+                NodeRelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            nodeRelations_.getMutableMap().put(
+                nodeRelations__.getKey(), nodeRelations__.getValue());
             break;
           }
           default: {
@@ -122,7 +135,7 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_descriptor;
+    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_descriptor;
   }
 
   @SuppressWarnings({"rawtypes"})
@@ -134,10 +147,12 @@ private static final long serialVersionUID = 0L;
         return internalGetNodes();
       case 2:
         return internalGetEdges();
-      case 10:
-        return internalGetNodeFromEdges();
-      case 11:
-        return internalGetNodeToEdges();
+      case 5:
+        return internalGetRelations();
+      case 14:
+        return internalGetNodeEdges();
+      case 15:
+        return internalGetNodeRelations();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -146,9 +161,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_fieldAccessorTable
+    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.mojolang.mojo.lang.EntityRelation.class, org.mojolang.mojo.lang.EntityRelation.Builder.class);
+            org.mojolang.mojo.lang.EntityRelationSet.class, org.mojolang.mojo.lang.EntityRelationSet.Builder.class);
   }
 
   public static final int NODES_FIELD_NUMBER = 1;
@@ -157,7 +172,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String, org.mojolang.mojo.lang.EntityNode> defaultEntry =
             com.google.protobuf.MapEntry
             .<java.lang.String, org.mojolang.mojo.lang.EntityNode>newDefaultInstance(
-                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_NodesEntry_descriptor, 
+                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_NodesEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -238,7 +253,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String, org.mojolang.mojo.lang.EntityEdge> defaultEntry =
             com.google.protobuf.MapEntry
             .<java.lang.String, org.mojolang.mojo.lang.EntityEdge>newDefaultInstance(
-                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_EdgesEntry_descriptor, 
+                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_EdgesEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
@@ -313,162 +328,243 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  public static final int NODE_FROM_EDGES_FIELD_NUMBER = 10;
-  private static final class NodeFromEdgesDefaultEntryHolder {
+  public static final int RELATIONS_FIELD_NUMBER = 5;
+  private static final class RelationsDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
-        java.lang.String, org.mojolang.mojo.lang.EntityEdges> defaultEntry =
+        java.lang.String, org.mojolang.mojo.lang.EntityRelation> defaultEntry =
             com.google.protobuf.MapEntry
-            .<java.lang.String, org.mojolang.mojo.lang.EntityEdges>newDefaultInstance(
-                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_NodeFromEdgesEntry_descriptor, 
+            .<java.lang.String, org.mojolang.mojo.lang.EntityRelation>newDefaultInstance(
+                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_RelationsEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                org.mojolang.mojo.lang.EntityEdges.getDefaultInstance());
+                org.mojolang.mojo.lang.EntityRelation.getDefaultInstance());
   }
   private com.google.protobuf.MapField<
-      java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeFromEdges_;
-  private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-  internalGetNodeFromEdges() {
-    if (nodeFromEdges_ == null) {
+      java.lang.String, org.mojolang.mojo.lang.EntityRelation> relations_;
+  private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
+  internalGetRelations() {
+    if (relations_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
-          NodeFromEdgesDefaultEntryHolder.defaultEntry);
+          RelationsDefaultEntryHolder.defaultEntry);
     }
-    return nodeFromEdges_;
+    return relations_;
   }
 
-  public int getNodeFromEdgesCount() {
-    return internalGetNodeFromEdges().getMap().size();
+  public int getRelationsCount() {
+    return internalGetRelations().getMap().size();
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+   * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
 
   @java.lang.Override
-  public boolean containsNodeFromEdges(
+  public boolean containsRelations(
       java.lang.String key) {
     if (key == null) { throw new java.lang.NullPointerException(); }
-    return internalGetNodeFromEdges().getMap().containsKey(key);
+    return internalGetRelations().getMap().containsKey(key);
   }
   /**
-   * Use {@link #getNodeFromEdgesMap()} instead.
+   * Use {@link #getRelationsMap()} instead.
    */
   @java.lang.Override
   @java.lang.Deprecated
-  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeFromEdges() {
-    return getNodeFromEdgesMap();
+  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> getRelations() {
+    return getRelationsMap();
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+   * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
   @java.lang.Override
 
-  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeFromEdgesMap() {
-    return internalGetNodeFromEdges().getMap();
+  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> getRelationsMap() {
+    return internalGetRelations().getMap();
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+   * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
   @java.lang.Override
 
-  public org.mojolang.mojo.lang.EntityEdges getNodeFromEdgesOrDefault(
+  public org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityEdges defaultValue) {
+      org.mojolang.mojo.lang.EntityRelation defaultValue) {
     if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-        internalGetNodeFromEdges().getMap();
+    java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
+        internalGetRelations().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+   * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
   @java.lang.Override
 
-  public org.mojolang.mojo.lang.EntityEdges getNodeFromEdgesOrThrow(
+  public org.mojolang.mojo.lang.EntityRelation getRelationsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-        internalGetNodeFromEdges().getMap();
+    java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
+        internalGetRelations().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
     }
     return map.get(key);
   }
 
-  public static final int NODE_TO_EDGES_FIELD_NUMBER = 11;
-  private static final class NodeToEdgesDefaultEntryHolder {
+  public static final int NODE_EDGES_FIELD_NUMBER = 14;
+  private static final class NodeEdgesDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         java.lang.String, org.mojolang.mojo.lang.EntityEdges> defaultEntry =
             com.google.protobuf.MapEntry
             .<java.lang.String, org.mojolang.mojo.lang.EntityEdges>newDefaultInstance(
-                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_NodeToEdgesEntry_descriptor, 
+                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_NodeEdgesEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.lang.EntityEdges.getDefaultInstance());
   }
   private com.google.protobuf.MapField<
-      java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeToEdges_;
+      java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeEdges_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-  internalGetNodeToEdges() {
-    if (nodeToEdges_ == null) {
+  internalGetNodeEdges() {
+    if (nodeEdges_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
-          NodeToEdgesDefaultEntryHolder.defaultEntry);
+          NodeEdgesDefaultEntryHolder.defaultEntry);
     }
-    return nodeToEdges_;
+    return nodeEdges_;
   }
 
-  public int getNodeToEdgesCount() {
-    return internalGetNodeToEdges().getMap().size();
+  public int getNodeEdgesCount() {
+    return internalGetNodeEdges().getMap().size();
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
 
   @java.lang.Override
-  public boolean containsNodeToEdges(
+  public boolean containsNodeEdges(
       java.lang.String key) {
     if (key == null) { throw new java.lang.NullPointerException(); }
-    return internalGetNodeToEdges().getMap().containsKey(key);
+    return internalGetNodeEdges().getMap().containsKey(key);
   }
   /**
-   * Use {@link #getNodeToEdgesMap()} instead.
+   * Use {@link #getNodeEdgesMap()} instead.
    */
   @java.lang.Override
   @java.lang.Deprecated
-  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeToEdges() {
-    return getNodeToEdgesMap();
+  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeEdges() {
+    return getNodeEdgesMap();
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
   @java.lang.Override
 
-  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeToEdgesMap() {
-    return internalGetNodeToEdges().getMap();
+  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeEdgesMap() {
+    return internalGetNodeEdges().getMap();
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
   @java.lang.Override
 
-  public org.mojolang.mojo.lang.EntityEdges getNodeToEdgesOrDefault(
+  public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.EntityEdges defaultValue) {
     if (key == null) { throw new java.lang.NullPointerException(); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-        internalGetNodeToEdges().getMap();
+        internalGetNodeEdges().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+   * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
   @java.lang.Override
 
-  public org.mojolang.mojo.lang.EntityEdges getNodeToEdgesOrThrow(
+  public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new java.lang.NullPointerException(); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-        internalGetNodeToEdges().getMap();
+        internalGetNodeEdges().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int NODE_RELATIONS_FIELD_NUMBER = 15;
+  private static final class NodeRelationsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, org.mojolang.mojo.lang.EntityRelations> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, org.mojolang.mojo.lang.EntityRelations>newDefaultInstance(
+                org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_NodeRelationsEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                org.mojolang.mojo.lang.EntityRelations.getDefaultInstance());
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, org.mojolang.mojo.lang.EntityRelations> nodeRelations_;
+  private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
+  internalGetNodeRelations() {
+    if (nodeRelations_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          NodeRelationsDefaultEntryHolder.defaultEntry);
+    }
+    return nodeRelations_;
+  }
+
+  public int getNodeRelationsCount() {
+    return internalGetNodeRelations().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+   */
+
+  @java.lang.Override
+  public boolean containsNodeRelations(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    return internalGetNodeRelations().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getNodeRelationsMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> getNodeRelations() {
+    return getNodeRelationsMap();
+  }
+  /**
+   * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+   */
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> getNodeRelationsMap() {
+    return internalGetNodeRelations().getMap();
+  }
+  /**
+   * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+   */
+  @java.lang.Override
+
+  public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
+      java.lang.String key,
+      org.mojolang.mojo.lang.EntityRelations defaultValue) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
+        internalGetNodeRelations().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+   */
+  @java.lang.Override
+
+  public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
+        internalGetNodeRelations().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
     }
@@ -504,15 +600,21 @@ private static final long serialVersionUID = 0L;
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
-        internalGetNodeFromEdges(),
-        NodeFromEdgesDefaultEntryHolder.defaultEntry,
-        10);
+        internalGetRelations(),
+        RelationsDefaultEntryHolder.defaultEntry,
+        5);
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
-        internalGetNodeToEdges(),
-        NodeToEdgesDefaultEntryHolder.defaultEntry,
-        11);
+        internalGetNodeEdges(),
+        NodeEdgesDefaultEntryHolder.defaultEntry,
+        14);
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetNodeRelations(),
+        NodeRelationsDefaultEntryHolder.defaultEntry,
+        15);
     unknownFields.writeTo(output);
   }
 
@@ -542,25 +644,35 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, edges__);
     }
-    for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.lang.EntityEdges> entry
-         : internalGetNodeFromEdges().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-      nodeFromEdges__ = NodeFromEdgesDefaultEntryHolder.defaultEntry.newBuilderForType()
+    for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.lang.EntityRelation> entry
+         : internalGetRelations().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
+      relations__ = RelationsDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, nodeFromEdges__);
+          .computeMessageSize(5, relations__);
     }
     for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.lang.EntityEdges> entry
-         : internalGetNodeToEdges().getMap().entrySet()) {
+         : internalGetNodeEdges().getMap().entrySet()) {
       com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-      nodeToEdges__ = NodeToEdgesDefaultEntryHolder.defaultEntry.newBuilderForType()
+      nodeEdges__ = NodeEdgesDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, nodeToEdges__);
+          .computeMessageSize(14, nodeEdges__);
+    }
+    for (java.util.Map.Entry<java.lang.String, org.mojolang.mojo.lang.EntityRelations> entry
+         : internalGetNodeRelations().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
+      nodeRelations__ = NodeRelationsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(15, nodeRelations__);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -572,19 +684,21 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.mojolang.mojo.lang.EntityRelation)) {
+    if (!(obj instanceof org.mojolang.mojo.lang.EntityRelationSet)) {
       return super.equals(obj);
     }
-    org.mojolang.mojo.lang.EntityRelation other = (org.mojolang.mojo.lang.EntityRelation) obj;
+    org.mojolang.mojo.lang.EntityRelationSet other = (org.mojolang.mojo.lang.EntityRelationSet) obj;
 
     if (!internalGetNodes().equals(
         other.internalGetNodes())) return false;
     if (!internalGetEdges().equals(
         other.internalGetEdges())) return false;
-    if (!internalGetNodeFromEdges().equals(
-        other.internalGetNodeFromEdges())) return false;
-    if (!internalGetNodeToEdges().equals(
-        other.internalGetNodeToEdges())) return false;
+    if (!internalGetRelations().equals(
+        other.internalGetRelations())) return false;
+    if (!internalGetNodeEdges().equals(
+        other.internalGetNodeEdges())) return false;
+    if (!internalGetNodeRelations().equals(
+        other.internalGetNodeRelations())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -604,82 +718,86 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EDGES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetEdges().hashCode();
     }
-    if (!internalGetNodeFromEdges().getMap().isEmpty()) {
-      hash = (37 * hash) + NODE_FROM_EDGES_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetNodeFromEdges().hashCode();
+    if (!internalGetRelations().getMap().isEmpty()) {
+      hash = (37 * hash) + RELATIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetRelations().hashCode();
     }
-    if (!internalGetNodeToEdges().getMap().isEmpty()) {
-      hash = (37 * hash) + NODE_TO_EDGES_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetNodeToEdges().hashCode();
+    if (!internalGetNodeEdges().getMap().isEmpty()) {
+      hash = (37 * hash) + NODE_EDGES_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetNodeEdges().hashCode();
+    }
+    if (!internalGetNodeRelations().getMap().isEmpty()) {
+      hash = (37 * hash) + NODE_RELATIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetNodeRelations().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(byte[] data)
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseDelimitedFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.lang.EntityRelationSet parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseDelimitedFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelationSet parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -692,7 +810,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.mojolang.mojo.lang.EntityRelation prototype) {
+  public static Builder newBuilder(org.mojolang.mojo.lang.EntityRelationSet prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -708,15 +826,15 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code mojo.lang.EntityRelation}
+   * Protobuf type {@code mojo.lang.EntityRelationSet}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:mojo.lang.EntityRelation)
-      org.mojolang.mojo.lang.EntityRelationshipOrBuilder {
+      // @@protoc_insertion_point(builder_implements:mojo.lang.EntityRelationSet)
+      org.mojolang.mojo.lang.EntityRelationSetOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_descriptor;
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -727,10 +845,12 @@ private static final long serialVersionUID = 0L;
           return internalGetNodes();
         case 2:
           return internalGetEdges();
-        case 10:
-          return internalGetNodeFromEdges();
-        case 11:
-          return internalGetNodeToEdges();
+        case 5:
+          return internalGetRelations();
+        case 14:
+          return internalGetNodeEdges();
+        case 15:
+          return internalGetNodeRelations();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -744,10 +864,12 @@ private static final long serialVersionUID = 0L;
           return internalGetMutableNodes();
         case 2:
           return internalGetMutableEdges();
-        case 10:
-          return internalGetMutableNodeFromEdges();
-        case 11:
-          return internalGetMutableNodeToEdges();
+        case 5:
+          return internalGetMutableRelations();
+        case 14:
+          return internalGetMutableNodeEdges();
+        case 15:
+          return internalGetMutableNodeRelations();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -756,12 +878,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_fieldAccessorTable
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.mojolang.mojo.lang.EntityRelation.class, org.mojolang.mojo.lang.EntityRelation.Builder.class);
+              org.mojolang.mojo.lang.EntityRelationSet.class, org.mojolang.mojo.lang.EntityRelationSet.Builder.class);
     }
 
-    // Construct using org.mojolang.mojo.lang.EntityRelation.newBuilder()
+    // Construct using org.mojolang.mojo.lang.EntityRelationSet.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -781,25 +903,26 @@ private static final long serialVersionUID = 0L;
       super.clear();
       internalGetMutableNodes().clear();
       internalGetMutableEdges().clear();
-      internalGetMutableNodeFromEdges().clear();
-      internalGetMutableNodeToEdges().clear();
+      internalGetMutableRelations().clear();
+      internalGetMutableNodeEdges().clear();
+      internalGetMutableNodeRelations().clear();
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationship_descriptor;
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_descriptor;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.EntityRelation getDefaultInstanceForType() {
-      return org.mojolang.mojo.lang.EntityRelation.getDefaultInstance();
+    public org.mojolang.mojo.lang.EntityRelationSet getDefaultInstanceForType() {
+      return org.mojolang.mojo.lang.EntityRelationSet.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.EntityRelation build() {
-      org.mojolang.mojo.lang.EntityRelation result = buildPartial();
+    public org.mojolang.mojo.lang.EntityRelationSet build() {
+      org.mojolang.mojo.lang.EntityRelationSet result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -807,17 +930,19 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.EntityRelation buildPartial() {
-      org.mojolang.mojo.lang.EntityRelation result = new org.mojolang.mojo.lang.EntityRelation(this);
+    public org.mojolang.mojo.lang.EntityRelationSet buildPartial() {
+      org.mojolang.mojo.lang.EntityRelationSet result = new org.mojolang.mojo.lang.EntityRelationSet(this);
       int from_bitField0_ = bitField0_;
       result.nodes_ = internalGetNodes();
       result.nodes_.makeImmutable();
       result.edges_ = internalGetEdges();
       result.edges_.makeImmutable();
-      result.nodeFromEdges_ = internalGetNodeFromEdges();
-      result.nodeFromEdges_.makeImmutable();
-      result.nodeToEdges_ = internalGetNodeToEdges();
-      result.nodeToEdges_.makeImmutable();
+      result.relations_ = internalGetRelations();
+      result.relations_.makeImmutable();
+      result.nodeEdges_ = internalGetNodeEdges();
+      result.nodeEdges_.makeImmutable();
+      result.nodeRelations_ = internalGetNodeRelations();
+      result.nodeRelations_.makeImmutable();
       onBuilt();
       return result;
     }
@@ -856,24 +981,26 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.mojolang.mojo.lang.EntityRelation) {
-        return mergeFrom((org.mojolang.mojo.lang.EntityRelation)other);
+      if (other instanceof org.mojolang.mojo.lang.EntityRelationSet) {
+        return mergeFrom((org.mojolang.mojo.lang.EntityRelationSet)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.mojolang.mojo.lang.EntityRelation other) {
-      if (other == org.mojolang.mojo.lang.EntityRelation.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.mojolang.mojo.lang.EntityRelationSet other) {
+      if (other == org.mojolang.mojo.lang.EntityRelationSet.getDefaultInstance()) return this;
       internalGetMutableNodes().mergeFrom(
           other.internalGetNodes());
       internalGetMutableEdges().mergeFrom(
           other.internalGetEdges());
-      internalGetMutableNodeFromEdges().mergeFrom(
-          other.internalGetNodeFromEdges());
-      internalGetMutableNodeToEdges().mergeFrom(
-          other.internalGetNodeToEdges());
+      internalGetMutableRelations().mergeFrom(
+          other.internalGetRelations());
+      internalGetMutableNodeEdges().mergeFrom(
+          other.internalGetNodeEdges());
+      internalGetMutableNodeRelations().mergeFrom(
+          other.internalGetNodeRelations());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -889,11 +1016,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.lang.EntityRelation parsedMessage = null;
+      org.mojolang.mojo.lang.EntityRelationSet parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.lang.EntityRelation) e.getUnfinishedMessage();
+        parsedMessage = (org.mojolang.mojo.lang.EntityRelationSet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1161,99 +1288,99 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.MapField<
-        java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeFromEdges_;
-    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    internalGetNodeFromEdges() {
-      if (nodeFromEdges_ == null) {
+        java.lang.String, org.mojolang.mojo.lang.EntityRelation> relations_;
+    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
+    internalGetRelations() {
+      if (relations_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            NodeFromEdgesDefaultEntryHolder.defaultEntry);
+            RelationsDefaultEntryHolder.defaultEntry);
       }
-      return nodeFromEdges_;
+      return relations_;
     }
-    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    internalGetMutableNodeFromEdges() {
+    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
+    internalGetMutableRelations() {
       onChanged();;
-      if (nodeFromEdges_ == null) {
-        nodeFromEdges_ = com.google.protobuf.MapField.newMapField(
-            NodeFromEdgesDefaultEntryHolder.defaultEntry);
+      if (relations_ == null) {
+        relations_ = com.google.protobuf.MapField.newMapField(
+            RelationsDefaultEntryHolder.defaultEntry);
       }
-      if (!nodeFromEdges_.isMutable()) {
-        nodeFromEdges_ = nodeFromEdges_.copy();
+      if (!relations_.isMutable()) {
+        relations_ = relations_.copy();
       }
-      return nodeFromEdges_;
+      return relations_;
     }
 
-    public int getNodeFromEdgesCount() {
-      return internalGetNodeFromEdges().getMap().size();
+    public int getRelationsCount() {
+      return internalGetRelations().getMap().size();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+     * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
 
     @java.lang.Override
-    public boolean containsNodeFromEdges(
+    public boolean containsRelations(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetNodeFromEdges().getMap().containsKey(key);
+      return internalGetRelations().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getNodeFromEdgesMap()} instead.
+     * Use {@link #getRelationsMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeFromEdges() {
-      return getNodeFromEdgesMap();
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> getRelations() {
+      return getRelationsMap();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+     * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeFromEdgesMap() {
-      return internalGetNodeFromEdges().getMap();
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> getRelationsMap() {
+      return internalGetRelations().getMap();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+     * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
     @java.lang.Override
 
-    public org.mojolang.mojo.lang.EntityEdges getNodeFromEdgesOrDefault(
+    public org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.lang.EntityEdges defaultValue) {
+        org.mojolang.mojo.lang.EntityRelation defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-          internalGetNodeFromEdges().getMap();
+      java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
+          internalGetRelations().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+     * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
     @java.lang.Override
 
-    public org.mojolang.mojo.lang.EntityEdges getNodeFromEdgesOrThrow(
+    public org.mojolang.mojo.lang.EntityRelation getRelationsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-          internalGetNodeFromEdges().getMap();
+      java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
+          internalGetRelations().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
-    public Builder clearNodeFromEdges() {
-      internalGetMutableNodeFromEdges().getMutableMap()
+    public Builder clearRelations() {
+      internalGetMutableRelations().getMutableMap()
           .clear();
       return this;
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+     * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
 
-    public Builder removeNodeFromEdges(
+    public Builder removeRelations(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableNodeFromEdges().getMutableMap()
+      internalGetMutableRelations().getMutableMap()
           .remove(key);
       return this;
     }
@@ -1261,127 +1388,127 @@ private static final long serialVersionUID = 0L;
      * Use alternate mutation accessors instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    getMutableNodeFromEdges() {
-      return internalGetMutableNodeFromEdges().getMutableMap();
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
+    getMutableRelations() {
+      return internalGetMutableRelations().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+     * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
-    public Builder putNodeFromEdges(
+    public Builder putRelations(
         java.lang.String key,
-        org.mojolang.mojo.lang.EntityEdges value) {
+        org.mojolang.mojo.lang.EntityRelation value) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       if (value == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableNodeFromEdges().getMutableMap()
+      internalGetMutableRelations().getMutableMap()
           .put(key, value);
       return this;
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_from_edges = 10;</code>
+     * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
 
-    public Builder putAllNodeFromEdges(
-        java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> values) {
-      internalGetMutableNodeFromEdges().getMutableMap()
+    public Builder putAllRelations(
+        java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> values) {
+      internalGetMutableRelations().getMutableMap()
           .putAll(values);
       return this;
     }
 
     private com.google.protobuf.MapField<
-        java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeToEdges_;
+        java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeEdges_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    internalGetNodeToEdges() {
-      if (nodeToEdges_ == null) {
+    internalGetNodeEdges() {
+      if (nodeEdges_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            NodeToEdgesDefaultEntryHolder.defaultEntry);
+            NodeEdgesDefaultEntryHolder.defaultEntry);
       }
-      return nodeToEdges_;
+      return nodeEdges_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    internalGetMutableNodeToEdges() {
+    internalGetMutableNodeEdges() {
       onChanged();;
-      if (nodeToEdges_ == null) {
-        nodeToEdges_ = com.google.protobuf.MapField.newMapField(
-            NodeToEdgesDefaultEntryHolder.defaultEntry);
+      if (nodeEdges_ == null) {
+        nodeEdges_ = com.google.protobuf.MapField.newMapField(
+            NodeEdgesDefaultEntryHolder.defaultEntry);
       }
-      if (!nodeToEdges_.isMutable()) {
-        nodeToEdges_ = nodeToEdges_.copy();
+      if (!nodeEdges_.isMutable()) {
+        nodeEdges_ = nodeEdges_.copy();
       }
-      return nodeToEdges_;
+      return nodeEdges_;
     }
 
-    public int getNodeToEdgesCount() {
-      return internalGetNodeToEdges().getMap().size();
+    public int getNodeEdgesCount() {
+      return internalGetNodeEdges().getMap().size();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
 
     @java.lang.Override
-    public boolean containsNodeToEdges(
+    public boolean containsNodeEdges(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetNodeToEdges().getMap().containsKey(key);
+      return internalGetNodeEdges().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getNodeToEdgesMap()} instead.
+     * Use {@link #getNodeEdgesMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeToEdges() {
-      return getNodeToEdgesMap();
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeEdges() {
+      return getNodeEdgesMap();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeToEdgesMap() {
-      return internalGetNodeToEdges().getMap();
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeEdgesMap() {
+      return internalGetNodeEdges().getMap();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
     @java.lang.Override
 
-    public org.mojolang.mojo.lang.EntityEdges getNodeToEdgesOrDefault(
+    public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdges defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-          internalGetNodeToEdges().getMap();
+          internalGetNodeEdges().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
     @java.lang.Override
 
-    public org.mojolang.mojo.lang.EntityEdges getNodeToEdgesOrThrow(
+    public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
-          internalGetNodeToEdges().getMap();
+          internalGetNodeEdges().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
 
-    public Builder clearNodeToEdges() {
-      internalGetMutableNodeToEdges().getMutableMap()
+    public Builder clearNodeEdges() {
+      internalGetMutableNodeEdges().getMutableMap()
           .clear();
       return this;
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
 
-    public Builder removeNodeToEdges(
+    public Builder removeNodeEdges(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableNodeToEdges().getMutableMap()
+      internalGetMutableNodeEdges().getMutableMap()
           .remove(key);
       return this;
     }
@@ -1390,28 +1517,156 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    getMutableNodeToEdges() {
-      return internalGetMutableNodeToEdges().getMutableMap();
+    getMutableNodeEdges() {
+      return internalGetMutableNodeEdges().getMutableMap();
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
-    public Builder putNodeToEdges(
+    public Builder putNodeEdges(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdges value) {
       if (key == null) { throw new java.lang.NullPointerException(); }
       if (value == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableNodeToEdges().getMutableMap()
+      internalGetMutableNodeEdges().getMutableMap()
           .put(key, value);
       return this;
     }
     /**
-     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_to_edges = 11;</code>
+     * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
 
-    public Builder putAllNodeToEdges(
+    public Builder putAllNodeEdges(
         java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> values) {
-      internalGetMutableNodeToEdges().getMutableMap()
+      internalGetMutableNodeEdges().getMutableMap()
+          .putAll(values);
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, org.mojolang.mojo.lang.EntityRelations> nodeRelations_;
+    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
+    internalGetNodeRelations() {
+      if (nodeRelations_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            NodeRelationsDefaultEntryHolder.defaultEntry);
+      }
+      return nodeRelations_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
+    internalGetMutableNodeRelations() {
+      onChanged();;
+      if (nodeRelations_ == null) {
+        nodeRelations_ = com.google.protobuf.MapField.newMapField(
+            NodeRelationsDefaultEntryHolder.defaultEntry);
+      }
+      if (!nodeRelations_.isMutable()) {
+        nodeRelations_ = nodeRelations_.copy();
+      }
+      return nodeRelations_;
+    }
+
+    public int getNodeRelationsCount() {
+      return internalGetNodeRelations().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsNodeRelations(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetNodeRelations().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getNodeRelationsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> getNodeRelations() {
+      return getNodeRelationsMap();
+    }
+    /**
+     * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> getNodeRelationsMap() {
+      return internalGetNodeRelations().getMap();
+    }
+    /**
+     * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+     */
+    @java.lang.Override
+
+    public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
+        java.lang.String key,
+        org.mojolang.mojo.lang.EntityRelations defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
+          internalGetNodeRelations().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+     */
+    @java.lang.Override
+
+    public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
+          internalGetNodeRelations().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearNodeRelations() {
+      internalGetMutableNodeRelations().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+     */
+
+    public Builder removeNodeRelations(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableNodeRelations().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
+    getMutableNodeRelations() {
+      return internalGetMutableNodeRelations().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+     */
+    public Builder putNodeRelations(
+        java.lang.String key,
+        org.mojolang.mojo.lang.EntityRelations value) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (value == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableNodeRelations().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
+     */
+
+    public Builder putAllNodeRelations(
+        java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> values) {
+      internalGetMutableNodeRelations().getMutableMap()
           .putAll(values);
       return this;
     }
@@ -1428,41 +1683,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:mojo.lang.EntityRelation)
+    // @@protoc_insertion_point(builder_scope:mojo.lang.EntityRelationSet)
   }
 
-  // @@protoc_insertion_point(class_scope:mojo.lang.EntityRelation)
-  private static final org.mojolang.mojo.lang.EntityRelation DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:mojo.lang.EntityRelationSet)
+  private static final org.mojolang.mojo.lang.EntityRelationSet DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.mojolang.mojo.lang.EntityRelation();
+    DEFAULT_INSTANCE = new org.mojolang.mojo.lang.EntityRelationSet();
   }
 
-  public static org.mojolang.mojo.lang.EntityRelation getDefaultInstance() {
+  public static org.mojolang.mojo.lang.EntityRelationSet getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<EntityRelation>
-      PARSER = new com.google.protobuf.AbstractParser<EntityRelation>() {
+  private static final com.google.protobuf.Parser<EntityRelationSet>
+      PARSER = new com.google.protobuf.AbstractParser<EntityRelationSet>() {
     @java.lang.Override
-    public EntityRelation parsePartialFrom(
+    public EntityRelationSet parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EntityRelation(input, extensionRegistry);
+      return new EntityRelationSet(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<EntityRelation> parser() {
+  public static com.google.protobuf.Parser<EntityRelationSet> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<EntityRelation> getParserForType() {
+  public com.google.protobuf.Parser<EntityRelationSet> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.mojolang.mojo.lang.EntityRelation getDefaultInstanceForType() {
+  public org.mojolang.mojo.lang.EntityRelationSet getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

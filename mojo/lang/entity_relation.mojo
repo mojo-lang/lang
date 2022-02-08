@@ -12,13 +12,33 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-type EntityNode {
-    /// full name of the type
-    name: String @1 @key
+enum RelationType {
+    unspecified @0
 
-    /// the type declaration
-    type_declaration: TypeDeclaration @2
+    o2o @15
+    o2o_two_types @1
+    o2o_same_type @2
+    o2o_bidirectional @3
 
+    o2m @240 // 0xf << 4
+    o2m_two_types @16
+    o2m_same_type @32
 
-    key_field: ValueDecl @5
+    m2m @3840 // 0xf << 8
+    m2m_two_types @256
+    m2m_same_type @512
+    m2m_bidirectional @768
 }
+
+type EntityRelation {
+    /// '{from-entity-node-name}-{to-entity-node-name}' in the non-inverse edge
+    name: String @1 @key
+    type: RelationType @2
+
+    from: EntityNode @5 @reference
+    to: EntityNode @6 @reference
+
+    edges: [EntityEdge] @10 @max_length(2)
+}
+
+type EntityRelations = [EntityRelation]

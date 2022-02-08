@@ -78,4 +78,31 @@ public interface EntityEdgeOrBuilder extends
    * @return The multiple.
    */
   boolean getMultiple();
+
+  /**
+   * <code>bool required = 12;</code>
+   * @return The required.
+   */
+  boolean getRequired();
+
+  /**
+   * <code>bool reference_by_key = 19;</code>
+   * @return The referenceByKey.
+   */
+  boolean getReferenceByKey();
+
+  /**
+   * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+   * @return Whether the referenceField field is set.
+   */
+  boolean hasReferenceField();
+  /**
+   * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+   * @return The referenceField.
+   */
+  org.mojolang.mojo.lang.ValueDecl getReferenceField();
+  /**
+   * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+   */
+  org.mojolang.mojo.lang.ValueDeclOrBuilder getReferenceFieldOrBuilder();
 }

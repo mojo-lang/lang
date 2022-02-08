@@ -31,3 +31,37 @@ func (m *StructType) FieldNames(option FieldNamOption) []string {
 	}
 	return nil
 }
+
+func (m *StructType) GetField(name string) *ValueDecl {
+	if m != nil {
+		for _, inherit := range m.Inherits {
+			if field := inherit.GetTypeDeclaration().GetStructDecl().GetField(name); field != nil {
+				return field
+			}
+		}
+
+		for _, field := range m.Fields {
+			if field.Name == name {
+				return field
+			}
+		}
+	}
+	return nil
+}
+
+func (m *StructType) EachField(iter func(decl *ValueDecl) error) error {
+	if m != nil {
+		for _, inherit := range m.Inherits {
+			if err := inherit.GetTypeDeclaration().GetStructDecl().EachField(iter); err != nil {
+				return err
+			}
+		}
+
+		for _, field := range m.Fields {
+			if err := iter(field); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}

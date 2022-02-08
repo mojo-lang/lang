@@ -4,27 +4,28 @@
 package org.mojolang.mojo.lang;
 
 /**
- * Protobuf type {@code mojo.lang.EntityEdge}
+ * Protobuf type {@code mojo.lang.EntityRelation}
  */
-public final class EntityEdge extends
+public final class EntityRelation extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:mojo.lang.EntityEdge)
-    EntityEdgeOrBuilder {
+    // @@protoc_insertion_point(message_implements:mojo.lang.EntityRelation)
+    EntityRelationOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use EntityEdge.newBuilder() to construct.
-  private EntityEdge(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use EntityRelation.newBuilder() to construct.
+  private EntityRelation(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private EntityEdge() {
-    id_ = "";
+  private EntityRelation() {
     name_ = "";
+    type_ = 0;
+    edges_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new EntityEdge();
+    return new EntityRelation();
   }
 
   @java.lang.Override
@@ -32,7 +33,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EntityEdge(
+  private EntityRelation(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -40,6 +41,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -53,18 +55,13 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
             name_ = s;
             break;
           }
-          case 24: {
+          case 16: {
+            int rawValue = input.readEnum();
 
-            implicit_ = input.readBool();
+            type_ = rawValue;
             break;
           }
           case 42: {
@@ -93,37 +90,13 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 80: {
-
-            inverse_ = input.readBool();
-            break;
-          }
-          case 88: {
-
-            multiple_ = input.readBool();
-            break;
-          }
-          case 96: {
-
-            required_ = input.readBool();
-            break;
-          }
-          case 152: {
-
-            referenceByKey_ = input.readBool();
-            break;
-          }
-          case 162: {
-            org.mojolang.mojo.lang.ValueDecl.Builder subBuilder = null;
-            if (referenceField_ != null) {
-              subBuilder = referenceField_.toBuilder();
+          case 82: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              edges_ = new java.util.ArrayList<org.mojolang.mojo.lang.EntityEdge>();
+              mutable_bitField0_ |= 0x00000001;
             }
-            referenceField_ = input.readMessage(org.mojolang.mojo.lang.ValueDecl.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(referenceField_);
-              referenceField_ = subBuilder.buildPartial();
-            }
-
+            edges_.add(
+                input.readMessage(org.mojolang.mojo.lang.EntityEdge.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -141,65 +114,30 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        edges_ = java.util.Collections.unmodifiableList(edges_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityEdge_descriptor;
+    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelation_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityEdge_fieldAccessorTable
+    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelation_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.mojolang.mojo.lang.EntityEdge.class, org.mojolang.mojo.lang.EntityEdge.Builder.class);
+            org.mojolang.mojo.lang.EntityRelation.class, org.mojolang.mojo.lang.EntityRelation.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
-  /**
-   * <code>string id = 1;</code>
-   * @return The id.
-   */
-  @java.lang.Override
-  public java.lang.String getId() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      id_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string id = 1;</code>
-   * @return The bytes for id.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getIdBytes() {
-    java.lang.Object ref = id_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      id_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NAME_FIELD_NUMBER = 2;
+  public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 2;</code>
+   * <code>string name = 1;</code>
    * @return The name.
    */
   @java.lang.Override
@@ -216,7 +154,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 2;</code>
+   * <code>string name = 1;</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -234,15 +172,23 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 3;
-  private boolean implicit_;
+  public static final int TYPE_FIELD_NUMBER = 2;
+  private int type_;
   /**
-   * <code>bool implicit = 3;</code>
-   * @return The implicit.
+   * <code>.mojo.lang.RelationType type = 2;</code>
+   * @return The enum numeric value on the wire for type.
    */
-  @java.lang.Override
-  public boolean getImplicit() {
-    return implicit_;
+  @java.lang.Override public int getTypeValue() {
+    return type_;
+  }
+  /**
+   * <code>.mojo.lang.RelationType type = 2;</code>
+   * @return The type.
+   */
+  @java.lang.Override public org.mojolang.mojo.lang.RelationType getType() {
+    @SuppressWarnings("deprecation")
+    org.mojolang.mojo.lang.RelationType result = org.mojolang.mojo.lang.RelationType.valueOf(type_);
+    return result == null ? org.mojolang.mojo.lang.RelationType.UNRECOGNIZED : result;
   }
 
   public static final int FROM_FIELD_NUMBER = 5;
@@ -297,74 +243,44 @@ private static final long serialVersionUID = 0L;
     return getTo();
   }
 
-  public static final int INVERSE_FIELD_NUMBER = 10;
-  private boolean inverse_;
+  public static final int EDGES_FIELD_NUMBER = 10;
+  private java.util.List<org.mojolang.mojo.lang.EntityEdge> edges_;
   /**
-   * <code>bool inverse = 10;</code>
-   * @return The inverse.
+   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
    */
   @java.lang.Override
-  public boolean getInverse() {
-    return inverse_;
-  }
-
-  public static final int MULTIPLE_FIELD_NUMBER = 11;
-  private boolean multiple_;
-  /**
-   * <code>bool multiple = 11;</code>
-   * @return The multiple.
-   */
-  @java.lang.Override
-  public boolean getMultiple() {
-    return multiple_;
-  }
-
-  public static final int REQUIRED_FIELD_NUMBER = 12;
-  private boolean required_;
-  /**
-   * <code>bool required = 12;</code>
-   * @return The required.
-   */
-  @java.lang.Override
-  public boolean getRequired() {
-    return required_;
-  }
-
-  public static final int REFERENCE_BY_KEY_FIELD_NUMBER = 19;
-  private boolean referenceByKey_;
-  /**
-   * <code>bool reference_by_key = 19;</code>
-   * @return The referenceByKey.
-   */
-  @java.lang.Override
-  public boolean getReferenceByKey() {
-    return referenceByKey_;
-  }
-
-  public static final int REFERENCE_FIELD_FIELD_NUMBER = 20;
-  private org.mojolang.mojo.lang.ValueDecl referenceField_;
-  /**
-   * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
-   * @return Whether the referenceField field is set.
-   */
-  @java.lang.Override
-  public boolean hasReferenceField() {
-    return referenceField_ != null;
+  public java.util.List<org.mojolang.mojo.lang.EntityEdge> getEdgesList() {
+    return edges_;
   }
   /**
-   * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
-   * @return The referenceField.
+   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ValueDecl getReferenceField() {
-    return referenceField_ == null ? org.mojolang.mojo.lang.ValueDecl.getDefaultInstance() : referenceField_;
+  public java.util.List<? extends org.mojolang.mojo.lang.EntityEdgeOrBuilder> 
+      getEdgesOrBuilderList() {
+    return edges_;
   }
   /**
-   * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ValueDeclOrBuilder getReferenceFieldOrBuilder() {
-    return getReferenceField();
+  public int getEdgesCount() {
+    return edges_.size();
+  }
+  /**
+   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.EntityEdge getEdges(int index) {
+    return edges_.get(index);
+  }
+  /**
+   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.EntityEdgeOrBuilder getEdgesOrBuilder(
+      int index) {
+    return edges_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -381,14 +297,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-    }
     if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (implicit_ != false) {
-      output.writeBool(3, implicit_);
+    if (type_ != org.mojolang.mojo.lang.RelationType.RELATION_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(2, type_);
     }
     if (from_ != null) {
       output.writeMessage(5, getFrom());
@@ -396,20 +309,8 @@ private static final long serialVersionUID = 0L;
     if (to_ != null) {
       output.writeMessage(6, getTo());
     }
-    if (inverse_ != false) {
-      output.writeBool(10, inverse_);
-    }
-    if (multiple_ != false) {
-      output.writeBool(11, multiple_);
-    }
-    if (required_ != false) {
-      output.writeBool(12, required_);
-    }
-    if (referenceByKey_ != false) {
-      output.writeBool(19, referenceByKey_);
-    }
-    if (referenceField_ != null) {
-      output.writeMessage(20, getReferenceField());
+    for (int i = 0; i < edges_.size(); i++) {
+      output.writeMessage(10, edges_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -420,15 +321,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-    }
     if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (implicit_ != false) {
+    if (type_ != org.mojolang.mojo.lang.RelationType.RELATION_TYPE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, implicit_);
+        .computeEnumSize(2, type_);
     }
     if (from_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -438,25 +336,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getTo());
     }
-    if (inverse_ != false) {
+    for (int i = 0; i < edges_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(10, inverse_);
-    }
-    if (multiple_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(11, multiple_);
-    }
-    if (required_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(12, required_);
-    }
-    if (referenceByKey_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(19, referenceByKey_);
-    }
-    if (referenceField_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(20, getReferenceField());
+        .computeMessageSize(10, edges_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -468,17 +350,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.mojolang.mojo.lang.EntityEdge)) {
+    if (!(obj instanceof org.mojolang.mojo.lang.EntityRelation)) {
       return super.equals(obj);
     }
-    org.mojolang.mojo.lang.EntityEdge other = (org.mojolang.mojo.lang.EntityEdge) obj;
+    org.mojolang.mojo.lang.EntityRelation other = (org.mojolang.mojo.lang.EntityRelation) obj;
 
-    if (!getId()
-        .equals(other.getId())) return false;
     if (!getName()
         .equals(other.getName())) return false;
-    if (getImplicit()
-        != other.getImplicit()) return false;
+    if (type_ != other.type_) return false;
     if (hasFrom() != other.hasFrom()) return false;
     if (hasFrom()) {
       if (!getFrom()
@@ -489,19 +368,8 @@ private static final long serialVersionUID = 0L;
       if (!getTo()
           .equals(other.getTo())) return false;
     }
-    if (getInverse()
-        != other.getInverse()) return false;
-    if (getMultiple()
-        != other.getMultiple()) return false;
-    if (getRequired()
-        != other.getRequired()) return false;
-    if (getReferenceByKey()
-        != other.getReferenceByKey()) return false;
-    if (hasReferenceField() != other.hasReferenceField()) return false;
-    if (hasReferenceField()) {
-      if (!getReferenceField()
-          .equals(other.getReferenceField())) return false;
-    }
+    if (!getEdgesList()
+        .equals(other.getEdgesList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -513,13 +381,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getImplicit());
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + type_;
     if (hasFrom()) {
       hash = (37 * hash) + FROM_FIELD_NUMBER;
       hash = (53 * hash) + getFrom().hashCode();
@@ -528,90 +393,78 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TO_FIELD_NUMBER;
       hash = (53 * hash) + getTo().hashCode();
     }
-    hash = (37 * hash) + INVERSE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getInverse());
-    hash = (37 * hash) + MULTIPLE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getMultiple());
-    hash = (37 * hash) + REQUIRED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getRequired());
-    hash = (37 * hash) + REFERENCE_BY_KEY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getReferenceByKey());
-    if (hasReferenceField()) {
-      hash = (37 * hash) + REFERENCE_FIELD_FIELD_NUMBER;
-      hash = (53 * hash) + getReferenceField().hashCode();
+    if (getEdgesCount() > 0) {
+      hash = (37 * hash) + EDGES_FIELD_NUMBER;
+      hash = (53 * hash) + getEdgesList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(byte[] data)
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseDelimitedFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.lang.EntityRelation parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseDelimitedFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.EntityEdge parseFrom(
+  public static org.mojolang.mojo.lang.EntityRelation parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -624,7 +477,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.mojolang.mojo.lang.EntityEdge prototype) {
+  public static Builder newBuilder(org.mojolang.mojo.lang.EntityRelation prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -640,26 +493,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code mojo.lang.EntityEdge}
+   * Protobuf type {@code mojo.lang.EntityRelation}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:mojo.lang.EntityEdge)
-      org.mojolang.mojo.lang.EntityEdgeOrBuilder {
+      // @@protoc_insertion_point(builder_implements:mojo.lang.EntityRelation)
+      org.mojolang.mojo.lang.EntityRelationOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityEdge_descriptor;
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelation_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityEdge_fieldAccessorTable
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelation_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.mojolang.mojo.lang.EntityEdge.class, org.mojolang.mojo.lang.EntityEdge.Builder.class);
+              org.mojolang.mojo.lang.EntityRelation.class, org.mojolang.mojo.lang.EntityRelation.Builder.class);
     }
 
-    // Construct using org.mojolang.mojo.lang.EntityEdge.newBuilder()
+    // Construct using org.mojolang.mojo.lang.EntityRelation.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -672,16 +525,15 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getEdgesFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = "";
-
       name_ = "";
 
-      implicit_ = false;
+      type_ = 0;
 
       if (fromBuilder_ == null) {
         from_ = null;
@@ -695,19 +547,11 @@ private static final long serialVersionUID = 0L;
         to_ = null;
         toBuilder_ = null;
       }
-      inverse_ = false;
-
-      multiple_ = false;
-
-      required_ = false;
-
-      referenceByKey_ = false;
-
-      if (referenceFieldBuilder_ == null) {
-        referenceField_ = null;
+      if (edgesBuilder_ == null) {
+        edges_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        referenceField_ = null;
-        referenceFieldBuilder_ = null;
+        edgesBuilder_.clear();
       }
       return this;
     }
@@ -715,17 +559,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityEdge_descriptor;
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelation_descriptor;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.EntityEdge getDefaultInstanceForType() {
-      return org.mojolang.mojo.lang.EntityEdge.getDefaultInstance();
+    public org.mojolang.mojo.lang.EntityRelation getDefaultInstanceForType() {
+      return org.mojolang.mojo.lang.EntityRelation.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.EntityEdge build() {
-      org.mojolang.mojo.lang.EntityEdge result = buildPartial();
+    public org.mojolang.mojo.lang.EntityRelation build() {
+      org.mojolang.mojo.lang.EntityRelation result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -733,11 +577,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.EntityEdge buildPartial() {
-      org.mojolang.mojo.lang.EntityEdge result = new org.mojolang.mojo.lang.EntityEdge(this);
-      result.id_ = id_;
+    public org.mojolang.mojo.lang.EntityRelation buildPartial() {
+      org.mojolang.mojo.lang.EntityRelation result = new org.mojolang.mojo.lang.EntityRelation(this);
+      int from_bitField0_ = bitField0_;
       result.name_ = name_;
-      result.implicit_ = implicit_;
+      result.type_ = type_;
       if (fromBuilder_ == null) {
         result.from_ = from_;
       } else {
@@ -748,14 +592,14 @@ private static final long serialVersionUID = 0L;
       } else {
         result.to_ = toBuilder_.build();
       }
-      result.inverse_ = inverse_;
-      result.multiple_ = multiple_;
-      result.required_ = required_;
-      result.referenceByKey_ = referenceByKey_;
-      if (referenceFieldBuilder_ == null) {
-        result.referenceField_ = referenceField_;
+      if (edgesBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          edges_ = java.util.Collections.unmodifiableList(edges_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.edges_ = edges_;
       } else {
-        result.referenceField_ = referenceFieldBuilder_.build();
+        result.edges_ = edgesBuilder_.build();
       }
       onBuilt();
       return result;
@@ -795,26 +639,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.mojolang.mojo.lang.EntityEdge) {
-        return mergeFrom((org.mojolang.mojo.lang.EntityEdge)other);
+      if (other instanceof org.mojolang.mojo.lang.EntityRelation) {
+        return mergeFrom((org.mojolang.mojo.lang.EntityRelation)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.mojolang.mojo.lang.EntityEdge other) {
-      if (other == org.mojolang.mojo.lang.EntityEdge.getDefaultInstance()) return this;
-      if (!other.getId().isEmpty()) {
-        id_ = other.id_;
-        onChanged();
-      }
+    public Builder mergeFrom(org.mojolang.mojo.lang.EntityRelation other) {
+      if (other == org.mojolang.mojo.lang.EntityRelation.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
       }
-      if (other.getImplicit() != false) {
-        setImplicit(other.getImplicit());
+      if (other.type_ != 0) {
+        setTypeValue(other.getTypeValue());
       }
       if (other.hasFrom()) {
         mergeFrom(other.getFrom());
@@ -822,20 +662,31 @@ private static final long serialVersionUID = 0L;
       if (other.hasTo()) {
         mergeTo(other.getTo());
       }
-      if (other.getInverse() != false) {
-        setInverse(other.getInverse());
-      }
-      if (other.getMultiple() != false) {
-        setMultiple(other.getMultiple());
-      }
-      if (other.getRequired() != false) {
-        setRequired(other.getRequired());
-      }
-      if (other.getReferenceByKey() != false) {
-        setReferenceByKey(other.getReferenceByKey());
-      }
-      if (other.hasReferenceField()) {
-        mergeReferenceField(other.getReferenceField());
+      if (edgesBuilder_ == null) {
+        if (!other.edges_.isEmpty()) {
+          if (edges_.isEmpty()) {
+            edges_ = other.edges_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureEdgesIsMutable();
+            edges_.addAll(other.edges_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.edges_.isEmpty()) {
+          if (edgesBuilder_.isEmpty()) {
+            edgesBuilder_.dispose();
+            edgesBuilder_ = null;
+            edges_ = other.edges_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            edgesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getEdgesFieldBuilder() : null;
+          } else {
+            edgesBuilder_.addAllMessages(other.edges_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -852,11 +703,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.lang.EntityEdge parsedMessage = null;
+      org.mojolang.mojo.lang.EntityRelation parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.lang.EntityEdge) e.getUnfinishedMessage();
+        parsedMessage = (org.mojolang.mojo.lang.EntityRelation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -865,86 +716,11 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-
-    private java.lang.Object id_ = "";
-    /**
-     * <code>string id = 1;</code>
-     * @return The id.
-     */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      
-      id_ = getDefaultInstance().getId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @param value The bytes for id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 1;</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -960,7 +736,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 1;</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -977,7 +753,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 1;</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -992,7 +768,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -1002,7 +778,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 1;</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1018,33 +794,56 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean implicit_ ;
+    private int type_ = 0;
     /**
-     * <code>bool implicit = 3;</code>
-     * @return The implicit.
+     * <code>.mojo.lang.RelationType type = 2;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    @java.lang.Override
-    public boolean getImplicit() {
-      return implicit_;
+    @java.lang.Override public int getTypeValue() {
+      return type_;
     }
     /**
-     * <code>bool implicit = 3;</code>
-     * @param value The implicit to set.
+     * <code>.mojo.lang.RelationType type = 2;</code>
+     * @param value The enum numeric value on the wire for type to set.
      * @return This builder for chaining.
      */
-    public Builder setImplicit(boolean value) {
+    public Builder setTypeValue(int value) {
       
-      implicit_ = value;
+      type_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool implicit = 3;</code>
+     * <code>.mojo.lang.RelationType type = 2;</code>
+     * @return The type.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.RelationType getType() {
+      @SuppressWarnings("deprecation")
+      org.mojolang.mojo.lang.RelationType result = org.mojolang.mojo.lang.RelationType.valueOf(type_);
+      return result == null ? org.mojolang.mojo.lang.RelationType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.mojo.lang.RelationType type = 2;</code>
+     * @param value The type to set.
      * @return This builder for chaining.
      */
-    public Builder clearImplicit() {
+    public Builder setType(org.mojolang.mojo.lang.RelationType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
       
-      implicit_ = false;
+      type_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.RelationType type = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearType() {
+      
+      type_ = 0;
       onChanged();
       return this;
     }
@@ -1287,247 +1086,244 @@ private static final long serialVersionUID = 0L;
       return toBuilder_;
     }
 
-    private boolean inverse_ ;
-    /**
-     * <code>bool inverse = 10;</code>
-     * @return The inverse.
-     */
-    @java.lang.Override
-    public boolean getInverse() {
-      return inverse_;
-    }
-    /**
-     * <code>bool inverse = 10;</code>
-     * @param value The inverse to set.
-     * @return This builder for chaining.
-     */
-    public Builder setInverse(boolean value) {
-      
-      inverse_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool inverse = 10;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearInverse() {
-      
-      inverse_ = false;
-      onChanged();
-      return this;
+    private java.util.List<org.mojolang.mojo.lang.EntityEdge> edges_ =
+      java.util.Collections.emptyList();
+    private void ensureEdgesIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        edges_ = new java.util.ArrayList<org.mojolang.mojo.lang.EntityEdge>(edges_);
+        bitField0_ |= 0x00000001;
+       }
     }
 
-    private boolean multiple_ ;
-    /**
-     * <code>bool multiple = 11;</code>
-     * @return The multiple.
-     */
-    @java.lang.Override
-    public boolean getMultiple() {
-      return multiple_;
-    }
-    /**
-     * <code>bool multiple = 11;</code>
-     * @param value The multiple to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMultiple(boolean value) {
-      
-      multiple_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool multiple = 11;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMultiple() {
-      
-      multiple_ = false;
-      onChanged();
-      return this;
-    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.mojolang.mojo.lang.EntityEdge, org.mojolang.mojo.lang.EntityEdge.Builder, org.mojolang.mojo.lang.EntityEdgeOrBuilder> edgesBuilder_;
 
-    private boolean required_ ;
     /**
-     * <code>bool required = 12;</code>
-     * @return The required.
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    @java.lang.Override
-    public boolean getRequired() {
-      return required_;
-    }
-    /**
-     * <code>bool required = 12;</code>
-     * @param value The required to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRequired(boolean value) {
-      
-      required_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool required = 12;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRequired() {
-      
-      required_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean referenceByKey_ ;
-    /**
-     * <code>bool reference_by_key = 19;</code>
-     * @return The referenceByKey.
-     */
-    @java.lang.Override
-    public boolean getReferenceByKey() {
-      return referenceByKey_;
-    }
-    /**
-     * <code>bool reference_by_key = 19;</code>
-     * @param value The referenceByKey to set.
-     * @return This builder for chaining.
-     */
-    public Builder setReferenceByKey(boolean value) {
-      
-      referenceByKey_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool reference_by_key = 19;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearReferenceByKey() {
-      
-      referenceByKey_ = false;
-      onChanged();
-      return this;
-    }
-
-    private org.mojolang.mojo.lang.ValueDecl referenceField_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.ValueDecl, org.mojolang.mojo.lang.ValueDecl.Builder, org.mojolang.mojo.lang.ValueDeclOrBuilder> referenceFieldBuilder_;
-    /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
-     * @return Whether the referenceField field is set.
-     */
-    public boolean hasReferenceField() {
-      return referenceFieldBuilder_ != null || referenceField_ != null;
-    }
-    /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
-     * @return The referenceField.
-     */
-    public org.mojolang.mojo.lang.ValueDecl getReferenceField() {
-      if (referenceFieldBuilder_ == null) {
-        return referenceField_ == null ? org.mojolang.mojo.lang.ValueDecl.getDefaultInstance() : referenceField_;
+    public java.util.List<org.mojolang.mojo.lang.EntityEdge> getEdgesList() {
+      if (edgesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(edges_);
       } else {
-        return referenceFieldBuilder_.getMessage();
+        return edgesBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    public Builder setReferenceField(org.mojolang.mojo.lang.ValueDecl value) {
-      if (referenceFieldBuilder_ == null) {
+    public int getEdgesCount() {
+      if (edgesBuilder_ == null) {
+        return edges_.size();
+      } else {
+        return edgesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public org.mojolang.mojo.lang.EntityEdge getEdges(int index) {
+      if (edgesBuilder_ == null) {
+        return edges_.get(index);
+      } else {
+        return edgesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public Builder setEdges(
+        int index, org.mojolang.mojo.lang.EntityEdge value) {
+      if (edgesBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        referenceField_ = value;
+        ensureEdgesIsMutable();
+        edges_.set(index, value);
         onChanged();
       } else {
-        referenceFieldBuilder_.setMessage(value);
+        edgesBuilder_.setMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    public Builder setReferenceField(
-        org.mojolang.mojo.lang.ValueDecl.Builder builderForValue) {
-      if (referenceFieldBuilder_ == null) {
-        referenceField_ = builderForValue.build();
+    public Builder setEdges(
+        int index, org.mojolang.mojo.lang.EntityEdge.Builder builderForValue) {
+      if (edgesBuilder_ == null) {
+        ensureEdgesIsMutable();
+        edges_.set(index, builderForValue.build());
         onChanged();
       } else {
-        referenceFieldBuilder_.setMessage(builderForValue.build());
+        edgesBuilder_.setMessage(index, builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    public Builder mergeReferenceField(org.mojolang.mojo.lang.ValueDecl value) {
-      if (referenceFieldBuilder_ == null) {
-        if (referenceField_ != null) {
-          referenceField_ =
-            org.mojolang.mojo.lang.ValueDecl.newBuilder(referenceField_).mergeFrom(value).buildPartial();
-        } else {
-          referenceField_ = value;
+    public Builder addEdges(org.mojolang.mojo.lang.EntityEdge value) {
+      if (edgesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
         }
+        ensureEdgesIsMutable();
+        edges_.add(value);
         onChanged();
       } else {
-        referenceFieldBuilder_.mergeFrom(value);
+        edgesBuilder_.addMessage(value);
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    public Builder clearReferenceField() {
-      if (referenceFieldBuilder_ == null) {
-        referenceField_ = null;
+    public Builder addEdges(
+        int index, org.mojolang.mojo.lang.EntityEdge value) {
+      if (edgesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureEdgesIsMutable();
+        edges_.add(index, value);
         onChanged();
       } else {
-        referenceField_ = null;
-        referenceFieldBuilder_ = null;
+        edgesBuilder_.addMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    public org.mojolang.mojo.lang.ValueDecl.Builder getReferenceFieldBuilder() {
-      
-      onChanged();
-      return getReferenceFieldFieldBuilder().getBuilder();
+    public Builder addEdges(
+        org.mojolang.mojo.lang.EntityEdge.Builder builderForValue) {
+      if (edgesBuilder_ == null) {
+        ensureEdgesIsMutable();
+        edges_.add(builderForValue.build());
+        onChanged();
+      } else {
+        edgesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
     }
     /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    public org.mojolang.mojo.lang.ValueDeclOrBuilder getReferenceFieldOrBuilder() {
-      if (referenceFieldBuilder_ != null) {
-        return referenceFieldBuilder_.getMessageOrBuilder();
+    public Builder addEdges(
+        int index, org.mojolang.mojo.lang.EntityEdge.Builder builderForValue) {
+      if (edgesBuilder_ == null) {
+        ensureEdgesIsMutable();
+        edges_.add(index, builderForValue.build());
+        onChanged();
       } else {
-        return referenceField_ == null ?
-            org.mojolang.mojo.lang.ValueDecl.getDefaultInstance() : referenceField_;
+        edgesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public Builder addAllEdges(
+        java.lang.Iterable<? extends org.mojolang.mojo.lang.EntityEdge> values) {
+      if (edgesBuilder_ == null) {
+        ensureEdgesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, edges_);
+        onChanged();
+      } else {
+        edgesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public Builder clearEdges() {
+      if (edgesBuilder_ == null) {
+        edges_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        edgesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public Builder removeEdges(int index) {
+      if (edgesBuilder_ == null) {
+        ensureEdgesIsMutable();
+        edges_.remove(index);
+        onChanged();
+      } else {
+        edgesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public org.mojolang.mojo.lang.EntityEdge.Builder getEdgesBuilder(
+        int index) {
+      return getEdgesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public org.mojolang.mojo.lang.EntityEdgeOrBuilder getEdgesOrBuilder(
+        int index) {
+      if (edgesBuilder_ == null) {
+        return edges_.get(index);  } else {
+        return edgesBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.mojo.lang.ValueDecl reference_field = 20;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.ValueDecl, org.mojolang.mojo.lang.ValueDecl.Builder, org.mojolang.mojo.lang.ValueDeclOrBuilder> 
-        getReferenceFieldFieldBuilder() {
-      if (referenceFieldBuilder_ == null) {
-        referenceFieldBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.ValueDecl, org.mojolang.mojo.lang.ValueDecl.Builder, org.mojolang.mojo.lang.ValueDeclOrBuilder>(
-                getReferenceField(),
+    public java.util.List<? extends org.mojolang.mojo.lang.EntityEdgeOrBuilder> 
+         getEdgesOrBuilderList() {
+      if (edgesBuilder_ != null) {
+        return edgesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(edges_);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public org.mojolang.mojo.lang.EntityEdge.Builder addEdgesBuilder() {
+      return getEdgesFieldBuilder().addBuilder(
+          org.mojolang.mojo.lang.EntityEdge.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public org.mojolang.mojo.lang.EntityEdge.Builder addEdgesBuilder(
+        int index) {
+      return getEdgesFieldBuilder().addBuilder(
+          index, org.mojolang.mojo.lang.EntityEdge.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     */
+    public java.util.List<org.mojolang.mojo.lang.EntityEdge.Builder> 
+         getEdgesBuilderList() {
+      return getEdgesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.mojolang.mojo.lang.EntityEdge, org.mojolang.mojo.lang.EntityEdge.Builder, org.mojolang.mojo.lang.EntityEdgeOrBuilder> 
+        getEdgesFieldBuilder() {
+      if (edgesBuilder_ == null) {
+        edgesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            org.mojolang.mojo.lang.EntityEdge, org.mojolang.mojo.lang.EntityEdge.Builder, org.mojolang.mojo.lang.EntityEdgeOrBuilder>(
+                edges_,
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        referenceField_ = null;
+        edges_ = null;
       }
-      return referenceFieldBuilder_;
+      return edgesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1542,41 +1338,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:mojo.lang.EntityEdge)
+    // @@protoc_insertion_point(builder_scope:mojo.lang.EntityRelation)
   }
 
-  // @@protoc_insertion_point(class_scope:mojo.lang.EntityEdge)
-  private static final org.mojolang.mojo.lang.EntityEdge DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:mojo.lang.EntityRelation)
+  private static final org.mojolang.mojo.lang.EntityRelation DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.mojolang.mojo.lang.EntityEdge();
+    DEFAULT_INSTANCE = new org.mojolang.mojo.lang.EntityRelation();
   }
 
-  public static org.mojolang.mojo.lang.EntityEdge getDefaultInstance() {
+  public static org.mojolang.mojo.lang.EntityRelation getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<EntityEdge>
-      PARSER = new com.google.protobuf.AbstractParser<EntityEdge>() {
+  private static final com.google.protobuf.Parser<EntityRelation>
+      PARSER = new com.google.protobuf.AbstractParser<EntityRelation>() {
     @java.lang.Override
-    public EntityEdge parsePartialFrom(
+    public EntityRelation parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EntityEdge(input, extensionRegistry);
+      return new EntityRelation(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<EntityEdge> parser() {
+  public static com.google.protobuf.Parser<EntityRelation> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<EntityEdge> getParserForType() {
+  public com.google.protobuf.Parser<EntityRelation> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.mojolang.mojo.lang.EntityEdge getDefaultInstanceForType() {
+  public org.mojolang.mojo.lang.EntityRelation getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

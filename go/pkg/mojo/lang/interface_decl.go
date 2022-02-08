@@ -12,3 +12,10 @@ func (m *InterfaceDecl) SetScope(scope *Scope) {
 		m.Scope = scope
 	}
 }
+
+func (m *InterfaceDecl) GetMethodGroups() map[string][]*FunctionDecl {
+	if m != nil && m.Type != nil {
+		return m.Type.GetMethodGroups()
+	}
+	return nil
+}

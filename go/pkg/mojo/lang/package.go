@@ -200,7 +200,7 @@ func (m *Package) GoModName() string {
 func (m *Package) GoFullPackageName() string {
 	if len(m.FullName) > 0 {
 		segments := strings.Split(m.FullName, ".")
-		for i := 0; i < len(segments)-1; i++ {
+		for i := 0; i < len(segments); i++ {
 			segments[i] = strcase.ToKebab(segments[i])
 		}
 		fullName := strings.Join(segments, "/")
@@ -267,3 +267,61 @@ func (m *Package) GetResolvedIdentifier(fullName string) *Identifier {
 	return nil
 }
 
+func (m *Package) GetEntityNode(name string) *EntityNode {
+	if m != nil && m.EntityRelationSet != nil {
+		typeName := GetTypeTypeName(name)
+		if node := m.EntityRelationSet.GetNode(typeName); node != nil {
+			return node
+		}
+		if node := m.EntityRelationSet.GetNode(name); node != nil {
+			return node
+		}
+
+		for _, pkg := range m.Children {
+			if node := pkg.GetEntityNode(name); node != nil {
+				return node
+			}
+		}
+
+		for _, pkg := range m.ResolvedDependencies {
+			if node := pkg.GetEntityNode(name); node != nil {
+				return node
+			}
+		}
+	}
+	return nil
+}
+
+func (m *Package) SetEntityNode(name string, node *EntityNode) *Package {
+	if m != nil {
+		if m.EntityRelationSet == nil {
+			m.EntityRelationSet = NewEntityRelationSet()
+		}
+		m.EntityRelationSet.Nodes[name] = node
+	}
+	return m
+}
+
+func (m *Package) GetEntityEdge(name string) *EntityEdge {
+	if m != nil && m.EntityRelationSet != nil {
+		return m.EntityRelationSet.Edges[name]
+	}
+	return nil
+}
+
+func (m *Package) SetEntityEdge(name string, edge *EntityEdge) *Package {
+	if m != nil {
+		if m.EntityRelationSet == nil {
+			m.EntityRelationSet = NewEntityRelationSet()
+		}
+		m.EntityRelationSet.Edges[name] = edge
+	}
+	return m
+}
+
+func (m *Package) DeleteEntityEdge(name string) *Package {
+	if m != nil && m.EntityRelationSet != nil {
+		delete(m.EntityRelationSet.Edges, name)
+	}
+	return m
+}

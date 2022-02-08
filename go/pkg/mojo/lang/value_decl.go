@@ -1,6 +1,8 @@
 package lang
 
-import "errors"
+import (
+	"errors"
+)
 
 func (m *ValueDecl) GetAttributeArguments(name string) ([]*Argument, error) {
 	if m != nil {
@@ -26,6 +28,17 @@ func (m *ValueDecl) GetAttributeArgument(name string) (*Argument, error) {
 	return nil, errors.New("ValueDecl is nil")
 }
 
+func (m *ValueDecl) GetAttribute(name string) *Attribute {
+	if m != nil {
+		attr := GetAttribute(m.Attributes, name)
+		if attr == nil && m.Type != nil {
+			attr = GetAttribute(m.Type.Attributes, name)
+		}
+		return attr
+	}
+	return nil
+}
+
 func (m *ValueDecl) HasAttribute(name string) bool {
 	if m != nil {
 		attr := HasAttribute(m.Attributes, name)
@@ -47,25 +60,42 @@ func (m *ValueDecl) GetBoolAttribute(name string) (bool, error) {
 	return argument.GetBool()
 }
 
-func (m *ValueDecl) SetBoolAttribute(name string, value bool) {
+func (m *ValueDecl) SetBoolAttribute(name string, value bool) *Attribute {
 	if m != nil && m.Type != nil {
 		m.Type.Attributes = SetBoolAttribute(m.Type.Attributes, name, value)
+		return m.Type.Attributes[len(m.Type.Attributes)-1]
 	}
+	return nil
+}
+
+func (m *ValueDecl) SetImplicitBoolAttribute(name string, value bool) *Attribute {
+	if m != nil && m.Type != nil {
+		return m.SetBoolAttribute(name, value).SetImplicit(true)
+	}
+	return nil
 }
 
 func (m *ValueDecl) GetIntegerAttribute(name string) (int64, error) {
-	argument, err := m.GetAttributeArgument(name)
-	if err != nil {
+	if argument, err := m.GetAttributeArgument(name); err != nil {
 		return 0, err
+	} else {
+		return argument.GetInteger()
 	}
-
-	return argument.GetInteger()
 }
 
-func (m *ValueDecl) SetIntegerAttribute(name string, value int64) {
+func (m *ValueDecl) SetIntegerAttribute(name string, value int64) *Attribute {
 	if m != nil && m.Type != nil {
 		m.Type.Attributes = SetIntegerAttribute(m.Type.Attributes, name, value)
+		return m.Type.Attributes[len(m.Type.Attributes)-1]
 	}
+	return nil
+}
+
+func (m *ValueDecl) SetImplicitIntegerAttribute(name string, value int64) *Attribute {
+	if m != nil && m.Type != nil {
+		return m.SetIntegerAttribute(name, value).SetImplicit(true)
+	}
+	return nil
 }
 
 func (m *ValueDecl) GetStringAttribute(name string) (string, error) {
@@ -77,10 +107,19 @@ func (m *ValueDecl) GetStringAttribute(name string) (string, error) {
 	return argument.GetString()
 }
 
-func (m *ValueDecl) SetStringAttribute(name string, value string) {
+func (m *ValueDecl) SetStringAttribute(name string, value string) *Attribute {
 	if m != nil && m.Type != nil {
 		m.Type.Attributes = SetStringAttribute(m.Type.Attributes, name, value)
+		return m.Type.Attributes[len(m.Type.Attributes)-1]
 	}
+	return nil
+}
+
+func (m *ValueDecl) SetImplicitStringAttribute(name string, value string) *Attribute {
+	if m != nil && m.Type != nil {
+		return m.SetStringAttribute(name, value).SetImplicit(true)
+	}
+	return nil
 }
 
 func (m *ValueDecl) RemoveAttribute(name string) {
@@ -90,4 +129,24 @@ func (m *ValueDecl) RemoveAttribute(name string) {
 			m.Type.Attributes = RemoveAttribute(m.Type.Attributes, name)
 		}
 	}
+}
+
+func (m *ValueDecl) IsArrayType() bool {
+	return m.GetType().IsArrayType()
+}
+
+func (m *ValueDecl) IsMapType() bool {
+	return m.GetType().IsMapType()
+}
+
+func (m *ValueDecl) IsUnionType() bool {
+	return m.GetType().IsUnionType()
+}
+
+func (m *ValueDecl) IsScalarType() bool {
+	return m.GetType().IsScalar()
+}
+
+func (m *ValueDecl) IsEnum() bool {
+	return m.GetType().IsEnum()
 }

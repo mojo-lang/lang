@@ -148,6 +148,13 @@ func (m *Attribute) GetMapLiteralArgument() *MapLiteralExpr {
 	return nil
 }
 
+func (m *Attribute) SetImplicit(value bool) *Attribute {
+	if m != nil {
+		m.Implicit = value
+	}
+	return m
+}
+
 func GetAttribute(attributes []*Attribute, name string) *Attribute {
 	for _, attribute := range attributes {
 		if attribute.SameName(name) {

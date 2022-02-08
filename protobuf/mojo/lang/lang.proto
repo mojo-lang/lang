@@ -32,11 +32,27 @@ import "mojo/lang/string_literal_expr.proto";
 import "mojo/lang/struct_construction_expr.proto";
 import "mojo/lang/type_casting_expr.proto";
 import "mojo/lang/wildcard_expr.proto";
+import "mojo/mojo.proto";
 
 option go_package = "github.com/mojo-lang/lang/go/pkg/mojo/lang;lang";
 option java_multiple_files = true;
 option java_outer_classname = "LangProto";
 option java_package = "org.mojolang.mojo.lang";
+
+enum RelationType {
+    RELATION_TYPE_UNSPECIFIED=0;
+    RELATION_TYPE_O2O=15;
+    RELATION_TYPE_O2O_TWO_TYPES=1;
+    RELATION_TYPE_O2O_SAME_TYPE=2;
+    RELATION_TYPE_O2O_BIDIRECTIONAL=3;
+    RELATION_TYPE_O2M=240;
+    RELATION_TYPE_O2M_TWO_TYPES=16;
+    RELATION_TYPE_O2M_SAME_TYPE=32;
+    RELATION_TYPE_M2M=3840;
+    RELATION_TYPE_M2M_TWO_TYPES=256;
+    RELATION_TYPE_M2M_SAME_TYPE=512;
+    RELATION_TYPE_M2M_BIDIRECTIONAL=768;
+}
 
 message ApplyExpr {
     Position start_position = 1;
@@ -222,6 +238,9 @@ message EntityEdge {
     EntityNode to = 6;
     bool inverse = 10;
     bool multiple = 11;
+    bool required = 12;
+    bool reference_by_key = 19;
+    ValueDecl reference_field = 20;
 }
 
 message EntityEdges {
@@ -234,11 +253,24 @@ message EntityNode {
     ValueDecl key_field = 5;
 }
 
-message EntityRelationship {
+message EntityRelation {
+    string name = 1;
+    RelationType type = 2;
+    EntityNode from = 5;
+    EntityNode to = 6;
+    repeated EntityEdge edges = 10;
+}
+
+message EntityRelations {
+    repeated EntityRelation vals = 1;
+}
+
+message EntityRelationSet {
     map<string, EntityNode> nodes = 1;
     map<string, EntityEdge> edges = 2;
-    map<string, EntityEdges> node_from_edges = 10;
-    map<string, EntityEdges> node_to_edges = 11;
+    map<string, EntityRelation> relations = 5;
+    map<string, EntityEdges> node_edges = 14;
+    map<string, EntityRelations> node_relations = 15;
 }
 
 message EnumDecl {
@@ -609,7 +641,7 @@ message Package {
     Scope scope = 20;
     bool implicit = 21;
     mojo.core.Object extra_info = 25;
-    EntityRelationship entity_relationship = 26;
+    EntityRelationSet entity_relation_set = 26;
     map<string, Package.Requirement> dependencies = 30;
     map<string, Package> resolved_dependencies = 31;
 }
