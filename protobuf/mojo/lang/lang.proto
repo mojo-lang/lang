@@ -9,29 +9,10 @@ import "mojo/core/url.proto";
 import "mojo/core/value.proto";
 import "mojo/core/version.proto";
 import "mojo/core/version_range.proto";
-import "mojo/lang/bool_literal_expr.proto";
-import "mojo/lang/branch_stmt.proto";
-import "mojo/lang/break_stmt.proto";
+import "mojo/document/document.proto";
 import "mojo/lang/cached_document.proto";
-import "mojo/lang/continue_stmt.proto";
-import "mojo/lang/control_transfer_stmt.proto";
-import "mojo/lang/decl.proto";
-import "mojo/lang/document.proto";
-import "mojo/lang/error_expr.proto";
-import "mojo/lang/expr.proto";
-import "mojo/lang/float_literal_expr.proto";
-import "mojo/lang/implicit_member_expr.proto";
-import "mojo/lang/integer_literal_expr.proto";
-import "mojo/lang/literal_expr.proto";
-import "mojo/lang/null_literal_expr.proto";
 import "mojo/lang/operator.proto";
 import "mojo/lang/pattern.proto";
-import "mojo/lang/position.proto";
-import "mojo/lang/stmt.proto";
-import "mojo/lang/string_literal_expr.proto";
-import "mojo/lang/struct_construction_expr.proto";
-import "mojo/lang/type_casting_expr.proto";
-import "mojo/lang/wildcard_expr.proto";
 import "mojo/mojo.proto";
 
 option go_package = "github.com/mojo-lang/lang/go/pkg/mojo/lang;lang";
@@ -57,8 +38,8 @@ enum RelationType {
 message ApplyExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
 }
 
@@ -72,20 +53,20 @@ message Argument {
 message ArrayLiteralExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
-    repeated Expression elements = 15;
+    int32 kind = 4;
+    bool implicit = 5;
+    repeated Expression elements = 20;
 }
 
 message AssignmentExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    Operator operator = 15;
-    Expression left_hand_argument = 16;
-    Expression right_hand_argument = 17;
+    Operator operator = 20;
+    Expression left_hand_argument = 21;
+    Expression right_hand_argument = 22;
 }
 
 message Attribute {
@@ -103,10 +84,10 @@ message Attribute {
 message AttributeDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     string full_name = 11;
     repeated Attribute attributes = 12;
@@ -124,29 +105,51 @@ message AttributeDecl {
 message BinaryExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    Operator operator = 15;
-    Expression left_hand_argument = 16;
-    Expression right_hand_argument = 17;
+    Operator operator = 20;
+    Expression left_hand_argument = 21;
+    Expression right_hand_argument = 22;
 }
 
 message BlockStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
+    int64 kind = 4;
+    bool implicit = 5;
     repeated Statement statements = 10;
+}
+
+message BoolLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+    bool value = 20;
+}
+
+message BranchStmt {
+    Position start_position = 1;
+    Position end_position = 2;
+    int64 kind = 4;
+    bool implicit = 5;
+}
+
+message BreakStmt {
+    Position start_position = 1;
+    Position end_position = 2;
+    int64 kind = 4;
+    bool implicit = 5;
 }
 
 message ClosureExpr {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     string full_name = 11;
     repeated Attribute attributes = 12;
@@ -158,11 +161,38 @@ message ClosureExpr {
     repeated string captures = 40;
 }
 
+message Comment {
+    oneof comment {
+        BlockComment block_comment = 1;
+        MultiLineComment multi_line_comment = 2;
+        Document document = 3;
+    }
+}
+
+message BlockComment {
+    Position start_position = 1;
+    Position end_position = 2;
+    string text = 10;
+}
+
+message LineComment {
+    Position start_position = 1;
+    Position end_position = 2;
+    bool following = 3;
+    string text = 10;
+}
+
+message MultiLineComment {
+    Position start_position = 1;
+    Position end_position = 2;
+    repeated LineComment lines = 10;
+}
+
 message ConditionalExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression condition = 10;
     Expression then_branch = 11;
     Expression else_branch = 12;
@@ -171,10 +201,10 @@ message ConditionalExpr {
 message ConstantDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     GroupDecl group = 15;
@@ -185,10 +215,10 @@ message ConstantDecl {
 message ConstructorDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     string full_name = 11;
     repeated Attribute attributes = 12;
@@ -196,6 +226,29 @@ message ConstructorDecl {
     FunctionDecl.Signature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
+}
+
+message ContinueStmt {
+    Position start_position = 1;
+    Position end_position = 2;
+    int64 kind = 4;
+    bool implicit = 5;
+}
+
+message ControlTransferStmt {
+    Position start_position = 1;
+    Position end_position = 2;
+    int64 kind = 4;
+    bool implicit = 5;
+}
+
+message Decl {
+    Position start_position = 1;
+    Position end_position = 2;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
 }
 
 message Declaration {
@@ -225,9 +278,26 @@ message MapLiteralExpr {
     }
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
-    repeated Entry entries = 15;
+    int32 kind = 4;
+    bool implicit = 5;
+    repeated Entry entries = 20;
+}
+
+message Document {
+    
+    message Line {
+        Position start_position = 1;
+        Position end_position = 2;
+        bool following = 3;
+        bool private = 4;
+        string text = 10;
+    }
+    Position start_position = 1;
+    Position end_position = 2;
+    bool following = 3;
+    bool private = 4;
+    repeated Line lines = 10;
+    mojo.document.Document structured = 15;
 }
 
 message EntityEdge {
@@ -276,10 +346,10 @@ message EntityRelationSet {
 message EnumDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
@@ -298,13 +368,27 @@ message EnumType {
     NominalType underlying_type = 11;
 }
 
+message ErrorExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+}
+
 message ExplicitMemberExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
     string member = 20;
+}
+
+message Expr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
 }
 
 message Expression {
@@ -343,8 +427,8 @@ message Expression {
 message DynamicLookupExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
 }
 
 message UnresolvedMemberExpr {
@@ -353,42 +437,51 @@ message UnresolvedMemberExpr {
 message IdentityExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
 }
 
 message KeyPathApplicationExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
 }
 
 message TupleElementExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
 }
 
 message KeyPathExpr {
 }
 
+message FloatLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+    bool is_negative = 20;
+    double value = 30;
+}
+
 message ForStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
-    BlockStmt body = 21;
-    Expression iterator = 10;
-    Expression sequence = 20;
+    int64 kind = 4;
+    bool implicit = 5;
+    BlockStmt body = 10;
+    Expression iterator = 20;
+    Expression sequence = 21;
 }
 
 message FunctionCallExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
     repeated NominalType generic_arguments = 11;
     repeated Argument arguments = 12;
@@ -402,10 +495,10 @@ message FunctionDecl {
     }
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     string full_name = 11;
     repeated Attribute attributes = 12;
@@ -419,10 +512,10 @@ message FunctionDecl {
 message GenericParameter {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
@@ -436,10 +529,10 @@ message GenericParameter {
 message GroupDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     Identifier.Kind type = 20;
@@ -478,8 +571,8 @@ message Identifier {
 message IdentifierExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Identifier identifier = 10;
     repeated NominalType generic_arguments = 11;
 }
@@ -487,8 +580,8 @@ message IdentifierExpr {
 message IfStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
+    int64 kind = 4;
+    bool implicit = 5;
     Expression condition = 20;
     BlockStmt then_branch = 21;
     oneof else_branch {
@@ -497,25 +590,41 @@ message IfStmt {
     }
 }
 
+message ImplicitMemberExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+}
+
 message ImportDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string import_package_name = 10;
     string import_package_alias = 11;
     repeated Identifier identifiers = 13;
 }
 
+message IntegerLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+    bool is_negative = 20;
+    uint64 value = 16;
+}
+
 message InterfaceDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
@@ -535,19 +644,26 @@ message InterfaceType {
     repeated NominalType inherits = 11;
 }
 
+message LiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+}
+
 message LoopStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
-    BlockStmt body = 21;
+    int64 kind = 4;
+    bool implicit = 5;
+    BlockStmt body = 10;
 }
 
 message MatchCase {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
+    int64 kind = 4;
+    bool implicit = 5;
     Pattern pattern = 20;
     oneof body {
         BlockStmt block_stmt = 21;
@@ -558,8 +674,8 @@ message MatchCase {
 message MatchStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
+    int64 kind = 4;
+    bool implicit = 5;
     Expression subject = 20;
     MatchCase cases = 22;
 }
@@ -576,27 +692,44 @@ message NominalType {
     NominalType enclosing_type = 14;
 }
 
+message NullLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+}
+
+message NumericLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+    bool is_negative = 20;
+}
+
 message NumericLiteralUnaryExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    Operator operator = 15;
-    Expression argument = 16;
+    Operator operator = 20;
+    Expression argument = 21;
 }
 
 message ObjectLiteralExpr {
     
     message Field {
-        string name = 1;
-        Expression value = 2;
+        Position start_position = 1;
+        Position end_position = 2;
+        string name = 3;
+        Expression value = 4;
     }
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
-    repeated Field fields = 15;
+    int32 kind = 4;
+    bool implicit = 5;
+    repeated Field fields = 20;
 }
 
 message Package {
@@ -649,10 +782,10 @@ message Package {
 message PackageDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     ObjectLiteralExpr package_literal_expr = 11;
     Package package = 20;
@@ -661,46 +794,59 @@ message PackageDecl {
 message ParenthesizedExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression expression = 10;
+}
+
+message Position {
+    string filename = 1;
+    int64 offset = 2;
+    int64 line = 3;
+    int64 column = 4;
+    repeated Comment leading_comments = 10;
+    repeated Comment tailing_comments = 13;
+}
+
+message PosSpan {
+    repeated int64 vals = 1;
 }
 
 message PostfixUnaryExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    Operator operator = 15;
-    Expression argument = 16;
+    Operator operator = 20;
+    Expression argument = 21;
 }
 
 message PrefixUnaryExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    Operator operator = 15;
-    Expression argument = 16;
+    Operator operator = 20;
+    Expression argument = 21;
 }
 
 message RepeatStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
-    BlockStmt body = 21;
+    int64 kind = 4;
+    bool implicit = 5;
+    BlockStmt body = 10;
     Expression condition = 20;
 }
 
 message ReturnStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
-    Expression result = 10;
+    int64 kind = 4;
+    bool implicit = 5;
+    Expression result = 20;
 }
 
 message Scope {
@@ -716,9 +862,10 @@ message SourceFile {
     string package_name = 10;
     repeated ImportDecl imports = 11;
     repeated Statement statements = 12;
-    repeated Identifier resolved_identifiers = 16;
-    repeated Identifier unresolved_identifiers = 17;
-    repeated SourceFile dependencies = 21;
+    repeated Comment tailing_comments = 13;
+    repeated Identifier resolved_identifiers = 20;
+    repeated Identifier unresolved_identifiers = 21;
+    repeated SourceFile dependencies = 22;
     Scope scope = 30;
 }
 
@@ -738,23 +885,45 @@ message Statement {
     }
 }
 
+message Stmt {
+    Position start_position = 1;
+    Position end_position = 2;
+    int64 kind = 4;
+    bool implicit = 5;
+}
+
+message StringLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+    string value = 20;
+}
+
 message StringLiteralUnaryExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    Operator operator = 15;
-    Expression argument = 16;
+    Operator operator = 20;
+    Expression argument = 21;
+}
+
+message StructConstructionExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
 }
 
 message StructDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
@@ -772,10 +941,10 @@ message StructDecl {
 message StructLiteralExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    ObjectLiteralExpr value = 12;
+    ObjectLiteralExpr value = 20;
 }
 
 message StructType {
@@ -789,8 +958,8 @@ message StructType {
 message SubscriptExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
     repeated Argument arguments = 20;
 }
@@ -798,8 +967,8 @@ message SubscriptExpr {
 message TupleExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     bool has_element_labels = 10;
     repeated Argument elements = 20;
 }
@@ -807,10 +976,10 @@ message TupleExpr {
 message TypeAliasDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
@@ -822,13 +991,20 @@ message TypeAliasDecl {
     Scope scope = 30;
 }
 
+message TypeCastingExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+}
+
 message TypeDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
@@ -851,20 +1027,20 @@ message TypeDeclaration {
 message UnaryExpr {
     Position start_position = 1;
     Position end_position = 2;
-    int32 kind = 3;
-    bool implicit = 4;
+    int32 kind = 4;
+    bool implicit = 5;
     Expression callee = 10;
-    Operator operator = 15;
-    Expression argument = 16;
+    Operator operator = 20;
+    Expression argument = 21;
 }
 
 message ValueDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     GroupDecl group = 15;
@@ -875,10 +1051,10 @@ message ValueDecl {
 message ValueGroupDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     repeated ValueDecl declarations = 15;
@@ -887,10 +1063,10 @@ message ValueGroupDecl {
 message VariableDecl {
     Position start_position = 1;
     Position end_position = 2;
-    Document document = 4;
-    string package_name = 5;
-    string source_file_name = 6;
-    bool implicit = 7;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
     string name = 10;
     repeated Attribute attributes = 12;
     GroupDecl group = 15;
@@ -901,8 +1077,15 @@ message VariableDecl {
 message WhileStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
-    BlockStmt body = 21;
+    int64 kind = 4;
+    bool implicit = 5;
+    BlockStmt body = 10;
     Expression condition = 20;
+}
+
+message WildcardExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
 }

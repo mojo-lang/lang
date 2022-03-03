@@ -495,10 +495,10 @@ private static final long serialVersionUID = 0L;
     if (document_ != null) {
       output.writeMessage(4, getDocument());
     }
-    if (!getPackageNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, packageName_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
     }
     if (typeDeclaration_ != null) {
@@ -534,10 +534,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getDocument());
     }
-    if (!getPackageNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, packageName_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
     }
     if (typeDeclaration_ != null) {

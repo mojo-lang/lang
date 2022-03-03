@@ -1,3 +1,5 @@
-| 字段 | 类型 | 说明 |
-|---|---|---|
-|  | `Array<string>` |
+| 类型 | 说明 |
+|---|---|
+| `mojo.lang.BlockComment` |  |
+| `mojo.lang.MultiLineComment` |  |
+| `mojo.lang.Document` |  |

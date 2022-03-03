@@ -74,12 +74,12 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 24: {
+          case 32: {
 
             kind_ = input.readInt32();
             break;
           }
-          case 32: {
+          case 40: {
 
             implicit_ = input.readBool();
             break;
@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 98: {
+          case 162: {
             org.mojolang.mojo.lang.ObjectLiteralExpr.Builder subBuilder = null;
             if (value_ != null) {
               subBuilder = value_.toBuilder();
@@ -194,10 +194,10 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int KIND_FIELD_NUMBER = 3;
+  public static final int KIND_FIELD_NUMBER = 4;
   private int kind_;
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   @java.lang.Override
@@ -205,10 +205,10 @@ private static final long serialVersionUID = 0L;
     return kind_;
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 4;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
   private boolean implicit_;
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   @java.lang.Override
@@ -242,10 +242,10 @@ private static final long serialVersionUID = 0L;
     return getCallee();
   }
 
-  public static final int VALUE_FIELD_NUMBER = 12;
+  public static final int VALUE_FIELD_NUMBER = 20;
   private org.mojolang.mojo.lang.ObjectLiteralExpr value_;
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
    * @return Whether the value field is set.
    */
   @java.lang.Override
@@ -253,7 +253,7 @@ private static final long serialVersionUID = 0L;
     return value_ != null;
   }
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
    * @return The value.
    */
   @java.lang.Override
@@ -261,7 +261,7 @@ private static final long serialVersionUID = 0L;
     return value_ == null ? org.mojolang.mojo.lang.ObjectLiteralExpr.getDefaultInstance() : value_;
   }
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder getValueOrBuilder() {
@@ -289,16 +289,16 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(2, getEndPosition());
     }
     if (kind_ != 0) {
-      output.writeInt32(3, kind_);
+      output.writeInt32(4, kind_);
     }
     if (implicit_ != false) {
-      output.writeBool(4, implicit_);
+      output.writeBool(5, implicit_);
     }
     if (callee_ != null) {
       output.writeMessage(10, getCallee());
     }
     if (value_ != null) {
-      output.writeMessage(12, getValue());
+      output.writeMessage(20, getValue());
     }
     unknownFields.writeTo(output);
   }
@@ -319,11 +319,11 @@ private static final long serialVersionUID = 0L;
     }
     if (kind_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, kind_);
+        .computeInt32Size(4, kind_);
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, implicit_);
+        .computeBoolSize(5, implicit_);
     }
     if (callee_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -331,7 +331,7 @@ private static final long serialVersionUID = 0L;
     }
     if (value_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, getValue());
+        .computeMessageSize(20, getValue());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -948,7 +948,7 @@ private static final long serialVersionUID = 0L;
 
     private int kind_ ;
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return The kind.
      */
     @java.lang.Override
@@ -956,7 +956,7 @@ private static final long serialVersionUID = 0L;
       return kind_;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @param value The kind to set.
      * @return This builder for chaining.
      */
@@ -967,7 +967,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearKind() {
@@ -979,7 +979,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean implicit_ ;
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return The implicit.
      */
     @java.lang.Override
@@ -987,7 +987,7 @@ private static final long serialVersionUID = 0L;
       return implicit_;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @param value The implicit to set.
      * @return This builder for chaining.
      */
@@ -998,7 +998,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearImplicit() {
@@ -1131,14 +1131,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.ObjectLiteralExpr, org.mojolang.mojo.lang.ObjectLiteralExpr.Builder, org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder> valueBuilder_;
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      * @return Whether the value field is set.
      */
     public boolean hasValue() {
       return valueBuilder_ != null || value_ != null;
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      * @return The value.
      */
     public org.mojolang.mojo.lang.ObjectLiteralExpr getValue() {
@@ -1149,7 +1149,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      */
     public Builder setValue(org.mojolang.mojo.lang.ObjectLiteralExpr value) {
       if (valueBuilder_ == null) {
@@ -1165,7 +1165,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      */
     public Builder setValue(
         org.mojolang.mojo.lang.ObjectLiteralExpr.Builder builderForValue) {
@@ -1179,7 +1179,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      */
     public Builder mergeValue(org.mojolang.mojo.lang.ObjectLiteralExpr value) {
       if (valueBuilder_ == null) {
@@ -1197,7 +1197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      */
     public Builder clearValue() {
       if (valueBuilder_ == null) {
@@ -1211,7 +1211,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      */
     public org.mojolang.mojo.lang.ObjectLiteralExpr.Builder getValueBuilder() {
       
@@ -1219,7 +1219,7 @@ private static final long serialVersionUID = 0L;
       return getValueFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      */
     public org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder getValueOrBuilder() {
       if (valueBuilder_ != null) {
@@ -1230,7 +1230,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+     * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.ObjectLiteralExpr, org.mojolang.mojo.lang.ObjectLiteralExpr.Builder, org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder> 

@@ -28,20 +28,23 @@ public final class DeclProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024mojo/lang/decl.proto\022\tmojo.lang\032\030mojo/" +
-      "lang/document.proto\032\030mojo/lang/position." +
-      "proto\"\307\001\n\004Decl\022+\n\016start_position\030\001 \001(\0132\023" +
-      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
-      "\0132\023.mojo.lang.Position\022%\n\010document\030\004 \001(\013" +
-      "2\023.mojo.lang.Document\022\024\n\014package_name\030\005 " +
-      "\001(\t\022\030\n\020source_file_name\030\006 \001(\t\022\020\n\010implici" +
-      "t\030\007 \001(\010BV\n\026org.mojolang.mojo.langB\tDeclP" +
-      "rotoP\001Z/github.com/mojo-lang/lang/go/pkg" +
-      "/mojo/lang;langb\006proto3"
+      "\n\024mojo/lang/decl.proto\022\tmojo.lang\032\027mojo/" +
+      "lang/comment.proto\032\030mojo/lang/document.p" +
+      "roto\032\030mojo/lang/position.proto\"\365\001\n\004Decl\022" +
+      "+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Posi" +
+      "tion\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.P" +
+      "osition\022,\n\020leading_comments\030\003 \003(\0132\022.mojo" +
+      ".lang.Comment\022\020\n\010implicit\030\005 \001(\010\022%\n\010docum" +
+      "ent\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014packag" +
+      "e_name\030\007 \001(\t\022\030\n\020source_file_name\030\010 \001(\tBV" +
+      "\n\026org.mojolang.mojo.langB\tDeclProtoP\001Z/g" +
+      "ithub.com/mojo-lang/lang/go/pkg/mojo/lan" +
+      "g;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.lang.CommentProto.getDescriptor(),
           org.mojolang.mojo.lang.DocumentProto.getDescriptor(),
           org.mojolang.mojo.lang.PositionProto.getDescriptor(),
         });
@@ -50,7 +53,8 @@ public final class DeclProto {
     internal_static_mojo_lang_Decl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_Decl_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Document", "PackageName", "SourceFileName", "Implicit", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "LeadingComments", "Implicit", "Document", "PackageName", "SourceFileName", });
+    org.mojolang.mojo.lang.CommentProto.getDescriptor();
     org.mojolang.mojo.lang.DocumentProto.getDescriptor();
     org.mojolang.mojo.lang.PositionProto.getDescriptor();
   }

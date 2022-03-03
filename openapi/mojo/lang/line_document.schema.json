@@ -1,1 +1,0 @@
-{"title":"mojo.lang.LineDocument","description":"","type":"object","properties":{"endPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"following":{"type":"boolean"},"line":{"type":"string"},"startPosition":{"$ref":"#/components/schemas/mojo.lang.Position"}}}

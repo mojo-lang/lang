@@ -29,9 +29,17 @@ type Position {
   	offset:   Int    @2 //< offset, starting at 0 (byte count)
   	line:     Int    @3 //< line number, starting at 1
   	column:   Int    @4 //< column number, starting at 1 (byte count)
-}
 
-type PositionSpan : [Position] @fixed_length(2)
+    /// the comment before the AST node
+    leading_comments: [Comment] @10
+
+    /// usually exist in the end position of the AST node
+    /// and only one of the following situations:
+    /// ```mojo
+    ///    a = 5 // following line comment 
+    /// ```
+    tailing_comments: [Comment] @13
+}
 
 /// valid reports whether the position is valid.
 func valid(pos: Position) -> Bool {

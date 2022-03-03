@@ -38,13 +38,13 @@ public interface UnaryExprOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   int getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
@@ -65,32 +65,32 @@ public interface UnaryExprOrBuilder extends
   org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
 
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    * @return Whether the operator field is set.
    */
   boolean hasOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    * @return The operator.
    */
   org.mojolang.mojo.lang.Operator getOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    */
   org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression argument = 16;</code>
+   * <code>.mojo.lang.Expression argument = 21;</code>
    * @return Whether the argument field is set.
    */
   boolean hasArgument();
   /**
-   * <code>.mojo.lang.Expression argument = 16;</code>
+   * <code>.mojo.lang.Expression argument = 21;</code>
    * @return The argument.
    */
   org.mojolang.mojo.lang.Expression getArgument();
   /**
-   * <code>.mojo.lang.Expression argument = 16;</code>
+   * <code>.mojo.lang.Expression argument = 21;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getArgumentOrBuilder();
 }

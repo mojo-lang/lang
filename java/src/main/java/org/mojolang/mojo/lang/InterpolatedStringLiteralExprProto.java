@@ -29,25 +29,21 @@ public final class InterpolatedStringLiteralExprProto {
   static {
     java.lang.String[] descriptorData = {
       "\n0mojo/lang/interpolated_string_literal_" +
-      "expr.proto\022\tmojo.lang\032\024mojo/lang/expr.pr" +
-      "oto\032\034mojo/lang/literal_expr.proto\032\030mojo/" +
-      "lang/position.proto\"\342\001\n\035InterpolatedStri" +
-      "ngLiteralExpr\022+\n\016start_position\030\001 \001(\0132\023." +
-      "mojo.lang.Position\022)\n\014end_position\030\002 \001(\013" +
-      "2\023.mojo.lang.Position\022\014\n\004kind\030\003 \001(\005\022\020\n\010i" +
-      "mplicit\030\004 \001(\010\022!\n\010segments\030\024 \003(\0132\017.mojo.l" +
-      "ang.Expr\022&\n\rsemantic_expr\030\025 \001(\0132\017.mojo.l" +
-      "ang.ExprBo\n\026org.mojolang.mojo.langB\"Inte" +
-      "rpolatedStringLiteralExprProtoP\001Z/github" +
-      ".com/mojo-lang/lang/go/pkg/mojo/lang;lan" +
-      "gb\006proto3"
+      "expr.proto\022\tmojo.lang\032\024mojo/lang/lang.pr" +
+      "oto\"\342\001\n\035InterpolatedStringLiteralExpr\022+\n" +
+      "\016start_position\030\001 \001(\0132\023.mojo.lang.Positi" +
+      "on\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Pos" +
+      "ition\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022!\n" +
+      "\010segments\030\024 \003(\0132\017.mojo.lang.Expr\022&\n\rsema" +
+      "ntic_expr\030\025 \001(\0132\017.mojo.lang.ExprBo\n\026org." +
+      "mojolang.mojo.langB\"InterpolatedStringLi" +
+      "teralExprProtoP\001Z/github.com/mojo-lang/l" +
+      "ang/go/pkg/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          org.mojolang.mojo.lang.ExprProto.getDescriptor(),
-          org.mojolang.mojo.lang.LiteralExprProto.getDescriptor(),
-          org.mojolang.mojo.lang.PositionProto.getDescriptor(),
+          org.mojolang.mojo.lang.LangProto.getDescriptor(),
         });
     internal_static_mojo_lang_InterpolatedStringLiteralExpr_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -55,9 +51,7 @@ public final class InterpolatedStringLiteralExprProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_InterpolatedStringLiteralExpr_descriptor,
         new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", "Segments", "SemanticExpr", });
-    org.mojolang.mojo.lang.ExprProto.getDescriptor();
-    org.mojolang.mojo.lang.LiteralExprProto.getDescriptor();
-    org.mojolang.mojo.lang.PositionProto.getDescriptor();
+    org.mojolang.mojo.lang.LangProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -29,20 +29,18 @@ public final class EmptyStmtProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/lang/empty_stmt.proto\022\tmojo.lang\032" +
-      "\030mojo/lang/position.proto\032\024mojo/lang/stm" +
-      "t.proto\"\203\001\n\tEmptyStmt\022+\n\016start_position\030" +
-      "\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_positi" +
-      "on\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\003 " +
-      "\001(\003\022\020\n\010implicit\030\004 \001(\010B[\n\026org.mojolang.mo" +
-      "jo.langB\016EmptyStmtProtoP\001Z/github.com/mo" +
-      "jo-lang/lang/go/pkg/mojo/lang;langb\006prot" +
-      "o3"
+      "\024mojo/lang/lang.proto\"\203\001\n\tEmptyStmt\022+\n\016s" +
+      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
+      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010B[\n\026o" +
+      "rg.mojolang.mojo.langB\016EmptyStmtProtoP\001Z" +
+      "/github.com/mojo-lang/lang/go/pkg/mojo/l" +
+      "ang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          org.mojolang.mojo.lang.PositionProto.getDescriptor(),
-          org.mojolang.mojo.lang.StmtProto.getDescriptor(),
+          org.mojolang.mojo.lang.LangProto.getDescriptor(),
         });
     internal_static_mojo_lang_EmptyStmt_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -50,8 +48,7 @@ public final class EmptyStmtProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_EmptyStmt_descriptor,
         new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", });
-    org.mojolang.mojo.lang.PositionProto.getDescriptor();
-    org.mojolang.mojo.lang.StmtProto.getDescriptor();
+    org.mojolang.mojo.lang.LangProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

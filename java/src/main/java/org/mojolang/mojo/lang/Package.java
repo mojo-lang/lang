@@ -1522,16 +1522,16 @@ private static final long serialVersionUID = 0L;
       if (version_ != null) {
         output.writeMessage(1, getVersion());
       }
-      if (!getRegistryBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(registry_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, registry_);
       }
-      if (!getPathBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, path_);
       }
       if (repository_ != null) {
         output.writeMessage(5, getRepository());
       }
-      if (!getBranchBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(branch_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, branch_);
       }
       unknownFields.writeTo(output);
@@ -1547,17 +1547,17 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getVersion());
       }
-      if (!getRegistryBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(registry_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, registry_);
       }
-      if (!getPathBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, path_);
       }
       if (repository_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getRepository());
       }
-      if (!getBranchBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(branch_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, branch_);
       }
       size += unknownFields.getSerializedSize();
@@ -2682,10 +2682,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getAuthorBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(author_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, author_);
       }
-      if (!getOrganizationBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organization_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, organization_);
       }
       if (email_ != null) {
@@ -2700,10 +2700,10 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      if (!getAuthorBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(author_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, author_);
       }
-      if (!getOrganizationBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organization_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, organization_);
       }
       if (email_ != null) {
@@ -3885,7 +3885,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsDependencies(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetDependencies().getMap().containsKey(key);
   }
   /**
@@ -3912,7 +3912,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.Package.Requirement getDependenciesOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.Package.Requirement defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package.Requirement> map =
         internalGetDependencies().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -3924,7 +3924,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.Package.Requirement getDependenciesOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package.Requirement> map =
         internalGetDependencies().getMap();
     if (!map.containsKey(key)) {
@@ -3966,7 +3966,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsResolvedDependencies(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetResolvedDependencies().getMap().containsKey(key);
   }
   /**
@@ -3993,7 +3993,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.Package getResolvedDependenciesOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.Package defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package> map =
         internalGetResolvedDependencies().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -4005,7 +4005,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.Package getResolvedDependenciesOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package> map =
         internalGetResolvedDependencies().getMap();
     if (!map.containsKey(key)) {
@@ -4028,10 +4028,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (!getFullNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fullName_);
     }
     if (version_ != null) {
@@ -4043,10 +4043,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < authors_.size(); i++) {
       output.writeMessage(7, authors_.get(i));
     }
-    if (!getSummaryBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(summary_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, summary_);
     }
-    if (!getDescriptionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, description_);
     }
     if (document_ != null) {
@@ -4055,7 +4055,7 @@ private static final long serialVersionUID = 0L;
     if (repository_ != null) {
       output.writeMessage(12, getRepository());
     }
-    if (!getLicenseBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(license_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, license_);
     }
     for (int i = 0; i < exports_.size(); i++) {
@@ -4097,10 +4097,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (!getFullNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fullName_);
     }
     if (version_ != null) {
@@ -4115,10 +4115,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, authors_.get(i));
     }
-    if (!getSummaryBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(summary_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, summary_);
     }
-    if (!getDescriptionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, description_);
     }
     if (document_ != null) {
@@ -4129,7 +4129,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getRepository());
     }
-    if (!getLicenseBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(license_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, license_);
     }
     {
@@ -6851,7 +6851,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsDependencies(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetDependencies().getMap().containsKey(key);
     }
     /**
@@ -6878,7 +6878,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.Package.Requirement getDependenciesOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.Package.Requirement defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package.Requirement> map =
           internalGetDependencies().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -6890,7 +6890,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.Package.Requirement getDependenciesOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package.Requirement> map =
           internalGetDependencies().getMap();
       if (!map.containsKey(key)) {
@@ -6910,7 +6910,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeDependencies(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableDependencies().getMutableMap()
           .remove(key);
       return this;
@@ -6929,8 +6929,11 @@ private static final long serialVersionUID = 0L;
     public Builder putDependencies(
         java.lang.String key,
         org.mojolang.mojo.lang.Package.Requirement value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableDependencies().getMutableMap()
           .put(key, value);
       return this;
@@ -6979,7 +6982,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsResolvedDependencies(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetResolvedDependencies().getMap().containsKey(key);
     }
     /**
@@ -7006,7 +7009,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.Package getResolvedDependenciesOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.Package defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package> map =
           internalGetResolvedDependencies().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -7018,7 +7021,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.Package getResolvedDependenciesOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.Package> map =
           internalGetResolvedDependencies().getMap();
       if (!map.containsKey(key)) {
@@ -7038,7 +7041,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeResolvedDependencies(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableResolvedDependencies().getMutableMap()
           .remove(key);
       return this;
@@ -7057,8 +7060,11 @@ private static final long serialVersionUID = 0L;
     public Builder putResolvedDependencies(
         java.lang.String key,
         org.mojolang.mojo.lang.Package value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableResolvedDependencies().getMutableMap()
           .put(key, value);
       return this;

@@ -15,6 +15,18 @@ func (m *StructDecl) SetScope(scope *Scope) {
 	}
 }
 
+func (m *StructDecl) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *StructDecl) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *StructDecl) IsBoxed() bool {
 	if m != nil && m.Type != nil && len(m.Type.Inherits) == 1 && len(m.Type.Fields) == 0 {
 		inherit := m.Type.Inherits[0]

@@ -1,6 +1,8 @@
 package lang
 
-import "errors"
+import (
+	"errors"
+)
 
 func NewBoolAttribute(pkg string, name string) *Attribute {
 	return newBoolAttribute(pkg, name, false)
@@ -103,26 +105,20 @@ func (m *Attribute) GetArrayLiteralArgument() *ArrayLiteralExpr {
 }
 
 func (m *Attribute) GetObjectLiteralArgument() *ObjectLiteralExpr {
-	object := &ObjectLiteralExpr{
-		Implicit: true,
-	}
-	if len(m.Arguments) == 1 {
-		if objectLiteral := m.Arguments[0].Value.GetObjectLiteralExpr(); objectLiteral != nil {
-			return objectLiteral
+	if m != nil {
+		object := &ObjectLiteralExpr{
+			Implicit: true,
 		}
-	}
-
-	for _, argument := range m.Arguments {
-		if len(argument.Label) == 0 {
-			return nil
+		if len(m.Arguments) == 1 {
+			if objectLiteral := m.Arguments[0].Value.GetObjectLiteralExpr(); objectLiteral != nil {
+				return objectLiteral
+			}
 		}
 
-		object.Fields = append(object.Fields, &ObjectLiteralExpr_Field{
-			Name:  argument.Label,
-			Value: argument.Value,
-		})
+		object, _ = Arguments(m.Arguments).ToObjectLiteralExpr()
+		return object
 	}
-	return object
+	return nil
 }
 
 func (m *Attribute) GetMapLiteralArgument() *MapLiteralExpr {
@@ -146,6 +142,14 @@ func (m *Attribute) GetMapLiteralArgument() *MapLiteralExpr {
 		return mapLiteral
 	}
 	return nil
+}
+
+func (m *Attribute) GetObjectArgument(object interface{}) error {
+	o := m.GetObjectLiteralArgument()
+	if o != nil {
+		return o.To(object)
+	}
+	return errors.New("not an object literal argument")
 }
 
 func (m *Attribute) SetImplicit(value bool) *Attribute {

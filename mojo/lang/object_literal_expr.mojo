@@ -18,9 +18,16 @@
 // constant.
 type ObjectLiteralExpr : LiteralExpr {
     type Field {
-        name: String @1
-        value: Expression @2
+        /// position of first character belonging to the Field
+        start_position: Position @1
+
+        /// position of first character immediately after the Field
+        end_position: Position @2
+
+        name: String @3
+
+        value: Expression @4
     }
 
-    fields: [Field] @15
+    fields: [Field] @20
 }

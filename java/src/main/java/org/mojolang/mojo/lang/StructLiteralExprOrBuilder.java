@@ -38,13 +38,13 @@ public interface StructLiteralExprOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   int getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
@@ -65,17 +65,17 @@ public interface StructLiteralExprOrBuilder extends
   org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
 
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
    * @return Whether the value field is set.
    */
   boolean hasValue();
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
    * @return The value.
    */
   org.mojolang.mojo.lang.ObjectLiteralExpr getValue();
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr value = 12;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr value = 20;</code>
    */
   org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder getValueOrBuilder();
 }

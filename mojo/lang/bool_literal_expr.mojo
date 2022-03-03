@@ -15,5 +15,5 @@
 /// A Boolean literal ('true' or 'false')
 ///
 type BoolLiteralExpr : LiteralExpr {
-    value : Bool @16
+    value : Bool @20
 }

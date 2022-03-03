@@ -1,1 +1,0 @@
-{"title":"mojo.lang.PositionSpan","description":"","type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Position"}}

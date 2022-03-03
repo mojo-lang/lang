@@ -12,3 +12,15 @@ func (m *EnumDecl) SetScope(scope *Scope) {
 		m.Scope = scope
 	}
 }
+
+func (m *EnumDecl) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *EnumDecl) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}

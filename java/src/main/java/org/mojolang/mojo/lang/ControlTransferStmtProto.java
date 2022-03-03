@@ -29,18 +29,21 @@ public final class ControlTransferStmtProto {
   static {
     java.lang.String[] descriptorData = {
       "\n%mojo/lang/control_transfer_stmt.proto\022" +
-      "\tmojo.lang\032\030mojo/lang/position.proto\032\024mo" +
-      "jo/lang/stmt.proto\"\215\001\n\023ControlTransferSt" +
-      "mt\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.P" +
-      "osition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lan" +
-      "g.Position\022\014\n\004kind\030\003 \001(\003\022\020\n\010implicit\030\004 \001" +
-      "(\010Be\n\026org.mojolang.mojo.langB\030ControlTra" +
-      "nsferStmtProtoP\001Z/github.com/mojo-lang/l" +
-      "ang/go/pkg/mojo/lang;langb\006proto3"
+      "\tmojo.lang\032\027mojo/lang/comment.proto\032\030moj" +
+      "o/lang/position.proto\032\024mojo/lang/stmt.pr" +
+      "oto\"\273\001\n\023ControlTransferStmt\022+\n\016start_pos" +
+      "ition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_" +
+      "position\030\002 \001(\0132\023.mojo.lang.Position\022,\n\020l" +
+      "eading_comments\030\003 \003(\0132\022.mojo.lang.Commen" +
+      "t\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010Be\n\026org" +
+      ".mojolang.mojo.langB\030ControlTransferStmt" +
+      "ProtoP\001Z/github.com/mojo-lang/lang/go/pk" +
+      "g/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.lang.CommentProto.getDescriptor(),
           org.mojolang.mojo.lang.PositionProto.getDescriptor(),
           org.mojolang.mojo.lang.StmtProto.getDescriptor(),
         });
@@ -49,7 +52,8 @@ public final class ControlTransferStmtProto {
     internal_static_mojo_lang_ControlTransferStmt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_ControlTransferStmt_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "LeadingComments", "Kind", "Implicit", });
+    org.mojolang.mojo.lang.CommentProto.getDescriptor();
     org.mojolang.mojo.lang.PositionProto.getDescriptor();
     org.mojolang.mojo.lang.StmtProto.getDescriptor();
   }

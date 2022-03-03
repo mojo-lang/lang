@@ -2,6 +2,18 @@ package lang
 
 import "errors"
 
+func (m *ArrayLiteralExpr) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *ArrayLiteralExpr) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *ArrayLiteralExpr) EvalIntegerArray() ([]int64, error) {
 	if m != nil {
 		var values []int64

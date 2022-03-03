@@ -15,10 +15,15 @@
 ///
 ///
 type Term {
-    type:     String @1
-    value:    String @2
+    /// position of first character belonging to the Expr
+    start_position: Position @1
 
-    location: PositionSpan @10
+    /// position of first character immediately after the Expr
+    end_position:   Position @2
+
+    type:     String @5
+    
+    value:    String @6
 
     terms:    [Term] @15
 }

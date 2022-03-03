@@ -29,19 +29,22 @@ public final class StringLiteralExprProto {
   static {
     java.lang.String[] descriptorData = {
       "\n#mojo/lang/string_literal_expr.proto\022\tm" +
-      "ojo.lang\032\024mojo/lang/expr.proto\032\034mojo/lan" +
-      "g/literal_expr.proto\032\030mojo/lang/position" +
-      ".proto\"\232\001\n\021StringLiteralExpr\022+\n\016start_po" +
-      "sition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end" +
-      "_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004" +
-      "kind\030\003 \001(\005\022\020\n\010implicit\030\004 \001(\010\022\r\n\005value\030\017 " +
-      "\001(\tBc\n\026org.mojolang.mojo.langB\026StringLit" +
-      "eralExprProtoP\001Z/github.com/mojo-lang/la" +
-      "ng/go/pkg/mojo/lang;langb\006proto3"
+      "ojo.lang\032\027mojo/lang/comment.proto\032\024mojo/" +
+      "lang/expr.proto\032\034mojo/lang/literal_expr." +
+      "proto\032\030mojo/lang/position.proto\"\310\001\n\021Stri" +
+      "ngLiteralExpr\022+\n\016start_position\030\001 \001(\0132\023." +
+      "mojo.lang.Position\022)\n\014end_position\030\002 \001(\013" +
+      "2\023.mojo.lang.Position\022,\n\020leading_comment" +
+      "s\030\003 \003(\0132\022.mojo.lang.Comment\022\014\n\004kind\030\004 \001(" +
+      "\005\022\020\n\010implicit\030\005 \001(\010\022\r\n\005value\030\024 \001(\tBc\n\026or" +
+      "g.mojolang.mojo.langB\026StringLiteralExprP" +
+      "rotoP\001Z/github.com/mojo-lang/lang/go/pkg" +
+      "/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.lang.CommentProto.getDescriptor(),
           org.mojolang.mojo.lang.ExprProto.getDescriptor(),
           org.mojolang.mojo.lang.LiteralExprProto.getDescriptor(),
           org.mojolang.mojo.lang.PositionProto.getDescriptor(),
@@ -51,7 +54,8 @@ public final class StringLiteralExprProto {
     internal_static_mojo_lang_StringLiteralExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_StringLiteralExpr_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", "Value", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "LeadingComments", "Kind", "Implicit", "Value", });
+    org.mojolang.mojo.lang.CommentProto.getDescriptor();
     org.mojolang.mojo.lang.ExprProto.getDescriptor();
     org.mojolang.mojo.lang.LiteralExprProto.getDescriptor();
     org.mojolang.mojo.lang.PositionProto.getDescriptor();

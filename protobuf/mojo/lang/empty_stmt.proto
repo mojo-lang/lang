@@ -4,8 +4,7 @@ syntax = "proto3";
 
 package mojo.lang;
 
-import "mojo/lang/position.proto";
-import "mojo/lang/stmt.proto";
+import "mojo/lang/lang.proto";
 
 option go_package = "github.com/mojo-lang/lang/go/pkg/mojo/lang;lang";
 option java_multiple_files = true;
@@ -15,6 +14,6 @@ option java_package = "org.mojolang.mojo.lang";
 message EmptyStmt {
     Position start_position = 1;
     Position end_position = 2;
-    int64 kind = 3;
-    bool implicit = 4;
+    int64 kind = 4;
+    bool implicit = 5;
 }

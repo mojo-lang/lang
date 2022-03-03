@@ -16,5 +16,5 @@
 /// analysis assigns types, this is guaranteed to only have a
 /// BuiltinFloatingPointType.
 type FloatLiteralExpr : NumericLiteralExpr {
-    value: Float64 @16
+    value: Float64 @30
 }

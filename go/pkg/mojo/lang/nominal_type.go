@@ -4,10 +4,23 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"regexp"
 	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
+
+func (m *NominalType) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *NominalType) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
 
 func (m *NominalType) NewIdentifier() *Identifier {
 	if m != nil {
@@ -55,7 +68,7 @@ func (m *NominalType) GetGenericFullName() string {
 		if strings.Contains(m.Name, ".") {
 			return GetFullName(m.PackageName, nil, m.GetGenericName())
 		} else {
-			return GetFullName(m.PackageName, m.GetEnclosingNames(), m.GetGenericName())
+			return GetFullName(m.PackageName, m.GetEnclosingGenericNames(), m.GetGenericName())
 		}
 	}
 	return ""
@@ -85,6 +98,13 @@ func (m *NominalType) GetEnclosingNames() []string {
 		return []string{}
 	}
 	return GetEnclosingNames(m.EnclosingType)
+}
+
+func (m *NominalType) GetEnclosingGenericNames() []string {
+	if m == nil {
+		return []string{}
+	}
+	return GetEnclosingGenericNames(m.EnclosingType)
 }
 
 func (m *NominalType) IsTypeAlias() bool {

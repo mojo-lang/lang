@@ -1,6 +1,9 @@
 package lang
 
-import "errors"
+import (
+	"errors"
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
+)
 
 func NewNullLiteralExpression(expr *NullLiteralExpr) *Expression {
 	return &Expression{
@@ -228,7 +231,10 @@ func (m *Expression) EvalStringMapLiteral(iterator func(key string, value *Expre
 		for _, entry := range valueExpr.Entries {
 			err := iterator(entry.Key, entry.Value)
 			if err != nil {
-				break
+				if core.IsBreakError(err) {
+					return nil
+				}
+				return err
 			}
 		}
 		return nil

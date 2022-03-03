@@ -38,13 +38,13 @@ public interface BinaryExprOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   int getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
@@ -65,47 +65,47 @@ public interface BinaryExprOrBuilder extends
   org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
 
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    * @return Whether the operator field is set.
    */
   boolean hasOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    * @return The operator.
    */
   org.mojolang.mojo.lang.Operator getOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    */
   org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
    * @return Whether the leftHandArgument field is set.
    */
   boolean hasLeftHandArgument();
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
    * @return The leftHandArgument.
    */
   org.mojolang.mojo.lang.Expression getLeftHandArgument();
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getLeftHandArgumentOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
    * @return Whether the rightHandArgument field is set.
    */
   boolean hasRightHandArgument();
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
    * @return The rightHandArgument.
    */
   org.mojolang.mojo.lang.Expression getRightHandArgument();
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getRightHandArgumentOrBuilder();
 }

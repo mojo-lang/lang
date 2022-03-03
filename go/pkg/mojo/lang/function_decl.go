@@ -2,6 +2,18 @@ package lang
 
 import "errors"
 
+func (m *FunctionDecl) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *FunctionDecl) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *FunctionDecl) GetAttributeArguments(name string) ([]*Argument, error) {
 	if m != nil {
 		return GetAttributeArguments(m.Attributes, name)

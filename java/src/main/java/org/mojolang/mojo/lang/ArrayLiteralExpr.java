@@ -76,17 +76,17 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 24: {
+          case 32: {
 
             kind_ = input.readInt32();
             break;
           }
-          case 32: {
+          case 40: {
 
             implicit_ = input.readBool();
             break;
           }
-          case 122: {
+          case 162: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               elements_ = new java.util.ArrayList<org.mojolang.mojo.lang.Expression>();
               mutable_bitField0_ |= 0x00000001;
@@ -182,10 +182,10 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int KIND_FIELD_NUMBER = 3;
+  public static final int KIND_FIELD_NUMBER = 4;
   private int kind_;
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   @java.lang.Override
@@ -193,10 +193,10 @@ private static final long serialVersionUID = 0L;
     return kind_;
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 4;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
   private boolean implicit_;
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   @java.lang.Override
@@ -204,17 +204,17 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int ELEMENTS_FIELD_NUMBER = 15;
+  public static final int ELEMENTS_FIELD_NUMBER = 20;
   private java.util.List<org.mojolang.mojo.lang.Expression> elements_;
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.Expression> getElementsList() {
     return elements_;
   }
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.ExpressionOrBuilder> 
@@ -222,21 +222,21 @@ private static final long serialVersionUID = 0L;
     return elements_;
   }
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   @java.lang.Override
   public int getElementsCount() {
     return elements_.size();
   }
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Expression getElements(int index) {
     return elements_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ExpressionOrBuilder getElementsOrBuilder(
@@ -265,13 +265,13 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(2, getEndPosition());
     }
     if (kind_ != 0) {
-      output.writeInt32(3, kind_);
+      output.writeInt32(4, kind_);
     }
     if (implicit_ != false) {
-      output.writeBool(4, implicit_);
+      output.writeBool(5, implicit_);
     }
     for (int i = 0; i < elements_.size(); i++) {
-      output.writeMessage(15, elements_.get(i));
+      output.writeMessage(20, elements_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -292,15 +292,15 @@ private static final long serialVersionUID = 0L;
     }
     if (kind_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, kind_);
+        .computeInt32Size(4, kind_);
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, implicit_);
+        .computeBoolSize(5, implicit_);
     }
     for (int i = 0; i < elements_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(15, elements_.get(i));
+        .computeMessageSize(20, elements_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -921,7 +921,7 @@ private static final long serialVersionUID = 0L;
 
     private int kind_ ;
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return The kind.
      */
     @java.lang.Override
@@ -929,7 +929,7 @@ private static final long serialVersionUID = 0L;
       return kind_;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @param value The kind to set.
      * @return This builder for chaining.
      */
@@ -940,7 +940,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearKind() {
@@ -952,7 +952,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean implicit_ ;
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return The implicit.
      */
     @java.lang.Override
@@ -960,7 +960,7 @@ private static final long serialVersionUID = 0L;
       return implicit_;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @param value The implicit to set.
      * @return This builder for chaining.
      */
@@ -971,7 +971,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearImplicit() {
@@ -994,7 +994,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> elementsBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Expression> getElementsList() {
       if (elementsBuilder_ == null) {
@@ -1004,7 +1004,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public int getElementsCount() {
       if (elementsBuilder_ == null) {
@@ -1014,7 +1014,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public org.mojolang.mojo.lang.Expression getElements(int index) {
       if (elementsBuilder_ == null) {
@@ -1024,7 +1024,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder setElements(
         int index, org.mojolang.mojo.lang.Expression value) {
@@ -1041,7 +1041,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder setElements(
         int index, org.mojolang.mojo.lang.Expression.Builder builderForValue) {
@@ -1055,7 +1055,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder addElements(org.mojolang.mojo.lang.Expression value) {
       if (elementsBuilder_ == null) {
@@ -1071,7 +1071,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder addElements(
         int index, org.mojolang.mojo.lang.Expression value) {
@@ -1088,7 +1088,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder addElements(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
@@ -1102,7 +1102,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder addElements(
         int index, org.mojolang.mojo.lang.Expression.Builder builderForValue) {
@@ -1116,7 +1116,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder addAllElements(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.Expression> values) {
@@ -1131,7 +1131,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder clearElements() {
       if (elementsBuilder_ == null) {
@@ -1144,7 +1144,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public Builder removeElements(int index) {
       if (elementsBuilder_ == null) {
@@ -1157,14 +1157,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public org.mojolang.mojo.lang.Expression.Builder getElementsBuilder(
         int index) {
       return getElementsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public org.mojolang.mojo.lang.ExpressionOrBuilder getElementsOrBuilder(
         int index) {
@@ -1174,7 +1174,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.ExpressionOrBuilder> 
          getElementsOrBuilderList() {
@@ -1185,14 +1185,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public org.mojolang.mojo.lang.Expression.Builder addElementsBuilder() {
       return getElementsFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.Expression.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public org.mojolang.mojo.lang.Expression.Builder addElementsBuilder(
         int index) {
@@ -1200,7 +1200,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.Expression.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Expression elements = 15;</code>
+     * <code>repeated .mojo.lang.Expression elements = 20;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Expression.Builder> 
          getElementsBuilderList() {

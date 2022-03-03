@@ -8,43 +8,58 @@ public interface TermOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string type = 1;</code>
+   * <code>.mojo.lang.Position start_position = 1;</code>
+   * @return Whether the startPosition field is set.
+   */
+  boolean hasStartPosition();
+  /**
+   * <code>.mojo.lang.Position start_position = 1;</code>
+   * @return The startPosition.
+   */
+  org.mojolang.mojo.lang.Position getStartPosition();
+  /**
+   * <code>.mojo.lang.Position start_position = 1;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getStartPositionOrBuilder();
+
+  /**
+   * <code>.mojo.lang.Position end_position = 2;</code>
+   * @return Whether the endPosition field is set.
+   */
+  boolean hasEndPosition();
+  /**
+   * <code>.mojo.lang.Position end_position = 2;</code>
+   * @return The endPosition.
+   */
+  org.mojolang.mojo.lang.Position getEndPosition();
+  /**
+   * <code>.mojo.lang.Position end_position = 2;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
+
+  /**
+   * <code>string type = 5;</code>
    * @return The type.
    */
   java.lang.String getType();
   /**
-   * <code>string type = 1;</code>
+   * <code>string type = 5;</code>
    * @return The bytes for type.
    */
   com.google.protobuf.ByteString
       getTypeBytes();
 
   /**
-   * <code>string value = 2;</code>
+   * <code>string value = 6;</code>
    * @return The value.
    */
   java.lang.String getValue();
   /**
-   * <code>string value = 2;</code>
+   * <code>string value = 6;</code>
    * @return The bytes for value.
    */
   com.google.protobuf.ByteString
       getValueBytes();
-
-  /**
-   * <code>.mojo.lang.PositionSpan location = 10;</code>
-   * @return Whether the location field is set.
-   */
-  boolean hasLocation();
-  /**
-   * <code>.mojo.lang.PositionSpan location = 10;</code>
-   * @return The location.
-   */
-  org.mojolang.mojo.lang.PositionSpan getLocation();
-  /**
-   * <code>.mojo.lang.PositionSpan location = 10;</code>
-   */
-  org.mojolang.mojo.lang.PositionSpanOrBuilder getLocationOrBuilder();
 
   /**
    * <code>repeated .mojo.lang.Term terms = 15;</code>

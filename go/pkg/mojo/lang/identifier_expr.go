@@ -23,6 +23,17 @@ func NewTypeIdentifierExpr(nominal *NominalType) *IdentifierExpr {
 	return nil
 }
 
+func (m *IdentifierExpr) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *IdentifierExpr) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
 
 func (m *IdentifierExpr) GetName() string {
 	if m != nil && m.Identifier != nil {

@@ -734,25 +734,25 @@ private static final long serialVersionUID = 0L;
     if (kind_ != org.mojolang.mojo.lang.Identifier.Kind.KIND_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, kind_);
     }
-    if (!getPackageNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, packageName_);
     }
-    if (!getSourceFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sourceFileName_);
     }
     if (implicit_ != false) {
       output.writeBool(7, implicit_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
     }
     if (declaration_ != null) {
       output.writeMessage(11, getDeclaration());
     }
-    if (!getAliasBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, alias_);
     }
-    if (!getFullNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 20, fullName_);
     }
     for (int i = 0; i < enclosingTypeNames_.size(); i++) {
@@ -779,27 +779,27 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, kind_);
     }
-    if (!getPackageNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, packageName_);
     }
-    if (!getSourceFileNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sourceFileName_);
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, implicit_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
     }
     if (declaration_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getDeclaration());
     }
-    if (!getAliasBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, alias_);
     }
-    if (!getFullNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, fullName_);
     }
     {

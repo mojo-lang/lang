@@ -35,17 +35,18 @@ public final class DocumentProto {
     java.lang.String[] descriptorData = {
       "\n\030mojo/lang/document.proto\022\tmojo.lang\032\034m" +
       "ojo/document/document.proto\032\030mojo/lang/p" +
-      "osition.proto\"\267\001\n\010Document\022+\n\016start_posi" +
+      "osition.proto\"\312\001\n\010Document\022+\n\016start_posi" +
       "tion\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_p" +
-      "osition\030\002 \001(\0132\023.mojo.lang.Position\022&\n\005li" +
-      "nes\030\n \003(\0132\027.mojo.lang.LineDocument\022+\n\nst" +
-      "ructured\030\017 \001(\0132\027.mojo.document.Document\"" +
-      "\207\001\n\014LineDocument\022+\n\016start_position\030\001 \001(\013" +
-      "2\023.mojo.lang.Position\022)\n\014end_position\030\002 " +
-      "\001(\0132\023.mojo.lang.Position\022\021\n\tfollowing\030\003 " +
-      "\001(\010\022\014\n\004line\030\n \001(\tBZ\n\026org.mojolang.mojo.l" +
-      "angB\rDocumentProtoP\001Z/github.com/mojo-la" +
-      "ng/lang/go/pkg/mojo/lang;langb\006proto3"
+      "osition\030\002 \001(\0132\023.mojo.lang.Position\022\021\n\tfo" +
+      "llowing\030\003 \001(\010\022&\n\005lines\030\n \003(\0132\027.mojo.lang" +
+      ".LineDocument\022+\n\nstructured\030\017 \001(\0132\027.mojo" +
+      ".document.Document\"\207\001\n\014LineDocument\022+\n\016s" +
+      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
+      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022\021\n\tfollowing\030\003 \001(\010\022\014\n\004line\030\n \001(\tBZ\n\026" +
+      "org.mojolang.mojo.langB\rDocumentProtoP\001Z" +
+      "/github.com/mojo-lang/lang/go/pkg/mojo/l" +
+      "ang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -58,7 +59,7 @@ public final class DocumentProto {
     internal_static_mojo_lang_Document_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_Document_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Lines", "Structured", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "Following", "Lines", "Structured", });
     internal_static_mojo_lang_LineDocument_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_mojo_lang_LineDocument_fieldAccessorTable = new

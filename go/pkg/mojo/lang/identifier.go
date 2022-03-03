@@ -20,6 +20,18 @@ func FindIdentifier(identifiers []*Identifier, fullName string) *Identifier {
 	return nil
 }
 
+func (m *Identifier) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *Identifier) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *Identifier) IsGenericInstantiated() bool {
 	return strings.Contains(m.GetName(), "<")
 }

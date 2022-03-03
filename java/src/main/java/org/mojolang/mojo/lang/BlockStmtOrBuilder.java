@@ -38,13 +38,13 @@ public interface BlockStmtOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int64 kind = 3;</code>
+   * <code>int64 kind = 4;</code>
    * @return The kind.
    */
   long getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();

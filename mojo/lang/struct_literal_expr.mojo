@@ -1,5 +1,5 @@
 
 type StructLiteralExpr : ApplyExpr {
     ///
-    value: ObjectLiteralExpr @12
+    value: ObjectLiteralExpr @20
 }

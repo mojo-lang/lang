@@ -38,49 +38,49 @@ public interface ClosureExprOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
+
+  /**
+   * <code>.mojo.lang.Document document = 6;</code>
    * @return Whether the document field is set.
    */
   boolean hasDocument();
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 6;</code>
    * @return The document.
    */
   org.mojolang.mojo.lang.Document getDocument();
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 6;</code>
    */
   org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder();
 
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The packageName.
    */
   java.lang.String getPackageName();
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The bytes for packageName.
    */
   com.google.protobuf.ByteString
       getPackageNameBytes();
 
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The sourceFileName.
    */
   java.lang.String getSourceFileName();
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The bytes for sourceFileName.
    */
   com.google.protobuf.ByteString
       getSourceFileNameBytes();
-
-  /**
-   * <code>bool implicit = 7;</code>
-   * @return The implicit.
-   */
-  boolean getImplicit();
 
   /**
    * <code>string name = 10;</code>

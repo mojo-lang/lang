@@ -29,18 +29,21 @@ public final class TypeCastingExprProto {
   static {
     java.lang.String[] descriptorData = {
       "\n!mojo/lang/type_casting_expr.proto\022\tmoj" +
-      "o.lang\032\024mojo/lang/expr.proto\032\030mojo/lang/" +
-      "position.proto\"\211\001\n\017TypeCastingExpr\022+\n\016st" +
-      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
-      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
-      "on\022\014\n\004kind\030\003 \001(\005\022\020\n\010implicit\030\004 \001(\010Ba\n\026or" +
-      "g.mojolang.mojo.langB\024TypeCastingExprPro" +
-      "toP\001Z/github.com/mojo-lang/lang/go/pkg/m" +
-      "ojo/lang;langb\006proto3"
+      "o.lang\032\027mojo/lang/comment.proto\032\024mojo/la" +
+      "ng/expr.proto\032\030mojo/lang/position.proto\"" +
+      "\267\001\n\017TypeCastingExpr\022+\n\016start_position\030\001 " +
+      "\001(\0132\023.mojo.lang.Position\022)\n\014end_position" +
+      "\030\002 \001(\0132\023.mojo.lang.Position\022,\n\020leading_c" +
+      "omments\030\003 \003(\0132\022.mojo.lang.Comment\022\014\n\004kin" +
+      "d\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010Ba\n\026org.mojolan" +
+      "g.mojo.langB\024TypeCastingExprProtoP\001Z/git" +
+      "hub.com/mojo-lang/lang/go/pkg/mojo/lang;" +
+      "langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.lang.CommentProto.getDescriptor(),
           org.mojolang.mojo.lang.ExprProto.getDescriptor(),
           org.mojolang.mojo.lang.PositionProto.getDescriptor(),
         });
@@ -49,7 +52,8 @@ public final class TypeCastingExprProto {
     internal_static_mojo_lang_TypeCastingExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_TypeCastingExpr_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "LeadingComments", "Kind", "Implicit", });
+    org.mojolang.mojo.lang.CommentProto.getDescriptor();
     org.mojolang.mojo.lang.ExprProto.getDescriptor();
     org.mojolang.mojo.lang.PositionProto.getDescriptor();
   }

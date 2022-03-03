@@ -34,23 +34,21 @@ public final class IsExprProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\027mojo/lang/is_expr.proto\022\tmojo.lang\032\024mo" +
-      "jo/lang/expr.proto\032\030mojo/lang/position.p" +
-      "roto\"\200\001\n\006IsExpr\022+\n\016start_position\030\001 \001(\0132" +
-      "\023.mojo.lang.Position\022)\n\014end_position\030\002 \001" +
-      "(\0132\023.mojo.lang.Position\022\014\n\004kind\030\003 \001(\005\022\020\n" +
-      "\010implicit\030\004 \001(\010\"\211\001\n\017CheckedCastExpr\022+\n\016s" +
-      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
-      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
-      "ion\022\014\n\004kind\030\003 \001(\005\022\020\n\010implicit\030\004 \001(\010BX\n\026o" +
-      "rg.mojolang.mojo.langB\013IsExprProtoP\001Z/gi" +
-      "thub.com/mojo-lang/lang/go/pkg/mojo/lang" +
-      ";langb\006proto3"
+      "jo/lang/lang.proto\"\200\001\n\006IsExpr\022+\n\016start_p" +
+      "osition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014en" +
+      "d_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n" +
+      "\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\211\001\n\017Checke" +
+      "dCastExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo" +
+      ".lang.Position\022)\n\014end_position\030\002 \001(\0132\023.m" +
+      "ojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010impli" +
+      "cit\030\005 \001(\010BX\n\026org.mojolang.mojo.langB\013IsE" +
+      "xprProtoP\001Z/github.com/mojo-lang/lang/go" +
+      "/pkg/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          org.mojolang.mojo.lang.ExprProto.getDescriptor(),
-          org.mojolang.mojo.lang.PositionProto.getDescriptor(),
+          org.mojolang.mojo.lang.LangProto.getDescriptor(),
         });
     internal_static_mojo_lang_IsExpr_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -64,8 +62,7 @@ public final class IsExprProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_CheckedCastExpr_descriptor,
         new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", });
-    org.mojolang.mojo.lang.ExprProto.getDescriptor();
-    org.mojolang.mojo.lang.PositionProto.getDescriptor();
+    org.mojolang.mojo.lang.LangProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -74,17 +74,30 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 24: {
+          case 32: {
 
             kind_ = input.readInt64();
             break;
           }
-          case 32: {
+          case 40: {
 
             implicit_ = input.readBool();
             break;
           }
           case 82: {
+            org.mojolang.mojo.lang.BlockStmt.Builder subBuilder = null;
+            if (body_ != null) {
+              subBuilder = body_.toBuilder();
+            }
+            body_ = input.readMessage(org.mojolang.mojo.lang.BlockStmt.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(body_);
+              body_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 162: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
             if (iterator_ != null) {
               subBuilder = iterator_.toBuilder();
@@ -97,7 +110,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 162: {
+          case 170: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
             if (sequence_ != null) {
               subBuilder = sequence_.toBuilder();
@@ -106,19 +119,6 @@ private static final long serialVersionUID = 0L;
             if (subBuilder != null) {
               subBuilder.mergeFrom(sequence_);
               sequence_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 170: {
-            org.mojolang.mojo.lang.BlockStmt.Builder subBuilder = null;
-            if (body_ != null) {
-              subBuilder = body_.toBuilder();
-            }
-            body_ = input.readMessage(org.mojolang.mojo.lang.BlockStmt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(body_);
-              body_ = subBuilder.buildPartial();
             }
 
             break;
@@ -207,10 +207,10 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int KIND_FIELD_NUMBER = 3;
+  public static final int KIND_FIELD_NUMBER = 4;
   private long kind_;
   /**
-   * <code>int64 kind = 3;</code>
+   * <code>int64 kind = 4;</code>
    * @return The kind.
    */
   @java.lang.Override
@@ -218,10 +218,10 @@ private static final long serialVersionUID = 0L;
     return kind_;
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 4;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
   private boolean implicit_;
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   @java.lang.Override
@@ -229,10 +229,10 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int BODY_FIELD_NUMBER = 21;
+  public static final int BODY_FIELD_NUMBER = 10;
   private org.mojolang.mojo.lang.BlockStmt body_;
   /**
-   * <code>.mojo.lang.BlockStmt body = 21;</code>
+   * <code>.mojo.lang.BlockStmt body = 10;</code>
    * @return Whether the body field is set.
    */
   @java.lang.Override
@@ -240,7 +240,7 @@ private static final long serialVersionUID = 0L;
     return body_ != null;
   }
   /**
-   * <code>.mojo.lang.BlockStmt body = 21;</code>
+   * <code>.mojo.lang.BlockStmt body = 10;</code>
    * @return The body.
    */
   @java.lang.Override
@@ -248,17 +248,17 @@ private static final long serialVersionUID = 0L;
     return body_ == null ? org.mojolang.mojo.lang.BlockStmt.getDefaultInstance() : body_;
   }
   /**
-   * <code>.mojo.lang.BlockStmt body = 21;</code>
+   * <code>.mojo.lang.BlockStmt body = 10;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.BlockStmtOrBuilder getBodyOrBuilder() {
     return getBody();
   }
 
-  public static final int ITERATOR_FIELD_NUMBER = 10;
+  public static final int ITERATOR_FIELD_NUMBER = 20;
   private org.mojolang.mojo.lang.Expression iterator_;
   /**
-   * <code>.mojo.lang.Expression iterator = 10;</code>
+   * <code>.mojo.lang.Expression iterator = 20;</code>
    * @return Whether the iterator field is set.
    */
   @java.lang.Override
@@ -266,7 +266,7 @@ private static final long serialVersionUID = 0L;
     return iterator_ != null;
   }
   /**
-   * <code>.mojo.lang.Expression iterator = 10;</code>
+   * <code>.mojo.lang.Expression iterator = 20;</code>
    * @return The iterator.
    */
   @java.lang.Override
@@ -274,17 +274,17 @@ private static final long serialVersionUID = 0L;
     return iterator_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : iterator_;
   }
   /**
-   * <code>.mojo.lang.Expression iterator = 10;</code>
+   * <code>.mojo.lang.Expression iterator = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ExpressionOrBuilder getIteratorOrBuilder() {
     return getIterator();
   }
 
-  public static final int SEQUENCE_FIELD_NUMBER = 20;
+  public static final int SEQUENCE_FIELD_NUMBER = 21;
   private org.mojolang.mojo.lang.Expression sequence_;
   /**
-   * <code>.mojo.lang.Expression sequence = 20;</code>
+   * <code>.mojo.lang.Expression sequence = 21;</code>
    * @return Whether the sequence field is set.
    */
   @java.lang.Override
@@ -292,7 +292,7 @@ private static final long serialVersionUID = 0L;
     return sequence_ != null;
   }
   /**
-   * <code>.mojo.lang.Expression sequence = 20;</code>
+   * <code>.mojo.lang.Expression sequence = 21;</code>
    * @return The sequence.
    */
   @java.lang.Override
@@ -300,7 +300,7 @@ private static final long serialVersionUID = 0L;
     return sequence_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : sequence_;
   }
   /**
-   * <code>.mojo.lang.Expression sequence = 20;</code>
+   * <code>.mojo.lang.Expression sequence = 21;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ExpressionOrBuilder getSequenceOrBuilder() {
@@ -328,19 +328,19 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(2, getEndPosition());
     }
     if (kind_ != 0L) {
-      output.writeInt64(3, kind_);
+      output.writeInt64(4, kind_);
     }
     if (implicit_ != false) {
-      output.writeBool(4, implicit_);
-    }
-    if (iterator_ != null) {
-      output.writeMessage(10, getIterator());
-    }
-    if (sequence_ != null) {
-      output.writeMessage(20, getSequence());
+      output.writeBool(5, implicit_);
     }
     if (body_ != null) {
-      output.writeMessage(21, getBody());
+      output.writeMessage(10, getBody());
+    }
+    if (iterator_ != null) {
+      output.writeMessage(20, getIterator());
+    }
+    if (sequence_ != null) {
+      output.writeMessage(21, getSequence());
     }
     unknownFields.writeTo(output);
   }
@@ -361,23 +361,23 @@ private static final long serialVersionUID = 0L;
     }
     if (kind_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, kind_);
+        .computeInt64Size(4, kind_);
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, implicit_);
-    }
-    if (iterator_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getIterator());
-    }
-    if (sequence_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(20, getSequence());
+        .computeBoolSize(5, implicit_);
     }
     if (body_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(21, getBody());
+        .computeMessageSize(10, getBody());
+    }
+    if (iterator_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(20, getIterator());
+    }
+    if (sequence_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(21, getSequence());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1018,7 +1018,7 @@ private static final long serialVersionUID = 0L;
 
     private long kind_ ;
     /**
-     * <code>int64 kind = 3;</code>
+     * <code>int64 kind = 4;</code>
      * @return The kind.
      */
     @java.lang.Override
@@ -1026,7 +1026,7 @@ private static final long serialVersionUID = 0L;
       return kind_;
     }
     /**
-     * <code>int64 kind = 3;</code>
+     * <code>int64 kind = 4;</code>
      * @param value The kind to set.
      * @return This builder for chaining.
      */
@@ -1037,7 +1037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 kind = 3;</code>
+     * <code>int64 kind = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearKind() {
@@ -1049,7 +1049,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean implicit_ ;
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return The implicit.
      */
     @java.lang.Override
@@ -1057,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       return implicit_;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @param value The implicit to set.
      * @return This builder for chaining.
      */
@@ -1068,7 +1068,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearImplicit() {
@@ -1082,14 +1082,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.BlockStmt, org.mojolang.mojo.lang.BlockStmt.Builder, org.mojolang.mojo.lang.BlockStmtOrBuilder> bodyBuilder_;
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      * @return Whether the body field is set.
      */
     public boolean hasBody() {
       return bodyBuilder_ != null || body_ != null;
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      * @return The body.
      */
     public org.mojolang.mojo.lang.BlockStmt getBody() {
@@ -1100,7 +1100,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      */
     public Builder setBody(org.mojolang.mojo.lang.BlockStmt value) {
       if (bodyBuilder_ == null) {
@@ -1116,7 +1116,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      */
     public Builder setBody(
         org.mojolang.mojo.lang.BlockStmt.Builder builderForValue) {
@@ -1130,7 +1130,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      */
     public Builder mergeBody(org.mojolang.mojo.lang.BlockStmt value) {
       if (bodyBuilder_ == null) {
@@ -1148,7 +1148,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      */
     public Builder clearBody() {
       if (bodyBuilder_ == null) {
@@ -1162,7 +1162,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      */
     public org.mojolang.mojo.lang.BlockStmt.Builder getBodyBuilder() {
       
@@ -1170,7 +1170,7 @@ private static final long serialVersionUID = 0L;
       return getBodyFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      */
     public org.mojolang.mojo.lang.BlockStmtOrBuilder getBodyOrBuilder() {
       if (bodyBuilder_ != null) {
@@ -1181,7 +1181,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.BlockStmt body = 21;</code>
+     * <code>.mojo.lang.BlockStmt body = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.BlockStmt, org.mojolang.mojo.lang.BlockStmt.Builder, org.mojolang.mojo.lang.BlockStmtOrBuilder> 
@@ -1201,14 +1201,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> iteratorBuilder_;
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      * @return Whether the iterator field is set.
      */
     public boolean hasIterator() {
       return iteratorBuilder_ != null || iterator_ != null;
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      * @return The iterator.
      */
     public org.mojolang.mojo.lang.Expression getIterator() {
@@ -1219,7 +1219,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      */
     public Builder setIterator(org.mojolang.mojo.lang.Expression value) {
       if (iteratorBuilder_ == null) {
@@ -1235,7 +1235,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      */
     public Builder setIterator(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
@@ -1249,7 +1249,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      */
     public Builder mergeIterator(org.mojolang.mojo.lang.Expression value) {
       if (iteratorBuilder_ == null) {
@@ -1267,7 +1267,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      */
     public Builder clearIterator() {
       if (iteratorBuilder_ == null) {
@@ -1281,7 +1281,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      */
     public org.mojolang.mojo.lang.Expression.Builder getIteratorBuilder() {
       
@@ -1289,7 +1289,7 @@ private static final long serialVersionUID = 0L;
       return getIteratorFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      */
     public org.mojolang.mojo.lang.ExpressionOrBuilder getIteratorOrBuilder() {
       if (iteratorBuilder_ != null) {
@@ -1300,7 +1300,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression iterator = 10;</code>
+     * <code>.mojo.lang.Expression iterator = 20;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
@@ -1320,14 +1320,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> sequenceBuilder_;
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      * @return Whether the sequence field is set.
      */
     public boolean hasSequence() {
       return sequenceBuilder_ != null || sequence_ != null;
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      * @return The sequence.
      */
     public org.mojolang.mojo.lang.Expression getSequence() {
@@ -1338,7 +1338,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      */
     public Builder setSequence(org.mojolang.mojo.lang.Expression value) {
       if (sequenceBuilder_ == null) {
@@ -1354,7 +1354,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      */
     public Builder setSequence(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
@@ -1368,7 +1368,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      */
     public Builder mergeSequence(org.mojolang.mojo.lang.Expression value) {
       if (sequenceBuilder_ == null) {
@@ -1386,7 +1386,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      */
     public Builder clearSequence() {
       if (sequenceBuilder_ == null) {
@@ -1400,7 +1400,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      */
     public org.mojolang.mojo.lang.Expression.Builder getSequenceBuilder() {
       
@@ -1408,7 +1408,7 @@ private static final long serialVersionUID = 0L;
       return getSequenceFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      */
     public org.mojolang.mojo.lang.ExpressionOrBuilder getSequenceOrBuilder() {
       if (sequenceBuilder_ != null) {
@@ -1419,7 +1419,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression sequence = 20;</code>
+     * <code>.mojo.lang.Expression sequence = 21;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 

@@ -22,6 +22,6 @@
 /// }
 /// ```
 type ForStmt : LoopStmt {
-    iterator: Expression @10
-    sequence: Expression @20
+    iterator: Expression @20
+    sequence: Expression @21
 }

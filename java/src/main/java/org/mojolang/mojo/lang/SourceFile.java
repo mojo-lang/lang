@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     packageName_ = "";
     imports_ = java.util.Collections.emptyList();
     statements_ = java.util.Collections.emptyList();
+    tailingComments_ = java.util.Collections.emptyList();
     resolvedIdentifiers_ = java.util.Collections.emptyList();
     unresolvedIdentifiers_ = java.util.Collections.emptyList();
     dependencies_ = java.util.Collections.emptyList();
@@ -116,28 +117,37 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(org.mojolang.mojo.lang.Statement.parser(), extensionRegistry));
             break;
           }
-          case 130: {
+          case 106: {
             if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              resolvedIdentifiers_ = new java.util.ArrayList<org.mojolang.mojo.lang.Identifier>();
+              tailingComments_ = new java.util.ArrayList<org.mojolang.mojo.lang.Comment>();
               mutable_bitField0_ |= 0x00000008;
+            }
+            tailingComments_.add(
+                input.readMessage(org.mojolang.mojo.lang.Comment.parser(), extensionRegistry));
+            break;
+          }
+          case 162: {
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+              resolvedIdentifiers_ = new java.util.ArrayList<org.mojolang.mojo.lang.Identifier>();
+              mutable_bitField0_ |= 0x00000010;
             }
             resolvedIdentifiers_.add(
                 input.readMessage(org.mojolang.mojo.lang.Identifier.parser(), extensionRegistry));
             break;
           }
-          case 138: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+          case 170: {
+            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
               unresolvedIdentifiers_ = new java.util.ArrayList<org.mojolang.mojo.lang.Identifier>();
-              mutable_bitField0_ |= 0x00000010;
+              mutable_bitField0_ |= 0x00000020;
             }
             unresolvedIdentifiers_.add(
                 input.readMessage(org.mojolang.mojo.lang.Identifier.parser(), extensionRegistry));
             break;
           }
-          case 170: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+          case 178: {
+            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
               dependencies_ = new java.util.ArrayList<org.mojolang.mojo.lang.SourceFile>();
-              mutable_bitField0_ |= 0x00000020;
+              mutable_bitField0_ |= 0x00000040;
             }
             dependencies_.add(
                 input.readMessage(org.mojolang.mojo.lang.SourceFile.parser(), extensionRegistry));
@@ -181,12 +191,15 @@ private static final long serialVersionUID = 0L;
         statements_ = java.util.Collections.unmodifiableList(statements_);
       }
       if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        resolvedIdentifiers_ = java.util.Collections.unmodifiableList(resolvedIdentifiers_);
+        tailingComments_ = java.util.Collections.unmodifiableList(tailingComments_);
       }
       if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        unresolvedIdentifiers_ = java.util.Collections.unmodifiableList(unresolvedIdentifiers_);
+        resolvedIdentifiers_ = java.util.Collections.unmodifiableList(resolvedIdentifiers_);
       }
       if (((mutable_bitField0_ & 0x00000020) != 0)) {
+        unresolvedIdentifiers_ = java.util.Collections.unmodifiableList(unresolvedIdentifiers_);
+      }
+      if (((mutable_bitField0_ & 0x00000040) != 0)) {
         dependencies_ = java.util.Collections.unmodifiableList(dependencies_);
       }
       this.unknownFields = unknownFields.build();
@@ -466,17 +479,57 @@ private static final long serialVersionUID = 0L;
     return statements_.get(index);
   }
 
-  public static final int RESOLVED_IDENTIFIERS_FIELD_NUMBER = 16;
+  public static final int TAILING_COMMENTS_FIELD_NUMBER = 13;
+  private java.util.List<org.mojolang.mojo.lang.Comment> tailingComments_;
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<org.mojolang.mojo.lang.Comment> getTailingCommentsList() {
+    return tailingComments_;
+  }
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends org.mojolang.mojo.lang.CommentOrBuilder> 
+      getTailingCommentsOrBuilderList() {
+    return tailingComments_;
+  }
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  @java.lang.Override
+  public int getTailingCommentsCount() {
+    return tailingComments_.size();
+  }
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Comment getTailingComments(int index) {
+    return tailingComments_.get(index);
+  }
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.CommentOrBuilder getTailingCommentsOrBuilder(
+      int index) {
+    return tailingComments_.get(index);
+  }
+
+  public static final int RESOLVED_IDENTIFIERS_FIELD_NUMBER = 20;
   private java.util.List<org.mojolang.mojo.lang.Identifier> resolvedIdentifiers_;
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.Identifier> getResolvedIdentifiersList() {
     return resolvedIdentifiers_;
   }
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
@@ -484,21 +537,21 @@ private static final long serialVersionUID = 0L;
     return resolvedIdentifiers_;
   }
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   @java.lang.Override
   public int getResolvedIdentifiersCount() {
     return resolvedIdentifiers_.size();
   }
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Identifier getResolvedIdentifiers(int index) {
     return resolvedIdentifiers_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.IdentifierOrBuilder getResolvedIdentifiersOrBuilder(
@@ -506,17 +559,17 @@ private static final long serialVersionUID = 0L;
     return resolvedIdentifiers_.get(index);
   }
 
-  public static final int UNRESOLVED_IDENTIFIERS_FIELD_NUMBER = 17;
+  public static final int UNRESOLVED_IDENTIFIERS_FIELD_NUMBER = 21;
   private java.util.List<org.mojolang.mojo.lang.Identifier> unresolvedIdentifiers_;
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.Identifier> getUnresolvedIdentifiersList() {
     return unresolvedIdentifiers_;
   }
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
@@ -524,21 +577,21 @@ private static final long serialVersionUID = 0L;
     return unresolvedIdentifiers_;
   }
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   @java.lang.Override
   public int getUnresolvedIdentifiersCount() {
     return unresolvedIdentifiers_.size();
   }
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Identifier getUnresolvedIdentifiers(int index) {
     return unresolvedIdentifiers_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.IdentifierOrBuilder getUnresolvedIdentifiersOrBuilder(
@@ -546,17 +599,17 @@ private static final long serialVersionUID = 0L;
     return unresolvedIdentifiers_.get(index);
   }
 
-  public static final int DEPENDENCIES_FIELD_NUMBER = 21;
+  public static final int DEPENDENCIES_FIELD_NUMBER = 22;
   private java.util.List<org.mojolang.mojo.lang.SourceFile> dependencies_;
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.SourceFile> getDependenciesList() {
     return dependencies_;
   }
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.SourceFileOrBuilder> 
@@ -564,21 +617,21 @@ private static final long serialVersionUID = 0L;
     return dependencies_;
   }
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   @java.lang.Override
   public int getDependenciesCount() {
     return dependencies_.size();
   }
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.SourceFile getDependencies(int index) {
     return dependencies_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.SourceFileOrBuilder getDependenciesOrBuilder(
@@ -626,10 +679,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (!getFullNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fullName_);
     }
     if (url_ != null) {
@@ -638,7 +691,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < attributes_.size(); i++) {
       output.writeMessage(4, attributes_.get(i));
     }
-    if (!getPackageNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, packageName_);
     }
     for (int i = 0; i < imports_.size(); i++) {
@@ -647,14 +700,17 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < statements_.size(); i++) {
       output.writeMessage(12, statements_.get(i));
     }
+    for (int i = 0; i < tailingComments_.size(); i++) {
+      output.writeMessage(13, tailingComments_.get(i));
+    }
     for (int i = 0; i < resolvedIdentifiers_.size(); i++) {
-      output.writeMessage(16, resolvedIdentifiers_.get(i));
+      output.writeMessage(20, resolvedIdentifiers_.get(i));
     }
     for (int i = 0; i < unresolvedIdentifiers_.size(); i++) {
-      output.writeMessage(17, unresolvedIdentifiers_.get(i));
+      output.writeMessage(21, unresolvedIdentifiers_.get(i));
     }
     for (int i = 0; i < dependencies_.size(); i++) {
-      output.writeMessage(21, dependencies_.get(i));
+      output.writeMessage(22, dependencies_.get(i));
     }
     if (scope_ != null) {
       output.writeMessage(30, getScope());
@@ -668,10 +724,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (!getFullNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fullName_);
     }
     if (url_ != null) {
@@ -682,7 +738,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, attributes_.get(i));
     }
-    if (!getPackageNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, packageName_);
     }
     for (int i = 0; i < imports_.size(); i++) {
@@ -693,17 +749,21 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, statements_.get(i));
     }
+    for (int i = 0; i < tailingComments_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, tailingComments_.get(i));
+    }
     for (int i = 0; i < resolvedIdentifiers_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(16, resolvedIdentifiers_.get(i));
+        .computeMessageSize(20, resolvedIdentifiers_.get(i));
     }
     for (int i = 0; i < unresolvedIdentifiers_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(17, unresolvedIdentifiers_.get(i));
+        .computeMessageSize(21, unresolvedIdentifiers_.get(i));
     }
     for (int i = 0; i < dependencies_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(21, dependencies_.get(i));
+        .computeMessageSize(22, dependencies_.get(i));
     }
     if (scope_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -741,6 +801,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getImportsList())) return false;
     if (!getStatementsList()
         .equals(other.getStatementsList())) return false;
+    if (!getTailingCommentsList()
+        .equals(other.getTailingCommentsList())) return false;
     if (!getResolvedIdentifiersList()
         .equals(other.getResolvedIdentifiersList())) return false;
     if (!getUnresolvedIdentifiersList()
@@ -784,6 +846,10 @@ private static final long serialVersionUID = 0L;
     if (getStatementsCount() > 0) {
       hash = (37 * hash) + STATEMENTS_FIELD_NUMBER;
       hash = (53 * hash) + getStatementsList().hashCode();
+    }
+    if (getTailingCommentsCount() > 0) {
+      hash = (37 * hash) + TAILING_COMMENTS_FIELD_NUMBER;
+      hash = (53 * hash) + getTailingCommentsList().hashCode();
     }
     if (getResolvedIdentifiersCount() > 0) {
       hash = (37 * hash) + RESOLVED_IDENTIFIERS_FIELD_NUMBER;
@@ -932,6 +998,7 @@ private static final long serialVersionUID = 0L;
         getAttributesFieldBuilder();
         getImportsFieldBuilder();
         getStatementsFieldBuilder();
+        getTailingCommentsFieldBuilder();
         getResolvedIdentifiersFieldBuilder();
         getUnresolvedIdentifiersFieldBuilder();
         getDependenciesFieldBuilder();
@@ -970,21 +1037,27 @@ private static final long serialVersionUID = 0L;
       } else {
         statementsBuilder_.clear();
       }
+      if (tailingCommentsBuilder_ == null) {
+        tailingComments_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      } else {
+        tailingCommentsBuilder_.clear();
+      }
       if (resolvedIdentifiersBuilder_ == null) {
         resolvedIdentifiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
         resolvedIdentifiersBuilder_.clear();
       }
       if (unresolvedIdentifiersBuilder_ == null) {
         unresolvedIdentifiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
         unresolvedIdentifiersBuilder_.clear();
       }
       if (dependenciesBuilder_ == null) {
         dependencies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
         dependenciesBuilder_.clear();
       }
@@ -1056,28 +1129,37 @@ private static final long serialVersionUID = 0L;
       } else {
         result.statements_ = statementsBuilder_.build();
       }
-      if (resolvedIdentifiersBuilder_ == null) {
+      if (tailingCommentsBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0)) {
-          resolvedIdentifiers_ = java.util.Collections.unmodifiableList(resolvedIdentifiers_);
+          tailingComments_ = java.util.Collections.unmodifiableList(tailingComments_);
           bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.tailingComments_ = tailingComments_;
+      } else {
+        result.tailingComments_ = tailingCommentsBuilder_.build();
+      }
+      if (resolvedIdentifiersBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          resolvedIdentifiers_ = java.util.Collections.unmodifiableList(resolvedIdentifiers_);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.resolvedIdentifiers_ = resolvedIdentifiers_;
       } else {
         result.resolvedIdentifiers_ = resolvedIdentifiersBuilder_.build();
       }
       if (unresolvedIdentifiersBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           unresolvedIdentifiers_ = java.util.Collections.unmodifiableList(unresolvedIdentifiers_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.unresolvedIdentifiers_ = unresolvedIdentifiers_;
       } else {
         result.unresolvedIdentifiers_ = unresolvedIdentifiersBuilder_.build();
       }
       if (dependenciesBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           dependencies_ = java.util.Collections.unmodifiableList(dependencies_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.dependencies_ = dependencies_;
       } else {
@@ -1229,11 +1311,37 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (tailingCommentsBuilder_ == null) {
+        if (!other.tailingComments_.isEmpty()) {
+          if (tailingComments_.isEmpty()) {
+            tailingComments_ = other.tailingComments_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureTailingCommentsIsMutable();
+            tailingComments_.addAll(other.tailingComments_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.tailingComments_.isEmpty()) {
+          if (tailingCommentsBuilder_.isEmpty()) {
+            tailingCommentsBuilder_.dispose();
+            tailingCommentsBuilder_ = null;
+            tailingComments_ = other.tailingComments_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            tailingCommentsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getTailingCommentsFieldBuilder() : null;
+          } else {
+            tailingCommentsBuilder_.addAllMessages(other.tailingComments_);
+          }
+        }
+      }
       if (resolvedIdentifiersBuilder_ == null) {
         if (!other.resolvedIdentifiers_.isEmpty()) {
           if (resolvedIdentifiers_.isEmpty()) {
             resolvedIdentifiers_ = other.resolvedIdentifiers_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureResolvedIdentifiersIsMutable();
             resolvedIdentifiers_.addAll(other.resolvedIdentifiers_);
@@ -1246,7 +1354,7 @@ private static final long serialVersionUID = 0L;
             resolvedIdentifiersBuilder_.dispose();
             resolvedIdentifiersBuilder_ = null;
             resolvedIdentifiers_ = other.resolvedIdentifiers_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             resolvedIdentifiersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getResolvedIdentifiersFieldBuilder() : null;
@@ -1259,7 +1367,7 @@ private static final long serialVersionUID = 0L;
         if (!other.unresolvedIdentifiers_.isEmpty()) {
           if (unresolvedIdentifiers_.isEmpty()) {
             unresolvedIdentifiers_ = other.unresolvedIdentifiers_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureUnresolvedIdentifiersIsMutable();
             unresolvedIdentifiers_.addAll(other.unresolvedIdentifiers_);
@@ -1272,7 +1380,7 @@ private static final long serialVersionUID = 0L;
             unresolvedIdentifiersBuilder_.dispose();
             unresolvedIdentifiersBuilder_ = null;
             unresolvedIdentifiers_ = other.unresolvedIdentifiers_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
             unresolvedIdentifiersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUnresolvedIdentifiersFieldBuilder() : null;
@@ -1285,7 +1393,7 @@ private static final long serialVersionUID = 0L;
         if (!other.dependencies_.isEmpty()) {
           if (dependencies_.isEmpty()) {
             dependencies_ = other.dependencies_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureDependenciesIsMutable();
             dependencies_.addAll(other.dependencies_);
@@ -1298,7 +1406,7 @@ private static final long serialVersionUID = 0L;
             dependenciesBuilder_.dispose();
             dependenciesBuilder_ = null;
             dependencies_ = other.dependencies_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
             dependenciesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDependenciesFieldBuilder() : null;
@@ -2407,12 +2515,252 @@ private static final long serialVersionUID = 0L;
       return statementsBuilder_;
     }
 
+    private java.util.List<org.mojolang.mojo.lang.Comment> tailingComments_ =
+      java.util.Collections.emptyList();
+    private void ensureTailingCommentsIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        tailingComments_ = new java.util.ArrayList<org.mojolang.mojo.lang.Comment>(tailingComments_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.mojolang.mojo.lang.Comment, org.mojolang.mojo.lang.Comment.Builder, org.mojolang.mojo.lang.CommentOrBuilder> tailingCommentsBuilder_;
+
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public java.util.List<org.mojolang.mojo.lang.Comment> getTailingCommentsList() {
+      if (tailingCommentsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(tailingComments_);
+      } else {
+        return tailingCommentsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public int getTailingCommentsCount() {
+      if (tailingCommentsBuilder_ == null) {
+        return tailingComments_.size();
+      } else {
+        return tailingCommentsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public org.mojolang.mojo.lang.Comment getTailingComments(int index) {
+      if (tailingCommentsBuilder_ == null) {
+        return tailingComments_.get(index);
+      } else {
+        return tailingCommentsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder setTailingComments(
+        int index, org.mojolang.mojo.lang.Comment value) {
+      if (tailingCommentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTailingCommentsIsMutable();
+        tailingComments_.set(index, value);
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder setTailingComments(
+        int index, org.mojolang.mojo.lang.Comment.Builder builderForValue) {
+      if (tailingCommentsBuilder_ == null) {
+        ensureTailingCommentsIsMutable();
+        tailingComments_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder addTailingComments(org.mojolang.mojo.lang.Comment value) {
+      if (tailingCommentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTailingCommentsIsMutable();
+        tailingComments_.add(value);
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder addTailingComments(
+        int index, org.mojolang.mojo.lang.Comment value) {
+      if (tailingCommentsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTailingCommentsIsMutable();
+        tailingComments_.add(index, value);
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder addTailingComments(
+        org.mojolang.mojo.lang.Comment.Builder builderForValue) {
+      if (tailingCommentsBuilder_ == null) {
+        ensureTailingCommentsIsMutable();
+        tailingComments_.add(builderForValue.build());
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder addTailingComments(
+        int index, org.mojolang.mojo.lang.Comment.Builder builderForValue) {
+      if (tailingCommentsBuilder_ == null) {
+        ensureTailingCommentsIsMutable();
+        tailingComments_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder addAllTailingComments(
+        java.lang.Iterable<? extends org.mojolang.mojo.lang.Comment> values) {
+      if (tailingCommentsBuilder_ == null) {
+        ensureTailingCommentsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tailingComments_);
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder clearTailingComments() {
+      if (tailingCommentsBuilder_ == null) {
+        tailingComments_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public Builder removeTailingComments(int index) {
+      if (tailingCommentsBuilder_ == null) {
+        ensureTailingCommentsIsMutable();
+        tailingComments_.remove(index);
+        onChanged();
+      } else {
+        tailingCommentsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public org.mojolang.mojo.lang.Comment.Builder getTailingCommentsBuilder(
+        int index) {
+      return getTailingCommentsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public org.mojolang.mojo.lang.CommentOrBuilder getTailingCommentsOrBuilder(
+        int index) {
+      if (tailingCommentsBuilder_ == null) {
+        return tailingComments_.get(index);  } else {
+        return tailingCommentsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public java.util.List<? extends org.mojolang.mojo.lang.CommentOrBuilder> 
+         getTailingCommentsOrBuilderList() {
+      if (tailingCommentsBuilder_ != null) {
+        return tailingCommentsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(tailingComments_);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public org.mojolang.mojo.lang.Comment.Builder addTailingCommentsBuilder() {
+      return getTailingCommentsFieldBuilder().addBuilder(
+          org.mojolang.mojo.lang.Comment.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public org.mojolang.mojo.lang.Comment.Builder addTailingCommentsBuilder(
+        int index) {
+      return getTailingCommentsFieldBuilder().addBuilder(
+          index, org.mojolang.mojo.lang.Comment.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+     */
+    public java.util.List<org.mojolang.mojo.lang.Comment.Builder> 
+         getTailingCommentsBuilderList() {
+      return getTailingCommentsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.mojolang.mojo.lang.Comment, org.mojolang.mojo.lang.Comment.Builder, org.mojolang.mojo.lang.CommentOrBuilder> 
+        getTailingCommentsFieldBuilder() {
+      if (tailingCommentsBuilder_ == null) {
+        tailingCommentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            org.mojolang.mojo.lang.Comment, org.mojolang.mojo.lang.Comment.Builder, org.mojolang.mojo.lang.CommentOrBuilder>(
+                tailingComments_,
+                ((bitField0_ & 0x00000008) != 0),
+                getParentForChildren(),
+                isClean());
+        tailingComments_ = null;
+      }
+      return tailingCommentsBuilder_;
+    }
+
     private java.util.List<org.mojolang.mojo.lang.Identifier> resolvedIdentifiers_ =
       java.util.Collections.emptyList();
     private void ensureResolvedIdentifiersIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         resolvedIdentifiers_ = new java.util.ArrayList<org.mojolang.mojo.lang.Identifier>(resolvedIdentifiers_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2420,7 +2768,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder> resolvedIdentifiersBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Identifier> getResolvedIdentifiersList() {
       if (resolvedIdentifiersBuilder_ == null) {
@@ -2430,7 +2778,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public int getResolvedIdentifiersCount() {
       if (resolvedIdentifiersBuilder_ == null) {
@@ -2440,7 +2788,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public org.mojolang.mojo.lang.Identifier getResolvedIdentifiers(int index) {
       if (resolvedIdentifiersBuilder_ == null) {
@@ -2450,7 +2798,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder setResolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier value) {
@@ -2467,7 +2815,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder setResolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -2481,7 +2829,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder addResolvedIdentifiers(org.mojolang.mojo.lang.Identifier value) {
       if (resolvedIdentifiersBuilder_ == null) {
@@ -2497,7 +2845,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder addResolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier value) {
@@ -2514,7 +2862,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder addResolvedIdentifiers(
         org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -2528,7 +2876,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder addResolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -2542,7 +2890,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder addAllResolvedIdentifiers(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.Identifier> values) {
@@ -2557,12 +2905,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder clearResolvedIdentifiers() {
       if (resolvedIdentifiersBuilder_ == null) {
         resolvedIdentifiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         resolvedIdentifiersBuilder_.clear();
@@ -2570,7 +2918,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public Builder removeResolvedIdentifiers(int index) {
       if (resolvedIdentifiersBuilder_ == null) {
@@ -2583,14 +2931,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder getResolvedIdentifiersBuilder(
         int index) {
       return getResolvedIdentifiersFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public org.mojolang.mojo.lang.IdentifierOrBuilder getResolvedIdentifiersOrBuilder(
         int index) {
@@ -2600,7 +2948,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
          getResolvedIdentifiersOrBuilderList() {
@@ -2611,14 +2959,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder addResolvedIdentifiersBuilder() {
       return getResolvedIdentifiersFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.Identifier.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder addResolvedIdentifiersBuilder(
         int index) {
@@ -2626,7 +2974,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.Identifier.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+     * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Identifier.Builder> 
          getResolvedIdentifiersBuilderList() {
@@ -2639,7 +2987,7 @@ private static final long serialVersionUID = 0L;
         resolvedIdentifiersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder>(
                 resolvedIdentifiers_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         resolvedIdentifiers_ = null;
@@ -2650,9 +2998,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<org.mojolang.mojo.lang.Identifier> unresolvedIdentifiers_ =
       java.util.Collections.emptyList();
     private void ensureUnresolvedIdentifiersIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         unresolvedIdentifiers_ = new java.util.ArrayList<org.mojolang.mojo.lang.Identifier>(unresolvedIdentifiers_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2660,7 +3008,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder> unresolvedIdentifiersBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Identifier> getUnresolvedIdentifiersList() {
       if (unresolvedIdentifiersBuilder_ == null) {
@@ -2670,7 +3018,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public int getUnresolvedIdentifiersCount() {
       if (unresolvedIdentifiersBuilder_ == null) {
@@ -2680,7 +3028,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public org.mojolang.mojo.lang.Identifier getUnresolvedIdentifiers(int index) {
       if (unresolvedIdentifiersBuilder_ == null) {
@@ -2690,7 +3038,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder setUnresolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier value) {
@@ -2707,7 +3055,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder setUnresolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -2721,7 +3069,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder addUnresolvedIdentifiers(org.mojolang.mojo.lang.Identifier value) {
       if (unresolvedIdentifiersBuilder_ == null) {
@@ -2737,7 +3085,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder addUnresolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier value) {
@@ -2754,7 +3102,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder addUnresolvedIdentifiers(
         org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -2768,7 +3116,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder addUnresolvedIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -2782,7 +3130,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder addAllUnresolvedIdentifiers(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.Identifier> values) {
@@ -2797,12 +3145,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder clearUnresolvedIdentifiers() {
       if (unresolvedIdentifiersBuilder_ == null) {
         unresolvedIdentifiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         unresolvedIdentifiersBuilder_.clear();
@@ -2810,7 +3158,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public Builder removeUnresolvedIdentifiers(int index) {
       if (unresolvedIdentifiersBuilder_ == null) {
@@ -2823,14 +3171,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder getUnresolvedIdentifiersBuilder(
         int index) {
       return getUnresolvedIdentifiersFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public org.mojolang.mojo.lang.IdentifierOrBuilder getUnresolvedIdentifiersOrBuilder(
         int index) {
@@ -2840,7 +3188,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
          getUnresolvedIdentifiersOrBuilderList() {
@@ -2851,14 +3199,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder addUnresolvedIdentifiersBuilder() {
       return getUnresolvedIdentifiersFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.Identifier.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder addUnresolvedIdentifiersBuilder(
         int index) {
@@ -2866,7 +3214,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.Identifier.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+     * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Identifier.Builder> 
          getUnresolvedIdentifiersBuilderList() {
@@ -2879,7 +3227,7 @@ private static final long serialVersionUID = 0L;
         unresolvedIdentifiersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder>(
                 unresolvedIdentifiers_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         unresolvedIdentifiers_ = null;
@@ -2890,9 +3238,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<org.mojolang.mojo.lang.SourceFile> dependencies_ =
       java.util.Collections.emptyList();
     private void ensureDependenciesIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         dependencies_ = new java.util.ArrayList<org.mojolang.mojo.lang.SourceFile>(dependencies_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2900,7 +3248,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.SourceFile, org.mojolang.mojo.lang.SourceFile.Builder, org.mojolang.mojo.lang.SourceFileOrBuilder> dependenciesBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.SourceFile> getDependenciesList() {
       if (dependenciesBuilder_ == null) {
@@ -2910,7 +3258,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public int getDependenciesCount() {
       if (dependenciesBuilder_ == null) {
@@ -2920,7 +3268,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public org.mojolang.mojo.lang.SourceFile getDependencies(int index) {
       if (dependenciesBuilder_ == null) {
@@ -2930,7 +3278,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder setDependencies(
         int index, org.mojolang.mojo.lang.SourceFile value) {
@@ -2947,7 +3295,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder setDependencies(
         int index, org.mojolang.mojo.lang.SourceFile.Builder builderForValue) {
@@ -2961,7 +3309,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder addDependencies(org.mojolang.mojo.lang.SourceFile value) {
       if (dependenciesBuilder_ == null) {
@@ -2977,7 +3325,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder addDependencies(
         int index, org.mojolang.mojo.lang.SourceFile value) {
@@ -2994,7 +3342,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder addDependencies(
         org.mojolang.mojo.lang.SourceFile.Builder builderForValue) {
@@ -3008,7 +3356,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder addDependencies(
         int index, org.mojolang.mojo.lang.SourceFile.Builder builderForValue) {
@@ -3022,7 +3370,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder addAllDependencies(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.SourceFile> values) {
@@ -3037,12 +3385,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder clearDependencies() {
       if (dependenciesBuilder_ == null) {
         dependencies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         dependenciesBuilder_.clear();
@@ -3050,7 +3398,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public Builder removeDependencies(int index) {
       if (dependenciesBuilder_ == null) {
@@ -3063,14 +3411,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public org.mojolang.mojo.lang.SourceFile.Builder getDependenciesBuilder(
         int index) {
       return getDependenciesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public org.mojolang.mojo.lang.SourceFileOrBuilder getDependenciesOrBuilder(
         int index) {
@@ -3080,7 +3428,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.SourceFileOrBuilder> 
          getDependenciesOrBuilderList() {
@@ -3091,14 +3439,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public org.mojolang.mojo.lang.SourceFile.Builder addDependenciesBuilder() {
       return getDependenciesFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.SourceFile.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public org.mojolang.mojo.lang.SourceFile.Builder addDependenciesBuilder(
         int index) {
@@ -3106,7 +3454,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.SourceFile.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+     * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.SourceFile.Builder> 
          getDependenciesBuilderList() {
@@ -3119,7 +3467,7 @@ private static final long serialVersionUID = 0L;
         dependenciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.mojolang.mojo.lang.SourceFile, org.mojolang.mojo.lang.SourceFile.Builder, org.mojolang.mojo.lang.SourceFileOrBuilder>(
                 dependencies_,
-                ((bitField0_ & 0x00000020) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         dependencies_ = null;

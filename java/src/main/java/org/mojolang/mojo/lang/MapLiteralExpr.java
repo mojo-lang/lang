@@ -76,17 +76,17 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 24: {
+          case 32: {
 
             kind_ = input.readInt32();
             break;
           }
-          case 32: {
+          case 40: {
 
             implicit_ = input.readBool();
             break;
           }
-          case 122: {
+          case 162: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               entries_ = new java.util.ArrayList<org.mojolang.mojo.lang.MapLiteralExpr.Entry>();
               mutable_bitField0_ |= 0x00000001;
@@ -358,7 +358,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getKeyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
       if (value_ != null) {
@@ -376,7 +376,7 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      if (!getKeyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
       if (value_ != null) {
@@ -1024,10 +1024,10 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int KIND_FIELD_NUMBER = 3;
+  public static final int KIND_FIELD_NUMBER = 4;
   private int kind_;
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   @java.lang.Override
@@ -1035,10 +1035,10 @@ private static final long serialVersionUID = 0L;
     return kind_;
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 4;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
   private boolean implicit_;
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   @java.lang.Override
@@ -1046,17 +1046,17 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int ENTRIES_FIELD_NUMBER = 15;
+  public static final int ENTRIES_FIELD_NUMBER = 20;
   private java.util.List<org.mojolang.mojo.lang.MapLiteralExpr.Entry> entries_;
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.MapLiteralExpr.Entry> getEntriesList() {
     return entries_;
   }
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.MapLiteralExpr.EntryOrBuilder> 
@@ -1064,21 +1064,21 @@ private static final long serialVersionUID = 0L;
     return entries_;
   }
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   @java.lang.Override
   public int getEntriesCount() {
     return entries_.size();
   }
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.MapLiteralExpr.Entry getEntries(int index) {
     return entries_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.MapLiteralExpr.EntryOrBuilder getEntriesOrBuilder(
@@ -1107,13 +1107,13 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(2, getEndPosition());
     }
     if (kind_ != 0) {
-      output.writeInt32(3, kind_);
+      output.writeInt32(4, kind_);
     }
     if (implicit_ != false) {
-      output.writeBool(4, implicit_);
+      output.writeBool(5, implicit_);
     }
     for (int i = 0; i < entries_.size(); i++) {
-      output.writeMessage(15, entries_.get(i));
+      output.writeMessage(20, entries_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -1134,15 +1134,15 @@ private static final long serialVersionUID = 0L;
     }
     if (kind_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, kind_);
+        .computeInt32Size(4, kind_);
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, implicit_);
+        .computeBoolSize(5, implicit_);
     }
     for (int i = 0; i < entries_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(15, entries_.get(i));
+        .computeMessageSize(20, entries_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1763,7 +1763,7 @@ private static final long serialVersionUID = 0L;
 
     private int kind_ ;
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return The kind.
      */
     @java.lang.Override
@@ -1771,7 +1771,7 @@ private static final long serialVersionUID = 0L;
       return kind_;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @param value The kind to set.
      * @return This builder for chaining.
      */
@@ -1782,7 +1782,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearKind() {
@@ -1794,7 +1794,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean implicit_ ;
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return The implicit.
      */
     @java.lang.Override
@@ -1802,7 +1802,7 @@ private static final long serialVersionUID = 0L;
       return implicit_;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @param value The implicit to set.
      * @return This builder for chaining.
      */
@@ -1813,7 +1813,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearImplicit() {
@@ -1836,7 +1836,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.MapLiteralExpr.Entry, org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder, org.mojolang.mojo.lang.MapLiteralExpr.EntryOrBuilder> entriesBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.MapLiteralExpr.Entry> getEntriesList() {
       if (entriesBuilder_ == null) {
@@ -1846,7 +1846,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public int getEntriesCount() {
       if (entriesBuilder_ == null) {
@@ -1856,7 +1856,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public org.mojolang.mojo.lang.MapLiteralExpr.Entry getEntries(int index) {
       if (entriesBuilder_ == null) {
@@ -1866,7 +1866,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder setEntries(
         int index, org.mojolang.mojo.lang.MapLiteralExpr.Entry value) {
@@ -1883,7 +1883,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder setEntries(
         int index, org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder builderForValue) {
@@ -1897,7 +1897,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder addEntries(org.mojolang.mojo.lang.MapLiteralExpr.Entry value) {
       if (entriesBuilder_ == null) {
@@ -1913,7 +1913,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder addEntries(
         int index, org.mojolang.mojo.lang.MapLiteralExpr.Entry value) {
@@ -1930,7 +1930,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder addEntries(
         org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder builderForValue) {
@@ -1944,7 +1944,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder addEntries(
         int index, org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder builderForValue) {
@@ -1958,7 +1958,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder addAllEntries(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.MapLiteralExpr.Entry> values) {
@@ -1973,7 +1973,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder clearEntries() {
       if (entriesBuilder_ == null) {
@@ -1986,7 +1986,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public Builder removeEntries(int index) {
       if (entriesBuilder_ == null) {
@@ -1999,14 +1999,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder getEntriesBuilder(
         int index) {
       return getEntriesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public org.mojolang.mojo.lang.MapLiteralExpr.EntryOrBuilder getEntriesOrBuilder(
         int index) {
@@ -2016,7 +2016,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.MapLiteralExpr.EntryOrBuilder> 
          getEntriesOrBuilderList() {
@@ -2027,14 +2027,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder addEntriesBuilder() {
       return getEntriesFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.MapLiteralExpr.Entry.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder addEntriesBuilder(
         int index) {
@@ -2042,7 +2042,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.MapLiteralExpr.Entry.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+     * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.MapLiteralExpr.Entry.Builder> 
          getEntriesBuilderList() {

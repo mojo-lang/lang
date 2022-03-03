@@ -4,6 +4,18 @@ import (
 	"errors"
 )
 
+func (m *ValueDecl) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *ValueDecl) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *ValueDecl) GetAttributeArguments(name string) ([]*Argument, error) {
 	if m != nil {
 		arguments, err := GetAttributeArguments(m.Attributes, name)

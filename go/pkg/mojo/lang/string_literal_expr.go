@@ -15,6 +15,18 @@ func NewImplicitStringLiteral(value string) *StringLiteralExpr {
 	}
 }
 
+func (m *StringLiteralExpr) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *StringLiteralExpr) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *StringLiteralExpr) EvalValue() string {
 	if m != nil {
 		return m.Value

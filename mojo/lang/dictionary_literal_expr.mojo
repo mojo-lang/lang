@@ -21,5 +21,5 @@ type MapLiteralExpr : LiteralExpr {
         numeric: Bool @3
     }
 
-    entries: [Entry] @15
+    entries: [Entry] @20
 }

@@ -26,5 +26,5 @@ type EnumType {
     enumerators: [ValueDecl] @10
 
     //
-    underlying_type: NominalType @11
+    underlying_type: NominalType @11 
 }

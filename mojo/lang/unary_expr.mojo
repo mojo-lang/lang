@@ -1,6 +1,6 @@
 
 type UnaryExpr : ApplyExpr {
-    operator: Operator @15
+    operator: Operator @20
     
-    argument: Expression @16
+    argument: Expression @21
 }

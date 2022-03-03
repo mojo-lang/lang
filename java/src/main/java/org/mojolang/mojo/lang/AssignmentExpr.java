@@ -74,12 +74,12 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 24: {
+          case 32: {
 
             kind_ = input.readInt32();
             break;
           }
-          case 32: {
+          case 40: {
 
             implicit_ = input.readBool();
             break;
@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 122: {
+          case 162: {
             org.mojolang.mojo.lang.Operator.Builder subBuilder = null;
             if (operator_ != null) {
               subBuilder = operator_.toBuilder();
@@ -110,7 +110,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 130: {
+          case 170: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
             if (leftHandArgument_ != null) {
               subBuilder = leftHandArgument_.toBuilder();
@@ -123,7 +123,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 138: {
+          case 178: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
             if (rightHandArgument_ != null) {
               subBuilder = rightHandArgument_.toBuilder();
@@ -220,10 +220,10 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int KIND_FIELD_NUMBER = 3;
+  public static final int KIND_FIELD_NUMBER = 4;
   private int kind_;
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   @java.lang.Override
@@ -231,10 +231,10 @@ private static final long serialVersionUID = 0L;
     return kind_;
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 4;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
   private boolean implicit_;
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   @java.lang.Override
@@ -268,10 +268,10 @@ private static final long serialVersionUID = 0L;
     return getCallee();
   }
 
-  public static final int OPERATOR_FIELD_NUMBER = 15;
+  public static final int OPERATOR_FIELD_NUMBER = 20;
   private org.mojolang.mojo.lang.Operator operator_;
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    * @return Whether the operator field is set.
    */
   @java.lang.Override
@@ -279,7 +279,7 @@ private static final long serialVersionUID = 0L;
     return operator_ != null;
   }
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    * @return The operator.
    */
   @java.lang.Override
@@ -287,17 +287,17 @@ private static final long serialVersionUID = 0L;
     return operator_ == null ? org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
   }
   /**
-   * <code>.mojo.lang.Operator operator = 15;</code>
+   * <code>.mojo.lang.Operator operator = 20;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
     return getOperator();
   }
 
-  public static final int LEFT_HAND_ARGUMENT_FIELD_NUMBER = 16;
+  public static final int LEFT_HAND_ARGUMENT_FIELD_NUMBER = 21;
   private org.mojolang.mojo.lang.Expression leftHandArgument_;
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
    * @return Whether the leftHandArgument field is set.
    */
   @java.lang.Override
@@ -305,7 +305,7 @@ private static final long serialVersionUID = 0L;
     return leftHandArgument_ != null;
   }
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
    * @return The leftHandArgument.
    */
   @java.lang.Override
@@ -313,17 +313,17 @@ private static final long serialVersionUID = 0L;
     return leftHandArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : leftHandArgument_;
   }
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ExpressionOrBuilder getLeftHandArgumentOrBuilder() {
     return getLeftHandArgument();
   }
 
-  public static final int RIGHT_HAND_ARGUMENT_FIELD_NUMBER = 17;
+  public static final int RIGHT_HAND_ARGUMENT_FIELD_NUMBER = 22;
   private org.mojolang.mojo.lang.Expression rightHandArgument_;
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
    * @return Whether the rightHandArgument field is set.
    */
   @java.lang.Override
@@ -331,7 +331,7 @@ private static final long serialVersionUID = 0L;
     return rightHandArgument_ != null;
   }
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
    * @return The rightHandArgument.
    */
   @java.lang.Override
@@ -339,7 +339,7 @@ private static final long serialVersionUID = 0L;
     return rightHandArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : rightHandArgument_;
   }
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ExpressionOrBuilder getRightHandArgumentOrBuilder() {
@@ -367,22 +367,22 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(2, getEndPosition());
     }
     if (kind_ != 0) {
-      output.writeInt32(3, kind_);
+      output.writeInt32(4, kind_);
     }
     if (implicit_ != false) {
-      output.writeBool(4, implicit_);
+      output.writeBool(5, implicit_);
     }
     if (callee_ != null) {
       output.writeMessage(10, getCallee());
     }
     if (operator_ != null) {
-      output.writeMessage(15, getOperator());
+      output.writeMessage(20, getOperator());
     }
     if (leftHandArgument_ != null) {
-      output.writeMessage(16, getLeftHandArgument());
+      output.writeMessage(21, getLeftHandArgument());
     }
     if (rightHandArgument_ != null) {
-      output.writeMessage(17, getRightHandArgument());
+      output.writeMessage(22, getRightHandArgument());
     }
     unknownFields.writeTo(output);
   }
@@ -403,11 +403,11 @@ private static final long serialVersionUID = 0L;
     }
     if (kind_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, kind_);
+        .computeInt32Size(4, kind_);
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, implicit_);
+        .computeBoolSize(5, implicit_);
     }
     if (callee_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -415,15 +415,15 @@ private static final long serialVersionUID = 0L;
     }
     if (operator_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(15, getOperator());
+        .computeMessageSize(20, getOperator());
     }
     if (leftHandArgument_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(16, getLeftHandArgument());
+        .computeMessageSize(21, getLeftHandArgument());
     }
     if (rightHandArgument_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(17, getRightHandArgument());
+        .computeMessageSize(22, getRightHandArgument());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1086,7 +1086,7 @@ private static final long serialVersionUID = 0L;
 
     private int kind_ ;
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return The kind.
      */
     @java.lang.Override
@@ -1094,7 +1094,7 @@ private static final long serialVersionUID = 0L;
       return kind_;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @param value The kind to set.
      * @return This builder for chaining.
      */
@@ -1105,7 +1105,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 kind = 3;</code>
+     * <code>int32 kind = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearKind() {
@@ -1117,7 +1117,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean implicit_ ;
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return The implicit.
      */
     @java.lang.Override
@@ -1125,7 +1125,7 @@ private static final long serialVersionUID = 0L;
       return implicit_;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @param value The implicit to set.
      * @return This builder for chaining.
      */
@@ -1136,7 +1136,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearImplicit() {
@@ -1269,14 +1269,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> operatorBuilder_;
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      * @return Whether the operator field is set.
      */
     public boolean hasOperator() {
       return operatorBuilder_ != null || operator_ != null;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      * @return The operator.
      */
     public org.mojolang.mojo.lang.Operator getOperator() {
@@ -1287,7 +1287,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      */
     public Builder setOperator(org.mojolang.mojo.lang.Operator value) {
       if (operatorBuilder_ == null) {
@@ -1303,7 +1303,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      */
     public Builder setOperator(
         org.mojolang.mojo.lang.Operator.Builder builderForValue) {
@@ -1317,7 +1317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      */
     public Builder mergeOperator(org.mojolang.mojo.lang.Operator value) {
       if (operatorBuilder_ == null) {
@@ -1335,7 +1335,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      */
     public Builder clearOperator() {
       if (operatorBuilder_ == null) {
@@ -1349,7 +1349,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      */
     public org.mojolang.mojo.lang.Operator.Builder getOperatorBuilder() {
       
@@ -1357,7 +1357,7 @@ private static final long serialVersionUID = 0L;
       return getOperatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      */
     public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
       if (operatorBuilder_ != null) {
@@ -1368,7 +1368,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Operator operator = 15;</code>
+     * <code>.mojo.lang.Operator operator = 20;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> 
@@ -1388,14 +1388,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> leftHandArgumentBuilder_;
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      * @return Whether the leftHandArgument field is set.
      */
     public boolean hasLeftHandArgument() {
       return leftHandArgumentBuilder_ != null || leftHandArgument_ != null;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      * @return The leftHandArgument.
      */
     public org.mojolang.mojo.lang.Expression getLeftHandArgument() {
@@ -1406,7 +1406,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      */
     public Builder setLeftHandArgument(org.mojolang.mojo.lang.Expression value) {
       if (leftHandArgumentBuilder_ == null) {
@@ -1422,7 +1422,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      */
     public Builder setLeftHandArgument(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
@@ -1436,7 +1436,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      */
     public Builder mergeLeftHandArgument(org.mojolang.mojo.lang.Expression value) {
       if (leftHandArgumentBuilder_ == null) {
@@ -1454,7 +1454,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      */
     public Builder clearLeftHandArgument() {
       if (leftHandArgumentBuilder_ == null) {
@@ -1468,7 +1468,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      */
     public org.mojolang.mojo.lang.Expression.Builder getLeftHandArgumentBuilder() {
       
@@ -1476,7 +1476,7 @@ private static final long serialVersionUID = 0L;
       return getLeftHandArgumentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      */
     public org.mojolang.mojo.lang.ExpressionOrBuilder getLeftHandArgumentOrBuilder() {
       if (leftHandArgumentBuilder_ != null) {
@@ -1487,7 +1487,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 16;</code>
+     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
@@ -1507,14 +1507,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> rightHandArgumentBuilder_;
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      * @return Whether the rightHandArgument field is set.
      */
     public boolean hasRightHandArgument() {
       return rightHandArgumentBuilder_ != null || rightHandArgument_ != null;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      * @return The rightHandArgument.
      */
     public org.mojolang.mojo.lang.Expression getRightHandArgument() {
@@ -1525,7 +1525,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      */
     public Builder setRightHandArgument(org.mojolang.mojo.lang.Expression value) {
       if (rightHandArgumentBuilder_ == null) {
@@ -1541,7 +1541,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      */
     public Builder setRightHandArgument(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
@@ -1555,7 +1555,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      */
     public Builder mergeRightHandArgument(org.mojolang.mojo.lang.Expression value) {
       if (rightHandArgumentBuilder_ == null) {
@@ -1573,7 +1573,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      */
     public Builder clearRightHandArgument() {
       if (rightHandArgumentBuilder_ == null) {
@@ -1587,7 +1587,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      */
     public org.mojolang.mojo.lang.Expression.Builder getRightHandArgumentBuilder() {
       
@@ -1595,7 +1595,7 @@ private static final long serialVersionUID = 0L;
       return getRightHandArgumentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      */
     public org.mojolang.mojo.lang.ExpressionOrBuilder getRightHandArgumentOrBuilder() {
       if (rightHandArgumentBuilder_ != null) {
@@ -1606,7 +1606,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 17;</code>
+     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 

@@ -38,37 +38,37 @@ public interface MapLiteralExprOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   int getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
 
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   java.util.List<org.mojolang.mojo.lang.MapLiteralExpr.Entry> 
       getEntriesList();
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   org.mojolang.mojo.lang.MapLiteralExpr.Entry getEntries(int index);
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   int getEntriesCount();
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.MapLiteralExpr.EntryOrBuilder> 
       getEntriesOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 15;</code>
+   * <code>repeated .mojo.lang.MapLiteralExpr.Entry entries = 20;</code>
    */
   org.mojolang.mojo.lang.MapLiteralExpr.EntryOrBuilder getEntriesOrBuilder(
       int index);

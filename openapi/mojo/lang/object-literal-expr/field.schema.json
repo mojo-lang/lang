@@ -1,1 +1,1 @@
-{"title":"mojo.lang.ObjectLiteralExpr.Field","description":"","type":"object","properties":{"name":{"type":"string"},"value":{"$ref":"#/components/schemas/mojo.lang.Expression"}}}
+{"title":"mojo.lang.ObjectLiteralExpr.Field","description":"","type":"object","properties":{"endPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"name":{"type":"string"},"startPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"value":{"$ref":"#/components/schemas/mojo.lang.Expression"}}}

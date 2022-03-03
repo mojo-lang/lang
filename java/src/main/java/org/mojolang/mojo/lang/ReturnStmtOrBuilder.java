@@ -38,29 +38,29 @@ public interface ReturnStmtOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int64 kind = 3;</code>
+   * <code>int64 kind = 4;</code>
    * @return The kind.
    */
   long getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
 
   /**
-   * <code>.mojo.lang.Expression result = 10;</code>
+   * <code>.mojo.lang.Expression result = 20;</code>
    * @return Whether the result field is set.
    */
   boolean hasResult();
   /**
-   * <code>.mojo.lang.Expression result = 10;</code>
+   * <code>.mojo.lang.Expression result = 20;</code>
    * @return The result.
    */
   org.mojolang.mojo.lang.Expression getResult();
   /**
-   * <code>.mojo.lang.Expression result = 10;</code>
+   * <code>.mojo.lang.Expression result = 20;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getResultOrBuilder();
 }

@@ -131,73 +131,97 @@ public interface SourceFileOrBuilder extends
       int index);
 
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  java.util.List<org.mojolang.mojo.lang.Comment> 
+      getTailingCommentsList();
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  org.mojolang.mojo.lang.Comment getTailingComments(int index);
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  int getTailingCommentsCount();
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  java.util.List<? extends org.mojolang.mojo.lang.CommentOrBuilder> 
+      getTailingCommentsOrBuilderList();
+  /**
+   * <code>repeated .mojo.lang.Comment tailing_comments = 13;</code>
+   */
+  org.mojolang.mojo.lang.CommentOrBuilder getTailingCommentsOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Identifier> 
       getResolvedIdentifiersList();
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   org.mojolang.mojo.lang.Identifier getResolvedIdentifiers(int index);
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   int getResolvedIdentifiersCount();
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
       getResolvedIdentifiersOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 16;</code>
+   * <code>repeated .mojo.lang.Identifier resolved_identifiers = 20;</code>
    */
   org.mojolang.mojo.lang.IdentifierOrBuilder getResolvedIdentifiersOrBuilder(
       int index);
 
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Identifier> 
       getUnresolvedIdentifiersList();
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   org.mojolang.mojo.lang.Identifier getUnresolvedIdentifiers(int index);
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   int getUnresolvedIdentifiersCount();
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
       getUnresolvedIdentifiersOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 17;</code>
+   * <code>repeated .mojo.lang.Identifier unresolved_identifiers = 21;</code>
    */
   org.mojolang.mojo.lang.IdentifierOrBuilder getUnresolvedIdentifiersOrBuilder(
       int index);
 
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   java.util.List<org.mojolang.mojo.lang.SourceFile> 
       getDependenciesList();
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   org.mojolang.mojo.lang.SourceFile getDependencies(int index);
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   int getDependenciesCount();
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.SourceFileOrBuilder> 
       getDependenciesOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.SourceFile dependencies = 21;</code>
+   * <code>repeated .mojo.lang.SourceFile dependencies = 22;</code>
    */
   org.mojolang.mojo.lang.SourceFileOrBuilder getDependenciesOrBuilder(
       int index);

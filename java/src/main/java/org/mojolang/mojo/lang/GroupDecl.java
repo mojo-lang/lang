@@ -81,7 +81,12 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 34: {
+          case 40: {
+
+            implicit_ = input.readBool();
+            break;
+          }
+          case 50: {
             org.mojolang.mojo.lang.Document.Builder subBuilder = null;
             if (document_ != null) {
               subBuilder = document_.toBuilder();
@@ -94,21 +99,16 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 42: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             packageName_ = s;
             break;
           }
-          case 50: {
+          case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
             sourceFileName_ = s;
-            break;
-          }
-          case 56: {
-
-            implicit_ = input.readBool();
             break;
           }
           case 82: {
@@ -231,10 +231,21 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int DOCUMENT_FIELD_NUMBER = 4;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
+  private boolean implicit_;
+  /**
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  @java.lang.Override
+  public boolean getImplicit() {
+    return implicit_;
+  }
+
+  public static final int DOCUMENT_FIELD_NUMBER = 6;
   private org.mojolang.mojo.lang.Document document_;
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 6;</code>
    * @return Whether the document field is set.
    */
   @java.lang.Override
@@ -242,7 +253,7 @@ private static final long serialVersionUID = 0L;
     return document_ != null;
   }
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 6;</code>
    * @return The document.
    */
   @java.lang.Override
@@ -250,17 +261,17 @@ private static final long serialVersionUID = 0L;
     return document_ == null ? org.mojolang.mojo.lang.Document.getDefaultInstance() : document_;
   }
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 6;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder() {
     return getDocument();
   }
 
-  public static final int PACKAGE_NAME_FIELD_NUMBER = 5;
+  public static final int PACKAGE_NAME_FIELD_NUMBER = 7;
   private volatile java.lang.Object packageName_;
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The packageName.
    */
   @java.lang.Override
@@ -277,7 +288,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The bytes for packageName.
    */
   @java.lang.Override
@@ -295,10 +306,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SOURCE_FILE_NAME_FIELD_NUMBER = 6;
+  public static final int SOURCE_FILE_NAME_FIELD_NUMBER = 8;
   private volatile java.lang.Object sourceFileName_;
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The sourceFileName.
    */
   @java.lang.Override
@@ -315,7 +326,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The bytes for sourceFileName.
    */
   @java.lang.Override
@@ -331,17 +342,6 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int IMPLICIT_FIELD_NUMBER = 7;
-  private boolean implicit_;
-  /**
-   * <code>bool implicit = 7;</code>
-   * @return The implicit.
-   */
-  @java.lang.Override
-  public boolean getImplicit() {
-    return implicit_;
   }
 
   public static final int NAME_FIELD_NUMBER = 10;
@@ -501,19 +501,19 @@ private static final long serialVersionUID = 0L;
     if (endPosition_ != null) {
       output.writeMessage(2, getEndPosition());
     }
-    if (document_ != null) {
-      output.writeMessage(4, getDocument());
-    }
-    if (!getPackageNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, packageName_);
-    }
-    if (!getSourceFileNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sourceFileName_);
-    }
     if (implicit_ != false) {
-      output.writeBool(7, implicit_);
+      output.writeBool(5, implicit_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (document_ != null) {
+      output.writeMessage(6, getDocument());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, packageName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sourceFileName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
     }
     for (int i = 0; i < attributes_.size(); i++) {
@@ -542,21 +542,21 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getEndPosition());
     }
-    if (document_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getDocument());
-    }
-    if (!getPackageNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, packageName_);
-    }
-    if (!getSourceFileNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sourceFileName_);
-    }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, implicit_);
+        .computeBoolSize(5, implicit_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (document_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getDocument());
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, packageName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sourceFileName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
     }
     for (int i = 0; i < attributes_.size(); i++) {
@@ -596,6 +596,8 @@ private static final long serialVersionUID = 0L;
       if (!getEndPosition()
           .equals(other.getEndPosition())) return false;
     }
+    if (getImplicit()
+        != other.getImplicit()) return false;
     if (hasDocument() != other.hasDocument()) return false;
     if (hasDocument()) {
       if (!getDocument()
@@ -605,8 +607,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPackageName())) return false;
     if (!getSourceFileName()
         .equals(other.getSourceFileName())) return false;
-    if (getImplicit()
-        != other.getImplicit()) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (!getAttributesList()
@@ -633,6 +633,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + END_POSITION_FIELD_NUMBER;
       hash = (53 * hash) + getEndPosition().hashCode();
     }
+    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getImplicit());
     if (hasDocument()) {
       hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
       hash = (53 * hash) + getDocument().hashCode();
@@ -641,9 +644,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPackageName().hashCode();
     hash = (37 * hash) + SOURCE_FILE_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getSourceFileName().hashCode();
-    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getImplicit());
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     if (getAttributesCount() > 0) {
@@ -803,6 +803,8 @@ private static final long serialVersionUID = 0L;
         endPosition_ = null;
         endPositionBuilder_ = null;
       }
+      implicit_ = false;
+
       if (documentBuilder_ == null) {
         document_ = null;
       } else {
@@ -812,8 +814,6 @@ private static final long serialVersionUID = 0L;
       packageName_ = "";
 
       sourceFileName_ = "";
-
-      implicit_ = false;
 
       name_ = "";
 
@@ -868,6 +868,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.endPosition_ = endPositionBuilder_.build();
       }
+      result.implicit_ = implicit_;
       if (documentBuilder_ == null) {
         result.document_ = document_;
       } else {
@@ -875,7 +876,6 @@ private static final long serialVersionUID = 0L;
       }
       result.packageName_ = packageName_;
       result.sourceFileName_ = sourceFileName_;
-      result.implicit_ = implicit_;
       result.name_ = name_;
       if (attributesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -950,6 +950,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasEndPosition()) {
         mergeEndPosition(other.getEndPosition());
       }
+      if (other.getImplicit() != false) {
+        setImplicit(other.getImplicit());
+      }
       if (other.hasDocument()) {
         mergeDocument(other.getDocument());
       }
@@ -960,9 +963,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getSourceFileName().isEmpty()) {
         sourceFileName_ = other.sourceFileName_;
         onChanged();
-      }
-      if (other.getImplicit() != false) {
-        setImplicit(other.getImplicit());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
@@ -1291,18 +1291,49 @@ private static final long serialVersionUID = 0L;
       return endPositionBuilder_;
     }
 
+    private boolean implicit_ ;
+    /**
+     * <code>bool implicit = 5;</code>
+     * @return The implicit.
+     */
+    @java.lang.Override
+    public boolean getImplicit() {
+      return implicit_;
+    }
+    /**
+     * <code>bool implicit = 5;</code>
+     * @param value The implicit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImplicit(boolean value) {
+      
+      implicit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool implicit = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImplicit() {
+      
+      implicit_ = false;
+      onChanged();
+      return this;
+    }
+
     private org.mojolang.mojo.lang.Document document_;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Document, org.mojolang.mojo.lang.Document.Builder, org.mojolang.mojo.lang.DocumentOrBuilder> documentBuilder_;
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      * @return Whether the document field is set.
      */
     public boolean hasDocument() {
       return documentBuilder_ != null || document_ != null;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      * @return The document.
      */
     public org.mojolang.mojo.lang.Document getDocument() {
@@ -1313,7 +1344,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      */
     public Builder setDocument(org.mojolang.mojo.lang.Document value) {
       if (documentBuilder_ == null) {
@@ -1329,7 +1360,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      */
     public Builder setDocument(
         org.mojolang.mojo.lang.Document.Builder builderForValue) {
@@ -1343,7 +1374,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      */
     public Builder mergeDocument(org.mojolang.mojo.lang.Document value) {
       if (documentBuilder_ == null) {
@@ -1361,7 +1392,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      */
     public Builder clearDocument() {
       if (documentBuilder_ == null) {
@@ -1375,7 +1406,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      */
     public org.mojolang.mojo.lang.Document.Builder getDocumentBuilder() {
       
@@ -1383,7 +1414,7 @@ private static final long serialVersionUID = 0L;
       return getDocumentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      */
     public org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder() {
       if (documentBuilder_ != null) {
@@ -1394,7 +1425,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Document, org.mojolang.mojo.lang.Document.Builder, org.mojolang.mojo.lang.DocumentOrBuilder> 
@@ -1412,7 +1443,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object packageName_ = "";
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @return The packageName.
      */
     public java.lang.String getPackageName() {
@@ -1428,7 +1459,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @return The bytes for packageName.
      */
     public com.google.protobuf.ByteString
@@ -1445,7 +1476,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @param value The packageName to set.
      * @return This builder for chaining.
      */
@@ -1460,7 +1491,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearPackageName() {
@@ -1470,7 +1501,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @param value The bytes for packageName to set.
      * @return This builder for chaining.
      */
@@ -1488,7 +1519,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sourceFileName_ = "";
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @return The sourceFileName.
      */
     public java.lang.String getSourceFileName() {
@@ -1504,7 +1535,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @return The bytes for sourceFileName.
      */
     public com.google.protobuf.ByteString
@@ -1521,7 +1552,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @param value The sourceFileName to set.
      * @return This builder for chaining.
      */
@@ -1536,7 +1567,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearSourceFileName() {
@@ -1546,7 +1577,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @param value The bytes for sourceFileName to set.
      * @return This builder for chaining.
      */
@@ -1558,37 +1589,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       sourceFileName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean implicit_ ;
-    /**
-     * <code>bool implicit = 7;</code>
-     * @return The implicit.
-     */
-    @java.lang.Override
-    public boolean getImplicit() {
-      return implicit_;
-    }
-    /**
-     * <code>bool implicit = 7;</code>
-     * @param value The implicit to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImplicit(boolean value) {
-      
-      implicit_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool implicit = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImplicit() {
-      
-      implicit_ = false;
       onChanged();
       return this;
     }

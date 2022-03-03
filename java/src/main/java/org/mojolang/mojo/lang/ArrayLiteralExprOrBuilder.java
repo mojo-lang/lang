@@ -38,37 +38,37 @@ public interface ArrayLiteralExprOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   int getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
 
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Expression> 
       getElementsList();
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   org.mojolang.mojo.lang.Expression getElements(int index);
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   int getElementsCount();
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.ExpressionOrBuilder> 
       getElementsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Expression elements = 15;</code>
+   * <code>repeated .mojo.lang.Expression elements = 20;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getElementsOrBuilder(
       int index);

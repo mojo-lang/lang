@@ -38,37 +38,37 @@ public interface ObjectLiteralExprOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int32 kind = 3;</code>
+   * <code>int32 kind = 4;</code>
    * @return The kind.
    */
   int getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
 
   /**
-   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 15;</code>
+   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 20;</code>
    */
   java.util.List<org.mojolang.mojo.lang.ObjectLiteralExpr.Field> 
       getFieldsList();
   /**
-   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 15;</code>
+   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 20;</code>
    */
   org.mojolang.mojo.lang.ObjectLiteralExpr.Field getFields(int index);
   /**
-   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 15;</code>
+   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 20;</code>
    */
   int getFieldsCount();
   /**
-   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 15;</code>
+   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 20;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.ObjectLiteralExpr.FieldOrBuilder> 
       getFieldsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 15;</code>
+   * <code>repeated .mojo.lang.ObjectLiteralExpr.Field fields = 20;</code>
    */
   org.mojolang.mojo.lang.ObjectLiteralExpr.FieldOrBuilder getFieldsOrBuilder(
       int index);

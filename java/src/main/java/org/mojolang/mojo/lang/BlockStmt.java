@@ -76,12 +76,12 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 24: {
+          case 32: {
 
             kind_ = input.readInt64();
             break;
           }
-          case 32: {
+          case 40: {
 
             implicit_ = input.readBool();
             break;
@@ -182,10 +182,10 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int KIND_FIELD_NUMBER = 3;
+  public static final int KIND_FIELD_NUMBER = 4;
   private long kind_;
   /**
-   * <code>int64 kind = 3;</code>
+   * <code>int64 kind = 4;</code>
    * @return The kind.
    */
   @java.lang.Override
@@ -193,10 +193,10 @@ private static final long serialVersionUID = 0L;
     return kind_;
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 4;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
   private boolean implicit_;
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   @java.lang.Override
@@ -265,10 +265,10 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(2, getEndPosition());
     }
     if (kind_ != 0L) {
-      output.writeInt64(3, kind_);
+      output.writeInt64(4, kind_);
     }
     if (implicit_ != false) {
-      output.writeBool(4, implicit_);
+      output.writeBool(5, implicit_);
     }
     for (int i = 0; i < statements_.size(); i++) {
       output.writeMessage(10, statements_.get(i));
@@ -292,11 +292,11 @@ private static final long serialVersionUID = 0L;
     }
     if (kind_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, kind_);
+        .computeInt64Size(4, kind_);
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, implicit_);
+        .computeBoolSize(5, implicit_);
     }
     for (int i = 0; i < statements_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -922,7 +922,7 @@ private static final long serialVersionUID = 0L;
 
     private long kind_ ;
     /**
-     * <code>int64 kind = 3;</code>
+     * <code>int64 kind = 4;</code>
      * @return The kind.
      */
     @java.lang.Override
@@ -930,7 +930,7 @@ private static final long serialVersionUID = 0L;
       return kind_;
     }
     /**
-     * <code>int64 kind = 3;</code>
+     * <code>int64 kind = 4;</code>
      * @param value The kind to set.
      * @return This builder for chaining.
      */
@@ -941,7 +941,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 kind = 3;</code>
+     * <code>int64 kind = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearKind() {
@@ -953,7 +953,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean implicit_ ;
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return The implicit.
      */
     @java.lang.Override
@@ -961,7 +961,7 @@ private static final long serialVersionUID = 0L;
       return implicit_;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @param value The implicit to set.
      * @return This builder for chaining.
      */
@@ -972,7 +972,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool implicit = 4;</code>
+     * <code>bool implicit = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearImplicit() {

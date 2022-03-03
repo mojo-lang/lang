@@ -38,59 +38,59 @@ public interface ForStmtOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>int64 kind = 3;</code>
+   * <code>int64 kind = 4;</code>
    * @return The kind.
    */
   long getKind();
 
   /**
-   * <code>bool implicit = 4;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   boolean getImplicit();
 
   /**
-   * <code>.mojo.lang.BlockStmt body = 21;</code>
+   * <code>.mojo.lang.BlockStmt body = 10;</code>
    * @return Whether the body field is set.
    */
   boolean hasBody();
   /**
-   * <code>.mojo.lang.BlockStmt body = 21;</code>
+   * <code>.mojo.lang.BlockStmt body = 10;</code>
    * @return The body.
    */
   org.mojolang.mojo.lang.BlockStmt getBody();
   /**
-   * <code>.mojo.lang.BlockStmt body = 21;</code>
+   * <code>.mojo.lang.BlockStmt body = 10;</code>
    */
   org.mojolang.mojo.lang.BlockStmtOrBuilder getBodyOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression iterator = 10;</code>
+   * <code>.mojo.lang.Expression iterator = 20;</code>
    * @return Whether the iterator field is set.
    */
   boolean hasIterator();
   /**
-   * <code>.mojo.lang.Expression iterator = 10;</code>
+   * <code>.mojo.lang.Expression iterator = 20;</code>
    * @return The iterator.
    */
   org.mojolang.mojo.lang.Expression getIterator();
   /**
-   * <code>.mojo.lang.Expression iterator = 10;</code>
+   * <code>.mojo.lang.Expression iterator = 20;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getIteratorOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression sequence = 20;</code>
+   * <code>.mojo.lang.Expression sequence = 21;</code>
    * @return Whether the sequence field is set.
    */
   boolean hasSequence();
   /**
-   * <code>.mojo.lang.Expression sequence = 20;</code>
+   * <code>.mojo.lang.Expression sequence = 21;</code>
    * @return The sequence.
    */
   org.mojolang.mojo.lang.Expression getSequence();
   /**
-   * <code>.mojo.lang.Expression sequence = 20;</code>
+   * <code>.mojo.lang.Expression sequence = 21;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getSequenceOrBuilder();
 }

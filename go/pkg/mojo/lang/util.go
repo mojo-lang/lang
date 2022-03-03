@@ -85,11 +85,28 @@ func GetEnclosingNames(t *NominalType) []string {
 	return enclosingNames
 }
 
+func GetEnclosingGenericNames(t *NominalType) []string {
+	var enclosingNames []string
+	enclosing := t
+	for enclosing != nil {
+		enclosingNames = append(enclosingNames, enclosing.GetGenericName())
+		enclosing = enclosing.EnclosingType
+	}
+	if len(enclosingNames) > 1 {
+		last := len(enclosingNames) - 1
+		for i := 0; i < len(enclosingNames)/2; i++ {
+			enclosingNames[i], enclosingNames[last-i] = enclosingNames[last-i], enclosingNames[i]
+		}
+	}
+
+	return enclosingNames
+}
+
 // convert full type name to file name
 func TypeNameToFileName(fullName string) string {
 	segments := strings.Split(fullName, ".")
 	for i, segment := range segments {
-		if i < len(segments) - 1 {
+		if i < len(segments)-1 {
 			segments[i] = strcase.ToKebab(segment)
 		} else {
 			if len(segment) > 0 && segment[0] >= 'A' && segment[0] <= 'Z' {

@@ -9,6 +9,18 @@ const (
 	FieldNamOptionUseAlias
 )
 
+func (m *StructType) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *StructType) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *StructType) FieldNames(option FieldNamOption) []string {
 	if m != nil {
 		var fieldNames []string

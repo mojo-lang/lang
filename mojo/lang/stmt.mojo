@@ -21,8 +21,8 @@ type Stmt {
     end_position: Position @2
 
     /// Kind - The subclass of Stmt that this is.
-    kind : Int @3
+    kind : Int @4
 
     /// Implicit - Whether this statement is implicit.
-    implicit : Bool @4
+    implicit : Bool @5
 }

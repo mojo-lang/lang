@@ -29,21 +29,23 @@ public final class FloatLiteralExprProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\"mojo/lang/float_literal_expr.proto\022\tmo" +
-      "jo.lang\032\024mojo/lang/expr.proto\032\034mojo/lang" +
-      "/literal_expr.proto\032$mojo/lang/numeric_l" +
-      "iteral_expr.proto\032\030mojo/lang/position.pr" +
-      "oto\"\256\001\n\020FloatLiteralExpr\022+\n\016start_positi" +
-      "on\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_pos" +
-      "ition\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind" +
-      "\030\003 \001(\005\022\020\n\010implicit\030\004 \001(\010\022\023\n\013is_negative\030" +
-      "\017 \001(\010\022\r\n\005value\030\020 \001(\001Bb\n\026org.mojolang.moj" +
-      "o.langB\025FloatLiteralExprProtoP\001Z/github." +
-      "com/mojo-lang/lang/go/pkg/mojo/lang;lang" +
-      "b\006proto3"
+      "jo.lang\032\027mojo/lang/comment.proto\032\024mojo/l" +
+      "ang/expr.proto\032\034mojo/lang/literal_expr.p" +
+      "roto\032$mojo/lang/numeric_literal_expr.pro" +
+      "to\032\030mojo/lang/position.proto\"\334\001\n\020FloatLi" +
+      "teralExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo" +
+      ".lang.Position\022)\n\014end_position\030\002 \001(\0132\023.m" +
+      "ojo.lang.Position\022,\n\020leading_comments\030\003 " +
+      "\003(\0132\022.mojo.lang.Comment\022\014\n\004kind\030\004 \001(\005\022\020\n" +
+      "\010implicit\030\005 \001(\010\022\023\n\013is_negative\030\024 \001(\010\022\r\n\005" +
+      "value\030\036 \001(\001Bb\n\026org.mojolang.mojo.langB\025F" +
+      "loatLiteralExprProtoP\001Z/github.com/mojo-" +
+      "lang/lang/go/pkg/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.lang.CommentProto.getDescriptor(),
           org.mojolang.mojo.lang.ExprProto.getDescriptor(),
           org.mojolang.mojo.lang.LiteralExprProto.getDescriptor(),
           org.mojolang.mojo.lang.NumericLiteralExprProto.getDescriptor(),
@@ -54,7 +56,8 @@ public final class FloatLiteralExprProto {
     internal_static_mojo_lang_FloatLiteralExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_FloatLiteralExpr_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", "IsNegative", "Value", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "LeadingComments", "Kind", "Implicit", "IsNegative", "Value", });
+    org.mojolang.mojo.lang.CommentProto.getDescriptor();
     org.mojolang.mojo.lang.ExprProto.getDescriptor();
     org.mojolang.mojo.lang.LiteralExprProto.getDescriptor();
     org.mojolang.mojo.lang.NumericLiteralExprProto.getDescriptor();

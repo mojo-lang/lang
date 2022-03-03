@@ -29,19 +29,21 @@ public final class BreakStmtProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\032mojo/lang/break_stmt.proto\022\tmojo.lang\032" +
-      "%mojo/lang/control_transfer_stmt.proto\032\030" +
-      "mojo/lang/position.proto\032\024mojo/lang/stmt" +
-      ".proto\"\203\001\n\tBreakStmt\022+\n\016start_position\030\001" +
-      " \001(\0132\023.mojo.lang.Position\022)\n\014end_positio" +
-      "n\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\003 \001" +
-      "(\003\022\020\n\010implicit\030\004 \001(\010B[\n\026org.mojolang.moj" +
-      "o.langB\016BreakStmtProtoP\001Z/github.com/moj" +
-      "o-lang/lang/go/pkg/mojo/lang;langb\006proto" +
-      "3"
+      "\027mojo/lang/comment.proto\032%mojo/lang/cont" +
+      "rol_transfer_stmt.proto\032\030mojo/lang/posit" +
+      "ion.proto\032\024mojo/lang/stmt.proto\"\261\001\n\tBrea" +
+      "kStmt\022+\n\016start_position\030\001 \001(\0132\023.mojo.lan" +
+      "g.Position\022)\n\014end_position\030\002 \001(\0132\023.mojo." +
+      "lang.Position\022,\n\020leading_comments\030\003 \003(\0132" +
+      "\022.mojo.lang.Comment\022\014\n\004kind\030\004 \001(\003\022\020\n\010imp" +
+      "licit\030\005 \001(\010B[\n\026org.mojolang.mojo.langB\016B" +
+      "reakStmtProtoP\001Z/github.com/mojo-lang/la" +
+      "ng/go/pkg/mojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.lang.CommentProto.getDescriptor(),
           org.mojolang.mojo.lang.ControlTransferStmtProto.getDescriptor(),
           org.mojolang.mojo.lang.PositionProto.getDescriptor(),
           org.mojolang.mojo.lang.StmtProto.getDescriptor(),
@@ -51,7 +53,8 @@ public final class BreakStmtProto {
     internal_static_mojo_lang_BreakStmt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_BreakStmt_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "LeadingComments", "Kind", "Implicit", });
+    org.mojolang.mojo.lang.CommentProto.getDescriptor();
     org.mojolang.mojo.lang.ControlTransferStmtProto.getDescriptor();
     org.mojolang.mojo.lang.PositionProto.getDescriptor();
     org.mojolang.mojo.lang.StmtProto.getDescriptor();

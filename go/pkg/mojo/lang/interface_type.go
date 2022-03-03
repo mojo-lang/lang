@@ -37,6 +37,18 @@ const (
 	BatchDeleteMethod = "batch_delete"
 )
 
+func (m *InterfaceType) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *InterfaceType) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *InterfaceType) GetMethodGroups() map[string][]*FunctionDecl {
 	groups := make(map[string][]*FunctionDecl)
 	if m == nil {

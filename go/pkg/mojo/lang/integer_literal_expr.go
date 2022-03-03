@@ -12,6 +12,18 @@ func NewIntegerLiteral(value int64) *IntegerLiteralExpr {
 	}
 }
 
+func (m *IntegerLiteralExpr) SetStartPosition(position *Position) {
+	if m != nil {
+		m.StartPosition = PatchPosition(m.StartPosition, position)
+	}
+}
+
+func (m *IntegerLiteralExpr) SetEndPosition(position *Position) {
+	if m != nil {
+		m.EndPosition = PatchPosition(m.EndPosition, position)
+	}
+}
+
 func (m *IntegerLiteralExpr) EvalValue() int64 {
 	if m != nil {
 		if m.IsNegative {

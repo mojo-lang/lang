@@ -16,5 +16,5 @@
 /// an expression is semantically equivalent to "return ()".
 ///    return 42
 type ReturnStmt : ControlTransferStmt {
-    result: Expression @10 @optional
+    result: Expression @20 @optional
 }

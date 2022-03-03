@@ -29,18 +29,21 @@ public final class ImplicitMemberExprProto {
   static {
     java.lang.String[] descriptorData = {
       "\n$mojo/lang/implicit_member_expr.proto\022\t" +
-      "mojo.lang\032\024mojo/lang/expr.proto\032\030mojo/la" +
-      "ng/position.proto\"\214\001\n\022ImplicitMemberExpr" +
-      "\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Pos" +
-      "ition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang." +
-      "Position\022\014\n\004kind\030\003 \001(\005\022\020\n\010implicit\030\004 \001(\010" +
-      "Bd\n\026org.mojolang.mojo.langB\027ImplicitMemb" +
-      "erExprProtoP\001Z/github.com/mojo-lang/lang" +
-      "/go/pkg/mojo/lang;langb\006proto3"
+      "mojo.lang\032\027mojo/lang/comment.proto\032\024mojo" +
+      "/lang/expr.proto\032\030mojo/lang/position.pro" +
+      "to\"\272\001\n\022ImplicitMemberExpr\022+\n\016start_posit" +
+      "ion\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_po" +
+      "sition\030\002 \001(\0132\023.mojo.lang.Position\022,\n\020lea" +
+      "ding_comments\030\003 \003(\0132\022.mojo.lang.Comment\022" +
+      "\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010Bd\n\026org.m" +
+      "ojolang.mojo.langB\027ImplicitMemberExprPro" +
+      "toP\001Z/github.com/mojo-lang/lang/go/pkg/m" +
+      "ojo/lang;langb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.mojolang.mojo.lang.CommentProto.getDescriptor(),
           org.mojolang.mojo.lang.ExprProto.getDescriptor(),
           org.mojolang.mojo.lang.PositionProto.getDescriptor(),
         });
@@ -49,7 +52,8 @@ public final class ImplicitMemberExprProto {
     internal_static_mojo_lang_ImplicitMemberExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_ImplicitMemberExpr_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Kind", "Implicit", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "LeadingComments", "Kind", "Implicit", });
+    org.mojolang.mojo.lang.CommentProto.getDescriptor();
     org.mojolang.mojo.lang.ExprProto.getDescriptor();
     org.mojolang.mojo.lang.PositionProto.getDescriptor();
   }

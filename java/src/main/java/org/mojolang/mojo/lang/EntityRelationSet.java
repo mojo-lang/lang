@@ -199,7 +199,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsNodes(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetNodes().getMap().containsKey(key);
   }
   /**
@@ -226,7 +226,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.EntityNode defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> map =
         internalGetNodes().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -238,7 +238,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.EntityNode getNodesOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> map =
         internalGetNodes().getMap();
     if (!map.containsKey(key)) {
@@ -280,7 +280,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsEdges(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetEdges().getMap().containsKey(key);
   }
   /**
@@ -307,7 +307,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.EntityEdge defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> map =
         internalGetEdges().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -319,7 +319,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.EntityEdge getEdgesOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> map =
         internalGetEdges().getMap();
     if (!map.containsKey(key)) {
@@ -361,7 +361,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsRelations(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetRelations().getMap().containsKey(key);
   }
   /**
@@ -388,7 +388,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.EntityRelation defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
         internalGetRelations().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -400,7 +400,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.EntityRelation getRelationsOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
         internalGetRelations().getMap();
     if (!map.containsKey(key)) {
@@ -442,7 +442,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsNodeEdges(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetNodeEdges().getMap().containsKey(key);
   }
   /**
@@ -469,7 +469,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.EntityEdges defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
         internalGetNodeEdges().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -481,7 +481,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
         internalGetNodeEdges().getMap();
     if (!map.containsKey(key)) {
@@ -523,7 +523,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsNodeRelations(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetNodeRelations().getMap().containsKey(key);
   }
   /**
@@ -550,7 +550,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.EntityRelations defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
         internalGetNodeRelations().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -562,7 +562,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
         internalGetNodeRelations().getMap();
     if (!map.containsKey(key)) {
@@ -1064,7 +1064,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsNodes(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetNodes().getMap().containsKey(key);
     }
     /**
@@ -1091,7 +1091,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityNode defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> map =
           internalGetNodes().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1103,7 +1103,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.EntityNode getNodesOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> map =
           internalGetNodes().getMap();
       if (!map.containsKey(key)) {
@@ -1123,7 +1123,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeNodes(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableNodes().getMutableMap()
           .remove(key);
       return this;
@@ -1142,8 +1142,11 @@ private static final long serialVersionUID = 0L;
     public Builder putNodes(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityNode value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableNodes().getMutableMap()
           .put(key, value);
       return this;
@@ -1192,7 +1195,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsEdges(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetEdges().getMap().containsKey(key);
     }
     /**
@@ -1219,7 +1222,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdge defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> map =
           internalGetEdges().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1231,7 +1234,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.EntityEdge getEdgesOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> map =
           internalGetEdges().getMap();
       if (!map.containsKey(key)) {
@@ -1251,7 +1254,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeEdges(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableEdges().getMutableMap()
           .remove(key);
       return this;
@@ -1270,8 +1273,11 @@ private static final long serialVersionUID = 0L;
     public Builder putEdges(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdge value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableEdges().getMutableMap()
           .put(key, value);
       return this;
@@ -1320,7 +1326,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsRelations(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetRelations().getMap().containsKey(key);
     }
     /**
@@ -1347,7 +1353,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityRelation defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
           internalGetRelations().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1359,7 +1365,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.EntityRelation getRelationsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
           internalGetRelations().getMap();
       if (!map.containsKey(key)) {
@@ -1379,7 +1385,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeRelations(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableRelations().getMutableMap()
           .remove(key);
       return this;
@@ -1398,8 +1404,11 @@ private static final long serialVersionUID = 0L;
     public Builder putRelations(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityRelation value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableRelations().getMutableMap()
           .put(key, value);
       return this;
@@ -1448,7 +1457,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsNodeEdges(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetNodeEdges().getMap().containsKey(key);
     }
     /**
@@ -1475,7 +1484,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdges defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
           internalGetNodeEdges().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1487,7 +1496,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
           internalGetNodeEdges().getMap();
       if (!map.containsKey(key)) {
@@ -1507,7 +1516,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeNodeEdges(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableNodeEdges().getMutableMap()
           .remove(key);
       return this;
@@ -1526,8 +1535,11 @@ private static final long serialVersionUID = 0L;
     public Builder putNodeEdges(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdges value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableNodeEdges().getMutableMap()
           .put(key, value);
       return this;
@@ -1576,7 +1588,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsNodeRelations(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetNodeRelations().getMap().containsKey(key);
     }
     /**
@@ -1603,7 +1615,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityRelations defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
           internalGetNodeRelations().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1615,7 +1627,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
           internalGetNodeRelations().getMap();
       if (!map.containsKey(key)) {
@@ -1635,7 +1647,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeNodeRelations(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableNodeRelations().getMutableMap()
           .remove(key);
       return this;
@@ -1654,8 +1666,11 @@ private static final long serialVersionUID = 0L;
     public Builder putNodeRelations(
         java.lang.String key,
         org.mojolang.mojo.lang.EntityRelations value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableNodeRelations().getMutableMap()
           .put(key, value);
       return this;

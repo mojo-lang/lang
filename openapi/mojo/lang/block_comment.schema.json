@@ -1,0 +1,1 @@
+{"title":"mojo.lang.BlockComment","description":"","type":"object","properties":{"endPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"startPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"text":{"type":"string"}}}

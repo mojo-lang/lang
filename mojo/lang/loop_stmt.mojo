@@ -14,5 +14,5 @@
 
 ///
 type LoopStmt : Stmt {
-    body: BlockStmt @21
+    body: BlockStmt @10
 }

@@ -152,7 +152,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsIdentifiers(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetIdentifiers().getMap().containsKey(key);
   }
   /**
@@ -179,7 +179,7 @@ private static final long serialVersionUID = 0L;
   public org.mojolang.mojo.lang.Identifier getIdentifiersOrDefault(
       java.lang.String key,
       org.mojolang.mojo.lang.Identifier defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.Identifier> map =
         internalGetIdentifiers().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
 
   public org.mojolang.mojo.lang.Identifier getIdentifiersOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.Identifier> map =
         internalGetIdentifiers().getMap();
     if (!map.containsKey(key)) {
@@ -625,7 +625,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsIdentifiers(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetIdentifiers().getMap().containsKey(key);
     }
     /**
@@ -652,7 +652,7 @@ private static final long serialVersionUID = 0L;
     public org.mojolang.mojo.lang.Identifier getIdentifiersOrDefault(
         java.lang.String key,
         org.mojolang.mojo.lang.Identifier defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.Identifier> map =
           internalGetIdentifiers().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -664,7 +664,7 @@ private static final long serialVersionUID = 0L;
 
     public org.mojolang.mojo.lang.Identifier getIdentifiersOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.Identifier> map =
           internalGetIdentifiers().getMap();
       if (!map.containsKey(key)) {
@@ -684,7 +684,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeIdentifiers(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableIdentifiers().getMutableMap()
           .remove(key);
       return this;
@@ -703,8 +703,11 @@ private static final long serialVersionUID = 0L;
     public Builder putIdentifiers(
         java.lang.String key,
         org.mojolang.mojo.lang.Identifier value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableIdentifiers().getMutableMap()
           .put(key, value);
       return this;
