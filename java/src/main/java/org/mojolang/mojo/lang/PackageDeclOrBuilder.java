@@ -83,6 +83,21 @@ public interface PackageDeclOrBuilder extends
       getSourceFileNameBytes();
 
   /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return Whether the keywordPosition field is set.
+   */
+  boolean hasKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return The keywordPosition.
+   */
+  org.mojolang.mojo.lang.Position getKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder();
+
+  /**
    * <code>string name = 10;</code>
    * @return The name.
    */
@@ -95,32 +110,47 @@ public interface PackageDeclOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr package_literal_expr = 11;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr package_literal_expr = 15;</code>
    * @return Whether the packageLiteralExpr field is set.
    */
   boolean hasPackageLiteralExpr();
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr package_literal_expr = 11;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr package_literal_expr = 15;</code>
    * @return The packageLiteralExpr.
    */
   org.mojolang.mojo.lang.ObjectLiteralExpr getPackageLiteralExpr();
   /**
-   * <code>.mojo.lang.ObjectLiteralExpr package_literal_expr = 11;</code>
+   * <code>.mojo.lang.ObjectLiteralExpr package_literal_expr = 15;</code>
    */
   org.mojolang.mojo.lang.ObjectLiteralExprOrBuilder getPackageLiteralExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.Package package = 20;</code>
+   * <code>.mojo.lang.Package package = 16;</code>
    * @return Whether the package field is set.
    */
   boolean hasPackage();
   /**
-   * <code>.mojo.lang.Package package = 20;</code>
+   * <code>.mojo.lang.Package package = 16;</code>
    * @return The package.
    */
   org.mojolang.mojo.lang.Package getPackage();
   /**
-   * <code>.mojo.lang.Package package = 20;</code>
+   * <code>.mojo.lang.Package package = 16;</code>
    */
   org.mojolang.mojo.lang.PackageOrBuilder getPackageOrBuilder();
+
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return Whether the namePosition field is set.
+   */
+  boolean hasNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return The namePosition.
+   */
+  org.mojolang.mojo.lang.Position getNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
 }

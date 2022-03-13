@@ -83,6 +83,21 @@ public interface ValueDeclOrBuilder extends
       getSourceFileNameBytes();
 
   /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return Whether the keywordPosition field is set.
+   */
+  boolean hasKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return The keywordPosition.
+   */
+  org.mojolang.mojo.lang.Position getKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder();
+
+  /**
    * <code>string name = 10;</code>
    * @return The name.
    */
@@ -134,6 +149,21 @@ public interface ValueDeclOrBuilder extends
   org.mojolang.mojo.lang.GroupDeclOrBuilder getGroupOrBuilder();
 
   /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return Whether the namePosition field is set.
+   */
+  boolean hasNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return The namePosition.
+   */
+  org.mojolang.mojo.lang.Position getNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
+
+  /**
    * <code>.mojo.lang.NominalType type = 20;</code>
    * @return Whether the type field is set.
    */
@@ -149,17 +179,17 @@ public interface ValueDeclOrBuilder extends
   org.mojolang.mojo.lang.NominalTypeOrBuilder getTypeOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression initial_value = 22;</code>
-   * @return Whether the initialValue field is set.
+   * <code>.mojo.lang.Initializer initializer = 21;</code>
+   * @return Whether the initializer field is set.
    */
-  boolean hasInitialValue();
+  boolean hasInitializer();
   /**
-   * <code>.mojo.lang.Expression initial_value = 22;</code>
-   * @return The initialValue.
+   * <code>.mojo.lang.Initializer initializer = 21;</code>
+   * @return The initializer.
    */
-  org.mojolang.mojo.lang.Expression getInitialValue();
+  org.mojolang.mojo.lang.Initializer getInitializer();
   /**
-   * <code>.mojo.lang.Expression initial_value = 22;</code>
+   * <code>.mojo.lang.Initializer initializer = 21;</code>
    */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getInitialValueOrBuilder();
+  org.mojolang.mojo.lang.InitializerOrBuilder getInitializerOrBuilder();
 }

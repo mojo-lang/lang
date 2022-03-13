@@ -75,4 +75,19 @@ public interface EnumTypeOrBuilder extends
    * <code>.mojo.lang.NominalType underlying_type = 11;</code>
    */
   org.mojolang.mojo.lang.NominalTypeOrBuilder getUnderlyingTypeOrBuilder();
+
+  /**
+   * <code>.mojo.lang.Position underlying_type_position = 19;</code>
+   * @return Whether the underlyingTypePosition field is set.
+   */
+  boolean hasUnderlyingTypePosition();
+  /**
+   * <code>.mojo.lang.Position underlying_type_position = 19;</code>
+   * @return The underlyingTypePosition.
+   */
+  org.mojolang.mojo.lang.Position getUnderlyingTypePosition();
+  /**
+   * <code>.mojo.lang.Position underlying_type_position = 19;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getUnderlyingTypePositionOrBuilder();
 }

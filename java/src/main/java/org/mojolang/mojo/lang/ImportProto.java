@@ -30,7 +30,7 @@ public final class ImportProto {
     java.lang.String[] descriptorData = {
       "\n\026mojo/lang/import.proto\022\tmojo.lang\032\024moj" +
       "o/lang/lang.proto\"J\n\006Import\022\024\n\014package_n" +
-      "ame\030\n \001(\t\022*\n\013identifiers\030\r \003(\0132\025.mojo.la" +
+      "ame\030\007 \001(\t\022*\n\013identifiers\030\r \003(\0132\025.mojo.la" +
       "ng.IdentifierBX\n\026org.mojolang.mojo.langB" +
       "\013ImportProtoP\001Z/github.com/mojo-lang/lan" +
       "g/go/pkg/mojo/lang;langb\006proto3"

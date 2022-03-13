@@ -106,6 +106,19 @@ private static final long serialVersionUID = 0L;
             sourceFileName_ = s;
             break;
           }
+          case 74: {
+            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
+            if (keywordPosition_ != null) {
+              subBuilder = keywordPosition_.toBuilder();
+            }
+            keywordPosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(keywordPosition_);
+              keywordPosition_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -303,6 +316,32 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int KEYWORD_POSITION_FIELD_NUMBER = 9;
+  private org.mojolang.mojo.lang.Position keywordPosition_;
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return Whether the keywordPosition field is set.
+   */
+  @java.lang.Override
+  public boolean hasKeywordPosition() {
+    return keywordPosition_ != null;
+  }
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return The keywordPosition.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Position getKeywordPosition() {
+    return keywordPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : keywordPosition_;
+  }
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder() {
+    return getKeywordPosition();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -335,6 +374,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sourceFileName_);
     }
+    if (keywordPosition_ != null) {
+      output.writeMessage(9, getKeywordPosition());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -365,6 +407,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sourceFileName_);
+    }
+    if (keywordPosition_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getKeywordPosition());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -402,6 +448,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPackageName())) return false;
     if (!getSourceFileName()
         .equals(other.getSourceFileName())) return false;
+    if (hasKeywordPosition() != other.hasKeywordPosition()) return false;
+    if (hasKeywordPosition()) {
+      if (!getKeywordPosition()
+          .equals(other.getKeywordPosition())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -432,6 +483,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPackageName().hashCode();
     hash = (37 * hash) + SOURCE_FILE_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getSourceFileName().hashCode();
+    if (hasKeywordPosition()) {
+      hash = (37 * hash) + KEYWORD_POSITION_FIELD_NUMBER;
+      hash = (53 * hash) + getKeywordPosition().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -589,6 +644,12 @@ private static final long serialVersionUID = 0L;
 
       sourceFileName_ = "";
 
+      if (keywordPositionBuilder_ == null) {
+        keywordPosition_ = null;
+      } else {
+        keywordPosition_ = null;
+        keywordPositionBuilder_ = null;
+      }
       return this;
     }
 
@@ -633,6 +694,11 @@ private static final long serialVersionUID = 0L;
       }
       result.packageName_ = packageName_;
       result.sourceFileName_ = sourceFileName_;
+      if (keywordPositionBuilder_ == null) {
+        result.keywordPosition_ = keywordPosition_;
+      } else {
+        result.keywordPosition_ = keywordPositionBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -700,6 +766,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getSourceFileName().isEmpty()) {
         sourceFileName_ = other.sourceFileName_;
         onChanged();
+      }
+      if (other.hasKeywordPosition()) {
+        mergeKeywordPosition(other.getKeywordPosition());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1268,6 +1337,125 @@ private static final long serialVersionUID = 0L;
       sourceFileName_ = value;
       onChanged();
       return this;
+    }
+
+    private org.mojolang.mojo.lang.Position keywordPosition_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> keywordPositionBuilder_;
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     * @return Whether the keywordPosition field is set.
+     */
+    public boolean hasKeywordPosition() {
+      return keywordPositionBuilder_ != null || keywordPosition_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     * @return The keywordPosition.
+     */
+    public org.mojolang.mojo.lang.Position getKeywordPosition() {
+      if (keywordPositionBuilder_ == null) {
+        return keywordPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : keywordPosition_;
+      } else {
+        return keywordPositionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder setKeywordPosition(org.mojolang.mojo.lang.Position value) {
+      if (keywordPositionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        keywordPosition_ = value;
+        onChanged();
+      } else {
+        keywordPositionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder setKeywordPosition(
+        org.mojolang.mojo.lang.Position.Builder builderForValue) {
+      if (keywordPositionBuilder_ == null) {
+        keywordPosition_ = builderForValue.build();
+        onChanged();
+      } else {
+        keywordPositionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder mergeKeywordPosition(org.mojolang.mojo.lang.Position value) {
+      if (keywordPositionBuilder_ == null) {
+        if (keywordPosition_ != null) {
+          keywordPosition_ =
+            org.mojolang.mojo.lang.Position.newBuilder(keywordPosition_).mergeFrom(value).buildPartial();
+        } else {
+          keywordPosition_ = value;
+        }
+        onChanged();
+      } else {
+        keywordPositionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder clearKeywordPosition() {
+      if (keywordPositionBuilder_ == null) {
+        keywordPosition_ = null;
+        onChanged();
+      } else {
+        keywordPosition_ = null;
+        keywordPositionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public org.mojolang.mojo.lang.Position.Builder getKeywordPositionBuilder() {
+      
+      onChanged();
+      return getKeywordPositionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder() {
+      if (keywordPositionBuilder_ != null) {
+        return keywordPositionBuilder_.getMessageOrBuilder();
+      } else {
+        return keywordPosition_ == null ?
+            org.mojolang.mojo.lang.Position.getDefaultInstance() : keywordPosition_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 
+        getKeywordPositionFieldBuilder() {
+      if (keywordPositionBuilder_ == null) {
+        keywordPositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder>(
+                getKeywordPosition(),
+                getParentForChildren(),
+                isClean());
+        keywordPosition_ = null;
+      }
+      return keywordPositionBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

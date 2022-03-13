@@ -83,6 +83,21 @@ public interface InterfaceDeclOrBuilder extends
       getSourceFileNameBytes();
 
   /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return Whether the keywordPosition field is set.
+   */
+  boolean hasKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return The keywordPosition.
+   */
+  org.mojolang.mojo.lang.Position getKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder();
+
+  /**
    * <code>string name = 10;</code>
    * @return The name.
    */
@@ -219,6 +234,21 @@ public interface InterfaceDeclOrBuilder extends
    */
   org.mojolang.mojo.lang.IdentifierOrBuilder getUnresolvedIdentifiersOrBuilder(
       int index);
+
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return Whether the namePosition field is set.
+   */
+  boolean hasNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return The namePosition.
+   */
+  org.mojolang.mojo.lang.Position getNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
 
   /**
    * <code>.mojo.lang.InterfaceType type = 20;</code>

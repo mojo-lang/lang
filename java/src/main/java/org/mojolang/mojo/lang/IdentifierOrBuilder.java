@@ -49,16 +49,10 @@ public interface IdentifierOrBuilder extends
   org.mojolang.mojo.lang.Identifier.Kind getKind();
 
   /**
-   * <code>string package_name = 5;</code>
-   * @return The packageName.
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
    */
-  java.lang.String getPackageName();
-  /**
-   * <code>string package_name = 5;</code>
-   * @return The bytes for packageName.
-   */
-  com.google.protobuf.ByteString
-      getPackageNameBytes();
+  boolean getImplicit();
 
   /**
    * <code>string source_file_name = 6;</code>
@@ -73,10 +67,16 @@ public interface IdentifierOrBuilder extends
       getSourceFileNameBytes();
 
   /**
-   * <code>bool implicit = 7;</code>
-   * @return The implicit.
+   * <code>string package_name = 7;</code>
+   * @return The packageName.
    */
-  boolean getImplicit();
+  java.lang.String getPackageName();
+  /**
+   * <code>string package_name = 7;</code>
+   * @return The bytes for packageName.
+   */
+  com.google.protobuf.ByteString
+      getPackageNameBytes();
 
   /**
    * <code>string name = 10;</code>

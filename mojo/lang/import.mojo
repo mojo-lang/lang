@@ -13,6 +13,6 @@
 // limitations under the License.
 
 type Import {
-    package_name: String @10
+    package_name: String @7
     identifiers: [Identifier] @13
 }

@@ -7,3 +7,4 @@
 | `group` | `mojo.lang.GroupDecl` |  | 否 |  |  |
 | `resolvedIdentifiers` | `Array<mojo.lang.Identifier>` |  | 否 |  |  |
 | `unresolvedIdentifiers` | `Array<mojo.lang.Identifier>` |  | 否 |  | unresolved identifiers in this file |
+| `namePosition` | `mojo.lang.Position` |  | 否 |  |  |

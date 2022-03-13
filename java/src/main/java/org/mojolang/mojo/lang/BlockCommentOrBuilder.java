@@ -48,4 +48,16 @@ public interface BlockCommentOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTextBytes();
+
+  /**
+   * <code>bool head_embeded = 13;</code>
+   * @return The headEmbeded.
+   */
+  boolean getHeadEmbeded();
+
+  /**
+   * <code>bool tail_embeded = 14;</code>
+   * @return The tailEmbeded.
+   */
+  boolean getTailEmbeded();
 }

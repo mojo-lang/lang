@@ -35,4 +35,7 @@ type TypeDecl : Decl {
 
     ///
     unresolved_identifiers:  [Identifier] @17 //< unresolved identifiers in this file
+
+    /// 
+    name_position: Position @19 @ignore
 }

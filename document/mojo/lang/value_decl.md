@@ -3,5 +3,6 @@
 | `name` | `string` |  | 否 |  |  |
 | `attributes` | `Array<mojo.lang.Attribute>` |  | 否 |  |  |
 | `group` | `mojo.lang.GroupDecl` |  | 否 |  |  |
+| `namePosition` | `mojo.lang.Position` |  | 否 |  |  |
 | `type` | `mojo.lang.NominalType` |  | 否 |  |  |
-| `initialValue` | `mojo.lang.Expression` |  | 否 |  |  |
+| `initializer` | `mojo.lang.Initializer` |  | 否 |  |  |

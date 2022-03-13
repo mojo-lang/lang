@@ -6,3 +6,4 @@
 | `document` | `mojo.lang.Document` |  | 否 |  |  |
 | `packageName` | `string` |  | 否 |  | package full name which the decl in |
 | `sourceFileName` | `string` |  | 否 |  | source file full name which the decl in |
+| `keywordPosition` | `mojo.lang.Position` |  | 否 |  | the decl keyword token start position, it is `type` for `StructDecl` |

@@ -79,15 +79,15 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 42: {
+          case 40: {
+
+            implicit_ = input.readBool();
+            break;
+          }
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             packageName_ = s;
-            break;
-          }
-          case 56: {
-
-            implicit_ = input.readBool();
             break;
           }
           case 82: {
@@ -125,6 +125,19 @@ private static final long serialVersionUID = 0L;
             }
             arguments_.add(
                 input.readMessage(org.mojolang.mojo.lang.Argument.parser(), extensionRegistry));
+            break;
+          }
+          case 154: {
+            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
+            if (namePosition_ != null) {
+              subBuilder = namePosition_.toBuilder();
+            }
+            namePosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(namePosition_);
+              namePosition_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           case 162: {
@@ -230,10 +243,21 @@ private static final long serialVersionUID = 0L;
     return getEndPosition();
   }
 
-  public static final int PACKAGE_NAME_FIELD_NUMBER = 5;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
+  private boolean implicit_;
+  /**
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  @java.lang.Override
+  public boolean getImplicit() {
+    return implicit_;
+  }
+
+  public static final int PACKAGE_NAME_FIELD_NUMBER = 7;
   private volatile java.lang.Object packageName_;
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The packageName.
    */
   @java.lang.Override
@@ -250,7 +274,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The bytes for packageName.
    */
   @java.lang.Override
@@ -266,17 +290,6 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int IMPLICIT_FIELD_NUMBER = 7;
-  private boolean implicit_;
-  /**
-   * <code>bool implicit = 7;</code>
-   * @return The implicit.
-   */
-  @java.lang.Override
-  public boolean getImplicit() {
-    return implicit_;
   }
 
   public static final int NAME_FIELD_NUMBER = 10;
@@ -423,6 +436,32 @@ private static final long serialVersionUID = 0L;
     return arguments_.get(index);
   }
 
+  public static final int NAME_POSITION_FIELD_NUMBER = 19;
+  private org.mojolang.mojo.lang.Position namePosition_;
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return Whether the namePosition field is set.
+   */
+  @java.lang.Override
+  public boolean hasNamePosition() {
+    return namePosition_ != null;
+  }
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return The namePosition.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Position getNamePosition() {
+    return namePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
+  }
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
+    return getNamePosition();
+  }
+
   public static final int VALUE_FIELD_NUMBER = 20;
   private org.mojolang.mojo.lang.Expression value_;
   /**
@@ -469,11 +508,11 @@ private static final long serialVersionUID = 0L;
     if (endPosition_ != null) {
       output.writeMessage(2, getEndPosition());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, packageName_);
-    }
     if (implicit_ != false) {
-      output.writeBool(7, implicit_);
+      output.writeBool(5, implicit_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, packageName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
@@ -486,6 +525,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < arguments_.size(); i++) {
       output.writeMessage(13, arguments_.get(i));
+    }
+    if (namePosition_ != null) {
+      output.writeMessage(19, getNamePosition());
     }
     if (value_ != null) {
       output.writeMessage(20, getValue());
@@ -507,12 +549,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getEndPosition());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, packageName_);
-    }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, implicit_);
+        .computeBoolSize(5, implicit_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, packageName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
@@ -528,6 +570,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < arguments_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, arguments_.get(i));
+    }
+    if (namePosition_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, getNamePosition());
     }
     if (value_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -558,10 +604,10 @@ private static final long serialVersionUID = 0L;
       if (!getEndPosition()
           .equals(other.getEndPosition())) return false;
     }
-    if (!getPackageName()
-        .equals(other.getPackageName())) return false;
     if (getImplicit()
         != other.getImplicit()) return false;
+    if (!getPackageName()
+        .equals(other.getPackageName())) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (hasDeclaration() != other.hasDeclaration()) return false;
@@ -573,6 +619,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getGenericArgumentsList())) return false;
     if (!getArgumentsList()
         .equals(other.getArgumentsList())) return false;
+    if (hasNamePosition() != other.hasNamePosition()) return false;
+    if (hasNamePosition()) {
+      if (!getNamePosition()
+          .equals(other.getNamePosition())) return false;
+    }
     if (hasValue() != other.hasValue()) return false;
     if (hasValue()) {
       if (!getValue()
@@ -597,11 +648,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + END_POSITION_FIELD_NUMBER;
       hash = (53 * hash) + getEndPosition().hashCode();
     }
-    hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getPackageName().hashCode();
     hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getImplicit());
+    hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getPackageName().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     if (hasDeclaration()) {
@@ -615,6 +666,10 @@ private static final long serialVersionUID = 0L;
     if (getArgumentsCount() > 0) {
       hash = (37 * hash) + ARGUMENTS_FIELD_NUMBER;
       hash = (53 * hash) + getArgumentsList().hashCode();
+    }
+    if (hasNamePosition()) {
+      hash = (37 * hash) + NAME_POSITION_FIELD_NUMBER;
+      hash = (53 * hash) + getNamePosition().hashCode();
     }
     if (hasValue()) {
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
@@ -767,9 +822,9 @@ private static final long serialVersionUID = 0L;
         endPosition_ = null;
         endPositionBuilder_ = null;
       }
-      packageName_ = "";
-
       implicit_ = false;
+
+      packageName_ = "";
 
       name_ = "";
 
@@ -790,6 +845,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       } else {
         argumentsBuilder_.clear();
+      }
+      if (namePositionBuilder_ == null) {
+        namePosition_ = null;
+      } else {
+        namePosition_ = null;
+        namePositionBuilder_ = null;
       }
       if (valueBuilder_ == null) {
         value_ = null;
@@ -834,8 +895,8 @@ private static final long serialVersionUID = 0L;
       } else {
         result.endPosition_ = endPositionBuilder_.build();
       }
-      result.packageName_ = packageName_;
       result.implicit_ = implicit_;
+      result.packageName_ = packageName_;
       result.name_ = name_;
       if (declarationBuilder_ == null) {
         result.declaration_ = declaration_;
@@ -859,6 +920,11 @@ private static final long serialVersionUID = 0L;
         result.arguments_ = arguments_;
       } else {
         result.arguments_ = argumentsBuilder_.build();
+      }
+      if (namePositionBuilder_ == null) {
+        result.namePosition_ = namePosition_;
+      } else {
+        result.namePosition_ = namePositionBuilder_.build();
       }
       if (valueBuilder_ == null) {
         result.value_ = value_;
@@ -919,12 +985,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasEndPosition()) {
         mergeEndPosition(other.getEndPosition());
       }
+      if (other.getImplicit() != false) {
+        setImplicit(other.getImplicit());
+      }
       if (!other.getPackageName().isEmpty()) {
         packageName_ = other.packageName_;
         onChanged();
-      }
-      if (other.getImplicit() != false) {
-        setImplicit(other.getImplicit());
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
@@ -984,6 +1050,9 @@ private static final long serialVersionUID = 0L;
             argumentsBuilder_.addAllMessages(other.arguments_);
           }
         }
+      }
+      if (other.hasNamePosition()) {
+        mergeNamePosition(other.getNamePosition());
       }
       if (other.hasValue()) {
         mergeValue(other.getValue());
@@ -1256,9 +1325,40 @@ private static final long serialVersionUID = 0L;
       return endPositionBuilder_;
     }
 
+    private boolean implicit_ ;
+    /**
+     * <code>bool implicit = 5;</code>
+     * @return The implicit.
+     */
+    @java.lang.Override
+    public boolean getImplicit() {
+      return implicit_;
+    }
+    /**
+     * <code>bool implicit = 5;</code>
+     * @param value The implicit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImplicit(boolean value) {
+      
+      implicit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool implicit = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImplicit() {
+      
+      implicit_ = false;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object packageName_ = "";
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @return The packageName.
      */
     public java.lang.String getPackageName() {
@@ -1274,7 +1374,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @return The bytes for packageName.
      */
     public com.google.protobuf.ByteString
@@ -1291,7 +1391,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @param value The packageName to set.
      * @return This builder for chaining.
      */
@@ -1306,7 +1406,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearPackageName() {
@@ -1316,7 +1416,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string package_name = 5;</code>
+     * <code>string package_name = 7;</code>
      * @param value The bytes for packageName to set.
      * @return This builder for chaining.
      */
@@ -1328,37 +1428,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       packageName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean implicit_ ;
-    /**
-     * <code>bool implicit = 7;</code>
-     * @return The implicit.
-     */
-    @java.lang.Override
-    public boolean getImplicit() {
-      return implicit_;
-    }
-    /**
-     * <code>bool implicit = 7;</code>
-     * @param value The implicit to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImplicit(boolean value) {
-      
-      implicit_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool implicit = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImplicit() {
-      
-      implicit_ = false;
       onChanged();
       return this;
     }
@@ -2036,6 +2105,125 @@ private static final long serialVersionUID = 0L;
         arguments_ = null;
       }
       return argumentsBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.Position namePosition_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> namePositionBuilder_;
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     * @return Whether the namePosition field is set.
+     */
+    public boolean hasNamePosition() {
+      return namePositionBuilder_ != null || namePosition_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     * @return The namePosition.
+     */
+    public org.mojolang.mojo.lang.Position getNamePosition() {
+      if (namePositionBuilder_ == null) {
+        return namePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
+      } else {
+        return namePositionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder setNamePosition(org.mojolang.mojo.lang.Position value) {
+      if (namePositionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        namePosition_ = value;
+        onChanged();
+      } else {
+        namePositionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder setNamePosition(
+        org.mojolang.mojo.lang.Position.Builder builderForValue) {
+      if (namePositionBuilder_ == null) {
+        namePosition_ = builderForValue.build();
+        onChanged();
+      } else {
+        namePositionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder mergeNamePosition(org.mojolang.mojo.lang.Position value) {
+      if (namePositionBuilder_ == null) {
+        if (namePosition_ != null) {
+          namePosition_ =
+            org.mojolang.mojo.lang.Position.newBuilder(namePosition_).mergeFrom(value).buildPartial();
+        } else {
+          namePosition_ = value;
+        }
+        onChanged();
+      } else {
+        namePositionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder clearNamePosition() {
+      if (namePositionBuilder_ == null) {
+        namePosition_ = null;
+        onChanged();
+      } else {
+        namePosition_ = null;
+        namePositionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public org.mojolang.mojo.lang.Position.Builder getNamePositionBuilder() {
+      
+      onChanged();
+      return getNamePositionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
+      if (namePositionBuilder_ != null) {
+        return namePositionBuilder_.getMessageOrBuilder();
+      } else {
+        return namePosition_ == null ?
+            org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 
+        getNamePositionFieldBuilder() {
+      if (namePositionBuilder_ == null) {
+        namePositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder>(
+                getNamePosition(),
+                getParentForChildren(),
+                isClean());
+        namePosition_ = null;
+      }
+      return namePositionBuilder_;
     }
 
     private org.mojolang.mojo.lang.Expression value_;

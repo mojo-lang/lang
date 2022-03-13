@@ -83,6 +83,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 40: {
+
+            implicit_ = input.readBool();
+            break;
+          }
           case 50: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               children_ = new java.util.ArrayList<org.mojolang.mojo.lang.Package>();
@@ -174,11 +179,6 @@ private static final long serialVersionUID = 0L;
               scope_ = subBuilder.buildPartial();
             }
 
-            break;
-          }
-          case 168: {
-
-            implicit_ = input.readBool();
             break;
           }
           case 202: {
@@ -3442,6 +3442,17 @@ private static final long serialVersionUID = 0L;
     return getVersion();
   }
 
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
+  private boolean implicit_;
+  /**
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  @java.lang.Override
+  public boolean getImplicit() {
+    return implicit_;
+  }
+
   public static final int CHILDREN_FIELD_NUMBER = 6;
   private java.util.List<org.mojolang.mojo.lang.Package> children_;
   /**
@@ -3789,17 +3800,6 @@ private static final long serialVersionUID = 0L;
     return getScope();
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 21;
-  private boolean implicit_;
-  /**
-   * <code>bool implicit = 21;</code>
-   * @return The implicit.
-   */
-  @java.lang.Override
-  public boolean getImplicit() {
-    return implicit_;
-  }
-
   public static final int EXTRA_INFO_FIELD_NUMBER = 25;
   private org.mojolang.mojo.core.Object extraInfo_;
   /**
@@ -4037,6 +4037,9 @@ private static final long serialVersionUID = 0L;
     if (version_ != null) {
       output.writeMessage(3, getVersion());
     }
+    if (implicit_ != false) {
+      output.writeBool(5, implicit_);
+    }
     for (int i = 0; i < children_.size(); i++) {
       output.writeMessage(6, children_.get(i));
     }
@@ -4066,9 +4069,6 @@ private static final long serialVersionUID = 0L;
     }
     if (scope_ != null) {
       output.writeMessage(20, getScope());
-    }
-    if (implicit_ != false) {
-      output.writeBool(21, implicit_);
     }
     if (extraInfo_ != null) {
       output.writeMessage(25, getExtraInfo());
@@ -4106,6 +4106,10 @@ private static final long serialVersionUID = 0L;
     if (version_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getVersion());
+    }
+    if (implicit_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, implicit_);
     }
     for (int i = 0; i < children_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -4147,10 +4151,6 @@ private static final long serialVersionUID = 0L;
     if (scope_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getScope());
-    }
-    if (implicit_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(21, implicit_);
     }
     if (extraInfo_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -4204,6 +4204,8 @@ private static final long serialVersionUID = 0L;
       if (!getVersion()
           .equals(other.getVersion())) return false;
     }
+    if (getImplicit()
+        != other.getImplicit()) return false;
     if (!getChildrenList()
         .equals(other.getChildrenList())) return false;
     if (!getAuthorsList()
@@ -4233,8 +4235,6 @@ private static final long serialVersionUID = 0L;
       if (!getScope()
           .equals(other.getScope())) return false;
     }
-    if (getImplicit()
-        != other.getImplicit()) return false;
     if (hasExtraInfo() != other.hasExtraInfo()) return false;
     if (hasExtraInfo()) {
       if (!getExtraInfo()
@@ -4268,6 +4268,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
     }
+    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getImplicit());
     if (getChildrenCount() > 0) {
       hash = (37 * hash) + CHILDREN_FIELD_NUMBER;
       hash = (53 * hash) + getChildrenList().hashCode();
@@ -4302,9 +4305,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SCOPE_FIELD_NUMBER;
       hash = (53 * hash) + getScope().hashCode();
     }
-    hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getImplicit());
     if (hasExtraInfo()) {
       hash = (37 * hash) + EXTRA_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getExtraInfo().hashCode();
@@ -4493,6 +4493,8 @@ private static final long serialVersionUID = 0L;
         version_ = null;
         versionBuilder_ = null;
       }
+      implicit_ = false;
+
       if (childrenBuilder_ == null) {
         children_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -4537,8 +4539,6 @@ private static final long serialVersionUID = 0L;
         scope_ = null;
         scopeBuilder_ = null;
       }
-      implicit_ = false;
-
       if (extraInfoBuilder_ == null) {
         extraInfo_ = null;
       } else {
@@ -4587,6 +4587,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.version_ = versionBuilder_.build();
       }
+      result.implicit_ = implicit_;
       if (childrenBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           children_ = java.util.Collections.unmodifiableList(children_);
@@ -4637,7 +4638,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.scope_ = scopeBuilder_.build();
       }
-      result.implicit_ = implicit_;
       if (extraInfoBuilder_ == null) {
         result.extraInfo_ = extraInfo_;
       } else {
@@ -4710,6 +4710,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasVersion()) {
         mergeVersion(other.getVersion());
+      }
+      if (other.getImplicit() != false) {
+        setImplicit(other.getImplicit());
       }
       if (childrenBuilder_ == null) {
         if (!other.children_.isEmpty()) {
@@ -4819,9 +4822,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasScope()) {
         mergeScope(other.getScope());
-      }
-      if (other.getImplicit() != false) {
-        setImplicit(other.getImplicit());
       }
       if (other.hasExtraInfo()) {
         mergeExtraInfo(other.getExtraInfo());
@@ -5132,6 +5132,37 @@ private static final long serialVersionUID = 0L;
         version_ = null;
       }
       return versionBuilder_;
+    }
+
+    private boolean implicit_ ;
+    /**
+     * <code>bool implicit = 5;</code>
+     * @return The implicit.
+     */
+    @java.lang.Override
+    public boolean getImplicit() {
+      return implicit_;
+    }
+    /**
+     * <code>bool implicit = 5;</code>
+     * @param value The implicit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImplicit(boolean value) {
+      
+      implicit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool implicit = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImplicit() {
+      
+      implicit_ = false;
+      onChanged();
+      return this;
     }
 
     private java.util.List<org.mojolang.mojo.lang.Package> children_ =
@@ -6547,37 +6578,6 @@ private static final long serialVersionUID = 0L;
         scope_ = null;
       }
       return scopeBuilder_;
-    }
-
-    private boolean implicit_ ;
-    /**
-     * <code>bool implicit = 21;</code>
-     * @return The implicit.
-     */
-    @java.lang.Override
-    public boolean getImplicit() {
-      return implicit_;
-    }
-    /**
-     * <code>bool implicit = 21;</code>
-     * @param value The implicit to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImplicit(boolean value) {
-      
-      implicit_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool implicit = 21;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImplicit() {
-      
-      implicit_ = false;
-      onChanged();
-      return this;
     }
 
     private org.mojolang.mojo.core.Object extraInfo_;

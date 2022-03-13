@@ -95,6 +95,19 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(org.mojolang.mojo.lang.NominalType.parser(), extensionRegistry));
             break;
           }
+          case 154: {
+            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
+            if (inheritePosition_ != null) {
+              subBuilder = inheritePosition_.toBuilder();
+            }
+            inheritePosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(inheritePosition_);
+              inheritePosition_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -265,6 +278,32 @@ private static final long serialVersionUID = 0L;
     return inherits_.get(index);
   }
 
+  public static final int INHERITE_POSITION_FIELD_NUMBER = 19;
+  private org.mojolang.mojo.lang.Position inheritePosition_;
+  /**
+   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   * @return Whether the inheritePosition field is set.
+   */
+  @java.lang.Override
+  public boolean hasInheritePosition() {
+    return inheritePosition_ != null;
+  }
+  /**
+   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   * @return The inheritePosition.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Position getInheritePosition() {
+    return inheritePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritePosition_;
+  }
+  /**
+   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PositionOrBuilder getInheritePositionOrBuilder() {
+    return getInheritePosition();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -291,6 +330,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < inherits_.size(); i++) {
       output.writeMessage(11, inherits_.get(i));
     }
+    if (inheritePosition_ != null) {
+      output.writeMessage(19, getInheritePosition());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -315,6 +357,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < inherits_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, inherits_.get(i));
+    }
+    if (inheritePosition_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, getInheritePosition());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -345,6 +391,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMethodsList())) return false;
     if (!getInheritsList()
         .equals(other.getInheritsList())) return false;
+    if (hasInheritePosition() != other.hasInheritePosition()) return false;
+    if (hasInheritePosition()) {
+      if (!getInheritePosition()
+          .equals(other.getInheritePosition())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -371,6 +422,10 @@ private static final long serialVersionUID = 0L;
     if (getInheritsCount() > 0) {
       hash = (37 * hash) + INHERITS_FIELD_NUMBER;
       hash = (53 * hash) + getInheritsList().hashCode();
+    }
+    if (hasInheritePosition()) {
+      hash = (37 * hash) + INHERITE_POSITION_FIELD_NUMBER;
+      hash = (53 * hash) + getInheritePosition().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -531,6 +586,12 @@ private static final long serialVersionUID = 0L;
       } else {
         inheritsBuilder_.clear();
       }
+      if (inheritePositionBuilder_ == null) {
+        inheritePosition_ = null;
+      } else {
+        inheritePosition_ = null;
+        inheritePositionBuilder_ = null;
+      }
       return this;
     }
 
@@ -585,6 +646,11 @@ private static final long serialVersionUID = 0L;
         result.inherits_ = inherits_;
       } else {
         result.inherits_ = inheritsBuilder_.build();
+      }
+      if (inheritePositionBuilder_ == null) {
+        result.inheritePosition_ = inheritePosition_;
+      } else {
+        result.inheritePosition_ = inheritePositionBuilder_.build();
       }
       onBuilt();
       return result;
@@ -691,6 +757,9 @@ private static final long serialVersionUID = 0L;
             inheritsBuilder_.addAllMessages(other.inherits_);
           }
         }
+      }
+      if (other.hasInheritePosition()) {
+        mergeInheritePosition(other.getInheritePosition());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1438,6 +1507,125 @@ private static final long serialVersionUID = 0L;
         inherits_ = null;
       }
       return inheritsBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.Position inheritePosition_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> inheritePositionBuilder_;
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * @return Whether the inheritePosition field is set.
+     */
+    public boolean hasInheritePosition() {
+      return inheritePositionBuilder_ != null || inheritePosition_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * @return The inheritePosition.
+     */
+    public org.mojolang.mojo.lang.Position getInheritePosition() {
+      if (inheritePositionBuilder_ == null) {
+        return inheritePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritePosition_;
+      } else {
+        return inheritePositionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     */
+    public Builder setInheritePosition(org.mojolang.mojo.lang.Position value) {
+      if (inheritePositionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        inheritePosition_ = value;
+        onChanged();
+      } else {
+        inheritePositionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     */
+    public Builder setInheritePosition(
+        org.mojolang.mojo.lang.Position.Builder builderForValue) {
+      if (inheritePositionBuilder_ == null) {
+        inheritePosition_ = builderForValue.build();
+        onChanged();
+      } else {
+        inheritePositionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     */
+    public Builder mergeInheritePosition(org.mojolang.mojo.lang.Position value) {
+      if (inheritePositionBuilder_ == null) {
+        if (inheritePosition_ != null) {
+          inheritePosition_ =
+            org.mojolang.mojo.lang.Position.newBuilder(inheritePosition_).mergeFrom(value).buildPartial();
+        } else {
+          inheritePosition_ = value;
+        }
+        onChanged();
+      } else {
+        inheritePositionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     */
+    public Builder clearInheritePosition() {
+      if (inheritePositionBuilder_ == null) {
+        inheritePosition_ = null;
+        onChanged();
+      } else {
+        inheritePosition_ = null;
+        inheritePositionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     */
+    public org.mojolang.mojo.lang.Position.Builder getInheritePositionBuilder() {
+      
+      onChanged();
+      return getInheritePositionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     */
+    public org.mojolang.mojo.lang.PositionOrBuilder getInheritePositionOrBuilder() {
+      if (inheritePositionBuilder_ != null) {
+        return inheritePositionBuilder_.getMessageOrBuilder();
+      } else {
+        return inheritePosition_ == null ?
+            org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritePosition_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 
+        getInheritePositionFieldBuilder() {
+      if (inheritePositionBuilder_ == null) {
+        inheritePositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder>(
+                getInheritePosition(),
+                getParentForChildren(),
+                isClean());
+        inheritePosition_ = null;
+      }
+      return inheritePositionBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -53,16 +53,22 @@ public interface NominalTypeOrBuilder extends
   org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder();
 
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The packageName.
    */
   java.lang.String getPackageName();
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The bytes for packageName.
    */
   com.google.protobuf.ByteString
       getPackageNameBytes();
+
+  /**
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
 
   /**
    * <code>string name = 10;</code>

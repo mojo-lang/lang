@@ -111,6 +111,19 @@ private static final long serialVersionUID = 0L;
             sourceFileName_ = s;
             break;
           }
+          case 74: {
+            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
+            if (keywordPosition_ != null) {
+              subBuilder = keywordPosition_.toBuilder();
+            }
+            keywordPosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(keywordPosition_);
+              keywordPosition_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           case 82: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -154,12 +167,25 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 154: {
+            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
+            if (namePosition_ != null) {
+              subBuilder = namePosition_.toBuilder();
+            }
+            namePosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(namePosition_);
+              namePosition_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           case 162: {
-            org.mojolang.mojo.lang.FunctionDecl.Signature.Builder subBuilder = null;
+            org.mojolang.mojo.lang.FunctionSignature.Builder subBuilder = null;
             if (signature_ != null) {
               subBuilder = signature_.toBuilder();
             }
-            signature_ = input.readMessage(org.mojolang.mojo.lang.FunctionDecl.Signature.parser(), extensionRegistry);
+            signature_ = input.readMessage(org.mojolang.mojo.lang.FunctionSignature.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(signature_);
               signature_ = subBuilder.buildPartial();
@@ -229,1002 +255,6 @@ private static final long serialVersionUID = 0L;
     return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_FunctionDecl_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             org.mojolang.mojo.lang.FunctionDecl.class, org.mojolang.mojo.lang.FunctionDecl.Builder.class);
-  }
-
-  public interface SignatureOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:mojo.lang.FunctionDecl.Signature)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    java.util.List<org.mojolang.mojo.lang.ValueDecl> 
-        getParametersList();
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    org.mojolang.mojo.lang.ValueDecl getParameters(int index);
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    int getParametersCount();
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    java.util.List<? extends org.mojolang.mojo.lang.ValueDeclOrBuilder> 
-        getParametersOrBuilderList();
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    org.mojolang.mojo.lang.ValueDeclOrBuilder getParametersOrBuilder(
-        int index);
-
-    /**
-     * <code>.mojo.lang.NominalType result = 2;</code>
-     * @return Whether the result field is set.
-     */
-    boolean hasResult();
-    /**
-     * <code>.mojo.lang.NominalType result = 2;</code>
-     * @return The result.
-     */
-    org.mojolang.mojo.lang.NominalType getResult();
-    /**
-     * <code>.mojo.lang.NominalType result = 2;</code>
-     */
-    org.mojolang.mojo.lang.NominalTypeOrBuilder getResultOrBuilder();
-  }
-  /**
-   * Protobuf type {@code mojo.lang.FunctionDecl.Signature}
-   */
-  public static final class Signature extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:mojo.lang.FunctionDecl.Signature)
-      SignatureOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Signature.newBuilder() to construct.
-    private Signature(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Signature() {
-      parameters_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Signature();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Signature(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                parameters_ = new java.util.ArrayList<org.mojolang.mojo.lang.ValueDecl>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              parameters_.add(
-                  input.readMessage(org.mojolang.mojo.lang.ValueDecl.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              org.mojolang.mojo.lang.NominalType.Builder subBuilder = null;
-              if (result_ != null) {
-                subBuilder = result_.toBuilder();
-              }
-              result_ = input.readMessage(org.mojolang.mojo.lang.NominalType.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(result_);
-                result_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          parameters_ = java.util.Collections.unmodifiableList(parameters_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_FunctionDecl_Signature_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_FunctionDecl_Signature_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.mojolang.mojo.lang.FunctionDecl.Signature.class, org.mojolang.mojo.lang.FunctionDecl.Signature.Builder.class);
-    }
-
-    public static final int PARAMETERS_FIELD_NUMBER = 1;
-    private java.util.List<org.mojolang.mojo.lang.ValueDecl> parameters_;
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    @java.lang.Override
-    public java.util.List<org.mojolang.mojo.lang.ValueDecl> getParametersList() {
-      return parameters_;
-    }
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends org.mojolang.mojo.lang.ValueDeclOrBuilder> 
-        getParametersOrBuilderList() {
-      return parameters_;
-    }
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    @java.lang.Override
-    public int getParametersCount() {
-      return parameters_.size();
-    }
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.ValueDecl getParameters(int index) {
-      return parameters_.get(index);
-    }
-    /**
-     * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-     */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.ValueDeclOrBuilder getParametersOrBuilder(
-        int index) {
-      return parameters_.get(index);
-    }
-
-    public static final int RESULT_FIELD_NUMBER = 2;
-    private org.mojolang.mojo.lang.NominalType result_;
-    /**
-     * <code>.mojo.lang.NominalType result = 2;</code>
-     * @return Whether the result field is set.
-     */
-    @java.lang.Override
-    public boolean hasResult() {
-      return result_ != null;
-    }
-    /**
-     * <code>.mojo.lang.NominalType result = 2;</code>
-     * @return The result.
-     */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.NominalType getResult() {
-      return result_ == null ? org.mojolang.mojo.lang.NominalType.getDefaultInstance() : result_;
-    }
-    /**
-     * <code>.mojo.lang.NominalType result = 2;</code>
-     */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.NominalTypeOrBuilder getResultOrBuilder() {
-      return getResult();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < parameters_.size(); i++) {
-        output.writeMessage(1, parameters_.get(i));
-      }
-      if (result_ != null) {
-        output.writeMessage(2, getResult());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < parameters_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, parameters_.get(i));
-      }
-      if (result_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getResult());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof org.mojolang.mojo.lang.FunctionDecl.Signature)) {
-        return super.equals(obj);
-      }
-      org.mojolang.mojo.lang.FunctionDecl.Signature other = (org.mojolang.mojo.lang.FunctionDecl.Signature) obj;
-
-      if (!getParametersList()
-          .equals(other.getParametersList())) return false;
-      if (hasResult() != other.hasResult()) return false;
-      if (hasResult()) {
-        if (!getResult()
-            .equals(other.getResult())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getParametersCount() > 0) {
-        hash = (37 * hash) + PARAMETERS_FIELD_NUMBER;
-        hash = (53 * hash) + getParametersList().hashCode();
-      }
-      if (hasResult()) {
-        hash = (37 * hash) + RESULT_FIELD_NUMBER;
-        hash = (53 * hash) + getResult().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(org.mojolang.mojo.lang.FunctionDecl.Signature prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code mojo.lang.FunctionDecl.Signature}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:mojo.lang.FunctionDecl.Signature)
-        org.mojolang.mojo.lang.FunctionDecl.SignatureOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_FunctionDecl_Signature_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_FunctionDecl_Signature_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.mojolang.mojo.lang.FunctionDecl.Signature.class, org.mojolang.mojo.lang.FunctionDecl.Signature.Builder.class);
-      }
-
-      // Construct using org.mojolang.mojo.lang.FunctionDecl.Signature.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getParametersFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (parametersBuilder_ == null) {
-          parameters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          parametersBuilder_.clear();
-        }
-        if (resultBuilder_ == null) {
-          result_ = null;
-        } else {
-          result_ = null;
-          resultBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_FunctionDecl_Signature_descriptor;
-      }
-
-      @java.lang.Override
-      public org.mojolang.mojo.lang.FunctionDecl.Signature getDefaultInstanceForType() {
-        return org.mojolang.mojo.lang.FunctionDecl.Signature.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public org.mojolang.mojo.lang.FunctionDecl.Signature build() {
-        org.mojolang.mojo.lang.FunctionDecl.Signature result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public org.mojolang.mojo.lang.FunctionDecl.Signature buildPartial() {
-        org.mojolang.mojo.lang.FunctionDecl.Signature result = new org.mojolang.mojo.lang.FunctionDecl.Signature(this);
-        int from_bitField0_ = bitField0_;
-        if (parametersBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            parameters_ = java.util.Collections.unmodifiableList(parameters_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.parameters_ = parameters_;
-        } else {
-          result.parameters_ = parametersBuilder_.build();
-        }
-        if (resultBuilder_ == null) {
-          result.result_ = result_;
-        } else {
-          result.result_ = resultBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.mojolang.mojo.lang.FunctionDecl.Signature) {
-          return mergeFrom((org.mojolang.mojo.lang.FunctionDecl.Signature)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(org.mojolang.mojo.lang.FunctionDecl.Signature other) {
-        if (other == org.mojolang.mojo.lang.FunctionDecl.Signature.getDefaultInstance()) return this;
-        if (parametersBuilder_ == null) {
-          if (!other.parameters_.isEmpty()) {
-            if (parameters_.isEmpty()) {
-              parameters_ = other.parameters_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureParametersIsMutable();
-              parameters_.addAll(other.parameters_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.parameters_.isEmpty()) {
-            if (parametersBuilder_.isEmpty()) {
-              parametersBuilder_.dispose();
-              parametersBuilder_ = null;
-              parameters_ = other.parameters_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              parametersBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getParametersFieldBuilder() : null;
-            } else {
-              parametersBuilder_.addAllMessages(other.parameters_);
-            }
-          }
-        }
-        if (other.hasResult()) {
-          mergeResult(other.getResult());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.mojolang.mojo.lang.FunctionDecl.Signature parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.mojolang.mojo.lang.FunctionDecl.Signature) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.util.List<org.mojolang.mojo.lang.ValueDecl> parameters_ =
-        java.util.Collections.emptyList();
-      private void ensureParametersIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          parameters_ = new java.util.ArrayList<org.mojolang.mojo.lang.ValueDecl>(parameters_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.mojolang.mojo.lang.ValueDecl, org.mojolang.mojo.lang.ValueDecl.Builder, org.mojolang.mojo.lang.ValueDeclOrBuilder> parametersBuilder_;
-
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public java.util.List<org.mojolang.mojo.lang.ValueDecl> getParametersList() {
-        if (parametersBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(parameters_);
-        } else {
-          return parametersBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public int getParametersCount() {
-        if (parametersBuilder_ == null) {
-          return parameters_.size();
-        } else {
-          return parametersBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public org.mojolang.mojo.lang.ValueDecl getParameters(int index) {
-        if (parametersBuilder_ == null) {
-          return parameters_.get(index);
-        } else {
-          return parametersBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder setParameters(
-          int index, org.mojolang.mojo.lang.ValueDecl value) {
-        if (parametersBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureParametersIsMutable();
-          parameters_.set(index, value);
-          onChanged();
-        } else {
-          parametersBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder setParameters(
-          int index, org.mojolang.mojo.lang.ValueDecl.Builder builderForValue) {
-        if (parametersBuilder_ == null) {
-          ensureParametersIsMutable();
-          parameters_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          parametersBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder addParameters(org.mojolang.mojo.lang.ValueDecl value) {
-        if (parametersBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureParametersIsMutable();
-          parameters_.add(value);
-          onChanged();
-        } else {
-          parametersBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder addParameters(
-          int index, org.mojolang.mojo.lang.ValueDecl value) {
-        if (parametersBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureParametersIsMutable();
-          parameters_.add(index, value);
-          onChanged();
-        } else {
-          parametersBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder addParameters(
-          org.mojolang.mojo.lang.ValueDecl.Builder builderForValue) {
-        if (parametersBuilder_ == null) {
-          ensureParametersIsMutable();
-          parameters_.add(builderForValue.build());
-          onChanged();
-        } else {
-          parametersBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder addParameters(
-          int index, org.mojolang.mojo.lang.ValueDecl.Builder builderForValue) {
-        if (parametersBuilder_ == null) {
-          ensureParametersIsMutable();
-          parameters_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          parametersBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder addAllParameters(
-          java.lang.Iterable<? extends org.mojolang.mojo.lang.ValueDecl> values) {
-        if (parametersBuilder_ == null) {
-          ensureParametersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, parameters_);
-          onChanged();
-        } else {
-          parametersBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder clearParameters() {
-        if (parametersBuilder_ == null) {
-          parameters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          parametersBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public Builder removeParameters(int index) {
-        if (parametersBuilder_ == null) {
-          ensureParametersIsMutable();
-          parameters_.remove(index);
-          onChanged();
-        } else {
-          parametersBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public org.mojolang.mojo.lang.ValueDecl.Builder getParametersBuilder(
-          int index) {
-        return getParametersFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public org.mojolang.mojo.lang.ValueDeclOrBuilder getParametersOrBuilder(
-          int index) {
-        if (parametersBuilder_ == null) {
-          return parameters_.get(index);  } else {
-          return parametersBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public java.util.List<? extends org.mojolang.mojo.lang.ValueDeclOrBuilder> 
-           getParametersOrBuilderList() {
-        if (parametersBuilder_ != null) {
-          return parametersBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(parameters_);
-        }
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public org.mojolang.mojo.lang.ValueDecl.Builder addParametersBuilder() {
-        return getParametersFieldBuilder().addBuilder(
-            org.mojolang.mojo.lang.ValueDecl.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public org.mojolang.mojo.lang.ValueDecl.Builder addParametersBuilder(
-          int index) {
-        return getParametersFieldBuilder().addBuilder(
-            index, org.mojolang.mojo.lang.ValueDecl.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .mojo.lang.ValueDecl parameters = 1;</code>
-       */
-      public java.util.List<org.mojolang.mojo.lang.ValueDecl.Builder> 
-           getParametersBuilderList() {
-        return getParametersFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          org.mojolang.mojo.lang.ValueDecl, org.mojolang.mojo.lang.ValueDecl.Builder, org.mojolang.mojo.lang.ValueDeclOrBuilder> 
-          getParametersFieldBuilder() {
-        if (parametersBuilder_ == null) {
-          parametersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              org.mojolang.mojo.lang.ValueDecl, org.mojolang.mojo.lang.ValueDecl.Builder, org.mojolang.mojo.lang.ValueDeclOrBuilder>(
-                  parameters_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          parameters_ = null;
-        }
-        return parametersBuilder_;
-      }
-
-      private org.mojolang.mojo.lang.NominalType result_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder> resultBuilder_;
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       * @return Whether the result field is set.
-       */
-      public boolean hasResult() {
-        return resultBuilder_ != null || result_ != null;
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       * @return The result.
-       */
-      public org.mojolang.mojo.lang.NominalType getResult() {
-        if (resultBuilder_ == null) {
-          return result_ == null ? org.mojolang.mojo.lang.NominalType.getDefaultInstance() : result_;
-        } else {
-          return resultBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       */
-      public Builder setResult(org.mojolang.mojo.lang.NominalType value) {
-        if (resultBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          result_ = value;
-          onChanged();
-        } else {
-          resultBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       */
-      public Builder setResult(
-          org.mojolang.mojo.lang.NominalType.Builder builderForValue) {
-        if (resultBuilder_ == null) {
-          result_ = builderForValue.build();
-          onChanged();
-        } else {
-          resultBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       */
-      public Builder mergeResult(org.mojolang.mojo.lang.NominalType value) {
-        if (resultBuilder_ == null) {
-          if (result_ != null) {
-            result_ =
-              org.mojolang.mojo.lang.NominalType.newBuilder(result_).mergeFrom(value).buildPartial();
-          } else {
-            result_ = value;
-          }
-          onChanged();
-        } else {
-          resultBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       */
-      public Builder clearResult() {
-        if (resultBuilder_ == null) {
-          result_ = null;
-          onChanged();
-        } else {
-          result_ = null;
-          resultBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       */
-      public org.mojolang.mojo.lang.NominalType.Builder getResultBuilder() {
-        
-        onChanged();
-        return getResultFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       */
-      public org.mojolang.mojo.lang.NominalTypeOrBuilder getResultOrBuilder() {
-        if (resultBuilder_ != null) {
-          return resultBuilder_.getMessageOrBuilder();
-        } else {
-          return result_ == null ?
-              org.mojolang.mojo.lang.NominalType.getDefaultInstance() : result_;
-        }
-      }
-      /**
-       * <code>.mojo.lang.NominalType result = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder> 
-          getResultFieldBuilder() {
-        if (resultBuilder_ == null) {
-          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder>(
-                  getResult(),
-                  getParentForChildren(),
-                  isClean());
-          result_ = null;
-        }
-        return resultBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:mojo.lang.FunctionDecl.Signature)
-    }
-
-    // @@protoc_insertion_point(class_scope:mojo.lang.FunctionDecl.Signature)
-    private static final org.mojolang.mojo.lang.FunctionDecl.Signature DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new org.mojolang.mojo.lang.FunctionDecl.Signature();
-    }
-
-    public static org.mojolang.mojo.lang.FunctionDecl.Signature getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Signature>
-        PARSER = new com.google.protobuf.AbstractParser<Signature>() {
-      @java.lang.Override
-      public Signature parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Signature(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Signature> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Signature> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public org.mojolang.mojo.lang.FunctionDecl.Signature getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
   public static final int START_POSITION_FIELD_NUMBER = 1;
@@ -1390,6 +420,32 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int KEYWORD_POSITION_FIELD_NUMBER = 9;
+  private org.mojolang.mojo.lang.Position keywordPosition_;
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return Whether the keywordPosition field is set.
+   */
+  @java.lang.Override
+  public boolean hasKeywordPosition() {
+    return keywordPosition_ != null;
+  }
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return The keywordPosition.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Position getKeywordPosition() {
+    return keywordPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : keywordPosition_;
+  }
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder() {
+    return getKeywordPosition();
   }
 
   public static final int NAME_FIELD_NUMBER = 10;
@@ -1574,10 +630,36 @@ private static final long serialVersionUID = 0L;
     return getEnclosingType();
   }
 
-  public static final int SIGNATURE_FIELD_NUMBER = 20;
-  private org.mojolang.mojo.lang.FunctionDecl.Signature signature_;
+  public static final int NAME_POSITION_FIELD_NUMBER = 19;
+  private org.mojolang.mojo.lang.Position namePosition_;
   /**
-   * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return Whether the namePosition field is set.
+   */
+  @java.lang.Override
+  public boolean hasNamePosition() {
+    return namePosition_ != null;
+  }
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return The namePosition.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Position getNamePosition() {
+    return namePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
+  }
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
+    return getNamePosition();
+  }
+
+  public static final int SIGNATURE_FIELD_NUMBER = 20;
+  private org.mojolang.mojo.lang.FunctionSignature signature_;
+  /**
+   * <code>.mojo.lang.FunctionSignature signature = 20;</code>
    * @return Whether the signature field is set.
    */
   @java.lang.Override
@@ -1585,18 +667,18 @@ private static final long serialVersionUID = 0L;
     return signature_ != null;
   }
   /**
-   * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+   * <code>.mojo.lang.FunctionSignature signature = 20;</code>
    * @return The signature.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.FunctionDecl.Signature getSignature() {
-    return signature_ == null ? org.mojolang.mojo.lang.FunctionDecl.Signature.getDefaultInstance() : signature_;
+  public org.mojolang.mojo.lang.FunctionSignature getSignature() {
+    return signature_ == null ? org.mojolang.mojo.lang.FunctionSignature.getDefaultInstance() : signature_;
   }
   /**
-   * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+   * <code>.mojo.lang.FunctionSignature signature = 20;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.FunctionDecl.SignatureOrBuilder getSignatureOrBuilder() {
+  public org.mojolang.mojo.lang.FunctionSignatureOrBuilder getSignatureOrBuilder() {
     return getSignature();
   }
 
@@ -1684,6 +766,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sourceFileName_);
     }
+    if (keywordPosition_ != null) {
+      output.writeMessage(9, getKeywordPosition());
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
     }
@@ -1698,6 +783,9 @@ private static final long serialVersionUID = 0L;
     }
     if (enclosingType_ != null) {
       output.writeMessage(14, getEnclosingType());
+    }
+    if (namePosition_ != null) {
+      output.writeMessage(19, getNamePosition());
     }
     if (signature_ != null) {
       output.writeMessage(20, getSignature());
@@ -1739,6 +827,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sourceFileName_);
     }
+    if (keywordPosition_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getKeywordPosition());
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
     }
@@ -1756,6 +848,10 @@ private static final long serialVersionUID = 0L;
     if (enclosingType_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getEnclosingType());
+    }
+    if (namePosition_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, getNamePosition());
     }
     if (signature_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -1805,6 +901,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPackageName())) return false;
     if (!getSourceFileName()
         .equals(other.getSourceFileName())) return false;
+    if (hasKeywordPosition() != other.hasKeywordPosition()) return false;
+    if (hasKeywordPosition()) {
+      if (!getKeywordPosition()
+          .equals(other.getKeywordPosition())) return false;
+    }
     if (!getName()
         .equals(other.getName())) return false;
     if (!getFullName()
@@ -1817,6 +918,11 @@ private static final long serialVersionUID = 0L;
     if (hasEnclosingType()) {
       if (!getEnclosingType()
           .equals(other.getEnclosingType())) return false;
+    }
+    if (hasNamePosition() != other.hasNamePosition()) return false;
+    if (hasNamePosition()) {
+      if (!getNamePosition()
+          .equals(other.getNamePosition())) return false;
     }
     if (hasSignature() != other.hasSignature()) return false;
     if (hasSignature()) {
@@ -1863,6 +969,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPackageName().hashCode();
     hash = (37 * hash) + SOURCE_FILE_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getSourceFileName().hashCode();
+    if (hasKeywordPosition()) {
+      hash = (37 * hash) + KEYWORD_POSITION_FIELD_NUMBER;
+      hash = (53 * hash) + getKeywordPosition().hashCode();
+    }
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
@@ -1878,6 +988,10 @@ private static final long serialVersionUID = 0L;
     if (hasEnclosingType()) {
       hash = (37 * hash) + ENCLOSING_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getEnclosingType().hashCode();
+    }
+    if (hasNamePosition()) {
+      hash = (37 * hash) + NAME_POSITION_FIELD_NUMBER;
+      hash = (53 * hash) + getNamePosition().hashCode();
     }
     if (hasSignature()) {
       hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
@@ -2050,6 +1164,12 @@ private static final long serialVersionUID = 0L;
 
       sourceFileName_ = "";
 
+      if (keywordPositionBuilder_ == null) {
+        keywordPosition_ = null;
+      } else {
+        keywordPosition_ = null;
+        keywordPositionBuilder_ = null;
+      }
       name_ = "";
 
       fullName_ = "";
@@ -2071,6 +1191,12 @@ private static final long serialVersionUID = 0L;
       } else {
         enclosingType_ = null;
         enclosingTypeBuilder_ = null;
+      }
+      if (namePositionBuilder_ == null) {
+        namePosition_ = null;
+      } else {
+        namePosition_ = null;
+        namePositionBuilder_ = null;
       }
       if (signatureBuilder_ == null) {
         signature_ = null;
@@ -2135,6 +1261,11 @@ private static final long serialVersionUID = 0L;
       }
       result.packageName_ = packageName_;
       result.sourceFileName_ = sourceFileName_;
+      if (keywordPositionBuilder_ == null) {
+        result.keywordPosition_ = keywordPosition_;
+      } else {
+        result.keywordPosition_ = keywordPositionBuilder_.build();
+      }
       result.name_ = name_;
       result.fullName_ = fullName_;
       if (attributesBuilder_ == null) {
@@ -2159,6 +1290,11 @@ private static final long serialVersionUID = 0L;
         result.enclosingType_ = enclosingType_;
       } else {
         result.enclosingType_ = enclosingTypeBuilder_.build();
+      }
+      if (namePositionBuilder_ == null) {
+        result.namePosition_ = namePosition_;
+      } else {
+        result.namePosition_ = namePositionBuilder_.build();
       }
       if (signatureBuilder_ == null) {
         result.signature_ = signature_;
@@ -2243,6 +1379,9 @@ private static final long serialVersionUID = 0L;
         sourceFileName_ = other.sourceFileName_;
         onChanged();
       }
+      if (other.hasKeywordPosition()) {
+        mergeKeywordPosition(other.getKeywordPosition());
+      }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
@@ -2305,6 +1444,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasEnclosingType()) {
         mergeEnclosingType(other.getEnclosingType());
+      }
+      if (other.hasNamePosition()) {
+        mergeNamePosition(other.getNamePosition());
       }
       if (other.hasSignature()) {
         mergeSignature(other.getSignature());
@@ -2883,6 +2025,125 @@ private static final long serialVersionUID = 0L;
       sourceFileName_ = value;
       onChanged();
       return this;
+    }
+
+    private org.mojolang.mojo.lang.Position keywordPosition_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> keywordPositionBuilder_;
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     * @return Whether the keywordPosition field is set.
+     */
+    public boolean hasKeywordPosition() {
+      return keywordPositionBuilder_ != null || keywordPosition_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     * @return The keywordPosition.
+     */
+    public org.mojolang.mojo.lang.Position getKeywordPosition() {
+      if (keywordPositionBuilder_ == null) {
+        return keywordPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : keywordPosition_;
+      } else {
+        return keywordPositionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder setKeywordPosition(org.mojolang.mojo.lang.Position value) {
+      if (keywordPositionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        keywordPosition_ = value;
+        onChanged();
+      } else {
+        keywordPositionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder setKeywordPosition(
+        org.mojolang.mojo.lang.Position.Builder builderForValue) {
+      if (keywordPositionBuilder_ == null) {
+        keywordPosition_ = builderForValue.build();
+        onChanged();
+      } else {
+        keywordPositionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder mergeKeywordPosition(org.mojolang.mojo.lang.Position value) {
+      if (keywordPositionBuilder_ == null) {
+        if (keywordPosition_ != null) {
+          keywordPosition_ =
+            org.mojolang.mojo.lang.Position.newBuilder(keywordPosition_).mergeFrom(value).buildPartial();
+        } else {
+          keywordPosition_ = value;
+        }
+        onChanged();
+      } else {
+        keywordPositionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public Builder clearKeywordPosition() {
+      if (keywordPositionBuilder_ == null) {
+        keywordPosition_ = null;
+        onChanged();
+      } else {
+        keywordPosition_ = null;
+        keywordPositionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public org.mojolang.mojo.lang.Position.Builder getKeywordPositionBuilder() {
+      
+      onChanged();
+      return getKeywordPositionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    public org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder() {
+      if (keywordPositionBuilder_ != null) {
+        return keywordPositionBuilder_.getMessageOrBuilder();
+      } else {
+        return keywordPosition_ == null ?
+            org.mojolang.mojo.lang.Position.getDefaultInstance() : keywordPosition_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position keyword_position = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 
+        getKeywordPositionFieldBuilder() {
+      if (keywordPositionBuilder_ == null) {
+        keywordPositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder>(
+                getKeywordPosition(),
+                getParentForChildren(),
+                isClean());
+        keywordPosition_ = null;
+      }
+      return keywordPositionBuilder_;
     }
 
     private java.lang.Object name_ = "";
@@ -3636,31 +2897,150 @@ private static final long serialVersionUID = 0L;
       return enclosingTypeBuilder_;
     }
 
-    private org.mojolang.mojo.lang.FunctionDecl.Signature signature_;
+    private org.mojolang.mojo.lang.Position namePosition_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.FunctionDecl.Signature, org.mojolang.mojo.lang.FunctionDecl.Signature.Builder, org.mojolang.mojo.lang.FunctionDecl.SignatureOrBuilder> signatureBuilder_;
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> namePositionBuilder_;
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     * @return Whether the namePosition field is set.
+     */
+    public boolean hasNamePosition() {
+      return namePositionBuilder_ != null || namePosition_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     * @return The namePosition.
+     */
+    public org.mojolang.mojo.lang.Position getNamePosition() {
+      if (namePositionBuilder_ == null) {
+        return namePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
+      } else {
+        return namePositionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder setNamePosition(org.mojolang.mojo.lang.Position value) {
+      if (namePositionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        namePosition_ = value;
+        onChanged();
+      } else {
+        namePositionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder setNamePosition(
+        org.mojolang.mojo.lang.Position.Builder builderForValue) {
+      if (namePositionBuilder_ == null) {
+        namePosition_ = builderForValue.build();
+        onChanged();
+      } else {
+        namePositionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder mergeNamePosition(org.mojolang.mojo.lang.Position value) {
+      if (namePositionBuilder_ == null) {
+        if (namePosition_ != null) {
+          namePosition_ =
+            org.mojolang.mojo.lang.Position.newBuilder(namePosition_).mergeFrom(value).buildPartial();
+        } else {
+          namePosition_ = value;
+        }
+        onChanged();
+      } else {
+        namePositionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public Builder clearNamePosition() {
+      if (namePositionBuilder_ == null) {
+        namePosition_ = null;
+        onChanged();
+      } else {
+        namePosition_ = null;
+        namePositionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public org.mojolang.mojo.lang.Position.Builder getNamePositionBuilder() {
+      
+      onChanged();
+      return getNamePositionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
+      if (namePositionBuilder_ != null) {
+        return namePositionBuilder_.getMessageOrBuilder();
+      } else {
+        return namePosition_ == null ?
+            org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Position name_position = 19;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 
+        getNamePositionFieldBuilder() {
+      if (namePositionBuilder_ == null) {
+        namePositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder>(
+                getNamePosition(),
+                getParentForChildren(),
+                isClean());
+        namePosition_ = null;
+      }
+      return namePositionBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.FunctionSignature signature_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.FunctionSignature, org.mojolang.mojo.lang.FunctionSignature.Builder, org.mojolang.mojo.lang.FunctionSignatureOrBuilder> signatureBuilder_;
+    /**
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      * @return Whether the signature field is set.
      */
     public boolean hasSignature() {
       return signatureBuilder_ != null || signature_ != null;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      * @return The signature.
      */
-    public org.mojolang.mojo.lang.FunctionDecl.Signature getSignature() {
+    public org.mojolang.mojo.lang.FunctionSignature getSignature() {
       if (signatureBuilder_ == null) {
-        return signature_ == null ? org.mojolang.mojo.lang.FunctionDecl.Signature.getDefaultInstance() : signature_;
+        return signature_ == null ? org.mojolang.mojo.lang.FunctionSignature.getDefaultInstance() : signature_;
       } else {
         return signatureBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      */
-    public Builder setSignature(org.mojolang.mojo.lang.FunctionDecl.Signature value) {
+    public Builder setSignature(org.mojolang.mojo.lang.FunctionSignature value) {
       if (signatureBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -3674,10 +3054,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      */
     public Builder setSignature(
-        org.mojolang.mojo.lang.FunctionDecl.Signature.Builder builderForValue) {
+        org.mojolang.mojo.lang.FunctionSignature.Builder builderForValue) {
       if (signatureBuilder_ == null) {
         signature_ = builderForValue.build();
         onChanged();
@@ -3688,13 +3068,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      */
-    public Builder mergeSignature(org.mojolang.mojo.lang.FunctionDecl.Signature value) {
+    public Builder mergeSignature(org.mojolang.mojo.lang.FunctionSignature value) {
       if (signatureBuilder_ == null) {
         if (signature_ != null) {
           signature_ =
-            org.mojolang.mojo.lang.FunctionDecl.Signature.newBuilder(signature_).mergeFrom(value).buildPartial();
+            org.mojolang.mojo.lang.FunctionSignature.newBuilder(signature_).mergeFrom(value).buildPartial();
         } else {
           signature_ = value;
         }
@@ -3706,7 +3086,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      */
     public Builder clearSignature() {
       if (signatureBuilder_ == null) {
@@ -3720,33 +3100,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      */
-    public org.mojolang.mojo.lang.FunctionDecl.Signature.Builder getSignatureBuilder() {
+    public org.mojolang.mojo.lang.FunctionSignature.Builder getSignatureBuilder() {
       
       onChanged();
       return getSignatureFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      */
-    public org.mojolang.mojo.lang.FunctionDecl.SignatureOrBuilder getSignatureOrBuilder() {
+    public org.mojolang.mojo.lang.FunctionSignatureOrBuilder getSignatureOrBuilder() {
       if (signatureBuilder_ != null) {
         return signatureBuilder_.getMessageOrBuilder();
       } else {
         return signature_ == null ?
-            org.mojolang.mojo.lang.FunctionDecl.Signature.getDefaultInstance() : signature_;
+            org.mojolang.mojo.lang.FunctionSignature.getDefaultInstance() : signature_;
       }
     }
     /**
-     * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+     * <code>.mojo.lang.FunctionSignature signature = 20;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.FunctionDecl.Signature, org.mojolang.mojo.lang.FunctionDecl.Signature.Builder, org.mojolang.mojo.lang.FunctionDecl.SignatureOrBuilder> 
+        org.mojolang.mojo.lang.FunctionSignature, org.mojolang.mojo.lang.FunctionSignature.Builder, org.mojolang.mojo.lang.FunctionSignatureOrBuilder> 
         getSignatureFieldBuilder() {
       if (signatureBuilder_ == null) {
         signatureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.FunctionDecl.Signature, org.mojolang.mojo.lang.FunctionDecl.Signature.Builder, org.mojolang.mojo.lang.FunctionDecl.SignatureOrBuilder>(
+            org.mojolang.mojo.lang.FunctionSignature, org.mojolang.mojo.lang.FunctionSignature.Builder, org.mojolang.mojo.lang.FunctionSignatureOrBuilder>(
                 getSignature(),
                 getParentForChildren(),
                 isClean());

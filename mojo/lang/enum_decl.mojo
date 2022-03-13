@@ -27,7 +27,7 @@
 /// For example, the X, Y, and Z in this enum:
 ///
 /// \code
-///   enum V : Int {
+///   enum V: Int {
 ///     x, y, z
 ///   }
 /// \endcode

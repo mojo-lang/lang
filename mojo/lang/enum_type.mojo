@@ -22,9 +22,12 @@ type EnumType {
     /// position of first character immediately after the Expr
     end_position: Position @2
 
-    //
+    ///
     enumerators: [ValueDecl] @10
 
-    //
-    underlying_type: NominalType @11 
+    ///
+    underlying_type: NominalType @11
+
+    /// 
+    underlying_type_position: Position @19
 }

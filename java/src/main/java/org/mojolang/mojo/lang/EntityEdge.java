@@ -62,12 +62,12 @@ private static final long serialVersionUID = 0L;
             name_ = s;
             break;
           }
-          case 24: {
+          case 40: {
 
             implicit_ = input.readBool();
             break;
           }
-          case 42: {
+          case 58: {
             org.mojolang.mojo.lang.EntityNode.Builder subBuilder = null;
             if (from_ != null) {
               subBuilder = from_.toBuilder();
@@ -80,7 +80,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 50: {
+          case 66: {
             org.mojolang.mojo.lang.EntityNode.Builder subBuilder = null;
             if (to_ != null) {
               subBuilder = to_.toBuilder();
@@ -234,10 +234,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int IMPLICIT_FIELD_NUMBER = 3;
+  public static final int IMPLICIT_FIELD_NUMBER = 5;
   private boolean implicit_;
   /**
-   * <code>bool implicit = 3;</code>
+   * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
   @java.lang.Override
@@ -245,10 +245,10 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int FROM_FIELD_NUMBER = 5;
+  public static final int FROM_FIELD_NUMBER = 7;
   private org.mojolang.mojo.lang.EntityNode from_;
   /**
-   * <code>.mojo.lang.EntityNode from = 5;</code>
+   * <code>.mojo.lang.EntityNode from = 7;</code>
    * @return Whether the from field is set.
    */
   @java.lang.Override
@@ -256,7 +256,7 @@ private static final long serialVersionUID = 0L;
     return from_ != null;
   }
   /**
-   * <code>.mojo.lang.EntityNode from = 5;</code>
+   * <code>.mojo.lang.EntityNode from = 7;</code>
    * @return The from.
    */
   @java.lang.Override
@@ -264,17 +264,17 @@ private static final long serialVersionUID = 0L;
     return from_ == null ? org.mojolang.mojo.lang.EntityNode.getDefaultInstance() : from_;
   }
   /**
-   * <code>.mojo.lang.EntityNode from = 5;</code>
+   * <code>.mojo.lang.EntityNode from = 7;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityNodeOrBuilder getFromOrBuilder() {
     return getFrom();
   }
 
-  public static final int TO_FIELD_NUMBER = 6;
+  public static final int TO_FIELD_NUMBER = 8;
   private org.mojolang.mojo.lang.EntityNode to_;
   /**
-   * <code>.mojo.lang.EntityNode to = 6;</code>
+   * <code>.mojo.lang.EntityNode to = 8;</code>
    * @return Whether the to field is set.
    */
   @java.lang.Override
@@ -282,7 +282,7 @@ private static final long serialVersionUID = 0L;
     return to_ != null;
   }
   /**
-   * <code>.mojo.lang.EntityNode to = 6;</code>
+   * <code>.mojo.lang.EntityNode to = 8;</code>
    * @return The to.
    */
   @java.lang.Override
@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
     return to_ == null ? org.mojolang.mojo.lang.EntityNode.getDefaultInstance() : to_;
   }
   /**
-   * <code>.mojo.lang.EntityNode to = 6;</code>
+   * <code>.mojo.lang.EntityNode to = 8;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityNodeOrBuilder getToOrBuilder() {
@@ -388,13 +388,13 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
     if (implicit_ != false) {
-      output.writeBool(3, implicit_);
+      output.writeBool(5, implicit_);
     }
     if (from_ != null) {
-      output.writeMessage(5, getFrom());
+      output.writeMessage(7, getFrom());
     }
     if (to_ != null) {
-      output.writeMessage(6, getTo());
+      output.writeMessage(8, getTo());
     }
     if (inverse_ != false) {
       output.writeBool(10, inverse_);
@@ -428,15 +428,15 @@ private static final long serialVersionUID = 0L;
     }
     if (implicit_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, implicit_);
+        .computeBoolSize(5, implicit_);
     }
     if (from_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getFrom());
+        .computeMessageSize(7, getFrom());
     }
     if (to_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getTo());
+        .computeMessageSize(8, getTo());
     }
     if (inverse_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -1020,7 +1020,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean implicit_ ;
     /**
-     * <code>bool implicit = 3;</code>
+     * <code>bool implicit = 5;</code>
      * @return The implicit.
      */
     @java.lang.Override
@@ -1028,7 +1028,7 @@ private static final long serialVersionUID = 0L;
       return implicit_;
     }
     /**
-     * <code>bool implicit = 3;</code>
+     * <code>bool implicit = 5;</code>
      * @param value The implicit to set.
      * @return This builder for chaining.
      */
@@ -1039,7 +1039,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool implicit = 3;</code>
+     * <code>bool implicit = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearImplicit() {
@@ -1053,14 +1053,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> fromBuilder_;
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      * @return Whether the from field is set.
      */
     public boolean hasFrom() {
       return fromBuilder_ != null || from_ != null;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      * @return The from.
      */
     public org.mojolang.mojo.lang.EntityNode getFrom() {
@@ -1071,7 +1071,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      */
     public Builder setFrom(org.mojolang.mojo.lang.EntityNode value) {
       if (fromBuilder_ == null) {
@@ -1087,7 +1087,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      */
     public Builder setFrom(
         org.mojolang.mojo.lang.EntityNode.Builder builderForValue) {
@@ -1101,7 +1101,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      */
     public Builder mergeFrom(org.mojolang.mojo.lang.EntityNode value) {
       if (fromBuilder_ == null) {
@@ -1119,7 +1119,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      */
     public Builder clearFrom() {
       if (fromBuilder_ == null) {
@@ -1133,7 +1133,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      */
     public org.mojolang.mojo.lang.EntityNode.Builder getFromBuilder() {
       
@@ -1141,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       return getFromFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      */
     public org.mojolang.mojo.lang.EntityNodeOrBuilder getFromOrBuilder() {
       if (fromBuilder_ != null) {
@@ -1152,7 +1152,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 7;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> 
@@ -1172,14 +1172,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> toBuilder_;
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      * @return Whether the to field is set.
      */
     public boolean hasTo() {
       return toBuilder_ != null || to_ != null;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      * @return The to.
      */
     public org.mojolang.mojo.lang.EntityNode getTo() {
@@ -1190,7 +1190,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      */
     public Builder setTo(org.mojolang.mojo.lang.EntityNode value) {
       if (toBuilder_ == null) {
@@ -1206,7 +1206,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      */
     public Builder setTo(
         org.mojolang.mojo.lang.EntityNode.Builder builderForValue) {
@@ -1220,7 +1220,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      */
     public Builder mergeTo(org.mojolang.mojo.lang.EntityNode value) {
       if (toBuilder_ == null) {
@@ -1238,7 +1238,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      */
     public Builder clearTo() {
       if (toBuilder_ == null) {
@@ -1252,7 +1252,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      */
     public org.mojolang.mojo.lang.EntityNode.Builder getToBuilder() {
       
@@ -1260,7 +1260,7 @@ private static final long serialVersionUID = 0L;
       return getToFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      */
     public org.mojolang.mojo.lang.EntityNodeOrBuilder getToOrBuilder() {
       if (toBuilder_ != null) {
@@ -1271,7 +1271,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 8;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> 

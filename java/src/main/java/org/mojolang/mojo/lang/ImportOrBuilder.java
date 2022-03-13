@@ -8,12 +8,12 @@ public interface ImportOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string package_name = 10;</code>
+   * <code>string package_name = 7;</code>
    * @return The packageName.
    */
   java.lang.String getPackageName();
   /**
-   * <code>string package_name = 10;</code>
+   * <code>string package_name = 7;</code>
    * @return The bytes for packageName.
    */
   com.google.protobuf.ByteString

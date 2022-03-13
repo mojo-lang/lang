@@ -23,9 +23,25 @@ type ValueDecl : Decl {
     ///
     group: GroupDecl @15
 
+    /// 
+    name_position: Position @19 @ignore
+
     ///
     type: NominalType @20
 
     ///
-    initial_value: Expression @22
+    initializer: Initializer @21
+
+    ///
+    //initial_value: Expression @22
+}
+
+type Initializer {
+    /// position of first character belonging to the Expr
+    start_position: Position @1
+
+    /// position of first character immediately after the Expr
+    end_position:   Position @2
+
+    value:          Expression @22
 }

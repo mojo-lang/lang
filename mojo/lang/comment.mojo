@@ -25,7 +25,14 @@ type BlockComment {
     /// position of first character immediately after the Document
     end_position: Position @2
 
+    /// the content of the block comment
     text: String @10
+
+    /// the head /* is after some code in the same line
+    head_embeded: Bool @13
+
+    /// the tail */ is before some code in the same line
+    tail_embeded: Bool @14
 }
 
 type LineComment {

@@ -1,0 +1,1 @@
+{"title":"mojo.lang.FunctionSignature.Parameter","description":"","type":"object","properties":{"decls":{"description":"","type":"array","items":{"$ref":"#/components/schemas/mojo.lang.ValueDecl"}},"endPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"startPosition":{"$ref":"#/components/schemas/mojo.lang.Position"}}}

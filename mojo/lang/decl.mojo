@@ -33,4 +33,7 @@ type Decl {
 
     /// source file full name which the decl in
     source_file_name: String @8
+
+    /// the decl keyword token start position, it is `type` for `StructDecl`
+    keyword_position: Position @9
 }

@@ -2,5 +2,6 @@
 |---|---|---|---|---|---|
 | `startPosition` | `mojo.lang.Position` |  | 否 |  | position of first character belonging to the Expr |
 | `endPosition` | `mojo.lang.Position` |  | 否 |  | position of first character immediately after the Expr |
-| `enumerators` | `Array<mojo.lang.ValueDecl>` |  | 否 |  |
-| `underlyingType` | `mojo.lang.NominalType` |  | 否 |  |
+| `enumerators` | `Array<mojo.lang.ValueDecl>` |  | 否 |  |  |
+| `underlyingType` | `mojo.lang.NominalType` |  | 否 |  |  |
+| `underlyingTypePosition` | `mojo.lang.Position` |  | 否 |  |  |

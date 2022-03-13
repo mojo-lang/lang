@@ -44,8 +44,11 @@ type ConstructorDecl : Decl {
     ///
     generic_parameters: [GenericParameter] @13
 
+    /// 
+    name_position: Position @19 @ignore
+
     ///
-    signature: FunctionDecl.Signature @20
+    signature: FunctionSignature @20
 
     ///
     body: BlockStmt @21

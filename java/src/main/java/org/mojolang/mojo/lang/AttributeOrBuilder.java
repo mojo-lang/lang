@@ -38,22 +38,22 @@ public interface AttributeOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>string package_name = 5;</code>
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
+
+  /**
+   * <code>string package_name = 7;</code>
    * @return The packageName.
    */
   java.lang.String getPackageName();
   /**
-   * <code>string package_name = 5;</code>
+   * <code>string package_name = 7;</code>
    * @return The bytes for packageName.
    */
   com.google.protobuf.ByteString
       getPackageNameBytes();
-
-  /**
-   * <code>bool implicit = 7;</code>
-   * @return The implicit.
-   */
-  boolean getImplicit();
 
   /**
    * <code>string name = 10;</code>
@@ -129,6 +129,21 @@ public interface AttributeOrBuilder extends
    */
   org.mojolang.mojo.lang.ArgumentOrBuilder getArgumentsOrBuilder(
       int index);
+
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return Whether the namePosition field is set.
+   */
+  boolean hasNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return The namePosition.
+   */
+  org.mojolang.mojo.lang.Position getNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
 
   /**
    * <code>.mojo.lang.Expression value = 20;</code>

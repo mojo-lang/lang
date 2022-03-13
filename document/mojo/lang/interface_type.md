@@ -4,3 +4,4 @@
 | `endPosition` | `mojo.lang.Position` |  | 否 |  |
 | `methods` | `Array<mojo.lang.FunctionDecl>` |  | 否 |  |  |
 | `inherits` | `Array<mojo.lang.NominalType>` |  | 否 |  |  |
+| `inheritePosition` | `mojo.lang.Position` |  | 否 |  |  |

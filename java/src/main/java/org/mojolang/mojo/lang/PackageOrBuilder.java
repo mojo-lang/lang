@@ -47,6 +47,12 @@ public interface PackageOrBuilder extends
   org.mojolang.mojo.core.VersionOrBuilder getVersionOrBuilder();
 
   /**
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
+
+  /**
    * <code>repeated .mojo.lang.Package children = 6;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Package> 
@@ -223,12 +229,6 @@ public interface PackageOrBuilder extends
    * <code>.mojo.lang.Scope scope = 20;</code>
    */
   org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder();
-
-  /**
-   * <code>bool implicit = 21;</code>
-   * @return The implicit.
-   */
-  boolean getImplicit();
 
   /**
    * <code>.mojo.core.Object extra_info = 25;</code>

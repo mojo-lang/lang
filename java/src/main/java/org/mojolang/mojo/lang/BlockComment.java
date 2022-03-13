@@ -81,6 +81,16 @@ private static final long serialVersionUID = 0L;
             text_ = s;
             break;
           }
+          case 104: {
+
+            headEmbeded_ = input.readBool();
+            break;
+          }
+          case 112: {
+
+            tailEmbeded_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -203,6 +213,28 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int HEAD_EMBEDED_FIELD_NUMBER = 13;
+  private boolean headEmbeded_;
+  /**
+   * <code>bool head_embeded = 13;</code>
+   * @return The headEmbeded.
+   */
+  @java.lang.Override
+  public boolean getHeadEmbeded() {
+    return headEmbeded_;
+  }
+
+  public static final int TAIL_EMBEDED_FIELD_NUMBER = 14;
+  private boolean tailEmbeded_;
+  /**
+   * <code>bool tail_embeded = 14;</code>
+   * @return The tailEmbeded.
+   */
+  @java.lang.Override
+  public boolean getTailEmbeded() {
+    return tailEmbeded_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -226,6 +258,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, text_);
     }
+    if (headEmbeded_ != false) {
+      output.writeBool(13, headEmbeded_);
+    }
+    if (tailEmbeded_ != false) {
+      output.writeBool(14, tailEmbeded_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -245,6 +283,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, text_);
+    }
+    if (headEmbeded_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(13, headEmbeded_);
+    }
+    if (tailEmbeded_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(14, tailEmbeded_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -273,6 +319,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!getText()
         .equals(other.getText())) return false;
+    if (getHeadEmbeded()
+        != other.getHeadEmbeded()) return false;
+    if (getTailEmbeded()
+        != other.getTailEmbeded()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -294,6 +344,12 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TEXT_FIELD_NUMBER;
     hash = (53 * hash) + getText().hashCode();
+    hash = (37 * hash) + HEAD_EMBEDED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getHeadEmbeded());
+    hash = (37 * hash) + TAIL_EMBEDED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getTailEmbeded());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -441,6 +497,10 @@ private static final long serialVersionUID = 0L;
       }
       text_ = "";
 
+      headEmbeded_ = false;
+
+      tailEmbeded_ = false;
+
       return this;
     }
 
@@ -478,6 +538,8 @@ private static final long serialVersionUID = 0L;
         result.endPosition_ = endPositionBuilder_.build();
       }
       result.text_ = text_;
+      result.headEmbeded_ = headEmbeded_;
+      result.tailEmbeded_ = tailEmbeded_;
       onBuilt();
       return result;
     }
@@ -535,6 +597,12 @@ private static final long serialVersionUID = 0L;
       if (!other.getText().isEmpty()) {
         text_ = other.text_;
         onChanged();
+      }
+      if (other.getHeadEmbeded() != false) {
+        setHeadEmbeded(other.getHeadEmbeded());
+      }
+      if (other.getTailEmbeded() != false) {
+        setTailEmbeded(other.getTailEmbeded());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -875,6 +943,68 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       text_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean headEmbeded_ ;
+    /**
+     * <code>bool head_embeded = 13;</code>
+     * @return The headEmbeded.
+     */
+    @java.lang.Override
+    public boolean getHeadEmbeded() {
+      return headEmbeded_;
+    }
+    /**
+     * <code>bool head_embeded = 13;</code>
+     * @param value The headEmbeded to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHeadEmbeded(boolean value) {
+      
+      headEmbeded_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool head_embeded = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHeadEmbeded() {
+      
+      headEmbeded_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean tailEmbeded_ ;
+    /**
+     * <code>bool tail_embeded = 14;</code>
+     * @return The tailEmbeded.
+     */
+    @java.lang.Override
+    public boolean getTailEmbeded() {
+      return tailEmbeded_;
+    }
+    /**
+     * <code>bool tail_embeded = 14;</code>
+     * @param value The tailEmbeded to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTailEmbeded(boolean value) {
+      
+      tailEmbeded_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool tail_embeded = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTailEmbeded() {
+      
+      tailEmbeded_ = false;
       onChanged();
       return this;
     }

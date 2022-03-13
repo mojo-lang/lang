@@ -18,6 +18,7 @@ type AttributeDecl : Decl {
     ///
     name: String @10
 
+    /// 
     full_name: String @11
 
     ///
@@ -35,9 +36,12 @@ type AttributeDecl : Decl {
     ///
     unresolved_identifiers:  [Identifier] @17 //< unresolved identifiers in this file
 
+    /// 
+    name_position: Position @19 @ignore
+
     ///
     type: NominalType @20 | StructType @21
 
     ///
-    initial_value: Expression @22
+    default_value: Expression @22
 }

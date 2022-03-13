@@ -83,6 +83,21 @@ public interface ConstructorDeclOrBuilder extends
       getSourceFileNameBytes();
 
   /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return Whether the keywordPosition field is set.
+   */
+  boolean hasKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return The keywordPosition.
+   */
+  org.mojolang.mojo.lang.Position getKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder();
+
+  /**
    * <code>string name = 10;</code>
    * @return The name.
    */
@@ -155,19 +170,34 @@ public interface ConstructorDeclOrBuilder extends
       int index);
 
   /**
-   * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return Whether the namePosition field is set.
+   */
+  boolean hasNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   * @return The namePosition.
+   */
+  org.mojolang.mojo.lang.Position getNamePosition();
+  /**
+   * <code>.mojo.lang.Position name_position = 19;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
+
+  /**
+   * <code>.mojo.lang.FunctionSignature signature = 20;</code>
    * @return Whether the signature field is set.
    */
   boolean hasSignature();
   /**
-   * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+   * <code>.mojo.lang.FunctionSignature signature = 20;</code>
    * @return The signature.
    */
-  org.mojolang.mojo.lang.FunctionDecl.Signature getSignature();
+  org.mojolang.mojo.lang.FunctionSignature getSignature();
   /**
-   * <code>.mojo.lang.FunctionDecl.Signature signature = 20;</code>
+   * <code>.mojo.lang.FunctionSignature signature = 20;</code>
    */
-  org.mojolang.mojo.lang.FunctionDecl.SignatureOrBuilder getSignatureOrBuilder();
+  org.mojolang.mojo.lang.FunctionSignatureOrBuilder getSignatureOrBuilder();
 
   /**
    * <code>.mojo.lang.BlockStmt body = 21;</code>

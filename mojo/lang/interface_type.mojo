@@ -25,4 +25,7 @@ type InterfaceType {
 
     ///
     inherits: [NominalType] @11
+
+    /// 
+    inherite_position: Position @19
 }

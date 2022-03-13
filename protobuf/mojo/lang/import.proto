@@ -12,6 +12,6 @@ option java_outer_classname = "ImportProto";
 option java_package = "org.mojolang.mojo.lang";
 
 message Import {
-    string package_name = 10;
+    string package_name = 7;
     repeated Identifier identifiers = 13;
 }

@@ -3,3 +3,4 @@
 | `name` | `string` |  | 否 |  |
 | `packageLiteralExpr` | `mojo.lang.ObjectLiteralExpr` |  | 否 |  |  |
 | `package` | `mojo.lang.Package` |  | 否 |  |
+| `namePosition` | `mojo.lang.Position` |  | 否 |  |  |

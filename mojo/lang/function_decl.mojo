@@ -12,18 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 ///
 ///
 type FunctionDecl : Decl {
-    ///
-    type Signature {
-        ///
-        parameters: [ValueDecl] @1
-
-        ///
-        result: NominalType @2
-    }
-
     ///
     name: String @10
 
@@ -38,9 +30,12 @@ type FunctionDecl : Decl {
 
     ///
     enclosing_type : NominalType @14
+
+    /// 
+    name_position: Position @19 @ignore
     
     ///
-    signature: Signature @20
+    signature: FunctionSignature @20
 
     ///
     body: BlockStmt @21

@@ -83,6 +83,21 @@ public interface ValueGroupDeclOrBuilder extends
       getSourceFileNameBytes();
 
   /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return Whether the keywordPosition field is set.
+   */
+  boolean hasKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   * @return The keywordPosition.
+   */
+  org.mojolang.mojo.lang.Position getKeywordPosition();
+  /**
+   * <code>.mojo.lang.Position keyword_position = 9;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder();
+
+  /**
    * <code>string name = 10;</code>
    * @return The name.
    */

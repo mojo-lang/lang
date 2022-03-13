@@ -108,4 +108,19 @@ public interface StructTypeOrBuilder extends
    */
   org.mojolang.mojo.lang.ValueGroupDeclOrBuilder getGroupsOrBuilder(
       int index);
+
+  /**
+   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   * @return Whether the inheritePosition field is set.
+   */
+  boolean hasInheritePosition();
+  /**
+   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   * @return The inheritePosition.
+   */
+  org.mojolang.mojo.lang.Position getInheritePosition();
+  /**
+   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   */
+  org.mojolang.mojo.lang.PositionOrBuilder getInheritePositionOrBuilder();
 }

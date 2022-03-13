@@ -4,6 +4,7 @@
 | `fullName` | `string` |  | 否 |  |  |
 | `attributes` | `Array<mojo.lang.Attribute>` |  | 否 |  |  |
 | `genericParameters` | `Array<mojo.lang.GenericParameter>` |  | 否 |  |  |
-| `signature` | `mojo.lang.FunctionDecl.Signature` |  | 否 |  |  |
+| `namePosition` | `mojo.lang.Position` |  | 否 |  |  |
+| `signature` | `mojo.lang.FunctionSignature` |  | 否 |  |  |
 | `body` | `mojo.lang.BlockStmt` |  | 否 |  |  |
 | `scope` | `mojo.lang.Scope` |  | 否 |  |  |
