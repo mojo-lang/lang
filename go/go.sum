@@ -178,6 +178,8 @@ github.com/mojo-lang/core/go v0.0.0-20220313044733-377333293faa h1:oWDewjOtKAkzO
 github.com/mojo-lang/core/go v0.0.0-20220313044733-377333293faa/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
 github.com/mojo-lang/core/go v0.0.0-20220315025454-73f9e6d26afe h1:tQhJl7GFAT0VXbDgKlMo3UJTOSfsdz9BkH41BjVZK6E=
 github.com/mojo-lang/core/go v0.0.0-20220315025454-73f9e6d26afe/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
+github.com/mojo-lang/core/go v0.0.0-20220315090944-7c1f7948900b h1:pD/IOK/UBOxiK+Zl9Kx7iz/6fj45TOzwnX5HU8QIYHI=
+github.com/mojo-lang/core/go v0.0.0-20220315090944-7c1f7948900b/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
 github.com/mojo-lang/document/go v0.0.0-20211223004737-9f1cfeafe18c h1:T8qKUiOrpt1MBXz37AD027PEhSLBEMvvSPxZ+XvsJ+I=
 github.com/mojo-lang/document/go v0.0.0-20211223004737-9f1cfeafe18c/go.mod h1:ULPDf35xfVMmepcROU2T51y8jqqBi85FUGx4WL27bUs=
 github.com/pascaldekloe/name v0.0.0-20180628100202-0fd16699aae1/go.mod h1:eD5JxqMiuNYyFNmyY9rkJ/slN8y59oEu4Ei7F8OoKWQ=

@@ -6,6 +6,24 @@ func (m *FunctionSignature) GetParameters() []*ValueDecl {
     return m.GetParameter().GetDecls()
 }
 
+func (m *FunctionSignature) ParameterDecl(index int) *ValueDecl {
+    if decls := m.GetParameters(); len(decls) > 0 && index >= 0 && index < len(decls) {
+        return decls[index]
+    }
+    return nil
+}
+
+func (m *FunctionSignature) ParameterDeclByName(name string) *ValueDecl {
+    if decls := m.GetParameters(); len(decls) > 0 && len(name) > 0 {
+        for _, decl := range decls {
+            if decl.Name == name {
+                return decl
+            }
+        }
+    }
+    return nil
+}
+
 func (m *FunctionSignature) GetResultType() *NominalType {
     return m.GetResult().GetType()
 }
