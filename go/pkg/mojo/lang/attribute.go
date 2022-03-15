@@ -5,10 +5,6 @@ import (
     "github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
-type AttributesGetter interface {
-    GetAttributes() []*Attribute
-}
-
 func NewBoolAttribute(pkg string, name string) *Attribute {
     return newBoolAttribute(pkg, name, false)
 }

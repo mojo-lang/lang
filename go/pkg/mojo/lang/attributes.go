@@ -5,6 +5,21 @@ import (
     "github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
+type AttributesGetter interface {
+    GetAttributes() []*Attribute
+}
+
+func GetAttributes(decl interface{}) Attributes {
+    if _, ok := decl.(core.IsUnion); ok {
+        decl = core.GetUnionPrimeType(decl)
+    }
+
+    if getter, ok := decl.(AttributesGetter); ok {
+        return getter.GetAttributes()
+    }
+    return nil
+}
+
 type Attributes []*Attribute
 
 func (a Attributes) GetNumberAttribute() *Attribute {
