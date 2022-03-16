@@ -1,251 +1,250 @@
 package lang
 
 import (
-    "errors"
-    "github.com/mojo-lang/core/go/pkg/mojo/core"
+	"errors"
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 type AttributesGetter interface {
-    GetAttributes() []*Attribute
+	GetAttributes() []*Attribute
 }
 
 func GetAttributes(decl interface{}) Attributes {
-    if _, ok := decl.(core.IsUnion); ok {
-        decl = core.GetUnionPrimeType(decl)
-    }
+	if _, ok := decl.(core.IsUnion); ok {
+		decl = core.GetUnionPrimeType(decl)
+	}
 
-    if getter, ok := decl.(AttributesGetter); ok {
-        return getter.GetAttributes()
-    }
-    return nil
+	if getter, ok := decl.(AttributesGetter); ok {
+		return getter.GetAttributes()
+	}
+	return nil
 }
 
 type Attributes []*Attribute
 
 func (a Attributes) GetNumberAttribute() *Attribute {
-    return a.GetAttribute(core.NumberAttributeName)
+	return a.GetAttribute(core.NumberAttributeName)
 }
 
 func (a Attributes) GetRequiredAttribute() *Attribute {
-    return a.GetAttribute(core.RequiredAttributeName)
+	return a.GetAttribute(core.RequiredAttributeName)
 }
 
 func (a Attributes) GetOptionalAttribute() *Attribute {
-    return a.GetAttribute(core.OptionalAttributeName)
+	return a.GetAttribute(core.OptionalAttributeName)
 }
 
 func (a Attributes) GetAttribute(name string) *Attribute {
-    return GetAttribute(a, name)
+	return GetAttribute(a, name)
 }
 
 func GetAttribute(attributes []*Attribute, name string) *Attribute {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            return attribute
-        }
-    }
-    return nil
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			return attribute
+		}
+	}
+	return nil
 }
 
 // GetAttributeArguments make sure returned Argument list which length greater than 0
 func GetAttributeArguments(attributes []*Attribute, name string) ([]*Argument, error) {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            if len(attribute.Arguments) > 0 {
-                return attribute.Arguments, nil
-            } else {
-                break
-            }
-        }
-    }
-    return nil, errors.New("NotFound")
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			if len(attribute.Arguments) > 0 {
+				return attribute.Arguments, nil
+			} else {
+				break
+			}
+		}
+	}
+	return nil, errors.New("NotFound")
 }
 
 func GetAttributeArgument(attributes []*Attribute, name string) (*Argument, error) {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            if len(attribute.Arguments) > 0 {
-                return attribute.Arguments[0], nil
-            } else {
-                break
-            }
-        }
-    }
-    return nil, errors.New("NotFound")
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			if len(attribute.Arguments) > 0 {
+				return attribute.Arguments[0], nil
+			} else {
+				break
+			}
+		}
+	}
+	return nil, errors.New("NotFound")
 }
 
 func HasAttribute(attributes []*Attribute, name string) bool {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            return true
-        }
-    }
-    return false
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			return true
+		}
+	}
+	return false
 }
 
 func GetBoolAttribute(attributes []*Attribute, name string) (bool, error) {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            if len(attribute.Arguments) > 0 {
-                if value := attribute.Arguments[0].Value.GetBoolLiteralExpr(); value != nil {
-                    return value.Value, nil
-                }
-            } else { // default value is true
-                return true, nil
-            }
-        }
-    }
-    return false, errors.New("NotFound")
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			if len(attribute.Arguments) > 0 {
+				if value := attribute.Arguments[0].Value.GetBoolLiteralExpr(); value != nil {
+					return value.Value, nil
+				}
+			} else { // default value is true
+				return true, nil
+			}
+		}
+	}
+	return false, errors.New("NotFound")
 }
 
 func SetBoolAttribute(attributes []*Attribute, name string, value bool) []*Attribute {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            if len(attribute.Arguments) > 0 {
-                attribute.Arguments[0].Value = NewBoolLiteralExpression(&BoolLiteralExpr{
-                    Kind:     0,
-                    Implicit: false,
-                    Value:    value,
-                })
-                return attributes
-            }
-        }
-    }
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			if len(attribute.Arguments) > 0 {
+				attribute.Arguments[0].Value = NewBoolLiteralExpression(&BoolLiteralExpr{
+					Kind:     0,
+					Implicit: false,
+					Value:    value,
+				})
+				return attributes
+			}
+		}
+	}
 
-    pkg, n := ParseIdentifierName(name)
-    attributes = append(attributes, &Attribute{
-        PackageName: pkg,
-        Name:        n,
-        Arguments: []*Argument{
-            {
-                Value: NewBoolLiteralExpression(&BoolLiteralExpr{
-                    Kind:     0,
-                    Implicit: false,
-                    Value:    value,
-                }),
-            },
-        },
-    })
+	pkg, n := ParseIdentifierName(name)
+	attributes = append(attributes, &Attribute{
+		PackageName: pkg,
+		Name:        n,
+		Arguments: []*Argument{
+			{
+				Value: NewBoolLiteralExpression(&BoolLiteralExpr{
+					Kind:     0,
+					Implicit: false,
+					Value:    value,
+				}),
+			},
+		},
+	})
 
-    return attributes
+	return attributes
 }
 
 func GetIntegerAttribute(attributes []*Attribute, name string) (int64, error) {
-    argument, err := GetAttributeArgument(attributes, name)
-    if err != nil {
-        return 0, err
-    }
-    return argument.GetInteger()
+	argument, err := GetAttributeArgument(attributes, name)
+	if err != nil {
+		return 0, err
+	}
+	return argument.GetInteger()
 }
 
 func SetIntegerAttribute(attributes []*Attribute, name string, value int64) []*Attribute {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            if len(attribute.Arguments) > 0 {
-                attribute.Arguments[0] = NewIntegerLiteralArgument(NewIntegerLiteral(value))
-                return attributes
-            }
-        }
-    }
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			if len(attribute.Arguments) > 0 {
+				attribute.Arguments[0] = NewIntegerLiteralArgument(NewIntegerLiteral(value))
+				return attributes
+			}
+		}
+	}
 
-    pkg, n := ParseIdentifierName(name)
-    attributes = append(attributes, &Attribute{
-        PackageName: pkg,
-        Name:        n,
-        Arguments: []*Argument{NewIntegerLiteralArgument(NewIntegerLiteral(value)),
-        },
-    })
+	pkg, n := ParseIdentifierName(name)
+	attributes = append(attributes, &Attribute{
+		PackageName: pkg,
+		Name:        n,
+		Arguments:   []*Argument{NewIntegerLiteralArgument(NewIntegerLiteral(value))},
+	})
 
-    return attributes
+	return attributes
 }
 
 func GetStringAttribute(attributes []*Attribute, name string) (string, error) {
-    argument, err := GetAttributeArgument(attributes, name)
-    if err != nil {
-        return "", err
-    }
-    return argument.GetString()
+	argument, err := GetAttributeArgument(attributes, name)
+	if err != nil {
+		return "", err
+	}
+	return argument.GetString()
 }
 
 func GetStringValuesAttribute(attributes []*Attribute, name string) ([]string, error) {
-    var values []string
-    arguments, err := GetAttributeArguments(attributes, name)
-    if err != nil {
-        return nil, err
-    }
+	var values []string
+	arguments, err := GetAttributeArguments(attributes, name)
+	if err != nil {
+		return nil, err
+	}
 
-    if len(arguments) == 1 {
-        if strArray, err := arguments[0].GetStringArray(); err == nil {
-            return strArray, nil
-        }
-    }
+	if len(arguments) == 1 {
+		if strArray, err := arguments[0].GetStringArray(); err == nil {
+			return strArray, nil
+		}
+	}
 
-    for _, argument := range arguments {
-        if val, err := argument.GetString(); err != nil {
-            return nil, err
-        } else {
-            values = append(values, val)
-        }
-    }
-    return values, nil
+	for _, argument := range arguments {
+		if val, err := argument.GetString(); err != nil {
+			return nil, err
+		} else {
+			values = append(values, val)
+		}
+	}
+	return values, nil
 }
 
 func SetStringAttribute(attributes []*Attribute, name string, value string) []*Attribute {
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            if len(attribute.Arguments) > 0 {
-                attribute.Arguments[0] = NewStringLiteralArgument(&StringLiteralExpr{
-                    Kind:     0,
-                    Implicit: false,
-                    Value:    value,
-                })
-                return attributes
-            }
-        }
-    }
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			if len(attribute.Arguments) > 0 {
+				attribute.Arguments[0] = NewStringLiteralArgument(&StringLiteralExpr{
+					Kind:     0,
+					Implicit: false,
+					Value:    value,
+				})
+				return attributes
+			}
+		}
+	}
 
-    pkg, n := ParseIdentifierName(name)
-    attributes = append(attributes, &Attribute{
-        PackageName: pkg,
-        Name:        n,
-        Arguments: []*Argument{NewStringLiteralArgument(&StringLiteralExpr{
-            Kind:     0,
-            Implicit: false,
-            Value:    value,
-        })},
-    })
+	pkg, n := ParseIdentifierName(name)
+	attributes = append(attributes, &Attribute{
+		PackageName: pkg,
+		Name:        n,
+		Arguments: []*Argument{NewStringLiteralArgument(&StringLiteralExpr{
+			Kind:     0,
+			Implicit: false,
+			Value:    value,
+		})},
+	})
 
-    return attributes
+	return attributes
 }
 
 func RemoveAttribute(attributes []*Attribute, name string) []*Attribute {
-    var newAttributes []*Attribute
-    for _, attribute := range attributes {
-        if attribute.IsSameName(name) {
-            continue
-        }
-        newAttributes = append(newAttributes, attribute)
-    }
+	var newAttributes []*Attribute
+	for _, attribute := range attributes {
+		if attribute.IsSameName(name) {
+			continue
+		}
+		newAttributes = append(newAttributes, attribute)
+	}
 
-    return newAttributes
+	return newAttributes
 }
 
 func MergeAttributes(dst []*Attribute, src []*Attribute) []*Attribute {
-    index := make(map[string][]*Attribute)
-    setAttributes := func(attributes []*Attribute) {
-        for _, attr := range attributes {
-            fullName := attr.GetFullName()
-            if attr.Repeatable() || len(index[fullName]) == 0 {
-                index[fullName] = append(index[fullName], attr)
-            }
-        }
-    }
-    setAttributes(dst)
-    setAttributes(src)
+	index := make(map[string][]*Attribute)
+	setAttributes := func(attributes []*Attribute) {
+		for _, attr := range attributes {
+			fullName := attr.GetFullName()
+			if attr.Repeatable() || len(index[fullName]) == 0 {
+				index[fullName] = append(index[fullName], attr)
+			}
+		}
+	}
+	setAttributes(dst)
+	setAttributes(src)
 
-    var attributes []*Attribute
-    for _, attrs := range index {
-        attributes = append(attributes, attrs...)
-    }
-    return attributes
+	var attributes []*Attribute
+	for _, attrs := range index {
+		attributes = append(attributes, attrs...)
+	}
+	return attributes
 }

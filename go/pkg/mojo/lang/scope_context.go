@@ -67,7 +67,7 @@ func (c *ScopeContext) CurrentScope() *Scope {
 		return nil
 	}
 
-	return c.Scopes[len(c.Scopes) - 1]
+	return c.Scopes[len(c.Scopes)-1]
 }
 
 func (c *ScopeContext) GlobalScope() *Scope {

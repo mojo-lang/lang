@@ -49,7 +49,6 @@ func GetTypeTypeName(fullName string) string {
 	return ""
 }
 
-///
 func IsTypeName(name string) bool {
 	if len(name) == 0 {
 		return false
@@ -67,7 +66,7 @@ func IsTypeName(name string) bool {
 	return false
 }
 
-/// get enclosing names from enclosing type in `NominalType` or `Declaration`
+//GetEnclosingNames get enclosing names from enclosing type in `NominalType` or `Declaration`
 func GetEnclosingNames(t *NominalType) []string {
 	var enclosingNames []string
 	enclosing := t
@@ -102,7 +101,7 @@ func GetEnclosingGenericNames(t *NominalType) []string {
 	return enclosingNames
 }
 
-// convert full type name to file name
+// TypeNameToFileName convert full type name to file name
 func TypeNameToFileName(fullName string) string {
 	segments := strings.Split(fullName, ".")
 	for i, segment := range segments {

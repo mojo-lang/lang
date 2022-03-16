@@ -150,7 +150,6 @@ github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
-github.com/iancoleman/strcase v0.2.0 h1:05I4QRnGpI0m37iZQRuskXh+w77mr6Z41lwQzuHLwW0=
 github.com/iancoleman/strcase v0.2.0/go.mod h1:iwCmte+B7n89clKwxIoIXy/HfoL7AsD47ZCWhYzw7ho=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/ianlancetaylor/demangle v0.0.0-20200824232613-28f6c0f3b639/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
@@ -174,12 +173,8 @@ github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421/go.mod h1:6dJ
 github.com/modern-go/reflect2 v1.0.2 h1:xBagoLtFs94CBntxluKeaWgTMpvLxC4ur3nMaC9Gz0M=
 github.com/modern-go/reflect2 v1.0.2/go.mod h1:yWuevngMOJpCy52FWWMvUC8ws7m/LJsjYzDa0/r8luk=
 github.com/mojo-lang/core/go v0.0.0-20211223004040-601d32e5cd0a/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
-github.com/mojo-lang/core/go v0.0.0-20220313044733-377333293faa h1:oWDewjOtKAkzOziQI9+uukLdmND9f1jIoEHvLhXgss4=
-github.com/mojo-lang/core/go v0.0.0-20220313044733-377333293faa/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
-github.com/mojo-lang/core/go v0.0.0-20220315025454-73f9e6d26afe h1:tQhJl7GFAT0VXbDgKlMo3UJTOSfsdz9BkH41BjVZK6E=
-github.com/mojo-lang/core/go v0.0.0-20220315025454-73f9e6d26afe/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
-github.com/mojo-lang/core/go v0.0.0-20220315090944-7c1f7948900b h1:pD/IOK/UBOxiK+Zl9Kx7iz/6fj45TOzwnX5HU8QIYHI=
-github.com/mojo-lang/core/go v0.0.0-20220315090944-7c1f7948900b/go.mod h1:wSDW+MrnH/WYwpJ4vhkTIrxk/J7rX4mObJQa8hyjUAQ=
+github.com/mojo-lang/core/go v0.0.0-20220316072623-f4cf14310a3a h1:3Lu340RZF1GWq4ovufTdd1wijTCdv2VjkDIRH5YYAmQ=
+github.com/mojo-lang/core/go v0.0.0-20220316072623-f4cf14310a3a/go.mod h1:iLzR5Qo24QD/iTD65j/J6ANEWCptD0wf3KsiGnX/Vd8=
 github.com/mojo-lang/document/go v0.0.0-20211223004737-9f1cfeafe18c h1:T8qKUiOrpt1MBXz37AD027PEhSLBEMvvSPxZ+XvsJ+I=
 github.com/mojo-lang/document/go v0.0.0-20211223004737-9f1cfeafe18c/go.mod h1:ULPDf35xfVMmepcROU2T51y8jqqBi85FUGx4WL27bUs=
 github.com/pascaldekloe/name v0.0.0-20180628100202-0fd16699aae1/go.mod h1:eD5JxqMiuNYyFNmyY9rkJ/slN8y59oEu4Ei7F8OoKWQ=

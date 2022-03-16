@@ -4,8 +4,8 @@ func NewEntityRelationSet() *EntityRelationSet {
 	return &EntityRelationSet{
 		Nodes:         make(map[string]*EntityNode),
 		Edges:         make(map[string]*EntityEdge),
-		NodeEdges: make(map[string]*EntityEdges),
-		NodeRelations:   make(map[string]*EntityRelations),
+		NodeEdges:     make(map[string]*EntityEdges),
+		NodeRelations: make(map[string]*EntityRelations),
 	}
 }
 
