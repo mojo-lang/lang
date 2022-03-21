@@ -24,11 +24,11 @@ package lang
  * @see [[Scope]]
  */
 type ScopeContext struct {
-	Scopes []*Scope
+    Scopes []*Scope
 }
 
 func NewScopeContext() *ScopeContext {
-	return &ScopeContext{}
+    return &ScopeContext{}
 }
 
 /**
@@ -38,42 +38,42 @@ func NewScopeContext() *ScopeContext {
  * @return a new scope context after opening `scope`
  */
 func (c *ScopeContext) Open(scope *Scope) *ScopeContext {
-	c.Scopes = append(c.Scopes, scope)
-	return c
+    c.Scopes = append(c.Scopes, scope)
+    return c
 }
 
 func (c *ScopeContext) Close() {
-	if len(c.Scopes) > 0 {
-		c.Scopes = c.Scopes[:len(c.Scopes)-1]
-	}
+    if len(c.Scopes) > 0 {
+        c.Scopes = c.Scopes[:len(c.Scopes)-1]
+    }
 }
 
 func (c *ScopeContext) Lookup(key string) *Identifier {
-	for i := len(c.Scopes) - 1; i >= 0; i-- {
-		identifier := c.Scopes[i].Identifiers[key]
-		if identifier != nil {
-			return identifier
-		}
-	}
-	return nil
+    for i := len(c.Scopes) - 1; i >= 0; i-- {
+        identifier := c.Scopes[i].Identifiers[key]
+        if identifier != nil {
+            return identifier
+        }
+    }
+    return nil
 }
 
 func (c *ScopeContext) Declare(decl *Declaration) *Identifier {
-	return c.CurrentScope().Declare(decl)
+    return c.CurrentScope().Declare(decl)
 }
 
 func (c *ScopeContext) CurrentScope() *Scope {
-	if len(c.Scopes) == 0 {
-		return nil
-	}
+    if len(c.Scopes) == 0 {
+        return nil
+    }
 
-	return c.Scopes[len(c.Scopes)-1]
+    return c.Scopes[len(c.Scopes)-1]
 }
 
 func (c *ScopeContext) GlobalScope() *Scope {
-	if len(c.Scopes) == 0 {
-		return nil
-	}
+    if len(c.Scopes) == 0 {
+        return nil
+    }
 
-	return c.Scopes[0]
+    return c.Scopes[0]
 }
