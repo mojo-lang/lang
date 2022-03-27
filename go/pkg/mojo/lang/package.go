@@ -101,16 +101,34 @@ func (m *Package) GetAllPackageArray() []*Package {
 }
 
 func (m *Package) GetAllPackages() map[string]*Package {
-    packages := make(map[string]*Package)
-    packages[m.FullName] = m
+    if m != nil {
+        packages := make(map[string]*Package)
+        packages[m.FullName] = m
 
-    for _, pkg := range m.Children {
-        ps := pkg.GetAllPackages()
-        for k, v := range ps {
-            packages[k] = v
+        for _, pkg := range m.Children {
+            ps := pkg.GetAllPackages()
+            for k, v := range ps {
+                packages[k] = v
+            }
         }
+        return packages
     }
-    return packages
+    return nil
+}
+
+func (m *Package) GetAllDepedentPackages() map[string]*Package {
+    if m != nil {
+        packages := make(map[string]*Package)
+        for _, d := range m.ResolvedDependencies {
+            pkgs := d.GetAllPackages()
+            for k, v := range pkgs {
+                packages[k] = v
+            }
+        }
+        return packages
+    }
+
+    return nil
 }
 
 func (m *Package) GetAllPackageCount() int {
