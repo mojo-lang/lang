@@ -680,7 +680,7 @@ public final class LangProto {
       "\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\"\203\001\n\tBreakStmt\022+\n" +
       "\016start_position\030\001 \001(\0132\023.mojo.lang.Positi" +
       "on\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Pos" +
-      "ition\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\"\345\004" +
+      "ition\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\"\227\005" +
       "\n\013ClosureExpr\022+\n\016start_position\030\001 \001(\0132\023." +
       "mojo.lang.Position\022)\n\014end_position\030\002 \001(\013" +
       "2\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022" +
@@ -695,289 +695,655 @@ public final class LangProto {
       "e_position\030\023 \001(\0132\023.mojo.lang.Position\022/\n" +
       "\tsignature\030\024 \001(\0132\034.mojo.lang.FunctionSig" +
       "nature\022\"\n\004body\030\025 \001(\0132\024.mojo.lang.BlockSt" +
-      "mt\022\037\n\005scope\030\036 \001(\0132\020.mojo.lang.Scope\022\020\n\010c" +
-      "aptures\030( \003(\t\"\252\001\n\007Comment\0220\n\rblock_comme" +
-      "nt\030\001 \001(\0132\027.mojo.lang.BlockCommentH\000\0229\n\022m" +
-      "ulti_line_comment\030\002 \001(\0132\033.mojo.lang.Mult" +
-      "iLineCommentH\000\022\'\n\010document\030\003 \001(\0132\023.mojo." +
-      "lang.DocumentH\000B\t\n\007comment\"\240\001\n\014BlockComm" +
-      "ent\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang." +
-      "Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.la" +
-      "ng.Position\022\014\n\004text\030\n \001(\t\022\024\n\014head_embede" +
-      "d\030\r \001(\010\022\024\n\014tail_embeded\030\016 \001(\010\"\206\001\n\013LineCo" +
-      "mment\022+\n\016start_position\030\001 \001(\0132\023.mojo.lan" +
-      "g.Position\022)\n\014end_position\030\002 \001(\0132\023.mojo." +
-      "lang.Position\022\021\n\tfollowing\030\003 \001(\010\022\014\n\004text" +
-      "\030\n \001(\t\"\221\001\n\020MultiLineComment\022+\n\016start_pos" +
-      "ition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_" +
-      "position\030\002 \001(\0132\023.mojo.lang.Position\022%\n\005l" +
-      "ines\030\n \003(\0132\026.mojo.lang.LineComment\"\213\002\n\017C" +
-      "onditionalExpr\022+\n\016start_position\030\001 \001(\0132\023" +
-      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
-      "\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010" +
-      "implicit\030\005 \001(\010\022(\n\tcondition\030\n \001(\0132\025.mojo" +
-      ".lang.Expression\022*\n\013then_branch\030\013 \001(\0132\025." +
-      "mojo.lang.Expression\022*\n\013else_branch\030\014 \001(" +
-      "\0132\025.mojo.lang.Expression\"\332\003\n\014ConstantDec" +
-      "l\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Po" +
-      "sition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang" +
-      ".Position\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030" +
-      "\006 \001(\0132\023.mojo.lang.Document\022\024\n\014package_na" +
-      "me\030\007 \001(\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020ke" +
-      "yword_position\030\t \001(\0132\023.mojo.lang.Positio" +
-      "n\022\014\n\004name\030\n \001(\t\022(\n\nattributes\030\014 \003(\0132\024.mo" +
-      "jo.lang.Attribute\022#\n\005group\030\017 \001(\0132\024.mojo." +
-      "lang.GroupDecl\022*\n\rname_position\030\023 \001(\0132\023." +
-      "mojo.lang.Position\022$\n\004type\030\024 \001(\0132\026.mojo." +
-      "lang.NominalType\022+\n\013initializer\030\025 \001(\0132\026." +
-      "mojo.lang.Initializer\"\247\004\n\017ConstructorDec" +
-      "l\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Po" +
-      "sition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang" +
-      ".Position\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030" +
-      "\006 \001(\0132\023.mojo.lang.Document\022\024\n\014package_na" +
-      "me\030\007 \001(\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020ke" +
-      "yword_position\030\t \001(\0132\023.mojo.lang.Positio" +
-      "n\022\014\n\004name\030\n \001(\t\022\021\n\tfull_name\030\013 \001(\t\022(\n\nat" +
-      "tributes\030\014 \003(\0132\024.mojo.lang.Attribute\0227\n\022" +
-      "generic_parameters\030\r \003(\0132\033.mojo.lang.Gen" +
-      "ericParameter\022*\n\rname_position\030\023 \001(\0132\023.m" +
-      "ojo.lang.Position\022/\n\tsignature\030\024 \001(\0132\034.m" +
-      "ojo.lang.FunctionSignature\022\"\n\004body\030\025 \001(\013" +
-      "2\024.mojo.lang.BlockStmt\022\037\n\005scope\030\036 \001(\0132\020." +
-      "mojo.lang.Scope\"\206\001\n\014ContinueStmt\022+\n\016star" +
+      "mt\022\037\n\005scope\030\036 \001(\0132\020.mojo.lang.Scope\0220\n\016i" +
+      "nterface_decl\030\037 \001(\0132\030.mojo.lang.Interfac" +
+      "eDecl\022\020\n\010captures\030( \003(\t\"\252\001\n\007Comment\0220\n\rb" +
+      "lock_comment\030\001 \001(\0132\027.mojo.lang.BlockComm" +
+      "entH\000\0229\n\022multi_line_comment\030\002 \001(\0132\033.mojo" +
+      ".lang.MultiLineCommentH\000\022\'\n\010document\030\003 \001" +
+      "(\0132\023.mojo.lang.DocumentH\000B\t\n\007comment\"\240\001\n" +
+      "\014BlockComment\022+\n\016start_position\030\001 \001(\0132\023." +
+      "mojo.lang.Position\022)\n\014end_position\030\002 \001(\013" +
+      "2\023.mojo.lang.Position\022\014\n\004text\030\n \001(\t\022\024\n\014h" +
+      "ead_embeded\030\r \001(\010\022\024\n\014tail_embeded\030\016 \001(\010\"" +
+      "\206\001\n\013LineComment\022+\n\016start_position\030\001 \001(\0132" +
+      "\023.mojo.lang.Position\022)\n\014end_position\030\002 \001" +
+      "(\0132\023.mojo.lang.Position\022\021\n\tfollowing\030\003 \001" +
+      "(\010\022\014\n\004text\030\n \001(\t\"\221\001\n\020MultiLineComment\022+\n" +
+      "\016start_position\030\001 \001(\0132\023.mojo.lang.Positi" +
+      "on\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Pos" +
+      "ition\022%\n\005lines\030\n \003(\0132\026.mojo.lang.LineCom" +
+      "ment\"\213\002\n\017ConditionalExpr\022+\n\016start_positi" +
+      "on\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_pos" +
+      "ition\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind" +
+      "\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022(\n\tcondition\030\n " +
+      "\001(\0132\025.mojo.lang.Expression\022*\n\013then_branc" +
+      "h\030\013 \001(\0132\025.mojo.lang.Expression\022*\n\013else_b" +
+      "ranch\030\014 \001(\0132\025.mojo.lang.Expression\"\332\003\n\014C" +
+      "onstantDecl\022+\n\016start_position\030\001 \001(\0132\023.mo" +
+      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
+      ".mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022%\n" +
+      "\010document\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014" +
+      "package_name\030\007 \001(\t\022\030\n\020source_file_name\030\010" +
+      " \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo.la" +
+      "ng.Position\022\014\n\004name\030\n \001(\t\022(\n\nattributes\030" +
+      "\014 \003(\0132\024.mojo.lang.Attribute\022#\n\005group\030\017 \001" +
+      "(\0132\024.mojo.lang.GroupDecl\022*\n\rname_positio" +
+      "n\030\023 \001(\0132\023.mojo.lang.Position\022$\n\004type\030\024 \001" +
+      "(\0132\026.mojo.lang.NominalType\022+\n\013initialize" +
+      "r\030\025 \001(\0132\026.mojo.lang.Initializer\"\247\004\n\017Cons" +
+      "tructorDecl\022+\n\016start_position\030\001 \001(\0132\023.mo" +
+      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
+      ".mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022%\n" +
+      "\010document\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014" +
+      "package_name\030\007 \001(\t\022\030\n\020source_file_name\030\010" +
+      " \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo.la" +
+      "ng.Position\022\014\n\004name\030\n \001(\t\022\021\n\tfull_name\030\013" +
+      " \001(\t\022(\n\nattributes\030\014 \003(\0132\024.mojo.lang.Att" +
+      "ribute\0227\n\022generic_parameters\030\r \003(\0132\033.moj" +
+      "o.lang.GenericParameter\022*\n\rname_position" +
+      "\030\023 \001(\0132\023.mojo.lang.Position\022/\n\tsignature" +
+      "\030\024 \001(\0132\034.mojo.lang.FunctionSignature\022\"\n\004" +
+      "body\030\025 \001(\0132\024.mojo.lang.BlockStmt\022\037\n\005scop" +
+      "e\030\036 \001(\0132\020.mojo.lang.Scope\"\206\001\n\014ContinueSt" +
+      "mt\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.P" +
+      "osition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lan" +
+      "g.Position\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001" +
+      "(\010\"\215\001\n\023ControlTransferStmt\022+\n\016start_posi" +
+      "tion\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_p" +
+      "osition\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004ki" +
+      "nd\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\"\366\001\n\004Decl\022+\n\016s" +
+      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
+      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132" +
+      "\023.mojo.lang.Document\022\024\n\014package_name\030\007 \001" +
+      "(\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_" +
+      "position\030\t \001(\0132\023.mojo.lang.Position\"\243\005\n\013" +
+      "Declaration\022.\n\014package_decl\030\001 \001(\0132\026.mojo" +
+      ".lang.PackageDeclH\000\022,\n\013import_decl\030\002 \001(\013" +
+      "2\025.mojo.lang.ImportDeclH\000\022(\n\tenum_decl\030\003" +
+      " \001(\0132\023.mojo.lang.EnumDeclH\000\022,\n\013struct_de" +
+      "cl\030\004 \001(\0132\025.mojo.lang.StructDeclH\000\0223\n\017typ" +
+      "e_alias_decl\030\005 \001(\0132\030.mojo.lang.TypeAlias" +
+      "DeclH\000\0222\n\016interface_decl\030\006 \001(\0132\030.mojo.la" +
+      "ng.InterfaceDeclH\000\0220\n\rconstant_decl\030\n \001(" +
+      "\0132\027.mojo.lang.ConstantDeclH\000\0220\n\rvariable" +
+      "_decl\030\013 \001(\0132\027.mojo.lang.VariableDeclH\000\0222" +
+      "\n\016attribute_decl\030\014 \001(\0132\030.mojo.lang.Attri" +
+      "buteDeclH\000\0220\n\rfunction_decl\030\r \001(\0132\027.mojo" +
+      ".lang.FunctionDeclH\000\0226\n\020constructor_decl" +
+      "\030\016 \001(\0132\032.mojo.lang.ConstructorDeclH\000\0228\n\021" +
+      "generic_parameter\030\023 \001(\0132\033.mojo.lang.Gene" +
+      "ricParameterH\000\022*\n\ngroup_decl\030\024 \001(\0132\024.moj" +
+      "o.lang.GroupDeclH\000B\r\n\013declaration\"\207\002\n\016Ma" +
+      "pLiteralExpr\022+\n\016start_position\030\001 \001(\0132\023.m" +
+      "ojo.lang.Position\022)\n\014end_position\030\002 \001(\0132" +
+      "\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010im" +
+      "plicit\030\005 \001(\010\0220\n\007entries\030\024 \003(\0132\037.mojo.lan" +
+      "g.MapLiteralExpr.Entry\032K\n\005Entry\022\013\n\003key\030\001" +
+      " \001(\t\022$\n\005value\030\002 \001(\0132\025.mojo.lang.Expressi" +
+      "on\022\017\n\007numeric\030\003 \001(\010\"\357\002\n\010Document\022+\n\016star" +
       "t_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n" +
       "\014end_position\030\002 \001(\0132\023.mojo.lang.Position" +
-      "\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\"\215\001\n\023Con" +
-      "trolTransferStmt\022+\n\016start_position\030\001 \001(\013" +
-      "2\023.mojo.lang.Position\022)\n\014end_position\030\002 " +
-      "\001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\003\022\020" +
-      "\n\010implicit\030\005 \001(\010\"\366\001\n\004Decl\022+\n\016start_posit" +
-      "ion\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_po" +
-      "sition\030\002 \001(\0132\023.mojo.lang.Position\022\020\n\010imp" +
-      "licit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.mojo.lan" +
-      "g.Document\022\024\n\014package_name\030\007 \001(\t\022\030\n\020sour" +
-      "ce_file_name\030\010 \001(\t\022-\n\020keyword_position\030\t" +
-      " \001(\0132\023.mojo.lang.Position\"\243\005\n\013Declaratio" +
-      "n\022.\n\014package_decl\030\001 \001(\0132\026.mojo.lang.Pack" +
-      "ageDeclH\000\022,\n\013import_decl\030\002 \001(\0132\025.mojo.la" +
-      "ng.ImportDeclH\000\022(\n\tenum_decl\030\003 \001(\0132\023.moj" +
-      "o.lang.EnumDeclH\000\022,\n\013struct_decl\030\004 \001(\0132\025" +
-      ".mojo.lang.StructDeclH\000\0223\n\017type_alias_de" +
-      "cl\030\005 \001(\0132\030.mojo.lang.TypeAliasDeclH\000\0222\n\016" +
-      "interface_decl\030\006 \001(\0132\030.mojo.lang.Interfa" +
-      "ceDeclH\000\0220\n\rconstant_decl\030\n \001(\0132\027.mojo.l" +
-      "ang.ConstantDeclH\000\0220\n\rvariable_decl\030\013 \001(" +
-      "\0132\027.mojo.lang.VariableDeclH\000\0222\n\016attribut" +
-      "e_decl\030\014 \001(\0132\030.mojo.lang.AttributeDeclH\000" +
-      "\0220\n\rfunction_decl\030\r \001(\0132\027.mojo.lang.Func" +
-      "tionDeclH\000\0226\n\020constructor_decl\030\016 \001(\0132\032.m" +
-      "ojo.lang.ConstructorDeclH\000\0228\n\021generic_pa" +
-      "rameter\030\023 \001(\0132\033.mojo.lang.GenericParamet" +
-      "erH\000\022*\n\ngroup_decl\030\024 \001(\0132\024.mojo.lang.Gro" +
-      "upDeclH\000B\r\n\013declaration\"\207\002\n\016MapLiteralEx" +
-      "pr\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.P" +
-      "osition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lan" +
-      "g.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001" +
-      "(\010\0220\n\007entries\030\024 \003(\0132\037.mojo.lang.MapLiter" +
-      "alExpr.Entry\032K\n\005Entry\022\013\n\003key\030\001 \001(\t\022$\n\005va" +
-      "lue\030\002 \001(\0132\025.mojo.lang.Expression\022\017\n\007nume" +
-      "ric\030\003 \001(\010\"\357\002\n\010Document\022+\n\016start_position" +
-      "\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posit" +
-      "ion\030\002 \001(\0132\023.mojo.lang.Position\022\021\n\tfollow" +
-      "ing\030\003 \001(\010\022\017\n\007private\030\004 \001(\010\022\'\n\005lines\030\n \003(" +
-      "\0132\030.mojo.lang.Document.Line\022+\n\nstructure" +
-      "d\030\017 \001(\0132\027.mojo.document.Document\032\220\001\n\004Lin" +
-      "e\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Po" +
-      "sition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang" +
-      ".Position\022\021\n\tfollowing\030\003 \001(\010\022\017\n\007private\030" +
-      "\004 \001(\010\022\014\n\004text\030\n \001(\t\"\376\001\n\nEntityEdge\022\n\n\002id" +
-      "\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\020\n\010implicit\030\005 \001(\010\022#" +
-      "\n\004from\030\007 \001(\0132\025.mojo.lang.EntityNode\022!\n\002t" +
-      "o\030\010 \001(\0132\025.mojo.lang.EntityNode\022\017\n\007invers" +
-      "e\030\n \001(\010\022\020\n\010multiple\030\013 \001(\010\022\020\n\010required\030\014 " +
-      "\001(\010\022\030\n\020reference_by_key\030\023 \001(\010\022-\n\017referen" +
-      "ce_field\030\024 \001(\0132\024.mojo.lang.ValueDecl\"2\n\013" +
-      "EntityEdges\022#\n\004vals\030\001 \003(\0132\025.mojo.lang.En" +
-      "tityEdge\"y\n\nEntityNode\022\014\n\004name\030\001 \001(\t\0224\n\020" +
-      "type_declaration\030\002 \001(\0132\032.mojo.lang.TypeD" +
-      "eclaration\022\'\n\tkey_field\030\005 \001(\0132\024.mojo.lan" +
-      "g.ValueDecl\"\263\001\n\016EntityRelation\022\014\n\004name\030\001" +
-      " \001(\t\022%\n\004type\030\002 \001(\0162\027.mojo.lang.RelationT" +
-      "ype\022#\n\004from\030\005 \001(\0132\025.mojo.lang.EntityNode" +
-      "\022!\n\002to\030\006 \001(\0132\025.mojo.lang.EntityNode\022$\n\005e" +
-      "dges\030\n \003(\0132\025.mojo.lang.EntityEdge\":\n\017Ent" +
-      "ityRelations\022\'\n\004vals\030\001 \003(\0132\031.mojo.lang.E" +
-      "ntityRelation\"\300\005\n\021EntityRelationSet\0226\n\005n" +
-      "odes\030\001 \003(\0132\'.mojo.lang.EntityRelationSet" +
-      ".NodesEntry\0226\n\005edges\030\002 \003(\0132\'.mojo.lang.E" +
-      "ntityRelationSet.EdgesEntry\022>\n\trelations" +
-      "\030\005 \003(\0132+.mojo.lang.EntityRelationSet.Rel" +
-      "ationsEntry\022?\n\nnode_edges\030\016 \003(\0132+.mojo.l" +
-      "ang.EntityRelationSet.NodeEdgesEntry\022G\n\016" +
-      "node_relations\030\017 \003(\0132/.mojo.lang.EntityR" +
-      "elationSet.NodeRelationsEntry\032C\n\nNodesEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025.mojo.l" +
-      "ang.EntityNode:\0028\001\032C\n\nEdgesEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022$\n\005value\030\002 \001(\0132\025.mojo.lang.EntityE" +
-      "dge:\0028\001\032K\n\016RelationsEntry\022\013\n\003key\030\001 \001(\t\022(" +
-      "\n\005value\030\002 \001(\0132\031.mojo.lang.EntityRelation" +
-      ":\0028\001\032H\n\016NodeEdgesEntry\022\013\n\003key\030\001 \001(\t\022%\n\005v" +
-      "alue\030\002 \001(\0132\026.mojo.lang.EntityEdges:\0028\001\032P" +
-      "\n\022NodeRelationsEntry\022\013\n\003key\030\001 \001(\t\022)\n\005val" +
-      "ue\030\002 \001(\0132\032.mojo.lang.EntityRelations:\0028\001" +
-      "\"\234\005\n\010EnumDecl\022+\n\016start_position\030\001 \001(\0132\023." +
-      "mojo.lang.Position\022)\n\014end_position\030\002 \001(\013" +
-      "2\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022" +
-      "%\n\010document\030\006 \001(\0132\023.mojo.lang.Document\022\024" +
-      "\n\014package_name\030\007 \001(\t\022\030\n\020source_file_name" +
-      "\030\010 \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo." +
-      "lang.Position\022\014\n\004name\030\n \001(\t\022(\n\nattribute" +
-      "s\030\014 \003(\0132\024.mojo.lang.Attribute\0227\n\022generic" +
-      "_parameters\030\r \003(\0132\033.mojo.lang.GenericPar" +
-      "ameter\022.\n\016enclosing_type\030\016 \001(\0132\026.mojo.la" +
-      "ng.NominalType\022#\n\005group\030\017 \001(\0132\024.mojo.lan" +
-      "g.GroupDecl\0223\n\024resolved_identifiers\030\020 \003(" +
-      "\0132\025.mojo.lang.Identifier\0225\n\026unresolved_i" +
-      "dentifiers\030\021 \003(\0132\025.mojo.lang.Identifier\022" +
-      "*\n\rname_position\030\023 \001(\0132\023.mojo.lang.Posit" +
-      "ion\022!\n\004type\030\024 \001(\0132\023.mojo.lang.EnumType\022\037" +
-      "\n\005scope\030\036 \001(\0132\020.mojo.lang.Scope\"\365\001\n\010Enum" +
-      "Type\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang" +
-      ".Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.l" +
-      "ang.Position\022)\n\013enumerators\030\n \003(\0132\024.mojo" +
-      ".lang.ValueDecl\022/\n\017underlying_type\030\013 \001(\013" +
-      "2\026.mojo.lang.NominalType\0225\n\030underlying_t" +
-      "ype_position\030\023 \001(\0132\023.mojo.lang.Position\"" +
-      "\203\001\n\tErrorExpr\022+\n\016start_position\030\001 \001(\0132\023." +
-      "mojo.lang.Position\022)\n\014end_position\030\002 \001(\013" +
-      "2\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010i" +
-      "mplicit\030\005 \001(\010\"\303\001\n\022ExplicitMemberExpr\022+\n\016" +
-      "start_position\030\001 \001(\0132\023.mojo.lang.Positio" +
-      "n\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posi" +
-      "tion\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%\n\006" +
-      "callee\030\n \001(\0132\025.mojo.lang.Expression\022\016\n\006m" +
-      "ember\030\024 \001(\t\"~\n\004Expr\022+\n\016start_position\030\001 " +
-      "\001(\0132\023.mojo.lang.Position\022)\n\014end_position" +
-      "\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(" +
-      "\005\022\020\n\010implicit\030\005 \001(\010\"\352\014\n\nExpression\0227\n\021nu" +
-      "ll_literal_expr\030\001 \001(\0132\032.mojo.lang.NullLi" +
-      "teralExprH\000\022=\n\024integer_literal_expr\030\002 \001(" +
-      "\0132\035.mojo.lang.IntegerLiteralExprH\000\0229\n\022fl" +
-      "oat_literal_expr\030\003 \001(\0132\033.mojo.lang.Float" +
-      "LiteralExprH\000\0227\n\021bool_literal_expr\030\004 \001(\013" +
-      "2\032.mojo.lang.BoolLiteralExprH\000\022;\n\023string" +
-      "_literal_expr\030\005 \001(\0132\034.mojo.lang.StringLi" +
-      "teralExprH\000\022;\n\023object_literal_expr\030\006 \001(\013" +
-      "2\034.mojo.lang.ObjectLiteralExprH\000\0229\n\022arra" +
-      "y_literal_expr\030\007 \001(\0132\033.mojo.lang.ArrayLi" +
-      "teralExprH\000\0225\n\020map_literal_expr\030\010 \001(\0132\031." +
-      "mojo.lang.MapLiteralExprH\000\0224\n\017identifier" +
-      "_expr\030\n \001(\0132\031.mojo.lang.IdentifierExprH\000" +
-      "\022H\n\032numeric_literal_unary_expr\030\013 \001(\0132\".m" +
-      "ojo.lang.NumericLiteralUnaryExprH\000\022F\n\031st" +
-      "ring_literal_unary_expr\030\014 \001(\0132!.mojo.lan" +
-      "g.StringLiteralUnaryExprH\000\022;\n\023struct_lit" +
-      "eral_expr\030\r \001(\0132\034.mojo.lang.StructLitera" +
-      "lExprH\000\022.\n\014closure_expr\030\016 \001(\0132\026.mojo.lan" +
-      "g.ClosureExprH\000\022:\n\022parenthesized_expr\030\017 " +
-      "\001(\0132\034.mojo.lang.ParenthesizedExprH\000\022=\n\024i" +
-      "mplicit_member_expr\030\020 \001(\0132\035.mojo.lang.Im" +
-      "plicitMemberExprH\000\0220\n\rwildcard_expr\030\021 \001(" +
-      "\0132\027.mojo.lang.WildcardExprH\000\022E\n\030struct_c" +
-      "onstruction_expr\030\022 \001(\0132!.mojo.lang.Struc" +
-      "tConstructionExprH\000\022*\n\ntuple_expr\030\023 \001(\0132" +
-      "\024.mojo.lang.TupleExprH\000\0227\n\021prefix_unary_" +
-      "expr\030\036 \001(\0132\032.mojo.lang.PrefixUnaryExprH\000" +
-      "\0229\n\022postfix_unary_expr\030\037 \001(\0132\033.mojo.lang" +
-      ".PostfixUnaryExprH\000\0229\n\022function_call_exp" +
-      "r\030  \001(\0132\033.mojo.lang.FunctionCallExprH\000\022=" +
-      "\n\024explicit_member_expr\030! \001(\0132\035.mojo.lang" +
-      ".ExplicitMemberExprH\000\0222\n\016subscript_expr\030" +
-      "\" \001(\0132\030.mojo.lang.SubscriptExprH\000\022,\n\013bin" +
-      "ary_expr\030( \001(\0132\025.mojo.lang.BinaryExprH\000\022" +
-      "6\n\020conditional_expr\030) \001(\0132\032.mojo.lang.Co" +
-      "nditionalExprH\000\0227\n\021type_casting_expr\030* \001" +
-      "(\0132\032.mojo.lang.TypeCastingExprH\000\0224\n\017assi" +
-      "gnment_expr\030+ \001(\0132\031.mojo.lang.Assignment" +
-      "ExprH\000\022*\n\nerror_expr\030< \001(\0132\024.mojo.lang.E" +
-      "rrorExprH\000B\014\n\nexpression\"\213\001\n\021DynamicLook" +
-      "upExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo.la" +
+      "\022\021\n\tfollowing\030\003 \001(\010\022\017\n\007private\030\004 \001(\010\022\'\n\005" +
+      "lines\030\n \003(\0132\030.mojo.lang.Document.Line\022+\n" +
+      "\nstructured\030\017 \001(\0132\027.mojo.document.Docume" +
+      "nt\032\220\001\n\004Line\022+\n\016start_position\030\001 \001(\0132\023.mo" +
+      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
+      ".mojo.lang.Position\022\021\n\tfollowing\030\003 \001(\010\022\017" +
+      "\n\007private\030\004 \001(\010\022\014\n\004text\030\n \001(\t\"\376\001\n\nEntity" +
+      "Edge\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\020\n\010implic" +
+      "it\030\005 \001(\010\022#\n\004from\030\007 \001(\0132\025.mojo.lang.Entit" +
+      "yNode\022!\n\002to\030\010 \001(\0132\025.mojo.lang.EntityNode" +
+      "\022\017\n\007inverse\030\n \001(\010\022\020\n\010multiple\030\013 \001(\010\022\020\n\010r" +
+      "equired\030\014 \001(\010\022\030\n\020reference_by_key\030\023 \001(\010\022" +
+      "-\n\017reference_field\030\024 \001(\0132\024.mojo.lang.Val" +
+      "ueDecl\"2\n\013EntityEdges\022#\n\004vals\030\001 \003(\0132\025.mo" +
+      "jo.lang.EntityEdge\"y\n\nEntityNode\022\014\n\004name" +
+      "\030\001 \001(\t\0224\n\020type_declaration\030\002 \001(\0132\032.mojo." +
+      "lang.TypeDeclaration\022\'\n\tkey_field\030\005 \001(\0132" +
+      "\024.mojo.lang.ValueDecl\"\263\001\n\016EntityRelation" +
+      "\022\014\n\004name\030\001 \001(\t\022%\n\004type\030\002 \001(\0162\027.mojo.lang" +
+      ".RelationType\022#\n\004from\030\005 \001(\0132\025.mojo.lang." +
+      "EntityNode\022!\n\002to\030\006 \001(\0132\025.mojo.lang.Entit" +
+      "yNode\022$\n\005edges\030\n \003(\0132\025.mojo.lang.EntityE" +
+      "dge\":\n\017EntityRelations\022\'\n\004vals\030\001 \003(\0132\031.m" +
+      "ojo.lang.EntityRelation\"\300\005\n\021EntityRelati" +
+      "onSet\0226\n\005nodes\030\001 \003(\0132\'.mojo.lang.EntityR" +
+      "elationSet.NodesEntry\0226\n\005edges\030\002 \003(\0132\'.m" +
+      "ojo.lang.EntityRelationSet.EdgesEntry\022>\n" +
+      "\trelations\030\005 \003(\0132+.mojo.lang.EntityRelat" +
+      "ionSet.RelationsEntry\022?\n\nnode_edges\030\016 \003(" +
+      "\0132+.mojo.lang.EntityRelationSet.NodeEdge" +
+      "sEntry\022G\n\016node_relations\030\017 \003(\0132/.mojo.la" +
+      "ng.EntityRelationSet.NodeRelationsEntry\032" +
+      "C\n\nNodesEntry\022\013\n\003key\030\001 \001(\t\022$\n\005value\030\002 \001(" +
+      "\0132\025.mojo.lang.EntityNode:\0028\001\032C\n\nEdgesEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025.mojo.la" +
+      "ng.EntityEdge:\0028\001\032K\n\016RelationsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022(\n\005value\030\002 \001(\0132\031.mojo.lang.Enti" +
+      "tyRelation:\0028\001\032H\n\016NodeEdgesEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022%\n\005value\030\002 \001(\0132\026.mojo.lang.EntityE" +
+      "dges:\0028\001\032P\n\022NodeRelationsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022)\n\005value\030\002 \001(\0132\032.mojo.lang.EntityRel" +
+      "ations:\0028\001\"\234\005\n\010EnumDecl\022+\n\016start_positio" +
+      "n\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posi" +
+      "tion\030\002 \001(\0132\023.mojo.lang.Position\022\020\n\010impli" +
+      "cit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.mojo.lang." +
+      "Document\022\024\n\014package_name\030\007 \001(\t\022\030\n\020source" +
+      "_file_name\030\010 \001(\t\022-\n\020keyword_position\030\t \001" +
+      "(\0132\023.mojo.lang.Position\022\014\n\004name\030\n \001(\t\022(\n" +
+      "\nattributes\030\014 \003(\0132\024.mojo.lang.Attribute\022" +
+      "7\n\022generic_parameters\030\r \003(\0132\033.mojo.lang." +
+      "GenericParameter\022.\n\016enclosing_type\030\016 \001(\013" +
+      "2\026.mojo.lang.NominalType\022#\n\005group\030\017 \001(\0132" +
+      "\024.mojo.lang.GroupDecl\0223\n\024resolved_identi" +
+      "fiers\030\020 \003(\0132\025.mojo.lang.Identifier\0225\n\026un" +
+      "resolved_identifiers\030\021 \003(\0132\025.mojo.lang.I" +
+      "dentifier\022*\n\rname_position\030\023 \001(\0132\023.mojo." +
+      "lang.Position\022!\n\004type\030\024 \001(\0132\023.mojo.lang." +
+      "EnumType\022\037\n\005scope\030\036 \001(\0132\020.mojo.lang.Scop" +
+      "e\"\365\001\n\010EnumType\022+\n\016start_position\030\001 \001(\0132\023" +
+      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
+      "\0132\023.mojo.lang.Position\022)\n\013enumerators\030\n " +
+      "\003(\0132\024.mojo.lang.ValueDecl\022/\n\017underlying_" +
+      "type\030\013 \001(\0132\026.mojo.lang.NominalType\0225\n\030un" +
+      "derlying_type_position\030\023 \001(\0132\023.mojo.lang" +
+      ".Position\"\203\001\n\tErrorExpr\022+\n\016start_positio" +
+      "n\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posi" +
+      "tion\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030" +
+      "\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\303\001\n\022ExplicitMemb" +
+      "erExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo.la" +
       "ng.Position\022)\n\014end_position\030\002 \001(\0132\023.mojo" +
       ".lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit" +
-      "\030\005 \001(\010\"\026\n\024UnresolvedMemberExpr\"\206\001\n\014Ident" +
-      "ityExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo.l" +
-      "ang.Position\022)\n\014end_position\030\002 \001(\0132\023.moj" +
-      "o.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implici" +
-      "t\030\005 \001(\010\"\220\001\n\026KeyPathApplicationExpr\022+\n\016st" +
-      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
-      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
-      "on\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\212\001\n\020T" +
-      "upleElementExpr\022+\n\016start_position\030\001 \001(\0132" +
-      "\023.mojo.lang.Position\022)\n\014end_position\030\002 \001" +
-      "(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n" +
-      "\010implicit\030\005 \001(\010\"\r\n\013KeyPathExpr\"\256\001\n\020Float" +
-      "LiteralExpr\022+\n\016start_position\030\001 \001(\0132\023.mo" +
-      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
-      ".mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010imp" +
-      "licit\030\005 \001(\010\022\023\n\013is_negative\030\024 \001(\010\022\r\n\005valu" +
-      "e\030\036 \001(\001\"\367\001\n\007ForStmt\022+\n\016start_position\030\001 " +
-      "\001(\0132\023.mojo.lang.Position\022)\n\014end_position" +
-      "\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(" +
-      "\003\022\020\n\010implicit\030\005 \001(\010\022\"\n\004body\030\n \001(\0132\024.mojo" +
-      ".lang.BlockStmt\022\'\n\010iterator\030\024 \001(\0132\025.mojo" +
-      ".lang.Expression\022\'\n\010sequence\030\025 \001(\0132\025.moj" +
-      "o.lang.Expression\"\214\002\n\020FunctionCallExpr\022+" +
-      "\n\016start_position\030\001 \001(\0132\023.mojo.lang.Posit" +
-      "ion\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Po" +
-      "sition\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%" +
-      "\n\006callee\030\n \001(\0132\025.mojo.lang.Expression\0221\n" +
-      "\021generic_arguments\030\013 \003(\0132\026.mojo.lang.Nom" +
-      "inalType\022&\n\targuments\030\014 \003(\0132\023.mojo.lang." +
-      "Argument\"\324\004\n\014FunctionDecl\022+\n\016start_posit" +
+      "\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.lang.Expre" +
+      "ssion\022\016\n\006member\030\024 \001(\t\"~\n\004Expr\022+\n\016start_p" +
+      "osition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014en" +
+      "d_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n" +
+      "\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\352\014\n\nExpres" +
+      "sion\0227\n\021null_literal_expr\030\001 \001(\0132\032.mojo.l" +
+      "ang.NullLiteralExprH\000\022=\n\024integer_literal" +
+      "_expr\030\002 \001(\0132\035.mojo.lang.IntegerLiteralEx" +
+      "prH\000\0229\n\022float_literal_expr\030\003 \001(\0132\033.mojo." +
+      "lang.FloatLiteralExprH\000\0227\n\021bool_literal_" +
+      "expr\030\004 \001(\0132\032.mojo.lang.BoolLiteralExprH\000" +
+      "\022;\n\023string_literal_expr\030\005 \001(\0132\034.mojo.lan" +
+      "g.StringLiteralExprH\000\022;\n\023object_literal_" +
+      "expr\030\006 \001(\0132\034.mojo.lang.ObjectLiteralExpr" +
+      "H\000\0229\n\022array_literal_expr\030\007 \001(\0132\033.mojo.la" +
+      "ng.ArrayLiteralExprH\000\0225\n\020map_literal_exp" +
+      "r\030\010 \001(\0132\031.mojo.lang.MapLiteralExprH\000\0224\n\017" +
+      "identifier_expr\030\n \001(\0132\031.mojo.lang.Identi" +
+      "fierExprH\000\022H\n\032numeric_literal_unary_expr" +
+      "\030\013 \001(\0132\".mojo.lang.NumericLiteralUnaryEx" +
+      "prH\000\022F\n\031string_literal_unary_expr\030\014 \001(\0132" +
+      "!.mojo.lang.StringLiteralUnaryExprH\000\022;\n\023" +
+      "struct_literal_expr\030\r \001(\0132\034.mojo.lang.St" +
+      "ructLiteralExprH\000\022.\n\014closure_expr\030\016 \001(\0132" +
+      "\026.mojo.lang.ClosureExprH\000\022:\n\022parenthesiz" +
+      "ed_expr\030\017 \001(\0132\034.mojo.lang.ParenthesizedE" +
+      "xprH\000\022=\n\024implicit_member_expr\030\020 \001(\0132\035.mo" +
+      "jo.lang.ImplicitMemberExprH\000\0220\n\rwildcard" +
+      "_expr\030\021 \001(\0132\027.mojo.lang.WildcardExprH\000\022E" +
+      "\n\030struct_construction_expr\030\022 \001(\0132!.mojo." +
+      "lang.StructConstructionExprH\000\022*\n\ntuple_e" +
+      "xpr\030\023 \001(\0132\024.mojo.lang.TupleExprH\000\0227\n\021pre" +
+      "fix_unary_expr\030\036 \001(\0132\032.mojo.lang.PrefixU" +
+      "naryExprH\000\0229\n\022postfix_unary_expr\030\037 \001(\0132\033" +
+      ".mojo.lang.PostfixUnaryExprH\000\0229\n\022functio" +
+      "n_call_expr\030  \001(\0132\033.mojo.lang.FunctionCa" +
+      "llExprH\000\022=\n\024explicit_member_expr\030! \001(\0132\035" +
+      ".mojo.lang.ExplicitMemberExprH\000\0222\n\016subsc" +
+      "ript_expr\030\" \001(\0132\030.mojo.lang.SubscriptExp" +
+      "rH\000\022,\n\013binary_expr\030( \001(\0132\025.mojo.lang.Bin" +
+      "aryExprH\000\0226\n\020conditional_expr\030) \001(\0132\032.mo" +
+      "jo.lang.ConditionalExprH\000\0227\n\021type_castin" +
+      "g_expr\030* \001(\0132\032.mojo.lang.TypeCastingExpr" +
+      "H\000\0224\n\017assignment_expr\030+ \001(\0132\031.mojo.lang." +
+      "AssignmentExprH\000\022*\n\nerror_expr\030< \001(\0132\024.m" +
+      "ojo.lang.ErrorExprH\000B\014\n\nexpression\"\213\001\n\021D" +
+      "ynamicLookupExpr\022+\n\016start_position\030\001 \001(\013" +
+      "2\023.mojo.lang.Position\022)\n\014end_position\030\002 " +
+      "\001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020" +
+      "\n\010implicit\030\005 \001(\010\"\026\n\024UnresolvedMemberExpr" +
+      "\"\206\001\n\014IdentityExpr\022+\n\016start_position\030\001 \001(" +
+      "\0132\023.mojo.lang.Position\022)\n\014end_position\030\002" +
+      " \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022" +
+      "\020\n\010implicit\030\005 \001(\010\"\220\001\n\026KeyPathApplication" +
+      "Expr\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang" +
+      ".Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.l" +
+      "ang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005" +
+      " \001(\010\"\212\001\n\020TupleElementExpr\022+\n\016start_posit" +
       "ion\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_po" +
-      "sition\030\002 \001(\0132\023.mojo.lang.Position\022\020\n\010imp" +
-      "licit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.mojo.lan" +
-      "g.Document\022\024\n\014package_name\030\007 \001(\t\022\030\n\020sour" +
-      "ce_file_name\030\010 \001(\t\022-\n\020keyword_position\030\t" +
-      " \001(\0132\023.mojo.lang.Position\022\014\n\004name\030\n \001(\t\022" +
-      "\021\n\tfull_name\030\013 \001(\t\022(\n\nattributes\030\014 \003(\0132\024" +
+      "sition\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kin" +
+      "d\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\r\n\013KeyPathExpr" +
+      "\"\256\001\n\020FloatLiteralExpr\022+\n\016start_position\030" +
+      "\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_positi" +
+      "on\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 " +
+      "\001(\005\022\020\n\010implicit\030\005 \001(\010\022\023\n\013is_negative\030\024 \001" +
+      "(\010\022\r\n\005value\030\036 \001(\001\"\367\001\n\007ForStmt\022+\n\016start_p" +
+      "osition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014en" +
+      "d_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n" +
+      "\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\022\"\n\004body\030\n " +
+      "\001(\0132\024.mojo.lang.BlockStmt\022\'\n\010iterator\030\024 " +
+      "\001(\0132\025.mojo.lang.Expression\022\'\n\010sequence\030\025" +
+      " \001(\0132\025.mojo.lang.Expression\"\214\002\n\020Function" +
+      "CallExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo." +
+      "lang.Position\022)\n\014end_position\030\002 \001(\0132\023.mo" +
+      "jo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implic" +
+      "it\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.lang.Exp" +
+      "ression\0221\n\021generic_arguments\030\013 \003(\0132\026.moj" +
+      "o.lang.NominalType\022&\n\targuments\030\014 \003(\0132\023." +
+      "mojo.lang.Argument\"\206\005\n\014FunctionDecl\022+\n\016s" +
+      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
+      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132" +
+      "\023.mojo.lang.Document\022\024\n\014package_name\030\007 \001" +
+      "(\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_" +
+      "position\030\t \001(\0132\023.mojo.lang.Position\022\014\n\004n" +
+      "ame\030\n \001(\t\022\021\n\tfull_name\030\013 \001(\t\022(\n\nattribut" +
+      "es\030\014 \003(\0132\024.mojo.lang.Attribute\0227\n\022generi" +
+      "c_parameters\030\r \003(\0132\033.mojo.lang.GenericPa" +
+      "rameter\022.\n\016enclosing_type\030\016 \001(\0132\026.mojo.l" +
+      "ang.NominalType\022*\n\rname_position\030\023 \001(\0132\023" +
+      ".mojo.lang.Position\022/\n\tsignature\030\024 \001(\0132\034" +
+      ".mojo.lang.FunctionSignature\022\"\n\004body\030\025 \001" +
+      "(\0132\024.mojo.lang.BlockStmt\022\037\n\005scope\030\036 \001(\0132" +
+      "\020.mojo.lang.Scope\0220\n\016interface_decl\030\037 \001(" +
+      "\0132\030.mojo.lang.InterfaceDecl\"\201\004\n\021Function" +
+      "Signature\022+\n\016start_position\030\001 \001(\0132\023.mojo" +
+      ".lang.Position\022)\n\014end_position\030\002 \001(\0132\023.m" +
+      "ojo.lang.Position\0229\n\tparameter\030\n \001(\0132&.m" +
+      "ojo.lang.FunctionSignature.Parameter\0223\n\006" +
+      "result\030\013 \001(\0132#.mojo.lang.FunctionSignatu" +
+      "re.Result\032\210\001\n\tParameter\022+\n\016start_positio" +
+      "n\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posi" +
+      "tion\030\002 \001(\0132\023.mojo.lang.Position\022#\n\005decls" +
+      "\030\n \003(\0132\024.mojo.lang.ValueDecl\032\230\001\n\006Result\022" +
+      "+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Posi" +
+      "tion\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.P" +
+      "osition\022\020\n\010implicit\030\005 \001(\010\022$\n\004type\030\n \001(\0132" +
+      "\026.mojo.lang.NominalType\"\214\005\n\020GenericParam" +
+      "eter\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang" +
+      ".Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.l" +
+      "ang.Position\022\020\n\010implicit\030\005 \001(\010\022%\n\010docume" +
+      "nt\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014package" +
+      "_name\030\007 \001(\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n" +
+      "\020keyword_position\030\t \001(\0132\023.mojo.lang.Posi" +
+      "tion\022\014\n\004name\030\n \001(\t\022(\n\nattributes\030\014 \003(\0132\024" +
       ".mojo.lang.Attribute\0227\n\022generic_paramete" +
       "rs\030\r \003(\0132\033.mojo.lang.GenericParameter\022.\n" +
       "\016enclosing_type\030\016 \001(\0132\026.mojo.lang.Nomina" +
-      "lType\022*\n\rname_position\030\023 \001(\0132\023.mojo.lang" +
-      ".Position\022/\n\tsignature\030\024 \001(\0132\034.mojo.lang" +
-      ".FunctionSignature\022\"\n\004body\030\025 \001(\0132\024.mojo." +
-      "lang.BlockStmt\022\037\n\005scope\030\036 \001(\0132\020.mojo.lan" +
-      "g.Scope\"\201\004\n\021FunctionSignature\022+\n\016start_p" +
+      "lType\022#\n\005group\030\017 \001(\0132\024.mojo.lang.GroupDe" +
+      "cl\0223\n\024resolved_identifiers\030\020 \003(\0132\025.mojo." +
+      "lang.Identifier\0225\n\026unresolved_identifier" +
+      "s\030\021 \003(\0132\025.mojo.lang.Identifier\022*\n\rname_p" +
+      "osition\030\023 \001(\0132\023.mojo.lang.Position\022*\n\nco" +
+      "nstraint\030\024 \001(\0132\026.mojo.lang.NominalType\"\213" +
+      "\003\n\tGroupDecl\022+\n\016start_position\030\001 \001(\0132\023.m" +
+      "ojo.lang.Position\022)\n\014end_position\030\002 \001(\0132" +
+      "\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022%" +
+      "\n\010document\030\006 \001(\0132\023.mojo.lang.Document\022\024\n" +
+      "\014package_name\030\007 \001(\t\022\030\n\020source_file_name\030" +
+      "\010 \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo.l" +
+      "ang.Position\022\014\n\004name\030\n \001(\t\022(\n\nattributes" +
+      "\030\014 \003(\0132\024.mojo.lang.Attribute\022(\n\004type\030\024 \001" +
+      "(\0162\032.mojo.lang.Identifier.Kind\022,\n\014declar" +
+      "ations\030\025 \003(\0132\026.mojo.lang.Declaration\"\273\004\n" +
+      "\nIdentifier\022+\n\016start_position\030\001 \001(\0132\023.mo" +
+      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
+      ".mojo.lang.Position\022(\n\004kind\030\003 \001(\0162\032.mojo" +
+      ".lang.Identifier.Kind\022\020\n\010implicit\030\005 \001(\010\022" +
+      "\030\n\020source_file_name\030\006 \001(\t\022\024\n\014package_nam" +
+      "e\030\007 \001(\t\022\014\n\004name\030\n \001(\t\022+\n\013declaration\030\013 \001" +
+      "(\0132\026.mojo.lang.Declaration\022\r\n\005alias\030\014 \001(" +
+      "\t\022\021\n\tfull_name\030\024 \001(\t\022\034\n\024enclosing_type_n" +
+      "ames\030\025 \003(\t\"\355\001\n\004Kind\022\024\n\020KIND_UNSPECIFIED\020" +
+      "\000\022\r\n\tKIND_ENUM\020\003\022\017\n\013KIND_STRUCT\020\004\022\023\n\017KIN" +
+      "D_TYPE_ALIAS\020\005\022\022\n\016KIND_INTERFACE\020\006\022\021\n\rKI" +
+      "ND_CONSTANT\020\n\022\021\n\rKIND_VARIABLE\020\013\022\022\n\016KIND" +
+      "_ATTRIBUTE\020\014\022\021\n\rKIND_FUNCTION\020\r\022\032\n\026KIND_",
+      "GENERIC_PARAMETER\020\016\022\r\n\tKIND_TYPE\020\024\022\016\n\nKI" +
+      "ND_VALUE\020\025\"\346\001\n\016IdentifierExpr\022+\n\016start_p" +
       "osition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014en" +
-      "d_position\030\002 \001(\0132\023.mojo.lang.Position\0229\n" +
-      "\tparameter\030\n \001(\0132&.mojo.lang.FunctionSig" +
-      "nature.Parameter\0223\n\006result\030\013 \001(\0132#.mojo." +
-      "lang.FunctionSignature.Result\032\210\001\n\tParame" +
-      "ter\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang." +
-      "Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.la" +
-      "ng.Position\022#\n\005decls\030\n \003(\0132\024.mojo.lang.V" +
-      "alueDecl\032\230\001\n\006Result\022+\n\016start_position\030\001 " +
+      "d_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n" +
+      "\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022)\n\nidentif" +
+      "ier\030\n \001(\0132\025.mojo.lang.Identifier\0221\n\021gene" +
+      "ric_arguments\030\013 \003(\0132\026.mojo.lang.NominalT" +
+      "ype\"\266\002\n\006IfStmt\022+\n\016start_position\030\001 \001(\0132\023" +
+      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
+      "\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\003\022\020\n\010" +
+      "implicit\030\005 \001(\010\022(\n\tcondition\030\024 \001(\0132\025.mojo" +
+      ".lang.Expression\022)\n\013then_branch\030\025 \001(\0132\024." +
+      "mojo.lang.BlockStmt\022*\n\nblock_stmt\030\026 \001(\0132" +
+      "\024.mojo.lang.BlockStmtH\000\022$\n\007if_stmt\030\027 \001(\013" +
+      "2\021.mojo.lang.IfStmtH\000B\r\n\013else_branch\"\214\001\n" +
+      "\022ImplicitMemberExpr\022+\n\016start_position\030\001 " +
       "\001(\0132\023.mojo.lang.Position\022)\n\014end_position" +
-      "\030\002 \001(\0132\023.mojo.lang.Position\022\020\n\010implicit\030" +
-      "\005 \001(\010\022$\n\004type\030\n \001(\0132\026.mojo.lang.NominalT" +
-      "ype\"\214\005\n\020GenericParameter\022+\n\016start_positi" +
-      "on\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_pos" +
-      "ition\030\002 \001(\0132\023.mojo.lang.Position\022\020\n\010impl" +
-      "icit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.mojo.lang" +
-      ".Document\022\024\n\014package_name\030\007 \001(\t\022\030\n\020sourc" +
-      "e_file_name\030\010 \001(\t\022-\n\020keyword_position\030\t " +
-      "\001(\0132\023.mojo.lang.Position\022\014\n\004name\030\n \001(\t\022(" +
-      "\n\nattributes\030\014 \003(\0132\024.mojo.lang.Attribute" +
-      "\0227\n\022generic_parameters\030\r \003(\0132\033.mojo.lang" +
-      ".GenericParameter\022.\n\016enclosing_type\030\016 \001(" +
-      "\0132\026.mojo.lang.NominalType\022#\n\005group\030\017 \001(\013" +
-      "2\024.mojo.lang.GroupDecl\0223\n\024resolved_ident" +
-      "ifiers\030\020 \003(\0132\025.mojo.lang.Identifier\0225\n\026u" +
-      "nresolved_identifiers\030\021 \003(\0132\025.mojo.lang." +
-      "Identifier\022*\n\rname_position\030\023 \001(\0132\023.mojo" +
-      ".lang.Position\022*\n\nconstraint\030\024 \001(\0132\026.moj" +
-      "o.lang.NominalType\"\213\003\n\tGroupDecl\022+\n\016star" +
+      "\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(" +
+      "\005\022\020\n\010implicit\030\005 \001(\010\"\343\002\n\nImportDecl\022+\n\016st" +
+      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
+      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
+      "on\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023" +
+      ".mojo.lang.Document\022\024\n\014package_name\030\007 \001(" +
+      "\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_p" +
+      "osition\030\t \001(\0132\023.mojo.lang.Position\022\033\n\023im" +
+      "port_package_name\030\n \001(\t\022\034\n\024import_packag" +
+      "e_alias\030\013 \001(\t\022*\n\013identifiers\030\r \003(\0132\025.moj" +
+      "o.lang.Identifier\"\260\001\n\022IntegerLiteralExpr" +
+      "\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Pos" +
+      "ition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang." +
+      "Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010" +
+      "\022\023\n\013is_negative\030\024 \001(\010\022\r\n\005value\030\020 \001(\004\"\332\005\n" +
+      "\rInterfaceDecl\022+\n\016start_position\030\001 \001(\0132\023" +
+      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
+      "\0132\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010" +
+      "\022%\n\010document\030\006 \001(\0132\023.mojo.lang.Document\022" +
+      "\024\n\014package_name\030\007 \001(\t\022\030\n\020source_file_nam" +
+      "e\030\010 \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo" +
+      ".lang.Position\022\014\n\004name\030\n \001(\t\022(\n\nattribut" +
+      "es\030\014 \003(\0132\024.mojo.lang.Attribute\0227\n\022generi" +
+      "c_parameters\030\r \003(\0132\033.mojo.lang.GenericPa" +
+      "rameter\022.\n\016enclosing_type\030\016 \001(\0132\026.mojo.l" +
+      "ang.NominalType\022#\n\005group\030\017 \001(\0132\024.mojo.la" +
+      "ng.GroupDecl\0223\n\024resolved_identifiers\030\020 \003" +
+      "(\0132\025.mojo.lang.Identifier\0225\n\026unresolved_" +
+      "identifiers\030\021 \003(\0132\025.mojo.lang.Identifier" +
+      "\022*\n\rname_position\030\023 \001(\0132\023.mojo.lang.Posi" +
+      "tion\022&\n\004type\030\024 \001(\0132\030.mojo.lang.Interface" +
+      "Type\0222\n\020type_alias_decls\030\025 \003(\0132\030.mojo.la" +
+      "ng.TypeAliasDecl\022\037\n\005scope\030\036 \001(\0132\020.mojo.l" +
+      "ang.Scope\"\353\001\n\rInterfaceType\022+\n\016start_pos" +
+      "ition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_" +
+      "position\030\002 \001(\0132\023.mojo.lang.Position\022(\n\007m" +
+      "ethods\030\n \003(\0132\027.mojo.lang.FunctionDecl\022(\n" +
+      "\010inherits\030\013 \003(\0132\026.mojo.lang.NominalType\022" +
+      ".\n\021inherite_position\030\023 \001(\0132\023.mojo.lang.P" +
+      "osition\"\205\001\n\013LiteralExpr\022+\n\016start_positio" +
+      "n\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posi" +
+      "tion\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030" +
+      "\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\246\001\n\010LoopStmt\022+\n\016" +
+      "start_position\030\001 \001(\0132\023.mojo.lang.Positio" +
+      "n\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posi" +
+      "tion\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\022\"\n\004" +
+      "body\030\n \001(\0132\024.mojo.lang.BlockStmt\"\211\002\n\tMat" +
+      "chCase\022+\n\016start_position\030\001 \001(\0132\023.mojo.la" +
+      "ng.Position\022)\n\014end_position\030\002 \001(\0132\023.mojo" +
+      ".lang.Position\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit" +
+      "\030\005 \001(\010\022#\n\007pattern\030\024 \001(\0132\022.mojo.lang.Patt" +
+      "ern\022*\n\nblock_stmt\030\025 \001(\0132\024.mojo.lang.Bloc" +
+      "kStmtH\000\022+\n\nexpression\030\026 \001(\0132\025.mojo.lang." +
+      "ExpressionH\000B\006\n\004body\"\320\001\n\tMatchStmt\022+\n\016st" +
+      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
+      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
+      "on\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\022&\n\007su" +
+      "bject\030\024 \001(\0132\025.mojo.lang.Expression\022#\n\005ca" +
+      "ses\030\026 \001(\0132\024.mojo.lang.MatchCase\"\205\003\n\013Nomi" +
+      "nalType\022+\n\016start_position\030\001 \001(\0132\023.mojo.l" +
+      "ang.Position\022)\n\014end_position\030\002 \001(\0132\023.moj" +
+      "o.lang.Position\022%\n\010document\030\004 \001(\0132\023.mojo" +
+      ".lang.Document\022\024\n\014package_name\030\007 \001(\t\022\020\n\010" +
+      "implicit\030\005 \001(\010\022\014\n\004name\030\n \001(\t\0224\n\020type_dec" +
+      "laration\030\013 \001(\0132\032.mojo.lang.TypeDeclarati" +
+      "on\0221\n\021generic_arguments\030\014 \003(\0132\026.mojo.lan" +
+      "g.NominalType\022(\n\nattributes\030\r \003(\0132\024.mojo" +
+      ".lang.Attribute\022.\n\016enclosing_type\030\016 \001(\0132" +
+      "\026.mojo.lang.NominalType\"\211\001\n\017NullLiteralE" +
+      "xpr\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang." +
+      "Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.la" +
+      "ng.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 " +
+      "\001(\010\"\241\001\n\022NumericLiteralExpr\022+\n\016start_posi" +
+      "tion\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_p" +
+      "osition\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004ki" +
+      "nd\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022\023\n\013is_negativ" +
+      "e\030\024 \001(\010\"\210\002\n\027NumericLiteralUnaryExpr\022+\n\016s" +
+      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
+      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%\n\006c" +
+      "allee\030\n \001(\0132\025.mojo.lang.Expression\022%\n\010op" +
+      "erator\030\024 \001(\0132\023.mojo.lang.Operator\022\'\n\010arg" +
+      "ument\030\025 \001(\0132\025.mojo.lang.Expression\"\325\002\n\021O" +
+      "bjectLiteralExpr\022+\n\016start_position\030\001 \001(\013" +
+      "2\023.mojo.lang.Position\022)\n\014end_position\030\002 " +
+      "\001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020" +
+      "\n\010implicit\030\005 \001(\010\0222\n\006fields\030\024 \003(\0132\".mojo." +
+      "lang.ObjectLiteralExpr.Field\032\223\001\n\005Field\022+" +
+      "\n\016start_position\030\001 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Po" +
+      "sition\022\014\n\004name\030\003 \001(\t\022$\n\005value\030\004 \001(\0132\025.mo" +
+      "jo.lang.Expression\"\247\001\n\010Operator\022+\n\016start" +
+      "_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014" +
+      "end_position\030\002 \001(\0132\023.mojo.lang.Position\022" +
+      "\020\n\010implicit\030\005 \001(\010\022\016\n\006symbol\030\013 \001(\t\022\022\n\npre" +
+      "cedence\030\014 \001(\005\022\r\n\005title\030\r \001(\t\"\337\t\n\007Package" +
+      "\022\014\n\004name\030\001 \001(\t\022\021\n\tfull_name\030\002 \001(\t\022#\n\007ver" +
+      "sion\030\003 \001(\0132\022.mojo.core.Version\022\020\n\010implic" +
+      "it\030\005 \001(\010\022$\n\010children\030\006 \003(\0132\022.mojo.lang.P" +
+      "ackage\022*\n\007authors\030\007 \003(\0132\031.mojo.lang.Pack" +
+      "age.Author\022\017\n\007summary\030\010 \001(\t\022\023\n\013descripti" +
+      "on\030\n \001(\t\022+\n\010document\030\013 \001(\0132\031.mojo.lang.C" +
+      "achedDocument\022\"\n\nrepository\030\014 \001(\0132\016.mojo" +
+      ".core.Url\022\017\n\007license\030\r \001(\t\022\017\n\007exports\030\017 " +
+      "\003(\t\022+\n\014source_files\030\020 \003(\0132\025.mojo.lang.So" +
+      "urceFile\022\037\n\005scope\030\024 \001(\0132\020.mojo.lang.Scop" +
+      "e\022%\n\nextra_info\030\031 \001(\0132\021.mojo.core.Object" +
+      "\0229\n\023entity_relation_set\030\032 \001(\0132\034.mojo.lan" +
+      "g.EntityRelationSet\022:\n\014dependencies\030\036 \003(" +
+      "\0132$.mojo.lang.Package.DependenciesEntry\022" +
+      "K\n\025resolved_dependencies\030\037 \003(\0132,.mojo.la" +
+      "ng.Package.ResolvedDependenciesEntry\032\331\002\n" +
+      "\013Requirement\0227\n\007version\030\001 \001(\0132&.mojo.lan" +
+      "g.Package.Requirement.Version\022\020\n\010registr" +
+      "y\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\022\"\n\nrepository\030\005 \001(" +
+      "\0132\016.mojo.core.Url\022\016\n\006branch\030\006 \001(\t\032\274\001\n\007Ve" +
+      "rsion\0229\n\004type\030\001 \001(\0162+.mojo.lang.Package." +
+      "Requirement.Version.Type\022&\n\005range\030\002 \001(\0132" +
+      "\027.mojo.core.VersionRange\"N\n\004Type\022\016\n\nTYPE" +
+      "_CARET\020\000\022\016\n\nTYPE_TILDE\020\001\022\021\n\rTYPE_WILDCAR" +
+      "D\020\002\022\023\n\017TYPE_COMPARISON\020\003\032V\n\006Author\022\016\n\006au" +
+      "thor\030\001 \001(\t\022\024\n\014organization\030\002 \001(\t\022&\n\005emai" +
+      "l\030\003 \001(\0132\027.mojo.core.EmailAddress\032S\n\021Depe" +
+      "ndenciesEntry\022\013\n\003key\030\001 \001(\t\022-\n\005value\030\002 \001(" +
+      "\0132\036.mojo.lang.Package.Requirement:\0028\001\032O\n" +
+      "\031ResolvedDependenciesEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "!\n\005value\030\002 \001(\0132\022.mojo.lang.Package:\0028\001\"\230" +
+      "\003\n\013PackageDecl\022+\n\016start_position\030\001 \001(\0132\023" +
+      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
+      "\0132\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010" +
+      "\022%\n\010document\030\006 \001(\0132\023.mojo.lang.Document\022" +
+      "\024\n\014package_name\030\007 \001(\t\022\030\n\020source_file_nam" +
+      "e\030\010 \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo" +
+      ".lang.Position\022\014\n\004name\030\n \001(\t\022:\n\024package_" +
+      "literal_expr\030\017 \001(\0132\034.mojo.lang.ObjectLit" +
+      "eralExpr\022#\n\007package\030\020 \001(\0132\022.mojo.lang.Pa" +
+      "ckage\022*\n\rname_position\030\023 \001(\0132\023.mojo.lang" +
+      ".Position\"\266\001\n\021ParenthesizedExpr\022+\n\016start" +
+      "_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014" +
+      "end_position\030\002 \001(\0132\023.mojo.lang.Position\022" +
+      "\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022)\n\nexpre" +
+      "ssion\030\n \001(\0132\025.mojo.lang.Expression\"\246\001\n\010P" +
+      "osition\022\020\n\010filename\030\001 \001(\t\022\016\n\006offset\030\002 \001(" +
+      "\003\022\014\n\004line\030\003 \001(\003\022\016\n\006column\030\004 \001(\003\022,\n\020leadi" +
+      "ng_comments\030\n \003(\0132\022.mojo.lang.Comment\022,\n" +
+      "\020tailing_comments\030\r \003(\0132\022.mojo.lang.Comm" +
+      "ent\"\027\n\007PosSpan\022\014\n\004vals\030\001 \003(\003\"\201\002\n\020Postfix" +
+      "UnaryExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo" +
+      ".lang.Position\022)\n\014end_position\030\002 \001(\0132\023.m" +
+      "ojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010impli" +
+      "cit\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.lang.Ex" +
+      "pression\022%\n\010operator\030\024 \001(\0132\023.mojo.lang.O" +
+      "perator\022\'\n\010argument\030\025 \001(\0132\025.mojo.lang.Ex" +
+      "pression\"\200\002\n\017PrefixUnaryExpr\022+\n\016start_po" +
+      "sition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end" +
+      "_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004" +
+      "kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%\n\006callee\030\n" +
+      " \001(\0132\025.mojo.lang.Expression\022%\n\010operator\030" +
+      "\024 \001(\0132\023.mojo.lang.Operator\022\'\n\010argument\030\025" +
+      " \001(\0132\025.mojo.lang.Expression\"\322\001\n\nRepeatSt" +
+      "mt\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.P" +
+      "osition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lan" +
+      "g.Position\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001" +
+      "(\010\022\"\n\004body\030\n \001(\0132\024.mojo.lang.BlockStmt\022(" +
+      "\n\tcondition\030\024 \001(\0132\025.mojo.lang.Expression" +
+      "\"\253\001\n\nReturnStmt\022+\n\016start_position\030\001 \001(\0132" +
+      "\023.mojo.lang.Position\022)\n\014end_position\030\002 \001" +
+      "(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\003\022\020\n" +
+      "\010implicit\030\005 \001(\010\022%\n\006result\030\024 \001(\0132\025.mojo.l" +
+      "ang.Expression\"\257\001\n\005Scope\0226\n\013identifiers\030" +
+      "\001 \003(\0132!.mojo.lang.Scope.IdentifiersEntry" +
+      "\022#\n\tenclosing\030\n \001(\0132\020.mojo.lang.Scope\032I\n" +
+      "\020IdentifiersEntry\022\013\n\003key\030\001 \001(\t\022$\n\005value\030" +
+      "\002 \001(\0132\025.mojo.lang.Identifier:\0028\001\"\304\003\n\nSou" +
+      "rceFile\022\014\n\004name\030\001 \001(\t\022\021\n\tfull_name\030\002 \001(\t" +
+      "\022\033\n\003url\030\003 \001(\0132\016.mojo.core.Url\022(\n\nattribu" +
+      "tes\030\004 \003(\0132\024.mojo.lang.Attribute\022\024\n\014packa" +
+      "ge_name\030\n \001(\t\022&\n\007imports\030\013 \003(\0132\025.mojo.la" +
+      "ng.ImportDecl\022(\n\nstatements\030\014 \003(\0132\024.mojo" +
+      ".lang.Statement\022,\n\020tailing_comments\030\r \003(" +
+      "\0132\022.mojo.lang.Comment\0223\n\024resolved_identi" +
+      "fiers\030\024 \003(\0132\025.mojo.lang.Identifier\0225\n\026un" +
+      "resolved_identifiers\030\025 \003(\0132\025.mojo.lang.I" +
+      "dentifier\022+\n\014dependencies\030\026 \003(\0132\025.mojo.l" +
+      "ang.SourceFile\022\037\n\005scope\030\036 \001(\0132\020.mojo.lan" +
+      "g.Scope\"\200\004\n\tStatement\022,\n\013return_stmt\030\001 \001" +
+      "(\0132\025.mojo.lang.ReturnStmtH\000\022*\n\nbreak_stm" +
+      "t\030\002 \001(\0132\024.mojo.lang.BreakStmtH\000\0220\n\rconti" +
+      "nue_stmt\030\003 \001(\0132\027.mojo.lang.ContinueStmtH" +
+      "\000\022*\n\nmatch_stmt\030\004 \001(\0132\024.mojo.lang.MatchS" +
+      "tmtH\000\022$\n\007if_stmt\030\005 \001(\0132\021.mojo.lang.IfStm" +
+      "tH\000\022&\n\010for_stmt\030\006 \001(\0132\022.mojo.lang.ForStm" +
+      "tH\000\022*\n\nwhile_stmt\030\007 \001(\0132\024.mojo.lang.Whil" +
+      "eStmtH\000\022,\n\013repeat_stmt\030\010 \001(\0132\025.mojo.lang" +
+      ".RepeatStmtH\000\022*\n\nblock_stmt\030\t \001(\0132\024.mojo" +
+      ".lang.BlockStmtH\000\022-\n\013declaration\030\n \001(\0132\026" +
+      ".mojo.lang.DeclarationH\000\022+\n\nexpression\030\013" +
+      " \001(\0132\025.mojo.lang.ExpressionH\000B\013\n\tstateme" +
+      "nt\"~\n\004Stmt\022+\n\016start_position\030\001 \001(\0132\023.moj" +
+      "o.lang.Position\022)\n\014end_position\030\002 \001(\0132\023." +
+      "mojo.lang.Position\022\014\n\004kind\030\004 \001(\003\022\020\n\010impl" +
+      "icit\030\005 \001(\010\"\232\001\n\021StringLiteralExpr\022+\n\016star" +
+      "t_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n" +
+      "\014end_position\030\002 \001(\0132\023.mojo.lang.Position" +
+      "\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022\r\n\005valu" +
+      "e\030\024 \001(\t\"\207\002\n\026StringLiteralUnaryExpr\022+\n\016st" +
+      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
+      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
+      "on\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%\n\006ca" +
+      "llee\030\n \001(\0132\025.mojo.lang.Expression\022%\n\010ope" +
+      "rator\030\024 \001(\0132\023.mojo.lang.Operator\022\'\n\010argu" +
+      "ment\030\025 \001(\0132\025.mojo.lang.Expression\"\220\001\n\026St" +
+      "ructConstructionExpr\022+\n\016start_position\030\001" +
+      " \001(\0132\023.mojo.lang.Position\022)\n\014end_positio" +
+      "n\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001" +
+      "(\005\022\020\n\010implicit\030\005 \001(\010\"\252\006\n\nStructDecl\022+\n\016s" +
+      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
+      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132" +
+      "\023.mojo.lang.Document\022\024\n\014package_name\030\007 \001" +
+      "(\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_" +
+      "position\030\t \001(\0132\023.mojo.lang.Position\022\014\n\004n" +
+      "ame\030\n \001(\t\022(\n\nattributes\030\014 \003(\0132\024.mojo.lan" +
+      "g.Attribute\0227\n\022generic_parameters\030\r \003(\0132" +
+      "\033.mojo.lang.GenericParameter\022.\n\016enclosin" +
+      "g_type\030\016 \001(\0132\026.mojo.lang.NominalType\022#\n\005" +
+      "group\030\017 \001(\0132\024.mojo.lang.GroupDecl\0223\n\024res" +
+      "olved_identifiers\030\020 \003(\0132\025.mojo.lang.Iden" +
+      "tifier\0225\n\026unresolved_identifiers\030\021 \003(\0132\025" +
+      ".mojo.lang.Identifier\022*\n\rname_position\030\023" +
+      " \001(\0132\023.mojo.lang.Position\022#\n\004type\030\024 \001(\0132" +
+      "\025.mojo.lang.StructType\0222\n\020type_alias_dec" +
+      "ls\030\025 \003(\0132\030.mojo.lang.TypeAliasDecl\022\'\n\nen" +
+      "um_decls\030\026 \003(\0132\023.mojo.lang.EnumDecl\022+\n\014s" +
+      "truct_decls\030\027 \003(\0132\025.mojo.lang.StructDecl" +
+      "\022\037\n\005scope\030\036 \001(\0132\020.mojo.lang.Scope\"\337\001\n\021St" +
+      "ructLiteralExpr\022+\n\016start_position\030\001 \001(\0132" +
+      "\023.mojo.lang.Position\022)\n\014end_position\030\002 \001" +
+      "(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n" +
+      "\010implicit\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.l" +
+      "ang.Expression\022+\n\005value\030\024 \001(\0132\034.mojo.lan" +
+      "g.ObjectLiteralExpr\"\217\002\n\nStructType\022+\n\016st" +
+      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
+      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
+      "on\022$\n\006fields\030\n \003(\0132\024.mojo.lang.ValueDecl" +
+      "\022(\n\010inherits\030\013 \003(\0132\026.mojo.lang.NominalTy" +
+      "pe\022)\n\006groups\030\014 \003(\0132\031.mojo.lang.ValueGrou" +
+      "pDecl\022.\n\021inherite_position\030\023 \001(\0132\023.mojo." +
+      "lang.Position\"\326\001\n\rSubscriptExpr\022+\n\016start" +
+      "_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014" +
+      "end_position\030\002 \001(\0132\023.mojo.lang.Position\022" +
+      "\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%\n\006calle" +
+      "e\030\n \001(\0132\025.mojo.lang.Expression\022&\n\targume" +
+      "nts\030\024 \003(\0132\023.mojo.lang.Argument\"\306\001\n\tTuple" +
+      "Expr\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang" +
+      ".Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.l" +
+      "ang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005" +
+      " \001(\010\022\032\n\022has_element_labels\030\n \001(\010\022%\n\010elem" +
+      "ents\030\024 \003(\0132\023.mojo.lang.Argument\"\244\005\n\rType" +
+      "AliasDecl\022+\n\016start_position\030\001 \001(\0132\023.mojo" +
+      ".lang.Position\022)\n\014end_position\030\002 \001(\0132\023.m" +
+      "ojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022%\n\010d" +
+      "ocument\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014pa" +
+      "ckage_name\030\007 \001(\t\022\030\n\020source_file_name\030\010 \001" +
+      "(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo.lang" +
+      ".Position\022\014\n\004name\030\n \001(\t\022(\n\nattributes\030\014 " +
+      "\003(\0132\024.mojo.lang.Attribute\0227\n\022generic_par" +
+      "ameters\030\r \003(\0132\033.mojo.lang.GenericParamet" +
+      "er\022.\n\016enclosing_type\030\016 \001(\0132\026.mojo.lang.N" +
+      "ominalType\022#\n\005group\030\017 \001(\0132\024.mojo.lang.Gr" +
+      "oupDecl\0223\n\024resolved_identifiers\030\020 \003(\0132\025." +
+      "mojo.lang.Identifier\0225\n\026unresolved_ident" +
+      "ifiers\030\021 \003(\0132\025.mojo.lang.Identifier\022*\n\rn" +
+      "ame_position\030\023 \001(\0132\023.mojo.lang.Position\022" +
+      "$\n\004type\030\024 \001(\0132\026.mojo.lang.NominalType\022\037\n" +
+      "\005scope\030\036 \001(\0132\020.mojo.lang.Scope\"\211\001\n\017TypeC" +
+      "astingExpr\022+\n\016start_position\030\001 \001(\0132\023.moj" +
+      "o.lang.Position\022)\n\014end_position\030\002 \001(\0132\023." +
+      "mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010impl" +
+      "icit\030\005 \001(\010\"\330\004\n\010TypeDecl\022+\n\016start_positio" +
+      "n\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posi" +
+      "tion\030\002 \001(\0132\023.mojo.lang.Position\022\020\n\010impli" +
+      "cit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.mojo.lang." +
+      "Document\022\024\n\014package_name\030\007 \001(\t\022\030\n\020source" +
+      "_file_name\030\010 \001(\t\022-\n\020keyword_position\030\t \001" +
+      "(\0132\023.mojo.lang.Position\022\014\n\004name\030\n \001(\t\022(\n" +
+      "\nattributes\030\014 \003(\0132\024.mojo.lang.Attribute\022" +
+      "7\n\022generic_parameters\030\r \003(\0132\033.mojo.lang." +
+      "GenericParameter\022.\n\016enclosing_type\030\016 \001(\013" +
+      "2\026.mojo.lang.NominalType\022#\n\005group\030\017 \001(\0132" +
+      "\024.mojo.lang.GroupDecl\0223\n\024resolved_identi" +
+      "fiers\030\020 \003(\0132\025.mojo.lang.Identifier\0225\n\026un" +
+      "resolved_identifiers\030\021 \003(\0132\025.mojo.lang.I" +
+      "dentifier\022*\n\rname_position\030\023 \001(\0132\023.mojo." +
+      "lang.Position\"\240\002\n\017TypeDeclaration\022(\n\tenu" +
+      "m_decl\030\003 \001(\0132\023.mojo.lang.EnumDeclH\000\022,\n\013s" +
+      "truct_decl\030\004 \001(\0132\025.mojo.lang.StructDeclH" +
+      "\000\0223\n\017type_alias_decl\030\005 \001(\0132\030.mojo.lang.T" +
+      "ypeAliasDeclH\000\0222\n\016interface_decl\030\006 \001(\0132\030" +
+      ".mojo.lang.InterfaceDeclH\000\0228\n\021generic_pa" +
+      "rameter\030\023 \001(\0132\033.mojo.lang.GenericParamet" +
+      "erH\000B\022\n\020type_declaration\"\372\001\n\tUnaryExpr\022+" +
+      "\n\016start_position\030\001 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Po" +
+      "sition\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%" +
+      "\n\006callee\030\n \001(\0132\025.mojo.lang.Expression\022%\n" +
+      "\010operator\030\024 \001(\0132\023.mojo.lang.Operator\022\'\n\010" +
+      "argument\030\025 \001(\0132\025.mojo.lang.Expression\"\327\003" +
+      "\n\tValueDecl\022+\n\016start_position\030\001 \001(\0132\023.mo" +
+      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
+      ".mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022%\n" +
+      "\010document\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014" +
+      "package_name\030\007 \001(\t\022\030\n\020source_file_name\030\010" +
+      " \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo.la" +
+      "ng.Position\022\014\n\004name\030\n \001(\t\022(\n\nattributes\030" +
+      "\014 \003(\0132\024.mojo.lang.Attribute\022#\n\005group\030\017 \001" +
+      "(\0132\024.mojo.lang.GroupDecl\022*\n\rname_positio" +
+      "n\030\023 \001(\0132\023.mojo.lang.Position\022$\n\004type\030\024 \001" +
+      "(\0132\026.mojo.lang.NominalType\022+\n\013initialize" +
+      "r\030\025 \001(\0132\026.mojo.lang.Initializer\"\213\001\n\013Init" +
+      "ializer\022+\n\016start_position\030\001 \001(\0132\023.mojo.l" +
+      "ang.Position\022)\n\014end_position\030\002 \001(\0132\023.moj" +
+      "o.lang.Position\022$\n\005value\030\026 \001(\0132\025.mojo.la" +
+      "ng.Expression\"\344\002\n\016ValueGroupDecl\022+\n\016star" +
       "t_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n" +
       "\014end_position\030\002 \001(\0132\023.mojo.lang.Position" +
       "\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.m" +
@@ -985,298 +1351,8 @@ public final class LangProto {
       "\030\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_pos" +
       "ition\030\t \001(\0132\023.mojo.lang.Position\022\014\n\004name" +
       "\030\n \001(\t\022(\n\nattributes\030\014 \003(\0132\024.mojo.lang.A" +
-      "ttribute\022(\n\004type\030\024 \001(\0162\032.mojo.lang.Ident" +
-      "ifier.Kind\022,\n\014declarations\030\025 \003(\0132\026.mojo." +
-      "lang.Declaration\"\273\004\n\nIdentifier\022+\n\016start" +
-      "_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014" +
-      "end_position\030\002 \001(\0132\023.mojo.lang.Position\022" +
-      "(\n\004kind\030\003 \001(\0162\032.mojo.lang.Identifier.Kin" +
-      "d\022\020\n\010implicit\030\005 \001(\010\022\030\n\020source_file_name\030" +
-      "\006 \001(\t\022\024\n\014package_name\030\007 \001(\t\022\014\n\004name\030\n \001(" +
-      "\t\022+\n\013declaration\030\013 \001(\0132\026.mojo.lang.Decla" +
-      "ration\022\r\n\005alias\030\014 \001(\t\022\021\n\tfull_name\030\024 \001(\t" +
-      "\022\034\n\024enclosing_type_names\030\025 \003(\t\"\355\001\n\004Kind\022" +
-      "\024\n\020KIND_UNSPECIFIED\020\000\022\r\n\tKIND_ENUM\020\003\022\017\n\013" +
-      "KIND_STRUCT\020\004\022\023\n\017KIND_TYPE_ALIAS\020\005\022\022\n\016KI" +
-      "ND_INTERFACE\020\006\022\021\n\rKIND_CONSTANT\020\n\022\021\n\rKIN" +
-      "D_VARIABLE\020\013\022\022\n\016KIND_ATTRIBUTE\020\014\022\021\n\rKIND" +
-      "_FUNCTION\020\r\022\032\n\026KIND_GENERIC_PARAMETER\020\016\022" +
-      "\r\n\tKIND_TYPE\020\024\022\016\n\nKIND_VALUE\020\025\"\346\001\n\016Ident" +
-      "ifierExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo",
-      ".lang.Position\022)\n\014end_position\030\002 \001(\0132\023.m" +
-      "ojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010impli" +
-      "cit\030\005 \001(\010\022)\n\nidentifier\030\n \001(\0132\025.mojo.lan" +
-      "g.Identifier\0221\n\021generic_arguments\030\013 \003(\0132" +
-      "\026.mojo.lang.NominalType\"\266\002\n\006IfStmt\022+\n\016st" +
-      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
-      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
-      "on\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\022(\n\tco" +
-      "ndition\030\024 \001(\0132\025.mojo.lang.Expression\022)\n\013" +
-      "then_branch\030\025 \001(\0132\024.mojo.lang.BlockStmt\022" +
-      "*\n\nblock_stmt\030\026 \001(\0132\024.mojo.lang.BlockStm" +
-      "tH\000\022$\n\007if_stmt\030\027 \001(\0132\021.mojo.lang.IfStmtH" +
-      "\000B\r\n\013else_branch\"\214\001\n\022ImplicitMemberExpr\022" +
-      "+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Posi" +
-      "tion\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.P" +
-      "osition\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"" +
-      "\343\002\n\nImportDecl\022+\n\016start_position\030\001 \001(\0132\023" +
-      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
-      "\0132\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010" +
-      "\022%\n\010document\030\006 \001(\0132\023.mojo.lang.Document\022" +
-      "\024\n\014package_name\030\007 \001(\t\022\030\n\020source_file_nam" +
-      "e\030\010 \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo" +
-      ".lang.Position\022\033\n\023import_package_name\030\n " +
-      "\001(\t\022\034\n\024import_package_alias\030\013 \001(\t\022*\n\013ide" +
-      "ntifiers\030\r \003(\0132\025.mojo.lang.Identifier\"\260\001" +
-      "\n\022IntegerLiteralExpr\022+\n\016start_position\030\001" +
-      " \001(\0132\023.mojo.lang.Position\022)\n\014end_positio" +
-      "n\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001" +
-      "(\005\022\020\n\010implicit\030\005 \001(\010\022\023\n\013is_negative\030\024 \001(" +
-      "\010\022\r\n\005value\030\020 \001(\004\"\332\005\n\rInterfaceDecl\022+\n\016st" +
-      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
-      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
-      "on\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023" +
-      ".mojo.lang.Document\022\024\n\014package_name\030\007 \001(" +
-      "\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_p" +
-      "osition\030\t \001(\0132\023.mojo.lang.Position\022\014\n\004na" +
-      "me\030\n \001(\t\022(\n\nattributes\030\014 \003(\0132\024.mojo.lang" +
-      ".Attribute\0227\n\022generic_parameters\030\r \003(\0132\033" +
-      ".mojo.lang.GenericParameter\022.\n\016enclosing" +
-      "_type\030\016 \001(\0132\026.mojo.lang.NominalType\022#\n\005g" +
-      "roup\030\017 \001(\0132\024.mojo.lang.GroupDecl\0223\n\024reso" +
-      "lved_identifiers\030\020 \003(\0132\025.mojo.lang.Ident" +
-      "ifier\0225\n\026unresolved_identifiers\030\021 \003(\0132\025." +
-      "mojo.lang.Identifier\022*\n\rname_position\030\023 " +
-      "\001(\0132\023.mojo.lang.Position\022&\n\004type\030\024 \001(\0132\030" +
-      ".mojo.lang.InterfaceType\0222\n\020type_alias_d" +
-      "ecls\030\025 \003(\0132\030.mojo.lang.TypeAliasDecl\022\037\n\005" +
-      "scope\030\036 \001(\0132\020.mojo.lang.Scope\"\353\001\n\rInterf" +
-      "aceType\022+\n\016start_position\030\001 \001(\0132\023.mojo.l" +
-      "ang.Position\022)\n\014end_position\030\002 \001(\0132\023.moj" +
-      "o.lang.Position\022(\n\007methods\030\n \003(\0132\027.mojo." +
-      "lang.FunctionDecl\022(\n\010inherits\030\013 \003(\0132\026.mo" +
-      "jo.lang.NominalType\022.\n\021inherite_position" +
-      "\030\023 \001(\0132\023.mojo.lang.Position\"\205\001\n\013LiteralE" +
-      "xpr\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang." +
-      "Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.la" +
-      "ng.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 " +
-      "\001(\010\"\246\001\n\010LoopStmt\022+\n\016start_position\030\001 \001(\013" +
-      "2\023.mojo.lang.Position\022)\n\014end_position\030\002 " +
-      "\001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\003\022\020" +
-      "\n\010implicit\030\005 \001(\010\022\"\n\004body\030\n \001(\0132\024.mojo.la" +
-      "ng.BlockStmt\"\211\002\n\tMatchCase\022+\n\016start_posi" +
-      "tion\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_p" +
-      "osition\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004ki" +
-      "nd\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\022#\n\007pattern\030\024 " +
-      "\001(\0132\022.mojo.lang.Pattern\022*\n\nblock_stmt\030\025 " +
-      "\001(\0132\024.mojo.lang.BlockStmtH\000\022+\n\nexpressio" +
-      "n\030\026 \001(\0132\025.mojo.lang.ExpressionH\000B\006\n\004body" +
-      "\"\320\001\n\tMatchStmt\022+\n\016start_position\030\001 \001(\0132\023" +
-      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
-      "\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\003\022\020\n\010" +
-      "implicit\030\005 \001(\010\022&\n\007subject\030\024 \001(\0132\025.mojo.l" +
-      "ang.Expression\022#\n\005cases\030\026 \001(\0132\024.mojo.lan" +
-      "g.MatchCase\"\205\003\n\013NominalType\022+\n\016start_pos" +
-      "ition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_" +
-      "position\030\002 \001(\0132\023.mojo.lang.Position\022%\n\010d" +
-      "ocument\030\004 \001(\0132\023.mojo.lang.Document\022\024\n\014pa" +
-      "ckage_name\030\007 \001(\t\022\020\n\010implicit\030\005 \001(\010\022\014\n\004na" +
-      "me\030\n \001(\t\0224\n\020type_declaration\030\013 \001(\0132\032.moj" +
-      "o.lang.TypeDeclaration\0221\n\021generic_argume" +
-      "nts\030\014 \003(\0132\026.mojo.lang.NominalType\022(\n\natt" +
-      "ributes\030\r \003(\0132\024.mojo.lang.Attribute\022.\n\016e" +
-      "nclosing_type\030\016 \001(\0132\026.mojo.lang.NominalT" +
-      "ype\"\211\001\n\017NullLiteralExpr\022+\n\016start_positio" +
-      "n\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posi" +
-      "tion\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030" +
-      "\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\241\001\n\022NumericLiter" +
-      "alExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo.la" +
-      "ng.Position\022)\n\014end_position\030\002 \001(\0132\023.mojo" +
-      ".lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit" +
-      "\030\005 \001(\010\022\023\n\013is_negative\030\024 \001(\010\"\210\002\n\027NumericL" +
-      "iteralUnaryExpr\022+\n\016start_position\030\001 \001(\0132" +
-      "\023.mojo.lang.Position\022)\n\014end_position\030\002 \001" +
-      "(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n" +
-      "\010implicit\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.l" +
-      "ang.Expression\022%\n\010operator\030\024 \001(\0132\023.mojo." +
-      "lang.Operator\022\'\n\010argument\030\025 \001(\0132\025.mojo.l" +
-      "ang.Expression\"\325\002\n\021ObjectLiteralExpr\022+\n\016" +
-      "start_position\030\001 \001(\0132\023.mojo.lang.Positio" +
-      "n\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posi" +
-      "tion\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\0222\n\006" +
-      "fields\030\024 \003(\0132\".mojo.lang.ObjectLiteralEx" +
-      "pr.Field\032\223\001\n\005Field\022+\n\016start_position\030\001 \001" +
-      "(\0132\023.mojo.lang.Position\022)\n\014end_position\030" +
-      "\002 \001(\0132\023.mojo.lang.Position\022\014\n\004name\030\003 \001(\t" +
-      "\022$\n\005value\030\004 \001(\0132\025.mojo.lang.Expression\"\247" +
-      "\001\n\010Operator\022+\n\016start_position\030\001 \001(\0132\023.mo" +
-      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
-      ".mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022\016\n" +
-      "\006symbol\030\013 \001(\t\022\022\n\nprecedence\030\014 \001(\005\022\r\n\005tit" +
-      "le\030\r \001(\t\"\337\t\n\007Package\022\014\n\004name\030\001 \001(\t\022\021\n\tfu" +
-      "ll_name\030\002 \001(\t\022#\n\007version\030\003 \001(\0132\022.mojo.co" +
-      "re.Version\022\020\n\010implicit\030\005 \001(\010\022$\n\010children" +
-      "\030\006 \003(\0132\022.mojo.lang.Package\022*\n\007authors\030\007 " +
-      "\003(\0132\031.mojo.lang.Package.Author\022\017\n\007summar" +
-      "y\030\010 \001(\t\022\023\n\013description\030\n \001(\t\022+\n\010document" +
-      "\030\013 \001(\0132\031.mojo.lang.CachedDocument\022\"\n\nrep" +
-      "ository\030\014 \001(\0132\016.mojo.core.Url\022\017\n\007license" +
-      "\030\r \001(\t\022\017\n\007exports\030\017 \003(\t\022+\n\014source_files\030" +
-      "\020 \003(\0132\025.mojo.lang.SourceFile\022\037\n\005scope\030\024 " +
-      "\001(\0132\020.mojo.lang.Scope\022%\n\nextra_info\030\031 \001(" +
-      "\0132\021.mojo.core.Object\0229\n\023entity_relation_" +
-      "set\030\032 \001(\0132\034.mojo.lang.EntityRelationSet\022" +
-      ":\n\014dependencies\030\036 \003(\0132$.mojo.lang.Packag" +
-      "e.DependenciesEntry\022K\n\025resolved_dependen" +
-      "cies\030\037 \003(\0132,.mojo.lang.Package.ResolvedD" +
-      "ependenciesEntry\032\331\002\n\013Requirement\0227\n\007vers" +
-      "ion\030\001 \001(\0132&.mojo.lang.Package.Requiremen" +
-      "t.Version\022\020\n\010registry\030\003 \001(\t\022\014\n\004path\030\004 \001(" +
-      "\t\022\"\n\nrepository\030\005 \001(\0132\016.mojo.core.Url\022\016\n" +
-      "\006branch\030\006 \001(\t\032\274\001\n\007Version\0229\n\004type\030\001 \001(\0162" +
-      "+.mojo.lang.Package.Requirement.Version." +
-      "Type\022&\n\005range\030\002 \001(\0132\027.mojo.core.VersionR" +
-      "ange\"N\n\004Type\022\016\n\nTYPE_CARET\020\000\022\016\n\nTYPE_TIL" +
-      "DE\020\001\022\021\n\rTYPE_WILDCARD\020\002\022\023\n\017TYPE_COMPARIS" +
-      "ON\020\003\032V\n\006Author\022\016\n\006author\030\001 \001(\t\022\024\n\014organi" +
-      "zation\030\002 \001(\t\022&\n\005email\030\003 \001(\0132\027.mojo.core." +
-      "EmailAddress\032S\n\021DependenciesEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022-\n\005value\030\002 \001(\0132\036.mojo.lang.Packag" +
-      "e.Requirement:\0028\001\032O\n\031ResolvedDependencie" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.moj" +
-      "o.lang.Package:\0028\001\"\230\003\n\013PackageDecl\022+\n\016st" +
-      "art_position\030\001 \001(\0132\023.mojo.lang.Position\022" +
-      ")\n\014end_position\030\002 \001(\0132\023.mojo.lang.Positi" +
-      "on\022\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023" +
-      ".mojo.lang.Document\022\024\n\014package_name\030\007 \001(" +
-      "\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_p" +
-      "osition\030\t \001(\0132\023.mojo.lang.Position\022\014\n\004na" +
-      "me\030\n \001(\t\022:\n\024package_literal_expr\030\017 \001(\0132\034" +
-      ".mojo.lang.ObjectLiteralExpr\022#\n\007package\030" +
-      "\020 \001(\0132\022.mojo.lang.Package\022*\n\rname_positi" +
-      "on\030\023 \001(\0132\023.mojo.lang.Position\"\266\001\n\021Parent" +
-      "hesizedExpr\022+\n\016start_position\030\001 \001(\0132\023.mo" +
-      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
-      ".mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010imp" +
-      "licit\030\005 \001(\010\022)\n\nexpression\030\n \001(\0132\025.mojo.l" +
-      "ang.Expression\"\246\001\n\010Position\022\020\n\010filename\030" +
-      "\001 \001(\t\022\016\n\006offset\030\002 \001(\003\022\014\n\004line\030\003 \001(\003\022\016\n\006c" +
-      "olumn\030\004 \001(\003\022,\n\020leading_comments\030\n \003(\0132\022." +
-      "mojo.lang.Comment\022,\n\020tailing_comments\030\r " +
-      "\003(\0132\022.mojo.lang.Comment\"\027\n\007PosSpan\022\014\n\004va" +
-      "ls\030\001 \003(\003\"\201\002\n\020PostfixUnaryExpr\022+\n\016start_p" +
-      "osition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014en" +
-      "d_position\030\002 \001(\0132\023.mojo.lang.Position\022\014\n" +
-      "\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%\n\006callee\030" +
-      "\n \001(\0132\025.mojo.lang.Expression\022%\n\010operator" +
-      "\030\024 \001(\0132\023.mojo.lang.Operator\022\'\n\010argument\030" +
-      "\025 \001(\0132\025.mojo.lang.Expression\"\200\002\n\017PrefixU" +
-      "naryExpr\022+\n\016start_position\030\001 \001(\0132\023.mojo." +
-      "lang.Position\022)\n\014end_position\030\002 \001(\0132\023.mo" +
-      "jo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implic" +
-      "it\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.lang.Exp" +
-      "ression\022%\n\010operator\030\024 \001(\0132\023.mojo.lang.Op" +
-      "erator\022\'\n\010argument\030\025 \001(\0132\025.mojo.lang.Exp" +
-      "ression\"\322\001\n\nRepeatStmt\022+\n\016start_position" +
-      "\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posit" +
-      "ion\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004" +
-      " \001(\003\022\020\n\010implicit\030\005 \001(\010\022\"\n\004body\030\n \001(\0132\024.m" +
-      "ojo.lang.BlockStmt\022(\n\tcondition\030\024 \001(\0132\025." +
-      "mojo.lang.Expression\"\253\001\n\nReturnStmt\022+\n\016s" +
-      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
-      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
-      "ion\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\022%\n\006r" +
-      "esult\030\024 \001(\0132\025.mojo.lang.Expression\"\257\001\n\005S" +
-      "cope\0226\n\013identifiers\030\001 \003(\0132!.mojo.lang.Sc" +
-      "ope.IdentifiersEntry\022#\n\tenclosing\030\n \001(\0132" +
-      "\020.mojo.lang.Scope\032I\n\020IdentifiersEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025.mojo.lang.Id" +
-      "entifier:\0028\001\"\304\003\n\nSourceFile\022\014\n\004name\030\001 \001(" +
-      "\t\022\021\n\tfull_name\030\002 \001(\t\022\033\n\003url\030\003 \001(\0132\016.mojo" +
-      ".core.Url\022(\n\nattributes\030\004 \003(\0132\024.mojo.lan" +
-      "g.Attribute\022\024\n\014package_name\030\n \001(\t\022&\n\007imp" +
-      "orts\030\013 \003(\0132\025.mojo.lang.ImportDecl\022(\n\nsta" +
-      "tements\030\014 \003(\0132\024.mojo.lang.Statement\022,\n\020t" +
-      "ailing_comments\030\r \003(\0132\022.mojo.lang.Commen" +
-      "t\0223\n\024resolved_identifiers\030\024 \003(\0132\025.mojo.l" +
-      "ang.Identifier\0225\n\026unresolved_identifiers" +
-      "\030\025 \003(\0132\025.mojo.lang.Identifier\022+\n\014depende" +
-      "ncies\030\026 \003(\0132\025.mojo.lang.SourceFile\022\037\n\005sc" +
-      "ope\030\036 \001(\0132\020.mojo.lang.Scope\"\200\004\n\tStatemen" +
-      "t\022,\n\013return_stmt\030\001 \001(\0132\025.mojo.lang.Retur" +
-      "nStmtH\000\022*\n\nbreak_stmt\030\002 \001(\0132\024.mojo.lang." +
-      "BreakStmtH\000\0220\n\rcontinue_stmt\030\003 \001(\0132\027.moj" +
-      "o.lang.ContinueStmtH\000\022*\n\nmatch_stmt\030\004 \001(" +
-      "\0132\024.mojo.lang.MatchStmtH\000\022$\n\007if_stmt\030\005 \001" +
-      "(\0132\021.mojo.lang.IfStmtH\000\022&\n\010for_stmt\030\006 \001(" +
-      "\0132\022.mojo.lang.ForStmtH\000\022*\n\nwhile_stmt\030\007 " +
-      "\001(\0132\024.mojo.lang.WhileStmtH\000\022,\n\013repeat_st" +
-      "mt\030\010 \001(\0132\025.mojo.lang.RepeatStmtH\000\022*\n\nblo" +
-      "ck_stmt\030\t \001(\0132\024.mojo.lang.BlockStmtH\000\022-\n" +
-      "\013declaration\030\n \001(\0132\026.mojo.lang.Declarati" +
-      "onH\000\022+\n\nexpression\030\013 \001(\0132\025.mojo.lang.Exp" +
-      "ressionH\000B\013\n\tstatement\"~\n\004Stmt\022+\n\016start_" +
-      "position\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014e" +
-      "nd_position\030\002 \001(\0132\023.mojo.lang.Position\022\014" +
-      "\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\"\232\001\n\021Strin" +
-      "gLiteralExpr\022+\n\016start_position\030\001 \001(\0132\023.m" +
-      "ojo.lang.Position\022)\n\014end_position\030\002 \001(\0132" +
-      "\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010im" +
-      "plicit\030\005 \001(\010\022\r\n\005value\030\024 \001(\t\"\207\002\n\026StringLi" +
-      "teralUnaryExpr\022+\n\016start_position\030\001 \001(\0132\023" +
-      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
-      "\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010" +
-      "implicit\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.la" +
-      "ng.Expression\022%\n\010operator\030\024 \001(\0132\023.mojo.l" +
-      "ang.Operator\022\'\n\010argument\030\025 \001(\0132\025.mojo.la" +
-      "ng.Expression\"\220\001\n\026StructConstructionExpr" +
-      "\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang.Pos" +
-      "ition\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang." +
-      "Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010" +
-      "\"\252\006\n\nStructDecl\022+\n\016start_position\030\001 \001(\0132" +
-      "\023.mojo.lang.Position\022)\n\014end_position\030\002 \001" +
-      "(\0132\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(" +
-      "\010\022%\n\010document\030\006 \001(\0132\023.mojo.lang.Document" +
-      "\022\024\n\014package_name\030\007 \001(\t\022\030\n\020source_file_na" +
-      "me\030\010 \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.moj" +
-      "o.lang.Position\022\014\n\004name\030\n \001(\t\022(\n\nattribu" +
-      "tes\030\014 \003(\0132\024.mojo.lang.Attribute\0227\n\022gener" +
-      "ic_parameters\030\r \003(\0132\033.mojo.lang.GenericP" +
-      "arameter\022.\n\016enclosing_type\030\016 \001(\0132\026.mojo." +
-      "lang.NominalType\022#\n\005group\030\017 \001(\0132\024.mojo.l" +
-      "ang.GroupDecl\0223\n\024resolved_identifiers\030\020 " +
-      "\003(\0132\025.mojo.lang.Identifier\0225\n\026unresolved" +
-      "_identifiers\030\021 \003(\0132\025.mojo.lang.Identifie" +
-      "r\022*\n\rname_position\030\023 \001(\0132\023.mojo.lang.Pos" +
-      "ition\022#\n\004type\030\024 \001(\0132\025.mojo.lang.StructTy" +
-      "pe\0222\n\020type_alias_decls\030\025 \003(\0132\030.mojo.lang" +
-      ".TypeAliasDecl\022\'\n\nenum_decls\030\026 \003(\0132\023.moj" +
-      "o.lang.EnumDecl\022+\n\014struct_decls\030\027 \003(\0132\025." +
-      "mojo.lang.StructDecl\022\037\n\005scope\030\036 \001(\0132\020.mo" +
-      "jo.lang.Scope\"\337\001\n\021StructLiteralExpr\022+\n\016s" +
-      "tart_position\030\001 \001(\0132\023.mojo.lang.Position" +
-      "\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Posit" +
-      "ion\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022%\n\006c" +
-      "allee\030\n \001(\0132\025.mojo.lang.Expression\022+\n\005va" +
-      "lue\030\024 \001(\0132\034.mojo.lang.ObjectLiteralExpr\"" +
-      "\217\002\n\nStructType\022+\n\016start_position\030\001 \001(\0132\023" +
-      ".mojo.lang.Position\022)\n\014end_position\030\002 \001(" +
-      "\0132\023.mojo.lang.Position\022$\n\006fields\030\n \003(\0132\024" +
-      ".mojo.lang.ValueDecl\022(\n\010inherits\030\013 \003(\0132\026" +
-      ".mojo.lang.NominalType\022)\n\006groups\030\014 \003(\0132\031" +
-      ".mojo.lang.ValueGroupDecl\022.\n\021inherite_po" +
-      "sition\030\023 \001(\0132\023.mojo.lang.Position\"\326\001\n\rSu" +
-      "bscriptExpr\022+\n\016start_position\030\001 \001(\0132\023.mo" +
-      "jo.lang.Position\022)\n\014end_position\030\002 \001(\0132\023" +
-      ".mojo.lang.Position\022\014\n\004kind\030\004 \001(\005\022\020\n\010imp" +
-      "licit\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.mojo.lang." +
-      "Expression\022&\n\targuments\030\024 \003(\0132\023.mojo.lan" +
-      "g.Argument\"\306\001\n\tTupleExpr\022+\n\016start_positi" +
-      "on\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_pos" +
-      "ition\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind" +
-      "\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\022\032\n\022has_element_" +
-      "labels\030\n \001(\010\022%\n\010elements\030\024 \003(\0132\023.mojo.la" +
-      "ng.Argument\"\244\005\n\rTypeAliasDecl\022+\n\016start_p" +
+      "ttribute\022*\n\014declarations\030\017 \003(\0132\024.mojo.la" +
+      "ng.ValueDecl\"\332\003\n\014VariableDecl\022+\n\016start_p" +
       "osition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014en" +
       "d_position\030\002 \001(\0132\023.mojo.lang.Position\022\020\n" +
       "\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.mojo" +
@@ -1284,105 +1360,32 @@ public final class LangProto {
       "source_file_name\030\010 \001(\t\022-\n\020keyword_positi" +
       "on\030\t \001(\0132\023.mojo.lang.Position\022\014\n\004name\030\n " +
       "\001(\t\022(\n\nattributes\030\014 \003(\0132\024.mojo.lang.Attr" +
-      "ibute\0227\n\022generic_parameters\030\r \003(\0132\033.mojo" +
-      ".lang.GenericParameter\022.\n\016enclosing_type" +
-      "\030\016 \001(\0132\026.mojo.lang.NominalType\022#\n\005group\030" +
-      "\017 \001(\0132\024.mojo.lang.GroupDecl\0223\n\024resolved_" +
-      "identifiers\030\020 \003(\0132\025.mojo.lang.Identifier" +
-      "\0225\n\026unresolved_identifiers\030\021 \003(\0132\025.mojo." +
-      "lang.Identifier\022*\n\rname_position\030\023 \001(\0132\023" +
-      ".mojo.lang.Position\022$\n\004type\030\024 \001(\0132\026.mojo" +
-      ".lang.NominalType\022\037\n\005scope\030\036 \001(\0132\020.mojo." +
-      "lang.Scope\"\211\001\n\017TypeCastingExpr\022+\n\016start_" +
-      "position\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014e" +
-      "nd_position\030\002 \001(\0132\023.mojo.lang.Position\022\014" +
-      "\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010\"\330\004\n\010TypeD" +
-      "ecl\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang." +
-      "Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.la" +
-      "ng.Position\022\020\n\010implicit\030\005 \001(\010\022%\n\010documen" +
-      "t\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014package_" +
-      "name\030\007 \001(\t\022\030\n\020source_file_name\030\010 \001(\t\022-\n\020" +
-      "keyword_position\030\t \001(\0132\023.mojo.lang.Posit" +
-      "ion\022\014\n\004name\030\n \001(\t\022(\n\nattributes\030\014 \003(\0132\024." +
-      "mojo.lang.Attribute\0227\n\022generic_parameter" +
-      "s\030\r \003(\0132\033.mojo.lang.GenericParameter\022.\n\016" +
-      "enclosing_type\030\016 \001(\0132\026.mojo.lang.Nominal" +
-      "Type\022#\n\005group\030\017 \001(\0132\024.mojo.lang.GroupDec" +
-      "l\0223\n\024resolved_identifiers\030\020 \003(\0132\025.mojo.l" +
-      "ang.Identifier\0225\n\026unresolved_identifiers" +
-      "\030\021 \003(\0132\025.mojo.lang.Identifier\022*\n\rname_po" +
-      "sition\030\023 \001(\0132\023.mojo.lang.Position\"\240\002\n\017Ty" +
-      "peDeclaration\022(\n\tenum_decl\030\003 \001(\0132\023.mojo." +
-      "lang.EnumDeclH\000\022,\n\013struct_decl\030\004 \001(\0132\025.m" +
-      "ojo.lang.StructDeclH\000\0223\n\017type_alias_decl" +
-      "\030\005 \001(\0132\030.mojo.lang.TypeAliasDeclH\000\0222\n\016in" +
-      "terface_decl\030\006 \001(\0132\030.mojo.lang.Interface" +
-      "DeclH\000\0228\n\021generic_parameter\030\023 \001(\0132\033.mojo" +
-      ".lang.GenericParameterH\000B\022\n\020type_declara" +
-      "tion\"\372\001\n\tUnaryExpr\022+\n\016start_position\030\001 \001" +
-      "(\0132\023.mojo.lang.Position\022)\n\014end_position\030" +
-      "\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005" +
-      "\022\020\n\010implicit\030\005 \001(\010\022%\n\006callee\030\n \001(\0132\025.moj" +
-      "o.lang.Expression\022%\n\010operator\030\024 \001(\0132\023.mo" +
-      "jo.lang.Operator\022\'\n\010argument\030\025 \001(\0132\025.moj" +
-      "o.lang.Expression\"\327\003\n\tValueDecl\022+\n\016start" +
-      "_position\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014" +
-      "end_position\030\002 \001(\0132\023.mojo.lang.Position\022" +
-      "\020\n\010implicit\030\005 \001(\010\022%\n\010document\030\006 \001(\0132\023.mo" +
-      "jo.lang.Document\022\024\n\014package_name\030\007 \001(\t\022\030" +
-      "\n\020source_file_name\030\010 \001(\t\022-\n\020keyword_posi" +
-      "tion\030\t \001(\0132\023.mojo.lang.Position\022\014\n\004name\030" +
-      "\n \001(\t\022(\n\nattributes\030\014 \003(\0132\024.mojo.lang.At" +
-      "tribute\022#\n\005group\030\017 \001(\0132\024.mojo.lang.Group" +
-      "Decl\022*\n\rname_position\030\023 \001(\0132\023.mojo.lang." +
-      "Position\022$\n\004type\030\024 \001(\0132\026.mojo.lang.Nomin" +
-      "alType\022+\n\013initializer\030\025 \001(\0132\026.mojo.lang." +
-      "Initializer\"\213\001\n\013Initializer\022+\n\016start_pos" +
-      "ition\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_" +
-      "position\030\002 \001(\0132\023.mojo.lang.Position\022$\n\005v" +
-      "alue\030\026 \001(\0132\025.mojo.lang.Expression\"\344\002\n\016Va" +
-      "lueGroupDecl\022+\n\016start_position\030\001 \001(\0132\023.m" +
-      "ojo.lang.Position\022)\n\014end_position\030\002 \001(\0132" +
-      "\023.mojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022%" +
-      "\n\010document\030\006 \001(\0132\023.mojo.lang.Document\022\024\n" +
-      "\014package_name\030\007 \001(\t\022\030\n\020source_file_name\030" +
-      "\010 \001(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo.l" +
-      "ang.Position\022\014\n\004name\030\n \001(\t\022(\n\nattributes" +
-      "\030\014 \003(\0132\024.mojo.lang.Attribute\022*\n\014declarat" +
-      "ions\030\017 \003(\0132\024.mojo.lang.ValueDecl\"\332\003\n\014Var" +
-      "iableDecl\022+\n\016start_position\030\001 \001(\0132\023.mojo" +
-      ".lang.Position\022)\n\014end_position\030\002 \001(\0132\023.m" +
-      "ojo.lang.Position\022\020\n\010implicit\030\005 \001(\010\022%\n\010d" +
-      "ocument\030\006 \001(\0132\023.mojo.lang.Document\022\024\n\014pa" +
-      "ckage_name\030\007 \001(\t\022\030\n\020source_file_name\030\010 \001" +
-      "(\t\022-\n\020keyword_position\030\t \001(\0132\023.mojo.lang" +
-      ".Position\022\014\n\004name\030\n \001(\t\022(\n\nattributes\030\014 " +
-      "\003(\0132\024.mojo.lang.Attribute\022#\n\005group\030\017 \001(\013" +
-      "2\024.mojo.lang.GroupDecl\022*\n\rname_position\030" +
-      "\023 \001(\0132\023.mojo.lang.Position\022$\n\004type\030\024 \001(\013" +
-      "2\026.mojo.lang.NominalType\022+\n\013initializer\030" +
-      "\025 \001(\0132\026.mojo.lang.Initializer\"\321\001\n\tWhileS" +
-      "tmt\022+\n\016start_position\030\001 \001(\0132\023.mojo.lang." +
-      "Position\022)\n\014end_position\030\002 \001(\0132\023.mojo.la" +
-      "ng.Position\022\014\n\004kind\030\004 \001(\003\022\020\n\010implicit\030\005 " +
-      "\001(\010\022\"\n\004body\030\n \001(\0132\024.mojo.lang.BlockStmt\022" +
-      "(\n\tcondition\030\024 \001(\0132\025.mojo.lang.Expressio" +
-      "n\"\206\001\n\014WildcardExpr\022+\n\016start_position\030\001 \001" +
-      "(\0132\023.mojo.lang.Position\022)\n\014end_position\030" +
-      "\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030\004 \001(\005" +
-      "\022\020\n\010implicit\030\005 \001(\010*\207\003\n\014RelationType\022\035\n\031R" +
-      "ELATION_TYPE_UNSPECIFIED\020\000\022\025\n\021RELATION_T" +
-      "YPE_O2O\020\017\022\037\n\033RELATION_TYPE_O2O_TWO_TYPES" +
-      "\020\001\022\037\n\033RELATION_TYPE_O2O_SAME_TYPE\020\002\022#\n\037R" +
-      "ELATION_TYPE_O2O_BIDIRECTIONAL\020\003\022\026\n\021RELA" +
-      "TION_TYPE_O2M\020\360\001\022\037\n\033RELATION_TYPE_O2M_TW" +
-      "O_TYPES\020\020\022\037\n\033RELATION_TYPE_O2M_SAME_TYPE" +
-      "\020 \022\026\n\021RELATION_TYPE_M2M\020\200\036\022 \n\033RELATION_T" +
-      "YPE_M2M_TWO_TYPES\020\200\002\022 \n\033RELATION_TYPE_M2" +
-      "M_SAME_TYPE\020\200\004\022$\n\037RELATION_TYPE_M2M_BIDI" +
-      "RECTIONAL\020\200\006BV\n\026org.mojolang.mojo.langB\t" +
-      "LangProtoP\001Z/github.com/mojo-lang/lang/g" +
-      "o/pkg/mojo/lang;langb\006proto3"
+      "ibute\022#\n\005group\030\017 \001(\0132\024.mojo.lang.GroupDe" +
+      "cl\022*\n\rname_position\030\023 \001(\0132\023.mojo.lang.Po" +
+      "sition\022$\n\004type\030\024 \001(\0132\026.mojo.lang.Nominal" +
+      "Type\022+\n\013initializer\030\025 \001(\0132\026.mojo.lang.In" +
+      "itializer\"\321\001\n\tWhileStmt\022+\n\016start_positio" +
+      "n\030\001 \001(\0132\023.mojo.lang.Position\022)\n\014end_posi" +
+      "tion\030\002 \001(\0132\023.mojo.lang.Position\022\014\n\004kind\030" +
+      "\004 \001(\003\022\020\n\010implicit\030\005 \001(\010\022\"\n\004body\030\n \001(\0132\024." +
+      "mojo.lang.BlockStmt\022(\n\tcondition\030\024 \001(\0132\025" +
+      ".mojo.lang.Expression\"\206\001\n\014WildcardExpr\022+" +
+      "\n\016start_position\030\001 \001(\0132\023.mojo.lang.Posit" +
+      "ion\022)\n\014end_position\030\002 \001(\0132\023.mojo.lang.Po" +
+      "sition\022\014\n\004kind\030\004 \001(\005\022\020\n\010implicit\030\005 \001(\010*\207" +
+      "\003\n\014RelationType\022\035\n\031RELATION_TYPE_UNSPECI" +
+      "FIED\020\000\022\025\n\021RELATION_TYPE_O2O\020\017\022\037\n\033RELATIO" +
+      "N_TYPE_O2O_TWO_TYPES\020\001\022\037\n\033RELATION_TYPE_" +
+      "O2O_SAME_TYPE\020\002\022#\n\037RELATION_TYPE_O2O_BID" +
+      "IRECTIONAL\020\003\022\026\n\021RELATION_TYPE_O2M\020\360\001\022\037\n\033" +
+      "RELATION_TYPE_O2M_TWO_TYPES\020\020\022\037\n\033RELATIO" +
+      "N_TYPE_O2M_SAME_TYPE\020 \022\026\n\021RELATION_TYPE_" +
+      "M2M\020\200\036\022 \n\033RELATION_TYPE_M2M_TWO_TYPES\020\200\002" +
+      "\022 \n\033RELATION_TYPE_M2M_SAME_TYPE\020\200\004\022$\n\037RE" +
+      "LATION_TYPE_M2M_BIDIRECTIONAL\020\200\006BV\n\026org." +
+      "mojolang.mojo.langB\tLangProtoP\001Z/github." +
+      "com/mojo-lang/lang/go/pkg/mojo/lang;lang" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1468,7 +1471,7 @@ public final class LangProto {
     internal_static_mojo_lang_ClosureExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_ClosureExpr_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Implicit", "Document", "PackageName", "SourceFileName", "KeywordPosition", "Name", "FullName", "Attributes", "GenericParameters", "EnclosingType", "NamePosition", "Signature", "Body", "Scope", "Captures", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "Implicit", "Document", "PackageName", "SourceFileName", "KeywordPosition", "Name", "FullName", "Attributes", "GenericParameters", "EnclosingType", "NamePosition", "Signature", "Body", "Scope", "InterfaceDecl", "Captures", });
     internal_static_mojo_lang_Comment_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_mojo_lang_Comment_fieldAccessorTable = new
@@ -1720,7 +1723,7 @@ public final class LangProto {
     internal_static_mojo_lang_FunctionDecl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_mojo_lang_FunctionDecl_descriptor,
-        new java.lang.String[] { "StartPosition", "EndPosition", "Implicit", "Document", "PackageName", "SourceFileName", "KeywordPosition", "Name", "FullName", "Attributes", "GenericParameters", "EnclosingType", "NamePosition", "Signature", "Body", "Scope", });
+        new java.lang.String[] { "StartPosition", "EndPosition", "Implicit", "Document", "PackageName", "SourceFileName", "KeywordPosition", "Name", "FullName", "Attributes", "GenericParameters", "EnclosingType", "NamePosition", "Signature", "Body", "Scope", "InterfaceDecl", });
     internal_static_mojo_lang_FunctionSignature_descriptor =
       getDescriptor().getMessageTypes().get(47);
     internal_static_mojo_lang_FunctionSignature_fieldAccessorTable = new

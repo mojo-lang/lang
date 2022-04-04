@@ -2,42 +2,42 @@ package lang
 
 import "errors"
 
-func (m *ClosureExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *ClosureExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *ClosureExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *ClosureExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *ClosureExpr) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *ClosureExpr) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil StructDecl")
 }
 
-func (m *ClosureExpr) GetTerms() []interface{} {
-    if m != nil {
+func (x *ClosureExpr) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        if m.Signature != nil {
-            if m.Signature.Parameter != nil {
-                terms = append(terms, m.Signature.Parameter)
+        if x.Signature != nil {
+            if x.Signature.Parameter != nil {
+                terms = append(terms, x.Signature.Parameter)
             }
 
-            if m.Signature.Result != nil /*&& !m.Signature.Result.Implicit*/ {
-                terms = append(terms, m.Signature.Result)
+            if x.Signature.Result != nil /*&& !x.Signature.Result.Implicit*/ {
+                terms = append(terms, x.Signature.Result)
             }
         }
 
-        if m.Body != nil {
-            terms = append(terms, m.Body)
+        if x.Body != nil {
+            terms = append(terms, x.Body)
         }
 
         return terms

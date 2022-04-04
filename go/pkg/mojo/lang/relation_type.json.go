@@ -18,13 +18,15 @@
 package lang
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("lang.RelationType", &RelationTypeCodec{})
-	jsoniter.RegisterTypeEncoder("lang.RelationType", &RelationTypeCodec{})
+	core.RegisterJSONTypeDecoder("lang.RelationType", &RelationTypeCodec{})
+	core.RegisterJSONTypeEncoder("lang.RelationType", &RelationTypeCodec{})
 }
 
 type RelationTypeCodec struct {

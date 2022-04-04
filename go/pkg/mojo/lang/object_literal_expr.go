@@ -5,23 +5,23 @@ import (
     "reflect"
 )
 
-func (m *ObjectLiteralExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *ObjectLiteralExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *ObjectLiteralExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *ObjectLiteralExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *ObjectLiteralExpr) To(object interface{}) error {
-    if m != nil && object != nil {
+func (x *ObjectLiteralExpr) To(object interface{}) error {
+    if x != nil && object != nil {
         ot := reflect.TypeOf(object)
         ov := reflect.ValueOf(object).Elem()
-        for _, field := range m.Fields {
+        for _, field := range x.Fields {
             fieldName := strcase.ToCamel(field.Name)
             if f, found := ot.FieldByName(fieldName); found {
                 v := ov.FieldByIndex(f.Index)
@@ -38,6 +38,6 @@ func (m *ObjectLiteralExpr) To(object interface{}) error {
     return nil
 }
 
-func (m *ObjectLiteralExpr) From(object interface{}) error {
+func (x *ObjectLiteralExpr) From(object interface{}) error {
     return nil
 }

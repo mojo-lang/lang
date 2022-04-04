@@ -4,62 +4,62 @@ import "errors"
 
 const OriginalTypeAliasName = "original_type_alias_name"
 
-func (m *TypeAliasDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *TypeAliasDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *TypeAliasDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *TypeAliasDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *TypeAliasDecl) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *TypeAliasDecl) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil NominalType")
 }
 
-func (m *TypeAliasDecl) GetTerms() []interface{} {
-    if m != nil {
+func (x *TypeAliasDecl) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             terms = append(terms, attribute)
         }
 
         terms = append(terms,
-            NewSymbolTerm(m.KeywordPosition, TermTypeKeyword, KeywordType),
-            NewSymbolTerm(m.NamePosition, TermTypeName, m.Name))
+            NewSymbolTerm(x.KeywordPosition, TermTypeKeyword, KeywordType),
+            NewSymbolTerm(x.NamePosition, TermTypeName, x.Name))
 
-        for _, parameter := range m.GenericParameters {
+        for _, parameter := range x.GenericParameters {
             terms = append(terms, parameter)
         }
 
-        terms = append(terms, m.Type)
+        terms = append(terms, x.Type)
 
         return terms
     }
     return nil
 }
 
-func (m *TypeAliasDecl) GetFullName() string {
-    if m != nil {
-        return GetFullName(m.PackageName, GetEnclosingNames(m.EnclosingType), m.Name)
+func (x *TypeAliasDecl) GetFullName() string {
+    if x != nil {
+        return GetFullName(x.PackageName, GetEnclosingNames(x.EnclosingType), x.Name)
     }
     return ""
 }
 
-func (m *TypeAliasDecl) SetScope(scope *Scope) {
-    if m != nil {
-        m.Scope = scope
+func (x *TypeAliasDecl) SetScope(scope *Scope) {
+    if x != nil {
+        x.Scope = scope
     }
 }
 
-func (m *TypeAliasDecl) IsGeneric() bool {
-    return m != nil && len(m.GenericParameters) > 0
+func (x *TypeAliasDecl) IsGeneric() bool {
+    return x != nil && len(x.GenericParameters) > 0
 }

@@ -16,6 +16,11 @@ type PositionSetter interface {
     EndPositionSetter
 }
 
+const (
+    StartPositionFieldName = "StartPosition"
+    EndPositionFieldName   = "EndPosition"
+)
+
 type PositionGetters []PositionGetter
 
 func (p PositionGetters) Len() int {
@@ -83,32 +88,28 @@ func PatchPosition(target *Position, patch *Position) *Position {
     return target
 }
 
-var fieldMap = map[int]string{
-    0: "StartPosition", 1: "EndPosition",
-}
-
-func GetUnionPosition(union interface{}, index int) *Position {
+func GetUnionPosition(union interface{}, name string) *Position {
     if union != nil {
-        if pos, ok := core.GetUnionField(union, fieldMap[index]).Interface().(*Position); ok {
+        if pos, ok := core.GetUnionField(union, name).Interface().(*Position); ok {
             return pos
         }
     }
     return nil
 }
 
-func SetUnionPosition(union interface{}, index int, position *Position) {
+func SetUnionPosition(union interface{}, name string, position *Position) {
     if union != nil {
         value := reflect.ValueOf(union)
         for {
             if _, ok := value.Interface().(core.IsUnion); ok {
-                value = reflect.Indirect(value).Field(0).Elem()
+                value = reflect.Indirect(value).Field(core.GetUnionFieldIndex(value)).Elem()
                 value = reflect.Indirect(value).Field(0)
             } else {
                 break
             }
         }
 
-        value = reflect.Indirect(value).Field(index)
+        value = reflect.Indirect(value).FieldByName(name)
         if value.CanSet() {
             if value.IsNil() {
                 value.Set(reflect.ValueOf(position))
@@ -121,8 +122,8 @@ func SetUnionPosition(union interface{}, index int, position *Position) {
     }
 }
 
-func (m *Position) Compare(position *Position) int {
-    if m == nil {
+func (x *Position) Compare(position *Position) int {
+    if x == nil {
         if position == nil {
             return 0
         } else {
@@ -132,15 +133,15 @@ func (m *Position) Compare(position *Position) int {
         if position == nil {
             return 1
         } else {
-            if m.Line == position.Line {
-                if m.Column == position.Column {
+            if x.Line == position.Line {
+                if x.Column == position.Column {
                     return 0
-                } else if m.Column < position.Column {
+                } else if x.Column < position.Column {
                     return -1
                 } else {
                     return 1
                 }
-            } else if m.Line < position.Line {
+            } else if x.Line < position.Line {
                 return -1
             } else {
                 return 1
@@ -149,35 +150,35 @@ func (m *Position) Compare(position *Position) int {
     }
 }
 
-func (m *Position) AppendLeadingComment(comment interface{}) {
-    if m != nil {
+func (x *Position) AppendLeadingComment(comment interface{}) {
+    if x != nil {
         switch c := comment.(type) {
         case *Comment:
-            m.LeadingComments = append(m.LeadingComments, c)
+            x.LeadingComments = append(x.LeadingComments, c)
         case *BlockComment:
-            m.LeadingComments = append(m.LeadingComments, NewBlockCommentComment(c))
+            x.LeadingComments = append(x.LeadingComments, NewBlockCommentComment(c))
         case *MultiLineComment:
-            m.LeadingComments = append(m.LeadingComments, NewMultiLineCommentComment(c))
+            x.LeadingComments = append(x.LeadingComments, NewMultiLineCommentComment(c))
         case *Document:
-            m.LeadingComments = append(m.LeadingComments, NewDocumentComment(c))
+            x.LeadingComments = append(x.LeadingComments, NewDocumentComment(c))
         }
-        m.LeadingComments = SortComments(m.LeadingComments)
+        x.LeadingComments = SortComments(x.LeadingComments)
     }
 }
 
-func (m *Position) AppendTailingComment(comment interface{}) {
-    if m != nil {
+func (x *Position) AppendTailingComment(comment interface{}) {
+    if x != nil {
         switch c := comment.(type) {
         case *Comment:
-            m.TailingComments = append(m.TailingComments, c)
+            x.TailingComments = append(x.TailingComments, c)
         case *BlockComment:
-            m.TailingComments = append(m.TailingComments, NewBlockCommentComment(c))
+            x.TailingComments = append(x.TailingComments, NewBlockCommentComment(c))
         case *MultiLineComment:
-            m.TailingComments = append(m.TailingComments, NewMultiLineCommentComment(c))
+            x.TailingComments = append(x.TailingComments, NewMultiLineCommentComment(c))
         case *Document:
-            m.TailingComments = append(m.TailingComments, NewDocumentComment(c))
+            x.TailingComments = append(x.TailingComments, NewDocumentComment(c))
         }
-        m.TailingComments = SortComments(m.TailingComments)
+        x.TailingComments = SortComments(x.TailingComments)
     }
 }
 

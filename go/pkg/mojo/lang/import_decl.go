@@ -1,13 +1,13 @@
 package lang
 
-func (m *ImportDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *ImportDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *ImportDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *ImportDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }

@@ -22,54 +22,54 @@ func NewImplicitBoolAttribute(pkg string, name string) *Attribute {
 }
 
 // IsNumber return true if the attribute is number attribute
-func (m *Attribute) IsNumber() bool {
-    return m != nil && m.Name == core.NumberAttributeName
+func (x *Attribute) IsNumber() bool {
+    return x != nil && x.Name == core.NumberAttributeName
 }
 
-func (m *Attribute) IsRequired() bool {
-    return m != nil && m.Name == core.RequiredAttributeName
+func (x *Attribute) IsRequired() bool {
+    return x != nil && x.Name == core.RequiredAttributeName
 }
 
-func (m *Attribute) IsOptional() bool {
-    return m != nil && m.Name == core.OptionalAttributeName
+func (x *Attribute) IsOptional() bool {
+    return x != nil && x.Name == core.OptionalAttributeName
 }
 
-func (m *Attribute) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *Attribute) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *Attribute) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *Attribute) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *Attribute) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *Attribute) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil ArrayLiteralExpr")
 }
 
-func (m *Attribute) GetTerms() []interface{} {
-    if m != nil {
+func (x *Attribute) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
-        terms = append(terms, &Term{StartPosition: m.NamePosition,
+        terms = append(terms, &Term{StartPosition: x.NamePosition,
             EndPosition: &Position{
-                Line:   m.NamePosition.Line,
-                Column: m.NamePosition.Column + int64(len(m.Name)),
+                Line:   x.NamePosition.Line,
+                Column: x.NamePosition.Column + int64(len(x.Name)),
             },
             Type:  "Name",
-            Value: m.Name,
+            Value: x.Name,
         })
 
-        for _, argument := range m.GenericArguments {
+        for _, argument := range x.GenericArguments {
             terms = append(terms, argument)
         }
-        for _, argument := range m.Arguments {
+        for _, argument := range x.Arguments {
             terms = append(terms, argument)
         }
         return terms
@@ -77,51 +77,51 @@ func (m *Attribute) GetTerms() []interface{} {
     return nil
 }
 
-func (m *Attribute) IsSameName(fullName string) bool {
-    if m == nil {
+func (x *Attribute) IsSameName(fullName string) bool {
+    if x == nil {
         return false
     }
 
     pkg, name := ParseIdentifierName(fullName)
     if len(pkg) > 0 {
-        return m.PackageName == pkg && m.Name == name
+        return x.PackageName == pkg && x.Name == name
     } else {
-        return m.Name == name
+        return x.Name == name
     }
 }
 
-func (m *Attribute) GetFullName() string {
+func (x *Attribute) GetFullName() string {
     fullName := ""
-    if m != nil {
-        if len(m.PackageName) > 0 {
-            fullName = m.PackageName + "."
+    if x != nil {
+        if len(x.PackageName) > 0 {
+            fullName = x.PackageName + "."
         }
-        fullName = fullName + m.Name
+        fullName = fullName + x.Name
     }
     return fullName
 }
 
-func (m *Attribute) Repeatable() bool {
-    if m != nil && m.Declaration != nil {
-        if v, err := GetBoolAttribute(m.Declaration.Attributes, "repeatable"); err == nil {
+func (x *Attribute) Repeatable() bool {
+    if x != nil && x.Declaration != nil {
+        if v, err := GetBoolAttribute(x.Declaration.Attributes, "repeatable"); err == nil {
             return v
         }
     }
     return false
 }
 
-func (m *Attribute) GetArrayLiteralArgument() *ArrayLiteralExpr {
+func (x *Attribute) GetArrayLiteralArgument() *ArrayLiteralExpr {
     array := &ArrayLiteralExpr{
         Implicit: true,
     }
 
-    if len(m.Arguments) == 1 {
-        if arrayLiteral := m.Arguments[0].Value.GetArrayLiteralExpr(); arrayLiteral != nil {
+    if len(x.Arguments) == 1 {
+        if arrayLiteral := x.Arguments[0].Value.GetArrayLiteralExpr(); arrayLiteral != nil {
             return arrayLiteral
         }
     }
 
-    for _, argument := range m.Arguments {
+    for _, argument := range x.Arguments {
         if len(argument.Label) > 0 {
             return nil
         }
@@ -131,31 +131,31 @@ func (m *Attribute) GetArrayLiteralArgument() *ArrayLiteralExpr {
     return array
 }
 
-func (m *Attribute) GetObjectLiteralArgument() *ObjectLiteralExpr {
-    if m != nil {
+func (x *Attribute) GetObjectLiteralArgument() *ObjectLiteralExpr {
+    if x != nil {
         object := &ObjectLiteralExpr{
             Implicit: true,
         }
-        if len(m.Arguments) == 1 {
-            if objectLiteral := m.Arguments[0].Value.GetObjectLiteralExpr(); objectLiteral != nil {
+        if len(x.Arguments) == 1 {
+            if objectLiteral := x.Arguments[0].Value.GetObjectLiteralExpr(); objectLiteral != nil {
                 return objectLiteral
             }
         }
 
-        object, _ = Arguments(m.Arguments).ToObjectLiteralExpr()
+        object, _ = Arguments(x.Arguments).ToObjectLiteralExpr()
         return object
     }
     return nil
 }
 
-func (m *Attribute) GetMapLiteralArgument() *MapLiteralExpr {
-    if len(m.Arguments) == 1 {
-        if mapLiteral := m.Arguments[0].Value.GetMapLiteralExpr(); mapLiteral != nil {
+func (x *Attribute) GetMapLiteralArgument() *MapLiteralExpr {
+    if len(x.Arguments) == 1 {
+        if mapLiteral := x.Arguments[0].Value.GetMapLiteralExpr(); mapLiteral != nil {
             return mapLiteral
         }
     }
 
-    object := m.GetObjectLiteralArgument()
+    object := x.GetObjectLiteralArgument()
     if object != nil {
         mapLiteral := &MapLiteralExpr{
             Implicit: true,
@@ -171,43 +171,43 @@ func (m *Attribute) GetMapLiteralArgument() *MapLiteralExpr {
     return nil
 }
 
-func (m *Attribute) GetObjectArgument(object interface{}) error {
-    o := m.GetObjectLiteralArgument()
+func (x *Attribute) GetObjectArgument(object interface{}) error {
+    o := x.GetObjectLiteralArgument()
     if o != nil {
         return o.To(object)
     }
     return errors.New("not an object literal argument")
 }
 
-func (m *Attribute) SetImplicit(value bool) *Attribute {
-    if m != nil {
-        m.Implicit = value
+func (x *Attribute) SetImplicit(value bool) *Attribute {
+    if x != nil {
+        x.Implicit = value
     }
-    return m
+    return x
 }
 
 // GetBool eval the argument first, then use the default value of the attribute declaration if no argument
-func (m *Attribute) GetBool() bool {
-    if m != nil {
-        if len(m.Arguments) == 0 {
-            if m.Declaration != nil && m.Declaration.DefaultValue != nil {
-                val, _ := m.Declaration.DefaultValue.EvalBoolLiteral()
+func (x *Attribute) GetBool() bool {
+    if x != nil {
+        if len(x.Arguments) == 0 {
+            if x.Declaration != nil && x.Declaration.DefaultValue != nil {
+                val, _ := x.Declaration.DefaultValue.EvalBoolLiteral()
                 return val
             }
             return true
         }
-        val, _ := m.Arguments[0].GetValue().EvalBoolLiteral()
+        val, _ := x.Arguments[0].GetValue().EvalBoolLiteral()
         return val
     }
     return false
 }
 
-func (m *Attribute) GetInteger() (int64, error) {
-    if m != nil {
-        if len(m.Arguments) > 0 {
-            return m.Arguments[0].GetInteger()
+func (x *Attribute) GetInteger() (int64, error) {
+    if x != nil {
+        if len(x.Arguments) > 0 {
+            return x.Arguments[0].GetInteger()
         } else {
-            return m.GetValue().EvalIntegerLiteral()
+            return x.GetValue().EvalIntegerLiteral()
         }
     }
     return 0, errors.New("")

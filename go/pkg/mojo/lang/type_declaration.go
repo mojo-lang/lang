@@ -47,39 +47,39 @@ func NewTypeDeclarationFromDeclaration(decl *Declaration) *TypeDeclaration {
     return nil
 }
 
-func (m *TypeDeclaration) IsUnion() {
+func (x *TypeDeclaration) IsUnion() {
 }
 
-func (m *TypeDeclaration) GetSourceFileName() string {
-    if m == nil {
+func (x *TypeDeclaration) GetSourceFileName() string {
+    if x == nil {
         return ""
     }
 
-    switch m.TypeDeclaration.(type) {
+    switch x.TypeDeclaration.(type) {
     case *TypeDeclaration_StructDecl:
-        return m.GetStructDecl().SourceFileName
+        return x.GetStructDecl().SourceFileName
     case *TypeDeclaration_EnumDecl:
-        return m.GetEnumDecl().SourceFileName
+        return x.GetEnumDecl().SourceFileName
     case *TypeDeclaration_InterfaceDecl:
-        return m.GetInterfaceDecl().SourceFileName
+        return x.GetInterfaceDecl().SourceFileName
     case *TypeDeclaration_TypeAliasDecl:
-        return m.GetTypeAliasDecl().SourceFileName
+        return x.GetTypeAliasDecl().SourceFileName
     default:
         return ""
     }
 }
 
-func (m *TypeDeclaration) Implicit() bool {
-    if m != nil {
-        switch m.TypeDeclaration.(type) {
+func (x *TypeDeclaration) Implicit() bool {
+    if x != nil {
+        switch x.TypeDeclaration.(type) {
         case *TypeDeclaration_StructDecl:
-            return m.GetStructDecl().Implicit
+            return x.GetStructDecl().Implicit
         case *TypeDeclaration_EnumDecl:
-            return m.GetEnumDecl().Implicit
+            return x.GetEnumDecl().Implicit
         case *TypeDeclaration_InterfaceDecl:
-            return m.GetInterfaceDecl().Implicit
+            return x.GetInterfaceDecl().Implicit
         case *TypeDeclaration_TypeAliasDecl:
-            return m.GetTypeAliasDecl().Implicit
+            return x.GetTypeAliasDecl().Implicit
         default:
             return false
         }
@@ -87,17 +87,17 @@ func (m *TypeDeclaration) Implicit() bool {
     return false
 }
 
-func (m *TypeDeclaration) GetScope() *Scope {
-    if m != nil {
-        switch m.TypeDeclaration.(type) {
+func (x *TypeDeclaration) GetScope() *Scope {
+    if x != nil {
+        switch x.TypeDeclaration.(type) {
         case *TypeDeclaration_StructDecl:
-            return m.GetStructDecl().GetScope()
+            return x.GetStructDecl().GetScope()
         case *TypeDeclaration_EnumDecl:
-            return m.GetEnumDecl().GetScope()
+            return x.GetEnumDecl().GetScope()
         case *TypeDeclaration_InterfaceDecl:
-            return m.GetInterfaceDecl().GetScope()
+            return x.GetInterfaceDecl().GetScope()
         case *TypeDeclaration_TypeAliasDecl:
-            return m.GetTypeAliasDecl().GetScope()
+            return x.GetTypeAliasDecl().GetScope()
         default:
             return nil
         }
@@ -105,29 +105,29 @@ func (m *TypeDeclaration) GetScope() *Scope {
     return nil
 }
 
-func (m *TypeDeclaration) GetEnclosingType() *NominalType {
-    if m == nil {
+func (x *TypeDeclaration) GetEnclosingType() *NominalType {
+    if x == nil {
         return nil
     }
 
-    switch m.TypeDeclaration.(type) {
+    switch x.TypeDeclaration.(type) {
     case *TypeDeclaration_StructDecl:
-        return m.GetStructDecl().EnclosingType
+        return x.GetStructDecl().EnclosingType
     case *TypeDeclaration_InterfaceDecl:
-        return m.GetInterfaceDecl().EnclosingType
+        return x.GetInterfaceDecl().EnclosingType
     case *TypeDeclaration_EnumDecl:
-        return m.GetEnumDecl().EnclosingType
+        return x.GetEnumDecl().EnclosingType
     case *TypeDeclaration_TypeAliasDecl:
-        return m.GetTypeAliasDecl().EnclosingType
+        return x.GetTypeAliasDecl().EnclosingType
     case *TypeDeclaration_GenericParameter:
-        return m.GetGenericParameter().EnclosingType
+        return x.GetGenericParameter().EnclosingType
     default:
         return nil
     }
 }
 
-func (m *TypeDeclaration) IsGeneric() bool {
-    switch decl := m.TypeDeclaration.(type) {
+func (x *TypeDeclaration) IsGeneric() bool {
+    switch decl := x.TypeDeclaration.(type) {
     case *TypeDeclaration_TypeAliasDecl:
         return decl.TypeAliasDecl.IsGeneric()
     case *TypeDeclaration_StructDecl:
@@ -136,27 +136,27 @@ func (m *TypeDeclaration) IsGeneric() bool {
     return false
 }
 
-func (m *TypeDeclaration) Merge(dependencies ...[]*Identifier) {
+func (x *TypeDeclaration) Merge(dependencies ...[]*Identifier) {
     var merged [][]*Identifier
     for _, dep := range dependencies {
         merged = append(merged, dep)
     }
 
-    switch m.TypeDeclaration.(type) {
+    switch x.TypeDeclaration.(type) {
     case *TypeDeclaration_StructDecl:
-        decl := m.GetStructDecl()
+        decl := x.GetStructDecl()
         merged = append(merged, decl.ResolvedIdentifiers)
         decl.ResolvedIdentifiers = MergeDependencies(merged...)
     case *TypeDeclaration_EnumDecl:
-        decl := m.GetEnumDecl()
+        decl := x.GetEnumDecl()
         merged = append(merged, decl.ResolvedIdentifiers)
         decl.ResolvedIdentifiers = MergeDependencies(merged...)
     case *TypeDeclaration_InterfaceDecl:
-        decl := m.GetInterfaceDecl()
+        decl := x.GetInterfaceDecl()
         merged = append(merged, decl.ResolvedIdentifiers)
         decl.ResolvedIdentifiers = MergeDependencies(merged...)
     case *TypeDeclaration_TypeAliasDecl:
-        decl := m.GetTypeAliasDecl()
+        decl := x.GetTypeAliasDecl()
         merged = append(merged, decl.ResolvedIdentifiers)
         decl.ResolvedIdentifiers = MergeDependencies(merged...)
     }

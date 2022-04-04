@@ -9,9 +9,9 @@ func NewEntityRelationSet() *EntityRelationSet {
     }
 }
 
-func (m *EntityRelationSet) GetNode(name string) *EntityNode {
-    if m != nil {
-        return m.Nodes[name]
+func (x *EntityRelationSet) GetNode(name string) *EntityNode {
+    if x != nil {
+        return x.Nodes[name]
     }
     return nil
 }

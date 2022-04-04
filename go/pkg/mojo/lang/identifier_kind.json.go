@@ -18,13 +18,15 @@
 package lang
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("lang.Identifier_Kind", &IdentifierKindCodec{})
-	jsoniter.RegisterTypeEncoder("lang.Identifier_Kind", &IdentifierKindCodec{})
+	core.RegisterJSONTypeDecoder("lang.Identifier_Kind", &IdentifierKindCodec{})
+	core.RegisterJSONTypeEncoder("lang.Identifier_Kind", &IdentifierKindCodec{})
 }
 
 type IdentifierKindCodec struct {

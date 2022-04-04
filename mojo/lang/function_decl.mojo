@@ -42,4 +42,7 @@ type FunctionDecl : Decl {
 
     ///
     scope: Scope @30
+
+    ///
+    interface_decl: InterfaceDecl @31 @ignore
 }

@@ -162,91 +162,91 @@ func NewTupleExpression(expr *TupleExpr) *Expression {
     }
 }
 
-func (m *Expression) IsUnion() {
+func (x *Expression) IsUnion() {
 }
 
-func (m *Expression) GetStartPosition() *Position {
-    return GetUnionPosition(m, 0)
+func (x *Expression) GetStartPosition() *Position {
+    return GetUnionPosition(x, StartPositionFieldName)
 }
 
-func (m *Expression) GetEndPosition() *Position {
-    return GetUnionPosition(m, 1)
+func (x *Expression) GetEndPosition() *Position {
+    return GetUnionPosition(x, EndPositionFieldName)
 }
 
-func (m *Expression) SetStartPosition(position *Position) {
-    SetUnionPosition(m, 0, position)
+func (x *Expression) SetStartPosition(position *Position) {
+    SetUnionPosition(x, StartPositionFieldName, position)
 }
 
-func (m *Expression) SetEndPosition(position *Position) {
-    SetUnionPosition(m, 1, position)
+func (x *Expression) SetEndPosition(position *Position) {
+    SetUnionPosition(x, EndPositionFieldName, position)
 }
 
-func (m *Expression) EvalBoolLiteral() (bool, error) {
-    valueExpr := m.GetBoolLiteralExpr()
+func (x *Expression) EvalBoolLiteral() (bool, error) {
+    valueExpr := x.GetBoolLiteralExpr()
     if valueExpr != nil {
         return valueExpr.Value, nil
     }
     return false, errors.New("expression can NOT be evaluated to the BoolLiteralExpr")
 }
 
-func (m *Expression) EvalIntegerLiteral() (int64, error) {
-    valueExpr := m.GetIntegerLiteralExpr()
+func (x *Expression) EvalIntegerLiteral() (int64, error) {
+    valueExpr := x.GetIntegerLiteralExpr()
     if valueExpr != nil {
         return valueExpr.EvalValue(), nil
     }
     return 0, errors.New("expression can NOT be evaluated to the Int64LiteralExpr")
 }
 
-func (m *Expression) EvalFloatLiteral() (float64, error) {
-    valueExpr := m.GetFloatLiteralExpr()
+func (x *Expression) EvalFloatLiteral() (float64, error) {
+    valueExpr := x.GetFloatLiteralExpr()
     if valueExpr != nil {
         return valueExpr.Value, nil
     }
     return 0, errors.New("expression can NOT be evaluated to the FloatLiteralExpr")
 }
 
-func (m *Expression) EvalStringLiteral() (string, error) {
-    valueExpr := m.GetStringLiteralExpr()
+func (x *Expression) EvalStringLiteral() (string, error) {
+    valueExpr := x.GetStringLiteralExpr()
     if valueExpr != nil {
         return valueExpr.Value, nil
     }
     return "", errors.New("expression can NOT be evaluated to the StringLiteralExpr")
 }
 
-func (m *Expression) EvalArrayLiteral() ([]*Expression, error) {
-    valueExpr := m.GetArrayLiteralExpr()
+func (x *Expression) EvalArrayLiteral() ([]*Expression, error) {
+    valueExpr := x.GetArrayLiteralExpr()
     if valueExpr != nil {
         return valueExpr.Elements, nil
     }
     return nil, errors.New("expression can NOT be evaluated to the ArrayLiteralExpr")
 }
 
-func (m *Expression) EvalIntegerArrayLiteral() ([]int64, error) {
-    valueExpr := m.GetArrayLiteralExpr()
+func (x *Expression) EvalIntegerArrayLiteral() ([]int64, error) {
+    valueExpr := x.GetArrayLiteralExpr()
     if valueExpr != nil {
         return valueExpr.EvalIntegerArray()
     }
     return nil, errors.New("expression can NOT be evaluated to the ArrayLiteralExpr")
 }
 
-func (m *Expression) EvalFloatArrayLiteral() ([]float64, error) {
-    valueExpr := m.GetArrayLiteralExpr()
+func (x *Expression) EvalFloatArrayLiteral() ([]float64, error) {
+    valueExpr := x.GetArrayLiteralExpr()
     if valueExpr != nil {
         return valueExpr.EvalFloatArray()
     }
     return nil, errors.New("expression can NOT be evaluated to the ArrayLiteralExpr")
 }
 
-func (m *Expression) EvalStringArrayLiteral() ([]string, error) {
-    valueExpr := m.GetArrayLiteralExpr()
+func (x *Expression) EvalStringArrayLiteral() ([]string, error) {
+    valueExpr := x.GetArrayLiteralExpr()
     if valueExpr != nil {
         return valueExpr.EvalStringArray()
     }
     return nil, errors.New("expression can NOT be evaluated to the ArrayLiteralExpr")
 }
 
-func (m *Expression) EvalStringMapLiteral(iterator func(key string, value *Expression) error) error {
-    valueExpr := m.GetMapLiteralExpr()
+func (x *Expression) EvalStringMapLiteral(iterator func(key string, value *Expression) error) error {
+    valueExpr := x.GetMapLiteralExpr()
     if valueExpr != nil {
         for _, entry := range valueExpr.Entries {
             err := iterator(entry.Key, entry.Value)
@@ -262,17 +262,17 @@ func (m *Expression) EvalStringMapLiteral(iterator func(key string, value *Expre
     return errors.New("expression can NOT be evaluated to the MapLiteralExpr")
 }
 
-func (m *Expression) EvalIdentifier() (string, error) {
-    valueExpr := m.GetIdentifierExpr()
+func (x *Expression) EvalIdentifier() (string, error) {
+    valueExpr := x.GetIdentifierExpr()
     if valueExpr != nil {
         return valueExpr.Identifier.Name, nil
     }
     return "", errors.New("expression can NOT be evaluated to the IdentifierExpr")
 }
 
-func (m *Expression) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        value := reflect.ValueOf(m.Expression)
+func (x *Expression) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        value := reflect.ValueOf(x.Expression)
         value = reflect.Indirect(value).Field(0)
         if merger, ok := value.Interface().(CommentMerger); ok {
             return merger.MergeComment(comment)

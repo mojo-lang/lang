@@ -9,12 +9,12 @@
 | `summary` | `string` |  | 否 |  |
 | `description` | `string` |  | 否 |  | A description of the package. |
 | `document` | `mojo.lang.CachedDocument` |  | 否 |  |  |
-| `repository` | `string` | `url` | 否 |  | URL of the package source repository. |
+| `repository` | `string` | `Url` | 否 |  | URL of the package source repository. |
 | `license` | `string` |  | 否 |  | The package license. |
 | `exports` | `Array<string>` |  | 否 |  |  |
 | `sourceFiles` | `Array<mojo.lang.SourceFile>` |  | 否 |  |  |
 | `scope` | `mojo.lang.Scope` |  | 否 |  | package scope across all files |
-| `extraInfo` | `Map<string, mojo.core.Value>` |  | 否 |  |
+| `extraInfo` | `object` |  | 否 |  |
 | `entityRelationSet` | `mojo.lang.EntityRelationSet` |  | 否 |  | entity relations analysis in the package |
 | `dependencies` | `Map<string, mojo.lang.Package.Requirement>` |  | 否 |  |  |
 | `resolvedDependencies` | `Map<string, mojo.lang.Package>` |  | 否 |  |  |

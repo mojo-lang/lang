@@ -2,69 +2,69 @@ package lang
 
 import "errors"
 
-func (m *EnumDecl) GetFullName() string {
-    if m != nil {
-        return GetFullName(m.PackageName, GetEnclosingNames(m.EnclosingType), m.Name)
+func (x *EnumDecl) GetFullName() string {
+    if x != nil {
+        return GetFullName(x.PackageName, GetEnclosingNames(x.EnclosingType), x.Name)
     }
     return ""
 }
 
-func (m *EnumDecl) SetScope(scope *Scope) {
-    if m != nil {
-        m.Scope = scope
+func (x *EnumDecl) SetScope(scope *Scope) {
+    if x != nil {
+        x.Scope = scope
     }
 }
 
-func (m *EnumDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *EnumDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *EnumDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *EnumDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *EnumDecl) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *EnumDecl) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil EnumDecl")
 }
 
-func (m *EnumDecl) GetTerms() []interface{} {
-    if m != nil {
+func (x *EnumDecl) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             terms = append(terms, attribute)
         }
 
         terms = append(terms,
-            NewSymbolTerm(m.KeywordPosition, TermTypeKeyword, KeywordEnum),
-            NewSymbolTerm(m.NamePosition, TermTypeName, m.Name))
+            NewSymbolTerm(x.KeywordPosition, TermTypeKeyword, KeywordEnum),
+            NewSymbolTerm(x.NamePosition, TermTypeName, x.Name))
 
-        for _, parameter := range m.GenericParameters {
+        for _, parameter := range x.GenericParameters {
             terms = append(terms, parameter)
         }
 
-        if m.Type != nil {
-            if m.Type.UnderlyingType != nil {
+        if x.Type != nil {
+            if x.Type.UnderlyingType != nil {
                 terms = append(terms,
-                    NewSymbolTerm(m.Type.UnderlyingTypePosition, TermTypeSymbol, ":"),
-                    m.Type.UnderlyingType)
+                    NewSymbolTerm(x.Type.UnderlyingTypePosition, TermTypeSymbol, ":"),
+                    x.Type.UnderlyingType)
             }
 
-            terms = append(terms, NewSymbolTerm(m.Type.StartPosition, TermTypeStart, ""))
+            terms = append(terms, NewSymbolTerm(x.Type.StartPosition, TermTypeStart, ""))
 
-            for _, enumerator := range m.Type.Enumerators {
+            for _, enumerator := range x.Type.Enumerators {
                 terms = append(terms, enumerator)
             }
 
-            terms = append(terms, NewSymbolTerm(m.Type.EndPosition, TermTypeEnd, ""))
+            terms = append(terms, NewSymbolTerm(x.Type.EndPosition, TermTypeEnd, ""))
         }
     }
 

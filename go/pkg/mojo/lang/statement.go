@@ -127,28 +127,28 @@ func NewAttributeDeclStatement(decl *AttributeDecl) *Statement {
     }
 }
 
-func (m *Statement) IsUnion() {
+func (x *Statement) IsUnion() {
 }
 
-func (m *Statement) GetStartPosition() *Position {
-    return GetUnionPosition(m, 0)
+func (x *Statement) GetStartPosition() *Position {
+    return GetUnionPosition(x, StartPositionFieldName)
 }
 
-func (m *Statement) GetEndPosition() *Position {
-    return GetUnionPosition(m, 1)
+func (x *Statement) GetEndPosition() *Position {
+    return GetUnionPosition(x, EndPositionFieldName)
 }
 
-func (m *Statement) SetStartPosition(position *Position) {
-    SetUnionPosition(m, 0, position)
+func (x *Statement) SetStartPosition(position *Position) {
+    SetUnionPosition(x, StartPositionFieldName, position)
 }
 
-func (m *Statement) SetEndPosition(position *Position) {
-    SetUnionPosition(m, 1, position)
+func (x *Statement) SetEndPosition(position *Position) {
+    SetUnionPosition(x, EndPositionFieldName, position)
 }
 
-func (m *Statement) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        value := reflect.ValueOf(m.Statement)
+func (x *Statement) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        value := reflect.ValueOf(x.Statement)
         value = reflect.Indirect(value).Field(0)
         if merger, ok := value.Interface().(CommentMerger); ok {
             return merger.MergeComment(comment)

@@ -108,45 +108,45 @@ func NewGenericParameterDeclaration(parameter *GenericParameter) *Declaration {
     }
 }
 
-func (m *Declaration) IsUnion() {
+func (x *Declaration) IsUnion() {
 }
 
-func (m *Declaration) GetStartPosition() *Position {
-    return GetUnionPosition(m, 0)
+func (x *Declaration) GetStartPosition() *Position {
+    return GetUnionPosition(x, StartPositionFieldName)
 }
 
-func (m *Declaration) GetEndPosition() *Position {
-    return GetUnionPosition(m, 1)
+func (x *Declaration) GetEndPosition() *Position {
+    return GetUnionPosition(x, EndPositionFieldName)
 }
 
-func (m *Declaration) SetStartPosition(position *Position) {
-    SetUnionPosition(m, 0, position)
+func (x *Declaration) SetStartPosition(position *Position) {
+    SetUnionPosition(x, StartPositionFieldName, position)
 }
 
-func (m *Declaration) SetEndPosition(position *Position) {
-    SetUnionPosition(m, 1, position)
+func (x *Declaration) SetEndPosition(position *Position) {
+    SetUnionPosition(x, EndPositionFieldName, position)
 }
 
-func (m *Declaration) GetName() string {
-    if m != nil {
-        return core.GetUnionField(m, "Name").String()
+func (x *Declaration) GetName() string {
+    if x != nil {
+        return core.GetUnionField(x, "Name").String()
     }
     return ""
 }
 
-func (m *Declaration) GetEnclosingType() *NominalType {
-    if m != nil {
-        switch m.Declaration.(type) {
+func (x *Declaration) GetEnclosingType() *NominalType {
+    if x != nil {
+        switch x.Declaration.(type) {
         case *Declaration_StructDecl:
-            return m.GetStructDecl().EnclosingType
+            return x.GetStructDecl().EnclosingType
         case *Declaration_InterfaceDecl:
-            return m.GetInterfaceDecl().EnclosingType
+            return x.GetInterfaceDecl().EnclosingType
         case *Declaration_EnumDecl:
-            return m.GetEnumDecl().EnclosingType
+            return x.GetEnumDecl().EnclosingType
         case *Declaration_TypeAliasDecl:
-            return m.GetTypeAliasDecl().EnclosingType
+            return x.GetTypeAliasDecl().EnclosingType
         case *Declaration_GenericParameter:
-            return m.GetGenericParameter().EnclosingType
+            return x.GetGenericParameter().EnclosingType
         default:
             return nil
         }
@@ -154,19 +154,19 @@ func (m *Declaration) GetEnclosingType() *NominalType {
     return nil
 }
 
-func (m *Declaration) GetPackageName() string {
-    if m != nil {
-        switch m.Declaration.(type) {
+func (x *Declaration) GetPackageName() string {
+    if x != nil {
+        switch x.Declaration.(type) {
         case *Declaration_StructDecl:
-            return m.GetStructDecl().PackageName
+            return x.GetStructDecl().PackageName
         case *Declaration_InterfaceDecl:
-            return m.GetInterfaceDecl().PackageName
+            return x.GetInterfaceDecl().PackageName
         case *Declaration_EnumDecl:
-            return m.GetEnumDecl().PackageName
+            return x.GetEnumDecl().PackageName
         case *Declaration_TypeAliasDecl:
-            return m.GetTypeAliasDecl().PackageName
+            return x.GetTypeAliasDecl().PackageName
         case *Declaration_GenericParameter:
-            return m.GetGenericParameter().PackageName
+            return x.GetGenericParameter().PackageName
         default:
             return ""
         }
@@ -174,25 +174,25 @@ func (m *Declaration) GetPackageName() string {
     return ""
 }
 
-func (m *Declaration) SetPackageName(name string) {
-    if m != nil {
-        switch m.Declaration.(type) {
+func (x *Declaration) SetPackageName(name string) {
+    if x != nil {
+        switch x.Declaration.(type) {
         case *Declaration_StructDecl:
-            m.GetStructDecl().PackageName = name
+            x.GetStructDecl().PackageName = name
         case *Declaration_InterfaceDecl:
-            m.GetInterfaceDecl().PackageName = name
+            x.GetInterfaceDecl().PackageName = name
         case *Declaration_EnumDecl:
-            m.GetEnumDecl().PackageName = name
+            x.GetEnumDecl().PackageName = name
         case *Declaration_TypeAliasDecl:
-            m.GetTypeAliasDecl().PackageName = name
+            x.GetTypeAliasDecl().PackageName = name
         case *Declaration_GenericParameter:
-            m.GetGenericParameter().PackageName = name
+            x.GetGenericParameter().PackageName = name
         }
     }
 }
 
-func (m *Declaration) IsGeneric() bool {
-    switch decl := m.Declaration.(type) {
+func (x *Declaration) IsGeneric() bool {
+    switch decl := x.Declaration.(type) {
     case *Declaration_TypeAliasDecl:
         return decl.TypeAliasDecl.IsGeneric()
     case *Declaration_StructDecl:
@@ -201,13 +201,13 @@ func (m *Declaration) IsGeneric() bool {
     return false
 }
 
-func (m *Declaration) IsInstantiatedGeneric() bool {
-    return strings.ContainsAny(m.GetStructDecl().GetName(), "<>")
+func (x *Declaration) IsInstantiatedGeneric() bool {
+    return strings.ContainsAny(x.GetStructDecl().GetName(), "<>")
 }
 
-func (m *Declaration) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        value := reflect.ValueOf(m.Declaration)
+func (x *Declaration) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        value := reflect.ValueOf(x.Declaration)
         value = reflect.Indirect(value).Field(0)
         if merger, ok := value.Interface().(CommentMerger); ok {
             return merger.MergeComment(comment)

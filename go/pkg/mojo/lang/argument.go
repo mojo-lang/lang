@@ -48,141 +48,141 @@ func NewObjectLiteralArgument(expr *ObjectLiteralExpr) *Argument {
     }
 }
 
-func (m *Argument) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *Argument) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *Argument) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *Argument) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *Argument) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *Argument) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil Argument")
 }
 
-func (m *Argument) GetTerms() []interface{} {
-    if m != nil {
+func (x *Argument) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        if len(m.Label) > 0 {
+        if len(x.Label) > 0 {
             terms = append(terms, &Term{
-                StartPosition: m.StartPosition,
+                StartPosition: x.StartPosition,
                 EndPosition: &Position{
-                    Line:   m.StartPosition.Line,
-                    Column: m.StartPosition.Column + int64(len(m.Label)),
+                    Line:   x.StartPosition.Line,
+                    Column: x.StartPosition.Column + int64(len(x.Label)),
                 },
                 Type:  "Label",
-                Value: m.Label,
+                Value: x.Label,
             })
         }
-        return append(terms, m.Value)
+        return append(terms, x.Value)
     }
     return nil
 }
 
-func (m *Argument) GetNullLiteralExpr() *NullLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetNullLiteralExpr()
+func (x *Argument) GetNullLiteralExpr() *NullLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetNullLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetIntegerLiteralExpr() *IntegerLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetIntegerLiteralExpr()
+func (x *Argument) GetIntegerLiteralExpr() *IntegerLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetIntegerLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetFloatLiteralExpr() *FloatLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetFloatLiteralExpr()
+func (x *Argument) GetFloatLiteralExpr() *FloatLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetFloatLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetBoolLiteralExpr() *BoolLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetBoolLiteralExpr()
+func (x *Argument) GetBoolLiteralExpr() *BoolLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetBoolLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetStringLiteralExpr() *StringLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetStringLiteralExpr()
+func (x *Argument) GetStringLiteralExpr() *StringLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetStringLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetObjectLiteralExpr() *ObjectLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetObjectLiteralExpr()
+func (x *Argument) GetObjectLiteralExpr() *ObjectLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetObjectLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetArrayLiteralExpr() *ArrayLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetArrayLiteralExpr()
+func (x *Argument) GetArrayLiteralExpr() *ArrayLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetArrayLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetMapLiteralExpr() *MapLiteralExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetMapLiteralExpr()
+func (x *Argument) GetMapLiteralExpr() *MapLiteralExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetMapLiteralExpr()
     }
     return nil
 }
 
-func (m *Argument) GetIdentifierExpr() *IdentifierExpr {
-    if m != nil && m.Value != nil {
-        return m.Value.GetIdentifierExpr()
+func (x *Argument) GetIdentifierExpr() *IdentifierExpr {
+    if x != nil && x.Value != nil {
+        return x.Value.GetIdentifierExpr()
     }
     return nil
 }
 
-func (m *Argument) GetBool() (bool, error) {
-    return m.GetValue().EvalBoolLiteral()
+func (x *Argument) GetBool() (bool, error) {
+    return x.GetValue().EvalBoolLiteral()
 }
 
-func (m *Argument) GetInteger() (int64, error) {
-    return m.GetValue().EvalIntegerLiteral()
+func (x *Argument) GetInteger() (int64, error) {
+    return x.GetValue().EvalIntegerLiteral()
 }
 
-func (m *Argument) GetFloat() (float64, error) {
-    return m.GetValue().EvalFloatLiteral()
+func (x *Argument) GetFloat() (float64, error) {
+    return x.GetValue().EvalFloatLiteral()
 }
 
-func (m *Argument) GetString() (string, error) {
-    return m.GetValue().EvalStringLiteral()
+func (x *Argument) GetString() (string, error) {
+    return x.GetValue().EvalStringLiteral()
 }
 
-func (m *Argument) GetArray() ([]*Expression, error) {
-    return m.GetValue().EvalArrayLiteral()
+func (x *Argument) GetArray() ([]*Expression, error) {
+    return x.GetValue().EvalArrayLiteral()
 }
 
-func (m *Argument) GetIntegerArray() ([]int64, error) {
-    return m.GetValue().EvalIntegerArrayLiteral()
+func (x *Argument) GetIntegerArray() ([]int64, error) {
+    return x.GetValue().EvalIntegerArrayLiteral()
 }
 
-func (m *Argument) GetFloatArray() ([]float64, error) {
-    return m.GetValue().EvalFloatArrayLiteral()
+func (x *Argument) GetFloatArray() ([]float64, error) {
+    return x.GetValue().EvalFloatArrayLiteral()
 }
 
-func (m *Argument) GetStringArray() ([]string, error) {
-    return m.GetValue().EvalStringArrayLiteral()
+func (x *Argument) GetStringArray() ([]string, error) {
+    return x.GetValue().EvalStringArrayLiteral()
 }
 
-func (m *Argument) IterateStringMap(iterator func(key string, value *Expression) error) error {
-    return m.GetValue().EvalStringMapLiteral(iterator)
+func (x *Argument) IterateStringMap(iterator func(key string, value *Expression) error) error {
+    return x.GetValue().EvalStringMapLiteral(iterator)
 }

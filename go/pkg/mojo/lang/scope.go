@@ -10,7 +10,7 @@ func NewScope() *Scope {
     }
 }
 
-func (m *Scope) Declare(declaration *Declaration) *Identifier {
+func (x *Scope) Declare(declaration *Declaration) *Identifier {
     if declaration == nil {
         return nil
     }
@@ -31,7 +31,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
             FullName:           fullName,
             Declaration:        declaration,
         }
-        m.Identifiers[identifier.Name] = identifier
+        x.Identifiers[identifier.Name] = identifier
         return identifier
     case *Declaration_EnumDecl:
         decl := declaration.GetEnumDecl()
@@ -48,7 +48,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
             FullName:           fullName,
             Declaration:        declaration,
         }
-        m.Identifiers[identifier.Name] = identifier
+        x.Identifiers[identifier.Name] = identifier
         return identifier
     case *Declaration_InterfaceDecl:
         decl := declaration.GetInterfaceDecl()
@@ -64,7 +64,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
             FullName:           fullName,
             Declaration:        declaration,
         }
-        m.Identifiers[identifier.Name] = identifier
+        x.Identifiers[identifier.Name] = identifier
         return identifier
     case *Declaration_TypeAliasDecl:
         decl := declaration.GetTypeAliasDecl()
@@ -80,7 +80,7 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
             FullName:           fullName,
             Declaration:        declaration,
         }
-        m.Identifiers[identifier.Name] = identifier
+        x.Identifiers[identifier.Name] = identifier
         return identifier
     case *Declaration_ImportDecl:
         //err := c.compileImport(c.Context, decl.GetImportDecl())
@@ -97,15 +97,15 @@ func (m *Scope) Declare(declaration *Declaration) *Identifier {
             Name:        parameter.Name,
             Declaration: declaration,
         }
-        m.Identifiers[identifier.Name] = identifier
+        x.Identifiers[identifier.Name] = identifier
         return identifier
     }
     return nil
 }
 
-func (m *Scope) GetIdentifier(name string) *Identifier {
-    if m != nil && m.Identifiers != nil {
-        return m.Identifiers[GetTypeTypeName(name)]
+func (x *Scope) GetIdentifier(name string) *Identifier {
+    if x != nil && x.Identifiers != nil {
+        return x.Identifiers[GetTypeTypeName(name)]
     }
     return nil
 }

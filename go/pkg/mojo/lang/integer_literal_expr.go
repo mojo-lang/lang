@@ -12,32 +12,32 @@ func NewIntegerLiteral(value int64) *IntegerLiteralExpr {
     }
 }
 
-func (m *IntegerLiteralExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *IntegerLiteralExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *IntegerLiteralExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *IntegerLiteralExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *IntegerLiteralExpr) EvalValue() int64 {
-    if m != nil {
-        if m.IsNegative {
-            return -int64(m.Value)
+func (x *IntegerLiteralExpr) EvalValue() int64 {
+    if x != nil {
+        if x.IsNegative {
+            return -int64(x.Value)
         }
-        return int64(m.Value)
+        return int64(x.Value)
     } else {
         return 0
     }
 }
 
-func (m *IntegerLiteralExpr) SetNegative() *IntegerLiteralExpr {
-    if m != nil {
-        m.IsNegative = true
+func (x *IntegerLiteralExpr) SetNegative() *IntegerLiteralExpr {
+    if x != nil {
+        x.IsNegative = true
     }
-    return m
+    return x
 }

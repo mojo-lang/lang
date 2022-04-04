@@ -1,16 +1,16 @@
 package lang
 
-func (m *MapLiteralExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *MapLiteralExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *MapLiteralExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *MapLiteralExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *MapLiteralExpr) RangeStringKeys(iter func(key string, value *Expression) error) {
+func (x *MapLiteralExpr) RangeStringKeys(iter func(key string, value *Expression) error) {
 }

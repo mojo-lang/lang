@@ -2,19 +2,19 @@ package lang
 
 import "errors"
 
-func (m *FunctionSignature) GetParameters() []*ValueDecl {
-    return m.GetParameter().GetDecls()
+func (x *FunctionSignature) GetParameters() []*ValueDecl {
+    return x.GetParameter().GetDecls()
 }
 
-func (m *FunctionSignature) ParameterDecl(index int) *ValueDecl {
-    if decls := m.GetParameters(); len(decls) > 0 && index >= 0 && index < len(decls) {
+func (x *FunctionSignature) ParameterDecl(index int) *ValueDecl {
+    if decls := x.GetParameters(); len(decls) > 0 && index >= 0 && index < len(decls) {
         return decls[index]
     }
     return nil
 }
 
-func (m *FunctionSignature) ParameterDeclByName(name string) *ValueDecl {
-    if decls := m.GetParameters(); len(decls) > 0 && len(name) > 0 {
+func (x *FunctionSignature) ParameterDeclByName(name string) *ValueDecl {
+    if decls := x.GetParameters(); len(decls) > 0 && len(name) > 0 {
         for _, decl := range decls {
             if decl.Name == name {
                 return decl
@@ -24,68 +24,68 @@ func (m *FunctionSignature) ParameterDeclByName(name string) *ValueDecl {
     return nil
 }
 
-func (m *FunctionSignature) GetResultType() *NominalType {
-    return m.GetResult().GetType()
+func (x *FunctionSignature) GetResultType() *NominalType {
+    return x.GetResult().GetType()
 }
 
-func (m *FunctionSignature) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *FunctionSignature) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *FunctionSignature) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *FunctionSignature) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *FunctionSignature) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *FunctionSignature) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil FunctionSignature")
 }
 
-func (m *FunctionSignature) GetTerms() []interface{} {
-    if m != nil {
+func (x *FunctionSignature) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        if m.Parameter != nil {
-            includingParen := m.GetStartPosition().Compare(m.Parameter.GetStartPosition()) == 0
+        if x.Parameter != nil {
+            includingParen := x.GetStartPosition().Compare(x.Parameter.GetStartPosition()) == 0
             if includingParen {
                 terms = append(terms,
-                    &Term{StartPosition: m.StartPosition,
-                        EndPosition: m.StartPosition,
+                    &Term{StartPosition: x.StartPosition,
+                        EndPosition: x.StartPosition,
                         Type:        TermTypeStart,
                         Value:       "(",
                     })
             }
 
-            for _, parameter := range m.GetParameters() {
+            for _, parameter := range x.GetParameters() {
                 terms = append(terms, parameter)
             }
 
             if includingParen {
                 terms = append(terms,
-                    &Term{StartPosition: m.StartPosition,
-                        EndPosition: m.StartPosition,
+                    &Term{StartPosition: x.StartPosition,
+                        EndPosition: x.StartPosition,
                         Type:        TermTypeEnd,
                         Value:       ")",
                     })
             }
         }
 
-        if m.Result != nil && !m.Result.Implicit {
+        if x.Result != nil && !x.Result.Implicit {
             terms = append(terms,
-                &Term{StartPosition: m.Result.GetStartPosition(),
-                    EndPosition: m.Result.GetStartPosition(),
+                &Term{StartPosition: x.Result.GetStartPosition(),
+                    EndPosition: x.Result.GetStartPosition(),
                     Type:        TermTypeSymbol,
                     Value:       "->",
                 })
 
-            terms = append(terms, m.GetResultType())
+            terms = append(terms, x.GetResultType())
         }
 
         return terms
@@ -94,8 +94,8 @@ func (m *FunctionSignature) GetTerms() []interface{} {
     return nil
 }
 
-func (m *FunctionSignature_Parameter) HasFollowingDocument() bool {
-    for _, param := range m.Decls {
+func (x *FunctionSignature_Parameter) HasFollowingDocument() bool {
+    for _, param := range x.Decls {
         if param.Document.Following {
             return true
         }
@@ -103,6 +103,6 @@ func (m *FunctionSignature_Parameter) HasFollowingDocument() bool {
     return false
 }
 
-func (m *FunctionSignature_Result) HasFollowingDocument() bool {
-    return m != nil && m.Type != nil && m.Type.Document.Following
+func (x *FunctionSignature_Result) HasFollowingDocument() bool {
+    return x != nil && x.Type != nil && x.Type.Document.Following
 }

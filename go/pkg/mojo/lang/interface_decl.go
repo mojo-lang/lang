@@ -77,6 +77,13 @@ func (m *InterfaceDecl) SetScope(scope *Scope) {
     }
 }
 
+func (m *InterfaceDecl) GetInheritMethods() []*FunctionDecl {
+    if m != nil && m.Type != nil {
+        return m.Type.GetInheritMethods()
+    }
+    return nil
+}
+
 func (m *InterfaceDecl) GetMethodGroups() map[string][]*FunctionDecl {
     if m != nil && m.Type != nil {
         return m.Type.GetMethodGroups()

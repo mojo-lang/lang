@@ -49,6 +49,23 @@ func (m *InterfaceType) SetEndPosition(position *Position) {
     }
 }
 
+func (m *InterfaceType) GetInheritMethods() []*FunctionDecl {
+    var decls []*FunctionDecl
+    for _, inherit := range m.GetInherits() {
+        if typ := inherit.GetTypeDeclaration().GetInterfaceDecl().GetType(); typ != nil {
+            if methods := typ.GetInheritMethods(); len(methods) > 0 {
+                decls = append(decls, methods...)
+            }
+
+            for _, method := range typ.GetMethods() {
+                decls = append(decls, method)
+            }
+        }
+    }
+
+    return decls
+}
+
 func (m *InterfaceType) GetMethodGroups() map[string][]*FunctionDecl {
     groups := make(map[string][]*FunctionDecl)
     if m == nil {
@@ -83,13 +100,13 @@ func (m *InterfaceType) GetMethodGroups() map[string][]*FunctionDecl {
     return groups
 }
 
-func (m *FunctionDecl) parseStandardMethod() *MethodName {
-    if m != nil {
+func (x *FunctionDecl) parseStandardMethod() *MethodName {
+    if x != nil {
         getMethodName := func(name string) *MethodName {
-            return &MethodName{Method: name, Resource: strcase.ToCamel(pluralizing.Singular(m.Name[len(name)+1:]))}
+            return &MethodName{Method: name, Resource: strcase.ToCamel(pluralizing.Singular(x.Name[len(name)+1:]))}
         }
 
-        segments := strings.Split(m.Name, "_")
+        segments := strings.Split(x.Name, "_")
         if len(segments) > 0 {
             switch segments[0] {
             case GetMethod:

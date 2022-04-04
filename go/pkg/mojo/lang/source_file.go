@@ -2,19 +2,19 @@ package lang
 
 import "strings"
 
-func (m *SourceFile) IsGenericInstantiated() bool {
-    return strings.Contains(m.GetName(), "<")
+func (x *SourceFile) IsGenericInstantiated() bool {
+    return strings.Contains(x.GetName(), "<")
 }
 
-func (m *SourceFile) SetScope(scope *Scope) {
-    if m != nil {
-        m.Scope = scope
+func (x *SourceFile) SetScope(scope *Scope) {
+    if x != nil {
+        x.Scope = scope
     }
 }
 
-func (m *SourceFile) GetTypeDeclarations() []*TypeDeclaration {
+func (x *SourceFile) GetTypeDeclarations() []*TypeDeclaration {
     var decls []*TypeDeclaration
-    for _, statement := range m.GetStatements() {
+    for _, statement := range x.GetStatements() {
         if decl := statement.GetDeclaration(); decl != nil {
             switch decl.Declaration.(type) {
             case *Declaration_StructDecl, *Declaration_EnumDecl, *Declaration_InterfaceDecl, *Declaration_TypeAliasDecl:
@@ -25,9 +25,9 @@ func (m *SourceFile) GetTypeDeclarations() []*TypeDeclaration {
     return decls
 }
 
-func (m *SourceFile) GetStructDecls() []*StructDecl {
+func (x *SourceFile) GetStructDecls() []*StructDecl {
     var decls []*StructDecl
-    for _, statement := range m.GetStatements() {
+    for _, statement := range x.GetStatements() {
         if decl := statement.GetDeclaration().GetStructDecl(); decl != nil {
             decls = append(decls, decl)
         }
@@ -35,9 +35,9 @@ func (m *SourceFile) GetStructDecls() []*StructDecl {
     return decls
 }
 
-func (m *SourceFile) GetTypeAliasDecls() []*TypeAliasDecl {
+func (x *SourceFile) GetTypeAliasDecls() []*TypeAliasDecl {
     var decls []*TypeAliasDecl
-    for _, statement := range m.GetStatements() {
+    for _, statement := range x.GetStatements() {
         if decl := statement.GetDeclaration().GetTypeAliasDecl(); decl != nil {
             decls = append(decls, decl)
         }

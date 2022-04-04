@@ -7,31 +7,31 @@ func NewFloatLiteral(value float64) *FloatLiteralExpr {
     }
 }
 
-func (m *FloatLiteralExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *FloatLiteralExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *FloatLiteralExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *FloatLiteralExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *FloatLiteralExpr) EvalValue() float64 {
-    if m != nil {
-        if m.IsNegative {
-            return -m.Value
+func (x *FloatLiteralExpr) EvalValue() float64 {
+    if x != nil {
+        if x.IsNegative {
+            return -x.Value
         }
-        return m.Value
+        return x.Value
     }
     return 0
 }
 
-func (m *FloatLiteralExpr) SetNegative() *FloatLiteralExpr {
-    if m != nil {
-        m.IsNegative = true
+func (x *FloatLiteralExpr) SetNegative() *FloatLiteralExpr {
+    if x != nil {
+        x.IsNegative = true
     }
-    return m
+    return x
 }

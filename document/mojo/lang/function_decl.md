@@ -9,3 +9,4 @@
 | `signature` | `mojo.lang.FunctionSignature` |  | 否 |  |  |
 | `body` | `mojo.lang.BlockStmt` |  | 否 |  |  |
 | `scope` | `mojo.lang.Scope` |  | 否 |  |  |
+| `interfaceDecl` | `mojo.lang.InterfaceDecl` |  | 否 |  |  |

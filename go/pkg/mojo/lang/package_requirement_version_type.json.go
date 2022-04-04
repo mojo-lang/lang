@@ -18,13 +18,15 @@
 package lang
 
 import (
-	jsoniter "github.com/json-iterator/go"
 	"unsafe"
+
+	jsoniter "github.com/json-iterator/go"
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 func init() {
-	jsoniter.RegisterTypeDecoder("lang.Package_Requirement_Version_Type", &PackageRequirementVersionTypeCodec{})
-	jsoniter.RegisterTypeEncoder("lang.Package_Requirement_Version_Type", &PackageRequirementVersionTypeCodec{})
+	core.RegisterJSONTypeDecoder("lang.Package_Requirement_Version_Type", &PackageRequirementVersionTypeCodec{})
+	core.RegisterJSONTypeEncoder("lang.Package_Requirement_Version_Type", &PackageRequirementVersionTypeCodec{})
 }
 
 type PackageRequirementVersionTypeCodec struct {

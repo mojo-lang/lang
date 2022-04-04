@@ -2,30 +2,30 @@ package lang
 
 import "errors"
 
-func (m *ArrayLiteralExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *ArrayLiteralExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *ArrayLiteralExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *ArrayLiteralExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *ArrayLiteralExpr) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *ArrayLiteralExpr) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil ArrayLiteralExpr")
 }
 
-func (m *ArrayLiteralExpr) GetTerms() []interface{} {
-    if m != nil {
+func (x *ArrayLiteralExpr) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
-        for _, element := range m.Elements {
+        for _, element := range x.Elements {
             terms = append(terms, element)
         }
 
@@ -34,10 +34,10 @@ func (m *ArrayLiteralExpr) GetTerms() []interface{} {
     return nil
 }
 
-func (m *ArrayLiteralExpr) EvalIntegerArray() ([]int64, error) {
-    if m != nil {
+func (x *ArrayLiteralExpr) EvalIntegerArray() ([]int64, error) {
+    if x != nil {
         var values []int64
-        for _, elem := range m.Elements {
+        for _, elem := range x.Elements {
             value, err := elem.EvalIntegerLiteral()
             if err != nil {
                 return nil, err
@@ -49,10 +49,10 @@ func (m *ArrayLiteralExpr) EvalIntegerArray() ([]int64, error) {
     return nil, errors.New("ArrayLiteralExpr is nil")
 }
 
-func (m *ArrayLiteralExpr) EvalFloatArray() ([]float64, error) {
-    if m != nil {
+func (x *ArrayLiteralExpr) EvalFloatArray() ([]float64, error) {
+    if x != nil {
         var values []float64
-        for _, elem := range m.Elements {
+        for _, elem := range x.Elements {
             value, err := elem.EvalFloatLiteral()
             if err != nil {
                 return nil, err
@@ -64,10 +64,10 @@ func (m *ArrayLiteralExpr) EvalFloatArray() ([]float64, error) {
     return nil, errors.New("ArrayLiteralExpr is nil")
 }
 
-func (m *ArrayLiteralExpr) EvalStringArray() ([]string, error) {
-    if m != nil {
+func (x *ArrayLiteralExpr) EvalStringArray() ([]string, error) {
+    if x != nil {
         var values []string
-        for _, elem := range m.Elements {
+        for _, elem := range x.Elements {
             value, err := elem.EvalStringLiteral()
             if err != nil {
                 return nil, err

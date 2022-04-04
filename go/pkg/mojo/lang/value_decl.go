@@ -4,54 +4,54 @@ import (
     "errors"
 )
 
-func (m *ValueDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *ValueDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *ValueDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *ValueDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *ValueDecl) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *ValueDecl) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil StructDecl")
 }
 
-func (m *ValueDecl) GetTerms() []interface{} {
-    if m != nil {
+func (x *ValueDecl) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        if m.Document != nil && !m.Document.Following {
-            terms = append(terms, m.Document)
+        if x.Document != nil && !x.Document.Following {
+            terms = append(terms, x.Document)
         }
 
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             terms = append(terms, attribute)
         }
 
-        if m.KeywordPosition != nil {
+        if x.KeywordPosition != nil {
             terms = append(terms,
-                NewSymbolTerm(m.KeywordPosition, TermTypeKeyword, KeywordType))
+                NewSymbolTerm(x.KeywordPosition, TermTypeKeyword, KeywordType))
         }
 
-        if m.NamePosition != nil {
+        if x.NamePosition != nil {
             terms = append(terms,
-                NewSymbolTerm(m.NamePosition, TermTypeName, m.Name))
+                NewSymbolTerm(x.NamePosition, TermTypeName, x.Name))
         }
 
-        if m.Type != nil {
-            terms = append(terms, m.Type)
+        if x.Type != nil {
+            terms = append(terms, x.Type)
         }
 
-        if m.Initializer != nil {
-            terms = append(terms, m.Initializer)
+        if x.Initializer != nil {
+            terms = append(terms, x.Initializer)
         }
 
         return terms
@@ -59,18 +59,18 @@ func (m *ValueDecl) GetTerms() []interface{} {
     return nil
 }
 
-func (m *ValueDecl) GetInitialValue() *Expression {
-    if m != nil {
-        return m.GetInitializer().GetValue()
+func (x *ValueDecl) GetInitialValue() *Expression {
+    if x != nil {
+        return x.GetInitializer().GetValue()
     }
     return nil
 }
 
-func (m *ValueDecl) GetAttributeArguments(name string) ([]*Argument, error) {
-    if m != nil {
-        arguments, err := GetAttributeArguments(m.Attributes, name)
-        if err != nil && m.Type != nil {
-            return GetAttributeArguments(m.Type.Attributes, name)
+func (x *ValueDecl) GetAttributeArguments(name string) ([]*Argument, error) {
+    if x != nil {
+        arguments, err := GetAttributeArguments(x.Attributes, name)
+        if err != nil && x.Type != nil {
+            return GetAttributeArguments(x.Type.Attributes, name)
         }
         return arguments, err
     }
@@ -78,11 +78,11 @@ func (m *ValueDecl) GetAttributeArguments(name string) ([]*Argument, error) {
     return nil, errors.New("ValueDecl is nil")
 }
 
-func (m *ValueDecl) GetAttributeArgument(name string) (*Argument, error) {
-    if m != nil {
-        argument, err := GetAttributeArgument(m.Attributes, name)
-        if err != nil && m.Type != nil {
-            return GetAttributeArgument(m.Type.Attributes, name)
+func (x *ValueDecl) GetAttributeArgument(name string) (*Argument, error) {
+    if x != nil {
+        argument, err := GetAttributeArgument(x.Attributes, name)
+        if err != nil && x.Type != nil {
+            return GetAttributeArgument(x.Type.Attributes, name)
         }
         return argument, err
     }
@@ -90,22 +90,22 @@ func (m *ValueDecl) GetAttributeArgument(name string) (*Argument, error) {
     return nil, errors.New("ValueDecl is nil")
 }
 
-func (m *ValueDecl) GetAttribute(name string) *Attribute {
-    if m != nil {
-        attr := GetAttribute(m.Attributes, name)
-        if attr == nil && m.Type != nil {
-            attr = GetAttribute(m.Type.Attributes, name)
+func (x *ValueDecl) GetAttribute(name string) *Attribute {
+    if x != nil {
+        attr := GetAttribute(x.Attributes, name)
+        if attr == nil && x.Type != nil {
+            attr = GetAttribute(x.Type.Attributes, name)
         }
         return attr
     }
     return nil
 }
 
-func (m *ValueDecl) HasAttribute(name string) bool {
-    if m != nil {
-        attr := HasAttribute(m.Attributes, name)
-        if !attr && m.Type != nil {
-            attr = HasAttribute(m.Type.Attributes, name)
+func (x *ValueDecl) HasAttribute(name string) bool {
+    if x != nil {
+        attr := HasAttribute(x.Attributes, name)
+        if !attr && x.Type != nil {
+            attr = HasAttribute(x.Type.Attributes, name)
         }
         return attr
     }
@@ -113,102 +113,116 @@ func (m *ValueDecl) HasAttribute(name string) bool {
     return false
 }
 
-func (m *ValueDecl) GetBoolAttribute(name string) (bool, error) {
-    argument, err := m.GetAttributeArgument(name)
+func (x *ValueDecl) GetBoolAttribute(name string) (bool, error) {
+    argument, err := x.GetAttributeArgument(name)
     if err != nil {
         return false, err
     }
 
-    return argument.GetBool()
+    if argument != nil {
+        return argument.GetBool()
+    } else {
+        //TODO using the default value of the attribute declaration
+        return true, nil
+    }
 }
 
-func (m *ValueDecl) SetBoolAttribute(name string, value bool) *Attribute {
-    if m != nil && m.Type != nil {
-        m.Type.Attributes = SetBoolAttribute(m.Type.Attributes, name, value)
-        return m.Type.Attributes[len(m.Type.Attributes)-1]
+func (x *ValueDecl) SetBoolAttribute(name string, value bool) *Attribute {
+    if x != nil && x.Type != nil {
+        x.Type.Attributes = SetBoolAttribute(x.Type.Attributes, name, value)
+        return x.Type.Attributes[len(x.Type.Attributes)-1]
     }
     return nil
 }
 
-func (m *ValueDecl) SetImplicitBoolAttribute(name string, value bool) *Attribute {
-    if m != nil && m.Type != nil {
-        return m.SetBoolAttribute(name, value).SetImplicit(true)
+func (x *ValueDecl) SetImplicitBoolAttribute(name string, value bool) *Attribute {
+    if x != nil && x.Type != nil {
+        return x.SetBoolAttribute(name, value).SetImplicit(true)
     }
     return nil
 }
 
-func (m *ValueDecl) GetIntegerAttribute(name string) (int64, error) {
-    if argument, err := m.GetAttributeArgument(name); err != nil {
+func (x *ValueDecl) GetIntegerAttribute(name string) (int64, error) {
+    if argument, err := x.GetAttributeArgument(name); err != nil {
         return 0, err
     } else {
-        return argument.GetInteger()
-    }
-}
-
-func (m *ValueDecl) SetIntegerAttribute(name string, value int64) *Attribute {
-    if m != nil && m.Type != nil {
-        m.Type.Attributes = SetIntegerAttribute(m.Type.Attributes, name, value)
-        return m.Type.Attributes[len(m.Type.Attributes)-1]
-    }
-    return nil
-}
-
-func (m *ValueDecl) SetImplicitIntegerAttribute(name string, value int64) *Attribute {
-    if m != nil && m.Type != nil {
-        return m.SetIntegerAttribute(name, value).SetImplicit(true)
-    }
-    return nil
-}
-
-func (m *ValueDecl) GetStringAttribute(name string) (string, error) {
-    argument, err := m.GetAttributeArgument(name)
-    if err != nil {
-        return "", err
-    }
-
-    return argument.GetString()
-}
-
-func (m *ValueDecl) SetStringAttribute(name string, value string) *Attribute {
-    if m != nil && m.Type != nil {
-        m.Type.Attributes = SetStringAttribute(m.Type.Attributes, name, value)
-        return m.Type.Attributes[len(m.Type.Attributes)-1]
-    }
-    return nil
-}
-
-func (m *ValueDecl) SetImplicitStringAttribute(name string, value string) *Attribute {
-    if m != nil && m.Type != nil {
-        return m.SetStringAttribute(name, value).SetImplicit(true)
-    }
-    return nil
-}
-
-func (m *ValueDecl) RemoveAttribute(name string) {
-    if m != nil {
-        m.Attributes = RemoveAttribute(m.Attributes, name)
-        if m.Type != nil {
-            m.Type.Attributes = RemoveAttribute(m.Type.Attributes, name)
+        if argument != nil {
+            return argument.GetInteger()
+        } else {
+            //TODO using the default value of the attribute declaration
+            return 0, nil
         }
     }
 }
 
-func (m *ValueDecl) IsArrayType() bool {
-    return m.GetType().IsArrayType()
+func (x *ValueDecl) SetIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil && x.Type != nil {
+        x.Type.Attributes = SetIntegerAttribute(x.Type.Attributes, name, value)
+        return x.Type.Attributes[len(x.Type.Attributes)-1]
+    }
+    return nil
 }
 
-func (m *ValueDecl) IsMapType() bool {
-    return m.GetType().IsMapType()
+func (x *ValueDecl) SetImplicitIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil && x.Type != nil {
+        return x.SetIntegerAttribute(name, value).SetImplicit(true)
+    }
+    return nil
 }
 
-func (m *ValueDecl) IsUnionType() bool {
-    return m.GetType().IsUnionType()
+func (x *ValueDecl) GetStringAttribute(name string) (string, error) {
+    argument, err := x.GetAttributeArgument(name)
+    if err != nil {
+        return "", err
+    }
+
+    if argument != nil {
+        return argument.GetString()
+    } else {
+        return "", nil
+    }
 }
 
-func (m *ValueDecl) IsScalarType() bool {
-    return m.GetType().IsScalar()
+func (x *ValueDecl) SetStringAttribute(name string, value string) *Attribute {
+    if x != nil && x.Type != nil {
+        x.Type.Attributes = SetStringAttribute(x.Type.Attributes, name, value)
+        return x.Type.Attributes[len(x.Type.Attributes)-1]
+    }
+    return nil
 }
 
-func (m *ValueDecl) IsEnum() bool {
-    return m.GetType().IsEnum()
+func (x *ValueDecl) SetImplicitStringAttribute(name string, value string) *Attribute {
+    if x != nil && x.Type != nil {
+        return x.SetStringAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *ValueDecl) RemoveAttribute(name string) {
+    if x != nil {
+        x.Attributes = RemoveAttribute(x.Attributes, name)
+        if x.Type != nil {
+            x.Type.Attributes = RemoveAttribute(x.Type.Attributes, name)
+        }
+    }
+}
+
+func (x *ValueDecl) IsArrayType() bool {
+    return x.GetType().IsArrayType()
+}
+
+func (x *ValueDecl) IsMapType() bool {
+    return x.GetType().IsMapType()
+}
+
+func (x *ValueDecl) IsUnionType() bool {
+    return x.GetType().IsUnionType()
+}
+
+func (x *ValueDecl) IsScalarType() bool {
+    return x.GetType().IsScalar()
+}
+
+func (x *ValueDecl) IsEnum() bool {
+    return x.GetType().IsEnum()
 }

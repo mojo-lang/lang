@@ -2,7 +2,7 @@
 |---|---|---|---|---|---|
 | `name` | `string` |  | 否 |  |
 | `fullName` | `string` |  | 否 |  |
-| `url` | `string` | `url` | 否 |  |
+| `url` | `string` | `Url` | 否 |  |
 | `attributes` | `Array<mojo.lang.Attribute>` |  | 否 |  | 循环依赖文件名称 'circle_dependency' |
 | `packageName` | `string` |  | 否 |  |
 | `imports` | `Array<mojo.lang.ImportDecl>` |  | 否 |  | imports decl index for this file, will still exist in the statements |

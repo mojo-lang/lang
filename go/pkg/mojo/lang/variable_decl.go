@@ -1,20 +1,20 @@
 package lang
 
-func (m *VariableDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *VariableDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *VariableDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *VariableDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *VariableDecl) GetInitialValue() *Expression {
-    if m != nil {
-        return m.GetInitializer().GetValue()
+func (x *VariableDecl) GetInitialValue() *Expression {
+    if x != nil {
+        return x.GetInitializer().GetValue()
     }
     return nil
 }

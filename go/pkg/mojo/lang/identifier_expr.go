@@ -23,35 +23,35 @@ func NewTypeIdentifierExpr(nominal *NominalType) *IdentifierExpr {
     return nil
 }
 
-func (m *IdentifierExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *IdentifierExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *IdentifierExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *IdentifierExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *IdentifierExpr) GetName() string {
-    if m != nil && m.Identifier != nil {
-        return m.Identifier.Name
-    }
-    return ""
-}
-
-func (m *IdentifierExpr) GetFullName() string {
-    if m != nil && m.Identifier != nil {
-        return m.Identifier.FullName
+func (x *IdentifierExpr) GetName() string {
+    if x != nil && x.Identifier != nil {
+        return x.Identifier.Name
     }
     return ""
 }
 
-func (m *IdentifierExpr) GetPackageName() string {
-    if m != nil && m.Identifier != nil {
-        return m.Identifier.PackageName
+func (x *IdentifierExpr) GetFullName() string {
+    if x != nil && x.Identifier != nil {
+        return x.Identifier.FullName
+    }
+    return ""
+}
+
+func (x *IdentifierExpr) GetPackageName() string {
+    if x != nil && x.Identifier != nil {
+        return x.Identifier.PackageName
     }
     return ""
 }

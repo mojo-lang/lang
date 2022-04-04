@@ -1,21 +1,21 @@
 package lang
 
-func (m *NumericLiteralUnaryExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *NumericLiteralUnaryExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *NumericLiteralUnaryExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *NumericLiteralUnaryExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *NumericLiteralUnaryExpr) GetIntegerLiteralExpr() *IntegerLiteralExpr {
-    return m.GetArgument().GetIntegerLiteralExpr()
+func (x *NumericLiteralUnaryExpr) GetIntegerLiteralExpr() *IntegerLiteralExpr {
+    return x.GetArgument().GetIntegerLiteralExpr()
 }
 
-func (m *NumericLiteralUnaryExpr) GetFloatLiteralExpr() *FloatLiteralExpr {
-    return m.GetArgument().GetFloatLiteralExpr()
+func (x *NumericLiteralUnaryExpr) GetFloatLiteralExpr() *FloatLiteralExpr {
+    return x.GetArgument().GetFloatLiteralExpr()
 }

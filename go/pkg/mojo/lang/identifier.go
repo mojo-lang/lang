@@ -20,32 +20,32 @@ func FindIdentifier(identifiers []*Identifier, fullName string) *Identifier {
     return nil
 }
 
-func (m *Identifier) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *Identifier) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *Identifier) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *Identifier) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *Identifier) IsGenericInstantiated() bool {
-    return strings.Contains(m.GetName(), "<")
+func (x *Identifier) IsGenericInstantiated() bool {
+    return strings.Contains(x.GetName(), "<")
 }
 
-func (m *Identifier) ToNominalType() *NominalType {
-    if m != nil {
-        switch m.Kind {
+func (x *Identifier) ToNominalType() *NominalType {
+    if x != nil {
+        switch x.Kind {
         case Identifier_KIND_ENUM, Identifier_KIND_STRUCT, Identifier_KIND_TYPE_ALIAS, Identifier_KIND_INTERFACE:
             return &NominalType{
-                StartPosition:    m.StartPosition,
-                EndPosition:      m.EndPosition,
-                PackageName:      m.PackageName,
-                Name:             m.Name,
-                TypeDeclaration:  NewTypeDeclarationFromDeclaration(m.Declaration),
+                StartPosition:    x.StartPosition,
+                EndPosition:      x.EndPosition,
+                PackageName:      x.PackageName,
+                Name:             x.Name,
+                TypeDeclaration:  NewTypeDeclarationFromDeclaration(x.Declaration),
                 GenericArguments: nil,
                 Attributes:       nil,
                 EnclosingType:    nil,

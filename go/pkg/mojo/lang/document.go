@@ -10,28 +10,28 @@ type DocumentGetter interface {
     GetDocument() *Document
 }
 
-func (m *Document) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *Document) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *Document) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *Document) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *Document) GetContent() string {
-    if m != nil {
+func (x *Document) GetContent() string {
+    if x != nil {
         content := bytes.Buffer{}
-        for i, line := range m.Lines {
+        for i, line := range x.Lines {
             if content.Len() == 0 && len(line.Text) == 0 {
                 continue
             }
             content.WriteString(line.Text)
 
-            if i < len(m.Lines)-1 {
+            if i < len(x.Lines)-1 {
                 content.WriteString("\n")
             }
         }
@@ -40,15 +40,15 @@ func (m *Document) GetContent() string {
     return ""
 }
 
-func (m *Document) Parse() *Document {
-    if m != nil {
+func (x *Document) Parse() *Document {
+    if x != nil {
         mk := markdown.New()
-        doc, err := mk.Parse(m.GetContent())
+        doc, err := mk.Parse(x.GetContent())
         if err != nil {
             logs.Warnw("failed to parse the document to markdown")
         } else {
-            m.Structured = doc
+            x.Structured = doc
         }
     }
-    return m
+    return x
 }

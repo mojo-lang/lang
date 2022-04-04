@@ -2,46 +2,47 @@ package lang
 
 import (
     "errors"
-    "github.com/golang/protobuf/proto"
+
+    "google.golang.org/protobuf/proto"
 )
 
-func (m *FunctionDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *FunctionDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *FunctionDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *FunctionDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *FunctionDecl) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *FunctionDecl) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil StructDecl")
 }
 
-func (m *FunctionDecl) GetTerms() []interface{} {
-    if m != nil {
+func (x *FunctionDecl) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        if m.Document != nil {
-            terms = append(terms, m.Document)
+        if x.Document != nil {
+            terms = append(terms, x.Document)
         }
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             terms = append(terms, attribute)
         }
 
-        if m.Signature != nil {
-            terms = append(terms, m.Signature)
+        if x.Signature != nil {
+            terms = append(terms, x.Signature)
         }
 
-        if m.Body != nil {
-            terms = append(terms, m.Body)
+        if x.Body != nil {
+            terms = append(terms, x.Body)
         }
 
         return terms
@@ -49,137 +50,151 @@ func (m *FunctionDecl) GetTerms() []interface{} {
     return nil
 }
 
-func (m *FunctionDecl) GetAttributeArguments(name string) ([]*Argument, error) {
-    if m != nil {
-        return GetAttributeArguments(m.Attributes, name)
+func (x *FunctionDecl) GetAttributeArguments(name string) ([]*Argument, error) {
+    if x != nil {
+        return GetAttributeArguments(x.Attributes, name)
     }
     return nil, errors.New("FunctionDecl is nil")
 }
 
-func (m *FunctionDecl) GetAttributeArgument(name string) (*Argument, error) {
-    if m != nil {
-        return GetAttributeArgument(m.Attributes, name)
+func (x *FunctionDecl) GetAttributeArgument(name string) (*Argument, error) {
+    if x != nil {
+        return GetAttributeArgument(x.Attributes, name)
     }
     return nil, errors.New("FunctionDecl is nil")
 }
 
-func (m *FunctionDecl) HasAttribute(name string) bool {
-    if m != nil {
-        return HasAttribute(m.Attributes, name)
+func (x *FunctionDecl) HasAttribute(name string) bool {
+    if x != nil {
+        return HasAttribute(x.Attributes, name)
     }
     return false
 }
 
-func (m *FunctionDecl) GetAttribute(name string) *Attribute {
-    if m != nil {
-        return GetAttribute(m.Attributes, name)
+func (x *FunctionDecl) GetAttribute(name string) *Attribute {
+    if x != nil {
+        return GetAttribute(x.Attributes, name)
     }
     return nil
 }
 
-func (m *FunctionDecl) GetBoolAttribute(name string) (bool, error) {
-    argument, err := m.GetAttributeArgument(name)
+func (x *FunctionDecl) GetBoolAttribute(name string) (bool, error) {
+    argument, err := x.GetAttributeArgument(name)
     if err != nil {
         return false, err
     }
 
-    return argument.GetBool()
+    if argument != nil {
+        return argument.GetBool()
+    } else {
+        //TODO using the default value of the attribute declaration
+        return true, nil
+    }
 }
 
-func (m *FunctionDecl) SetBoolAttribute(name string, value bool) *Attribute {
-    if m != nil {
-        m.Attributes = SetBoolAttribute(m.Attributes, name, value)
-        return m.Attributes[len(m.Attributes)-1]
+func (x *FunctionDecl) SetBoolAttribute(name string, value bool) *Attribute {
+    if x != nil {
+        x.Attributes = SetBoolAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
     }
     return nil
 }
 
-func (m *FunctionDecl) SetImplicitBoolAttribute(name string, value bool) *Attribute {
-    if m != nil {
-        return m.SetBoolAttribute(name, value).SetImplicit(true)
+func (x *FunctionDecl) SetImplicitBoolAttribute(name string, value bool) *Attribute {
+    if x != nil {
+        return x.SetBoolAttribute(name, value).SetImplicit(true)
     }
     return nil
 }
 
-func (m *FunctionDecl) GetIntegerAttribute(name string) (int64, error) {
-    if argument, err := m.GetAttributeArgument(name); err != nil {
+func (x *FunctionDecl) GetIntegerAttribute(name string) (int64, error) {
+    if argument, err := x.GetAttributeArgument(name); err != nil {
         return 0, err
     } else {
-        return argument.GetInteger()
+        if argument != nil {
+            return argument.GetInteger()
+        } else {
+            //TODO using the default value of the attribute declaration
+            return 0, nil
+        }
     }
 }
 
-func (m *FunctionDecl) SetIntegerAttribute(name string, value int64) *Attribute {
-    if m != nil {
-        m.Attributes = SetIntegerAttribute(m.Attributes, name, value)
-        return m.Attributes[len(m.Attributes)-1]
-    }
-    return nil
-}
-
-func (m *FunctionDecl) SetImplicitIntegerAttribute(name string, value int64) *Attribute {
-    if m != nil {
-        return m.SetIntegerAttribute(name, value).SetImplicit(true)
+func (x *FunctionDecl) SetIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil {
+        x.Attributes = SetIntegerAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
     }
     return nil
 }
 
-func (m *FunctionDecl) GetStringAttribute(name string) (string, error) {
-    if argument, err := m.GetAttributeArgument(name); err != nil {
+func (x *FunctionDecl) SetImplicitIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil {
+        return x.SetIntegerAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *FunctionDecl) GetStringAttribute(name string) (string, error) {
+    if argument, err := x.GetAttributeArgument(name); err != nil {
         return "", err
     } else {
-        return argument.GetString()
+        if argument != nil {
+            return argument.GetString()
+        } else {
+            return "", nil
+        }
     }
 }
 
-func (m *FunctionDecl) SetStringAttribute(name string, value string) *Attribute {
-    if m != nil {
-        m.Attributes = SetStringAttribute(m.Attributes, name, value)
-        return m.Attributes[len(m.Attributes)-1]
-    }
-    return nil
-}
-
-func (m *FunctionDecl) SetImplicitStringAttribute(name string, value string) *Attribute {
-    if m != nil {
-        return m.SetStringAttribute(name, value).SetImplicit(true)
+func (x *FunctionDecl) SetStringAttribute(name string, value string) *Attribute {
+    if x != nil {
+        x.Attributes = SetStringAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
     }
     return nil
 }
 
-func (m *FunctionDecl) RemoveAttribute(name string) {
-    if m != nil {
-        m.Attributes = RemoveAttribute(m.Attributes, name)
+func (x *FunctionDecl) SetImplicitStringAttribute(name string, value string) *Attribute {
+    if x != nil {
+        return x.SetStringAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *FunctionDecl) RemoveAttribute(name string) {
+    if x != nil {
+        x.Attributes = RemoveAttribute(x.Attributes, name)
     }
 }
 
-func (m *FunctionDecl) GetResource() string {
-    if m != nil {
-        //if m.GetStringAttribute()
+func (x *FunctionDecl) GetResource() string {
+    if x != nil {
+        //if x.GetStringAttribute()
     }
     return ""
 }
 
 // Copy shallow copy for the FunctionDecl
 // deepFields will using deep copy
-func (m *FunctionDecl) Copy(deepFields ...string) *FunctionDecl {
+func (x *FunctionDecl) Copy(deepFields ...string) *FunctionDecl {
     decl := &FunctionDecl{
-        StartPosition:     m.StartPosition,
-        EndPosition:       m.EndPosition,
-        Implicit:          m.Implicit,
-        Document:          m.Document,
-        PackageName:       m.PackageName,
-        SourceFileName:    m.SourceFileName,
-        KeywordPosition:   m.KeywordPosition,
-        Name:              m.Name,
-        FullName:          m.FullName,
-        Attributes:        m.Attributes,
-        GenericParameters: m.GenericParameters,
-        EnclosingType:     m.EnclosingType,
-        NamePosition:      m.NamePosition,
-        Signature:         m.Signature,
-        Body:              m.Body,
-        Scope:             m.Scope,
+        StartPosition:     x.StartPosition,
+        EndPosition:       x.EndPosition,
+        Implicit:          x.Implicit,
+        Document:          x.Document,
+        PackageName:       x.PackageName,
+        SourceFileName:    x.SourceFileName,
+        KeywordPosition:   x.KeywordPosition,
+        Name:              x.Name,
+        FullName:          x.FullName,
+        Attributes:        x.Attributes,
+        GenericParameters: x.GenericParameters,
+        EnclosingType:     x.EnclosingType,
+        NamePosition:      x.NamePosition,
+        Signature:         x.Signature,
+        Body:              x.Body,
+        Scope:             x.Scope,
     }
 
     index := make(map[string]bool)
@@ -189,18 +204,18 @@ func (m *FunctionDecl) Copy(deepFields ...string) *FunctionDecl {
 
     if index["attributes"] {
         var attributes []*Attribute
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             attributes = append(attributes, proto.Clone(attribute).(*Attribute))
         }
         decl.Attributes = attributes
     }
 
     if index["signature"] {
-        decl.Signature = proto.Clone(m.Signature).(*FunctionSignature)
+        decl.Signature = proto.Clone(x.Signature).(*FunctionSignature)
     }
 
     if index["body"] {
-        decl.Body = proto.Clone(m.Body).(*BlockStmt)
+        decl.Body = proto.Clone(x.Body).(*BlockStmt)
     }
 
     return decl

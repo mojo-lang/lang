@@ -10,38 +10,46 @@ import (
     "github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
-func (m *NominalType) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+// ParseNominalTypeFullName
+// support 'mojo.alias.Foo<mojo.alias.Bar>'
+// support 'mojo.alias.Foo'
+func ParseNominalTypeFullName(name string) (*NominalType, error) {
+    nominalType := &NominalType{}
+    return nominalType, nominalType.ParseFullName(name)
+}
+
+func (x *NominalType) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *NominalType) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *NominalType) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *NominalType) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *NominalType) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil NominalType")
 }
 
-func (m *NominalType) GetTerms() []interface{} {
-    if m != nil {
+func (x *NominalType) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        //terms = append(terms, NewSymbolTerm(m.StartPosition, TermTypeName, m.Name))
+        //terms = append(terms, NewSymbolTerm(x.StartPosition, TermTypeName, x.Name))
 
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             terms = append(terms, attribute)
         }
 
-        if m.Document != nil && m.Document.Following {
-            terms = append(terms, m.Document)
+        if x.Document != nil && x.Document.Following {
+            terms = append(terms, x.Document)
         }
 
         return terms
@@ -49,22 +57,22 @@ func (m *NominalType) GetTerms() []interface{} {
     return nil
 }
 
-func (m *NominalType) NewIdentifier() *Identifier {
-    if m != nil {
+func (x *NominalType) NewIdentifier() *Identifier {
+    if x != nil {
         identifier := &Identifier{
-            StartPosition:      m.StartPosition,
-            EndPosition:        m.EndPosition,
+            StartPosition:      x.StartPosition,
+            EndPosition:        x.EndPosition,
             Kind:               Identifier_KIND_UNSPECIFIED,
-            PackageName:        m.PackageName,
-            SourceFileName:     m.TypeDeclaration.GetSourceFileName(),
-            EnclosingTypeNames: GetEnclosingNames(m.EnclosingType),
-            Name:               m.Name,
-            FullName:           m.GetFullName(),
-            Declaration:        NewDeclarationFromTypeDeclaration(m.TypeDeclaration),
-            Implicit:           m.TypeDeclaration.Implicit(),
+            PackageName:        x.PackageName,
+            SourceFileName:     x.TypeDeclaration.GetSourceFileName(),
+            EnclosingTypeNames: GetEnclosingNames(x.EnclosingType),
+            Name:               x.Name,
+            FullName:           x.GetFullName(),
+            Declaration:        NewDeclarationFromTypeDeclaration(x.TypeDeclaration),
+            Implicit:           x.TypeDeclaration.Implicit(),
         }
 
-        switch m.TypeDeclaration.TypeDeclaration.(type) {
+        switch x.TypeDeclaration.TypeDeclaration.(type) {
         case *TypeDeclaration_EnumDecl:
             identifier.Kind = Identifier_KIND_ENUM
         case *TypeDeclaration_StructDecl:
@@ -79,35 +87,35 @@ func (m *NominalType) NewIdentifier() *Identifier {
     return nil
 }
 
-func (m *NominalType) GetFullName() string {
-    if m != nil {
-        if strings.Contains(m.Name, ".") {
-            return GetFullName(m.PackageName, nil, m.Name)
+func (x *NominalType) GetFullName() string {
+    if x != nil {
+        if strings.Contains(x.Name, ".") {
+            return GetFullName(x.PackageName, nil, x.Name)
         } else {
-            return GetFullName(m.PackageName, m.GetEnclosingNames(), m.Name)
+            return GetFullName(x.PackageName, x.GetEnclosingNames(), x.Name)
         }
     }
     return ""
 }
 
-func (m *NominalType) GetGenericFullName() string {
-    if m != nil {
-        if strings.Contains(m.Name, ".") {
-            return GetFullName(m.PackageName, nil, m.GetGenericName())
+func (x *NominalType) GetGenericFullName() string {
+    if x != nil {
+        if strings.Contains(x.Name, ".") {
+            return GetFullName(x.PackageName, nil, x.GetGenericName())
         } else {
-            return GetFullName(m.PackageName, m.GetEnclosingGenericNames(), m.GetGenericName())
+            return GetFullName(x.PackageName, x.GetEnclosingGenericNames(), x.GetGenericName())
         }
     }
     return ""
 }
 
-func (m *NominalType) GetGenericName() string {
-    if m != nil {
-        name := m.GetName()
+func (x *NominalType) GetGenericName() string {
+    if x != nil {
+        name := x.GetName()
         buf := bytes.NewBufferString(name)
-        if len(m.GenericArguments) > 0 {
+        if len(x.GenericArguments) > 0 {
             buf.WriteByte('<')
-            for i, argument := range m.GenericArguments {
+            for i, argument := range x.GenericArguments {
                 if i > 0 {
                     buf.WriteByte(',')
                 }
@@ -120,30 +128,30 @@ func (m *NominalType) GetGenericName() string {
     return ""
 }
 
-func (m *NominalType) GetEnclosingNames() []string {
-    if m == nil {
+func (x *NominalType) GetEnclosingNames() []string {
+    if x == nil {
         return []string{}
     }
-    return GetEnclosingNames(m.EnclosingType)
+    return GetEnclosingNames(x.EnclosingType)
 }
 
-func (m *NominalType) GetEnclosingGenericNames() []string {
-    if m == nil {
+func (x *NominalType) GetEnclosingGenericNames() []string {
+    if x == nil {
         return []string{}
     }
-    return GetEnclosingGenericNames(m.EnclosingType)
+    return GetEnclosingGenericNames(x.EnclosingType)
 }
 
-func (m *NominalType) IsTypeAlias() bool {
-    if m == nil {
+func (x *NominalType) IsTypeAlias() bool {
+    if x == nil {
         return false
     }
-    return m.TypeDeclaration != nil && m.TypeDeclaration.GetTypeAliasDecl() != nil
+    return x.TypeDeclaration != nil && x.TypeDeclaration.GetTypeAliasDecl() != nil
 }
 
-func (m *NominalType) IsInstantiatedGeneric() bool {
-    if m.IsGeneric() {
-        for _, argument := range m.GetGenericArguments() {
+func (x *NominalType) IsInstantiatedGeneric() bool {
+    if x.IsGeneric() {
+        for _, argument := range x.GetGenericArguments() {
             if argument.IsGenericParameter() {
                 return false
             }
@@ -153,44 +161,44 @@ func (m *NominalType) IsInstantiatedGeneric() bool {
     return false
 }
 
-func (m *NominalType) IsGeneric() bool {
-    return len(m.GetGenericArguments()) > 0
+func (x *NominalType) IsGeneric() bool {
+    return len(x.GetGenericArguments()) > 0
 }
 
-func (m *NominalType) IsGenericParameter() bool {
-    if m == nil {
+func (x *NominalType) IsGenericParameter() bool {
+    if x == nil {
         return false
     }
-    return m.TypeDeclaration != nil && m.TypeDeclaration.GetGenericParameter() != nil
+    return x.TypeDeclaration != nil && x.TypeDeclaration.GetGenericParameter() != nil
 }
 
-func (m *NominalType) IsStruct() bool {
-    if m == nil {
+func (x *NominalType) IsStruct() bool {
+    if x == nil {
         return false
     }
-    return m.TypeDeclaration != nil && m.TypeDeclaration.GetStructDecl() != nil
+    return x.TypeDeclaration != nil && x.TypeDeclaration.GetStructDecl() != nil
 }
 
-func (m *NominalType) IsInterface() bool {
-    if m == nil {
+func (x *NominalType) IsInterface() bool {
+    if x == nil {
         return false
     }
-    return m.TypeDeclaration != nil && m.TypeDeclaration.GetInterfaceDecl() != nil
+    return x.TypeDeclaration != nil && x.TypeDeclaration.GetInterfaceDecl() != nil
 }
 
-func (m *NominalType) IsEnum() bool {
-    if m == nil {
+func (x *NominalType) IsEnum() bool {
+    if x == nil {
         return false
     }
-    return m.TypeDeclaration != nil && m.TypeDeclaration.GetEnumDecl() != nil
+    return x.TypeDeclaration != nil && x.TypeDeclaration.GetEnumDecl() != nil
 }
 
-func (m *NominalType) IsScalar() bool {
-    if m == nil {
+func (x *NominalType) IsScalar() bool {
+    if x == nil {
         return false
     }
-    if m.TypeDeclaration != nil {
-        if decl := m.TypeDeclaration.GetStructDecl(); decl != nil {
+    if x.TypeDeclaration != nil {
+        if decl := x.TypeDeclaration.GetStructDecl(); decl != nil {
             switch decl.GetFullName() {
             case core.BoolTypeFullName, core.Int8TypeFullName, core.Int16TypeFullName, core.Int32TypeFullName, core.Int64TypeFullName,
                 core.UInt8TypeFullName, core.UInt16TypeFullName, core.UInt32TypeFullName, core.UInt64TypeFullName, core.Float32TypeFullName,
@@ -199,7 +207,7 @@ func (m *NominalType) IsScalar() bool {
             default:
                 return false
             }
-        } else if alias := m.TypeDeclaration.GetTypeAliasDecl(); alias != nil {
+        } else if alias := x.TypeDeclaration.GetTypeAliasDecl(); alias != nil {
             switch alias.GetFullName() {
             case core.IntTypeFullName, core.UIntTypeFullName, core.FloatTypeFullName, core.DoubleTypeFullName:
                 return true
@@ -211,56 +219,49 @@ func (m *NominalType) IsScalar() bool {
     return false
 }
 
-func (m *NominalType) IsArrayType() bool {
-    return m.isType(core.ArrayTypeFullName)
+func (x *NominalType) IsArrayType() bool {
+    return x.isType(core.ArrayTypeFullName)
 }
 
-func (m *NominalType) IsMapType() bool {
-    return m.isType(core.MapTypeFullName)
+func (x *NominalType) IsMapType() bool {
+    return x.isType(core.MapTypeFullName)
 }
 
-func (m *NominalType) IsTupleType() bool {
-    return m.isType(core.TupleTypeFullName)
+func (x *NominalType) IsTupleType() bool {
+    return x.isType(core.TupleTypeFullName)
 }
 
-func (m *NominalType) IsIntersectionType() bool {
-    return m.isType(core.IntersectionTypeFullName)
+func (x *NominalType) IsIntersectionType() bool {
+    return x.isType(core.IntersectionTypeFullName)
 }
 
-func (m *NominalType) IsUnionType() bool {
-    return m.isType(core.UnionTypeFullName)
+func (x *NominalType) IsUnionType() bool {
+    return x.isType(core.UnionTypeFullName)
 }
 
-func (m *NominalType) isType(typeName string) bool {
-    if m == nil {
+func (x *NominalType) isType(typeName string) bool {
+    if x == nil {
         return false
     }
-    if m.TypeDeclaration != nil {
-        if decl := m.TypeDeclaration.GetStructDecl(); decl != nil {
+    if x.TypeDeclaration != nil {
+        if decl := x.TypeDeclaration.GetStructDecl(); decl != nil {
             return decl.GetFullName() == typeName
         }
     }
     return false
 }
 
-// support 'mojo.alias.Foo<mojo.alias.Bar>'
-// support 'mojo.alias.Foo'
-func ParseNominalTypeFullName(name string) (*NominalType, error) {
-    nominalType := &NominalType{}
-    return nominalType, nominalType.ParseFullName(name)
-}
-
-func (m *NominalType) ParseFullName(fullName string) error {
-    _, err := m.parseFullGenericName(fullName)
+func (x *NominalType) ParseFullName(fullName string) error {
+    _, err := x.parseFullGenericName(fullName)
     return err
 }
 
-func (m *NominalType) parseFullGenericName(fullName string) (string, error) {
-    if m != nil {
+func (x *NominalType) parseFullGenericName(fullName string) (string, error) {
+    if x != nil {
         var err error
         originalFullName := fullName
         fullName = strings.TrimSpace(fullName)
-        fullName, err = m.parseFullName(fullName)
+        fullName, err = x.parseFullName(fullName)
         if err != nil {
             return "", err
         }
@@ -276,7 +277,7 @@ func (m *NominalType) parseFullGenericName(fullName string) (string, error) {
                     if err != nil {
                         return "", err
                     }
-                    m.GenericArguments = append(m.GenericArguments, argument)
+                    x.GenericArguments = append(x.GenericArguments, argument)
                     fullName = strings.TrimSpace(fullName)
 
                     if len(fullName) == 0 {
@@ -305,14 +306,14 @@ func (m *NominalType) parseFullGenericName(fullName string) (string, error) {
     return "", errors.New("nil NominalType")
 }
 
-func (m *NominalType) parseFullName(fullName string) (string, error) {
-    if m != nil {
+func (x *NominalType) parseFullName(fullName string) (string, error) {
+    if x != nil {
         if pkgReg, err := regexp.Compile(`^([a-z][a-z_0-9]*\.)+`); err != nil {
             return "", err
         } else {
             pkg := pkgReg.FindString(fullName)
             if len(pkg) > 0 {
-                m.PackageName = strings.TrimSuffix(pkg, ".")
+                x.PackageName = strings.TrimSuffix(pkg, ".")
                 fullName = fullName[len(pkg):]
             }
         }
@@ -329,18 +330,18 @@ func (m *NominalType) parseFullName(fullName string) (string, error) {
                 for _, segment := range segments {
                     if enclosingType == nil {
                         enclosingType = &NominalType{
-                            PackageName: m.PackageName,
+                            PackageName: x.PackageName,
                             Name:        segment,
                         }
                     } else {
                         enclosingType = &NominalType{
-                            PackageName:   m.PackageName,
+                            PackageName:   x.PackageName,
                             Name:          segment,
                             EnclosingType: enclosingType,
                         }
                     }
                 }
-                m.EnclosingType = enclosingType
+                x.EnclosingType = enclosingType
             }
         }
 
@@ -349,11 +350,129 @@ func (m *NominalType) parseFullName(fullName string) (string, error) {
         } else {
             name := nameReg.FindString(fullName)
             if len(name) > 0 {
-                m.Name = name
+                x.Name = name
                 fullName = fullName[len(name):]
             }
         }
     }
 
     return fullName, nil
+}
+
+func (x *NominalType) GetAttributeArguments(name string) ([]*Argument, error) {
+    if x != nil {
+        return GetAttributeArguments(x.Attributes, name)
+    }
+    return nil, errors.New("NominalType is nil")
+}
+
+func (x *NominalType) GetAttributeArgument(name string) (*Argument, error) {
+    if x != nil {
+        return GetAttributeArgument(x.Attributes, name)
+    }
+    return nil, errors.New("NominalType is nil")
+}
+
+func (x *NominalType) HasAttribute(name string) bool {
+    if x != nil {
+        return HasAttribute(x.Attributes, name)
+    }
+    return false
+}
+
+func (x *NominalType) GetAttribute(name string) *Attribute {
+    if x != nil {
+        return GetAttribute(x.Attributes, name)
+    }
+    return nil
+}
+
+func (x *NominalType) GetBoolAttribute(name string) (bool, error) {
+    argument, err := x.GetAttributeArgument(name)
+    if err != nil {
+        return false, err
+    }
+
+    if argument != nil {
+        return argument.GetBool()
+    } else {
+        //TODO using the default value of the attribute declaration
+        return true, nil
+    }
+}
+
+func (x *NominalType) SetBoolAttribute(name string, value bool) *Attribute {
+    if x != nil {
+        x.Attributes = SetBoolAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
+    }
+    return nil
+}
+
+func (x *NominalType) SetImplicitBoolAttribute(name string, value bool) *Attribute {
+    if x != nil {
+        return x.SetBoolAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *NominalType) GetIntegerAttribute(name string) (int64, error) {
+    if argument, err := x.GetAttributeArgument(name); err != nil {
+        return 0, err
+    } else {
+        if argument != nil {
+            return argument.GetInteger()
+        } else {
+            //TODO using the default value of the attribute declaration
+            return 0, nil
+        }
+    }
+}
+
+func (x *NominalType) SetIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil {
+        x.Attributes = SetIntegerAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
+    }
+    return nil
+}
+
+func (x *NominalType) SetImplicitIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil {
+        return x.SetIntegerAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *NominalType) GetStringAttribute(name string) (string, error) {
+    if argument, err := x.GetAttributeArgument(name); err != nil {
+        return "", err
+    } else {
+        if argument != nil {
+            return argument.GetString()
+        } else {
+            return "", nil
+        }
+    }
+}
+
+func (x *NominalType) SetStringAttribute(name string, value string) *Attribute {
+    if x != nil {
+        x.Attributes = SetStringAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
+    }
+    return nil
+}
+
+func (x *NominalType) SetImplicitStringAttribute(name string, value string) *Attribute {
+    if x != nil {
+        return x.SetStringAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *NominalType) RemoveAttribute(name string) {
+    if x != nil {
+        x.Attributes = RemoveAttribute(x.Attributes, name)
+    }
 }

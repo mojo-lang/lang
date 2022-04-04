@@ -2,4 +2,4 @@
 |---|---|---|---|---|---|
 | `author` | `string` |  | 否 |  | the people that are considered the "author" of the package. |
 | `organization` | `string` |  | 否 |  | the organization that are considered the "author" of the package. |
-| `email` | `mojo.core.EmailAddress` |  | 否 |  |  |
+| `email` | `string` | `EmailAddress` | 否 |  |  |

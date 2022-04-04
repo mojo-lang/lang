@@ -1,20 +1,20 @@
 package lang
 
-func (m *BoolLiteralExpr) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *BoolLiteralExpr) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *BoolLiteralExpr) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *BoolLiteralExpr) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *BoolLiteralExpr) EvalValue() bool {
-    if m != nil {
-        return m.Value
+func (x *BoolLiteralExpr) EvalValue() bool {
+    if x != nil {
+        return x.Value
     }
     return false
 }

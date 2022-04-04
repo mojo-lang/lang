@@ -162,6 +162,7 @@ message ClosureExpr {
     FunctionSignature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
+    InterfaceDecl interface_decl = 31;
     repeated string captures = 40;
 }
 
@@ -518,6 +519,7 @@ message FunctionDecl {
     FunctionSignature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
+    InterfaceDecl interface_decl = 31;
 }
 
 message FunctionSignature {

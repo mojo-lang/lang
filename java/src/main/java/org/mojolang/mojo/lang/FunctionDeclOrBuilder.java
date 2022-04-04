@@ -243,4 +243,19 @@ public interface FunctionDeclOrBuilder extends
    * <code>.mojo.lang.Scope scope = 30;</code>
    */
   org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder();
+
+  /**
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * @return Whether the interfaceDecl field is set.
+   */
+  boolean hasInterfaceDecl();
+  /**
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * @return The interfaceDecl.
+   */
+  org.mojolang.mojo.lang.InterfaceDecl getInterfaceDecl();
+  /**
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   */
+  org.mojolang.mojo.lang.InterfaceDeclOrBuilder getInterfaceDeclOrBuilder();
 }

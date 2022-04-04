@@ -9,27 +9,27 @@ const (
     FieldNamOptionUseAlias
 )
 
-func (m *StructType) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *StructType) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *StructType) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *StructType) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *StructType) FieldNames(option FieldNamOption) []string {
-    if m != nil {
+func (x *StructType) FieldNames(option FieldNamOption) []string {
+    if x != nil {
         var fieldNames []string
-        for _, inherit := range m.Inherits {
+        for _, inherit := range x.Inherits {
             names := inherit.GetTypeDeclaration().GetStructDecl().FieldNames(option)
             fieldNames = append(fieldNames, names...)
         }
 
-        for _, field := range m.Fields {
+        for _, field := range x.Fields {
             if option == FieldNamOptionUseAlias {
                 if alias, _ := field.GetStringAttribute(core.AliasAttributeName); len(alias) > 0 {
                     fieldNames = append(fieldNames, alias)
@@ -44,15 +44,15 @@ func (m *StructType) FieldNames(option FieldNamOption) []string {
     return nil
 }
 
-func (m *StructType) GetField(name string) *ValueDecl {
-    if m != nil {
-        for _, inherit := range m.Inherits {
+func (x *StructType) GetField(name string) *ValueDecl {
+    if x != nil {
+        for _, inherit := range x.Inherits {
             if field := inherit.GetTypeDeclaration().GetStructDecl().GetField(name); field != nil {
                 return field
             }
         }
 
-        for _, field := range m.Fields {
+        for _, field := range x.Fields {
             if field.Name == name {
                 return field
             }
@@ -61,15 +61,15 @@ func (m *StructType) GetField(name string) *ValueDecl {
     return nil
 }
 
-func (m *StructType) EachField(iter func(decl *ValueDecl) error) error {
-    if m != nil {
-        for _, inherit := range m.Inherits {
+func (x *StructType) EachField(iter func(decl *ValueDecl) error) error {
+    if x != nil {
+        for _, inherit := range x.Inherits {
             if err := inherit.GetTypeDeclaration().GetStructDecl().EachField(iter); err != nil {
                 return err
             }
         }
 
-        for _, field := range m.Fields {
+        for _, field := range x.Fields {
             if err := iter(field); err != nil {
                 return err
             }

@@ -4,40 +4,40 @@ import (
     "errors"
 )
 
-func (m *AttributeDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *AttributeDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *AttributeDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *AttributeDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *AttributeDecl) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *AttributeDecl) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil AttributeDecl")
 }
 
-func (m *AttributeDecl) GetTerms() []interface{} {
-    if m != nil {
+func (x *AttributeDecl) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             terms = append(terms, attribute)
         }
 
-        if m.Group == nil {
+        if x.Group == nil {
             terms = append(terms,
-                &Term{StartPosition: m.KeywordPosition,
+                &Term{StartPosition: x.KeywordPosition,
                     EndPosition: &Position{
-                        Line:   m.KeywordPosition.Line,
-                        Column: m.KeywordPosition.Column + int64(len(KeywordAttribute)),
+                        Line:   x.KeywordPosition.Line,
+                        Column: x.KeywordPosition.Column + int64(len(KeywordAttribute)),
                     },
                     Type:  "Keyword",
                     Value: KeywordAttribute,
@@ -46,22 +46,22 @@ func (m *AttributeDecl) GetTerms() []interface{} {
         }
 
         terms = append(terms,
-            &Term{StartPosition: m.NamePosition,
+            &Term{StartPosition: x.NamePosition,
                 EndPosition: &Position{
-                    Line:   m.NamePosition.Line,
-                    Column: m.NamePosition.Column + int64(len(m.Name)),
+                    Line:   x.NamePosition.Line,
+                    Column: x.NamePosition.Column + int64(len(x.Name)),
                 },
                 Type:  "Name",
-                Value: m.Name,
+                Value: x.Name,
             })
 
-        for _, parameter := range m.GenericParameters {
+        for _, parameter := range x.GenericParameters {
             terms = append(terms, parameter)
         }
 
-        if nominalType := m.GetNominalType(); nominalType != nil {
+        if nominalType := x.GetNominalType(); nominalType != nil {
             terms = append(terms, nominalType)
-        } else if structType := m.GetStructType(); structType != nil {
+        } else if structType := x.GetStructType(); structType != nil {
             terms = append(terms,
                 &Term{StartPosition: structType.StartPosition,
                     EndPosition: structType.StartPosition,
@@ -79,8 +79,8 @@ func (m *AttributeDecl) GetTerms() []interface{} {
                 })
         }
 
-        if m.DefaultValue != nil {
-            terms = append(terms, m.DefaultValue)
+        if x.DefaultValue != nil {
+            terms = append(terms, x.DefaultValue)
         }
 
         return terms

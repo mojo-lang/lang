@@ -219,6 +219,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 250: {
+            org.mojolang.mojo.lang.InterfaceDecl.Builder subBuilder = null;
+            if (interfaceDecl_ != null) {
+              subBuilder = interfaceDecl_.toBuilder();
+            }
+            interfaceDecl_ = input.readMessage(org.mojolang.mojo.lang.InterfaceDecl.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(interfaceDecl_);
+              interfaceDecl_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -734,6 +747,32 @@ private static final long serialVersionUID = 0L;
     return getScope();
   }
 
+  public static final int INTERFACE_DECL_FIELD_NUMBER = 31;
+  private org.mojolang.mojo.lang.InterfaceDecl interfaceDecl_;
+  /**
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * @return Whether the interfaceDecl field is set.
+   */
+  @java.lang.Override
+  public boolean hasInterfaceDecl() {
+    return interfaceDecl_ != null;
+  }
+  /**
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * @return The interfaceDecl.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.InterfaceDecl getInterfaceDecl() {
+    return interfaceDecl_ == null ? org.mojolang.mojo.lang.InterfaceDecl.getDefaultInstance() : interfaceDecl_;
+  }
+  /**
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.InterfaceDeclOrBuilder getInterfaceDeclOrBuilder() {
+    return getInterfaceDecl();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -795,6 +834,9 @@ private static final long serialVersionUID = 0L;
     }
     if (scope_ != null) {
       output.writeMessage(30, getScope());
+    }
+    if (interfaceDecl_ != null) {
+      output.writeMessage(31, getInterfaceDecl());
     }
     unknownFields.writeTo(output);
   }
@@ -864,6 +906,10 @@ private static final long serialVersionUID = 0L;
     if (scope_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(30, getScope());
+    }
+    if (interfaceDecl_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(31, getInterfaceDecl());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -939,6 +985,11 @@ private static final long serialVersionUID = 0L;
       if (!getScope()
           .equals(other.getScope())) return false;
     }
+    if (hasInterfaceDecl() != other.hasInterfaceDecl()) return false;
+    if (hasInterfaceDecl()) {
+      if (!getInterfaceDecl()
+          .equals(other.getInterfaceDecl())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1004,6 +1055,10 @@ private static final long serialVersionUID = 0L;
     if (hasScope()) {
       hash = (37 * hash) + SCOPE_FIELD_NUMBER;
       hash = (53 * hash) + getScope().hashCode();
+    }
+    if (hasInterfaceDecl()) {
+      hash = (37 * hash) + INTERFACE_DECL_FIELD_NUMBER;
+      hash = (53 * hash) + getInterfaceDecl().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1216,6 +1271,12 @@ private static final long serialVersionUID = 0L;
         scope_ = null;
         scopeBuilder_ = null;
       }
+      if (interfaceDeclBuilder_ == null) {
+        interfaceDecl_ = null;
+      } else {
+        interfaceDecl_ = null;
+        interfaceDeclBuilder_ = null;
+      }
       return this;
     }
 
@@ -1310,6 +1371,11 @@ private static final long serialVersionUID = 0L;
         result.scope_ = scope_;
       } else {
         result.scope_ = scopeBuilder_.build();
+      }
+      if (interfaceDeclBuilder_ == null) {
+        result.interfaceDecl_ = interfaceDecl_;
+      } else {
+        result.interfaceDecl_ = interfaceDeclBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1456,6 +1522,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasScope()) {
         mergeScope(other.getScope());
+      }
+      if (other.hasInterfaceDecl()) {
+        mergeInterfaceDecl(other.getInterfaceDecl());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3371,6 +3440,125 @@ private static final long serialVersionUID = 0L;
         scope_ = null;
       }
       return scopeBuilder_;
+    }
+
+    private org.mojolang.mojo.lang.InterfaceDecl interfaceDecl_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.InterfaceDecl, org.mojolang.mojo.lang.InterfaceDecl.Builder, org.mojolang.mojo.lang.InterfaceDeclOrBuilder> interfaceDeclBuilder_;
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * @return Whether the interfaceDecl field is set.
+     */
+    public boolean hasInterfaceDecl() {
+      return interfaceDeclBuilder_ != null || interfaceDecl_ != null;
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * @return The interfaceDecl.
+     */
+    public org.mojolang.mojo.lang.InterfaceDecl getInterfaceDecl() {
+      if (interfaceDeclBuilder_ == null) {
+        return interfaceDecl_ == null ? org.mojolang.mojo.lang.InterfaceDecl.getDefaultInstance() : interfaceDecl_;
+      } else {
+        return interfaceDeclBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     */
+    public Builder setInterfaceDecl(org.mojolang.mojo.lang.InterfaceDecl value) {
+      if (interfaceDeclBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        interfaceDecl_ = value;
+        onChanged();
+      } else {
+        interfaceDeclBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     */
+    public Builder setInterfaceDecl(
+        org.mojolang.mojo.lang.InterfaceDecl.Builder builderForValue) {
+      if (interfaceDeclBuilder_ == null) {
+        interfaceDecl_ = builderForValue.build();
+        onChanged();
+      } else {
+        interfaceDeclBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     */
+    public Builder mergeInterfaceDecl(org.mojolang.mojo.lang.InterfaceDecl value) {
+      if (interfaceDeclBuilder_ == null) {
+        if (interfaceDecl_ != null) {
+          interfaceDecl_ =
+            org.mojolang.mojo.lang.InterfaceDecl.newBuilder(interfaceDecl_).mergeFrom(value).buildPartial();
+        } else {
+          interfaceDecl_ = value;
+        }
+        onChanged();
+      } else {
+        interfaceDeclBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     */
+    public Builder clearInterfaceDecl() {
+      if (interfaceDeclBuilder_ == null) {
+        interfaceDecl_ = null;
+        onChanged();
+      } else {
+        interfaceDecl_ = null;
+        interfaceDeclBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     */
+    public org.mojolang.mojo.lang.InterfaceDecl.Builder getInterfaceDeclBuilder() {
+      
+      onChanged();
+      return getInterfaceDeclFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     */
+    public org.mojolang.mojo.lang.InterfaceDeclOrBuilder getInterfaceDeclOrBuilder() {
+      if (interfaceDeclBuilder_ != null) {
+        return interfaceDeclBuilder_.getMessageOrBuilder();
+      } else {
+        return interfaceDecl_ == null ?
+            org.mojolang.mojo.lang.InterfaceDecl.getDefaultInstance() : interfaceDecl_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.InterfaceDecl, org.mojolang.mojo.lang.InterfaceDecl.Builder, org.mojolang.mojo.lang.InterfaceDeclOrBuilder> 
+        getInterfaceDeclFieldBuilder() {
+      if (interfaceDeclBuilder_ == null) {
+        interfaceDeclBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.InterfaceDecl, org.mojolang.mojo.lang.InterfaceDecl.Builder, org.mojolang.mojo.lang.InterfaceDeclOrBuilder>(
+                getInterfaceDecl(),
+                getParentForChildren(),
+                isClean());
+        interfaceDecl_ = null;
+      }
+      return interfaceDeclBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
