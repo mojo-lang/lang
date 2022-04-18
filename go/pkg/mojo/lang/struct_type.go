@@ -21,11 +21,11 @@ func (x *StructType) SetEndPosition(position *Position) {
     }
 }
 
-func (x *StructType) FieldNames(option FieldNamOption) []string {
+func (x *StructType) GetAllFieldNames(option FieldNamOption) []string {
     if x != nil {
         var fieldNames []string
         for _, inherit := range x.Inherits {
-            names := inherit.GetTypeDeclaration().GetStructDecl().FieldNames(option)
+            names := inherit.GetTypeDeclaration().GetStructDecl().GetAllFieldNames(option)
             fieldNames = append(fieldNames, names...)
         }
 
@@ -57,6 +57,32 @@ func (x *StructType) GetField(name string) *ValueDecl {
                 return field
             }
         }
+    }
+    return nil
+}
+
+func (x *StructType) GetInheritFields() []*ValueDecl {
+    if x != nil {
+        var fields []*ValueDecl
+        for _, inherit := range x.Inherits {
+            fields = append(fields, inherit.GetTypeDeclaration().GetStructDecl().GetAllFields()...)
+        }
+        return fields
+    }
+    return nil
+}
+
+func (x *StructType) GetAllFields() []*ValueDecl {
+    if x != nil {
+        var fields []*ValueDecl
+
+        for _, inherit := range x.Inherits {
+            fields = append(fields, inherit.GetTypeDeclaration().GetStructDecl().GetAllFields()...)
+        }
+
+        fields = append(fields, x.Fields...)
+
+        return fields
     }
     return nil
 }

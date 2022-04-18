@@ -48,18 +48,32 @@ func (x *StructDecl) IsGeneric() bool {
 
 func (x *StructDecl) IsBodyEmpty() bool {
     if x != nil {
-        return len(x.TypeAliasDecls) == 0 && len(x.EnumDecls) == 0 && len(x.StructDecls) == 0 && x.FieldCount() == 0
+        return len(x.TypeAliasDecls) == 0 && len(x.EnumDecls) == 0 && len(x.StructDecls) == 0 && x.GetFieldCount() == 0
     }
     return true
 }
 
-func (x *StructDecl) FieldCount() int {
+func (x *StructDecl) GetFieldCount() int {
     return len(x.GetType().GetFields())
 }
 
-func (x *StructDecl) FieldNames(option FieldNamOption) []string {
+func (x *StructDecl) GetAllFieldNames(option FieldNamOption) []string {
     if x != nil {
-        return x.Type.FieldNames(option)
+        return x.Type.GetAllFieldNames(option)
+    }
+    return nil
+}
+
+func (x *StructDecl) GetInheritFields() []*ValueDecl {
+    if x != nil {
+        return x.Type.GetInheritFields()
+    }
+    return nil
+}
+
+func (x *StructDecl) GetAllFields() []*ValueDecl {
+    if x != nil {
+        return x.Type.GetAllFields()
     }
     return nil
 }

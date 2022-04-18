@@ -213,6 +213,30 @@ func (x *Attribute) GetInteger() (int64, error) {
     return 0, errors.New("")
 }
 
+func (x *Attribute) GetString() (string, error) {
+    if x != nil {
+        if len(x.Arguments) > 0 {
+            return x.Arguments[0].GetString()
+        } else {
+            return x.GetValue().EvalStringLiteral()
+        }
+    }
+    return "", errors.New("")
+}
+
+func (x *Attribute) SetString(value string) *Attribute {
+    if x != nil {
+        if len(x.Arguments) > 0 {
+            x.Arguments[0] = NewStringArgument(value)
+        } else {
+            x.Arguments = append(x.Arguments, NewStringArgument(value))
+        }
+
+        x.Value = x.Arguments[0].GetValue()
+    }
+    return x
+}
+
 func newBoolAttribute(pkg string, name string, implicit bool) *Attribute {
     return &Attribute{
         PackageName: pkg,

@@ -35,6 +35,11 @@ func GetTypePackageName(fullName string) string {
     return fullName
 }
 
+func GetTypeGoPackageName(fullName string) string {
+    name := GetTypePackageName(fullName)
+    return GetGoPackageName(name)
+}
+
 func GetTypeTypeName(fullName string) string {
     if len(fullName) == 0 {
         return ""
@@ -47,6 +52,11 @@ func GetTypeTypeName(fullName string) string {
         }
     }
     return ""
+}
+
+func GetTypeGoTypeName(fullName string) string {
+    name := GetTypeTypeName(fullName)
+    return strings.ReplaceAll(name, ".", "_")
 }
 
 func IsTypeName(name string) bool {

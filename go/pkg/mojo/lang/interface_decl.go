@@ -2,61 +2,61 @@ package lang
 
 import "errors"
 
-func (m *InterfaceDecl) SetStartPosition(position *Position) {
-    if m != nil {
-        m.StartPosition = PatchPosition(m.StartPosition, position)
+func (x *InterfaceDecl) SetStartPosition(position *Position) {
+    if x != nil {
+        x.StartPosition = PatchPosition(x.StartPosition, position)
     }
 }
 
-func (m *InterfaceDecl) SetEndPosition(position *Position) {
-    if m != nil {
-        m.EndPosition = PatchPosition(m.EndPosition, position)
+func (x *InterfaceDecl) SetEndPosition(position *Position) {
+    if x != nil {
+        x.EndPosition = PatchPosition(x.EndPosition, position)
     }
 }
 
-func (m *InterfaceDecl) MergeComment(comment *Comment) (bool, error) {
-    if m != nil {
-        return MergeCommentToTerms(comment, m.GetTerms())
+func (x *InterfaceDecl) MergeComment(comment *Comment) (bool, error) {
+    if x != nil {
+        return MergeCommentToTerms(comment, x.GetTerms())
     }
 
     return false, errors.New("nil InterfaceDecl")
 }
 
-func (m *InterfaceDecl) GetTerms() []interface{} {
-    if m != nil {
+func (x *InterfaceDecl) GetTerms() []interface{} {
+    if x != nil {
         var terms []interface{}
 
-        if m.Document != nil {
-            terms = append(terms, m.Document)
+        if x.Document != nil {
+            terms = append(terms, x.Document)
         }
-        for _, attribute := range m.Attributes {
+        for _, attribute := range x.Attributes {
             terms = append(terms, attribute)
         }
 
         terms = append(terms,
-            NewSymbolTerm(m.KeywordPosition, TermTypeKeyword, KeywordInterface),
-            NewSymbolTerm(m.NamePosition, TermTypeName, m.Name))
+            NewSymbolTerm(x.KeywordPosition, TermTypeKeyword, KeywordInterface),
+            NewSymbolTerm(x.NamePosition, TermTypeName, x.Name))
 
-        for _, parameter := range m.GenericParameters {
+        for _, parameter := range x.GenericParameters {
             terms = append(terms, parameter)
         }
 
-        if m.Type != nil {
-            if len(m.Type.Inherits) > 0 {
-                terms = append(terms, NewSymbolTerm(m.Type.InheritePosition, TermTypeSymbol, ":"))
+        if x.Type != nil {
+            if len(x.Type.Inherits) > 0 {
+                terms = append(terms, NewSymbolTerm(x.Type.InheritePosition, TermTypeSymbol, ":"))
 
-                for _, inherit := range m.Type.Inherits {
+                for _, inherit := range x.Type.Inherits {
                     terms = append(terms, inherit)
                 }
             }
 
-            terms = append(terms, NewSymbolTerm(m.Type.StartPosition, TermTypeStart, ""))
+            terms = append(terms, NewSymbolTerm(x.Type.StartPosition, TermTypeStart, ""))
 
-            for _, method := range m.Type.Methods {
+            for _, method := range x.Type.Methods {
                 terms = append(terms, method)
             }
 
-            terms = append(terms, NewSymbolTerm(m.Type.EndPosition, TermTypeEnd, ""))
+            terms = append(terms, NewSymbolTerm(x.Type.EndPosition, TermTypeEnd, ""))
         }
 
         return terms
@@ -64,40 +64,40 @@ func (m *InterfaceDecl) GetTerms() []interface{} {
     return nil
 }
 
-func (m *InterfaceDecl) GetFullName() string {
-    if m != nil {
-        return GetFullName(m.PackageName, nil, m.Name)
+func (x *InterfaceDecl) GetFullName() string {
+    if x != nil {
+        return GetFullName(x.PackageName, nil, x.Name)
     }
     return ""
 }
 
-func (m *InterfaceDecl) SetScope(scope *Scope) {
-    if m != nil {
-        m.Scope = scope
+func (x *InterfaceDecl) SetScope(scope *Scope) {
+    if x != nil {
+        x.Scope = scope
     }
 }
 
-func (m *InterfaceDecl) GetInheritMethods() []*FunctionDecl {
-    if m != nil && m.Type != nil {
-        return m.Type.GetInheritMethods()
-    }
-    return nil
-}
-
-func (m *InterfaceDecl) GetMethodGroups() map[string][]*FunctionDecl {
-    if m != nil && m.Type != nil {
-        return m.Type.GetMethodGroups()
+func (x *InterfaceDecl) GetInheritMethods() []*FunctionDecl {
+    if x != nil && x.Type != nil {
+        return x.Type.GetInheritMethods()
     }
     return nil
 }
 
-func (m *InterfaceDecl) IsBodyEmpty() bool {
-    if m != nil {
-        return len(m.TypeAliasDecls) == 0 && m.MethodCount() == 0
+func (x *InterfaceDecl) GetMethodGroups() map[string][]*FunctionDecl {
+    if x != nil && x.Type != nil {
+        return x.Type.GetMethodGroups()
+    }
+    return nil
+}
+
+func (x *InterfaceDecl) IsBodyEmpty() bool {
+    if x != nil {
+        return len(x.TypeAliasDecls) == 0 && x.GetMethodCount() == 0
     }
     return true
 }
 
-func (m *InterfaceDecl) MethodCount() int {
-    return len(m.GetType().GetMethods())
+func (x *InterfaceDecl) GetMethodCount() int {
+    return len(x.GetType().GetMethods())
 }

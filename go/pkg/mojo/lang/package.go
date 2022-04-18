@@ -46,8 +46,8 @@ func GetPackageParentNames(fullPkgName string) []string {
     return parents
 }
 
-func GetGoPackageName(fullName string) string {
-    segments := strings.Split(fullName, ".")
+func GetGoPackageName(fullPkgName string) string {
+    segments := strings.Split(fullPkgName, ".")
     if len(segments) > 0 {
         name := segments[len(segments)-1]
         if core.IsVersionTag(name) {
@@ -342,4 +342,16 @@ func (x *Package) DeleteEntityEdge(name string) *Package {
         delete(x.EntityRelationSet.Edges, name)
     }
     return x
+}
+
+func (x *Package) GetGoPackageImport() string {
+    if x != nil {
+        repository := x.Repository
+        if repository != nil {
+            goPackageFullName := PackageNameToPath(x.FullName)
+            return fmt.Sprintf("%s%s/go/pkg/%s", repository.Authority.Host, repository.Path, goPackageFullName)
+        }
+        return ""
+    }
+    return ""
 }

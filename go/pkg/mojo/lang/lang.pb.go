@@ -574,7 +574,7 @@ type Attribute struct {
 	Declaration      *AttributeDecl `protobuf:"bytes,11,opt,name=declaration,proto3" json:"declaration,omitempty"`
 	GenericArguments []*NominalType `protobuf:"bytes,12,rep,name=generic_arguments,json=genericArguments,proto3" json:"genericArguments,omitempty"`
 	Arguments        []*Argument    `protobuf:"bytes,13,rep,name=arguments,proto3" json:"arguments,omitempty"`
-	NamePosition     *Position      `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition     *Position      `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Value            *Expression    `protobuf:"bytes,20,opt,name=value,proto3" json:"value,omitempty"`
 }
 
@@ -699,7 +699,7 @@ type AttributeDecl struct {
 	Group                 *GroupDecl          `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
 	ResolvedIdentifiers   []*Identifier       `protobuf:"bytes,16,rep,name=resolved_identifiers,json=resolvedIdentifiers,proto3" json:"resolvedIdentifiers,omitempty"`
 	UnresolvedIdentifiers []*Identifier       `protobuf:"bytes,17,rep,name=unresolved_identifiers,json=unresolvedIdentifiers,proto3" json:"unresolvedIdentifiers,omitempty"`
-	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	// Types that are assignable to Type:
 	//	*AttributeDecl_NominalType
 	//	*AttributeDecl_StructType
@@ -1308,11 +1308,11 @@ type ClosureExpr struct {
 	Attributes        []*Attribute        `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
 	GenericParameters []*GenericParameter `protobuf:"bytes,13,rep,name=generic_parameters,json=genericParameters,proto3" json:"genericParameters,omitempty"`
 	EnclosingType     *NominalType        `protobuf:"bytes,14,opt,name=enclosing_type,json=enclosingType,proto3" json:"enclosingType,omitempty"`
-	NamePosition      *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition      *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Signature         *FunctionSignature  `protobuf:"bytes,20,opt,name=signature,proto3" json:"signature,omitempty"`
 	Body              *BlockStmt          `protobuf:"bytes,21,opt,name=body,proto3" json:"body,omitempty"`
 	Scope             *Scope              `protobuf:"bytes,30,opt,name=scope,proto3" json:"scope,omitempty"`
-	InterfaceDecl     *InterfaceDecl      `protobuf:"bytes,31,opt,name=interface_decl,json=interfaceDecl,proto3" json:"interfaceDecl,omitempty"`
+	InterfaceDecl     *InterfaceDecl      `protobuf:"bytes,31,opt,name=interface_decl,json=interfaceDecl,proto3" json:"interfaceDecl,omitempty" db:"-" gorm:"-"`
 	Captures          []string            `protobuf:"bytes,40,rep,name=captures,proto3" json:"captures,omitempty"`
 }
 
@@ -1891,7 +1891,7 @@ type ConstantDecl struct {
 	Name            string       `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
 	Attributes      []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
 	Group           *GroupDecl   `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
-	NamePosition    *Position    `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition    *Position    `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Type            *NominalType `protobuf:"bytes,20,opt,name=type,proto3" json:"type,omitempty"`
 	Initializer     *Initializer `protobuf:"bytes,21,opt,name=initializer,proto3" json:"initializer,omitempty"`
 }
@@ -2035,7 +2035,7 @@ type ConstructorDecl struct {
 	FullName          string              `protobuf:"bytes,11,opt,name=full_name,json=fullName,proto3" json:"fullName,omitempty"`
 	Attributes        []*Attribute        `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
 	GenericParameters []*GenericParameter `protobuf:"bytes,13,rep,name=generic_parameters,json=genericParameters,proto3" json:"genericParameters,omitempty"`
-	NamePosition      *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition      *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Signature         *FunctionSignature  `protobuf:"bytes,20,opt,name=signature,proto3" json:"signature,omitempty"`
 	Body              *BlockStmt          `protobuf:"bytes,21,opt,name=body,proto3" json:"body,omitempty"`
 	Scope             *Scope              `protobuf:"bytes,30,opt,name=scope,proto3" json:"scope,omitempty"`
@@ -3268,7 +3268,7 @@ type EnumDecl struct {
 	Group                 *GroupDecl          `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
 	ResolvedIdentifiers   []*Identifier       `protobuf:"bytes,16,rep,name=resolved_identifiers,json=resolvedIdentifiers,proto3" json:"resolvedIdentifiers,omitempty"`
 	UnresolvedIdentifiers []*Identifier       `protobuf:"bytes,17,rep,name=unresolved_identifiers,json=unresolvedIdentifiers,proto3" json:"unresolvedIdentifiers,omitempty"`
-	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Type                  *EnumType           `protobuf:"bytes,20,opt,name=type,proto3" json:"type,omitempty"`
 	Scope                 *Scope              `protobuf:"bytes,30,opt,name=scope,proto3" json:"scope,omitempty"`
 }
@@ -4830,11 +4830,11 @@ type FunctionDecl struct {
 	Attributes        []*Attribute        `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
 	GenericParameters []*GenericParameter `protobuf:"bytes,13,rep,name=generic_parameters,json=genericParameters,proto3" json:"genericParameters,omitempty"`
 	EnclosingType     *NominalType        `protobuf:"bytes,14,opt,name=enclosing_type,json=enclosingType,proto3" json:"enclosingType,omitempty"`
-	NamePosition      *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition      *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Signature         *FunctionSignature  `protobuf:"bytes,20,opt,name=signature,proto3" json:"signature,omitempty"`
 	Body              *BlockStmt          `protobuf:"bytes,21,opt,name=body,proto3" json:"body,omitempty"`
 	Scope             *Scope              `protobuf:"bytes,30,opt,name=scope,proto3" json:"scope,omitempty"`
-	InterfaceDecl     *InterfaceDecl      `protobuf:"bytes,31,opt,name=interface_decl,json=interfaceDecl,proto3" json:"interfaceDecl,omitempty"`
+	InterfaceDecl     *InterfaceDecl      `protobuf:"bytes,31,opt,name=interface_decl,json=interfaceDecl,proto3" json:"interfaceDecl,omitempty" db:"-" gorm:"-"`
 }
 
 func (x *FunctionDecl) Reset() {
@@ -5078,7 +5078,7 @@ type GenericParameter struct {
 	Group                 *GroupDecl          `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
 	ResolvedIdentifiers   []*Identifier       `protobuf:"bytes,16,rep,name=resolved_identifiers,json=resolvedIdentifiers,proto3" json:"resolvedIdentifiers,omitempty"`
 	UnresolvedIdentifiers []*Identifier       `protobuf:"bytes,17,rep,name=unresolved_identifiers,json=unresolvedIdentifiers,proto3" json:"unresolvedIdentifiers,omitempty"`
-	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Constraint            *NominalType        `protobuf:"bytes,20,opt,name=constraint,proto3" json:"constraint,omitempty"`
 }
 
@@ -5991,7 +5991,7 @@ type InterfaceDecl struct {
 	Group                 *GroupDecl          `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
 	ResolvedIdentifiers   []*Identifier       `protobuf:"bytes,16,rep,name=resolved_identifiers,json=resolvedIdentifiers,proto3" json:"resolvedIdentifiers,omitempty"`
 	UnresolvedIdentifiers []*Identifier       `protobuf:"bytes,17,rep,name=unresolved_identifiers,json=unresolvedIdentifiers,proto3" json:"unresolvedIdentifiers,omitempty"`
-	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Type                  *InterfaceType      `protobuf:"bytes,20,opt,name=type,proto3" json:"type,omitempty"`
 	TypeAliasDecls        []*TypeAliasDecl    `protobuf:"bytes,21,rep,name=type_alias_decls,json=typeAliasDecls,proto3" json:"typeAliasDecls,omitempty"`
 	Scope                 *Scope              `protobuf:"bytes,30,opt,name=scope,proto3" json:"scope,omitempty"`
@@ -7319,7 +7319,7 @@ type PackageDecl struct {
 	Name               string             `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
 	PackageLiteralExpr *ObjectLiteralExpr `protobuf:"bytes,15,opt,name=package_literal_expr,json=packageLiteralExpr,proto3" json:"packageLiteralExpr,omitempty"`
 	Package            *Package           `protobuf:"bytes,16,opt,name=package,proto3" json:"package,omitempty"`
-	NamePosition       *Position          `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition       *Position          `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 }
 
 func (x *PackageDecl) Reset() {
@@ -8731,7 +8731,7 @@ type StructDecl struct {
 	Group                 *GroupDecl          `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
 	ResolvedIdentifiers   []*Identifier       `protobuf:"bytes,16,rep,name=resolved_identifiers,json=resolvedIdentifiers,proto3" json:"resolvedIdentifiers,omitempty"`
 	UnresolvedIdentifiers []*Identifier       `protobuf:"bytes,17,rep,name=unresolved_identifiers,json=unresolvedIdentifiers,proto3" json:"unresolvedIdentifiers,omitempty"`
-	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Type                  *StructType         `protobuf:"bytes,20,opt,name=type,proto3" json:"type,omitempty"`
 	TypeAliasDecls        []*TypeAliasDecl    `protobuf:"bytes,21,rep,name=type_alias_decls,json=typeAliasDecls,proto3" json:"typeAliasDecls,omitempty"`
 	EnumDecls             []*EnumDecl         `protobuf:"bytes,22,rep,name=enum_decls,json=enumDecls,proto3" json:"enumDecls,omitempty"`
@@ -9278,7 +9278,7 @@ type TypeAliasDecl struct {
 	Group                 *GroupDecl          `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
 	ResolvedIdentifiers   []*Identifier       `protobuf:"bytes,16,rep,name=resolved_identifiers,json=resolvedIdentifiers,proto3" json:"resolvedIdentifiers,omitempty"`
 	UnresolvedIdentifiers []*Identifier       `protobuf:"bytes,17,rep,name=unresolved_identifiers,json=unresolvedIdentifiers,proto3" json:"unresolvedIdentifiers,omitempty"`
-	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Type                  *NominalType        `protobuf:"bytes,20,opt,name=type,proto3" json:"type,omitempty"`
 	Scope                 *Scope              `protobuf:"bytes,30,opt,name=scope,proto3" json:"scope,omitempty"`
 }
@@ -9524,7 +9524,7 @@ type TypeDecl struct {
 	Group                 *GroupDecl          `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
 	ResolvedIdentifiers   []*Identifier       `protobuf:"bytes,16,rep,name=resolved_identifiers,json=resolvedIdentifiers,proto3" json:"resolvedIdentifiers,omitempty"`
 	UnresolvedIdentifiers []*Identifier       `protobuf:"bytes,17,rep,name=unresolved_identifiers,json=unresolvedIdentifiers,proto3" json:"unresolvedIdentifiers,omitempty"`
-	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition          *Position           `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 }
 
 func (x *TypeDecl) Reset() {
@@ -9896,7 +9896,7 @@ type ValueDecl struct {
 	Name            string       `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
 	Attributes      []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
 	Group           *GroupDecl   `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
-	NamePosition    *Position    `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition    *Position    `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Type            *NominalType `protobuf:"bytes,20,opt,name=type,proto3" json:"type,omitempty"`
 	Initializer     *Initializer `protobuf:"bytes,21,opt,name=initializer,proto3" json:"initializer,omitempty"`
 }
@@ -10221,7 +10221,7 @@ type VariableDecl struct {
 	Name            string       `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
 	Attributes      []*Attribute `protobuf:"bytes,12,rep,name=attributes,proto3" json:"attributes,omitempty"`
 	Group           *GroupDecl   `protobuf:"bytes,15,opt,name=group,proto3" json:"group,omitempty"`
-	NamePosition    *Position    `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty"`
+	NamePosition    *Position    `protobuf:"bytes,19,opt,name=name_position,json=namePosition,proto3" json:"namePosition,omitempty" db:"-" gorm:"-"`
 	Type            *NominalType `protobuf:"bytes,20,opt,name=type,proto3" json:"type,omitempty"`
 	Initializer     *Initializer `protobuf:"bytes,21,opt,name=initializer,proto3" json:"initializer,omitempty"`
 }
