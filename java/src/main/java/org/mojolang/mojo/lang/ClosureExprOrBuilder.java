@@ -185,17 +185,17 @@ public interface ClosureExprOrBuilder extends
   org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingTypeOrBuilder();
 
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return Whether the namePosition field is set.
    */
   boolean hasNamePosition();
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return The namePosition.
    */
   org.mojolang.mojo.lang.Position getNamePosition();
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    */
   org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
 
@@ -245,17 +245,17 @@ public interface ClosureExprOrBuilder extends
   org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder();
 
   /**
-   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
    * @return Whether the interfaceDecl field is set.
    */
   boolean hasInterfaceDecl();
   /**
-   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
    * @return The interfaceDecl.
    */
   org.mojolang.mojo.lang.InterfaceDecl getInterfaceDecl();
   /**
-   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
    */
   org.mojolang.mojo.lang.InterfaceDeclOrBuilder getInterfaceDeclOrBuilder();
 

@@ -91,17 +91,17 @@ public interface IdentifierOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.mojo.lang.Declaration declaration = 11;</code>
+   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
    * @return Whether the declaration field is set.
    */
   boolean hasDeclaration();
   /**
-   * <code>.mojo.lang.Declaration declaration = 11;</code>
+   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
    * @return The declaration.
    */
   org.mojolang.mojo.lang.Declaration getDeclaration();
   /**
-   * <code>.mojo.lang.Declaration declaration = 11;</code>
+   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
    */
   org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder();
 

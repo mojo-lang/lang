@@ -577,7 +577,7 @@ private static final long serialVersionUID = 0L;
   public static final int DECLARATION_FIELD_NUMBER = 11;
   private org.mojolang.mojo.lang.Declaration declaration_;
   /**
-   * <code>.mojo.lang.Declaration declaration = 11;</code>
+   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
    * @return Whether the declaration field is set.
    */
   @java.lang.Override
@@ -585,7 +585,7 @@ private static final long serialVersionUID = 0L;
     return declaration_ != null;
   }
   /**
-   * <code>.mojo.lang.Declaration declaration = 11;</code>
+   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
    * @return The declaration.
    */
   @java.lang.Override
@@ -593,7 +593,7 @@ private static final long serialVersionUID = 0L;
     return declaration_ == null ? org.mojolang.mojo.lang.Declaration.getDefaultInstance() : declaration_;
   }
   /**
-   * <code>.mojo.lang.Declaration declaration = 11;</code>
+   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder() {
@@ -1796,14 +1796,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder> declarationBuilder_;
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      * @return Whether the declaration field is set.
      */
     public boolean hasDeclaration() {
       return declarationBuilder_ != null || declaration_ != null;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      * @return The declaration.
      */
     public org.mojolang.mojo.lang.Declaration getDeclaration() {
@@ -1814,7 +1814,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder setDeclaration(org.mojolang.mojo.lang.Declaration value) {
       if (declarationBuilder_ == null) {
@@ -1830,7 +1830,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder setDeclaration(
         org.mojolang.mojo.lang.Declaration.Builder builderForValue) {
@@ -1844,7 +1844,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder mergeDeclaration(org.mojolang.mojo.lang.Declaration value) {
       if (declarationBuilder_ == null) {
@@ -1862,7 +1862,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder clearDeclaration() {
       if (declarationBuilder_ == null) {
@@ -1876,7 +1876,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.Declaration.Builder getDeclarationBuilder() {
       
@@ -1884,7 +1884,7 @@ private static final long serialVersionUID = 0L;
       return getDeclarationFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder() {
       if (declarationBuilder_ != null) {
@@ -1895,7 +1895,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11;</code>
+     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder> 

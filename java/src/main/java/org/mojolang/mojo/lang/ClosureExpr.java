@@ -659,7 +659,7 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_POSITION_FIELD_NUMBER = 19;
   private org.mojolang.mojo.lang.Position namePosition_;
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return Whether the namePosition field is set.
    */
   @java.lang.Override
@@ -667,7 +667,7 @@ private static final long serialVersionUID = 0L;
     return namePosition_ != null;
   }
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return The namePosition.
    */
   @java.lang.Override
@@ -675,7 +675,7 @@ private static final long serialVersionUID = 0L;
     return namePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
   }
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
@@ -763,7 +763,7 @@ private static final long serialVersionUID = 0L;
   public static final int INTERFACE_DECL_FIELD_NUMBER = 31;
   private org.mojolang.mojo.lang.InterfaceDecl interfaceDecl_;
   /**
-   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
    * @return Whether the interfaceDecl field is set.
    */
   @java.lang.Override
@@ -771,7 +771,7 @@ private static final long serialVersionUID = 0L;
     return interfaceDecl_ != null;
   }
   /**
-   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
    * @return The interfaceDecl.
    */
   @java.lang.Override
@@ -779,7 +779,7 @@ private static final long serialVersionUID = 0L;
     return interfaceDecl_ == null ? org.mojolang.mojo.lang.InterfaceDecl.getDefaultInstance() : interfaceDecl_;
   }
   /**
-   * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+   * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.InterfaceDeclOrBuilder getInterfaceDeclOrBuilder() {
@@ -3052,14 +3052,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> namePositionBuilder_;
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      * @return Whether the namePosition field is set.
      */
     public boolean hasNamePosition() {
       return namePositionBuilder_ != null || namePosition_ != null;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      * @return The namePosition.
      */
     public org.mojolang.mojo.lang.Position getNamePosition() {
@@ -3070,7 +3070,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder setNamePosition(org.mojolang.mojo.lang.Position value) {
       if (namePositionBuilder_ == null) {
@@ -3086,7 +3086,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder setNamePosition(
         org.mojolang.mojo.lang.Position.Builder builderForValue) {
@@ -3100,7 +3100,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder mergeNamePosition(org.mojolang.mojo.lang.Position value) {
       if (namePositionBuilder_ == null) {
@@ -3118,7 +3118,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder clearNamePosition() {
       if (namePositionBuilder_ == null) {
@@ -3132,7 +3132,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public org.mojolang.mojo.lang.Position.Builder getNamePositionBuilder() {
       
@@ -3140,7 +3140,7 @@ private static final long serialVersionUID = 0L;
       return getNamePositionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
       if (namePositionBuilder_ != null) {
@@ -3151,7 +3151,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 
@@ -3528,14 +3528,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.InterfaceDecl, org.mojolang.mojo.lang.InterfaceDecl.Builder, org.mojolang.mojo.lang.InterfaceDeclOrBuilder> interfaceDeclBuilder_;
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      * @return Whether the interfaceDecl field is set.
      */
     public boolean hasInterfaceDecl() {
       return interfaceDeclBuilder_ != null || interfaceDecl_ != null;
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      * @return The interfaceDecl.
      */
     public org.mojolang.mojo.lang.InterfaceDecl getInterfaceDecl() {
@@ -3546,7 +3546,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      */
     public Builder setInterfaceDecl(org.mojolang.mojo.lang.InterfaceDecl value) {
       if (interfaceDeclBuilder_ == null) {
@@ -3562,7 +3562,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      */
     public Builder setInterfaceDecl(
         org.mojolang.mojo.lang.InterfaceDecl.Builder builderForValue) {
@@ -3576,7 +3576,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      */
     public Builder mergeInterfaceDecl(org.mojolang.mojo.lang.InterfaceDecl value) {
       if (interfaceDeclBuilder_ == null) {
@@ -3594,7 +3594,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      */
     public Builder clearInterfaceDecl() {
       if (interfaceDeclBuilder_ == null) {
@@ -3608,7 +3608,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      */
     public org.mojolang.mojo.lang.InterfaceDecl.Builder getInterfaceDeclBuilder() {
       
@@ -3616,7 +3616,7 @@ private static final long serialVersionUID = 0L;
       return getInterfaceDeclFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      */
     public org.mojolang.mojo.lang.InterfaceDeclOrBuilder getInterfaceDeclOrBuilder() {
       if (interfaceDeclBuilder_ != null) {
@@ -3627,7 +3627,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.InterfaceDecl interface_decl = 31;</code>
+     * <code>.mojo.lang.InterfaceDecl interface_decl = 31 [(.mojo.db_ignore) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.InterfaceDecl, org.mojolang.mojo.lang.InterfaceDecl.Builder, org.mojolang.mojo.lang.InterfaceDeclOrBuilder> 

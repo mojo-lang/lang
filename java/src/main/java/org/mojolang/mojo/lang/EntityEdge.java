@@ -248,7 +248,7 @@ private static final long serialVersionUID = 0L;
   public static final int FROM_FIELD_NUMBER = 7;
   private org.mojolang.mojo.lang.EntityNode from_;
   /**
-   * <code>.mojo.lang.EntityNode from = 7;</code>
+   * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
    * @return Whether the from field is set.
    */
   @java.lang.Override
@@ -256,7 +256,7 @@ private static final long serialVersionUID = 0L;
     return from_ != null;
   }
   /**
-   * <code>.mojo.lang.EntityNode from = 7;</code>
+   * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
    * @return The from.
    */
   @java.lang.Override
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
     return from_ == null ? org.mojolang.mojo.lang.EntityNode.getDefaultInstance() : from_;
   }
   /**
-   * <code>.mojo.lang.EntityNode from = 7;</code>
+   * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityNodeOrBuilder getFromOrBuilder() {
@@ -274,7 +274,7 @@ private static final long serialVersionUID = 0L;
   public static final int TO_FIELD_NUMBER = 8;
   private org.mojolang.mojo.lang.EntityNode to_;
   /**
-   * <code>.mojo.lang.EntityNode to = 8;</code>
+   * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
    * @return Whether the to field is set.
    */
   @java.lang.Override
@@ -282,7 +282,7 @@ private static final long serialVersionUID = 0L;
     return to_ != null;
   }
   /**
-   * <code>.mojo.lang.EntityNode to = 8;</code>
+   * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
    * @return The to.
    */
   @java.lang.Override
@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
     return to_ == null ? org.mojolang.mojo.lang.EntityNode.getDefaultInstance() : to_;
   }
   /**
-   * <code>.mojo.lang.EntityNode to = 8;</code>
+   * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityNodeOrBuilder getToOrBuilder() {
@@ -1053,14 +1053,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> fromBuilder_;
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      * @return Whether the from field is set.
      */
     public boolean hasFrom() {
       return fromBuilder_ != null || from_ != null;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      * @return The from.
      */
     public org.mojolang.mojo.lang.EntityNode getFrom() {
@@ -1071,7 +1071,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      */
     public Builder setFrom(org.mojolang.mojo.lang.EntityNode value) {
       if (fromBuilder_ == null) {
@@ -1087,7 +1087,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      */
     public Builder setFrom(
         org.mojolang.mojo.lang.EntityNode.Builder builderForValue) {
@@ -1101,7 +1101,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      */
     public Builder mergeFrom(org.mojolang.mojo.lang.EntityNode value) {
       if (fromBuilder_ == null) {
@@ -1119,7 +1119,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      */
     public Builder clearFrom() {
       if (fromBuilder_ == null) {
@@ -1133,7 +1133,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNode.Builder getFromBuilder() {
       
@@ -1141,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       return getFromFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNodeOrBuilder getFromOrBuilder() {
       if (fromBuilder_ != null) {
@@ -1152,7 +1152,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 7;</code>
+     * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> 
@@ -1172,14 +1172,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> toBuilder_;
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      * @return Whether the to field is set.
      */
     public boolean hasTo() {
       return toBuilder_ != null || to_ != null;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      * @return The to.
      */
     public org.mojolang.mojo.lang.EntityNode getTo() {
@@ -1190,7 +1190,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      */
     public Builder setTo(org.mojolang.mojo.lang.EntityNode value) {
       if (toBuilder_ == null) {
@@ -1206,7 +1206,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      */
     public Builder setTo(
         org.mojolang.mojo.lang.EntityNode.Builder builderForValue) {
@@ -1220,7 +1220,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      */
     public Builder mergeTo(org.mojolang.mojo.lang.EntityNode value) {
       if (toBuilder_ == null) {
@@ -1238,7 +1238,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      */
     public Builder clearTo() {
       if (toBuilder_ == null) {
@@ -1252,7 +1252,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNode.Builder getToBuilder() {
       
@@ -1260,7 +1260,7 @@ private static final long serialVersionUID = 0L;
       return getToFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNodeOrBuilder getToOrBuilder() {
       if (toBuilder_ != null) {
@@ -1271,7 +1271,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 8;</code>
+     * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> 

@@ -83,17 +83,17 @@ public interface NominalTypeOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
    * @return Whether the typeDeclaration field is set.
    */
   boolean hasTypeDeclaration();
   /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
    * @return The typeDeclaration.
    */
   org.mojolang.mojo.lang.TypeDeclaration getTypeDeclaration();
   /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
    */
   org.mojolang.mojo.lang.TypeDeclarationOrBuilder getTypeDeclarationOrBuilder();
 

@@ -137,7 +137,7 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 1;</code>
+   * <code>string name = 1 [(.mojo.key) = ""];</code>
    * @return The name.
    */
   @java.lang.Override
@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 1;</code>
+   * <code>string name = 1 [(.mojo.key) = ""];</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -194,7 +194,7 @@ private static final long serialVersionUID = 0L;
   public static final int FROM_FIELD_NUMBER = 5;
   private org.mojolang.mojo.lang.EntityNode from_;
   /**
-   * <code>.mojo.lang.EntityNode from = 5;</code>
+   * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
    * @return Whether the from field is set.
    */
   @java.lang.Override
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
     return from_ != null;
   }
   /**
-   * <code>.mojo.lang.EntityNode from = 5;</code>
+   * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
    * @return The from.
    */
   @java.lang.Override
@@ -210,7 +210,7 @@ private static final long serialVersionUID = 0L;
     return from_ == null ? org.mojolang.mojo.lang.EntityNode.getDefaultInstance() : from_;
   }
   /**
-   * <code>.mojo.lang.EntityNode from = 5;</code>
+   * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityNodeOrBuilder getFromOrBuilder() {
@@ -220,7 +220,7 @@ private static final long serialVersionUID = 0L;
   public static final int TO_FIELD_NUMBER = 6;
   private org.mojolang.mojo.lang.EntityNode to_;
   /**
-   * <code>.mojo.lang.EntityNode to = 6;</code>
+   * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
    * @return Whether the to field is set.
    */
   @java.lang.Override
@@ -228,7 +228,7 @@ private static final long serialVersionUID = 0L;
     return to_ != null;
   }
   /**
-   * <code>.mojo.lang.EntityNode to = 6;</code>
+   * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
    * @return The to.
    */
   @java.lang.Override
@@ -236,7 +236,7 @@ private static final long serialVersionUID = 0L;
     return to_ == null ? org.mojolang.mojo.lang.EntityNode.getDefaultInstance() : to_;
   }
   /**
-   * <code>.mojo.lang.EntityNode to = 6;</code>
+   * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityNodeOrBuilder getToOrBuilder() {
@@ -246,14 +246,14 @@ private static final long serialVersionUID = 0L;
   public static final int EDGES_FIELD_NUMBER = 10;
   private java.util.List<org.mojolang.mojo.lang.EntityEdge> edges_;
   /**
-   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+   * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.EntityEdge> getEdgesList() {
     return edges_;
   }
   /**
-   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+   * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.EntityEdgeOrBuilder> 
@@ -261,21 +261,21 @@ private static final long serialVersionUID = 0L;
     return edges_;
   }
   /**
-   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+   * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public int getEdgesCount() {
     return edges_.size();
   }
   /**
-   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+   * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityEdge getEdges(int index) {
     return edges_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+   * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.EntityEdgeOrBuilder getEdgesOrBuilder(
@@ -720,7 +720,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.mojo.key) = ""];</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -736,7 +736,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.mojo.key) = ""];</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.mojo.key) = ""];</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -768,7 +768,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.mojo.key) = ""];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -778,7 +778,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>string name = 1 [(.mojo.key) = ""];</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -852,14 +852,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> fromBuilder_;
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      * @return Whether the from field is set.
      */
     public boolean hasFrom() {
       return fromBuilder_ != null || from_ != null;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      * @return The from.
      */
     public org.mojolang.mojo.lang.EntityNode getFrom() {
@@ -870,7 +870,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      */
     public Builder setFrom(org.mojolang.mojo.lang.EntityNode value) {
       if (fromBuilder_ == null) {
@@ -886,7 +886,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      */
     public Builder setFrom(
         org.mojolang.mojo.lang.EntityNode.Builder builderForValue) {
@@ -900,7 +900,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      */
     public Builder mergeFrom(org.mojolang.mojo.lang.EntityNode value) {
       if (fromBuilder_ == null) {
@@ -918,7 +918,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      */
     public Builder clearFrom() {
       if (fromBuilder_ == null) {
@@ -932,7 +932,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNode.Builder getFromBuilder() {
       
@@ -940,7 +940,7 @@ private static final long serialVersionUID = 0L;
       return getFromFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNodeOrBuilder getFromOrBuilder() {
       if (fromBuilder_ != null) {
@@ -951,7 +951,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode from = 5;</code>
+     * <code>.mojo.lang.EntityNode from = 5 [(.mojo.reference) = ""];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> 
@@ -971,14 +971,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> toBuilder_;
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      * @return Whether the to field is set.
      */
     public boolean hasTo() {
       return toBuilder_ != null || to_ != null;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      * @return The to.
      */
     public org.mojolang.mojo.lang.EntityNode getTo() {
@@ -989,7 +989,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      */
     public Builder setTo(org.mojolang.mojo.lang.EntityNode value) {
       if (toBuilder_ == null) {
@@ -1005,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      */
     public Builder setTo(
         org.mojolang.mojo.lang.EntityNode.Builder builderForValue) {
@@ -1019,7 +1019,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      */
     public Builder mergeTo(org.mojolang.mojo.lang.EntityNode value) {
       if (toBuilder_ == null) {
@@ -1037,7 +1037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      */
     public Builder clearTo() {
       if (toBuilder_ == null) {
@@ -1051,7 +1051,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNode.Builder getToBuilder() {
       
@@ -1059,7 +1059,7 @@ private static final long serialVersionUID = 0L;
       return getToFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityNodeOrBuilder getToOrBuilder() {
       if (toBuilder_ != null) {
@@ -1070,7 +1070,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.EntityNode to = 6;</code>
+     * <code>.mojo.lang.EntityNode to = 6 [(.mojo.reference) = ""];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.EntityNode, org.mojolang.mojo.lang.EntityNode.Builder, org.mojolang.mojo.lang.EntityNodeOrBuilder> 
@@ -1099,7 +1099,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.EntityEdge, org.mojolang.mojo.lang.EntityEdge.Builder, org.mojolang.mojo.lang.EntityEdgeOrBuilder> edgesBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public java.util.List<org.mojolang.mojo.lang.EntityEdge> getEdgesList() {
       if (edgesBuilder_ == null) {
@@ -1109,7 +1109,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public int getEdgesCount() {
       if (edgesBuilder_ == null) {
@@ -1119,7 +1119,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityEdge getEdges(int index) {
       if (edgesBuilder_ == null) {
@@ -1129,7 +1129,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder setEdges(
         int index, org.mojolang.mojo.lang.EntityEdge value) {
@@ -1146,7 +1146,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder setEdges(
         int index, org.mojolang.mojo.lang.EntityEdge.Builder builderForValue) {
@@ -1160,7 +1160,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder addEdges(org.mojolang.mojo.lang.EntityEdge value) {
       if (edgesBuilder_ == null) {
@@ -1176,7 +1176,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder addEdges(
         int index, org.mojolang.mojo.lang.EntityEdge value) {
@@ -1193,7 +1193,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder addEdges(
         org.mojolang.mojo.lang.EntityEdge.Builder builderForValue) {
@@ -1207,7 +1207,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder addEdges(
         int index, org.mojolang.mojo.lang.EntityEdge.Builder builderForValue) {
@@ -1221,7 +1221,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder addAllEdges(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.EntityEdge> values) {
@@ -1236,7 +1236,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder clearEdges() {
       if (edgesBuilder_ == null) {
@@ -1249,7 +1249,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public Builder removeEdges(int index) {
       if (edgesBuilder_ == null) {
@@ -1262,14 +1262,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityEdge.Builder getEdgesBuilder(
         int index) {
       return getEdgesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityEdgeOrBuilder getEdgesOrBuilder(
         int index) {
@@ -1279,7 +1279,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.EntityEdgeOrBuilder> 
          getEdgesOrBuilderList() {
@@ -1290,14 +1290,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityEdge.Builder addEdgesBuilder() {
       return getEdgesFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.EntityEdge.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.EntityEdge.Builder addEdgesBuilder(
         int index) {
@@ -1305,7 +1305,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.EntityEdge.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.EntityEdge edges = 10;</code>
+     * <code>repeated .mojo.lang.EntityEdge edges = 10 [(.mojo.reference) = ""];</code>
      */
     public java.util.List<org.mojolang.mojo.lang.EntityEdge.Builder> 
          getEdgesBuilderList() {

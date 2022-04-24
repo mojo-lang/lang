@@ -359,7 +359,7 @@ private static final long serialVersionUID = 0L;
   public static final int TYPE_DECLARATION_FIELD_NUMBER = 11;
   private org.mojolang.mojo.lang.TypeDeclaration typeDeclaration_;
   /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
    * @return Whether the typeDeclaration field is set.
    */
   @java.lang.Override
@@ -367,7 +367,7 @@ private static final long serialVersionUID = 0L;
     return typeDeclaration_ != null;
   }
   /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
    * @return The typeDeclaration.
    */
   @java.lang.Override
@@ -375,7 +375,7 @@ private static final long serialVersionUID = 0L;
     return typeDeclaration_ == null ? org.mojolang.mojo.lang.TypeDeclaration.getDefaultInstance() : typeDeclaration_;
   }
   /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.TypeDeclarationOrBuilder getTypeDeclarationOrBuilder() {
@@ -1631,14 +1631,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.TypeDeclaration, org.mojolang.mojo.lang.TypeDeclaration.Builder, org.mojolang.mojo.lang.TypeDeclarationOrBuilder> typeDeclarationBuilder_;
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      * @return Whether the typeDeclaration field is set.
      */
     public boolean hasTypeDeclaration() {
       return typeDeclarationBuilder_ != null || typeDeclaration_ != null;
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      * @return The typeDeclaration.
      */
     public org.mojolang.mojo.lang.TypeDeclaration getTypeDeclaration() {
@@ -1649,7 +1649,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder setTypeDeclaration(org.mojolang.mojo.lang.TypeDeclaration value) {
       if (typeDeclarationBuilder_ == null) {
@@ -1665,7 +1665,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder setTypeDeclaration(
         org.mojolang.mojo.lang.TypeDeclaration.Builder builderForValue) {
@@ -1679,7 +1679,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder mergeTypeDeclaration(org.mojolang.mojo.lang.TypeDeclaration value) {
       if (typeDeclarationBuilder_ == null) {
@@ -1697,7 +1697,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public Builder clearTypeDeclaration() {
       if (typeDeclarationBuilder_ == null) {
@@ -1711,7 +1711,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.TypeDeclaration.Builder getTypeDeclarationBuilder() {
       
@@ -1719,7 +1719,7 @@ private static final long serialVersionUID = 0L;
       return getTypeDeclarationFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      */
     public org.mojolang.mojo.lang.TypeDeclarationOrBuilder getTypeDeclarationOrBuilder() {
       if (typeDeclarationBuilder_ != null) {
@@ -1730,7 +1730,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.TypeDeclaration type_declaration = 11;</code>
+     * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.TypeDeclaration, org.mojolang.mojo.lang.TypeDeclaration.Builder, org.mojolang.mojo.lang.TypeDeclarationOrBuilder> 

@@ -38,32 +38,32 @@ public interface EntityEdgeOrBuilder extends
   boolean getImplicit();
 
   /**
-   * <code>.mojo.lang.EntityNode from = 7;</code>
+   * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
    * @return Whether the from field is set.
    */
   boolean hasFrom();
   /**
-   * <code>.mojo.lang.EntityNode from = 7;</code>
+   * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
    * @return The from.
    */
   org.mojolang.mojo.lang.EntityNode getFrom();
   /**
-   * <code>.mojo.lang.EntityNode from = 7;</code>
+   * <code>.mojo.lang.EntityNode from = 7 [(.mojo.reference) = ""];</code>
    */
   org.mojolang.mojo.lang.EntityNodeOrBuilder getFromOrBuilder();
 
   /**
-   * <code>.mojo.lang.EntityNode to = 8;</code>
+   * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
    * @return Whether the to field is set.
    */
   boolean hasTo();
   /**
-   * <code>.mojo.lang.EntityNode to = 8;</code>
+   * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
    * @return The to.
    */
   org.mojolang.mojo.lang.EntityNode getTo();
   /**
-   * <code>.mojo.lang.EntityNode to = 8;</code>
+   * <code>.mojo.lang.EntityNode to = 8 [(.mojo.reference) = ""];</code>
    */
   org.mojolang.mojo.lang.EntityNodeOrBuilder getToOrBuilder();
 

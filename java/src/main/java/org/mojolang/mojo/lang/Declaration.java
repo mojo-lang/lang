@@ -175,8 +175,22 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 106: {
-            org.mojolang.mojo.lang.FunctionDecl.Builder subBuilder = null;
+            org.mojolang.mojo.lang.AttributeAliasDecl.Builder subBuilder = null;
             if (declarationCase_ == 13) {
+              subBuilder = ((org.mojolang.mojo.lang.AttributeAliasDecl) declaration_).toBuilder();
+            }
+            declaration_ =
+                input.readMessage(org.mojolang.mojo.lang.AttributeAliasDecl.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.AttributeAliasDecl) declaration_);
+              declaration_ = subBuilder.buildPartial();
+            }
+            declarationCase_ = 13;
+            break;
+          }
+          case 114: {
+            org.mojolang.mojo.lang.FunctionDecl.Builder subBuilder = null;
+            if (declarationCase_ == 14) {
               subBuilder = ((org.mojolang.mojo.lang.FunctionDecl) declaration_).toBuilder();
             }
             declaration_ =
@@ -185,12 +199,12 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom((org.mojolang.mojo.lang.FunctionDecl) declaration_);
               declaration_ = subBuilder.buildPartial();
             }
-            declarationCase_ = 13;
+            declarationCase_ = 14;
             break;
           }
-          case 114: {
+          case 122: {
             org.mojolang.mojo.lang.ConstructorDecl.Builder subBuilder = null;
-            if (declarationCase_ == 14) {
+            if (declarationCase_ == 15) {
               subBuilder = ((org.mojolang.mojo.lang.ConstructorDecl) declaration_).toBuilder();
             }
             declaration_ =
@@ -199,7 +213,7 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom((org.mojolang.mojo.lang.ConstructorDecl) declaration_);
               declaration_ = subBuilder.buildPartial();
             }
-            declarationCase_ = 14;
+            declarationCase_ = 15;
             break;
           }
           case 154: {
@@ -276,8 +290,9 @@ private static final long serialVersionUID = 0L;
     CONSTANT_DECL(10),
     VARIABLE_DECL(11),
     ATTRIBUTE_DECL(12),
-    FUNCTION_DECL(13),
-    CONSTRUCTOR_DECL(14),
+    ATTRIBUTE_ALIAS_DECL(13),
+    FUNCTION_DECL(14),
+    CONSTRUCTOR_DECL(15),
     GENERIC_PARAMETER(19),
     GROUP_DECL(20),
     DECLARATION_NOT_SET(0);
@@ -306,8 +321,9 @@ private static final long serialVersionUID = 0L;
         case 10: return CONSTANT_DECL;
         case 11: return VARIABLE_DECL;
         case 12: return ATTRIBUTE_DECL;
-        case 13: return FUNCTION_DECL;
-        case 14: return CONSTRUCTOR_DECL;
+        case 13: return ATTRIBUTE_ALIAS_DECL;
+        case 14: return FUNCTION_DECL;
+        case 15: return CONSTRUCTOR_DECL;
         case 19: return GENERIC_PARAMETER;
         case 20: return GROUP_DECL;
         case 0: return DECLARATION_NOT_SET;
@@ -604,63 +620,94 @@ private static final long serialVersionUID = 0L;
     return org.mojolang.mojo.lang.AttributeDecl.getDefaultInstance();
   }
 
-  public static final int FUNCTION_DECL_FIELD_NUMBER = 13;
+  public static final int ATTRIBUTE_ALIAS_DECL_FIELD_NUMBER = 13;
   /**
-   * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+   * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+   * @return Whether the attributeAliasDecl field is set.
+   */
+  @java.lang.Override
+  public boolean hasAttributeAliasDecl() {
+    return declarationCase_ == 13;
+  }
+  /**
+   * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+   * @return The attributeAliasDecl.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.AttributeAliasDecl getAttributeAliasDecl() {
+    if (declarationCase_ == 13) {
+       return (org.mojolang.mojo.lang.AttributeAliasDecl) declaration_;
+    }
+    return org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.AttributeAliasDeclOrBuilder getAttributeAliasDeclOrBuilder() {
+    if (declarationCase_ == 13) {
+       return (org.mojolang.mojo.lang.AttributeAliasDecl) declaration_;
+    }
+    return org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance();
+  }
+
+  public static final int FUNCTION_DECL_FIELD_NUMBER = 14;
+  /**
+   * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
    * @return Whether the functionDecl field is set.
    */
   @java.lang.Override
   public boolean hasFunctionDecl() {
-    return declarationCase_ == 13;
+    return declarationCase_ == 14;
   }
   /**
-   * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+   * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
    * @return The functionDecl.
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.FunctionDecl getFunctionDecl() {
-    if (declarationCase_ == 13) {
+    if (declarationCase_ == 14) {
        return (org.mojolang.mojo.lang.FunctionDecl) declaration_;
     }
     return org.mojolang.mojo.lang.FunctionDecl.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+   * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.FunctionDeclOrBuilder getFunctionDeclOrBuilder() {
-    if (declarationCase_ == 13) {
+    if (declarationCase_ == 14) {
        return (org.mojolang.mojo.lang.FunctionDecl) declaration_;
     }
     return org.mojolang.mojo.lang.FunctionDecl.getDefaultInstance();
   }
 
-  public static final int CONSTRUCTOR_DECL_FIELD_NUMBER = 14;
+  public static final int CONSTRUCTOR_DECL_FIELD_NUMBER = 15;
   /**
-   * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+   * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
    * @return Whether the constructorDecl field is set.
    */
   @java.lang.Override
   public boolean hasConstructorDecl() {
-    return declarationCase_ == 14;
+    return declarationCase_ == 15;
   }
   /**
-   * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+   * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
    * @return The constructorDecl.
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ConstructorDecl getConstructorDecl() {
-    if (declarationCase_ == 14) {
+    if (declarationCase_ == 15) {
        return (org.mojolang.mojo.lang.ConstructorDecl) declaration_;
     }
     return org.mojolang.mojo.lang.ConstructorDecl.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+   * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ConstructorDeclOrBuilder getConstructorDeclOrBuilder() {
-    if (declarationCase_ == 14) {
+    if (declarationCase_ == 15) {
        return (org.mojolang.mojo.lang.ConstructorDecl) declaration_;
     }
     return org.mojolang.mojo.lang.ConstructorDecl.getDefaultInstance();
@@ -770,10 +817,13 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(12, (org.mojolang.mojo.lang.AttributeDecl) declaration_);
     }
     if (declarationCase_ == 13) {
-      output.writeMessage(13, (org.mojolang.mojo.lang.FunctionDecl) declaration_);
+      output.writeMessage(13, (org.mojolang.mojo.lang.AttributeAliasDecl) declaration_);
     }
     if (declarationCase_ == 14) {
-      output.writeMessage(14, (org.mojolang.mojo.lang.ConstructorDecl) declaration_);
+      output.writeMessage(14, (org.mojolang.mojo.lang.FunctionDecl) declaration_);
+    }
+    if (declarationCase_ == 15) {
+      output.writeMessage(15, (org.mojolang.mojo.lang.ConstructorDecl) declaration_);
     }
     if (declarationCase_ == 19) {
       output.writeMessage(19, (org.mojolang.mojo.lang.GenericParameter) declaration_);
@@ -828,11 +878,15 @@ private static final long serialVersionUID = 0L;
     }
     if (declarationCase_ == 13) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(13, (org.mojolang.mojo.lang.FunctionDecl) declaration_);
+        .computeMessageSize(13, (org.mojolang.mojo.lang.AttributeAliasDecl) declaration_);
     }
     if (declarationCase_ == 14) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(14, (org.mojolang.mojo.lang.ConstructorDecl) declaration_);
+        .computeMessageSize(14, (org.mojolang.mojo.lang.FunctionDecl) declaration_);
+    }
+    if (declarationCase_ == 15) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, (org.mojolang.mojo.lang.ConstructorDecl) declaration_);
     }
     if (declarationCase_ == 19) {
       size += com.google.protobuf.CodedOutputStream
@@ -896,10 +950,14 @@ private static final long serialVersionUID = 0L;
             .equals(other.getAttributeDecl())) return false;
         break;
       case 13:
+        if (!getAttributeAliasDecl()
+            .equals(other.getAttributeAliasDecl())) return false;
+        break;
+      case 14:
         if (!getFunctionDecl()
             .equals(other.getFunctionDecl())) return false;
         break;
-      case 14:
+      case 15:
         if (!getConstructorDecl()
             .equals(other.getConstructorDecl())) return false;
         break;
@@ -963,10 +1021,14 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getAttributeDecl().hashCode();
         break;
       case 13:
+        hash = (37 * hash) + ATTRIBUTE_ALIAS_DECL_FIELD_NUMBER;
+        hash = (53 * hash) + getAttributeAliasDecl().hashCode();
+        break;
+      case 14:
         hash = (37 * hash) + FUNCTION_DECL_FIELD_NUMBER;
         hash = (53 * hash) + getFunctionDecl().hashCode();
         break;
-      case 14:
+      case 15:
         hash = (37 * hash) + CONSTRUCTOR_DECL_FIELD_NUMBER;
         hash = (53 * hash) + getConstructorDecl().hashCode();
         break;
@@ -1206,13 +1268,20 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (declarationCase_ == 13) {
+        if (attributeAliasDeclBuilder_ == null) {
+          result.declaration_ = declaration_;
+        } else {
+          result.declaration_ = attributeAliasDeclBuilder_.build();
+        }
+      }
+      if (declarationCase_ == 14) {
         if (functionDeclBuilder_ == null) {
           result.declaration_ = declaration_;
         } else {
           result.declaration_ = functionDeclBuilder_.build();
         }
       }
-      if (declarationCase_ == 14) {
+      if (declarationCase_ == 15) {
         if (constructorDeclBuilder_ == null) {
           result.declaration_ = declaration_;
         } else {
@@ -1317,6 +1386,10 @@ private static final long serialVersionUID = 0L;
         }
         case ATTRIBUTE_DECL: {
           mergeAttributeDecl(other.getAttributeDecl());
+          break;
+        }
+        case ATTRIBUTE_ALIAS_DECL: {
+          mergeAttributeAliasDecl(other.getAttributeAliasDecl());
           break;
         }
         case FUNCTION_DECL: {
@@ -2653,35 +2726,176 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.AttributeAliasDecl, org.mojolang.mojo.lang.AttributeAliasDecl.Builder, org.mojolang.mojo.lang.AttributeAliasDeclOrBuilder> attributeAliasDeclBuilder_;
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     * @return Whether the attributeAliasDecl field is set.
+     */
+    @java.lang.Override
+    public boolean hasAttributeAliasDecl() {
+      return declarationCase_ == 13;
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     * @return The attributeAliasDecl.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.AttributeAliasDecl getAttributeAliasDecl() {
+      if (attributeAliasDeclBuilder_ == null) {
+        if (declarationCase_ == 13) {
+          return (org.mojolang.mojo.lang.AttributeAliasDecl) declaration_;
+        }
+        return org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance();
+      } else {
+        if (declarationCase_ == 13) {
+          return attributeAliasDeclBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     */
+    public Builder setAttributeAliasDecl(org.mojolang.mojo.lang.AttributeAliasDecl value) {
+      if (attributeAliasDeclBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        declaration_ = value;
+        onChanged();
+      } else {
+        attributeAliasDeclBuilder_.setMessage(value);
+      }
+      declarationCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     */
+    public Builder setAttributeAliasDecl(
+        org.mojolang.mojo.lang.AttributeAliasDecl.Builder builderForValue) {
+      if (attributeAliasDeclBuilder_ == null) {
+        declaration_ = builderForValue.build();
+        onChanged();
+      } else {
+        attributeAliasDeclBuilder_.setMessage(builderForValue.build());
+      }
+      declarationCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     */
+    public Builder mergeAttributeAliasDecl(org.mojolang.mojo.lang.AttributeAliasDecl value) {
+      if (attributeAliasDeclBuilder_ == null) {
+        if (declarationCase_ == 13 &&
+            declaration_ != org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance()) {
+          declaration_ = org.mojolang.mojo.lang.AttributeAliasDecl.newBuilder((org.mojolang.mojo.lang.AttributeAliasDecl) declaration_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          declaration_ = value;
+        }
+        onChanged();
+      } else {
+        if (declarationCase_ == 13) {
+          attributeAliasDeclBuilder_.mergeFrom(value);
+        }
+        attributeAliasDeclBuilder_.setMessage(value);
+      }
+      declarationCase_ = 13;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     */
+    public Builder clearAttributeAliasDecl() {
+      if (attributeAliasDeclBuilder_ == null) {
+        if (declarationCase_ == 13) {
+          declarationCase_ = 0;
+          declaration_ = null;
+          onChanged();
+        }
+      } else {
+        if (declarationCase_ == 13) {
+          declarationCase_ = 0;
+          declaration_ = null;
+        }
+        attributeAliasDeclBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     */
+    public org.mojolang.mojo.lang.AttributeAliasDecl.Builder getAttributeAliasDeclBuilder() {
+      return getAttributeAliasDeclFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.AttributeAliasDeclOrBuilder getAttributeAliasDeclOrBuilder() {
+      if ((declarationCase_ == 13) && (attributeAliasDeclBuilder_ != null)) {
+        return attributeAliasDeclBuilder_.getMessageOrBuilder();
+      } else {
+        if (declarationCase_ == 13) {
+          return (org.mojolang.mojo.lang.AttributeAliasDecl) declaration_;
+        }
+        return org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.AttributeAliasDecl, org.mojolang.mojo.lang.AttributeAliasDecl.Builder, org.mojolang.mojo.lang.AttributeAliasDeclOrBuilder> 
+        getAttributeAliasDeclFieldBuilder() {
+      if (attributeAliasDeclBuilder_ == null) {
+        if (!(declarationCase_ == 13)) {
+          declaration_ = org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance();
+        }
+        attributeAliasDeclBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.AttributeAliasDecl, org.mojolang.mojo.lang.AttributeAliasDecl.Builder, org.mojolang.mojo.lang.AttributeAliasDeclOrBuilder>(
+                (org.mojolang.mojo.lang.AttributeAliasDecl) declaration_,
+                getParentForChildren(),
+                isClean());
+        declaration_ = null;
+      }
+      declarationCase_ = 13;
+      onChanged();;
+      return attributeAliasDeclBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.FunctionDecl, org.mojolang.mojo.lang.FunctionDecl.Builder, org.mojolang.mojo.lang.FunctionDeclOrBuilder> functionDeclBuilder_;
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      * @return Whether the functionDecl field is set.
      */
     @java.lang.Override
     public boolean hasFunctionDecl() {
-      return declarationCase_ == 13;
+      return declarationCase_ == 14;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      * @return The functionDecl.
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.FunctionDecl getFunctionDecl() {
       if (functionDeclBuilder_ == null) {
-        if (declarationCase_ == 13) {
+        if (declarationCase_ == 14) {
           return (org.mojolang.mojo.lang.FunctionDecl) declaration_;
         }
         return org.mojolang.mojo.lang.FunctionDecl.getDefaultInstance();
       } else {
-        if (declarationCase_ == 13) {
+        if (declarationCase_ == 14) {
           return functionDeclBuilder_.getMessage();
         }
         return org.mojolang.mojo.lang.FunctionDecl.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      */
     public Builder setFunctionDecl(org.mojolang.mojo.lang.FunctionDecl value) {
       if (functionDeclBuilder_ == null) {
@@ -2693,11 +2907,11 @@ private static final long serialVersionUID = 0L;
       } else {
         functionDeclBuilder_.setMessage(value);
       }
-      declarationCase_ = 13;
+      declarationCase_ = 14;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      */
     public Builder setFunctionDecl(
         org.mojolang.mojo.lang.FunctionDecl.Builder builderForValue) {
@@ -2707,15 +2921,15 @@ private static final long serialVersionUID = 0L;
       } else {
         functionDeclBuilder_.setMessage(builderForValue.build());
       }
-      declarationCase_ = 13;
+      declarationCase_ = 14;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      */
     public Builder mergeFunctionDecl(org.mojolang.mojo.lang.FunctionDecl value) {
       if (functionDeclBuilder_ == null) {
-        if (declarationCase_ == 13 &&
+        if (declarationCase_ == 14 &&
             declaration_ != org.mojolang.mojo.lang.FunctionDecl.getDefaultInstance()) {
           declaration_ = org.mojolang.mojo.lang.FunctionDecl.newBuilder((org.mojolang.mojo.lang.FunctionDecl) declaration_)
               .mergeFrom(value).buildPartial();
@@ -2724,26 +2938,26 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (declarationCase_ == 13) {
+        if (declarationCase_ == 14) {
           functionDeclBuilder_.mergeFrom(value);
         }
         functionDeclBuilder_.setMessage(value);
       }
-      declarationCase_ = 13;
+      declarationCase_ = 14;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      */
     public Builder clearFunctionDecl() {
       if (functionDeclBuilder_ == null) {
-        if (declarationCase_ == 13) {
+        if (declarationCase_ == 14) {
           declarationCase_ = 0;
           declaration_ = null;
           onChanged();
         }
       } else {
-        if (declarationCase_ == 13) {
+        if (declarationCase_ == 14) {
           declarationCase_ = 0;
           declaration_ = null;
         }
@@ -2752,33 +2966,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      */
     public org.mojolang.mojo.lang.FunctionDecl.Builder getFunctionDeclBuilder() {
       return getFunctionDeclFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.FunctionDeclOrBuilder getFunctionDeclOrBuilder() {
-      if ((declarationCase_ == 13) && (functionDeclBuilder_ != null)) {
+      if ((declarationCase_ == 14) && (functionDeclBuilder_ != null)) {
         return functionDeclBuilder_.getMessageOrBuilder();
       } else {
-        if (declarationCase_ == 13) {
+        if (declarationCase_ == 14) {
           return (org.mojolang.mojo.lang.FunctionDecl) declaration_;
         }
         return org.mojolang.mojo.lang.FunctionDecl.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+     * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.FunctionDecl, org.mojolang.mojo.lang.FunctionDecl.Builder, org.mojolang.mojo.lang.FunctionDeclOrBuilder> 
         getFunctionDeclFieldBuilder() {
       if (functionDeclBuilder_ == null) {
-        if (!(declarationCase_ == 13)) {
+        if (!(declarationCase_ == 14)) {
           declaration_ = org.mojolang.mojo.lang.FunctionDecl.getDefaultInstance();
         }
         functionDeclBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2788,7 +3002,7 @@ private static final long serialVersionUID = 0L;
                 isClean());
         declaration_ = null;
       }
-      declarationCase_ = 13;
+      declarationCase_ = 14;
       onChanged();;
       return functionDeclBuilder_;
     }
@@ -2796,33 +3010,33 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.ConstructorDecl, org.mojolang.mojo.lang.ConstructorDecl.Builder, org.mojolang.mojo.lang.ConstructorDeclOrBuilder> constructorDeclBuilder_;
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      * @return Whether the constructorDecl field is set.
      */
     @java.lang.Override
     public boolean hasConstructorDecl() {
-      return declarationCase_ == 14;
+      return declarationCase_ == 15;
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      * @return The constructorDecl.
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.ConstructorDecl getConstructorDecl() {
       if (constructorDeclBuilder_ == null) {
-        if (declarationCase_ == 14) {
+        if (declarationCase_ == 15) {
           return (org.mojolang.mojo.lang.ConstructorDecl) declaration_;
         }
         return org.mojolang.mojo.lang.ConstructorDecl.getDefaultInstance();
       } else {
-        if (declarationCase_ == 14) {
+        if (declarationCase_ == 15) {
           return constructorDeclBuilder_.getMessage();
         }
         return org.mojolang.mojo.lang.ConstructorDecl.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      */
     public Builder setConstructorDecl(org.mojolang.mojo.lang.ConstructorDecl value) {
       if (constructorDeclBuilder_ == null) {
@@ -2834,11 +3048,11 @@ private static final long serialVersionUID = 0L;
       } else {
         constructorDeclBuilder_.setMessage(value);
       }
-      declarationCase_ = 14;
+      declarationCase_ = 15;
       return this;
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      */
     public Builder setConstructorDecl(
         org.mojolang.mojo.lang.ConstructorDecl.Builder builderForValue) {
@@ -2848,15 +3062,15 @@ private static final long serialVersionUID = 0L;
       } else {
         constructorDeclBuilder_.setMessage(builderForValue.build());
       }
-      declarationCase_ = 14;
+      declarationCase_ = 15;
       return this;
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      */
     public Builder mergeConstructorDecl(org.mojolang.mojo.lang.ConstructorDecl value) {
       if (constructorDeclBuilder_ == null) {
-        if (declarationCase_ == 14 &&
+        if (declarationCase_ == 15 &&
             declaration_ != org.mojolang.mojo.lang.ConstructorDecl.getDefaultInstance()) {
           declaration_ = org.mojolang.mojo.lang.ConstructorDecl.newBuilder((org.mojolang.mojo.lang.ConstructorDecl) declaration_)
               .mergeFrom(value).buildPartial();
@@ -2865,26 +3079,26 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (declarationCase_ == 14) {
+        if (declarationCase_ == 15) {
           constructorDeclBuilder_.mergeFrom(value);
         }
         constructorDeclBuilder_.setMessage(value);
       }
-      declarationCase_ = 14;
+      declarationCase_ = 15;
       return this;
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      */
     public Builder clearConstructorDecl() {
       if (constructorDeclBuilder_ == null) {
-        if (declarationCase_ == 14) {
+        if (declarationCase_ == 15) {
           declarationCase_ = 0;
           declaration_ = null;
           onChanged();
         }
       } else {
-        if (declarationCase_ == 14) {
+        if (declarationCase_ == 15) {
           declarationCase_ = 0;
           declaration_ = null;
         }
@@ -2893,33 +3107,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      */
     public org.mojolang.mojo.lang.ConstructorDecl.Builder getConstructorDeclBuilder() {
       return getConstructorDeclFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.ConstructorDeclOrBuilder getConstructorDeclOrBuilder() {
-      if ((declarationCase_ == 14) && (constructorDeclBuilder_ != null)) {
+      if ((declarationCase_ == 15) && (constructorDeclBuilder_ != null)) {
         return constructorDeclBuilder_.getMessageOrBuilder();
       } else {
-        if (declarationCase_ == 14) {
+        if (declarationCase_ == 15) {
           return (org.mojolang.mojo.lang.ConstructorDecl) declaration_;
         }
         return org.mojolang.mojo.lang.ConstructorDecl.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+     * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.ConstructorDecl, org.mojolang.mojo.lang.ConstructorDecl.Builder, org.mojolang.mojo.lang.ConstructorDeclOrBuilder> 
         getConstructorDeclFieldBuilder() {
       if (constructorDeclBuilder_ == null) {
-        if (!(declarationCase_ == 14)) {
+        if (!(declarationCase_ == 15)) {
           declaration_ = org.mojolang.mojo.lang.ConstructorDecl.getDefaultInstance();
         }
         constructorDeclBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2929,7 +3143,7 @@ private static final long serialVersionUID = 0L;
                 isClean());
         declaration_ = null;
       }
-      declarationCase_ = 14;
+      declarationCase_ = 15;
       onChanged();;
       return constructorDeclBuilder_;
     }

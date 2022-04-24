@@ -707,7 +707,7 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_POSITION_FIELD_NUMBER = 19;
   private org.mojolang.mojo.lang.Position namePosition_;
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return Whether the namePosition field is set.
    */
   @java.lang.Override
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
     return namePosition_ != null;
   }
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return The namePosition.
    */
   @java.lang.Override
@@ -723,7 +723,7 @@ private static final long serialVersionUID = 0L;
     return namePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : namePosition_;
   }
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
@@ -3509,14 +3509,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> namePositionBuilder_;
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      * @return Whether the namePosition field is set.
      */
     public boolean hasNamePosition() {
       return namePositionBuilder_ != null || namePosition_ != null;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      * @return The namePosition.
      */
     public org.mojolang.mojo.lang.Position getNamePosition() {
@@ -3527,7 +3527,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder setNamePosition(org.mojolang.mojo.lang.Position value) {
       if (namePositionBuilder_ == null) {
@@ -3543,7 +3543,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder setNamePosition(
         org.mojolang.mojo.lang.Position.Builder builderForValue) {
@@ -3557,7 +3557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder mergeNamePosition(org.mojolang.mojo.lang.Position value) {
       if (namePositionBuilder_ == null) {
@@ -3575,7 +3575,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public Builder clearNamePosition() {
       if (namePositionBuilder_ == null) {
@@ -3589,7 +3589,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public org.mojolang.mojo.lang.Position.Builder getNamePositionBuilder() {
       
@@ -3597,7 +3597,7 @@ private static final long serialVersionUID = 0L;
       return getNamePositionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     public org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder() {
       if (namePositionBuilder_ != null) {
@@ -3608,7 +3608,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.mojo.lang.Position name_position = 19;</code>
+     * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 

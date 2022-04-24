@@ -236,17 +236,17 @@ public interface GenericParameterOrBuilder extends
       int index);
 
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return Whether the namePosition field is set.
    */
   boolean hasNamePosition();
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return The namePosition.
    */
   org.mojolang.mojo.lang.Position getNamePosition();
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    */
   org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
 

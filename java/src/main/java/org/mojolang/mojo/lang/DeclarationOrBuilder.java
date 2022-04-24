@@ -143,32 +143,47 @@ public interface DeclarationOrBuilder extends
   org.mojolang.mojo.lang.AttributeDeclOrBuilder getAttributeDeclOrBuilder();
 
   /**
-   * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+   * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+   * @return Whether the attributeAliasDecl field is set.
+   */
+  boolean hasAttributeAliasDecl();
+  /**
+   * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+   * @return The attributeAliasDecl.
+   */
+  org.mojolang.mojo.lang.AttributeAliasDecl getAttributeAliasDecl();
+  /**
+   * <code>.mojo.lang.AttributeAliasDecl attribute_alias_decl = 13;</code>
+   */
+  org.mojolang.mojo.lang.AttributeAliasDeclOrBuilder getAttributeAliasDeclOrBuilder();
+
+  /**
+   * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
    * @return Whether the functionDecl field is set.
    */
   boolean hasFunctionDecl();
   /**
-   * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+   * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
    * @return The functionDecl.
    */
   org.mojolang.mojo.lang.FunctionDecl getFunctionDecl();
   /**
-   * <code>.mojo.lang.FunctionDecl function_decl = 13;</code>
+   * <code>.mojo.lang.FunctionDecl function_decl = 14;</code>
    */
   org.mojolang.mojo.lang.FunctionDeclOrBuilder getFunctionDeclOrBuilder();
 
   /**
-   * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+   * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
    * @return Whether the constructorDecl field is set.
    */
   boolean hasConstructorDecl();
   /**
-   * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+   * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
    * @return The constructorDecl.
    */
   org.mojolang.mojo.lang.ConstructorDecl getConstructorDecl();
   /**
-   * <code>.mojo.lang.ConstructorDecl constructor_decl = 14;</code>
+   * <code>.mojo.lang.ConstructorDecl constructor_decl = 15;</code>
    */
   org.mojolang.mojo.lang.ConstructorDeclOrBuilder getConstructorDeclOrBuilder();
 
