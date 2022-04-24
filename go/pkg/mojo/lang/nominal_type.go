@@ -200,16 +200,20 @@ func (x *NominalType) IsScalar() bool {
     if x.TypeDeclaration != nil {
         if decl := x.TypeDeclaration.GetStructDecl(); decl != nil {
             switch decl.GetFullName() {
-            case core.BoolTypeFullName, core.Int8TypeFullName, core.Int16TypeFullName, core.Int32TypeFullName, core.Int64TypeFullName,
-                core.UInt8TypeFullName, core.UInt16TypeFullName, core.UInt32TypeFullName, core.UInt64TypeFullName, core.Float32TypeFullName,
-                core.Float64TypeFullName, core.StringTypeFullName, core.BytesTypeFullName:
+            case core.BoolTypeFullName,
+                core.Int8TypeFullName, core.Int16TypeFullName, core.Int32TypeFullName, core.Int64TypeFullName,
+                core.UInt8TypeFullName, core.UInt16TypeFullName, core.UInt32TypeFullName, core.UInt64TypeFullName,
+                core.PositiveTypeFullName, core.NegativeTypeFullName,
+                core.Float32TypeFullName, core.Float64TypeFullName,
+                core.StringTypeFullName, core.BytesTypeFullName:
                 return true
             default:
                 return false
             }
         } else if alias := x.TypeDeclaration.GetTypeAliasDecl(); alias != nil {
             switch alias.GetFullName() {
-            case core.IntTypeFullName, core.UIntTypeFullName, core.FloatTypeFullName, core.DoubleTypeFullName:
+            case core.ByteTypeFullName, core.IntTypeFullName, core.UIntTypeFullName, core.SizeTypeFullName,
+                core.FloatTypeFullName, core.DoubleTypeFullName:
                 return true
             default:
                 return false

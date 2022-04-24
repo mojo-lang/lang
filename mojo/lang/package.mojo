@@ -106,7 +106,6 @@ type Package {
     scope: Scope @20
 
     
-
     extra_info: Object @25
 
     /// entity relations analysis in the package
