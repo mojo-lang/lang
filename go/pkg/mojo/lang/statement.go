@@ -127,6 +127,18 @@ func NewAttributeDeclStatement(decl *AttributeDecl) *Statement {
     }
 }
 
+func NewAttributeAliasDeclStatement(decl *AttributeAliasDecl) *Statement {
+    return &Statement{
+        Statement: &Statement_Declaration{
+            Declaration: &Declaration{
+                Declaration: &Declaration_AttributeAliasDecl{
+                    AttributeAliasDecl: decl,
+                },
+            },
+        },
+    }
+}
+
 func (x *Statement) IsUnion() {
 }
 

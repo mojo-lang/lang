@@ -11,3 +11,4 @@
 | `alias` | `string` |  | 否 |  |
 | `fullName` | `string` |  | 否 |  |
 | `enclosingTypeNames` | `Array<string>` |  | 否 |  |
+| `scope` | `mojo.lang.Scope` |  | 否 |  |

@@ -4,18 +4,18 @@
 package org.mojolang.mojo.lang;
 
 /**
- * Protobuf type {@code mojo.lang.AttributeDecl}
+ * Protobuf type {@code mojo.lang.AttributeAliasDecl}
  */
-public final class AttributeDecl extends
+public final class AttributeAliasDecl extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:mojo.lang.AttributeDecl)
-    AttributeDeclOrBuilder {
+    // @@protoc_insertion_point(message_implements:mojo.lang.AttributeAliasDecl)
+    AttributeAliasDeclOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AttributeDecl.newBuilder() to construct.
-  private AttributeDecl(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use AttributeAliasDecl.newBuilder() to construct.
+  private AttributeAliasDecl(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AttributeDecl() {
+  private AttributeAliasDecl() {
     packageName_ = "";
     sourceFileName_ = "";
     name_ = "";
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new AttributeDecl();
+    return new AttributeAliasDecl();
   }
 
   @java.lang.Override
@@ -38,7 +38,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttributeDecl(
+  private AttributeAliasDecl(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -201,42 +201,14 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 162: {
-            org.mojolang.mojo.lang.NominalType.Builder subBuilder = null;
-            if (typeCase_ == 20) {
-              subBuilder = ((org.mojolang.mojo.lang.NominalType) type_).toBuilder();
+            org.mojolang.mojo.lang.Attribute.Builder subBuilder = null;
+            if (attribute_ != null) {
+              subBuilder = attribute_.toBuilder();
             }
-            type_ =
-                input.readMessage(org.mojolang.mojo.lang.NominalType.parser(), extensionRegistry);
+            attribute_ = input.readMessage(org.mojolang.mojo.lang.Attribute.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.NominalType) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 20;
-            break;
-          }
-          case 170: {
-            org.mojolang.mojo.lang.StructType.Builder subBuilder = null;
-            if (typeCase_ == 21) {
-              subBuilder = ((org.mojolang.mojo.lang.StructType) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(org.mojolang.mojo.lang.StructType.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.StructType) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 21;
-            break;
-          }
-          case 178: {
-            org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
-            if (defaultValue_ != null) {
-              subBuilder = defaultValue_.toBuilder();
-            }
-            defaultValue_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultValue_);
-              defaultValue_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(attribute_);
+              attribute_ = subBuilder.buildPartial();
             }
 
             break;
@@ -287,56 +259,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeDecl_descriptor;
+    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeAliasDecl_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeDecl_fieldAccessorTable
+    return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeAliasDecl_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.mojolang.mojo.lang.AttributeDecl.class, org.mojolang.mojo.lang.AttributeDecl.Builder.class);
-  }
-
-  private int typeCase_ = 0;
-  private java.lang.Object type_;
-  public enum TypeCase
-      implements com.google.protobuf.Internal.EnumLite,
-          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-    NOMINAL_TYPE(20),
-    STRUCT_TYPE(21),
-    TYPE_NOT_SET(0);
-    private final int value;
-    private TypeCase(int value) {
-      this.value = value;
-    }
-    /**
-     * @param value The number of the enum to look for.
-     * @return The enum associated with the given number.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static TypeCase valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static TypeCase forNumber(int value) {
-      switch (value) {
-        case 20: return NOMINAL_TYPE;
-        case 21: return STRUCT_TYPE;
-        case 0: return TYPE_NOT_SET;
-        default: return null;
-      }
-    }
-    public int getNumber() {
-      return this.value;
-    }
-  };
-
-  public TypeCase
-  getTypeCase() {
-    return TypeCase.forNumber(
-        typeCase_);
+            org.mojolang.mojo.lang.AttributeAliasDecl.class, org.mojolang.mojo.lang.AttributeAliasDecl.Builder.class);
   }
 
   public static final int START_POSITION_FIELD_NUMBER = 1;
@@ -818,92 +749,30 @@ private static final long serialVersionUID = 0L;
     return getNamePosition();
   }
 
-  public static final int NOMINAL_TYPE_FIELD_NUMBER = 20;
+  public static final int ATTRIBUTE_FIELD_NUMBER = 20;
+  private org.mojolang.mojo.lang.Attribute attribute_;
   /**
-   * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-   * @return Whether the nominalType field is set.
+   * <code>.mojo.lang.Attribute attribute = 20;</code>
+   * @return Whether the attribute field is set.
    */
   @java.lang.Override
-  public boolean hasNominalType() {
-    return typeCase_ == 20;
+  public boolean hasAttribute() {
+    return attribute_ != null;
   }
   /**
-   * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-   * @return The nominalType.
+   * <code>.mojo.lang.Attribute attribute = 20;</code>
+   * @return The attribute.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.NominalType getNominalType() {
-    if (typeCase_ == 20) {
-       return (org.mojolang.mojo.lang.NominalType) type_;
-    }
-    return org.mojolang.mojo.lang.NominalType.getDefaultInstance();
+  public org.mojolang.mojo.lang.Attribute getAttribute() {
+    return attribute_ == null ? org.mojolang.mojo.lang.Attribute.getDefaultInstance() : attribute_;
   }
   /**
-   * <code>.mojo.lang.NominalType nominal_type = 20;</code>
+   * <code>.mojo.lang.Attribute attribute = 20;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.NominalTypeOrBuilder getNominalTypeOrBuilder() {
-    if (typeCase_ == 20) {
-       return (org.mojolang.mojo.lang.NominalType) type_;
-    }
-    return org.mojolang.mojo.lang.NominalType.getDefaultInstance();
-  }
-
-  public static final int STRUCT_TYPE_FIELD_NUMBER = 21;
-  /**
-   * <code>.mojo.lang.StructType struct_type = 21;</code>
-   * @return Whether the structType field is set.
-   */
-  @java.lang.Override
-  public boolean hasStructType() {
-    return typeCase_ == 21;
-  }
-  /**
-   * <code>.mojo.lang.StructType struct_type = 21;</code>
-   * @return The structType.
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.lang.StructType getStructType() {
-    if (typeCase_ == 21) {
-       return (org.mojolang.mojo.lang.StructType) type_;
-    }
-    return org.mojolang.mojo.lang.StructType.getDefaultInstance();
-  }
-  /**
-   * <code>.mojo.lang.StructType struct_type = 21;</code>
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.lang.StructTypeOrBuilder getStructTypeOrBuilder() {
-    if (typeCase_ == 21) {
-       return (org.mojolang.mojo.lang.StructType) type_;
-    }
-    return org.mojolang.mojo.lang.StructType.getDefaultInstance();
-  }
-
-  public static final int DEFAULT_VALUE_FIELD_NUMBER = 22;
-  private org.mojolang.mojo.lang.Expression defaultValue_;
-  /**
-   * <code>.mojo.lang.Expression default_value = 22;</code>
-   * @return Whether the defaultValue field is set.
-   */
-  @java.lang.Override
-  public boolean hasDefaultValue() {
-    return defaultValue_ != null;
-  }
-  /**
-   * <code>.mojo.lang.Expression default_value = 22;</code>
-   * @return The defaultValue.
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.lang.Expression getDefaultValue() {
-    return defaultValue_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : defaultValue_;
-  }
-  /**
-   * <code>.mojo.lang.Expression default_value = 22;</code>
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.lang.ExpressionOrBuilder getDefaultValueOrBuilder() {
-    return getDefaultValue();
+  public org.mojolang.mojo.lang.AttributeOrBuilder getAttributeOrBuilder() {
+    return getAttribute();
   }
 
   public static final int SCOPE_FIELD_NUMBER = 30;
@@ -991,14 +860,8 @@ private static final long serialVersionUID = 0L;
     if (namePosition_ != null) {
       output.writeMessage(19, getNamePosition());
     }
-    if (typeCase_ == 20) {
-      output.writeMessage(20, (org.mojolang.mojo.lang.NominalType) type_);
-    }
-    if (typeCase_ == 21) {
-      output.writeMessage(21, (org.mojolang.mojo.lang.StructType) type_);
-    }
-    if (defaultValue_ != null) {
-      output.writeMessage(22, getDefaultValue());
+    if (attribute_ != null) {
+      output.writeMessage(20, getAttribute());
     }
     if (scope_ != null) {
       output.writeMessage(30, getScope());
@@ -1068,17 +931,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getNamePosition());
     }
-    if (typeCase_ == 20) {
+    if (attribute_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(20, (org.mojolang.mojo.lang.NominalType) type_);
-    }
-    if (typeCase_ == 21) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(21, (org.mojolang.mojo.lang.StructType) type_);
-    }
-    if (defaultValue_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(22, getDefaultValue());
+        .computeMessageSize(20, getAttribute());
     }
     if (scope_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -1094,10 +949,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.mojolang.mojo.lang.AttributeDecl)) {
+    if (!(obj instanceof org.mojolang.mojo.lang.AttributeAliasDecl)) {
       return super.equals(obj);
     }
-    org.mojolang.mojo.lang.AttributeDecl other = (org.mojolang.mojo.lang.AttributeDecl) obj;
+    org.mojolang.mojo.lang.AttributeAliasDecl other = (org.mojolang.mojo.lang.AttributeAliasDecl) obj;
 
     if (hasStartPosition() != other.hasStartPosition()) return false;
     if (hasStartPosition()) {
@@ -1147,28 +1002,15 @@ private static final long serialVersionUID = 0L;
       if (!getNamePosition()
           .equals(other.getNamePosition())) return false;
     }
-    if (hasDefaultValue() != other.hasDefaultValue()) return false;
-    if (hasDefaultValue()) {
-      if (!getDefaultValue()
-          .equals(other.getDefaultValue())) return false;
+    if (hasAttribute() != other.hasAttribute()) return false;
+    if (hasAttribute()) {
+      if (!getAttribute()
+          .equals(other.getAttribute())) return false;
     }
     if (hasScope() != other.hasScope()) return false;
     if (hasScope()) {
       if (!getScope()
           .equals(other.getScope())) return false;
-    }
-    if (!getTypeCase().equals(other.getTypeCase())) return false;
-    switch (typeCase_) {
-      case 20:
-        if (!getNominalType()
-            .equals(other.getNominalType())) return false;
-        break;
-      case 21:
-        if (!getStructType()
-            .equals(other.getStructType())) return false;
-        break;
-      case 0:
-      default:
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -1232,94 +1074,82 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NAME_POSITION_FIELD_NUMBER;
       hash = (53 * hash) + getNamePosition().hashCode();
     }
-    if (hasDefaultValue()) {
-      hash = (37 * hash) + DEFAULT_VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getDefaultValue().hashCode();
+    if (hasAttribute()) {
+      hash = (37 * hash) + ATTRIBUTE_FIELD_NUMBER;
+      hash = (53 * hash) + getAttribute().hashCode();
     }
     if (hasScope()) {
       hash = (37 * hash) + SCOPE_FIELD_NUMBER;
       hash = (53 * hash) + getScope().hashCode();
-    }
-    switch (typeCase_) {
-      case 20:
-        hash = (37 * hash) + NOMINAL_TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getNominalType().hashCode();
-        break;
-      case 21:
-        hash = (37 * hash) + STRUCT_TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getStructType().hashCode();
-        break;
-      case 0:
-      default:
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(byte[] data)
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseDelimitedFrom(java.io.InputStream input)
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseDelimitedFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.mojolang.mojo.lang.AttributeDecl parseFrom(
+  public static org.mojolang.mojo.lang.AttributeAliasDecl parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -1332,7 +1162,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.mojolang.mojo.lang.AttributeDecl prototype) {
+  public static Builder newBuilder(org.mojolang.mojo.lang.AttributeAliasDecl prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -1348,26 +1178,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code mojo.lang.AttributeDecl}
+   * Protobuf type {@code mojo.lang.AttributeAliasDecl}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:mojo.lang.AttributeDecl)
-      org.mojolang.mojo.lang.AttributeDeclOrBuilder {
+      // @@protoc_insertion_point(builder_implements:mojo.lang.AttributeAliasDecl)
+      org.mojolang.mojo.lang.AttributeAliasDeclOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeDecl_descriptor;
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeAliasDecl_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeDecl_fieldAccessorTable
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeAliasDecl_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.mojolang.mojo.lang.AttributeDecl.class, org.mojolang.mojo.lang.AttributeDecl.Builder.class);
+              org.mojolang.mojo.lang.AttributeAliasDecl.class, org.mojolang.mojo.lang.AttributeAliasDecl.Builder.class);
     }
 
-    // Construct using org.mojolang.mojo.lang.AttributeDecl.newBuilder()
+    // Construct using org.mojolang.mojo.lang.AttributeAliasDecl.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -1459,11 +1289,11 @@ private static final long serialVersionUID = 0L;
         namePosition_ = null;
         namePositionBuilder_ = null;
       }
-      if (defaultValueBuilder_ == null) {
-        defaultValue_ = null;
+      if (attributeBuilder_ == null) {
+        attribute_ = null;
       } else {
-        defaultValue_ = null;
-        defaultValueBuilder_ = null;
+        attribute_ = null;
+        attributeBuilder_ = null;
       }
       if (scopeBuilder_ == null) {
         scope_ = null;
@@ -1471,25 +1301,23 @@ private static final long serialVersionUID = 0L;
         scope_ = null;
         scopeBuilder_ = null;
       }
-      typeCase_ = 0;
-      type_ = null;
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeDecl_descriptor;
+      return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AttributeAliasDecl_descriptor;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.AttributeDecl getDefaultInstanceForType() {
-      return org.mojolang.mojo.lang.AttributeDecl.getDefaultInstance();
+    public org.mojolang.mojo.lang.AttributeAliasDecl getDefaultInstanceForType() {
+      return org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.AttributeDecl build() {
-      org.mojolang.mojo.lang.AttributeDecl result = buildPartial();
+    public org.mojolang.mojo.lang.AttributeAliasDecl build() {
+      org.mojolang.mojo.lang.AttributeAliasDecl result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -1497,8 +1325,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.mojolang.mojo.lang.AttributeDecl buildPartial() {
-      org.mojolang.mojo.lang.AttributeDecl result = new org.mojolang.mojo.lang.AttributeDecl(this);
+    public org.mojolang.mojo.lang.AttributeAliasDecl buildPartial() {
+      org.mojolang.mojo.lang.AttributeAliasDecl result = new org.mojolang.mojo.lang.AttributeAliasDecl(this);
       int from_bitField0_ = bitField0_;
       if (startPositionBuilder_ == null) {
         result.startPosition_ = startPosition_;
@@ -1571,31 +1399,16 @@ private static final long serialVersionUID = 0L;
       } else {
         result.namePosition_ = namePositionBuilder_.build();
       }
-      if (typeCase_ == 20) {
-        if (nominalTypeBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = nominalTypeBuilder_.build();
-        }
-      }
-      if (typeCase_ == 21) {
-        if (structTypeBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = structTypeBuilder_.build();
-        }
-      }
-      if (defaultValueBuilder_ == null) {
-        result.defaultValue_ = defaultValue_;
+      if (attributeBuilder_ == null) {
+        result.attribute_ = attribute_;
       } else {
-        result.defaultValue_ = defaultValueBuilder_.build();
+        result.attribute_ = attributeBuilder_.build();
       }
       if (scopeBuilder_ == null) {
         result.scope_ = scope_;
       } else {
         result.scope_ = scopeBuilder_.build();
       }
-      result.typeCase_ = typeCase_;
       onBuilt();
       return result;
     }
@@ -1634,16 +1447,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.mojolang.mojo.lang.AttributeDecl) {
-        return mergeFrom((org.mojolang.mojo.lang.AttributeDecl)other);
+      if (other instanceof org.mojolang.mojo.lang.AttributeAliasDecl) {
+        return mergeFrom((org.mojolang.mojo.lang.AttributeAliasDecl)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.mojolang.mojo.lang.AttributeDecl other) {
-      if (other == org.mojolang.mojo.lang.AttributeDecl.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.mojolang.mojo.lang.AttributeAliasDecl other) {
+      if (other == org.mojolang.mojo.lang.AttributeAliasDecl.getDefaultInstance()) return this;
       if (other.hasStartPosition()) {
         mergeStartPosition(other.getStartPosition());
       }
@@ -1785,24 +1598,11 @@ private static final long serialVersionUID = 0L;
       if (other.hasNamePosition()) {
         mergeNamePosition(other.getNamePosition());
       }
-      if (other.hasDefaultValue()) {
-        mergeDefaultValue(other.getDefaultValue());
+      if (other.hasAttribute()) {
+        mergeAttribute(other.getAttribute());
       }
       if (other.hasScope()) {
         mergeScope(other.getScope());
-      }
-      switch (other.getTypeCase()) {
-        case NOMINAL_TYPE: {
-          mergeNominalType(other.getNominalType());
-          break;
-        }
-        case STRUCT_TYPE: {
-          mergeStructType(other.getStructType());
-          break;
-        }
-        case TYPE_NOT_SET: {
-          break;
-        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1819,11 +1619,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.lang.AttributeDecl parsedMessage = null;
+      org.mojolang.mojo.lang.AttributeAliasDecl parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.lang.AttributeDecl) e.getUnfinishedMessage();
+        parsedMessage = (org.mojolang.mojo.lang.AttributeAliasDecl) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1832,21 +1632,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int typeCase_ = 0;
-    private java.lang.Object type_;
-    public TypeCase
-        getTypeCase() {
-      return TypeCase.forNumber(
-          typeCase_);
-    }
-
-    public Builder clearType() {
-      typeCase_ = 0;
-      type_ = null;
-      onChanged();
-      return this;
-    }
-
     private int bitField0_;
 
     private org.mojolang.mojo.lang.Position startPosition_;
@@ -3858,405 +3643,123 @@ private static final long serialVersionUID = 0L;
       return namePositionBuilder_;
     }
 
+    private org.mojolang.mojo.lang.Attribute attribute_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder> nominalTypeBuilder_;
+        org.mojolang.mojo.lang.Attribute, org.mojolang.mojo.lang.Attribute.Builder, org.mojolang.mojo.lang.AttributeOrBuilder> attributeBuilder_;
     /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-     * @return Whether the nominalType field is set.
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
+     * @return Whether the attribute field is set.
      */
-    @java.lang.Override
-    public boolean hasNominalType() {
-      return typeCase_ == 20;
+    public boolean hasAttribute() {
+      return attributeBuilder_ != null || attribute_ != null;
     }
     /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-     * @return The nominalType.
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
+     * @return The attribute.
      */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.NominalType getNominalType() {
-      if (nominalTypeBuilder_ == null) {
-        if (typeCase_ == 20) {
-          return (org.mojolang.mojo.lang.NominalType) type_;
-        }
-        return org.mojolang.mojo.lang.NominalType.getDefaultInstance();
+    public org.mojolang.mojo.lang.Attribute getAttribute() {
+      if (attributeBuilder_ == null) {
+        return attribute_ == null ? org.mojolang.mojo.lang.Attribute.getDefaultInstance() : attribute_;
       } else {
-        if (typeCase_ == 20) {
-          return nominalTypeBuilder_.getMessage();
-        }
-        return org.mojolang.mojo.lang.NominalType.getDefaultInstance();
+        return attributeBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
      */
-    public Builder setNominalType(org.mojolang.mojo.lang.NominalType value) {
-      if (nominalTypeBuilder_ == null) {
+    public Builder setAttribute(org.mojolang.mojo.lang.Attribute value) {
+      if (attributeBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        type_ = value;
+        attribute_ = value;
         onChanged();
       } else {
-        nominalTypeBuilder_.setMessage(value);
+        attributeBuilder_.setMessage(value);
       }
-      typeCase_ = 20;
+
       return this;
     }
     /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
      */
-    public Builder setNominalType(
-        org.mojolang.mojo.lang.NominalType.Builder builderForValue) {
-      if (nominalTypeBuilder_ == null) {
-        type_ = builderForValue.build();
+    public Builder setAttribute(
+        org.mojolang.mojo.lang.Attribute.Builder builderForValue) {
+      if (attributeBuilder_ == null) {
+        attribute_ = builderForValue.build();
         onChanged();
       } else {
-        nominalTypeBuilder_.setMessage(builderForValue.build());
+        attributeBuilder_.setMessage(builderForValue.build());
       }
-      typeCase_ = 20;
+
       return this;
     }
     /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
      */
-    public Builder mergeNominalType(org.mojolang.mojo.lang.NominalType value) {
-      if (nominalTypeBuilder_ == null) {
-        if (typeCase_ == 20 &&
-            type_ != org.mojolang.mojo.lang.NominalType.getDefaultInstance()) {
-          type_ = org.mojolang.mojo.lang.NominalType.newBuilder((org.mojolang.mojo.lang.NominalType) type_)
-              .mergeFrom(value).buildPartial();
+    public Builder mergeAttribute(org.mojolang.mojo.lang.Attribute value) {
+      if (attributeBuilder_ == null) {
+        if (attribute_ != null) {
+          attribute_ =
+            org.mojolang.mojo.lang.Attribute.newBuilder(attribute_).mergeFrom(value).buildPartial();
         } else {
-          type_ = value;
+          attribute_ = value;
         }
         onChanged();
       } else {
-        if (typeCase_ == 20) {
-          nominalTypeBuilder_.mergeFrom(value);
-        }
-        nominalTypeBuilder_.setMessage(value);
-      }
-      typeCase_ = 20;
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-     */
-    public Builder clearNominalType() {
-      if (nominalTypeBuilder_ == null) {
-        if (typeCase_ == 20) {
-          typeCase_ = 0;
-          type_ = null;
-          onChanged();
-        }
-      } else {
-        if (typeCase_ == 20) {
-          typeCase_ = 0;
-          type_ = null;
-        }
-        nominalTypeBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-     */
-    public org.mojolang.mojo.lang.NominalType.Builder getNominalTypeBuilder() {
-      return getNominalTypeFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-     */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.NominalTypeOrBuilder getNominalTypeOrBuilder() {
-      if ((typeCase_ == 20) && (nominalTypeBuilder_ != null)) {
-        return nominalTypeBuilder_.getMessageOrBuilder();
-      } else {
-        if (typeCase_ == 20) {
-          return (org.mojolang.mojo.lang.NominalType) type_;
-        }
-        return org.mojolang.mojo.lang.NominalType.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder> 
-        getNominalTypeFieldBuilder() {
-      if (nominalTypeBuilder_ == null) {
-        if (!(typeCase_ == 20)) {
-          type_ = org.mojolang.mojo.lang.NominalType.getDefaultInstance();
-        }
-        nominalTypeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder>(
-                (org.mojolang.mojo.lang.NominalType) type_,
-                getParentForChildren(),
-                isClean());
-        type_ = null;
-      }
-      typeCase_ = 20;
-      onChanged();;
-      return nominalTypeBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.StructType, org.mojolang.mojo.lang.StructType.Builder, org.mojolang.mojo.lang.StructTypeOrBuilder> structTypeBuilder_;
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     * @return Whether the structType field is set.
-     */
-    @java.lang.Override
-    public boolean hasStructType() {
-      return typeCase_ == 21;
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     * @return The structType.
-     */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.StructType getStructType() {
-      if (structTypeBuilder_ == null) {
-        if (typeCase_ == 21) {
-          return (org.mojolang.mojo.lang.StructType) type_;
-        }
-        return org.mojolang.mojo.lang.StructType.getDefaultInstance();
-      } else {
-        if (typeCase_ == 21) {
-          return structTypeBuilder_.getMessage();
-        }
-        return org.mojolang.mojo.lang.StructType.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     */
-    public Builder setStructType(org.mojolang.mojo.lang.StructType value) {
-      if (structTypeBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        type_ = value;
-        onChanged();
-      } else {
-        structTypeBuilder_.setMessage(value);
-      }
-      typeCase_ = 21;
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     */
-    public Builder setStructType(
-        org.mojolang.mojo.lang.StructType.Builder builderForValue) {
-      if (structTypeBuilder_ == null) {
-        type_ = builderForValue.build();
-        onChanged();
-      } else {
-        structTypeBuilder_.setMessage(builderForValue.build());
-      }
-      typeCase_ = 21;
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     */
-    public Builder mergeStructType(org.mojolang.mojo.lang.StructType value) {
-      if (structTypeBuilder_ == null) {
-        if (typeCase_ == 21 &&
-            type_ != org.mojolang.mojo.lang.StructType.getDefaultInstance()) {
-          type_ = org.mojolang.mojo.lang.StructType.newBuilder((org.mojolang.mojo.lang.StructType) type_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          type_ = value;
-        }
-        onChanged();
-      } else {
-        if (typeCase_ == 21) {
-          structTypeBuilder_.mergeFrom(value);
-        }
-        structTypeBuilder_.setMessage(value);
-      }
-      typeCase_ = 21;
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     */
-    public Builder clearStructType() {
-      if (structTypeBuilder_ == null) {
-        if (typeCase_ == 21) {
-          typeCase_ = 0;
-          type_ = null;
-          onChanged();
-        }
-      } else {
-        if (typeCase_ == 21) {
-          typeCase_ = 0;
-          type_ = null;
-        }
-        structTypeBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     */
-    public org.mojolang.mojo.lang.StructType.Builder getStructTypeBuilder() {
-      return getStructTypeFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     */
-    @java.lang.Override
-    public org.mojolang.mojo.lang.StructTypeOrBuilder getStructTypeOrBuilder() {
-      if ((typeCase_ == 21) && (structTypeBuilder_ != null)) {
-        return structTypeBuilder_.getMessageOrBuilder();
-      } else {
-        if (typeCase_ == 21) {
-          return (org.mojolang.mojo.lang.StructType) type_;
-        }
-        return org.mojolang.mojo.lang.StructType.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.mojo.lang.StructType struct_type = 21;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.StructType, org.mojolang.mojo.lang.StructType.Builder, org.mojolang.mojo.lang.StructTypeOrBuilder> 
-        getStructTypeFieldBuilder() {
-      if (structTypeBuilder_ == null) {
-        if (!(typeCase_ == 21)) {
-          type_ = org.mojolang.mojo.lang.StructType.getDefaultInstance();
-        }
-        structTypeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.StructType, org.mojolang.mojo.lang.StructType.Builder, org.mojolang.mojo.lang.StructTypeOrBuilder>(
-                (org.mojolang.mojo.lang.StructType) type_,
-                getParentForChildren(),
-                isClean());
-        type_ = null;
-      }
-      typeCase_ = 21;
-      onChanged();;
-      return structTypeBuilder_;
-    }
-
-    private org.mojolang.mojo.lang.Expression defaultValue_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> defaultValueBuilder_;
-    /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
-     * @return Whether the defaultValue field is set.
-     */
-    public boolean hasDefaultValue() {
-      return defaultValueBuilder_ != null || defaultValue_ != null;
-    }
-    /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
-     * @return The defaultValue.
-     */
-    public org.mojolang.mojo.lang.Expression getDefaultValue() {
-      if (defaultValueBuilder_ == null) {
-        return defaultValue_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : defaultValue_;
-      } else {
-        return defaultValueBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
-     */
-    public Builder setDefaultValue(org.mojolang.mojo.lang.Expression value) {
-      if (defaultValueBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        defaultValue_ = value;
-        onChanged();
-      } else {
-        defaultValueBuilder_.setMessage(value);
+        attributeBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
      */
-    public Builder setDefaultValue(
-        org.mojolang.mojo.lang.Expression.Builder builderForValue) {
-      if (defaultValueBuilder_ == null) {
-        defaultValue_ = builderForValue.build();
+    public Builder clearAttribute() {
+      if (attributeBuilder_ == null) {
+        attribute_ = null;
         onChanged();
       } else {
-        defaultValueBuilder_.setMessage(builderForValue.build());
+        attribute_ = null;
+        attributeBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
      */
-    public Builder mergeDefaultValue(org.mojolang.mojo.lang.Expression value) {
-      if (defaultValueBuilder_ == null) {
-        if (defaultValue_ != null) {
-          defaultValue_ =
-            org.mojolang.mojo.lang.Expression.newBuilder(defaultValue_).mergeFrom(value).buildPartial();
-        } else {
-          defaultValue_ = value;
-        }
-        onChanged();
-      } else {
-        defaultValueBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
-     */
-    public Builder clearDefaultValue() {
-      if (defaultValueBuilder_ == null) {
-        defaultValue_ = null;
-        onChanged();
-      } else {
-        defaultValue_ = null;
-        defaultValueBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
-     */
-    public org.mojolang.mojo.lang.Expression.Builder getDefaultValueBuilder() {
+    public org.mojolang.mojo.lang.Attribute.Builder getAttributeBuilder() {
       
       onChanged();
-      return getDefaultValueFieldBuilder().getBuilder();
+      return getAttributeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
      */
-    public org.mojolang.mojo.lang.ExpressionOrBuilder getDefaultValueOrBuilder() {
-      if (defaultValueBuilder_ != null) {
-        return defaultValueBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.lang.AttributeOrBuilder getAttributeOrBuilder() {
+      if (attributeBuilder_ != null) {
+        return attributeBuilder_.getMessageOrBuilder();
       } else {
-        return defaultValue_ == null ?
-            org.mojolang.mojo.lang.Expression.getDefaultInstance() : defaultValue_;
+        return attribute_ == null ?
+            org.mojolang.mojo.lang.Attribute.getDefaultInstance() : attribute_;
       }
     }
     /**
-     * <code>.mojo.lang.Expression default_value = 22;</code>
+     * <code>.mojo.lang.Attribute attribute = 20;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
-        getDefaultValueFieldBuilder() {
-      if (defaultValueBuilder_ == null) {
-        defaultValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder>(
-                getDefaultValue(),
+        org.mojolang.mojo.lang.Attribute, org.mojolang.mojo.lang.Attribute.Builder, org.mojolang.mojo.lang.AttributeOrBuilder> 
+        getAttributeFieldBuilder() {
+      if (attributeBuilder_ == null) {
+        attributeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Attribute, org.mojolang.mojo.lang.Attribute.Builder, org.mojolang.mojo.lang.AttributeOrBuilder>(
+                getAttribute(),
                 getParentForChildren(),
                 isClean());
-        defaultValue_ = null;
+        attribute_ = null;
       }
-      return defaultValueBuilder_;
+      return attributeBuilder_;
     }
 
     private org.mojolang.mojo.lang.Scope scope_;
@@ -4390,41 +3893,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:mojo.lang.AttributeDecl)
+    // @@protoc_insertion_point(builder_scope:mojo.lang.AttributeAliasDecl)
   }
 
-  // @@protoc_insertion_point(class_scope:mojo.lang.AttributeDecl)
-  private static final org.mojolang.mojo.lang.AttributeDecl DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:mojo.lang.AttributeAliasDecl)
+  private static final org.mojolang.mojo.lang.AttributeAliasDecl DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.mojolang.mojo.lang.AttributeDecl();
+    DEFAULT_INSTANCE = new org.mojolang.mojo.lang.AttributeAliasDecl();
   }
 
-  public static org.mojolang.mojo.lang.AttributeDecl getDefaultInstance() {
+  public static org.mojolang.mojo.lang.AttributeAliasDecl getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AttributeDecl>
-      PARSER = new com.google.protobuf.AbstractParser<AttributeDecl>() {
+  private static final com.google.protobuf.Parser<AttributeAliasDecl>
+      PARSER = new com.google.protobuf.AbstractParser<AttributeAliasDecl>() {
     @java.lang.Override
-    public AttributeDecl parsePartialFrom(
+    public AttributeAliasDecl parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttributeDecl(input, extensionRegistry);
+      return new AttributeAliasDecl(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<AttributeDecl> parser() {
+  public static com.google.protobuf.Parser<AttributeAliasDecl> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AttributeDecl> getParserForType() {
+  public com.google.protobuf.Parser<AttributeAliasDecl> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.mojolang.mojo.lang.AttributeDecl getDefaultInstanceForType() {
+  public org.mojolang.mojo.lang.AttributeAliasDecl getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

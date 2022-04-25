@@ -55,12 +55,12 @@ public interface IdentifierOrBuilder extends
   boolean getImplicit();
 
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The sourceFileName.
    */
   java.lang.String getSourceFileName();
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The bytes for sourceFileName.
    */
   com.google.protobuf.ByteString
@@ -153,4 +153,19 @@ public interface IdentifierOrBuilder extends
    */
   com.google.protobuf.ByteString
       getEnclosingTypeNamesBytes(int index);
+
+  /**
+   * <code>.mojo.lang.Scope scope = 30;</code>
+   * @return Whether the scope field is set.
+   */
+  boolean hasScope();
+  /**
+   * <code>.mojo.lang.Scope scope = 30;</code>
+   * @return The scope.
+   */
+  org.mojolang.mojo.lang.Scope getScope();
+  /**
+   * <code>.mojo.lang.Scope scope = 30;</code>
+   */
+  org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder();
 }

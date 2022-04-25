@@ -38,6 +38,21 @@ public interface AttributeOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
+   * <code>.mojo.lang.Document document = 4;</code>
+   * @return Whether the document field is set.
+   */
+  boolean hasDocument();
+  /**
+   * <code>.mojo.lang.Document document = 4;</code>
+   * @return The document.
+   */
+  org.mojolang.mojo.lang.Document getDocument();
+  /**
+   * <code>.mojo.lang.Document document = 4;</code>
+   */
+  org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder();
+
+  /**
    * <code>bool implicit = 5;</code>
    * @return The implicit.
    */
@@ -68,17 +83,17 @@ public interface AttributeOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.mojo.lang.AttributeDecl declaration = 11;</code>
+   * <code>.mojo.lang.AttributeDecl declaration = 11 [(.mojo.reference) = ""];</code>
    * @return Whether the declaration field is set.
    */
   boolean hasDeclaration();
   /**
-   * <code>.mojo.lang.AttributeDecl declaration = 11;</code>
+   * <code>.mojo.lang.AttributeDecl declaration = 11 [(.mojo.reference) = ""];</code>
    * @return The declaration.
    */
   org.mojolang.mojo.lang.AttributeDecl getDeclaration();
   /**
-   * <code>.mojo.lang.AttributeDecl declaration = 11;</code>
+   * <code>.mojo.lang.AttributeDecl declaration = 11 [(.mojo.reference) = ""];</code>
    */
   org.mojolang.mojo.lang.AttributeDeclOrBuilder getDeclarationOrBuilder();
 
@@ -131,17 +146,17 @@ public interface AttributeOrBuilder extends
       int index);
 
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return Whether the namePosition field is set.
    */
   boolean hasNamePosition();
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    * @return The namePosition.
    */
   org.mojolang.mojo.lang.Position getNamePosition();
   /**
-   * <code>.mojo.lang.Position name_position = 19;</code>
+   * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
    */
   org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
 

@@ -8,6 +8,5 @@
 | `resolvedIdentifiers` | `Array<mojo.lang.Identifier>` |  | 否 |  |  |
 | `unresolvedIdentifiers` | `Array<mojo.lang.Identifier>` |  | 否 |  | unresolved identifiers in this file |
 | `namePosition` | `mojo.lang.Position` |  | 否 |  |  |
-| `type` | `Union<mojo.lang.NominalType,mojo.lang.StructType>` |  | 否 |  |  |
-| `defaultValue` | `mojo.lang.Expression` |  | 否 |  |  |
+| `attribute` | `mojo.lang.Attribute` |  | 否 |  |  |
 | `scope` | `mojo.lang.Scope` |  | 否 |  | the 'generic-parameter' type identifier will be in here |

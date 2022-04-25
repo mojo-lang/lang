@@ -29,10 +29,11 @@ var IdentifierKindNames = map[int32]string{
 	10: "constant",
 	11: "variable",
 	12: "attribute",
-	13: "function",
-	14: "generic-parameter",
-	20: "type",
-	21: "value",
+	13: "attribute-alias",
+	14: "function",
+	19: "generic-parameter",
+	30: "type",
+	31: "value",
 }
 
 var IdentifierKindValues = map[string]Identifier_Kind{
@@ -43,6 +44,7 @@ var IdentifierKindValues = map[string]Identifier_Kind{
 	"constant":          Identifier_KIND_CONSTANT,
 	"variable":          Identifier_KIND_VARIABLE,
 	"attribute":         Identifier_KIND_ATTRIBUTE,
+	"attribute-alias":   Identifier_KIND_ATTRIBUTE_ALIAS,
 	"function":          Identifier_KIND_FUNCTION,
 	"generic-parameter": Identifier_KIND_GENERIC_PARAMETER,
 	"type":              Identifier_KIND_TYPE,

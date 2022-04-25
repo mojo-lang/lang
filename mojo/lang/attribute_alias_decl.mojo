@@ -14,7 +14,7 @@
 
 ///
 ///
-type AttributeDecl : Decl {
+type AttributeAliasDecl : Decl {
     ///
     name: String @10
 
@@ -40,10 +40,7 @@ type AttributeDecl : Decl {
     name_position: Position @19 @ignore
 
     ///
-    type: NominalType @20 | StructType @21
-
-    ///
-    default_value: Expression @22
+    attribute: Attribute @20
 
     /// the 'generic-parameter' type identifier will be in here
     scope:       Scope @30

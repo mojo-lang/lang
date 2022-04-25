@@ -93,16 +93,16 @@ private static final long serialVersionUID = 0L;
             implicit_ = input.readBool();
             break;
           }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceFileName_ = s;
-            break;
-          }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             packageName_ = s;
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            sourceFileName_ = s;
             break;
           }
           case 82: {
@@ -143,6 +143,19 @@ private static final long serialVersionUID = 0L;
               mutable_bitField0_ |= 0x00000001;
             }
             enclosingTypeNames_.add(s);
+            break;
+          }
+          case 242: {
+            org.mojolang.mojo.lang.Scope.Builder subBuilder = null;
+            if (scope_ != null) {
+              subBuilder = scope_.toBuilder();
+            }
+            scope_ = input.readMessage(org.mojolang.mojo.lang.Scope.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(scope_);
+              scope_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -218,21 +231,25 @@ private static final long serialVersionUID = 0L;
      */
     KIND_ATTRIBUTE(12),
     /**
-     * <code>KIND_FUNCTION = 13;</code>
+     * <code>KIND_ATTRIBUTE_ALIAS = 13;</code>
      */
-    KIND_FUNCTION(13),
+    KIND_ATTRIBUTE_ALIAS(13),
     /**
-     * <code>KIND_GENERIC_PARAMETER = 14;</code>
+     * <code>KIND_FUNCTION = 14;</code>
      */
-    KIND_GENERIC_PARAMETER(14),
+    KIND_FUNCTION(14),
     /**
-     * <code>KIND_TYPE = 20;</code>
+     * <code>KIND_GENERIC_PARAMETER = 19;</code>
      */
-    KIND_TYPE(20),
+    KIND_GENERIC_PARAMETER(19),
     /**
-     * <code>KIND_VALUE = 21;</code>
+     * <code>KIND_TYPE = 30;</code>
      */
-    KIND_VALUE(21),
+    KIND_TYPE(30),
+    /**
+     * <code>KIND_VALUE = 31;</code>
+     */
+    KIND_VALUE(31),
     UNRECOGNIZED(-1),
     ;
 
@@ -269,21 +286,25 @@ private static final long serialVersionUID = 0L;
      */
     public static final int KIND_ATTRIBUTE_VALUE = 12;
     /**
-     * <code>KIND_FUNCTION = 13;</code>
+     * <code>KIND_ATTRIBUTE_ALIAS = 13;</code>
      */
-    public static final int KIND_FUNCTION_VALUE = 13;
+    public static final int KIND_ATTRIBUTE_ALIAS_VALUE = 13;
     /**
-     * <code>KIND_GENERIC_PARAMETER = 14;</code>
+     * <code>KIND_FUNCTION = 14;</code>
      */
-    public static final int KIND_GENERIC_PARAMETER_VALUE = 14;
+    public static final int KIND_FUNCTION_VALUE = 14;
     /**
-     * <code>KIND_TYPE = 20;</code>
+     * <code>KIND_GENERIC_PARAMETER = 19;</code>
      */
-    public static final int KIND_TYPE_VALUE = 20;
+    public static final int KIND_GENERIC_PARAMETER_VALUE = 19;
     /**
-     * <code>KIND_VALUE = 21;</code>
+     * <code>KIND_TYPE = 30;</code>
      */
-    public static final int KIND_VALUE_VALUE = 21;
+    public static final int KIND_TYPE_VALUE = 30;
+    /**
+     * <code>KIND_VALUE = 31;</code>
+     */
+    public static final int KIND_VALUE_VALUE = 31;
 
 
     public final int getNumber() {
@@ -318,10 +339,11 @@ private static final long serialVersionUID = 0L;
         case 10: return KIND_CONSTANT;
         case 11: return KIND_VARIABLE;
         case 12: return KIND_ATTRIBUTE;
-        case 13: return KIND_FUNCTION;
-        case 14: return KIND_GENERIC_PARAMETER;
-        case 20: return KIND_TYPE;
-        case 21: return KIND_VALUE;
+        case 13: return KIND_ATTRIBUTE_ALIAS;
+        case 14: return KIND_FUNCTION;
+        case 19: return KIND_GENERIC_PARAMETER;
+        case 30: return KIND_TYPE;
+        case 31: return KIND_VALUE;
         default: return null;
       }
     }
@@ -460,10 +482,10 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int SOURCE_FILE_NAME_FIELD_NUMBER = 6;
+  public static final int SOURCE_FILE_NAME_FIELD_NUMBER = 8;
   private volatile java.lang.Object sourceFileName_;
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The sourceFileName.
    */
   @java.lang.Override
@@ -480,7 +502,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string source_file_name = 6;</code>
+   * <code>string source_file_name = 8;</code>
    * @return The bytes for sourceFileName.
    */
   @java.lang.Override
@@ -711,6 +733,32 @@ private static final long serialVersionUID = 0L;
     return enclosingTypeNames_.getByteString(index);
   }
 
+  public static final int SCOPE_FIELD_NUMBER = 30;
+  private org.mojolang.mojo.lang.Scope scope_;
+  /**
+   * <code>.mojo.lang.Scope scope = 30;</code>
+   * @return Whether the scope field is set.
+   */
+  @java.lang.Override
+  public boolean hasScope() {
+    return scope_ != null;
+  }
+  /**
+   * <code>.mojo.lang.Scope scope = 30;</code>
+   * @return The scope.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Scope getScope() {
+    return scope_ == null ? org.mojolang.mojo.lang.Scope.getDefaultInstance() : scope_;
+  }
+  /**
+   * <code>.mojo.lang.Scope scope = 30;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder() {
+    return getScope();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -737,11 +785,11 @@ private static final long serialVersionUID = 0L;
     if (implicit_ != false) {
       output.writeBool(5, implicit_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sourceFileName_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, packageName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sourceFileName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
@@ -757,6 +805,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < enclosingTypeNames_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 21, enclosingTypeNames_.getRaw(i));
+    }
+    if (scope_ != null) {
+      output.writeMessage(30, getScope());
     }
     unknownFields.writeTo(output);
   }
@@ -783,11 +834,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, implicit_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sourceFileName_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, packageName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFileName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sourceFileName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
@@ -809,6 +860,10 @@ private static final long serialVersionUID = 0L;
       }
       size += dataSize;
       size += 2 * getEnclosingTypeNamesList().size();
+    }
+    if (scope_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(30, getScope());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -855,6 +910,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFullName())) return false;
     if (!getEnclosingTypeNamesList()
         .equals(other.getEnclosingTypeNamesList())) return false;
+    if (hasScope() != other.hasScope()) return false;
+    if (hasScope()) {
+      if (!getScope()
+          .equals(other.getScope())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -896,6 +956,10 @@ private static final long serialVersionUID = 0L;
     if (getEnclosingTypeNamesCount() > 0) {
       hash = (37 * hash) + ENCLOSING_TYPE_NAMES_FIELD_NUMBER;
       hash = (53 * hash) + getEnclosingTypeNamesList().hashCode();
+    }
+    if (hasScope()) {
+      hash = (37 * hash) + SCOPE_FIELD_NUMBER;
+      hash = (53 * hash) + getScope().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1064,6 +1128,12 @@ private static final long serialVersionUID = 0L;
 
       enclosingTypeNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      if (scopeBuilder_ == null) {
+        scope_ = null;
+      } else {
+        scope_ = null;
+        scopeBuilder_ = null;
+      }
       return this;
     }
 
@@ -1118,6 +1188,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.enclosingTypeNames_ = enclosingTypeNames_;
+      if (scopeBuilder_ == null) {
+        result.scope_ = scope_;
+      } else {
+        result.scope_ = scopeBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1210,6 +1285,9 @@ private static final long serialVersionUID = 0L;
           enclosingTypeNames_.addAll(other.enclosingTypeNames_);
         }
         onChanged();
+      }
+      if (other.hasScope()) {
+        mergeScope(other.getScope());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1566,7 +1644,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sourceFileName_ = "";
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @return The sourceFileName.
      */
     public java.lang.String getSourceFileName() {
@@ -1582,7 +1660,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @return The bytes for sourceFileName.
      */
     public com.google.protobuf.ByteString
@@ -1599,7 +1677,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @param value The sourceFileName to set.
      * @return This builder for chaining.
      */
@@ -1614,7 +1692,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearSourceFileName() {
@@ -1624,7 +1702,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string source_file_name = 6;</code>
+     * <code>string source_file_name = 8;</code>
      * @param value The bytes for sourceFileName to set.
      * @return This builder for chaining.
      */
@@ -2171,6 +2249,125 @@ private static final long serialVersionUID = 0L;
       enclosingTypeNames_.add(value);
       onChanged();
       return this;
+    }
+
+    private org.mojolang.mojo.lang.Scope scope_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Scope, org.mojolang.mojo.lang.Scope.Builder, org.mojolang.mojo.lang.ScopeOrBuilder> scopeBuilder_;
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     * @return Whether the scope field is set.
+     */
+    public boolean hasScope() {
+      return scopeBuilder_ != null || scope_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     * @return The scope.
+     */
+    public org.mojolang.mojo.lang.Scope getScope() {
+      if (scopeBuilder_ == null) {
+        return scope_ == null ? org.mojolang.mojo.lang.Scope.getDefaultInstance() : scope_;
+      } else {
+        return scopeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     */
+    public Builder setScope(org.mojolang.mojo.lang.Scope value) {
+      if (scopeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        scope_ = value;
+        onChanged();
+      } else {
+        scopeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     */
+    public Builder setScope(
+        org.mojolang.mojo.lang.Scope.Builder builderForValue) {
+      if (scopeBuilder_ == null) {
+        scope_ = builderForValue.build();
+        onChanged();
+      } else {
+        scopeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     */
+    public Builder mergeScope(org.mojolang.mojo.lang.Scope value) {
+      if (scopeBuilder_ == null) {
+        if (scope_ != null) {
+          scope_ =
+            org.mojolang.mojo.lang.Scope.newBuilder(scope_).mergeFrom(value).buildPartial();
+        } else {
+          scope_ = value;
+        }
+        onChanged();
+      } else {
+        scopeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     */
+    public Builder clearScope() {
+      if (scopeBuilder_ == null) {
+        scope_ = null;
+        onChanged();
+      } else {
+        scope_ = null;
+        scopeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     */
+    public org.mojolang.mojo.lang.Scope.Builder getScopeBuilder() {
+      
+      onChanged();
+      return getScopeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     */
+    public org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder() {
+      if (scopeBuilder_ != null) {
+        return scopeBuilder_.getMessageOrBuilder();
+      } else {
+        return scope_ == null ?
+            org.mojolang.mojo.lang.Scope.getDefaultInstance() : scope_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Scope scope = 30;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Scope, org.mojolang.mojo.lang.Scope.Builder, org.mojolang.mojo.lang.ScopeOrBuilder> 
+        getScopeFieldBuilder() {
+      if (scopeBuilder_ == null) {
+        scopeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Scope, org.mojolang.mojo.lang.Scope.Builder, org.mojolang.mojo.lang.ScopeOrBuilder>(
+                getScope(),
+                getParentForChildren(),
+                isClean());
+        scope_ = null;
+      }
+      return scopeBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

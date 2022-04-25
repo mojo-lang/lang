@@ -3,8 +3,8 @@
 
 package org.mojolang.mojo.lang;
 
-public interface AttributeDeclOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:mojo.lang.AttributeDecl)
+public interface AttributeAliasDeclOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:mojo.lang.AttributeAliasDecl)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -248,49 +248,19 @@ public interface AttributeDeclOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getNamePositionOrBuilder();
 
   /**
-   * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-   * @return Whether the nominalType field is set.
+   * <code>.mojo.lang.Attribute attribute = 20;</code>
+   * @return Whether the attribute field is set.
    */
-  boolean hasNominalType();
+  boolean hasAttribute();
   /**
-   * <code>.mojo.lang.NominalType nominal_type = 20;</code>
-   * @return The nominalType.
+   * <code>.mojo.lang.Attribute attribute = 20;</code>
+   * @return The attribute.
    */
-  org.mojolang.mojo.lang.NominalType getNominalType();
+  org.mojolang.mojo.lang.Attribute getAttribute();
   /**
-   * <code>.mojo.lang.NominalType nominal_type = 20;</code>
+   * <code>.mojo.lang.Attribute attribute = 20;</code>
    */
-  org.mojolang.mojo.lang.NominalTypeOrBuilder getNominalTypeOrBuilder();
-
-  /**
-   * <code>.mojo.lang.StructType struct_type = 21;</code>
-   * @return Whether the structType field is set.
-   */
-  boolean hasStructType();
-  /**
-   * <code>.mojo.lang.StructType struct_type = 21;</code>
-   * @return The structType.
-   */
-  org.mojolang.mojo.lang.StructType getStructType();
-  /**
-   * <code>.mojo.lang.StructType struct_type = 21;</code>
-   */
-  org.mojolang.mojo.lang.StructTypeOrBuilder getStructTypeOrBuilder();
-
-  /**
-   * <code>.mojo.lang.Expression default_value = 22;</code>
-   * @return Whether the defaultValue field is set.
-   */
-  boolean hasDefaultValue();
-  /**
-   * <code>.mojo.lang.Expression default_value = 22;</code>
-   * @return The defaultValue.
-   */
-  org.mojolang.mojo.lang.Expression getDefaultValue();
-  /**
-   * <code>.mojo.lang.Expression default_value = 22;</code>
-   */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getDefaultValueOrBuilder();
+  org.mojolang.mojo.lang.AttributeOrBuilder getAttributeOrBuilder();
 
   /**
    * <code>.mojo.lang.Scope scope = 30;</code>
@@ -306,6 +276,4 @@ public interface AttributeDeclOrBuilder extends
    * <code>.mojo.lang.Scope scope = 30;</code>
    */
   org.mojolang.mojo.lang.ScopeOrBuilder getScopeOrBuilder();
-
-  public org.mojolang.mojo.lang.AttributeDecl.TypeCase getTypeCase();
 }

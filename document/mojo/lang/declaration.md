@@ -9,6 +9,7 @@
 | `mojo.lang.ConstantDecl` |  |
 | `mojo.lang.VariableDecl` |  |
 | `mojo.lang.AttributeDecl` |  |
+| `mojo.lang.AttributeAliasDecl` |  |
 | `mojo.lang.FunctionDecl` |  |
 | `mojo.lang.ConstructorDecl` |  |
 | `mojo.lang.GenericParameter` |  |

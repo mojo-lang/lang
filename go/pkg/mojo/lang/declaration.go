@@ -60,6 +60,22 @@ func NewTypeAliasDeclaration(decl *TypeAliasDecl) *Declaration {
     }
 }
 
+func NewAttributeDeclaration(decl *AttributeDecl) *Declaration {
+    return &Declaration{
+        Declaration: &Declaration_AttributeDecl{
+            AttributeDecl: decl,
+        },
+    }
+}
+
+func NewAttributeAliasDeclaration(decl *AttributeAliasDecl) *Declaration {
+    return &Declaration{
+        Declaration: &Declaration_AttributeAliasDecl{
+            AttributeAliasDecl: decl,
+        },
+    }
+}
+
 func NewDeclarationFromTypeDeclaration(decl *TypeDeclaration) *Declaration {
     if decl != nil {
         switch decl.TypeDeclaration.(type) {

@@ -93,7 +93,7 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(org.mojolang.mojo.lang.Attribute.parser(), extensionRegistry));
             break;
           }
-          case 82: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             packageName_ = s;
@@ -361,10 +361,10 @@ private static final long serialVersionUID = 0L;
     return attributes_.get(index);
   }
 
-  public static final int PACKAGE_NAME_FIELD_NUMBER = 10;
+  public static final int PACKAGE_NAME_FIELD_NUMBER = 7;
   private volatile java.lang.Object packageName_;
   /**
-   * <code>string package_name = 10;</code>
+   * <code>string package_name = 7;</code>
    * @return The packageName.
    */
   @java.lang.Override
@@ -381,7 +381,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string package_name = 10;</code>
+   * <code>string package_name = 7;</code>
    * @return The bytes for packageName.
    */
   @java.lang.Override
@@ -692,7 +692,7 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(4, attributes_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, packageName_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, packageName_);
     }
     for (int i = 0; i < imports_.size(); i++) {
       output.writeMessage(11, imports_.get(i));
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
         .computeMessageSize(4, attributes_.get(i));
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(packageName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, packageName_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, packageName_);
     }
     for (int i = 0; i < imports_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -1961,7 +1961,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object packageName_ = "";
     /**
-     * <code>string package_name = 10;</code>
+     * <code>string package_name = 7;</code>
      * @return The packageName.
      */
     public java.lang.String getPackageName() {
@@ -1977,7 +1977,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string package_name = 10;</code>
+     * <code>string package_name = 7;</code>
      * @return The bytes for packageName.
      */
     public com.google.protobuf.ByteString
@@ -1994,7 +1994,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string package_name = 10;</code>
+     * <code>string package_name = 7;</code>
      * @param value The packageName to set.
      * @return This builder for chaining.
      */
@@ -2009,7 +2009,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string package_name = 10;</code>
+     * <code>string package_name = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearPackageName() {
@@ -2019,7 +2019,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string package_name = 10;</code>
+     * <code>string package_name = 7;</code>
      * @param value The bytes for packageName to set.
      * @return This builder for chaining.
      */

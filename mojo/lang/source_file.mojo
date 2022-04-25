@@ -41,7 +41,7 @@ type SourceFile {
     /// 循环依赖文件名称 'circle_dependency'
     attributes: [Attribute]  @4
 
-    package_name:  String  @10
+    package_name:  String  @7
 
     /// imports decl index for this file, will still exist in the statements
     imports:    [ImportDecl] @11

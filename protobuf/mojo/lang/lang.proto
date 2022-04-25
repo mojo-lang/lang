@@ -71,14 +71,35 @@ message AssignmentExpr {
 message Attribute {
     Position start_position = 1;
     Position end_position = 2;
+    Document document = 4;
     bool implicit = 5;
     string package_name = 7;
     string name = 10;
-    AttributeDecl declaration = 11;
+    AttributeDecl declaration = 11 [(mojo.reference)=""];
     repeated NominalType generic_arguments = 12;
     repeated Argument arguments = 13;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     Expression value = 20;
+}
+
+message AttributeAliasDecl {
+    Position start_position = 1;
+    Position end_position = 2;
+    bool implicit = 5;
+    Document document = 6;
+    string package_name = 7;
+    string source_file_name = 8;
+    Position keyword_position = 9;
+    string name = 10;
+    string full_name = 11;
+    repeated Attribute attributes = 12;
+    repeated GenericParameter generic_parameters = 13;
+    GroupDecl group = 15;
+    repeated Identifier resolved_identifiers = 16;
+    repeated Identifier unresolved_identifiers = 17;
+    Position name_position = 19 [(mojo.db_ignore)=true];
+    Attribute attribute = 20;
+    Scope scope = 30;
 }
 
 message AttributeDecl {
@@ -96,12 +117,13 @@ message AttributeDecl {
     GroupDecl group = 15;
     repeated Identifier resolved_identifiers = 16;
     repeated Identifier unresolved_identifiers = 17;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     oneof type {
         NominalType nominal_type = 20;
         StructType struct_type = 21;
     }
     Expression default_value = 22;
+    Scope scope = 30;
 }
 
 message BinaryExpr {
@@ -158,11 +180,11 @@ message ClosureExpr {
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
     NominalType enclosing_type = 14;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     FunctionSignature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
-    InterfaceDecl interface_decl = 31;
+    InterfaceDecl interface_decl = 31 [(mojo.db_ignore)=true];
     repeated string captures = 40;
 }
 
@@ -216,7 +238,7 @@ message ConstantDecl {
     string name = 10;
     repeated Attribute attributes = 12;
     GroupDecl group = 15;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     NominalType type = 20;
     Initializer initializer = 21;
 }
@@ -233,7 +255,7 @@ message ConstructorDecl {
     string full_name = 11;
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     FunctionSignature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
@@ -274,8 +296,9 @@ message Declaration {
         ConstantDecl constant_decl = 10;
         VariableDecl variable_decl = 11;
         AttributeDecl attribute_decl = 12;
-        FunctionDecl function_decl = 13;
-        ConstructorDecl constructor_decl = 14;
+        AttributeAliasDecl attribute_alias_decl = 13;
+        FunctionDecl function_decl = 14;
+        ConstructorDecl constructor_decl = 15;
         GenericParameter generic_parameter = 19;
         GroupDecl group_decl = 20;
     }
@@ -316,8 +339,8 @@ message EntityEdge {
     string id = 1;
     string name = 2;
     bool implicit = 5;
-    EntityNode from = 7;
-    EntityNode to = 8;
+    EntityNode from = 7 [(mojo.reference)=""];
+    EntityNode to = 8 [(mojo.reference)=""];
     bool inverse = 10;
     bool multiple = 11;
     bool required = 12;
@@ -330,17 +353,17 @@ message EntityEdges {
 }
 
 message EntityNode {
-    string name = 1;
+    string name = 1 [(mojo.key)=""];
     TypeDeclaration type_declaration = 2;
     ValueDecl key_field = 5;
 }
 
 message EntityRelation {
-    string name = 1;
+    string name = 1 [(mojo.key)=""];
     RelationType type = 2;
-    EntityNode from = 5;
-    EntityNode to = 6;
-    repeated EntityEdge edges = 10;
+    EntityNode from = 5 [(mojo.reference)=""];
+    EntityNode to = 6 [(mojo.reference)=""];
+    repeated EntityEdge edges = 10 [(mojo.reference)=""];
 }
 
 message EntityRelations {
@@ -370,7 +393,7 @@ message EnumDecl {
     GroupDecl group = 15;
     repeated Identifier resolved_identifiers = 16;
     repeated Identifier unresolved_identifiers = 17;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     EnumType type = 20;
     Scope scope = 30;
 }
@@ -515,11 +538,11 @@ message FunctionDecl {
     repeated Attribute attributes = 12;
     repeated GenericParameter generic_parameters = 13;
     NominalType enclosing_type = 14;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     FunctionSignature signature = 20;
     BlockStmt body = 21;
     Scope scope = 30;
-    InterfaceDecl interface_decl = 31;
+    InterfaceDecl interface_decl = 31 [(mojo.db_ignore)=true];
 }
 
 message FunctionSignature {
@@ -557,7 +580,7 @@ message GenericParameter {
     GroupDecl group = 15;
     repeated Identifier resolved_identifiers = 16;
     repeated Identifier unresolved_identifiers = 17;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     NominalType constraint = 20;
 }
 
@@ -586,22 +609,24 @@ message Identifier {
         KIND_CONSTANT=10;
         KIND_VARIABLE=11;
         KIND_ATTRIBUTE=12;
-        KIND_FUNCTION=13;
-        KIND_GENERIC_PARAMETER=14;
-        KIND_TYPE=20;
-        KIND_VALUE=21;
+        KIND_ATTRIBUTE_ALIAS=13;
+        KIND_FUNCTION=14;
+        KIND_GENERIC_PARAMETER=19;
+        KIND_TYPE=30;
+        KIND_VALUE=31;
     }
     Position start_position = 1;
     Position end_position = 2;
     Kind kind = 3;
     bool implicit = 5;
-    string source_file_name = 6;
+    string source_file_name = 8;
     string package_name = 7;
     string name = 10;
-    Declaration declaration = 11;
+    Declaration declaration = 11 [(mojo.reference)=""];
     string alias = 12;
     string full_name = 20;
     repeated string enclosing_type_names = 21;
+    Scope scope = 30;
 }
 
 message IdentifierExpr {
@@ -670,7 +695,7 @@ message InterfaceDecl {
     GroupDecl group = 15;
     repeated Identifier resolved_identifiers = 16;
     repeated Identifier unresolved_identifiers = 17;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     InterfaceType type = 20;
     repeated TypeAliasDecl type_alias_decls = 21;
     Scope scope = 30;
@@ -727,7 +752,7 @@ message NominalType {
     string package_name = 7;
     bool implicit = 5;
     string name = 10;
-    TypeDeclaration type_declaration = 11;
+    TypeDeclaration type_declaration = 11 [(mojo.reference)=""];
     repeated NominalType generic_arguments = 12;
     repeated Attribute attributes = 13;
     NominalType enclosing_type = 14;
@@ -840,7 +865,7 @@ message PackageDecl {
     string name = 10;
     ObjectLiteralExpr package_literal_expr = 15;
     Package package = 16;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
 }
 
 message ParenthesizedExpr {
@@ -911,7 +936,7 @@ message SourceFile {
     string full_name = 2;
     mojo.core.Url url = 3;
     repeated Attribute attributes = 4;
-    string package_name = 10;
+    string package_name = 7;
     repeated ImportDecl imports = 11;
     repeated Statement statements = 12;
     repeated Comment tailing_comments = 13;
@@ -984,7 +1009,7 @@ message StructDecl {
     GroupDecl group = 15;
     repeated Identifier resolved_identifiers = 16;
     repeated Identifier unresolved_identifiers = 17;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     StructType type = 20;
     repeated TypeAliasDecl type_alias_decls = 21;
     repeated EnumDecl enum_decls = 22;
@@ -1043,7 +1068,7 @@ message TypeAliasDecl {
     GroupDecl group = 15;
     repeated Identifier resolved_identifiers = 16;
     repeated Identifier unresolved_identifiers = 17;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     NominalType type = 20;
     Scope scope = 30;
 }
@@ -1070,7 +1095,7 @@ message TypeDecl {
     GroupDecl group = 15;
     repeated Identifier resolved_identifiers = 16;
     repeated Identifier unresolved_identifiers = 17;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
 }
 
 message TypeDeclaration {
@@ -1104,7 +1129,7 @@ message ValueDecl {
     string name = 10;
     repeated Attribute attributes = 12;
     GroupDecl group = 15;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     NominalType type = 20;
     Initializer initializer = 21;
 }
@@ -1139,7 +1164,7 @@ message VariableDecl {
     string name = 10;
     repeated Attribute attributes = 12;
     GroupDecl group = 15;
-    Position name_position = 19;
+    Position name_position = 19 [(mojo.db_ignore)=true];
     NominalType type = 20;
     Initializer initializer = 21;
 }
