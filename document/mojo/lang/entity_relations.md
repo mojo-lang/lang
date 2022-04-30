@@ -1,3 +1,3 @@
-| 类型 | 说明 |
+| type | description |
 |---|---|
-| `Array<mojo.lang.EntityRelation>` |
+| `Array<mojo.lang.EntityRelation>` |  |

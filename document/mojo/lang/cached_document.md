@@ -1,4 +1,4 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `cache` | `string` |  | 否 |  |
-| `val` | `mojo.document.Document` |  | 否 |  |
+| `cache` | `string` |  | N |  |
+| `val` | `mojo.document.Document` |  | N |  | data structure for format-neutral representation of documents. |

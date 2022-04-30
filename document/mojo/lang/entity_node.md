@@ -1,5 +1,5 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `name` | `string` |  | 否 |  | full name of the type |
-| `typeDeclaration` | `mojo.lang.TypeDeclaration` |  | 否 |  | the type declaration |
-| `keyField` | `mojo.lang.ValueDecl` |  | 否 |  |
+| `name` | `string` |  | N |  | full name of the type |
+| `typeDeclaration` | `mojo.lang.TypeDeclaration` |  | N |  | the type declaration |
+| `keyField` | `mojo.lang.ValueDecl` |  | N |  | VarDecl - 'var' and 'const' declarations. |

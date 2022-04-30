@@ -1,3 +1,3 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `body` | `mojo.lang.BlockStmt` |  | 否 |  |
+| `body` | `mojo.lang.BlockStmt` |  | N |  | BlockStmt - A brace enclosed sequence of expressions, statements, or declarations, like{ var x = 10; print(x) }. |

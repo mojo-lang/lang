@@ -1,7 +1,7 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `startPosition` | `mojo.lang.Position` |  | 否 |  |
-| `endPosition` | `mojo.lang.Position` |  | 否 |  |
-| `methods` | `Array<mojo.lang.FunctionDecl>` |  | 否 |  |  |
-| `inherits` | `Array<mojo.lang.NominalType>` |  | 否 |  |  |
-| `inheritePosition` | `mojo.lang.Position` |  | 否 |  |  |
+| `startPosition` | `mojo.lang.Position` |  | N |  | Positions<br>Position describes an arbitrary source positionincluding the file, line, and column location.A Position is valid if the line number is > 0. |
+| `endPosition` | `mojo.lang.Position` |  | N |  | Positions<br>Position describes an arbitrary source positionincluding the file, line, and column location.A Position is valid if the line number is > 0. |
+| `methods` | `Array<mojo.lang.FunctionDecl>` |  | N |  |  |
+| `inherits` | `Array<mojo.lang.NominalType>` |  | N |  |  |
+| `inheritePosition` | `mojo.lang.Position` |  | N |  |  |

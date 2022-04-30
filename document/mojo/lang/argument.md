@@ -1,6 +1,6 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `startPosition` | `mojo.lang.Position` |  | 否 |  | position of first character belonging to the Expr |
-| `endPosition` | `mojo.lang.Position` |  | 否 |  | position of first character immediately after the Expr |
-| `label` | `string` |  | 否 |  |  |
-| `value` | `mojo.lang.Expression` |  | 否 |  |
+| `startPosition` | `mojo.lang.Position` |  | N |  | position of first character belonging to the Expr |
+| `endPosition` | `mojo.lang.Position` |  | N |  | position of first character immediately after the Expr |
+| `label` | `string` |  | N |  |  |
+| `value` | `mojo.lang.Expression` |  | N |  |

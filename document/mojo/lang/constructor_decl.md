@@ -1,10 +1,10 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `name` | `string` |  | 否 |  |  |
-| `fullName` | `string` |  | 否 |  |  |
-| `attributes` | `Array<mojo.lang.Attribute>` |  | 否 |  |  |
-| `genericParameters` | `Array<mojo.lang.GenericParameter>` |  | 否 |  |  |
-| `namePosition` | `mojo.lang.Position` |  | 否 |  |  |
-| `signature` | `mojo.lang.FunctionSignature` |  | 否 |  |  |
-| `body` | `mojo.lang.BlockStmt` |  | 否 |  |  |
-| `scope` | `mojo.lang.Scope` |  | 否 |  |  |
+| `name` | `string` |  | N |  |  |
+| `fullName` | `string` |  | N |  |  |
+| `attributes` | `Array<mojo.lang.Attribute>` |  | N |  |  |
+| `genericParameters` | `Array<mojo.lang.GenericParameter>` |  | N |  |  |
+| `namePosition` | `mojo.lang.Position` |  | N |  |  |
+| `signature` | `mojo.lang.FunctionSignature` |  | N |  |  |
+| `body` | `mojo.lang.BlockStmt` |  | N |  |  |
+| `scope` | `mojo.lang.Scope` |  | N |  |  |

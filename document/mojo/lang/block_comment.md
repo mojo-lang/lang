@@ -1,7 +1,7 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `startPosition` | `mojo.lang.Position` |  | 否 |  | position of first character belonging to the Document |
-| `endPosition` | `mojo.lang.Position` |  | 否 |  | position of first character immediately after the Document |
-| `text` | `string` |  | 否 |  | the content of the block comment |
-| `headEmbeded` | `boolean` |  | 否 |  | the head /* is after some code in the same line |
-| `tailEmbeded` | `boolean` |  | 否 |  | the tail */ is before some code in the same line |
+| `startPosition` | `mojo.lang.Position` |  | N |  | position of first character belonging to the Document |
+| `endPosition` | `mojo.lang.Position` |  | N |  | position of first character immediately after the Document |
+| `text` | `string` |  | N |  | the content of the block comment |
+| `headEmbeded` | `boolean` |  | N |  | the head /* is after some code in the same line |
+| `tailEmbeded` | `boolean` |  | N |  | the tail */ is before some code in the same line |

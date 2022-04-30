@@ -1,3 +1,3 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `value` | `integer` | `uint64` | 否 |  |
+| `value` | `integer` | `UInt64` | N |  |

@@ -1,4 +1,4 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `operator` | `mojo.lang.Operator` |  | 否 |  |
-| `argument` | `mojo.lang.Expression` |  | 否 |  |
+| `operator` | `mojo.lang.Operator` |  | N |  |  |
+| `argument` | `mojo.lang.Expression` |  | N |  |

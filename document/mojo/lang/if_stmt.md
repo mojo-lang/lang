@@ -1,5 +1,5 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `condition` | `mojo.lang.Expression` |  | 否 |  |
-| `thenBranch` | `mojo.lang.BlockStmt` |  | 否 |  |
-| `elseBranch` | `Union<mojo.lang.BlockStmt,mojo.lang.IfStmt>` |  | 否 |  |
+| `condition` | `mojo.lang.Expression` |  | N |  |
+| `thenBranch` | `mojo.lang.BlockStmt` |  | N |  | BlockStmt - A brace enclosed sequence of expressions, statements, or declarations, like{ var x = 10; print(x) }. |
+| `elseBranch` | `mojo.core.Union` |  | N |  |

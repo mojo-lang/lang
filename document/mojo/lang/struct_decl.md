@@ -1,7 +1,7 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `type` | `mojo.lang.StructType` |  | 否 |  |  |
-| `typeAliasDecls` | `Array<mojo.lang.TypeAliasDecl>` |  | 否 |  |  |
-| `enumDecls` | `Array<mojo.lang.EnumDecl>` |  | 否 |  |  |
-| `structDecls` | `Array<mojo.lang.StructDecl>` |  | 否 |  |  |
-| `scope` | `mojo.lang.Scope` |  | 否 |  |
+| `type` | `mojo.lang.StructType` |  | N |  |  |
+| `typeAliasDecls` | `Array<mojo.lang.TypeAliasDecl>` |  | N |  |  |
+| `enumDecls` | `Array<mojo.lang.EnumDecl>` |  | N |  |  |
+| `structDecls` | `Array<mojo.lang.StructDecl>` |  | N |  |  |
+| `scope` | `mojo.lang.Scope` |  | N |  | A Scope maintains the set of named language entities declaredin the scope and a link to the immediately surrounding (enclosing)scope. |

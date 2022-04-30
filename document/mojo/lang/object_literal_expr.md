@@ -1,3 +1,3 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `fields` | `Array<mojo.lang.ObjectLiteralExpr.Field>` |  | 否 |  |
+| `fields` | `Array<mojo.lang.ObjectLiteralExpr.Field>` |  | N |  |

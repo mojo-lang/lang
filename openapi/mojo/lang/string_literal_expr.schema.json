@@ -1,1 +1,1 @@
-{"title":"mojo.lang.StringLiteralExpr","description":"StringLiteralExpr - String literal, like '\"foo\"'.","allOf":[{"$ref":"#/components/schemas/mojo.lang.LiteralExpr"},{"title":"mojo.lang.StringLiteralExpr","type":"object","properties":{"value":{"type":"string"}}}]}
+{"title":"mojo.lang.StringLiteralExpr","description":"StringLiteralExpr - String literal, like '\"foo\"'.","allOf":[{"$ref":"#/components/schemas/mojo.lang.LiteralExpr"},{"title":"mojo.lang.StringLiteralExpr","type":"object","properties":{"value":{"title":"mojo.core.String","type":"string"}}}]}

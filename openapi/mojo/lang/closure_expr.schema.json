@@ -1,1 +1,1 @@
-{"title":"mojo.lang.ClosureExpr","description":"","allOf":[{"$ref":"#/components/schemas/mojo.lang.FunctionDecl"},{"title":"mojo.lang.ClosureExpr","type":"object","properties":{"captures":{"type":"array","items":{"type":"string"}}}}]}
+{"title":"mojo.lang.ClosureExpr","description":"","allOf":[{"$ref":"#/components/schemas/mojo.lang.FunctionDecl"},{"title":"mojo.lang.ClosureExpr","type":"object","properties":{"captures":{"title":"mojo.core.Array","type":"array","items":{"title":"mojo.core.String","type":"string"}}}}]}

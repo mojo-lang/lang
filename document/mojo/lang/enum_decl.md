@@ -1,4 +1,4 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `type` | `mojo.lang.EnumType` |  | 否 |  |  |
-| `scope` | `mojo.lang.Scope` |  | 否 |  |
+| `type` | `mojo.lang.EnumType` |  | N |  |  |
+| `scope` | `mojo.lang.Scope` |  | N |  | A Scope maintains the set of named language entities declaredin the scope and a link to the immediately surrounding (enclosing)scope. |

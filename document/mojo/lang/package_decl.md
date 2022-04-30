@@ -1,6 +1,6 @@
-| 字段 | 类型 | 格式类型 | 是否必须 | 默认值 | 说明 |
+| field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `name` | `string` |  | 否 |  |
-| `packageLiteralExpr` | `mojo.lang.ObjectLiteralExpr` |  | 否 |  |  |
-| `package` | `mojo.lang.Package` |  | 否 |  |
-| `namePosition` | `mojo.lang.Position` |  | 否 |  |  |
+| `name` | `string` |  | N |  |
+| `packageLiteralExpr` | `mojo.lang.ObjectLiteralExpr` |  | N |  |  |
+| `package` | `mojo.lang.Package` |  | N |  | A Package represents a set of source filescollectively building a Mojo package. |
+| `namePosition` | `mojo.lang.Position` |  | N |  |  |
