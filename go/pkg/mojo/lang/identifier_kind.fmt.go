@@ -62,6 +62,10 @@ func (x Identifier_Kind) Format() string {
 	return strconv.Itoa(int(x))
 }
 
+func (x Identifier_Kind) ToString() string {
+	return x.Format()
+}
+
 func (x *Identifier_Kind) Parse(value string) error {
 	if x != nil {
 		s, ok := IdentifierKindValues[value]
