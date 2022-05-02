@@ -186,3 +186,18 @@ func TestAttribute_GetMapLiteralArgument3(t *testing.T) {
     assert.Equal(t, "foo1", object.Entries[0].Key)
     assert.Equal(t, "foo1", object.Entries[0].Value.GetStringLiteralExpr().Value)
 }
+
+func TestAttribute_IsSameName(t *testing.T) {
+    attribute := &Attribute{Name: "foo", PackageName: "mojo.core"}
+    assert.True(t, attribute.IsSameName("foo"))
+    assert.True(t, attribute.IsSameName("mojo.core.foo"))
+
+    attribute = &Attribute{Name: "foo", PackageName: ""}
+    assert.True(t, attribute.IsSameName("foo"))
+    assert.True(t, attribute.IsSameName("mojo.core.foo"))
+
+    attribute = &Attribute{Name: "foo", PackageName: "mojo.http"}
+    assert.True(t, attribute.IsSameName("foo"))
+    assert.True(t, attribute.IsSameName("http.foo"))
+    assert.True(t, attribute.IsSameName("mojo.http.foo"))
+}

@@ -3,6 +3,7 @@ package lang
 import (
     "errors"
     "github.com/mojo-lang/core/go/pkg/mojo/core"
+    "strings"
 )
 
 func NewBoolAttribute(pkg string, name string) *Attribute {
@@ -82,9 +83,21 @@ func (x *Attribute) IsSameName(fullName string) bool {
         return false
     }
 
+    removeMojoPackage := func(pkg string) string {
+        switch pkg {
+        case "mojo", "mojo.core":
+            return ""
+        default:
+            return strings.TrimPrefix(pkg, "mojo.")
+        }
+    }
+
     pkg, name := ParseIdentifierName(fullName)
     if len(pkg) > 0 {
-        return x.PackageName == pkg && x.Name == name
+        if x.PackageName == pkg || removeMojoPackage(x.PackageName) == removeMojoPackage(pkg) {
+            return x.Name == name
+        }
+        return false
     } else {
         return x.Name == name
     }
