@@ -360,6 +360,21 @@ private static final long serialVersionUID = 0L;
      */
     com.google.protobuf.ByteString
         getBranchBytes();
+
+    /**
+     * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+     * @return Whether the commit field is set.
+     */
+    boolean hasCommit();
+    /**
+     * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+     * @return The commit.
+     */
+    org.mojolang.mojo.lang.Package.Requirement.Commit getCommit();
+    /**
+     * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+     */
+    org.mojolang.mojo.lang.Package.Requirement.CommitOrBuilder getCommitOrBuilder();
   }
   /**
    * Protobuf type {@code mojo.lang.Package.Requirement}
@@ -451,6 +466,19 @@ private static final long serialVersionUID = 0L;
               java.lang.String s = input.readStringRequireUtf8();
 
               branch_ = s;
+              break;
+            }
+            case 58: {
+              org.mojolang.mojo.lang.Package.Requirement.Commit.Builder subBuilder = null;
+              if (commit_ != null) {
+                subBuilder = commit_.toBuilder();
+              }
+              commit_ = input.readMessage(org.mojolang.mojo.lang.Package.Requirement.Commit.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(commit_);
+                commit_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -1339,6 +1367,777 @@ private static final long serialVersionUID = 0L;
 
     }
 
+    public interface CommitOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:mojo.lang.Package.Requirement.Commit)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>string hash = 1;</code>
+       * @return The hash.
+       */
+      java.lang.String getHash();
+      /**
+       * <code>string hash = 1;</code>
+       * @return The bytes for hash.
+       */
+      com.google.protobuf.ByteString
+          getHashBytes();
+
+      /**
+       * <code>.mojo.core.Timestamp date = 2;</code>
+       * @return Whether the date field is set.
+       */
+      boolean hasDate();
+      /**
+       * <code>.mojo.core.Timestamp date = 2;</code>
+       * @return The date.
+       */
+      org.mojolang.mojo.core.Timestamp getDate();
+      /**
+       * <code>.mojo.core.Timestamp date = 2;</code>
+       */
+      org.mojolang.mojo.core.TimestampOrBuilder getDateOrBuilder();
+    }
+    /**
+     * Protobuf type {@code mojo.lang.Package.Requirement.Commit}
+     */
+    public static final class Commit extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:mojo.lang.Package.Requirement.Commit)
+        CommitOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use Commit.newBuilder() to construct.
+      private Commit(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Commit() {
+        hash_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new Commit();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private Commit(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                hash_ = s;
+                break;
+              }
+              case 18: {
+                org.mojolang.mojo.core.Timestamp.Builder subBuilder = null;
+                if (date_ != null) {
+                  subBuilder = date_.toBuilder();
+                }
+                date_ = input.readMessage(org.mojolang.mojo.core.Timestamp.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(date_);
+                  date_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_Package_Requirement_Commit_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_Package_Requirement_Commit_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.mojolang.mojo.lang.Package.Requirement.Commit.class, org.mojolang.mojo.lang.Package.Requirement.Commit.Builder.class);
+      }
+
+      public static final int HASH_FIELD_NUMBER = 1;
+      private volatile java.lang.Object hash_;
+      /**
+       * <code>string hash = 1;</code>
+       * @return The hash.
+       */
+      @java.lang.Override
+      public java.lang.String getHash() {
+        java.lang.Object ref = hash_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hash_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string hash = 1;</code>
+       * @return The bytes for hash.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getHashBytes() {
+        java.lang.Object ref = hash_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hash_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int DATE_FIELD_NUMBER = 2;
+      private org.mojolang.mojo.core.Timestamp date_;
+      /**
+       * <code>.mojo.core.Timestamp date = 2;</code>
+       * @return Whether the date field is set.
+       */
+      @java.lang.Override
+      public boolean hasDate() {
+        return date_ != null;
+      }
+      /**
+       * <code>.mojo.core.Timestamp date = 2;</code>
+       * @return The date.
+       */
+      @java.lang.Override
+      public org.mojolang.mojo.core.Timestamp getDate() {
+        return date_ == null ? org.mojolang.mojo.core.Timestamp.getDefaultInstance() : date_;
+      }
+      /**
+       * <code>.mojo.core.Timestamp date = 2;</code>
+       */
+      @java.lang.Override
+      public org.mojolang.mojo.core.TimestampOrBuilder getDateOrBuilder() {
+        return getDate();
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hash_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hash_);
+        }
+        if (date_ != null) {
+          output.writeMessage(2, getDate());
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hash_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hash_);
+        }
+        if (date_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, getDate());
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof org.mojolang.mojo.lang.Package.Requirement.Commit)) {
+          return super.equals(obj);
+        }
+        org.mojolang.mojo.lang.Package.Requirement.Commit other = (org.mojolang.mojo.lang.Package.Requirement.Commit) obj;
+
+        if (!getHash()
+            .equals(other.getHash())) return false;
+        if (hasDate() != other.hasDate()) return false;
+        if (hasDate()) {
+          if (!getDate()
+              .equals(other.getDate())) return false;
+        }
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + HASH_FIELD_NUMBER;
+        hash = (53 * hash) + getHash().hashCode();
+        if (hasDate()) {
+          hash = (37 * hash) + DATE_FIELD_NUMBER;
+          hash = (53 * hash) + getDate().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(org.mojolang.mojo.lang.Package.Requirement.Commit prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code mojo.lang.Package.Requirement.Commit}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:mojo.lang.Package.Requirement.Commit)
+          org.mojolang.mojo.lang.Package.Requirement.CommitOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_Package_Requirement_Commit_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_Package_Requirement_Commit_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  org.mojolang.mojo.lang.Package.Requirement.Commit.class, org.mojolang.mojo.lang.Package.Requirement.Commit.Builder.class);
+        }
+
+        // Construct using org.mojolang.mojo.lang.Package.Requirement.Commit.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          hash_ = "";
+
+          if (dateBuilder_ == null) {
+            date_ = null;
+          } else {
+            date_ = null;
+            dateBuilder_ = null;
+          }
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_Package_Requirement_Commit_descriptor;
+        }
+
+        @java.lang.Override
+        public org.mojolang.mojo.lang.Package.Requirement.Commit getDefaultInstanceForType() {
+          return org.mojolang.mojo.lang.Package.Requirement.Commit.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public org.mojolang.mojo.lang.Package.Requirement.Commit build() {
+          org.mojolang.mojo.lang.Package.Requirement.Commit result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public org.mojolang.mojo.lang.Package.Requirement.Commit buildPartial() {
+          org.mojolang.mojo.lang.Package.Requirement.Commit result = new org.mojolang.mojo.lang.Package.Requirement.Commit(this);
+          result.hash_ = hash_;
+          if (dateBuilder_ == null) {
+            result.date_ = date_;
+          } else {
+            result.date_ = dateBuilder_.build();
+          }
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof org.mojolang.mojo.lang.Package.Requirement.Commit) {
+            return mergeFrom((org.mojolang.mojo.lang.Package.Requirement.Commit)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(org.mojolang.mojo.lang.Package.Requirement.Commit other) {
+          if (other == org.mojolang.mojo.lang.Package.Requirement.Commit.getDefaultInstance()) return this;
+          if (!other.getHash().isEmpty()) {
+            hash_ = other.hash_;
+            onChanged();
+          }
+          if (other.hasDate()) {
+            mergeDate(other.getDate());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          org.mojolang.mojo.lang.Package.Requirement.Commit parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (org.mojolang.mojo.lang.Package.Requirement.Commit) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private java.lang.Object hash_ = "";
+        /**
+         * <code>string hash = 1;</code>
+         * @return The hash.
+         */
+        public java.lang.String getHash() {
+          java.lang.Object ref = hash_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            hash_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string hash = 1;</code>
+         * @return The bytes for hash.
+         */
+        public com.google.protobuf.ByteString
+            getHashBytes() {
+          java.lang.Object ref = hash_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            hash_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string hash = 1;</code>
+         * @param value The hash to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHash(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          hash_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string hash = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearHash() {
+          
+          hash_ = getDefaultInstance().getHash();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string hash = 1;</code>
+         * @param value The bytes for hash to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHashBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          hash_ = value;
+          onChanged();
+          return this;
+        }
+
+        private org.mojolang.mojo.core.Timestamp date_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.core.Timestamp, org.mojolang.mojo.core.Timestamp.Builder, org.mojolang.mojo.core.TimestampOrBuilder> dateBuilder_;
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         * @return Whether the date field is set.
+         */
+        public boolean hasDate() {
+          return dateBuilder_ != null || date_ != null;
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         * @return The date.
+         */
+        public org.mojolang.mojo.core.Timestamp getDate() {
+          if (dateBuilder_ == null) {
+            return date_ == null ? org.mojolang.mojo.core.Timestamp.getDefaultInstance() : date_;
+          } else {
+            return dateBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         */
+        public Builder setDate(org.mojolang.mojo.core.Timestamp value) {
+          if (dateBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            date_ = value;
+            onChanged();
+          } else {
+            dateBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         */
+        public Builder setDate(
+            org.mojolang.mojo.core.Timestamp.Builder builderForValue) {
+          if (dateBuilder_ == null) {
+            date_ = builderForValue.build();
+            onChanged();
+          } else {
+            dateBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         */
+        public Builder mergeDate(org.mojolang.mojo.core.Timestamp value) {
+          if (dateBuilder_ == null) {
+            if (date_ != null) {
+              date_ =
+                org.mojolang.mojo.core.Timestamp.newBuilder(date_).mergeFrom(value).buildPartial();
+            } else {
+              date_ = value;
+            }
+            onChanged();
+          } else {
+            dateBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         */
+        public Builder clearDate() {
+          if (dateBuilder_ == null) {
+            date_ = null;
+            onChanged();
+          } else {
+            date_ = null;
+            dateBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         */
+        public org.mojolang.mojo.core.Timestamp.Builder getDateBuilder() {
+          
+          onChanged();
+          return getDateFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         */
+        public org.mojolang.mojo.core.TimestampOrBuilder getDateOrBuilder() {
+          if (dateBuilder_ != null) {
+            return dateBuilder_.getMessageOrBuilder();
+          } else {
+            return date_ == null ?
+                org.mojolang.mojo.core.Timestamp.getDefaultInstance() : date_;
+          }
+        }
+        /**
+         * <code>.mojo.core.Timestamp date = 2;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.core.Timestamp, org.mojolang.mojo.core.Timestamp.Builder, org.mojolang.mojo.core.TimestampOrBuilder> 
+            getDateFieldBuilder() {
+          if (dateBuilder_ == null) {
+            dateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                org.mojolang.mojo.core.Timestamp, org.mojolang.mojo.core.Timestamp.Builder, org.mojolang.mojo.core.TimestampOrBuilder>(
+                    getDate(),
+                    getParentForChildren(),
+                    isClean());
+            date_ = null;
+          }
+          return dateBuilder_;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:mojo.lang.Package.Requirement.Commit)
+      }
+
+      // @@protoc_insertion_point(class_scope:mojo.lang.Package.Requirement.Commit)
+      private static final org.mojolang.mojo.lang.Package.Requirement.Commit DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new org.mojolang.mojo.lang.Package.Requirement.Commit();
+      }
+
+      public static org.mojolang.mojo.lang.Package.Requirement.Commit getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<Commit>
+          PARSER = new com.google.protobuf.AbstractParser<Commit>() {
+        @java.lang.Override
+        public Commit parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Commit(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Commit> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Commit> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public org.mojolang.mojo.lang.Package.Requirement.Commit getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
     public static final int VERSION_FIELD_NUMBER = 1;
     private org.mojolang.mojo.lang.Package.Requirement.Version version_;
     /**
@@ -1505,6 +2304,32 @@ private static final long serialVersionUID = 0L;
       }
     }
 
+    public static final int COMMIT_FIELD_NUMBER = 7;
+    private org.mojolang.mojo.lang.Package.Requirement.Commit commit_;
+    /**
+     * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+     * @return Whether the commit field is set.
+     */
+    @java.lang.Override
+    public boolean hasCommit() {
+      return commit_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+     * @return The commit.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.Package.Requirement.Commit getCommit() {
+      return commit_ == null ? org.mojolang.mojo.lang.Package.Requirement.Commit.getDefaultInstance() : commit_;
+    }
+    /**
+     * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.Package.Requirement.CommitOrBuilder getCommitOrBuilder() {
+      return getCommit();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1534,6 +2359,9 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(branch_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, branch_);
       }
+      if (commit_ != null) {
+        output.writeMessage(7, getCommit());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1559,6 +2387,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(branch_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, branch_);
+      }
+      if (commit_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getCommit());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1591,6 +2423,11 @@ private static final long serialVersionUID = 0L;
       }
       if (!getBranch()
           .equals(other.getBranch())) return false;
+      if (hasCommit() != other.hasCommit()) return false;
+      if (hasCommit()) {
+        if (!getCommit()
+            .equals(other.getCommit())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1616,6 +2453,10 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + BRANCH_FIELD_NUMBER;
       hash = (53 * hash) + getBranch().hashCode();
+      if (hasCommit()) {
+        hash = (37 * hash) + COMMIT_FIELD_NUMBER;
+        hash = (53 * hash) + getCommit().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1767,6 +2608,12 @@ private static final long serialVersionUID = 0L;
         }
         branch_ = "";
 
+        if (commitBuilder_ == null) {
+          commit_ = null;
+        } else {
+          commit_ = null;
+          commitBuilder_ = null;
+        }
         return this;
       }
 
@@ -1806,6 +2653,11 @@ private static final long serialVersionUID = 0L;
           result.repository_ = repositoryBuilder_.build();
         }
         result.branch_ = branch_;
+        if (commitBuilder_ == null) {
+          result.commit_ = commit_;
+        } else {
+          result.commit_ = commitBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1871,6 +2723,9 @@ private static final long serialVersionUID = 0L;
         if (!other.getBranch().isEmpty()) {
           branch_ = other.branch_;
           onChanged();
+        }
+        if (other.hasCommit()) {
+          mergeCommit(other.getCommit());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2365,6 +3220,125 @@ private static final long serialVersionUID = 0L;
         branch_ = value;
         onChanged();
         return this;
+      }
+
+      private org.mojolang.mojo.lang.Package.Requirement.Commit commit_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.mojolang.mojo.lang.Package.Requirement.Commit, org.mojolang.mojo.lang.Package.Requirement.Commit.Builder, org.mojolang.mojo.lang.Package.Requirement.CommitOrBuilder> commitBuilder_;
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       * @return Whether the commit field is set.
+       */
+      public boolean hasCommit() {
+        return commitBuilder_ != null || commit_ != null;
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       * @return The commit.
+       */
+      public org.mojolang.mojo.lang.Package.Requirement.Commit getCommit() {
+        if (commitBuilder_ == null) {
+          return commit_ == null ? org.mojolang.mojo.lang.Package.Requirement.Commit.getDefaultInstance() : commit_;
+        } else {
+          return commitBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       */
+      public Builder setCommit(org.mojolang.mojo.lang.Package.Requirement.Commit value) {
+        if (commitBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          commit_ = value;
+          onChanged();
+        } else {
+          commitBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       */
+      public Builder setCommit(
+          org.mojolang.mojo.lang.Package.Requirement.Commit.Builder builderForValue) {
+        if (commitBuilder_ == null) {
+          commit_ = builderForValue.build();
+          onChanged();
+        } else {
+          commitBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       */
+      public Builder mergeCommit(org.mojolang.mojo.lang.Package.Requirement.Commit value) {
+        if (commitBuilder_ == null) {
+          if (commit_ != null) {
+            commit_ =
+              org.mojolang.mojo.lang.Package.Requirement.Commit.newBuilder(commit_).mergeFrom(value).buildPartial();
+          } else {
+            commit_ = value;
+          }
+          onChanged();
+        } else {
+          commitBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       */
+      public Builder clearCommit() {
+        if (commitBuilder_ == null) {
+          commit_ = null;
+          onChanged();
+        } else {
+          commit_ = null;
+          commitBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       */
+      public org.mojolang.mojo.lang.Package.Requirement.Commit.Builder getCommitBuilder() {
+        
+        onChanged();
+        return getCommitFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       */
+      public org.mojolang.mojo.lang.Package.Requirement.CommitOrBuilder getCommitOrBuilder() {
+        if (commitBuilder_ != null) {
+          return commitBuilder_.getMessageOrBuilder();
+        } else {
+          return commit_ == null ?
+              org.mojolang.mojo.lang.Package.Requirement.Commit.getDefaultInstance() : commit_;
+        }
+      }
+      /**
+       * <code>.mojo.lang.Package.Requirement.Commit commit = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.mojolang.mojo.lang.Package.Requirement.Commit, org.mojolang.mojo.lang.Package.Requirement.Commit.Builder, org.mojolang.mojo.lang.Package.Requirement.CommitOrBuilder> 
+          getCommitFieldBuilder() {
+        if (commitBuilder_ == null) {
+          commitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.mojolang.mojo.lang.Package.Requirement.Commit, org.mojolang.mojo.lang.Package.Requirement.Commit.Builder, org.mojolang.mojo.lang.Package.Requirement.CommitOrBuilder>(
+                  getCommit(),
+                  getParentForChildren(),
+                  isClean());
+          commit_ = null;
+        }
+        return commitBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(

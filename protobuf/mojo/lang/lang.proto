@@ -5,6 +5,7 @@ syntax = "proto3";
 package mojo.lang;
 
 import "mojo/core/email_address.proto";
+import "mojo/core/time.proto";
 import "mojo/core/url.proto";
 import "mojo/core/value.proto";
 import "mojo/core/version.proto";
@@ -822,11 +823,17 @@ message Package {
             Type type = 1;
             mojo.core.VersionRange range = 2;
         }
+        
+        message Commit {
+            string hash = 1;
+            mojo.core.Timestamp date = 2;
+        }
         Version version = 1;
         string registry = 3;
         string path = 4;
         mojo.core.Url repository = 5;
         string branch = 6;
+        Commit commit = 7;
     }
     
     message Author {

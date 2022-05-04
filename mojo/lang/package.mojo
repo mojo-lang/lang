@@ -29,6 +29,11 @@ type Package {
             range: VersionRange @2
         }
 
+        type Commit {
+            hash: String @1
+            date: Timestamp @2
+        }
+
         /// ^1.2.3
         /// ~1.2.3
         /// >= 1.2, < 1.5
@@ -45,6 +50,9 @@ type Package {
         
         ///
         branch: String @6
+
+        /// will using the commit if the version is 0.0.0
+        commit: Commit @7
     }
 
     type Author {

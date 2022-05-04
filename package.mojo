@@ -8,8 +8,8 @@ package mojo.lang {
         organization: 'mojolang.org'
     }]
     dependencies: {
-        'mojo.core': {path: '../core', version: '^0.1'}
-        'mojo.document': {path: '../document', version: '^0.1'}
+        'mojo.core': {repository: 'github.com/mojo-lang/core', version: '^0.1'}
+        'mojo.document': {repository: 'github.com/mojo-lang/document', version: '^0.1'}
     }
 
     repository: 'https://github.com/mojo-lang/lang'
