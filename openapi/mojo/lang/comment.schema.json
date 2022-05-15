@@ -1,1 +1,14 @@
-{"title":"mojo.lang.Comment","oneOf":[{"$ref":"#/components/schemas/mojo.lang.BlockComment"},{"$ref":"#/components/schemas/mojo.lang.MultiLineComment"},{"$ref":"#/components/schemas/mojo.lang.Document"}]}
+{
+    "title": "mojo.lang.Comment",
+    "oneOf": [
+        {
+            "$ref": "#/components/schemas/mojo.lang.BlockComment"
+        },
+        {
+            "$ref": "#/components/schemas/mojo.lang.MultiLineComment"
+        },
+        {
+            "$ref": "#/components/schemas/mojo.lang.Document"
+        }
+    ]
+}

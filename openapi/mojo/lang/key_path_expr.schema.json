@@ -1,1 +1,4 @@
-{"title":"mojo.lang.KeyPathExpr","type":"object"}
+{
+    "title": "mojo.lang.KeyPathExpr",
+    "type": "object"
+}

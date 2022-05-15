@@ -1,1 +1,9 @@
-{"title":"mojo.lang.EmptyStmt","description":"","allOf":[{"$ref":"#/components/schemas/mojo.lang.Stmt"}]}
+{
+    "title": "mojo.lang.EmptyStmt",
+    "description": "",
+    "allOf": [
+        {
+            "$ref": "#/components/schemas/mojo.lang.Stmt"
+        }
+    ]
+}

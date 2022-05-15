@@ -1,1 +1,18 @@
-{"title":"mojo.lang.ApplyExpr","description":"ApplyExpr - Superclass of various function calls, which apply an argument to\na function to get a result.","allOf":[{"$ref":"#/components/schemas/mojo.lang.Expr"},{"title":"mojo.lang.ApplyExpr","type":"object","properties":{"callee":{"$ref":"#/components/schemas/mojo.lang.Expression"}}}]}
+{
+    "title": "mojo.lang.ApplyExpr",
+    "description": "ApplyExpr - Superclass of various function calls, which apply an argument to\na function to get a result.",
+    "allOf": [
+        {
+            "$ref": "#/components/schemas/mojo.lang.Expr"
+        },
+        {
+            "title": "mojo.lang.ApplyExpr",
+            "type": "object",
+            "properties": {
+                "callee": {
+                    "$ref": "#/components/schemas/mojo.lang.Expression"
+                }
+            }
+        }
+    ]
+}

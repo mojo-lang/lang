@@ -1,1 +1,9 @@
-{"title":"mojo.lang.VariableDecl","description":"","allOf":[{"$ref":"#/components/schemas/mojo.lang.ValueDecl"}]}
+{
+    "title": "mojo.lang.VariableDecl",
+    "description": "",
+    "allOf": [
+        {
+            "$ref": "#/components/schemas/mojo.lang.ValueDecl"
+        }
+    ]
+}

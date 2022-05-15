@@ -1,1 +1,59 @@
-{"title":"mojo.lang.FunctionDecl","description":"","allOf":[{"$ref":"#/components/schemas/mojo.lang.Decl"},{"title":"mojo.lang.FunctionDecl","type":"object","properties":{"attributes":{"title":"mojo.core.Array","description":"","type":"array","items":{"$ref":"#/components/schemas/mojo.lang.Attribute"}},"body":{"$ref":"#/components/schemas/mojo.lang.BlockStmt"},"enclosingType":{"$ref":"#/components/schemas/mojo.lang.NominalType"},"fullName":{"title":"mojo.core.String","description":"","type":"string"},"genericParameters":{"title":"mojo.core.Array","description":"","type":"array","items":{"$ref":"#/components/schemas/mojo.lang.GenericParameter"}},"interfaceDecl":{"$ref":"#/components/schemas/mojo.lang.InterfaceDecl"},"name":{"title":"mojo.core.String","description":"","type":"string"},"namePosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"scope":{"$ref":"#/components/schemas/mojo.lang.Scope"},"signature":{"$ref":"#/components/schemas/mojo.lang.FunctionSignature"}}}]}
+{
+    "title": "mojo.lang.FunctionDecl",
+    "description": "",
+    "allOf": [
+        {
+            "$ref": "#/components/schemas/mojo.lang.Decl"
+        },
+        {
+            "title": "mojo.lang.FunctionDecl",
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "title": "mojo.core.Array",
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/components/schemas/mojo.lang.Attribute"
+                    }
+                },
+                "body": {
+                    "$ref": "#/components/schemas/mojo.lang.BlockStmt"
+                },
+                "enclosingType": {
+                    "$ref": "#/components/schemas/mojo.lang.NominalType"
+                },
+                "fullName": {
+                    "title": "mojo.core.String",
+                    "description": "",
+                    "type": "string"
+                },
+                "genericParameters": {
+                    "title": "mojo.core.Array",
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/components/schemas/mojo.lang.GenericParameter"
+                    }
+                },
+                "interfaceDecl": {
+                    "$ref": "#/components/schemas/mojo.lang.InterfaceDecl"
+                },
+                "name": {
+                    "title": "mojo.core.String",
+                    "description": "",
+                    "type": "string"
+                },
+                "namePosition": {
+                    "$ref": "#/components/schemas/mojo.lang.Position"
+                },
+                "scope": {
+                    "$ref": "#/components/schemas/mojo.lang.Scope"
+                },
+                "signature": {
+                    "$ref": "#/components/schemas/mojo.lang.FunctionSignature"
+                }
+            }
+        }
+    ]
+}

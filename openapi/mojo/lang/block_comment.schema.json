@@ -1,1 +1,28 @@
-{"title":"mojo.lang.BlockComment","description":"","type":"object","properties":{"endPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"headEmbeded":{"title":"mojo.core.Bool","description":"the head /* is after some code in the same line","type":"boolean"},"startPosition":{"$ref":"#/components/schemas/mojo.lang.Position"},"tailEmbeded":{"title":"mojo.core.Bool","description":"the tail */ is before some code in the same line","type":"boolean"},"text":{"title":"mojo.core.String","description":"the content of the block comment","type":"string"}}}
+{
+    "title": "mojo.lang.BlockComment",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "endPosition": {
+            "$ref": "#/components/schemas/mojo.lang.Position"
+        },
+        "headEmbeded": {
+            "title": "mojo.core.Bool",
+            "description": "the head /* is after some code in the same line",
+            "type": "boolean"
+        },
+        "startPosition": {
+            "$ref": "#/components/schemas/mojo.lang.Position"
+        },
+        "tailEmbeded": {
+            "title": "mojo.core.Bool",
+            "description": "the tail */ is before some code in the same line",
+            "type": "boolean"
+        },
+        "text": {
+            "title": "mojo.core.String",
+            "description": "the content of the block comment",
+            "type": "string"
+        }
+    }
+}

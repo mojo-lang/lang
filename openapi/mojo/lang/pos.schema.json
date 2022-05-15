@@ -1,1 +1,4 @@
-{"title":"mojo.core.Int","type":"integer"}
+{
+    "title": "mojo.core.Int",
+    "type": "integer"
+}
