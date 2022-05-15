@@ -18,6 +18,7 @@
 package lang
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -36,11 +37,15 @@ func (codec *PackageRequirementVersionTypeCodec) Decode(ptr unsafe.Pointer, iter
 	any := iter.ReadAny()
 	e := (*Package_Requirement_Version_Type)(ptr)
 	if any.ValueType() == jsoniter.StringValue {
-		e.Parse(any.ToString())
+		if err := e.Parse(any.ToString()); err != nil {
+			iter.ReportError("PackageRequirementVersionTypeCodec.Decode", err.Error())
+		}
 	} else if any.ValueType() == jsoniter.NumberValue {
 		value := any.ToInt32()
 		if _, ok := PackageRequirementVersionTypeNames[value]; ok {
 			*e = Package_Requirement_Version_Type(value)
+		} else {
+			iter.ReportError("PackageRequirementVersionTypeCodec.Decode", fmt.Sprintf("invalid enum value %d for Package_Requirement_Version_Type", value))
 		}
 	}
 }

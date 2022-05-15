@@ -18,6 +18,7 @@
 package lang
 
 import (
+	"fmt"
 	"unsafe"
 
 	jsoniter "github.com/json-iterator/go"
@@ -36,11 +37,15 @@ func (codec *RelationTypeCodec) Decode(ptr unsafe.Pointer, iter *jsoniter.Iterat
 	any := iter.ReadAny()
 	e := (*RelationType)(ptr)
 	if any.ValueType() == jsoniter.StringValue {
-		e.Parse(any.ToString())
+		if err := e.Parse(any.ToString()); err != nil {
+			iter.ReportError("RelationTypeCodec.Decode", err.Error())
+		}
 	} else if any.ValueType() == jsoniter.NumberValue {
 		value := any.ToInt32()
 		if _, ok := RelationTypeNames[value]; ok {
 			*e = RelationType(value)
+		} else {
+			iter.ReportError("RelationTypeCodec.Decode", fmt.Sprintf("invalid enum value %d for RelationType", value))
 		}
 	}
 }

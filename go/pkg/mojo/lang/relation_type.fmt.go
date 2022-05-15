@@ -77,3 +77,11 @@ func (x *RelationType) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseRelationType(value string) (RelationType, error) {
+	var v RelationType
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

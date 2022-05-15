@@ -79,3 +79,11 @@ func (x *Identifier_Kind) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParseIdentifier_Kind(value string) (Identifier_Kind, error) {
+	var v Identifier_Kind
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}

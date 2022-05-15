@@ -63,3 +63,11 @@ func (x *Package_Requirement_Version_Type) Parse(value string) error {
 	}
 	return nil
 }
+
+func ParsePackage_Requirement_Version_Type(value string) (Package_Requirement_Version_Type, error) {
+	var v Package_Requirement_Version_Type
+	if err := (&v).Parse(value); err != nil {
+		return v, err
+	}
+	return v, nil
+}
