@@ -193,7 +193,8 @@ message Comment {
     oneof comment {
         BlockComment block_comment = 1;
         MultiLineComment multi_line_comment = 2;
-        Document document = 3;
+        LineBreakComment line_break_comment = 3;
+        Document document = 4;
     }
 }
 
@@ -216,6 +217,11 @@ message MultiLineComment {
     Position start_position = 1;
     Position end_position = 2;
     repeated LineComment lines = 10;
+}
+
+message LineBreakComment {
+    Position start_position = 1;
+    Position end_position = 2;
 }
 
 message ConditionalExpr {

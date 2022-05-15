@@ -38,17 +38,32 @@ public interface CommentOrBuilder extends
   org.mojolang.mojo.lang.MultiLineCommentOrBuilder getMultiLineCommentOrBuilder();
 
   /**
-   * <code>.mojo.lang.Document document = 3;</code>
+   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+   * @return Whether the lineBreakComment field is set.
+   */
+  boolean hasLineBreakComment();
+  /**
+   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+   * @return The lineBreakComment.
+   */
+  org.mojolang.mojo.lang.LineBreakComment getLineBreakComment();
+  /**
+   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+   */
+  org.mojolang.mojo.lang.LineBreakCommentOrBuilder getLineBreakCommentOrBuilder();
+
+  /**
+   * <code>.mojo.lang.Document document = 4;</code>
    * @return Whether the document field is set.
    */
   boolean hasDocument();
   /**
-   * <code>.mojo.lang.Document document = 3;</code>
+   * <code>.mojo.lang.Document document = 4;</code>
    * @return The document.
    */
   org.mojolang.mojo.lang.Document getDocument();
   /**
-   * <code>.mojo.lang.Document document = 3;</code>
+   * <code>.mojo.lang.Document document = 4;</code>
    */
   org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder();
 

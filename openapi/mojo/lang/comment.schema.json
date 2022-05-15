@@ -8,6 +8,9 @@
             "$ref": "#/components/schemas/mojo.lang.MultiLineComment"
         },
         {
+            "$ref": "#/components/schemas/mojo.lang.LineBreakComment"
+        },
+        {
             "$ref": "#/components/schemas/mojo.lang.Document"
         }
     ]

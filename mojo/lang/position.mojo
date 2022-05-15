@@ -23,7 +23,6 @@
 /// including the file, line, and column location.
 /// A Position is valid if the line number is > 0.
 ///
-@format()
 type Position {
   	filename: String @1 //< filename, if any
   	offset:   Int    @2 //< offset, starting at 0 (byte count)

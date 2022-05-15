@@ -16,7 +16,8 @@
 @label_format('{}')
 type Comment = BlockComment @1 //< block comment using /**/
              | MultiLineComment @2 //< continuous multi-line comment
-             | Document @3 //< free floating document
+             | LineBreakComment @3 //< user line break comment
+             | Document @4 //< free floating document
 
 type BlockComment {
     /// position of first character belonging to the Document
@@ -36,10 +37,10 @@ type BlockComment {
 }
 
 type LineComment {
-    /// position of first character belonging to the CommentLine
+    /// position of first character belonging to the LineComment
     start_position: Position @1
 
-    /// position of first character immediately after the CommentLine
+    /// position of first character immediately after the LineComment
     end_position: Position @2
 
     following: Bool @3
@@ -48,11 +49,20 @@ type LineComment {
 }
 
 type MultiLineComment {
-    /// position of first character belonging to the LineDocument
+    /// position of first character belonging to the MultiLineComment
     start_position: Position @1
 
-    /// position of first character immediately after the LineDocument
+    /// position of first character immediately after the MultiLineComment
     end_position: Position @2
 
     lines: [LineComment] @10
+}
+
+/// user line break before a ValueDecl in struct or enum scope, or statement in function/lamda scope
+type LineBreakComment {
+    /// position of first character belonging to the LineBreakComment
+    start_position: Position @1
+
+    /// position of first character immediately after the LineBreakComment
+    end_position: Position @2
 }
