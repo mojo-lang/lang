@@ -63,3 +63,125 @@ func (x *TypeAliasDecl) SetScope(scope *Scope) {
 func (x *TypeAliasDecl) IsGeneric() bool {
     return x != nil && len(x.GenericParameters) > 0
 }
+
+func (x *TypeAliasDecl) EnclosingTypeDecl() interface{} {
+    return x.GetEnclosingType().GetTypeDeclaration().GetDecl()
+}
+
+func (x *TypeAliasDecl) GetAttributeArguments(name string) ([]*Argument, error) {
+    if x != nil {
+        return GetAttributeArguments(x.Attributes, name)
+    }
+    return nil, errors.New("StructDecl is nil")
+}
+
+func (x *TypeAliasDecl) GetAttributeArgument(name string) (*Argument, error) {
+    if x != nil {
+        return GetAttributeArgument(x.Attributes, name)
+    }
+    return nil, errors.New("StructDecl is nil")
+}
+
+func (x *TypeAliasDecl) HasAttribute(name string) bool {
+    if x != nil {
+        return HasAttribute(x.Attributes, name)
+    }
+    return false
+}
+
+func (x *TypeAliasDecl) GetAttribute(name string) *Attribute {
+    if x != nil {
+        return GetAttribute(x.Attributes, name)
+    }
+    return nil
+}
+
+func (x *TypeAliasDecl) GetBoolAttribute(name string) (bool, error) {
+    argument, err := x.GetAttributeArgument(name)
+    if err != nil {
+        return false, err
+    }
+
+    if argument != nil {
+        return argument.GetBool()
+    } else {
+        //TODO using the default value of the attribute declaration
+        return true, nil
+    }
+}
+
+func (x *TypeAliasDecl) SetBoolAttribute(name string, value bool) *Attribute {
+    if x != nil {
+        x.Attributes = SetBoolAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
+    }
+    return nil
+}
+
+func (x *TypeAliasDecl) SetImplicitBoolAttribute(name string, value bool) *Attribute {
+    if x != nil {
+        return x.SetBoolAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *TypeAliasDecl) GetIntegerAttribute(name string) (int64, error) {
+    if argument, err := x.GetAttributeArgument(name); err != nil {
+        return 0, err
+    } else {
+        if argument != nil {
+            return argument.GetInteger()
+        } else {
+            //TODO using the default value of the attribute declaration
+            return 0, nil
+        }
+    }
+}
+
+func (x *TypeAliasDecl) SetIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil {
+        x.Attributes = SetIntegerAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
+    }
+    return nil
+}
+
+func (x *TypeAliasDecl) SetImplicitIntegerAttribute(name string, value int64) *Attribute {
+    if x != nil {
+        return x.SetIntegerAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *TypeAliasDecl) GetStringAttribute(name string) (string, error) {
+    if argument, err := x.GetAttributeArgument(name); err != nil {
+        return "", err
+    } else {
+        if argument != nil {
+            return argument.GetString()
+        } else {
+            return "", nil
+        }
+    }
+}
+
+func (x *TypeAliasDecl) SetStringAttribute(name string, value string) *Attribute {
+    if x != nil {
+        x.Attributes = SetStringAttribute(x.Attributes, name, value)
+        return x.Attributes[len(x.Attributes)-1]
+    }
+    return nil
+}
+
+func (x *TypeAliasDecl) SetImplicitStringAttribute(name string, value string) *Attribute {
+    if x != nil {
+        return x.SetStringAttribute(name, value).SetImplicit(true)
+    }
+    return nil
+}
+
+func (x *TypeAliasDecl) RemoveAttribute(name string) {
+    if x != nil {
+        x.Attributes = RemoveAttribute(x.Attributes, name)
+    }
+}
