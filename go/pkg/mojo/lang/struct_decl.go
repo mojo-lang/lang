@@ -93,7 +93,7 @@ func (x *StructDecl) EachField(iter func(decl *ValueDecl) error) error {
 }
 
 func (x *StructDecl) EnclosingTypeDecl() interface{} {
-    return x
+    return x.GetEnclosingType().GetTypeDeclaration().GetDecl()
 }
 
 func (x *StructDecl) GetAttributeArguments(name string) ([]*Argument, error) {

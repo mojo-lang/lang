@@ -126,6 +126,26 @@ func (x *TypeDeclaration) GetEnclosingType() *NominalType {
     }
 }
 
+func (x *TypeDeclaration) GetDecl() interface{} {
+    if x != nil {
+        switch x.TypeDeclaration.(type) {
+        case *TypeDeclaration_StructDecl:
+            return x.GetStructDecl()
+        case *TypeDeclaration_InterfaceDecl:
+            return x.GetInterfaceDecl()
+        case *TypeDeclaration_EnumDecl:
+            return x.GetEnumDecl()
+        case *TypeDeclaration_TypeAliasDecl:
+            return x.GetTypeAliasDecl()
+        case *TypeDeclaration_GenericParameter:
+            return x.GetGenericParameter()
+        default:
+            return nil
+        }
+    }
+    return nil
+}
+
 func (x *TypeDeclaration) IsGeneric() bool {
     switch decl := x.TypeDeclaration.(type) {
     case *TypeDeclaration_TypeAliasDecl:
