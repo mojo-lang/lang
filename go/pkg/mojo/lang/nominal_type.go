@@ -119,16 +119,19 @@ func (x *NominalType) NewIdentifier() *Identifier {
 			Implicit:       x.TypeDeclaration.Implicit(),
 		}
 
-		switch x.TypeDeclaration.TypeDeclaration.(type) {
-		case *TypeDeclaration_EnumDecl:
-			identifier.Kind = Identifier_KIND_ENUM
-		case *TypeDeclaration_StructDecl:
-			identifier.Kind = Identifier_KIND_STRUCT
-		case *TypeDeclaration_TypeAliasDecl:
-			identifier.Kind = Identifier_KIND_TYPE_ALIAS
-		case *TypeDeclaration_InterfaceDecl:
-			identifier.Kind = Identifier_KIND_INTERFACE
+		if decl := x.TypeDeclaration.GetTypeDeclaration(); decl != nil {
+			switch decl.(type) {
+			case *TypeDeclaration_EnumDecl:
+				identifier.Kind = Identifier_KIND_ENUM
+			case *TypeDeclaration_StructDecl:
+				identifier.Kind = Identifier_KIND_STRUCT
+			case *TypeDeclaration_TypeAliasDecl:
+				identifier.Kind = Identifier_KIND_TYPE_ALIAS
+			case *TypeDeclaration_InterfaceDecl:
+				identifier.Kind = Identifier_KIND_INTERFACE
+			}
 		}
+
 		return identifier
 	}
 	return nil
