@@ -2,6 +2,12 @@ package lang
 
 import "errors"
 
+func NewArgument(expr *Expression) *Argument {
+	return &Argument{
+		Value: expr,
+	}
+}
+
 func NewBoolLiteralArgument(expr *BoolLiteralExpr) *Argument {
 	return &Argument{
 		Value: NewBoolLiteralExpression(expr),
@@ -48,16 +54,25 @@ func NewObjectLiteralArgument(expr *ObjectLiteralExpr) *Argument {
 	}
 }
 
-func (x *Argument) SetStartPosition(position *Position) {
+func (x *Argument) SetStartPosition(position *Position) *Argument {
 	if x != nil {
 		x.StartPosition = PatchPosition(x.StartPosition, position)
 	}
+	return x
 }
 
-func (x *Argument) SetEndPosition(position *Position) {
+func (x *Argument) SetEndPosition(position *Position) *Argument {
 	if x != nil {
 		x.EndPosition = PatchPosition(x.EndPosition, position)
 	}
+	return x
+}
+
+func (x *Argument) SetLabel(label string) *Argument {
+	if x != nil {
+		x.Label = label
+	}
+	return x
 }
 
 func (x *Argument) MergeComment(comment *Comment) (bool, error) {
