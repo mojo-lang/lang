@@ -65,49 +65,49 @@ public interface FunctionCallExprOrBuilder extends
   org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
 
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   java.util.List<org.mojolang.mojo.lang.NominalType> 
       getGenericArgumentsList();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   org.mojolang.mojo.lang.NominalType getGenericArguments(int index);
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   int getGenericArgumentsCount();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.NominalTypeOrBuilder> 
       getGenericArgumentsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   org.mojolang.mojo.lang.NominalTypeOrBuilder getGenericArgumentsOrBuilder(
       int index);
 
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Argument> 
       getArgumentsList();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   org.mojolang.mojo.lang.Argument getArguments(int index);
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   int getArgumentsCount();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.ArgumentOrBuilder> 
       getArgumentsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   org.mojolang.mojo.lang.ArgumentOrBuilder getArgumentsOrBuilder(
       int index);

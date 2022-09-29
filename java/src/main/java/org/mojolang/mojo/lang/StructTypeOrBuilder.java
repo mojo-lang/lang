@@ -86,41 +86,41 @@ public interface StructTypeOrBuilder extends
       int index);
 
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
-  java.util.List<org.mojolang.mojo.lang.ValueGroupDecl> 
+  java.util.List<org.mojolang.mojo.lang.GroupDecl> 
       getGroupsList();
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
-  org.mojolang.mojo.lang.ValueGroupDecl getGroups(int index);
+  org.mojolang.mojo.lang.GroupDecl getGroups(int index);
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
   int getGroupsCount();
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
-  java.util.List<? extends org.mojolang.mojo.lang.ValueGroupDeclOrBuilder> 
+  java.util.List<? extends org.mojolang.mojo.lang.GroupDeclOrBuilder> 
       getGroupsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
-  org.mojolang.mojo.lang.ValueGroupDeclOrBuilder getGroupsOrBuilder(
+  org.mojolang.mojo.lang.GroupDeclOrBuilder getGroupsOrBuilder(
       int index);
 
   /**
-   * <code>.mojo.lang.Position inherite_position = 19;</code>
-   * @return Whether the inheritePosition field is set.
+   * <code>.mojo.lang.Position inherit_position = 19;</code>
+   * @return Whether the inheritPosition field is set.
    */
-  boolean hasInheritePosition();
+  boolean hasInheritPosition();
   /**
-   * <code>.mojo.lang.Position inherite_position = 19;</code>
-   * @return The inheritePosition.
+   * <code>.mojo.lang.Position inherit_position = 19;</code>
+   * @return The inheritPosition.
    */
-  org.mojolang.mojo.lang.Position getInheritePosition();
+  org.mojolang.mojo.lang.Position getInheritPosition();
   /**
-   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   * <code>.mojo.lang.Position inherit_position = 19;</code>
    */
-  org.mojolang.mojo.lang.PositionOrBuilder getInheritePositionOrBuilder();
+  org.mojolang.mojo.lang.PositionOrBuilder getInheritPositionOrBuilder();
 }

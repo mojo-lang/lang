@@ -18,10 +18,15 @@
 package lang
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 var RelationTypeNames = map[int32]string{
+	0:    "unspecified",
 	15:   "o2o",
 	1:    "o2o_two_types",
 	2:    "o2o_same_type",
@@ -36,6 +41,7 @@ var RelationTypeNames = map[int32]string{
 }
 
 var RelationTypeValues = map[string]RelationType{
+	"unspecified":       RelationType_RELATION_TYPE_UNSPECIFIED,
 	"o2o":               RelationType_RELATION_TYPE_O2O,
 	"o2o_two_types":     RelationType_RELATION_TYPE_O2O_TWO_TYPES,
 	"o2o_same_type":     RelationType_RELATION_TYPE_O2O_SAME_TYPE,
@@ -50,14 +56,17 @@ var RelationTypeValues = map[string]RelationType{
 }
 
 func (x RelationType) Format() string {
-	s, ok := RelationTypeNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := RelationTypeNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x RelationType) ToString() string {
@@ -65,15 +74,17 @@ func (x RelationType) ToString() string {
 }
 
 func (x *RelationType) Parse(value string) error {
-	if x != nil {
-		s, ok := RelationTypeValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := RelationTypeValues[value]; ok {
 			*x = s
 		} else {
-			*x = RelationType_RELATION_TYPE_O2O
+			v := core.CaseStyler("snake")(value)
+			if s, ok = RelationTypeValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid RelationType: %s", value)
+			}
 		}
-	} else {
-		*x = RelationType_RELATION_TYPE_O2O
 	}
 	return nil
 }

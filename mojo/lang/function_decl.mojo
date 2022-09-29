@@ -29,16 +29,19 @@ type FunctionDecl : Decl {
     generic_parameters: [GenericParameter] @13
 
     ///
-    enclosing_type : NominalType @14
+    enclosing : NominalType @14
 
     /// 
     name_position: Position @19 @ignore
     
     ///
-    signature: FunctionSignature @20
+    signature: FunctionSignature @20 @required
 
     ///
     body: BlockStmt @21
+
+    ///
+    receiver: NominalType @22
 
     ///
     scope: Scope @30

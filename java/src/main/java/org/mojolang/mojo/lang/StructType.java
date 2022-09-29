@@ -98,22 +98,22 @@ private static final long serialVersionUID = 0L;
           }
           case 98: {
             if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              groups_ = new java.util.ArrayList<org.mojolang.mojo.lang.ValueGroupDecl>();
+              groups_ = new java.util.ArrayList<org.mojolang.mojo.lang.GroupDecl>();
               mutable_bitField0_ |= 0x00000004;
             }
             groups_.add(
-                input.readMessage(org.mojolang.mojo.lang.ValueGroupDecl.parser(), extensionRegistry));
+                input.readMessage(org.mojolang.mojo.lang.GroupDecl.parser(), extensionRegistry));
             break;
           }
           case 154: {
             org.mojolang.mojo.lang.Position.Builder subBuilder = null;
-            if (inheritePosition_ != null) {
-              subBuilder = inheritePosition_.toBuilder();
+            if (inheritPosition_ != null) {
+              subBuilder = inheritPosition_.toBuilder();
             }
-            inheritePosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
+            inheritPosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(inheritePosition_);
-              inheritePosition_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(inheritPosition_);
+              inheritPosition_ = subBuilder.buildPartial();
             }
 
             break;
@@ -292,69 +292,69 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GROUPS_FIELD_NUMBER = 12;
-  private java.util.List<org.mojolang.mojo.lang.ValueGroupDecl> groups_;
+  private java.util.List<org.mojolang.mojo.lang.GroupDecl> groups_;
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
   @java.lang.Override
-  public java.util.List<org.mojolang.mojo.lang.ValueGroupDecl> getGroupsList() {
+  public java.util.List<org.mojolang.mojo.lang.GroupDecl> getGroupsList() {
     return groups_;
   }
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends org.mojolang.mojo.lang.ValueGroupDeclOrBuilder> 
+  public java.util.List<? extends org.mojolang.mojo.lang.GroupDeclOrBuilder> 
       getGroupsOrBuilderList() {
     return groups_;
   }
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
   @java.lang.Override
   public int getGroupsCount() {
     return groups_.size();
   }
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ValueGroupDecl getGroups(int index) {
+  public org.mojolang.mojo.lang.GroupDecl getGroups(int index) {
     return groups_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+   * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ValueGroupDeclOrBuilder getGroupsOrBuilder(
+  public org.mojolang.mojo.lang.GroupDeclOrBuilder getGroupsOrBuilder(
       int index) {
     return groups_.get(index);
   }
 
-  public static final int INHERITE_POSITION_FIELD_NUMBER = 19;
-  private org.mojolang.mojo.lang.Position inheritePosition_;
+  public static final int INHERIT_POSITION_FIELD_NUMBER = 19;
+  private org.mojolang.mojo.lang.Position inheritPosition_;
   /**
-   * <code>.mojo.lang.Position inherite_position = 19;</code>
-   * @return Whether the inheritePosition field is set.
+   * <code>.mojo.lang.Position inherit_position = 19;</code>
+   * @return Whether the inheritPosition field is set.
    */
   @java.lang.Override
-  public boolean hasInheritePosition() {
-    return inheritePosition_ != null;
+  public boolean hasInheritPosition() {
+    return inheritPosition_ != null;
   }
   /**
-   * <code>.mojo.lang.Position inherite_position = 19;</code>
-   * @return The inheritePosition.
+   * <code>.mojo.lang.Position inherit_position = 19;</code>
+   * @return The inheritPosition.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.Position getInheritePosition() {
-    return inheritePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritePosition_;
+  public org.mojolang.mojo.lang.Position getInheritPosition() {
+    return inheritPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritPosition_;
   }
   /**
-   * <code>.mojo.lang.Position inherite_position = 19;</code>
+   * <code>.mojo.lang.Position inherit_position = 19;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.PositionOrBuilder getInheritePositionOrBuilder() {
-    return getInheritePosition();
+  public org.mojolang.mojo.lang.PositionOrBuilder getInheritPositionOrBuilder() {
+    return getInheritPosition();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -386,8 +386,8 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < groups_.size(); i++) {
       output.writeMessage(12, groups_.get(i));
     }
-    if (inheritePosition_ != null) {
-      output.writeMessage(19, getInheritePosition());
+    if (inheritPosition_ != null) {
+      output.writeMessage(19, getInheritPosition());
     }
     unknownFields.writeTo(output);
   }
@@ -418,9 +418,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, groups_.get(i));
     }
-    if (inheritePosition_ != null) {
+    if (inheritPosition_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(19, getInheritePosition());
+        .computeMessageSize(19, getInheritPosition());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -453,10 +453,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getInheritsList())) return false;
     if (!getGroupsList()
         .equals(other.getGroupsList())) return false;
-    if (hasInheritePosition() != other.hasInheritePosition()) return false;
-    if (hasInheritePosition()) {
-      if (!getInheritePosition()
-          .equals(other.getInheritePosition())) return false;
+    if (hasInheritPosition() != other.hasInheritPosition()) return false;
+    if (hasInheritPosition()) {
+      if (!getInheritPosition()
+          .equals(other.getInheritPosition())) return false;
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -489,9 +489,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GROUPS_FIELD_NUMBER;
       hash = (53 * hash) + getGroupsList().hashCode();
     }
-    if (hasInheritePosition()) {
-      hash = (37 * hash) + INHERITE_POSITION_FIELD_NUMBER;
-      hash = (53 * hash) + getInheritePosition().hashCode();
+    if (hasInheritPosition()) {
+      hash = (37 * hash) + INHERIT_POSITION_FIELD_NUMBER;
+      hash = (53 * hash) + getInheritPosition().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -659,11 +659,11 @@ private static final long serialVersionUID = 0L;
       } else {
         groupsBuilder_.clear();
       }
-      if (inheritePositionBuilder_ == null) {
-        inheritePosition_ = null;
+      if (inheritPositionBuilder_ == null) {
+        inheritPosition_ = null;
       } else {
-        inheritePosition_ = null;
-        inheritePositionBuilder_ = null;
+        inheritPosition_ = null;
+        inheritPositionBuilder_ = null;
       }
       return this;
     }
@@ -729,10 +729,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.groups_ = groupsBuilder_.build();
       }
-      if (inheritePositionBuilder_ == null) {
-        result.inheritePosition_ = inheritePosition_;
+      if (inheritPositionBuilder_ == null) {
+        result.inheritPosition_ = inheritPosition_;
       } else {
-        result.inheritePosition_ = inheritePositionBuilder_.build();
+        result.inheritPosition_ = inheritPositionBuilder_.build();
       }
       onBuilt();
       return result;
@@ -866,8 +866,8 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (other.hasInheritePosition()) {
-        mergeInheritePosition(other.getInheritePosition());
+      if (other.hasInheritPosition()) {
+        mergeInheritPosition(other.getInheritPosition());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1617,22 +1617,22 @@ private static final long serialVersionUID = 0L;
       return inheritsBuilder_;
     }
 
-    private java.util.List<org.mojolang.mojo.lang.ValueGroupDecl> groups_ =
+    private java.util.List<org.mojolang.mojo.lang.GroupDecl> groups_ =
       java.util.Collections.emptyList();
     private void ensureGroupsIsMutable() {
       if (!((bitField0_ & 0x00000004) != 0)) {
-        groups_ = new java.util.ArrayList<org.mojolang.mojo.lang.ValueGroupDecl>(groups_);
+        groups_ = new java.util.ArrayList<org.mojolang.mojo.lang.GroupDecl>(groups_);
         bitField0_ |= 0x00000004;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        org.mojolang.mojo.lang.ValueGroupDecl, org.mojolang.mojo.lang.ValueGroupDecl.Builder, org.mojolang.mojo.lang.ValueGroupDeclOrBuilder> groupsBuilder_;
+        org.mojolang.mojo.lang.GroupDecl, org.mojolang.mojo.lang.GroupDecl.Builder, org.mojolang.mojo.lang.GroupDeclOrBuilder> groupsBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public java.util.List<org.mojolang.mojo.lang.ValueGroupDecl> getGroupsList() {
+    public java.util.List<org.mojolang.mojo.lang.GroupDecl> getGroupsList() {
       if (groupsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(groups_);
       } else {
@@ -1640,7 +1640,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public int getGroupsCount() {
       if (groupsBuilder_ == null) {
@@ -1650,9 +1650,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public org.mojolang.mojo.lang.ValueGroupDecl getGroups(int index) {
+    public org.mojolang.mojo.lang.GroupDecl getGroups(int index) {
       if (groupsBuilder_ == null) {
         return groups_.get(index);
       } else {
@@ -1660,10 +1660,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder setGroups(
-        int index, org.mojolang.mojo.lang.ValueGroupDecl value) {
+        int index, org.mojolang.mojo.lang.GroupDecl value) {
       if (groupsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1677,10 +1677,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder setGroups(
-        int index, org.mojolang.mojo.lang.ValueGroupDecl.Builder builderForValue) {
+        int index, org.mojolang.mojo.lang.GroupDecl.Builder builderForValue) {
       if (groupsBuilder_ == null) {
         ensureGroupsIsMutable();
         groups_.set(index, builderForValue.build());
@@ -1691,9 +1691,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public Builder addGroups(org.mojolang.mojo.lang.ValueGroupDecl value) {
+    public Builder addGroups(org.mojolang.mojo.lang.GroupDecl value) {
       if (groupsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1707,10 +1707,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder addGroups(
-        int index, org.mojolang.mojo.lang.ValueGroupDecl value) {
+        int index, org.mojolang.mojo.lang.GroupDecl value) {
       if (groupsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1724,10 +1724,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder addGroups(
-        org.mojolang.mojo.lang.ValueGroupDecl.Builder builderForValue) {
+        org.mojolang.mojo.lang.GroupDecl.Builder builderForValue) {
       if (groupsBuilder_ == null) {
         ensureGroupsIsMutable();
         groups_.add(builderForValue.build());
@@ -1738,10 +1738,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder addGroups(
-        int index, org.mojolang.mojo.lang.ValueGroupDecl.Builder builderForValue) {
+        int index, org.mojolang.mojo.lang.GroupDecl.Builder builderForValue) {
       if (groupsBuilder_ == null) {
         ensureGroupsIsMutable();
         groups_.add(index, builderForValue.build());
@@ -1752,10 +1752,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder addAllGroups(
-        java.lang.Iterable<? extends org.mojolang.mojo.lang.ValueGroupDecl> values) {
+        java.lang.Iterable<? extends org.mojolang.mojo.lang.GroupDecl> values) {
       if (groupsBuilder_ == null) {
         ensureGroupsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1767,7 +1767,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder clearGroups() {
       if (groupsBuilder_ == null) {
@@ -1780,7 +1780,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
     public Builder removeGroups(int index) {
       if (groupsBuilder_ == null) {
@@ -1793,16 +1793,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public org.mojolang.mojo.lang.ValueGroupDecl.Builder getGroupsBuilder(
+    public org.mojolang.mojo.lang.GroupDecl.Builder getGroupsBuilder(
         int index) {
       return getGroupsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public org.mojolang.mojo.lang.ValueGroupDeclOrBuilder getGroupsOrBuilder(
+    public org.mojolang.mojo.lang.GroupDeclOrBuilder getGroupsOrBuilder(
         int index) {
       if (groupsBuilder_ == null) {
         return groups_.get(index);  } else {
@@ -1810,9 +1810,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public java.util.List<? extends org.mojolang.mojo.lang.ValueGroupDeclOrBuilder> 
+    public java.util.List<? extends org.mojolang.mojo.lang.GroupDeclOrBuilder> 
          getGroupsOrBuilderList() {
       if (groupsBuilder_ != null) {
         return groupsBuilder_.getMessageOrBuilderList();
@@ -1821,33 +1821,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public org.mojolang.mojo.lang.ValueGroupDecl.Builder addGroupsBuilder() {
+    public org.mojolang.mojo.lang.GroupDecl.Builder addGroupsBuilder() {
       return getGroupsFieldBuilder().addBuilder(
-          org.mojolang.mojo.lang.ValueGroupDecl.getDefaultInstance());
+          org.mojolang.mojo.lang.GroupDecl.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public org.mojolang.mojo.lang.ValueGroupDecl.Builder addGroupsBuilder(
+    public org.mojolang.mojo.lang.GroupDecl.Builder addGroupsBuilder(
         int index) {
       return getGroupsFieldBuilder().addBuilder(
-          index, org.mojolang.mojo.lang.ValueGroupDecl.getDefaultInstance());
+          index, org.mojolang.mojo.lang.GroupDecl.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.ValueGroupDecl groups = 12;</code>
+     * <code>repeated .mojo.lang.GroupDecl groups = 12;</code>
      */
-    public java.util.List<org.mojolang.mojo.lang.ValueGroupDecl.Builder> 
+    public java.util.List<org.mojolang.mojo.lang.GroupDecl.Builder> 
          getGroupsBuilderList() {
       return getGroupsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        org.mojolang.mojo.lang.ValueGroupDecl, org.mojolang.mojo.lang.ValueGroupDecl.Builder, org.mojolang.mojo.lang.ValueGroupDeclOrBuilder> 
+        org.mojolang.mojo.lang.GroupDecl, org.mojolang.mojo.lang.GroupDecl.Builder, org.mojolang.mojo.lang.GroupDeclOrBuilder> 
         getGroupsFieldBuilder() {
       if (groupsBuilder_ == null) {
         groupsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            org.mojolang.mojo.lang.ValueGroupDecl, org.mojolang.mojo.lang.ValueGroupDecl.Builder, org.mojolang.mojo.lang.ValueGroupDeclOrBuilder>(
+            org.mojolang.mojo.lang.GroupDecl, org.mojolang.mojo.lang.GroupDecl.Builder, org.mojolang.mojo.lang.GroupDeclOrBuilder>(
                 groups_,
                 ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
@@ -1857,123 +1857,123 @@ private static final long serialVersionUID = 0L;
       return groupsBuilder_;
     }
 
-    private org.mojolang.mojo.lang.Position inheritePosition_;
+    private org.mojolang.mojo.lang.Position inheritPosition_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> inheritePositionBuilder_;
+        org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> inheritPositionBuilder_;
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
-     * @return Whether the inheritePosition field is set.
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
+     * @return Whether the inheritPosition field is set.
      */
-    public boolean hasInheritePosition() {
-      return inheritePositionBuilder_ != null || inheritePosition_ != null;
+    public boolean hasInheritPosition() {
+      return inheritPositionBuilder_ != null || inheritPosition_ != null;
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
-     * @return The inheritePosition.
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
+     * @return The inheritPosition.
      */
-    public org.mojolang.mojo.lang.Position getInheritePosition() {
-      if (inheritePositionBuilder_ == null) {
-        return inheritePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritePosition_;
+    public org.mojolang.mojo.lang.Position getInheritPosition() {
+      if (inheritPositionBuilder_ == null) {
+        return inheritPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritPosition_;
       } else {
-        return inheritePositionBuilder_.getMessage();
+        return inheritPositionBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
      */
-    public Builder setInheritePosition(org.mojolang.mojo.lang.Position value) {
-      if (inheritePositionBuilder_ == null) {
+    public Builder setInheritPosition(org.mojolang.mojo.lang.Position value) {
+      if (inheritPositionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        inheritePosition_ = value;
+        inheritPosition_ = value;
         onChanged();
       } else {
-        inheritePositionBuilder_.setMessage(value);
+        inheritPositionBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
      */
-    public Builder setInheritePosition(
+    public Builder setInheritPosition(
         org.mojolang.mojo.lang.Position.Builder builderForValue) {
-      if (inheritePositionBuilder_ == null) {
-        inheritePosition_ = builderForValue.build();
+      if (inheritPositionBuilder_ == null) {
+        inheritPosition_ = builderForValue.build();
         onChanged();
       } else {
-        inheritePositionBuilder_.setMessage(builderForValue.build());
+        inheritPositionBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
      */
-    public Builder mergeInheritePosition(org.mojolang.mojo.lang.Position value) {
-      if (inheritePositionBuilder_ == null) {
-        if (inheritePosition_ != null) {
-          inheritePosition_ =
-            org.mojolang.mojo.lang.Position.newBuilder(inheritePosition_).mergeFrom(value).buildPartial();
+    public Builder mergeInheritPosition(org.mojolang.mojo.lang.Position value) {
+      if (inheritPositionBuilder_ == null) {
+        if (inheritPosition_ != null) {
+          inheritPosition_ =
+            org.mojolang.mojo.lang.Position.newBuilder(inheritPosition_).mergeFrom(value).buildPartial();
         } else {
-          inheritePosition_ = value;
+          inheritPosition_ = value;
         }
         onChanged();
       } else {
-        inheritePositionBuilder_.mergeFrom(value);
+        inheritPositionBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
      */
-    public Builder clearInheritePosition() {
-      if (inheritePositionBuilder_ == null) {
-        inheritePosition_ = null;
+    public Builder clearInheritPosition() {
+      if (inheritPositionBuilder_ == null) {
+        inheritPosition_ = null;
         onChanged();
       } else {
-        inheritePosition_ = null;
-        inheritePositionBuilder_ = null;
+        inheritPosition_ = null;
+        inheritPositionBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
      */
-    public org.mojolang.mojo.lang.Position.Builder getInheritePositionBuilder() {
+    public org.mojolang.mojo.lang.Position.Builder getInheritPositionBuilder() {
       
       onChanged();
-      return getInheritePositionFieldBuilder().getBuilder();
+      return getInheritPositionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
      */
-    public org.mojolang.mojo.lang.PositionOrBuilder getInheritePositionOrBuilder() {
-      if (inheritePositionBuilder_ != null) {
-        return inheritePositionBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.lang.PositionOrBuilder getInheritPositionOrBuilder() {
+      if (inheritPositionBuilder_ != null) {
+        return inheritPositionBuilder_.getMessageOrBuilder();
       } else {
-        return inheritePosition_ == null ?
-            org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritePosition_;
+        return inheritPosition_ == null ?
+            org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritPosition_;
       }
     }
     /**
-     * <code>.mojo.lang.Position inherite_position = 19;</code>
+     * <code>.mojo.lang.Position inherit_position = 19;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder> 
-        getInheritePositionFieldBuilder() {
-      if (inheritePositionBuilder_ == null) {
-        inheritePositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getInheritPositionFieldBuilder() {
+      if (inheritPositionBuilder_ == null) {
+        inheritPositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Position, org.mojolang.mojo.lang.Position.Builder, org.mojolang.mojo.lang.PositionOrBuilder>(
-                getInheritePosition(),
+                getInheritPosition(),
                 getParentForChildren(),
                 isClean());
-        inheritePosition_ = null;
+        inheritPosition_ = null;
       }
-      return inheritePositionBuilder_;
+      return inheritPositionBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

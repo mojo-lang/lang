@@ -170,19 +170,19 @@ public interface FunctionDeclOrBuilder extends
       int index);
 
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
-   * @return Whether the enclosingType field is set.
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
+   * @return Whether the enclosing field is set.
    */
-  boolean hasEnclosingType();
+  boolean hasEnclosing();
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
-   * @return The enclosingType.
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
+   * @return The enclosing.
    */
-  org.mojolang.mojo.lang.NominalType getEnclosingType();
+  org.mojolang.mojo.lang.NominalType getEnclosing();
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
    */
-  org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingTypeOrBuilder();
+  org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingOrBuilder();
 
   /**
    * <code>.mojo.lang.Position name_position = 19 [(.mojo.db_ignore) = true];</code>
@@ -228,6 +228,21 @@ public interface FunctionDeclOrBuilder extends
    * <code>.mojo.lang.BlockStmt body = 21;</code>
    */
   org.mojolang.mojo.lang.BlockStmtOrBuilder getBodyOrBuilder();
+
+  /**
+   * <code>.mojo.lang.NominalType receiver = 22;</code>
+   * @return Whether the receiver field is set.
+   */
+  boolean hasReceiver();
+  /**
+   * <code>.mojo.lang.NominalType receiver = 22;</code>
+   * @return The receiver.
+   */
+  org.mojolang.mojo.lang.NominalType getReceiver();
+  /**
+   * <code>.mojo.lang.NominalType receiver = 22;</code>
+   */
+  org.mojolang.mojo.lang.NominalTypeOrBuilder getReceiverOrBuilder();
 
   /**
    * <code>.mojo.lang.Scope scope = 30;</code>

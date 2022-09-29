@@ -16,6 +16,7 @@ type Identifier {
     @case_style("kebab")
     enum Kind {
         unspecified @0
+        package @1
         enum @3
         struct @4
         type_alias @5
@@ -26,9 +27,6 @@ type Identifier {
         attribute_alias @13
         function @14
         generic_parameter @19
-
-        type @30
-        value @31
     }
 
     start_position: Position @1 // identifier position
@@ -47,13 +45,16 @@ type Identifier {
     
     name: String @10
 
-    declaration: Declaration @11 @reference @serialization(false)
+    full_name: String @11
 
     alias: String @12
 
-    full_name: String @20
+    declaration: Declaration @13 @reference @serialization(false)
 
-    enclosing_type_names: [String] @21
+    enclosing: Identifier @14
 
     scope: Scope @30
 }
+
+func is_type(ik: Identifier.Kind) -> Bool
+func is_value(ik: Identifier.Kind) -> Bool

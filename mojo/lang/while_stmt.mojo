@@ -16,4 +16,8 @@
 /// type Builtin.Int1.
 type WhileStmt : LoopStmt {
     condition: Expression @20
+
+    /// A statement that is executed at least once and is re-executed each time the condition evaluates to true.
+    /// equals to `repeate { statements } while( condition )` 
+    execute_at_least_once: Bool @21 
 }

@@ -20,7 +20,7 @@
                 "body": {
                     "$ref": "#/components/schemas/mojo.lang.BlockStmt"
                 },
-                "enclosingType": {
+                "enclosing": {
                     "$ref": "#/components/schemas/mojo.lang.NominalType"
                 },
                 "fullName": {
@@ -47,13 +47,19 @@
                 "namePosition": {
                     "$ref": "#/components/schemas/mojo.lang.Position"
                 },
+                "receiver": {
+                    "$ref": "#/components/schemas/mojo.lang.NominalType"
+                },
                 "scope": {
                     "$ref": "#/components/schemas/mojo.lang.Scope"
                 },
                 "signature": {
                     "$ref": "#/components/schemas/mojo.lang.FunctionSignature"
                 }
-            }
+            },
+            "required": [
+                "signature"
+            ]
         }
     ]
 }

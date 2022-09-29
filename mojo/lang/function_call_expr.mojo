@@ -14,8 +14,8 @@
 
 type FunctionCallExpr : ApplyExpr {
     ///
-    generic_arguments: [GenericArgument] @11
+    generic_arguments: [GenericArgument] @15
 
     ///
-    arguments: [Argument] @12
+    arguments: [Argument] @16
 }

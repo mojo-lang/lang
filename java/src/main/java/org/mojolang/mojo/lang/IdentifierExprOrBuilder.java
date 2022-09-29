@@ -65,25 +65,25 @@ public interface IdentifierExprOrBuilder extends
   org.mojolang.mojo.lang.IdentifierOrBuilder getIdentifierOrBuilder();
 
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   java.util.List<org.mojolang.mojo.lang.NominalType> 
       getGenericArgumentsList();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   org.mojolang.mojo.lang.NominalType getGenericArguments(int index);
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   int getGenericArgumentsCount();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.NominalTypeOrBuilder> 
       getGenericArgumentsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   org.mojolang.mojo.lang.NominalTypeOrBuilder getGenericArgumentsOrBuilder(
       int index);

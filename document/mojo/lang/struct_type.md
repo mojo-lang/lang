@@ -4,5 +4,5 @@
 | `endPosition` | `mojo.lang.Position` |  | N |  | position of the character "}" |
 | `fields` | `Array<mojo.lang.ValueDecl>` |  | N |  | A Field represents a Field declaration list in a struct type,a method list in an interface type, or a parameter/result declarationin a signature. |
 | `inherits` | `Array<mojo.lang.NominalType>` |  | N |  |  |
-| `groups` | `Array<mojo.lang.ValueGroupDecl>` |  | N |  |  |
-| `inheritePosition` | `mojo.lang.Position` |  | N |  |  |
+| `groups` | `Array<mojo.lang.GroupDecl>` |  | N |  |  |
+| `inheritPosition` | `mojo.lang.Position` |  | N |  |  |

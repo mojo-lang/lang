@@ -20,9 +20,8 @@ private static final long serialVersionUID = 0L;
     sourceFileName_ = "";
     packageName_ = "";
     name_ = "";
-    alias_ = "";
     fullName_ = "";
-    enclosingTypeNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    alias_ = "";
   }
 
   @java.lang.Override
@@ -45,7 +44,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -112,6 +110,18 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            fullName_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            alias_ = s;
+            break;
+          }
+          case 106: {
             org.mojolang.mojo.lang.Declaration.Builder subBuilder = null;
             if (declaration_ != null) {
               subBuilder = declaration_.toBuilder();
@@ -124,25 +134,17 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            alias_ = s;
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fullName_ = s;
-            break;
-          }
-          case 170: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              enclosingTypeNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
+          case 114: {
+            org.mojolang.mojo.lang.Identifier.Builder subBuilder = null;
+            if (enclosing_ != null) {
+              subBuilder = enclosing_.toBuilder();
             }
-            enclosingTypeNames_.add(s);
+            enclosing_ = input.readMessage(org.mojolang.mojo.lang.Identifier.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(enclosing_);
+              enclosing_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           case 242: {
@@ -173,9 +175,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        enclosingTypeNames_ = enclosingTypeNames_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -202,6 +201,10 @@ private static final long serialVersionUID = 0L;
      * <code>KIND_UNSPECIFIED = 0;</code>
      */
     KIND_UNSPECIFIED(0),
+    /**
+     * <code>KIND_PACKAGE = 1;</code>
+     */
+    KIND_PACKAGE(1),
     /**
      * <code>KIND_ENUM = 3;</code>
      */
@@ -242,14 +245,6 @@ private static final long serialVersionUID = 0L;
      * <code>KIND_GENERIC_PARAMETER = 19;</code>
      */
     KIND_GENERIC_PARAMETER(19),
-    /**
-     * <code>KIND_TYPE = 30;</code>
-     */
-    KIND_TYPE(30),
-    /**
-     * <code>KIND_VALUE = 31;</code>
-     */
-    KIND_VALUE(31),
     UNRECOGNIZED(-1),
     ;
 
@@ -257,6 +252,10 @@ private static final long serialVersionUID = 0L;
      * <code>KIND_UNSPECIFIED = 0;</code>
      */
     public static final int KIND_UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>KIND_PACKAGE = 1;</code>
+     */
+    public static final int KIND_PACKAGE_VALUE = 1;
     /**
      * <code>KIND_ENUM = 3;</code>
      */
@@ -297,14 +296,6 @@ private static final long serialVersionUID = 0L;
      * <code>KIND_GENERIC_PARAMETER = 19;</code>
      */
     public static final int KIND_GENERIC_PARAMETER_VALUE = 19;
-    /**
-     * <code>KIND_TYPE = 30;</code>
-     */
-    public static final int KIND_TYPE_VALUE = 30;
-    /**
-     * <code>KIND_VALUE = 31;</code>
-     */
-    public static final int KIND_VALUE_VALUE = 31;
 
 
     public final int getNumber() {
@@ -332,6 +323,7 @@ private static final long serialVersionUID = 0L;
     public static Kind forNumber(int value) {
       switch (value) {
         case 0: return KIND_UNSPECIFIED;
+        case 1: return KIND_PACKAGE;
         case 3: return KIND_ENUM;
         case 4: return KIND_STRUCT;
         case 5: return KIND_TYPE_ALIAS;
@@ -342,8 +334,6 @@ private static final long serialVersionUID = 0L;
         case 13: return KIND_ATTRIBUTE_ALIAS;
         case 14: return KIND_FUNCTION;
         case 19: return KIND_GENERIC_PARAMETER;
-        case 30: return KIND_TYPE;
-        case 31: return KIND_VALUE;
         default: return null;
       }
     }
@@ -596,30 +586,42 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DECLARATION_FIELD_NUMBER = 11;
-  private org.mojolang.mojo.lang.Declaration declaration_;
+  public static final int FULL_NAME_FIELD_NUMBER = 11;
+  private volatile java.lang.Object fullName_;
   /**
-   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-   * @return Whether the declaration field is set.
+   * <code>string full_name = 11;</code>
+   * @return The fullName.
    */
   @java.lang.Override
-  public boolean hasDeclaration() {
-    return declaration_ != null;
+  public java.lang.String getFullName() {
+    java.lang.Object ref = fullName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fullName_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-   * @return The declaration.
+   * <code>string full_name = 11;</code>
+   * @return The bytes for fullName.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.Declaration getDeclaration() {
-    return declaration_ == null ? org.mojolang.mojo.lang.Declaration.getDefaultInstance() : declaration_;
-  }
-  /**
-   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-   */
-  @java.lang.Override
-  public org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder() {
-    return getDeclaration();
+  public com.google.protobuf.ByteString
+      getFullNameBytes() {
+    java.lang.Object ref = fullName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fullName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int ALIAS_FIELD_NUMBER = 12;
@@ -660,77 +662,56 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int FULL_NAME_FIELD_NUMBER = 20;
-  private volatile java.lang.Object fullName_;
+  public static final int DECLARATION_FIELD_NUMBER = 13;
+  private org.mojolang.mojo.lang.Declaration declaration_;
   /**
-   * <code>string full_name = 20;</code>
-   * @return The fullName.
+   * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+   * @return Whether the declaration field is set.
    */
   @java.lang.Override
-  public java.lang.String getFullName() {
-    java.lang.Object ref = fullName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      fullName_ = s;
-      return s;
-    }
+  public boolean hasDeclaration() {
+    return declaration_ != null;
   }
   /**
-   * <code>string full_name = 20;</code>
-   * @return The bytes for fullName.
+   * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+   * @return The declaration.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getFullNameBytes() {
-    java.lang.Object ref = fullName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      fullName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public org.mojolang.mojo.lang.Declaration getDeclaration() {
+    return declaration_ == null ? org.mojolang.mojo.lang.Declaration.getDefaultInstance() : declaration_;
+  }
+  /**
+   * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder() {
+    return getDeclaration();
   }
 
-  public static final int ENCLOSING_TYPE_NAMES_FIELD_NUMBER = 21;
-  private com.google.protobuf.LazyStringList enclosingTypeNames_;
+  public static final int ENCLOSING_FIELD_NUMBER = 14;
+  private org.mojolang.mojo.lang.Identifier enclosing_;
   /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @return A list containing the enclosingTypeNames.
+   * <code>.mojo.lang.Identifier enclosing = 14;</code>
+   * @return Whether the enclosing field is set.
    */
-  public com.google.protobuf.ProtocolStringList
-      getEnclosingTypeNamesList() {
-    return enclosingTypeNames_;
+  @java.lang.Override
+  public boolean hasEnclosing() {
+    return enclosing_ != null;
   }
   /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @return The count of enclosingTypeNames.
+   * <code>.mojo.lang.Identifier enclosing = 14;</code>
+   * @return The enclosing.
    */
-  public int getEnclosingTypeNamesCount() {
-    return enclosingTypeNames_.size();
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Identifier getEnclosing() {
+    return enclosing_ == null ? org.mojolang.mojo.lang.Identifier.getDefaultInstance() : enclosing_;
   }
   /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @param index The index of the element to return.
-   * @return The enclosingTypeNames at the given index.
+   * <code>.mojo.lang.Identifier enclosing = 14;</code>
    */
-  public java.lang.String getEnclosingTypeNames(int index) {
-    return enclosingTypeNames_.get(index);
-  }
-  /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the enclosingTypeNames at the given index.
-   */
-  public com.google.protobuf.ByteString
-      getEnclosingTypeNamesBytes(int index) {
-    return enclosingTypeNames_.getByteString(index);
+  @java.lang.Override
+  public org.mojolang.mojo.lang.IdentifierOrBuilder getEnclosingOrBuilder() {
+    return getEnclosing();
   }
 
   public static final int SCOPE_FIELD_NUMBER = 30;
@@ -794,17 +775,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, name_);
     }
-    if (declaration_ != null) {
-      output.writeMessage(11, getDeclaration());
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, fullName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, alias_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 20, fullName_);
+    if (declaration_ != null) {
+      output.writeMessage(13, getDeclaration());
     }
-    for (int i = 0; i < enclosingTypeNames_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 21, enclosingTypeNames_.getRaw(i));
+    if (enclosing_ != null) {
+      output.writeMessage(14, getEnclosing());
     }
     if (scope_ != null) {
       output.writeMessage(30, getScope());
@@ -843,23 +824,19 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, name_);
     }
-    if (declaration_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, getDeclaration());
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, fullName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, alias_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fullName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, fullName_);
+    if (declaration_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, getDeclaration());
     }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < enclosingTypeNames_.size(); i++) {
-        dataSize += computeStringSizeNoTag(enclosingTypeNames_.getRaw(i));
-      }
-      size += dataSize;
-      size += 2 * getEnclosingTypeNamesList().size();
+    if (enclosing_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, getEnclosing());
     }
     if (scope_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -899,17 +876,20 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPackageName())) return false;
     if (!getName()
         .equals(other.getName())) return false;
+    if (!getFullName()
+        .equals(other.getFullName())) return false;
+    if (!getAlias()
+        .equals(other.getAlias())) return false;
     if (hasDeclaration() != other.hasDeclaration()) return false;
     if (hasDeclaration()) {
       if (!getDeclaration()
           .equals(other.getDeclaration())) return false;
     }
-    if (!getAlias()
-        .equals(other.getAlias())) return false;
-    if (!getFullName()
-        .equals(other.getFullName())) return false;
-    if (!getEnclosingTypeNamesList()
-        .equals(other.getEnclosingTypeNamesList())) return false;
+    if (hasEnclosing() != other.hasEnclosing()) return false;
+    if (hasEnclosing()) {
+      if (!getEnclosing()
+          .equals(other.getEnclosing())) return false;
+    }
     if (hasScope() != other.hasScope()) return false;
     if (hasScope()) {
       if (!getScope()
@@ -945,17 +925,17 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPackageName().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFullName().hashCode();
+    hash = (37 * hash) + ALIAS_FIELD_NUMBER;
+    hash = (53 * hash) + getAlias().hashCode();
     if (hasDeclaration()) {
       hash = (37 * hash) + DECLARATION_FIELD_NUMBER;
       hash = (53 * hash) + getDeclaration().hashCode();
     }
-    hash = (37 * hash) + ALIAS_FIELD_NUMBER;
-    hash = (53 * hash) + getAlias().hashCode();
-    hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getFullName().hashCode();
-    if (getEnclosingTypeNamesCount() > 0) {
-      hash = (37 * hash) + ENCLOSING_TYPE_NAMES_FIELD_NUMBER;
-      hash = (53 * hash) + getEnclosingTypeNamesList().hashCode();
+    if (hasEnclosing()) {
+      hash = (37 * hash) + ENCLOSING_FIELD_NUMBER;
+      hash = (53 * hash) + getEnclosing().hashCode();
     }
     if (hasScope()) {
       hash = (37 * hash) + SCOPE_FIELD_NUMBER;
@@ -1116,18 +1096,22 @@ private static final long serialVersionUID = 0L;
 
       name_ = "";
 
+      fullName_ = "";
+
+      alias_ = "";
+
       if (declarationBuilder_ == null) {
         declaration_ = null;
       } else {
         declaration_ = null;
         declarationBuilder_ = null;
       }
-      alias_ = "";
-
-      fullName_ = "";
-
-      enclosingTypeNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      if (enclosingBuilder_ == null) {
+        enclosing_ = null;
+      } else {
+        enclosing_ = null;
+        enclosingBuilder_ = null;
+      }
       if (scopeBuilder_ == null) {
         scope_ = null;
       } else {
@@ -1160,7 +1144,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.lang.Identifier buildPartial() {
       org.mojolang.mojo.lang.Identifier result = new org.mojolang.mojo.lang.Identifier(this);
-      int from_bitField0_ = bitField0_;
       if (startPositionBuilder_ == null) {
         result.startPosition_ = startPosition_;
       } else {
@@ -1176,18 +1159,18 @@ private static final long serialVersionUID = 0L;
       result.sourceFileName_ = sourceFileName_;
       result.packageName_ = packageName_;
       result.name_ = name_;
+      result.fullName_ = fullName_;
+      result.alias_ = alias_;
       if (declarationBuilder_ == null) {
         result.declaration_ = declaration_;
       } else {
         result.declaration_ = declarationBuilder_.build();
       }
-      result.alias_ = alias_;
-      result.fullName_ = fullName_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        enclosingTypeNames_ = enclosingTypeNames_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+      if (enclosingBuilder_ == null) {
+        result.enclosing_ = enclosing_;
+      } else {
+        result.enclosing_ = enclosingBuilder_.build();
       }
-      result.enclosingTypeNames_ = enclosingTypeNames_;
       if (scopeBuilder_ == null) {
         result.scope_ = scope_;
       } else {
@@ -1265,26 +1248,19 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (other.hasDeclaration()) {
-        mergeDeclaration(other.getDeclaration());
+      if (!other.getFullName().isEmpty()) {
+        fullName_ = other.fullName_;
+        onChanged();
       }
       if (!other.getAlias().isEmpty()) {
         alias_ = other.alias_;
         onChanged();
       }
-      if (!other.getFullName().isEmpty()) {
-        fullName_ = other.fullName_;
-        onChanged();
+      if (other.hasDeclaration()) {
+        mergeDeclaration(other.getDeclaration());
       }
-      if (!other.enclosingTypeNames_.isEmpty()) {
-        if (enclosingTypeNames_.isEmpty()) {
-          enclosingTypeNames_ = other.enclosingTypeNames_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureEnclosingTypeNamesIsMutable();
-          enclosingTypeNames_.addAll(other.enclosingTypeNames_);
-        }
-        onChanged();
+      if (other.hasEnclosing()) {
+        mergeEnclosing(other.getEnclosing());
       }
       if (other.hasScope()) {
         mergeScope(other.getScope());
@@ -1317,7 +1293,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private org.mojolang.mojo.lang.Position startPosition_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1870,123 +1845,80 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.lang.Declaration declaration_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder> declarationBuilder_;
+    private java.lang.Object fullName_ = "";
     /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-     * @return Whether the declaration field is set.
+     * <code>string full_name = 11;</code>
+     * @return The fullName.
      */
-    public boolean hasDeclaration() {
-      return declarationBuilder_ != null || declaration_ != null;
-    }
-    /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-     * @return The declaration.
-     */
-    public org.mojolang.mojo.lang.Declaration getDeclaration() {
-      if (declarationBuilder_ == null) {
-        return declaration_ == null ? org.mojolang.mojo.lang.Declaration.getDefaultInstance() : declaration_;
+    public java.lang.String getFullName() {
+      java.lang.Object ref = fullName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fullName_ = s;
+        return s;
       } else {
-        return declarationBuilder_.getMessage();
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
+     * <code>string full_name = 11;</code>
+     * @return The bytes for fullName.
      */
-    public Builder setDeclaration(org.mojolang.mojo.lang.Declaration value) {
-      if (declarationBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        declaration_ = value;
-        onChanged();
+    public com.google.protobuf.ByteString
+        getFullNameBytes() {
+      java.lang.Object ref = fullName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fullName_ = b;
+        return b;
       } else {
-        declarationBuilder_.setMessage(value);
+        return (com.google.protobuf.ByteString) ref;
       }
-
-      return this;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
+     * <code>string full_name = 11;</code>
+     * @param value The fullName to set.
+     * @return This builder for chaining.
      */
-    public Builder setDeclaration(
-        org.mojolang.mojo.lang.Declaration.Builder builderForValue) {
-      if (declarationBuilder_ == null) {
-        declaration_ = builderForValue.build();
-        onChanged();
-      } else {
-        declarationBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-     */
-    public Builder mergeDeclaration(org.mojolang.mojo.lang.Declaration value) {
-      if (declarationBuilder_ == null) {
-        if (declaration_ != null) {
-          declaration_ =
-            org.mojolang.mojo.lang.Declaration.newBuilder(declaration_).mergeFrom(value).buildPartial();
-        } else {
-          declaration_ = value;
-        }
-        onChanged();
-      } else {
-        declarationBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-     */
-    public Builder clearDeclaration() {
-      if (declarationBuilder_ == null) {
-        declaration_ = null;
-        onChanged();
-      } else {
-        declaration_ = null;
-        declarationBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-     */
-    public org.mojolang.mojo.lang.Declaration.Builder getDeclarationBuilder() {
-      
+    public Builder setFullName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      fullName_ = value;
       onChanged();
-      return getDeclarationFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
+     * <code>string full_name = 11;</code>
+     * @return This builder for chaining.
      */
-    public org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder() {
-      if (declarationBuilder_ != null) {
-        return declarationBuilder_.getMessageOrBuilder();
-      } else {
-        return declaration_ == null ?
-            org.mojolang.mojo.lang.Declaration.getDefaultInstance() : declaration_;
-      }
+    public Builder clearFullName() {
+      
+      fullName_ = getDefaultInstance().getFullName();
+      onChanged();
+      return this;
     }
     /**
-     * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
+     * <code>string full_name = 11;</code>
+     * @param value The bytes for fullName to set.
+     * @return This builder for chaining.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder> 
-        getDeclarationFieldBuilder() {
-      if (declarationBuilder_ == null) {
-        declarationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder>(
-                getDeclaration(),
-                getParentForChildren(),
-                isClean());
-        declaration_ = null;
-      }
-      return declarationBuilder_;
+    public Builder setFullNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      fullName_ = value;
+      onChanged();
+      return this;
     }
 
     private java.lang.Object alias_ = "";
@@ -2065,190 +1997,242 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fullName_ = "";
+    private org.mojolang.mojo.lang.Declaration declaration_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder> declarationBuilder_;
     /**
-     * <code>string full_name = 20;</code>
-     * @return The fullName.
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+     * @return Whether the declaration field is set.
      */
-    public java.lang.String getFullName() {
-      java.lang.Object ref = fullName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        fullName_ = s;
-        return s;
+    public boolean hasDeclaration() {
+      return declarationBuilder_ != null || declaration_ != null;
+    }
+    /**
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+     * @return The declaration.
+     */
+    public org.mojolang.mojo.lang.Declaration getDeclaration() {
+      if (declarationBuilder_ == null) {
+        return declaration_ == null ? org.mojolang.mojo.lang.Declaration.getDefaultInstance() : declaration_;
       } else {
-        return (java.lang.String) ref;
+        return declarationBuilder_.getMessage();
       }
     }
     /**
-     * <code>string full_name = 20;</code>
-     * @return The bytes for fullName.
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
      */
-    public com.google.protobuf.ByteString
-        getFullNameBytes() {
-      java.lang.Object ref = fullName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        fullName_ = b;
-        return b;
+    public Builder setDeclaration(org.mojolang.mojo.lang.Declaration value) {
+      if (declarationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        declaration_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        declarationBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+     */
+    public Builder setDeclaration(
+        org.mojolang.mojo.lang.Declaration.Builder builderForValue) {
+      if (declarationBuilder_ == null) {
+        declaration_ = builderForValue.build();
+        onChanged();
+      } else {
+        declarationBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+     */
+    public Builder mergeDeclaration(org.mojolang.mojo.lang.Declaration value) {
+      if (declarationBuilder_ == null) {
+        if (declaration_ != null) {
+          declaration_ =
+            org.mojolang.mojo.lang.Declaration.newBuilder(declaration_).mergeFrom(value).buildPartial();
+        } else {
+          declaration_ = value;
+        }
+        onChanged();
+      } else {
+        declarationBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+     */
+    public Builder clearDeclaration() {
+      if (declarationBuilder_ == null) {
+        declaration_ = null;
+        onChanged();
+      } else {
+        declaration_ = null;
+        declarationBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+     */
+    public org.mojolang.mojo.lang.Declaration.Builder getDeclarationBuilder() {
+      
+      onChanged();
+      return getDeclarationFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+     */
+    public org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder() {
+      if (declarationBuilder_ != null) {
+        return declarationBuilder_.getMessageOrBuilder();
+      } else {
+        return declaration_ == null ?
+            org.mojolang.mojo.lang.Declaration.getDefaultInstance() : declaration_;
       }
     }
     /**
-     * <code>string full_name = 20;</code>
-     * @param value The fullName to set.
-     * @return This builder for chaining.
+     * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
      */
-    public Builder setFullName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      fullName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string full_name = 20;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFullName() {
-      
-      fullName_ = getDefaultInstance().getFullName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string full_name = 20;</code>
-     * @param value The bytes for fullName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFullNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      fullName_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder> 
+        getDeclarationFieldBuilder() {
+      if (declarationBuilder_ == null) {
+        declarationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Declaration, org.mojolang.mojo.lang.Declaration.Builder, org.mojolang.mojo.lang.DeclarationOrBuilder>(
+                getDeclaration(),
+                getParentForChildren(),
+                isClean());
+        declaration_ = null;
+      }
+      return declarationBuilder_;
     }
 
-    private com.google.protobuf.LazyStringList enclosingTypeNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureEnclosingTypeNamesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        enclosingTypeNames_ = new com.google.protobuf.LazyStringArrayList(enclosingTypeNames_);
-        bitField0_ |= 0x00000001;
-       }
+    private org.mojolang.mojo.lang.Identifier enclosing_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder> enclosingBuilder_;
+    /**
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
+     * @return Whether the enclosing field is set.
+     */
+    public boolean hasEnclosing() {
+      return enclosingBuilder_ != null || enclosing_ != null;
     }
     /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @return A list containing the enclosingTypeNames.
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
+     * @return The enclosing.
      */
-    public com.google.protobuf.ProtocolStringList
-        getEnclosingTypeNamesList() {
-      return enclosingTypeNames_.getUnmodifiableView();
+    public org.mojolang.mojo.lang.Identifier getEnclosing() {
+      if (enclosingBuilder_ == null) {
+        return enclosing_ == null ? org.mojolang.mojo.lang.Identifier.getDefaultInstance() : enclosing_;
+      } else {
+        return enclosingBuilder_.getMessage();
+      }
     }
     /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @return The count of enclosingTypeNames.
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
      */
-    public int getEnclosingTypeNamesCount() {
-      return enclosingTypeNames_.size();
-    }
-    /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @param index The index of the element to return.
-     * @return The enclosingTypeNames at the given index.
-     */
-    public java.lang.String getEnclosingTypeNames(int index) {
-      return enclosingTypeNames_.get(index);
-    }
-    /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the enclosingTypeNames at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getEnclosingTypeNamesBytes(int index) {
-      return enclosingTypeNames_.getByteString(index);
-    }
-    /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @param index The index to set the value at.
-     * @param value The enclosingTypeNames to set.
-     * @return This builder for chaining.
-     */
-    public Builder setEnclosingTypeNames(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEnclosingTypeNamesIsMutable();
-      enclosingTypeNames_.set(index, value);
-      onChanged();
+    public Builder setEnclosing(org.mojolang.mojo.lang.Identifier value) {
+      if (enclosingBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        enclosing_ = value;
+        onChanged();
+      } else {
+        enclosingBuilder_.setMessage(value);
+      }
+
       return this;
     }
     /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @param value The enclosingTypeNames to add.
-     * @return This builder for chaining.
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
      */
-    public Builder addEnclosingTypeNames(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEnclosingTypeNamesIsMutable();
-      enclosingTypeNames_.add(value);
-      onChanged();
+    public Builder setEnclosing(
+        org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
+      if (enclosingBuilder_ == null) {
+        enclosing_ = builderForValue.build();
+        onChanged();
+      } else {
+        enclosingBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @param values The enclosingTypeNames to add.
-     * @return This builder for chaining.
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
      */
-    public Builder addAllEnclosingTypeNames(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureEnclosingTypeNamesIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, enclosingTypeNames_);
-      onChanged();
+    public Builder mergeEnclosing(org.mojolang.mojo.lang.Identifier value) {
+      if (enclosingBuilder_ == null) {
+        if (enclosing_ != null) {
+          enclosing_ =
+            org.mojolang.mojo.lang.Identifier.newBuilder(enclosing_).mergeFrom(value).buildPartial();
+        } else {
+          enclosing_ = value;
+        }
+        onChanged();
+      } else {
+        enclosingBuilder_.mergeFrom(value);
+      }
+
       return this;
     }
     /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @return This builder for chaining.
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
      */
-    public Builder clearEnclosingTypeNames() {
-      enclosingTypeNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
+    public Builder clearEnclosing() {
+      if (enclosingBuilder_ == null) {
+        enclosing_ = null;
+        onChanged();
+      } else {
+        enclosing_ = null;
+        enclosingBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>repeated string enclosing_type_names = 21;</code>
-     * @param value The bytes of the enclosingTypeNames to add.
-     * @return This builder for chaining.
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
      */
-    public Builder addEnclosingTypeNamesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureEnclosingTypeNamesIsMutable();
-      enclosingTypeNames_.add(value);
+    public org.mojolang.mojo.lang.Identifier.Builder getEnclosingBuilder() {
+      
       onChanged();
-      return this;
+      return getEnclosingFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
+     */
+    public org.mojolang.mojo.lang.IdentifierOrBuilder getEnclosingOrBuilder() {
+      if (enclosingBuilder_ != null) {
+        return enclosingBuilder_.getMessageOrBuilder();
+      } else {
+        return enclosing_ == null ?
+            org.mojolang.mojo.lang.Identifier.getDefaultInstance() : enclosing_;
+      }
+    }
+    /**
+     * <code>.mojo.lang.Identifier enclosing = 14;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder> 
+        getEnclosingFieldBuilder() {
+      if (enclosingBuilder_ == null) {
+        enclosingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder>(
+                getEnclosing(),
+                getParentForChildren(),
+                isClean());
+        enclosing_ = null;
+      }
+      return enclosingBuilder_;
     }
 
     private org.mojolang.mojo.lang.Scope scope_;

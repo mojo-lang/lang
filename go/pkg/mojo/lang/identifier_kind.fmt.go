@@ -18,10 +18,16 @@
 package lang
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 var IdentifierKindNames = map[int32]string{
+	0:  "unspecified",
+	1:  "package",
 	3:  "enum",
 	4:  "struct",
 	5:  "type-alias",
@@ -32,11 +38,11 @@ var IdentifierKindNames = map[int32]string{
 	13: "attribute-alias",
 	14: "function",
 	19: "generic-parameter",
-	30: "type",
-	31: "value",
 }
 
 var IdentifierKindValues = map[string]Identifier_Kind{
+	"unspecified":       Identifier_KIND_UNSPECIFIED,
+	"package":           Identifier_KIND_PACKAGE,
 	"enum":              Identifier_KIND_ENUM,
 	"struct":            Identifier_KIND_STRUCT,
 	"type-alias":        Identifier_KIND_TYPE_ALIAS,
@@ -47,19 +53,20 @@ var IdentifierKindValues = map[string]Identifier_Kind{
 	"attribute-alias":   Identifier_KIND_ATTRIBUTE_ALIAS,
 	"function":          Identifier_KIND_FUNCTION,
 	"generic-parameter": Identifier_KIND_GENERIC_PARAMETER,
-	"type":              Identifier_KIND_TYPE,
-	"value":             Identifier_KIND_VALUE,
 }
 
 func (x Identifier_Kind) Format() string {
-	s, ok := IdentifierKindNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := IdentifierKindNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x Identifier_Kind) ToString() string {
@@ -67,15 +74,17 @@ func (x Identifier_Kind) ToString() string {
 }
 
 func (x *Identifier_Kind) Parse(value string) error {
-	if x != nil {
-		s, ok := IdentifierKindValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := IdentifierKindValues[value]; ok {
 			*x = s
 		} else {
-			*x = Identifier_KIND_ENUM
+			v := core.CaseStyler("kebab")(value)
+			if s, ok = IdentifierKindValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid Identifier_Kind: %s", value)
+			}
 		}
-	} else {
-		*x = Identifier_KIND_ENUM
 	}
 	return nil
 }

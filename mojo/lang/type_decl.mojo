@@ -25,7 +25,7 @@ type TypeDecl : Decl {
     generic_parameters: [GenericParameter] @13
 
     ///
-    enclosing_type : NominalType @14
+    enclosing : NominalType @14
 
     ///
     group: GroupDecl @15

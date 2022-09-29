@@ -19,6 +19,15 @@
         "endPosition": {
             "$ref": "#/components/schemas/mojo.lang.Position"
         },
+        "fields": {
+            "title": "mojo.core.Array",
+            "description": "the specialized field names of the attribute value which type is struct",
+            "type": "array",
+            "items": {
+                "title": "mojo.core.String",
+                "type": "string"
+            }
+        },
         "genericArguments": {
             "title": "mojo.core.Array",
             "description": "",

@@ -18,7 +18,11 @@
 package lang
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 var PackageRequirementVersionTypeNames = map[int32]string{
@@ -36,14 +40,17 @@ var PackageRequirementVersionTypeValues = map[string]Package_Requirement_Version
 }
 
 func (x Package_Requirement_Version_Type) Format() string {
-	s, ok := PackageRequirementVersionTypeNames[int32(x)]
-	if ok {
+	v := int32(x)
+	if s, ok := PackageRequirementVersionTypeNames[v]; ok {
+		if v == 0 && "unspecified" == strings.ToLower(s) {
+			return ""
+		}
 		return s
 	}
-	if int(x) == 0 {
-		return "unspecified"
+	if v == 0 {
+		return ""
 	}
-	return strconv.Itoa(int(x))
+	return strconv.Itoa(int(v))
 }
 
 func (x Package_Requirement_Version_Type) ToString() string {
@@ -51,15 +58,17 @@ func (x Package_Requirement_Version_Type) ToString() string {
 }
 
 func (x *Package_Requirement_Version_Type) Parse(value string) error {
-	if x != nil {
-		s, ok := PackageRequirementVersionTypeValues[value]
-		if ok {
+	if x != nil && len(value) > 0 {
+		if s, ok := PackageRequirementVersionTypeValues[value]; ok {
 			*x = s
 		} else {
-			*x = Package_Requirement_Version_TYPE_CARET
+			v := core.CaseStyler("snake")(value)
+			if s, ok = PackageRequirementVersionTypeValues[v]; ok {
+				*x = s
+			} else {
+				return fmt.Errorf("invalid Package_Requirement_Version_Type: %s", value)
+			}
 		}
-	} else {
-		*x = Package_Requirement_Version_TYPE_CARET
 	}
 	return nil
 }

@@ -10,13 +10,8 @@
         "declaration": {
             "$ref": "#/components/schemas/mojo.lang.Declaration"
         },
-        "enclosingTypeNames": {
-            "title": "mojo.core.Array",
-            "type": "array",
-            "items": {
-                "title": "mojo.core.String",
-                "type": "string"
-            }
+        "enclosing": {
+            "$ref": "#/components/schemas/mojo.lang.Identifier"
         },
         "endPosition": {
             "$ref": "#/components/schemas/mojo.lang.Position"
@@ -34,6 +29,7 @@
             "title": "mojo.lang.Identifier.Kind",
             "type": "string",
             "enum": [
+                "package",
                 "enum",
                 "struct",
                 "type-alias",
@@ -43,9 +39,7 @@
                 "attribute",
                 "attribute-alias",
                 "function",
-                "generic-parameter",
-                "type",
-                "value"
+                "generic-parameter"
             ]
         },
         "name": {

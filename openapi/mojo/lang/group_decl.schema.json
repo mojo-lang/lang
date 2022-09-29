@@ -35,6 +35,7 @@
                     "description": "may be the `struct`, `enum`, `constant`, `variable`, `attribute` `function`",
                     "type": "string",
                     "enum": [
+                        "package",
                         "enum",
                         "struct",
                         "type-alias",
@@ -44,9 +45,7 @@
                         "attribute",
                         "attribute-alias",
                         "function",
-                        "generic-parameter",
-                        "type",
-                        "value"
+                        "generic-parameter"
                     ]
                 }
             }

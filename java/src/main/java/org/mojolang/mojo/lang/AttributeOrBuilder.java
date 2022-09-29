@@ -83,64 +83,89 @@ public interface AttributeOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.mojo.lang.AttributeDecl declaration = 11 [(.mojo.reference) = ""];</code>
+   * <code>repeated string fields = 11;</code>
+   * @return A list containing the fields.
+   */
+  java.util.List<java.lang.String>
+      getFieldsList();
+  /**
+   * <code>repeated string fields = 11;</code>
+   * @return The count of fields.
+   */
+  int getFieldsCount();
+  /**
+   * <code>repeated string fields = 11;</code>
+   * @param index The index of the element to return.
+   * @return The fields at the given index.
+   */
+  java.lang.String getFields(int index);
+  /**
+   * <code>repeated string fields = 11;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the fields at the given index.
+   */
+  com.google.protobuf.ByteString
+      getFieldsBytes(int index);
+
+  /**
+   * <code>.mojo.lang.AttributeDecl declaration = 13 [(.mojo.reference) = ""];</code>
    * @return Whether the declaration field is set.
    */
   boolean hasDeclaration();
   /**
-   * <code>.mojo.lang.AttributeDecl declaration = 11 [(.mojo.reference) = ""];</code>
+   * <code>.mojo.lang.AttributeDecl declaration = 13 [(.mojo.reference) = ""];</code>
    * @return The declaration.
    */
   org.mojolang.mojo.lang.AttributeDecl getDeclaration();
   /**
-   * <code>.mojo.lang.AttributeDecl declaration = 11 [(.mojo.reference) = ""];</code>
+   * <code>.mojo.lang.AttributeDecl declaration = 13 [(.mojo.reference) = ""];</code>
    */
   org.mojolang.mojo.lang.AttributeDeclOrBuilder getDeclarationOrBuilder();
 
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   java.util.List<org.mojolang.mojo.lang.NominalType> 
       getGenericArgumentsList();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   org.mojolang.mojo.lang.NominalType getGenericArguments(int index);
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   int getGenericArgumentsCount();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.NominalTypeOrBuilder> 
       getGenericArgumentsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   org.mojolang.mojo.lang.NominalTypeOrBuilder getGenericArgumentsOrBuilder(
       int index);
 
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 13;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Argument> 
       getArgumentsList();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 13;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   org.mojolang.mojo.lang.Argument getArguments(int index);
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 13;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   int getArgumentsCount();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 13;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.ArgumentOrBuilder> 
       getArgumentsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 13;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   org.mojolang.mojo.lang.ArgumentOrBuilder getArgumentsOrBuilder(
       int index);

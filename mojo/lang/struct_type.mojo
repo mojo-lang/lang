@@ -31,8 +31,8 @@ type StructType {
     inherits: [NominalType] @11
 
     ///
-    groups:   [ValueGroupDecl] @12
+    groups:   [GroupDecl] @12
 
     /// 
-    inherite_position: Position @19
+    inherit_position: Position @19
 }

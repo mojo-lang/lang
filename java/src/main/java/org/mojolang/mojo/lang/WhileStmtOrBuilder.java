@@ -78,4 +78,10 @@ public interface WhileStmtOrBuilder extends
    * <code>.mojo.lang.Expression condition = 20;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getConditionOrBuilder();
+
+  /**
+   * <code>bool execute_at_least_once = 21;</code>
+   * @return The executeAtLeastOnce.
+   */
+  boolean getExecuteAtLeastOnce();
 }

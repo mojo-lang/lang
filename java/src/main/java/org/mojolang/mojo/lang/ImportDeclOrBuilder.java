@@ -98,49 +98,97 @@ public interface ImportDeclOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getKeywordPositionOrBuilder();
 
   /**
-   * <code>string import_package_name = 10;</code>
+   * <code>string filter = 11;</code>
+   * @return The filter.
+   */
+  java.lang.String getFilter();
+  /**
+   * <code>string filter = 11;</code>
+   * @return The bytes for filter.
+   */
+  com.google.protobuf.ByteString
+      getFilterBytes();
+
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  java.util.List<org.mojolang.mojo.lang.Attribute> 
+      getAttributesList();
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  org.mojolang.mojo.lang.Attribute getAttributes(int index);
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  int getAttributesCount();
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  java.util.List<? extends org.mojolang.mojo.lang.AttributeOrBuilder> 
+      getAttributesOrBuilderList();
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  org.mojolang.mojo.lang.AttributeOrBuilder getAttributesOrBuilder(
+      int index);
+
+  /**
+   * <code>string import_package_name = 13;</code>
    * @return The importPackageName.
    */
   java.lang.String getImportPackageName();
   /**
-   * <code>string import_package_name = 10;</code>
+   * <code>string import_package_name = 13;</code>
    * @return The bytes for importPackageName.
    */
   com.google.protobuf.ByteString
       getImportPackageNameBytes();
 
   /**
-   * <code>string import_package_alias = 11;</code>
+   * <code>string import_package_alias = 14;</code>
    * @return The importPackageAlias.
    */
   java.lang.String getImportPackageAlias();
   /**
-   * <code>string import_package_alias = 11;</code>
+   * <code>string import_package_alias = 14;</code>
    * @return The bytes for importPackageAlias.
    */
   com.google.protobuf.ByteString
       getImportPackageAliasBytes();
 
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>string import_file_name = 15;</code>
+   * @return The importFileName.
+   */
+  java.lang.String getImportFileName();
+  /**
+   * <code>string import_file_name = 15;</code>
+   * @return The bytes for importFileName.
+   */
+  com.google.protobuf.ByteString
+      getImportFileNameBytes();
+
+  /**
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Identifier> 
       getIdentifiersList();
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   org.mojolang.mojo.lang.Identifier getIdentifiers(int index);
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   int getIdentifiersCount();
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
       getIdentifiersOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   org.mojolang.mojo.lang.IdentifierOrBuilder getIdentifiersOrBuilder(
       int index);

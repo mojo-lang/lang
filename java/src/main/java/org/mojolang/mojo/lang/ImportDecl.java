@@ -18,8 +18,11 @@ private static final long serialVersionUID = 0L;
   private ImportDecl() {
     packageName_ = "";
     sourceFileName_ = "";
+    filter_ = "";
+    attributes_ = java.util.Collections.emptyList();
     importPackageName_ = "";
     importPackageAlias_ = "";
+    importFileName_ = "";
     identifiers_ = java.util.Collections.emptyList();
   }
 
@@ -123,22 +126,43 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 82: {
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            filter_ = s;
+            break;
+          }
+          case 98: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              attributes_ = new java.util.ArrayList<org.mojolang.mojo.lang.Attribute>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            attributes_.add(
+                input.readMessage(org.mojolang.mojo.lang.Attribute.parser(), extensionRegistry));
+            break;
+          }
+          case 106: {
             java.lang.String s = input.readStringRequireUtf8();
 
             importPackageName_ = s;
             break;
           }
-          case 90: {
+          case 114: {
             java.lang.String s = input.readStringRequireUtf8();
 
             importPackageAlias_ = s;
             break;
           }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+          case 122: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            importFileName_ = s;
+            break;
+          }
+          case 130: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               identifiers_ = new java.util.ArrayList<org.mojolang.mojo.lang.Identifier>();
-              mutable_bitField0_ |= 0x00000001;
+              mutable_bitField0_ |= 0x00000002;
             }
             identifiers_.add(
                 input.readMessage(org.mojolang.mojo.lang.Identifier.parser(), extensionRegistry));
@@ -160,6 +184,9 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        attributes_ = java.util.Collections.unmodifiableList(attributes_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
         identifiers_ = java.util.Collections.unmodifiableList(identifiers_);
       }
       this.unknownFields = unknownFields.build();
@@ -370,10 +397,88 @@ private static final long serialVersionUID = 0L;
     return getKeywordPosition();
   }
 
-  public static final int IMPORT_PACKAGE_NAME_FIELD_NUMBER = 10;
+  public static final int FILTER_FIELD_NUMBER = 11;
+  private volatile java.lang.Object filter_;
+  /**
+   * <code>string filter = 11;</code>
+   * @return The filter.
+   */
+  @java.lang.Override
+  public java.lang.String getFilter() {
+    java.lang.Object ref = filter_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      filter_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string filter = 11;</code>
+   * @return The bytes for filter.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFilterBytes() {
+    java.lang.Object ref = filter_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      filter_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ATTRIBUTES_FIELD_NUMBER = 12;
+  private java.util.List<org.mojolang.mojo.lang.Attribute> attributes_;
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  @java.lang.Override
+  public java.util.List<org.mojolang.mojo.lang.Attribute> getAttributesList() {
+    return attributes_;
+  }
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends org.mojolang.mojo.lang.AttributeOrBuilder> 
+      getAttributesOrBuilderList() {
+    return attributes_;
+  }
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  @java.lang.Override
+  public int getAttributesCount() {
+    return attributes_.size();
+  }
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.Attribute getAttributes(int index) {
+    return attributes_.get(index);
+  }
+  /**
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.AttributeOrBuilder getAttributesOrBuilder(
+      int index) {
+    return attributes_.get(index);
+  }
+
+  public static final int IMPORT_PACKAGE_NAME_FIELD_NUMBER = 13;
   private volatile java.lang.Object importPackageName_;
   /**
-   * <code>string import_package_name = 10;</code>
+   * <code>string import_package_name = 13;</code>
    * @return The importPackageName.
    */
   @java.lang.Override
@@ -390,7 +495,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string import_package_name = 10;</code>
+   * <code>string import_package_name = 13;</code>
    * @return The bytes for importPackageName.
    */
   @java.lang.Override
@@ -408,10 +513,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int IMPORT_PACKAGE_ALIAS_FIELD_NUMBER = 11;
+  public static final int IMPORT_PACKAGE_ALIAS_FIELD_NUMBER = 14;
   private volatile java.lang.Object importPackageAlias_;
   /**
-   * <code>string import_package_alias = 11;</code>
+   * <code>string import_package_alias = 14;</code>
    * @return The importPackageAlias.
    */
   @java.lang.Override
@@ -428,7 +533,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string import_package_alias = 11;</code>
+   * <code>string import_package_alias = 14;</code>
    * @return The bytes for importPackageAlias.
    */
   @java.lang.Override
@@ -446,17 +551,55 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int IDENTIFIERS_FIELD_NUMBER = 13;
+  public static final int IMPORT_FILE_NAME_FIELD_NUMBER = 15;
+  private volatile java.lang.Object importFileName_;
+  /**
+   * <code>string import_file_name = 15;</code>
+   * @return The importFileName.
+   */
+  @java.lang.Override
+  public java.lang.String getImportFileName() {
+    java.lang.Object ref = importFileName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      importFileName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string import_file_name = 15;</code>
+   * @return The bytes for importFileName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getImportFileNameBytes() {
+    java.lang.Object ref = importFileName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      importFileName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int IDENTIFIERS_FIELD_NUMBER = 16;
   private java.util.List<org.mojolang.mojo.lang.Identifier> identifiers_;
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.Identifier> getIdentifiersList() {
     return identifiers_;
   }
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
@@ -464,21 +607,21 @@ private static final long serialVersionUID = 0L;
     return identifiers_;
   }
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   @java.lang.Override
   public int getIdentifiersCount() {
     return identifiers_.size();
   }
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Identifier getIdentifiers(int index) {
     return identifiers_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+   * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.IdentifierOrBuilder getIdentifiersOrBuilder(
@@ -521,14 +664,23 @@ private static final long serialVersionUID = 0L;
     if (keywordPosition_ != null) {
       output.writeMessage(9, getKeywordPosition());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, filter_);
+    }
+    for (int i = 0; i < attributes_.size(); i++) {
+      output.writeMessage(12, attributes_.get(i));
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importPackageName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, importPackageName_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, importPackageName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importPackageAlias_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, importPackageAlias_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, importPackageAlias_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importFileName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, importFileName_);
     }
     for (int i = 0; i < identifiers_.size(); i++) {
-      output.writeMessage(13, identifiers_.get(i));
+      output.writeMessage(16, identifiers_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -565,15 +717,25 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getKeywordPosition());
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, filter_);
+    }
+    for (int i = 0; i < attributes_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, attributes_.get(i));
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importPackageName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, importPackageName_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, importPackageName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importPackageAlias_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, importPackageAlias_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, importPackageAlias_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importFileName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, importFileName_);
     }
     for (int i = 0; i < identifiers_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(13, identifiers_.get(i));
+        .computeMessageSize(16, identifiers_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -616,10 +778,16 @@ private static final long serialVersionUID = 0L;
       if (!getKeywordPosition()
           .equals(other.getKeywordPosition())) return false;
     }
+    if (!getFilter()
+        .equals(other.getFilter())) return false;
+    if (!getAttributesList()
+        .equals(other.getAttributesList())) return false;
     if (!getImportPackageName()
         .equals(other.getImportPackageName())) return false;
     if (!getImportPackageAlias()
         .equals(other.getImportPackageAlias())) return false;
+    if (!getImportFileName()
+        .equals(other.getImportFileName())) return false;
     if (!getIdentifiersList()
         .equals(other.getIdentifiersList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -656,10 +824,18 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + KEYWORD_POSITION_FIELD_NUMBER;
       hash = (53 * hash) + getKeywordPosition().hashCode();
     }
+    hash = (37 * hash) + FILTER_FIELD_NUMBER;
+    hash = (53 * hash) + getFilter().hashCode();
+    if (getAttributesCount() > 0) {
+      hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
+      hash = (53 * hash) + getAttributesList().hashCode();
+    }
     hash = (37 * hash) + IMPORT_PACKAGE_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getImportPackageName().hashCode();
     hash = (37 * hash) + IMPORT_PACKAGE_ALIAS_FIELD_NUMBER;
     hash = (53 * hash) + getImportPackageAlias().hashCode();
+    hash = (37 * hash) + IMPORT_FILE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getImportFileName().hashCode();
     if (getIdentifiersCount() > 0) {
       hash = (37 * hash) + IDENTIFIERS_FIELD_NUMBER;
       hash = (53 * hash) + getIdentifiersList().hashCode();
@@ -792,6 +968,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getAttributesFieldBuilder();
         getIdentifiersFieldBuilder();
       }
     }
@@ -828,13 +1005,23 @@ private static final long serialVersionUID = 0L;
         keywordPosition_ = null;
         keywordPositionBuilder_ = null;
       }
+      filter_ = "";
+
+      if (attributesBuilder_ == null) {
+        attributes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        attributesBuilder_.clear();
+      }
       importPackageName_ = "";
 
       importPackageAlias_ = "";
 
+      importFileName_ = "";
+
       if (identifiersBuilder_ == null) {
         identifiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
         identifiersBuilder_.clear();
       }
@@ -888,12 +1075,23 @@ private static final long serialVersionUID = 0L;
       } else {
         result.keywordPosition_ = keywordPositionBuilder_.build();
       }
+      result.filter_ = filter_;
+      if (attributesBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          attributes_ = java.util.Collections.unmodifiableList(attributes_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.attributes_ = attributes_;
+      } else {
+        result.attributes_ = attributesBuilder_.build();
+      }
       result.importPackageName_ = importPackageName_;
       result.importPackageAlias_ = importPackageAlias_;
+      result.importFileName_ = importFileName_;
       if (identifiersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           identifiers_ = java.util.Collections.unmodifiableList(identifiers_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.identifiers_ = identifiers_;
       } else {
@@ -970,6 +1168,36 @@ private static final long serialVersionUID = 0L;
       if (other.hasKeywordPosition()) {
         mergeKeywordPosition(other.getKeywordPosition());
       }
+      if (!other.getFilter().isEmpty()) {
+        filter_ = other.filter_;
+        onChanged();
+      }
+      if (attributesBuilder_ == null) {
+        if (!other.attributes_.isEmpty()) {
+          if (attributes_.isEmpty()) {
+            attributes_ = other.attributes_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAttributesIsMutable();
+            attributes_.addAll(other.attributes_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.attributes_.isEmpty()) {
+          if (attributesBuilder_.isEmpty()) {
+            attributesBuilder_.dispose();
+            attributesBuilder_ = null;
+            attributes_ = other.attributes_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            attributesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getAttributesFieldBuilder() : null;
+          } else {
+            attributesBuilder_.addAllMessages(other.attributes_);
+          }
+        }
+      }
       if (!other.getImportPackageName().isEmpty()) {
         importPackageName_ = other.importPackageName_;
         onChanged();
@@ -978,11 +1206,15 @@ private static final long serialVersionUID = 0L;
         importPackageAlias_ = other.importPackageAlias_;
         onChanged();
       }
+      if (!other.getImportFileName().isEmpty()) {
+        importFileName_ = other.importFileName_;
+        onChanged();
+      }
       if (identifiersBuilder_ == null) {
         if (!other.identifiers_.isEmpty()) {
           if (identifiers_.isEmpty()) {
             identifiers_ = other.identifiers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureIdentifiersIsMutable();
             identifiers_.addAll(other.identifiers_);
@@ -995,7 +1227,7 @@ private static final long serialVersionUID = 0L;
             identifiersBuilder_.dispose();
             identifiersBuilder_ = null;
             identifiers_ = other.identifiers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             identifiersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getIdentifiersFieldBuilder() : null;
@@ -1693,9 +1925,325 @@ private static final long serialVersionUID = 0L;
       return keywordPositionBuilder_;
     }
 
+    private java.lang.Object filter_ = "";
+    /**
+     * <code>string filter = 11;</code>
+     * @return The filter.
+     */
+    public java.lang.String getFilter() {
+      java.lang.Object ref = filter_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filter_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string filter = 11;</code>
+     * @return The bytes for filter.
+     */
+    public com.google.protobuf.ByteString
+        getFilterBytes() {
+      java.lang.Object ref = filter_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filter_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string filter = 11;</code>
+     * @param value The filter to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFilter(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      filter_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string filter = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFilter() {
+      
+      filter_ = getDefaultInstance().getFilter();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string filter = 11;</code>
+     * @param value The bytes for filter to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFilterBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      filter_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<org.mojolang.mojo.lang.Attribute> attributes_ =
+      java.util.Collections.emptyList();
+    private void ensureAttributesIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        attributes_ = new java.util.ArrayList<org.mojolang.mojo.lang.Attribute>(attributes_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.mojolang.mojo.lang.Attribute, org.mojolang.mojo.lang.Attribute.Builder, org.mojolang.mojo.lang.AttributeOrBuilder> attributesBuilder_;
+
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public java.util.List<org.mojolang.mojo.lang.Attribute> getAttributesList() {
+      if (attributesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(attributes_);
+      } else {
+        return attributesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public int getAttributesCount() {
+      if (attributesBuilder_ == null) {
+        return attributes_.size();
+      } else {
+        return attributesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public org.mojolang.mojo.lang.Attribute getAttributes(int index) {
+      if (attributesBuilder_ == null) {
+        return attributes_.get(index);
+      } else {
+        return attributesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder setAttributes(
+        int index, org.mojolang.mojo.lang.Attribute value) {
+      if (attributesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAttributesIsMutable();
+        attributes_.set(index, value);
+        onChanged();
+      } else {
+        attributesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder setAttributes(
+        int index, org.mojolang.mojo.lang.Attribute.Builder builderForValue) {
+      if (attributesBuilder_ == null) {
+        ensureAttributesIsMutable();
+        attributes_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        attributesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder addAttributes(org.mojolang.mojo.lang.Attribute value) {
+      if (attributesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAttributesIsMutable();
+        attributes_.add(value);
+        onChanged();
+      } else {
+        attributesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder addAttributes(
+        int index, org.mojolang.mojo.lang.Attribute value) {
+      if (attributesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAttributesIsMutable();
+        attributes_.add(index, value);
+        onChanged();
+      } else {
+        attributesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder addAttributes(
+        org.mojolang.mojo.lang.Attribute.Builder builderForValue) {
+      if (attributesBuilder_ == null) {
+        ensureAttributesIsMutable();
+        attributes_.add(builderForValue.build());
+        onChanged();
+      } else {
+        attributesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder addAttributes(
+        int index, org.mojolang.mojo.lang.Attribute.Builder builderForValue) {
+      if (attributesBuilder_ == null) {
+        ensureAttributesIsMutable();
+        attributes_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        attributesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder addAllAttributes(
+        java.lang.Iterable<? extends org.mojolang.mojo.lang.Attribute> values) {
+      if (attributesBuilder_ == null) {
+        ensureAttributesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, attributes_);
+        onChanged();
+      } else {
+        attributesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder clearAttributes() {
+      if (attributesBuilder_ == null) {
+        attributes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        attributesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public Builder removeAttributes(int index) {
+      if (attributesBuilder_ == null) {
+        ensureAttributesIsMutable();
+        attributes_.remove(index);
+        onChanged();
+      } else {
+        attributesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public org.mojolang.mojo.lang.Attribute.Builder getAttributesBuilder(
+        int index) {
+      return getAttributesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public org.mojolang.mojo.lang.AttributeOrBuilder getAttributesOrBuilder(
+        int index) {
+      if (attributesBuilder_ == null) {
+        return attributes_.get(index);  } else {
+        return attributesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public java.util.List<? extends org.mojolang.mojo.lang.AttributeOrBuilder> 
+         getAttributesOrBuilderList() {
+      if (attributesBuilder_ != null) {
+        return attributesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(attributes_);
+      }
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public org.mojolang.mojo.lang.Attribute.Builder addAttributesBuilder() {
+      return getAttributesFieldBuilder().addBuilder(
+          org.mojolang.mojo.lang.Attribute.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public org.mojolang.mojo.lang.Attribute.Builder addAttributesBuilder(
+        int index) {
+      return getAttributesFieldBuilder().addBuilder(
+          index, org.mojolang.mojo.lang.Attribute.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
+     */
+    public java.util.List<org.mojolang.mojo.lang.Attribute.Builder> 
+         getAttributesBuilderList() {
+      return getAttributesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.mojolang.mojo.lang.Attribute, org.mojolang.mojo.lang.Attribute.Builder, org.mojolang.mojo.lang.AttributeOrBuilder> 
+        getAttributesFieldBuilder() {
+      if (attributesBuilder_ == null) {
+        attributesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            org.mojolang.mojo.lang.Attribute, org.mojolang.mojo.lang.Attribute.Builder, org.mojolang.mojo.lang.AttributeOrBuilder>(
+                attributes_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        attributes_ = null;
+      }
+      return attributesBuilder_;
+    }
+
     private java.lang.Object importPackageName_ = "";
     /**
-     * <code>string import_package_name = 10;</code>
+     * <code>string import_package_name = 13;</code>
      * @return The importPackageName.
      */
     public java.lang.String getImportPackageName() {
@@ -1711,7 +2259,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string import_package_name = 10;</code>
+     * <code>string import_package_name = 13;</code>
      * @return The bytes for importPackageName.
      */
     public com.google.protobuf.ByteString
@@ -1728,7 +2276,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string import_package_name = 10;</code>
+     * <code>string import_package_name = 13;</code>
      * @param value The importPackageName to set.
      * @return This builder for chaining.
      */
@@ -1743,7 +2291,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string import_package_name = 10;</code>
+     * <code>string import_package_name = 13;</code>
      * @return This builder for chaining.
      */
     public Builder clearImportPackageName() {
@@ -1753,7 +2301,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string import_package_name = 10;</code>
+     * <code>string import_package_name = 13;</code>
      * @param value The bytes for importPackageName to set.
      * @return This builder for chaining.
      */
@@ -1771,7 +2319,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object importPackageAlias_ = "";
     /**
-     * <code>string import_package_alias = 11;</code>
+     * <code>string import_package_alias = 14;</code>
      * @return The importPackageAlias.
      */
     public java.lang.String getImportPackageAlias() {
@@ -1787,7 +2335,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string import_package_alias = 11;</code>
+     * <code>string import_package_alias = 14;</code>
      * @return The bytes for importPackageAlias.
      */
     public com.google.protobuf.ByteString
@@ -1804,7 +2352,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string import_package_alias = 11;</code>
+     * <code>string import_package_alias = 14;</code>
      * @param value The importPackageAlias to set.
      * @return This builder for chaining.
      */
@@ -1819,7 +2367,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string import_package_alias = 11;</code>
+     * <code>string import_package_alias = 14;</code>
      * @return This builder for chaining.
      */
     public Builder clearImportPackageAlias() {
@@ -1829,7 +2377,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string import_package_alias = 11;</code>
+     * <code>string import_package_alias = 14;</code>
      * @param value The bytes for importPackageAlias to set.
      * @return This builder for chaining.
      */
@@ -1845,12 +2393,88 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object importFileName_ = "";
+    /**
+     * <code>string import_file_name = 15;</code>
+     * @return The importFileName.
+     */
+    public java.lang.String getImportFileName() {
+      java.lang.Object ref = importFileName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        importFileName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string import_file_name = 15;</code>
+     * @return The bytes for importFileName.
+     */
+    public com.google.protobuf.ByteString
+        getImportFileNameBytes() {
+      java.lang.Object ref = importFileName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        importFileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string import_file_name = 15;</code>
+     * @param value The importFileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImportFileName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      importFileName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string import_file_name = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearImportFileName() {
+      
+      importFileName_ = getDefaultInstance().getImportFileName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string import_file_name = 15;</code>
+     * @param value The bytes for importFileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setImportFileNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      importFileName_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<org.mojolang.mojo.lang.Identifier> identifiers_ =
       java.util.Collections.emptyList();
     private void ensureIdentifiersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         identifiers_ = new java.util.ArrayList<org.mojolang.mojo.lang.Identifier>(identifiers_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1858,7 +2482,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder> identifiersBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Identifier> getIdentifiersList() {
       if (identifiersBuilder_ == null) {
@@ -1868,7 +2492,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public int getIdentifiersCount() {
       if (identifiersBuilder_ == null) {
@@ -1878,7 +2502,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public org.mojolang.mojo.lang.Identifier getIdentifiers(int index) {
       if (identifiersBuilder_ == null) {
@@ -1888,7 +2512,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder setIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier value) {
@@ -1905,7 +2529,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder setIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -1919,7 +2543,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder addIdentifiers(org.mojolang.mojo.lang.Identifier value) {
       if (identifiersBuilder_ == null) {
@@ -1935,7 +2559,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder addIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier value) {
@@ -1952,7 +2576,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder addIdentifiers(
         org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -1966,7 +2590,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder addIdentifiers(
         int index, org.mojolang.mojo.lang.Identifier.Builder builderForValue) {
@@ -1980,7 +2604,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder addAllIdentifiers(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.Identifier> values) {
@@ -1995,12 +2619,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder clearIdentifiers() {
       if (identifiersBuilder_ == null) {
         identifiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         identifiersBuilder_.clear();
@@ -2008,7 +2632,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public Builder removeIdentifiers(int index) {
       if (identifiersBuilder_ == null) {
@@ -2021,14 +2645,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder getIdentifiersBuilder(
         int index) {
       return getIdentifiersFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public org.mojolang.mojo.lang.IdentifierOrBuilder getIdentifiersOrBuilder(
         int index) {
@@ -2038,7 +2662,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.IdentifierOrBuilder> 
          getIdentifiersOrBuilderList() {
@@ -2049,14 +2673,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder addIdentifiersBuilder() {
       return getIdentifiersFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.Identifier.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public org.mojolang.mojo.lang.Identifier.Builder addIdentifiersBuilder(
         int index) {
@@ -2064,7 +2688,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.Identifier.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Identifier identifiers = 13;</code>
+     * <code>repeated .mojo.lang.Identifier identifiers = 16;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Identifier.Builder> 
          getIdentifiersBuilderList() {
@@ -2077,7 +2701,7 @@ private static final long serialVersionUID = 0L;
         identifiersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.mojolang.mojo.lang.Identifier, org.mojolang.mojo.lang.Identifier.Builder, org.mojolang.mojo.lang.IdentifierOrBuilder>(
                 identifiers_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         identifiers_ = null;

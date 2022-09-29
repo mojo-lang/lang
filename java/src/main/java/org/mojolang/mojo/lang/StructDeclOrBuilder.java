@@ -158,19 +158,19 @@ public interface StructDeclOrBuilder extends
       int index);
 
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
-   * @return Whether the enclosingType field is set.
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
+   * @return Whether the enclosing field is set.
    */
-  boolean hasEnclosingType();
+  boolean hasEnclosing();
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
-   * @return The enclosingType.
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
+   * @return The enclosing.
    */
-  org.mojolang.mojo.lang.NominalType getEnclosingType();
+  org.mojolang.mojo.lang.NominalType getEnclosing();
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
    */
-  org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingTypeOrBuilder();
+  org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingOrBuilder();
 
   /**
    * <code>.mojo.lang.GroupDecl group = 15;</code>

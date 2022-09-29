@@ -31,16 +31,21 @@ type Attribute {
     package_name: String @7
 
     name: String @10
-    
-    declaration: AttributeDecl @11 @reference
 
-    ///
-    generic_arguments: [GenericArgument] @12
+    /// the specialized field names of the attribute value which type is struct
+    fields: [String] @11
 
-    arguments: [Argument] @13
+    /// the declaration of the attribute
+    declaration: AttributeDecl @13 @reference
+
+    /// 
+    generic_arguments: [GenericArgument] @15
+
+    arguments: [Argument] @16
 
     /// 
     name_position: Position @19 @ignore
 
+    /// the evaluated value of the attribute
     value: Expression @20
 }

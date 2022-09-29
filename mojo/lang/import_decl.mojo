@@ -13,12 +13,21 @@
 // limitations under the License.
 
 type ImportDecl : Decl {
+    /// 
+    filter: String @11
+
+    ///
+    attributes: [Attribute] @12
+
     /// imported package name
-    import_package_name:  String @10
+    import_package_name:  String @13
 
     /// alias for the imported package name
-    import_package_alias: String @11
+    import_package_alias: String @14
+
+    /// for some language, just import file not package
+    import_file_name: String @15
 
     /// imported identifiers
-    identifiers: [Identifier] @13
+    identifiers: [Identifier] @16
 }

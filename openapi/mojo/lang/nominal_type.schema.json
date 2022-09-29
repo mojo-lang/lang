@@ -14,7 +14,7 @@
         "document": {
             "$ref": "#/components/schemas/mojo.lang.Document"
         },
-        "enclosingType": {
+        "enclosing": {
             "$ref": "#/components/schemas/mojo.lang.NominalType"
         },
         "endPosition": {

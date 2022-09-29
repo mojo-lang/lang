@@ -7,8 +7,8 @@
 | `sourceFileName` | `string` |  | N |  |
 | `packageName` | `string` |  | N |  |
 | `name` | `string` |  | N |  |
-| `declaration` | `mojo.lang.Declaration` |  | N |  |
-| `alias` | `string` |  | N |  |
 | `fullName` | `string` |  | N |  |
-| `enclosingTypeNames` | `Array<string>` |  | N |  |
+| `alias` | `string` |  | N |  |
+| `declaration` | `mojo.lang.Declaration` |  | N |  |
+| `enclosing` | `mojo.lang.Identifier` |  | N |  |  |
 | `scope` | `mojo.lang.Scope` |  | N |  | A Scope maintains the set of named language entities declaredin the scope and a link to the immediately surrounding (enclosing)scope. |

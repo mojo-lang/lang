@@ -53,6 +53,12 @@ public interface NominalTypeOrBuilder extends
   org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder();
 
   /**
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
+
+  /**
    * <code>string package_name = 7;</code>
    * @return The packageName.
    */
@@ -63,12 +69,6 @@ public interface NominalTypeOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPackageNameBytes();
-
-  /**
-   * <code>bool implicit = 5;</code>
-   * @return The implicit.
-   */
-  boolean getImplicit();
 
   /**
    * <code>string name = 10;</code>
@@ -83,80 +83,80 @@ public interface NominalTypeOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
-   * @return Whether the typeDeclaration field is set.
-   */
-  boolean hasTypeDeclaration();
-  /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
-   * @return The typeDeclaration.
-   */
-  org.mojolang.mojo.lang.TypeDeclaration getTypeDeclaration();
-  /**
-   * <code>.mojo.lang.TypeDeclaration type_declaration = 11 [(.mojo.reference) = ""];</code>
-   */
-  org.mojolang.mojo.lang.TypeDeclarationOrBuilder getTypeDeclarationOrBuilder();
-
-  /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
-   */
-  java.util.List<org.mojolang.mojo.lang.NominalType> 
-      getGenericArgumentsList();
-  /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
-   */
-  org.mojolang.mojo.lang.NominalType getGenericArguments(int index);
-  /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
-   */
-  int getGenericArgumentsCount();
-  /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
-   */
-  java.util.List<? extends org.mojolang.mojo.lang.NominalTypeOrBuilder> 
-      getGenericArgumentsOrBuilderList();
-  /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 12;</code>
-   */
-  org.mojolang.mojo.lang.NominalTypeOrBuilder getGenericArgumentsOrBuilder(
-      int index);
-
-  /**
-   * <code>repeated .mojo.lang.Attribute attributes = 13;</code>
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Attribute> 
       getAttributesList();
   /**
-   * <code>repeated .mojo.lang.Attribute attributes = 13;</code>
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
    */
   org.mojolang.mojo.lang.Attribute getAttributes(int index);
   /**
-   * <code>repeated .mojo.lang.Attribute attributes = 13;</code>
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
    */
   int getAttributesCount();
   /**
-   * <code>repeated .mojo.lang.Attribute attributes = 13;</code>
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.AttributeOrBuilder> 
       getAttributesOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Attribute attributes = 13;</code>
+   * <code>repeated .mojo.lang.Attribute attributes = 12;</code>
    */
   org.mojolang.mojo.lang.AttributeOrBuilder getAttributesOrBuilder(
       int index);
 
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
-   * @return Whether the enclosingType field is set.
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 13 [(.mojo.reference) = ""];</code>
+   * @return Whether the typeDeclaration field is set.
    */
-  boolean hasEnclosingType();
+  boolean hasTypeDeclaration();
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
-   * @return The enclosingType.
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 13 [(.mojo.reference) = ""];</code>
+   * @return The typeDeclaration.
    */
-  org.mojolang.mojo.lang.NominalType getEnclosingType();
+  org.mojolang.mojo.lang.TypeDeclaration getTypeDeclaration();
   /**
-   * <code>.mojo.lang.NominalType enclosing_type = 14;</code>
+   * <code>.mojo.lang.TypeDeclaration type_declaration = 13 [(.mojo.reference) = ""];</code>
    */
-  org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingTypeOrBuilder();
+  org.mojolang.mojo.lang.TypeDeclarationOrBuilder getTypeDeclarationOrBuilder();
+
+  /**
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
+   * @return Whether the enclosing field is set.
+   */
+  boolean hasEnclosing();
+  /**
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
+   * @return The enclosing.
+   */
+  org.mojolang.mojo.lang.NominalType getEnclosing();
+  /**
+   * <code>.mojo.lang.NominalType enclosing = 14;</code>
+   */
+  org.mojolang.mojo.lang.NominalTypeOrBuilder getEnclosingOrBuilder();
+
+  /**
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
+   */
+  java.util.List<org.mojolang.mojo.lang.NominalType> 
+      getGenericArgumentsList();
+  /**
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
+   */
+  org.mojolang.mojo.lang.NominalType getGenericArguments(int index);
+  /**
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
+   */
+  int getGenericArgumentsCount();
+  /**
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
+   */
+  java.util.List<? extends org.mojolang.mojo.lang.NominalTypeOrBuilder> 
+      getGenericArgumentsOrBuilderList();
+  /**
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
+   */
+  org.mojolang.mojo.lang.NominalTypeOrBuilder getGenericArgumentsOrBuilder(
+      int index);
 }

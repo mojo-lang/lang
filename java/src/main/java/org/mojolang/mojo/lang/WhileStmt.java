@@ -110,6 +110,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 168: {
+
+            executeAtLeastOnce_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -268,6 +273,17 @@ private static final long serialVersionUID = 0L;
     return getCondition();
   }
 
+  public static final int EXECUTE_AT_LEAST_ONCE_FIELD_NUMBER = 21;
+  private boolean executeAtLeastOnce_;
+  /**
+   * <code>bool execute_at_least_once = 21;</code>
+   * @return The executeAtLeastOnce.
+   */
+  @java.lang.Override
+  public boolean getExecuteAtLeastOnce() {
+    return executeAtLeastOnce_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -299,6 +315,9 @@ private static final long serialVersionUID = 0L;
     }
     if (condition_ != null) {
       output.writeMessage(20, getCondition());
+    }
+    if (executeAtLeastOnce_ != false) {
+      output.writeBool(21, executeAtLeastOnce_);
     }
     unknownFields.writeTo(output);
   }
@@ -332,6 +351,10 @@ private static final long serialVersionUID = 0L;
     if (condition_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getCondition());
+    }
+    if (executeAtLeastOnce_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(21, executeAtLeastOnce_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -372,6 +395,8 @@ private static final long serialVersionUID = 0L;
       if (!getCondition()
           .equals(other.getCondition())) return false;
     }
+    if (getExecuteAtLeastOnce()
+        != other.getExecuteAtLeastOnce()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -405,6 +430,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONDITION_FIELD_NUMBER;
       hash = (53 * hash) + getCondition().hashCode();
     }
+    hash = (37 * hash) + EXECUTE_AT_LEAST_ONCE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getExecuteAtLeastOnce());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -566,6 +594,8 @@ private static final long serialVersionUID = 0L;
         condition_ = null;
         conditionBuilder_ = null;
       }
+      executeAtLeastOnce_ = false;
+
       return this;
     }
 
@@ -614,6 +644,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.condition_ = conditionBuilder_.build();
       }
+      result.executeAtLeastOnce_ = executeAtLeastOnce_;
       onBuilt();
       return result;
     }
@@ -679,6 +710,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCondition()) {
         mergeCondition(other.getCondition());
+      }
+      if (other.getExecuteAtLeastOnce() != false) {
+        setExecuteAtLeastOnce(other.getExecuteAtLeastOnce());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1245,6 +1279,37 @@ private static final long serialVersionUID = 0L;
         condition_ = null;
       }
       return conditionBuilder_;
+    }
+
+    private boolean executeAtLeastOnce_ ;
+    /**
+     * <code>bool execute_at_least_once = 21;</code>
+     * @return The executeAtLeastOnce.
+     */
+    @java.lang.Override
+    public boolean getExecuteAtLeastOnce() {
+      return executeAtLeastOnce_;
+    }
+    /**
+     * <code>bool execute_at_least_once = 21;</code>
+     * @param value The executeAtLeastOnce to set.
+     * @return This builder for chaining.
+     */
+    public Builder setExecuteAtLeastOnce(boolean value) {
+      
+      executeAtLeastOnce_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool execute_at_least_once = 21;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearExecuteAtLeastOnce() {
+      
+      executeAtLeastOnce_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -91,19 +91,16 @@ public interface IdentifierOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-   * @return Whether the declaration field is set.
+   * <code>string full_name = 11;</code>
+   * @return The fullName.
    */
-  boolean hasDeclaration();
+  java.lang.String getFullName();
   /**
-   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-   * @return The declaration.
+   * <code>string full_name = 11;</code>
+   * @return The bytes for fullName.
    */
-  org.mojolang.mojo.lang.Declaration getDeclaration();
-  /**
-   * <code>.mojo.lang.Declaration declaration = 11 [(.mojo.reference) = ""];</code>
-   */
-  org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder();
+  com.google.protobuf.ByteString
+      getFullNameBytes();
 
   /**
    * <code>string alias = 12;</code>
@@ -118,41 +115,34 @@ public interface IdentifierOrBuilder extends
       getAliasBytes();
 
   /**
-   * <code>string full_name = 20;</code>
-   * @return The fullName.
+   * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+   * @return Whether the declaration field is set.
    */
-  java.lang.String getFullName();
+  boolean hasDeclaration();
   /**
-   * <code>string full_name = 20;</code>
-   * @return The bytes for fullName.
+   * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+   * @return The declaration.
    */
-  com.google.protobuf.ByteString
-      getFullNameBytes();
+  org.mojolang.mojo.lang.Declaration getDeclaration();
+  /**
+   * <code>.mojo.lang.Declaration declaration = 13 [(.mojo.reference) = ""];</code>
+   */
+  org.mojolang.mojo.lang.DeclarationOrBuilder getDeclarationOrBuilder();
 
   /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @return A list containing the enclosingTypeNames.
+   * <code>.mojo.lang.Identifier enclosing = 14;</code>
+   * @return Whether the enclosing field is set.
    */
-  java.util.List<java.lang.String>
-      getEnclosingTypeNamesList();
+  boolean hasEnclosing();
   /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @return The count of enclosingTypeNames.
+   * <code>.mojo.lang.Identifier enclosing = 14;</code>
+   * @return The enclosing.
    */
-  int getEnclosingTypeNamesCount();
+  org.mojolang.mojo.lang.Identifier getEnclosing();
   /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @param index The index of the element to return.
-   * @return The enclosingTypeNames at the given index.
+   * <code>.mojo.lang.Identifier enclosing = 14;</code>
    */
-  java.lang.String getEnclosingTypeNames(int index);
-  /**
-   * <code>repeated string enclosing_type_names = 21;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the enclosingTypeNames at the given index.
-   */
-  com.google.protobuf.ByteString
-      getEnclosingTypeNamesBytes(int index);
+  org.mojolang.mojo.lang.IdentifierOrBuilder getEnclosingOrBuilder();
 
   /**
    * <code>.mojo.lang.Scope scope = 30;</code>

@@ -17,7 +17,7 @@
                         "$ref": "#/components/schemas/mojo.lang.Attribute"
                     }
                 },
-                "enclosingType": {
+                "enclosing": {
                     "$ref": "#/components/schemas/mojo.lang.NominalType"
                 },
                 "genericParameters": {

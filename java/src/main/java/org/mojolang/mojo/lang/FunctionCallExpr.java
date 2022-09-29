@@ -100,7 +100,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 90: {
+          case 122: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               genericArguments_ = new java.util.ArrayList<org.mojolang.mojo.lang.NominalType>();
               mutable_bitField0_ |= 0x00000001;
@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(org.mojolang.mojo.lang.NominalType.parser(), extensionRegistry));
             break;
           }
-          case 98: {
+          case 130: {
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
               arguments_ = new java.util.ArrayList<org.mojolang.mojo.lang.Argument>();
               mutable_bitField0_ |= 0x00000002;
@@ -256,17 +256,17 @@ private static final long serialVersionUID = 0L;
     return getCallee();
   }
 
-  public static final int GENERIC_ARGUMENTS_FIELD_NUMBER = 11;
+  public static final int GENERIC_ARGUMENTS_FIELD_NUMBER = 15;
   private java.util.List<org.mojolang.mojo.lang.NominalType> genericArguments_;
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.NominalType> getGenericArgumentsList() {
     return genericArguments_;
   }
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.NominalTypeOrBuilder> 
@@ -274,21 +274,21 @@ private static final long serialVersionUID = 0L;
     return genericArguments_;
   }
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   @java.lang.Override
   public int getGenericArgumentsCount() {
     return genericArguments_.size();
   }
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.NominalType getGenericArguments(int index) {
     return genericArguments_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+   * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.NominalTypeOrBuilder getGenericArgumentsOrBuilder(
@@ -296,17 +296,17 @@ private static final long serialVersionUID = 0L;
     return genericArguments_.get(index);
   }
 
-  public static final int ARGUMENTS_FIELD_NUMBER = 12;
+  public static final int ARGUMENTS_FIELD_NUMBER = 16;
   private java.util.List<org.mojolang.mojo.lang.Argument> arguments_;
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   @java.lang.Override
   public java.util.List<org.mojolang.mojo.lang.Argument> getArgumentsList() {
     return arguments_;
   }
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   @java.lang.Override
   public java.util.List<? extends org.mojolang.mojo.lang.ArgumentOrBuilder> 
@@ -314,21 +314,21 @@ private static final long serialVersionUID = 0L;
     return arguments_;
   }
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   @java.lang.Override
   public int getArgumentsCount() {
     return arguments_.size();
   }
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Argument getArguments(int index) {
     return arguments_.get(index);
   }
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 16;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.ArgumentOrBuilder getArgumentsOrBuilder(
@@ -366,10 +366,10 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(10, getCallee());
     }
     for (int i = 0; i < genericArguments_.size(); i++) {
-      output.writeMessage(11, genericArguments_.get(i));
+      output.writeMessage(15, genericArguments_.get(i));
     }
     for (int i = 0; i < arguments_.size(); i++) {
-      output.writeMessage(12, arguments_.get(i));
+      output.writeMessage(16, arguments_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -402,11 +402,11 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < genericArguments_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, genericArguments_.get(i));
+        .computeMessageSize(15, genericArguments_.get(i));
     }
     for (int i = 0; i < arguments_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, arguments_.get(i));
+        .computeMessageSize(16, arguments_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1290,7 +1290,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder> genericArgumentsBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.NominalType> getGenericArgumentsList() {
       if (genericArgumentsBuilder_ == null) {
@@ -1300,7 +1300,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public int getGenericArgumentsCount() {
       if (genericArgumentsBuilder_ == null) {
@@ -1310,7 +1310,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public org.mojolang.mojo.lang.NominalType getGenericArguments(int index) {
       if (genericArgumentsBuilder_ == null) {
@@ -1320,7 +1320,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder setGenericArguments(
         int index, org.mojolang.mojo.lang.NominalType value) {
@@ -1337,7 +1337,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder setGenericArguments(
         int index, org.mojolang.mojo.lang.NominalType.Builder builderForValue) {
@@ -1351,7 +1351,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder addGenericArguments(org.mojolang.mojo.lang.NominalType value) {
       if (genericArgumentsBuilder_ == null) {
@@ -1367,7 +1367,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder addGenericArguments(
         int index, org.mojolang.mojo.lang.NominalType value) {
@@ -1384,7 +1384,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder addGenericArguments(
         org.mojolang.mojo.lang.NominalType.Builder builderForValue) {
@@ -1398,7 +1398,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder addGenericArguments(
         int index, org.mojolang.mojo.lang.NominalType.Builder builderForValue) {
@@ -1412,7 +1412,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder addAllGenericArguments(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.NominalType> values) {
@@ -1427,7 +1427,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder clearGenericArguments() {
       if (genericArgumentsBuilder_ == null) {
@@ -1440,7 +1440,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public Builder removeGenericArguments(int index) {
       if (genericArgumentsBuilder_ == null) {
@@ -1453,14 +1453,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public org.mojolang.mojo.lang.NominalType.Builder getGenericArgumentsBuilder(
         int index) {
       return getGenericArgumentsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public org.mojolang.mojo.lang.NominalTypeOrBuilder getGenericArgumentsOrBuilder(
         int index) {
@@ -1470,7 +1470,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.NominalTypeOrBuilder> 
          getGenericArgumentsOrBuilderList() {
@@ -1481,14 +1481,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public org.mojolang.mojo.lang.NominalType.Builder addGenericArgumentsBuilder() {
       return getGenericArgumentsFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.NominalType.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public org.mojolang.mojo.lang.NominalType.Builder addGenericArgumentsBuilder(
         int index) {
@@ -1496,7 +1496,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.NominalType.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.NominalType generic_arguments = 11;</code>
+     * <code>repeated .mojo.lang.NominalType generic_arguments = 15;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.NominalType.Builder> 
          getGenericArgumentsBuilderList() {
@@ -1530,7 +1530,7 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Argument, org.mojolang.mojo.lang.Argument.Builder, org.mojolang.mojo.lang.ArgumentOrBuilder> argumentsBuilder_;
 
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Argument> getArgumentsList() {
       if (argumentsBuilder_ == null) {
@@ -1540,7 +1540,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public int getArgumentsCount() {
       if (argumentsBuilder_ == null) {
@@ -1550,7 +1550,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public org.mojolang.mojo.lang.Argument getArguments(int index) {
       if (argumentsBuilder_ == null) {
@@ -1560,7 +1560,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder setArguments(
         int index, org.mojolang.mojo.lang.Argument value) {
@@ -1577,7 +1577,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder setArguments(
         int index, org.mojolang.mojo.lang.Argument.Builder builderForValue) {
@@ -1591,7 +1591,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder addArguments(org.mojolang.mojo.lang.Argument value) {
       if (argumentsBuilder_ == null) {
@@ -1607,7 +1607,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder addArguments(
         int index, org.mojolang.mojo.lang.Argument value) {
@@ -1624,7 +1624,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder addArguments(
         org.mojolang.mojo.lang.Argument.Builder builderForValue) {
@@ -1638,7 +1638,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder addArguments(
         int index, org.mojolang.mojo.lang.Argument.Builder builderForValue) {
@@ -1652,7 +1652,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder addAllArguments(
         java.lang.Iterable<? extends org.mojolang.mojo.lang.Argument> values) {
@@ -1667,7 +1667,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder clearArguments() {
       if (argumentsBuilder_ == null) {
@@ -1680,7 +1680,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public Builder removeArguments(int index) {
       if (argumentsBuilder_ == null) {
@@ -1693,14 +1693,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public org.mojolang.mojo.lang.Argument.Builder getArgumentsBuilder(
         int index) {
       return getArgumentsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public org.mojolang.mojo.lang.ArgumentOrBuilder getArgumentsOrBuilder(
         int index) {
@@ -1710,7 +1710,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public java.util.List<? extends org.mojolang.mojo.lang.ArgumentOrBuilder> 
          getArgumentsOrBuilderList() {
@@ -1721,14 +1721,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public org.mojolang.mojo.lang.Argument.Builder addArgumentsBuilder() {
       return getArgumentsFieldBuilder().addBuilder(
           org.mojolang.mojo.lang.Argument.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public org.mojolang.mojo.lang.Argument.Builder addArgumentsBuilder(
         int index) {
@@ -1736,7 +1736,7 @@ private static final long serialVersionUID = 0L;
           index, org.mojolang.mojo.lang.Argument.getDefaultInstance());
     }
     /**
-     * <code>repeated .mojo.lang.Argument arguments = 12;</code>
+     * <code>repeated .mojo.lang.Argument arguments = 16;</code>
      */
     public java.util.List<org.mojolang.mojo.lang.Argument.Builder> 
          getArgumentsBuilderList() {
