@@ -160,6 +160,20 @@ private static final long serialVersionUID = 0L;
             expressionCase_ = 8;
             break;
           }
+          case 74: {
+            org.mojolang.mojo.lang.RangeLiteralExpr.Builder subBuilder = null;
+            if (expressionCase_ == 9) {
+              subBuilder = ((org.mojolang.mojo.lang.RangeLiteralExpr) expression_).toBuilder();
+            }
+            expression_ =
+                input.readMessage(org.mojolang.mojo.lang.RangeLiteralExpr.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.RangeLiteralExpr) expression_);
+              expression_ = subBuilder.buildPartial();
+            }
+            expressionCase_ = 9;
+            break;
+          }
           case 82: {
             org.mojolang.mojo.lang.IdentifierExpr.Builder subBuilder = null;
             if (expressionCase_ == 10) {
@@ -485,6 +499,7 @@ private static final long serialVersionUID = 0L;
     OBJECT_LITERAL_EXPR(6),
     ARRAY_LITERAL_EXPR(7),
     MAP_LITERAL_EXPR(8),
+    RANGE_LITERAL_EXPR(9),
     IDENTIFIER_EXPR(10),
     NUMERIC_LITERAL_UNARY_EXPR(11),
     STRING_LITERAL_UNARY_EXPR(12),
@@ -530,6 +545,7 @@ private static final long serialVersionUID = 0L;
         case 6: return OBJECT_LITERAL_EXPR;
         case 7: return ARRAY_LITERAL_EXPR;
         case 8: return MAP_LITERAL_EXPR;
+        case 9: return RANGE_LITERAL_EXPR;
         case 10: return IDENTIFIER_EXPR;
         case 11: return NUMERIC_LITERAL_UNARY_EXPR;
         case 12: return STRING_LITERAL_UNARY_EXPR;
@@ -811,6 +827,37 @@ private static final long serialVersionUID = 0L;
        return (org.mojolang.mojo.lang.MapLiteralExpr) expression_;
     }
     return org.mojolang.mojo.lang.MapLiteralExpr.getDefaultInstance();
+  }
+
+  public static final int RANGE_LITERAL_EXPR_FIELD_NUMBER = 9;
+  /**
+   * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+   * @return Whether the rangeLiteralExpr field is set.
+   */
+  @java.lang.Override
+  public boolean hasRangeLiteralExpr() {
+    return expressionCase_ == 9;
+  }
+  /**
+   * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+   * @return The rangeLiteralExpr.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.RangeLiteralExpr getRangeLiteralExpr() {
+    if (expressionCase_ == 9) {
+       return (org.mojolang.mojo.lang.RangeLiteralExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.RangeLiteralExpr.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.RangeLiteralExprOrBuilder getRangeLiteralExprOrBuilder() {
+    if (expressionCase_ == 9) {
+       return (org.mojolang.mojo.lang.RangeLiteralExpr) expression_;
+    }
+    return org.mojolang.mojo.lang.RangeLiteralExpr.getDefaultInstance();
   }
 
   public static final int IDENTIFIER_EXPR_FIELD_NUMBER = 10;
@@ -1471,6 +1518,9 @@ private static final long serialVersionUID = 0L;
     if (expressionCase_ == 8) {
       output.writeMessage(8, (org.mojolang.mojo.lang.MapLiteralExpr) expression_);
     }
+    if (expressionCase_ == 9) {
+      output.writeMessage(9, (org.mojolang.mojo.lang.RangeLiteralExpr) expression_);
+    }
     if (expressionCase_ == 10) {
       output.writeMessage(10, (org.mojolang.mojo.lang.IdentifierExpr) expression_);
     }
@@ -1571,6 +1621,10 @@ private static final long serialVersionUID = 0L;
     if (expressionCase_ == 8) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, (org.mojolang.mojo.lang.MapLiteralExpr) expression_);
+    }
+    if (expressionCase_ == 9) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, (org.mojolang.mojo.lang.RangeLiteralExpr) expression_);
     }
     if (expressionCase_ == 10) {
       size += com.google.protobuf.CodedOutputStream
@@ -1701,6 +1755,10 @@ private static final long serialVersionUID = 0L;
         if (!getMapLiteralExpr()
             .equals(other.getMapLiteralExpr())) return false;
         break;
+      case 9:
+        if (!getRangeLiteralExpr()
+            .equals(other.getRangeLiteralExpr())) return false;
+        break;
       case 10:
         if (!getIdentifierExpr()
             .equals(other.getIdentifierExpr())) return false;
@@ -1827,6 +1885,10 @@ private static final long serialVersionUID = 0L;
       case 8:
         hash = (37 * hash) + MAP_LITERAL_EXPR_FIELD_NUMBER;
         hash = (53 * hash) + getMapLiteralExpr().hashCode();
+        break;
+      case 9:
+        hash = (37 * hash) + RANGE_LITERAL_EXPR_FIELD_NUMBER;
+        hash = (53 * hash) + getRangeLiteralExpr().hashCode();
         break;
       case 10:
         hash = (37 * hash) + IDENTIFIER_EXPR_FIELD_NUMBER;
@@ -2128,6 +2190,13 @@ private static final long serialVersionUID = 0L;
           result.expression_ = mapLiteralExprBuilder_.build();
         }
       }
+      if (expressionCase_ == 9) {
+        if (rangeLiteralExprBuilder_ == null) {
+          result.expression_ = expression_;
+        } else {
+          result.expression_ = rangeLiteralExprBuilder_.build();
+        }
+      }
       if (expressionCase_ == 10) {
         if (identifierExprBuilder_ == null) {
           result.expression_ = expression_;
@@ -2348,6 +2417,10 @@ private static final long serialVersionUID = 0L;
         }
         case MAP_LITERAL_EXPR: {
           mergeMapLiteralExpr(other.getMapLiteralExpr());
+          break;
+        }
+        case RANGE_LITERAL_EXPR: {
+          mergeRangeLiteralExpr(other.getRangeLiteralExpr());
           break;
         }
         case IDENTIFIER_EXPR: {
@@ -3604,6 +3677,147 @@ private static final long serialVersionUID = 0L;
       expressionCase_ = 8;
       onChanged();;
       return mapLiteralExprBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.RangeLiteralExpr, org.mojolang.mojo.lang.RangeLiteralExpr.Builder, org.mojolang.mojo.lang.RangeLiteralExprOrBuilder> rangeLiteralExprBuilder_;
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     * @return Whether the rangeLiteralExpr field is set.
+     */
+    @java.lang.Override
+    public boolean hasRangeLiteralExpr() {
+      return expressionCase_ == 9;
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     * @return The rangeLiteralExpr.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.RangeLiteralExpr getRangeLiteralExpr() {
+      if (rangeLiteralExprBuilder_ == null) {
+        if (expressionCase_ == 9) {
+          return (org.mojolang.mojo.lang.RangeLiteralExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.RangeLiteralExpr.getDefaultInstance();
+      } else {
+        if (expressionCase_ == 9) {
+          return rangeLiteralExprBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.RangeLiteralExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     */
+    public Builder setRangeLiteralExpr(org.mojolang.mojo.lang.RangeLiteralExpr value) {
+      if (rangeLiteralExprBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expression_ = value;
+        onChanged();
+      } else {
+        rangeLiteralExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 9;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     */
+    public Builder setRangeLiteralExpr(
+        org.mojolang.mojo.lang.RangeLiteralExpr.Builder builderForValue) {
+      if (rangeLiteralExprBuilder_ == null) {
+        expression_ = builderForValue.build();
+        onChanged();
+      } else {
+        rangeLiteralExprBuilder_.setMessage(builderForValue.build());
+      }
+      expressionCase_ = 9;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     */
+    public Builder mergeRangeLiteralExpr(org.mojolang.mojo.lang.RangeLiteralExpr value) {
+      if (rangeLiteralExprBuilder_ == null) {
+        if (expressionCase_ == 9 &&
+            expression_ != org.mojolang.mojo.lang.RangeLiteralExpr.getDefaultInstance()) {
+          expression_ = org.mojolang.mojo.lang.RangeLiteralExpr.newBuilder((org.mojolang.mojo.lang.RangeLiteralExpr) expression_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          expression_ = value;
+        }
+        onChanged();
+      } else {
+        if (expressionCase_ == 9) {
+          rangeLiteralExprBuilder_.mergeFrom(value);
+        }
+        rangeLiteralExprBuilder_.setMessage(value);
+      }
+      expressionCase_ = 9;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     */
+    public Builder clearRangeLiteralExpr() {
+      if (rangeLiteralExprBuilder_ == null) {
+        if (expressionCase_ == 9) {
+          expressionCase_ = 0;
+          expression_ = null;
+          onChanged();
+        }
+      } else {
+        if (expressionCase_ == 9) {
+          expressionCase_ = 0;
+          expression_ = null;
+        }
+        rangeLiteralExprBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     */
+    public org.mojolang.mojo.lang.RangeLiteralExpr.Builder getRangeLiteralExprBuilder() {
+      return getRangeLiteralExprFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.RangeLiteralExprOrBuilder getRangeLiteralExprOrBuilder() {
+      if ((expressionCase_ == 9) && (rangeLiteralExprBuilder_ != null)) {
+        return rangeLiteralExprBuilder_.getMessageOrBuilder();
+      } else {
+        if (expressionCase_ == 9) {
+          return (org.mojolang.mojo.lang.RangeLiteralExpr) expression_;
+        }
+        return org.mojolang.mojo.lang.RangeLiteralExpr.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.RangeLiteralExpr, org.mojolang.mojo.lang.RangeLiteralExpr.Builder, org.mojolang.mojo.lang.RangeLiteralExprOrBuilder> 
+        getRangeLiteralExprFieldBuilder() {
+      if (rangeLiteralExprBuilder_ == null) {
+        if (!(expressionCase_ == 9)) {
+          expression_ = org.mojolang.mojo.lang.RangeLiteralExpr.getDefaultInstance();
+        }
+        rangeLiteralExprBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.RangeLiteralExpr, org.mojolang.mojo.lang.RangeLiteralExpr.Builder, org.mojolang.mojo.lang.RangeLiteralExprOrBuilder>(
+                (org.mojolang.mojo.lang.RangeLiteralExpr) expression_,
+                getParentForChildren(),
+                isClean());
+        expression_ = null;
+      }
+      expressionCase_ = 9;
+      onChanged();;
+      return rangeLiteralExprBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<

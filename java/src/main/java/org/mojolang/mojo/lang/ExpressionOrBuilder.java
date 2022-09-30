@@ -128,6 +128,21 @@ public interface ExpressionOrBuilder extends
   org.mojolang.mojo.lang.MapLiteralExprOrBuilder getMapLiteralExprOrBuilder();
 
   /**
+   * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+   * @return Whether the rangeLiteralExpr field is set.
+   */
+  boolean hasRangeLiteralExpr();
+  /**
+   * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+   * @return The rangeLiteralExpr.
+   */
+  org.mojolang.mojo.lang.RangeLiteralExpr getRangeLiteralExpr();
+  /**
+   * <code>.mojo.lang.RangeLiteralExpr range_literal_expr = 9;</code>
+   */
+  org.mojolang.mojo.lang.RangeLiteralExprOrBuilder getRangeLiteralExprOrBuilder();
+
+  /**
    * <code>.mojo.lang.IdentifierExpr identifier_expr = 10;</code>
    * @return Whether the identifierExpr field is set.
    */

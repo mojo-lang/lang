@@ -26,6 +26,9 @@
             "$ref": "#/components/schemas/mojo.lang.MapLiteralExpr"
         },
         {
+            "$ref": "#/components/schemas/mojo.lang.RangeLiteralExpr"
+        },
+        {
             "$ref": "#/components/schemas/mojo.lang.IdentifierExpr"
         },
         {

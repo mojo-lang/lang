@@ -8,6 +8,7 @@
 | `mojo.lang.ObjectLiteralExpr` |  |  |
 | `mojo.lang.ArrayLiteralExpr` |  | An array literal expression [a, b, c]. |
 | `mojo.lang.MapLiteralExpr` |  | \brief A map literal expression {"a" : x, "b" : y, "c" : z}. |
+| `mojo.lang.RangeLiteralExpr` |  | RangeLiteralExpr - Range literal, like '1..4'. |
 | `mojo.lang.IdentifierExpr` |  |  |
 | `mojo.lang.NumericLiteralUnaryExpr` |  |  |
 | `mojo.lang.StringLiteralUnaryExpr` |  |  |

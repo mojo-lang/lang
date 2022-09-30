@@ -24,6 +24,7 @@ type Expression = NullLiteralExpr    @1
                 | ObjectLiteralExpr  @6
                 | ArrayLiteralExpr   @7
                 | MapLiteralExpr @8
+                | RangeLiteralExpr @9
                 | IdentifierExpr @10
                 | NumericLiteralUnaryExpr       @11
                 | StringLiteralUnaryExpr @12

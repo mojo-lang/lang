@@ -12,14 +12,18 @@ func NewNullLiteralExpression(expr *NullLiteralExpr) *Expression {
 	}
 }
 
+func NewNullLiteralExpressionFrom() *Expression {
+	return NewNullLiteralExpression(NewNullLiteralExpr())
+}
+
 func NewBoolLiteralExpression(expr *BoolLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_BoolLiteralExpr{BoolLiteralExpr: expr},
 	}
 }
 
-func NewIntegerLiteralExpressionFrom(value int64) *Expression {
-	return NewIntegerLiteralExpression(NewIntegerLiteralExpr(value))
+func NewBoolLiteralExpressionFrom(value bool) *Expression {
+	return NewBoolLiteralExpression(NewBoolLiteralExpr(value))
 }
 
 func NewIntegerLiteralExpression(expr *IntegerLiteralExpr) *Expression {
@@ -28,8 +32,8 @@ func NewIntegerLiteralExpression(expr *IntegerLiteralExpr) *Expression {
 	}
 }
 
-func NewFloatLiteralExpressionFrom(value float64) *Expression {
-	return NewFloatLiteralExpression(NewFloatLiteralExpr(value))
+func NewIntegerLiteralExpressionFrom(value int64) *Expression {
+	return NewIntegerLiteralExpression(NewIntegerLiteralExpr(value))
 }
 
 func NewFloatLiteralExpression(expr *FloatLiteralExpr) *Expression {
@@ -38,14 +42,18 @@ func NewFloatLiteralExpression(expr *FloatLiteralExpr) *Expression {
 	}
 }
 
-func NewStringLiteralExpressionFrom(value string) *Expression {
-	return NewStringLiteralExpression(NewStringLiteralExpr(value))
+func NewFloatLiteralExpressionFrom(value float64) *Expression {
+	return NewFloatLiteralExpression(NewFloatLiteralExpr(value))
 }
 
 func NewStringLiteralExpression(expr *StringLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_StringLiteralExpr{StringLiteralExpr: expr},
 	}
+}
+
+func NewStringLiteralExpressionFrom(value string) *Expression {
+	return NewStringLiteralExpression(NewStringLiteralExpr(value))
 }
 
 func NewArrayLiteralExpression(expr *ArrayLiteralExpr) *Expression {
@@ -69,6 +77,18 @@ func NewObjectLiteralExpression(expr *ObjectLiteralExpr) *Expression {
 func NewStructLiteralExpression(expr *StructLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_StructLiteralExpr{StructLiteralExpr: expr},
+	}
+}
+
+func NewRangeLiteralExpression(expr *RangeLiteralExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_RangeLiteralExpr{RangeLiteralExpr: expr},
+	}
+}
+
+func NewRangeLiteralExpressionFrom(value *core.IntRange) *Expression {
+	return &Expression{
+		Expression: &Expression_RangeLiteralExpr{RangeLiteralExpr: NewRangeLiteralExprFrom(value)},
 	}
 }
 
@@ -211,6 +231,14 @@ func (x *Expression) EvalStringLiteral() (string, error) {
 		return valueExpr.Value, nil
 	}
 	return "", errors.New("expression can NOT be evaluated to the StringLiteralExpr")
+}
+
+func (x *Expression) EvalRangeLiteral() (*core.IntRange, error) {
+	valueExpr := x.GetRangeLiteralExpr()
+	if valueExpr != nil {
+		return valueExpr.Value, nil
+	}
+	return nil, errors.New("expression can NOT be evaluated to the RangeLiteralExpr")
 }
 
 func (x *Expression) EvalArrayLiteral() ([]*Expression, error) {
