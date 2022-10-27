@@ -50,32 +50,32 @@ public interface NumericLiteralUnaryExprOrBuilder extends
   boolean getImplicit();
 
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return Whether the callee field is set.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return Whether the expression field is set.
    */
-  boolean hasCallee();
+  boolean hasExpression();
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return The callee.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return The expression.
    */
-  org.mojolang.mojo.lang.Expression getCallee();
+  org.mojolang.mojo.lang.Expression getExpression();
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
+   * <code>.mojo.lang.Expression expression = 10;</code>
    */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
+  org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder();
 
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return Whether the operator field is set.
    */
   boolean hasOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return The operator.
    */
   org.mojolang.mojo.lang.Operator getOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    */
   org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder();
 
@@ -93,4 +93,6 @@ public interface NumericLiteralUnaryExprOrBuilder extends
    * <code>.mojo.lang.Expression argument = 21;</code>
    */
   org.mojolang.mojo.lang.ExpressionOrBuilder getArgumentOrBuilder();
+
+  public org.mojolang.mojo.lang.NumericLiteralUnaryExpr.CalleeCase getCalleeCase();
 }

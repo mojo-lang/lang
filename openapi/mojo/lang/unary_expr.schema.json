@@ -11,9 +11,6 @@
             "properties": {
                 "argument": {
                     "$ref": "#/components/schemas/mojo.lang.Expression"
-                },
-                "operator": {
-                    "$ref": "#/components/schemas/mojo.lang.Operator"
                 }
             }
         }

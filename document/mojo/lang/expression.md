@@ -10,8 +10,9 @@
 | `mojo.lang.MapLiteralExpr` |  | \brief A map literal expression {"a" : x, "b" : y, "c" : z}. |
 | `mojo.lang.RangeLiteralExpr` |  | RangeLiteralExpr - Range literal, like '1..4'. |
 | `mojo.lang.IdentifierExpr` |  |  |
-| `mojo.lang.NumericLiteralUnaryExpr` |  |  |
-| `mojo.lang.StringLiteralUnaryExpr` |  |  |
+| `mojo.lang.NumericSuffixLiteralExpr` |  |  |
+| `mojo.lang.StringPrefixLiteralExpr` |  |  |
+| `mojo.lang.StringSuffixLiteralExpr` |  |  |
 | `mojo.lang.StructLiteralExpr` |  |  |
 | `mojo.lang.ClosureExpr` |  |  |
 | `mojo.lang.ParenthesizedExpr` |  | A parenthesized expression like '(x+x)'.  Syntactically,this is just a TupleExpr with exactly one element that has no label.Semantically, however, it serves only as grouping parentheses anddoes not form an expression of tuple type (unless the sub-expressionhas tuple type, of course). |
@@ -20,7 +21,7 @@
 | `mojo.lang.StructConstructionExpr` |  |  |
 | `mojo.lang.TupleExpr` |  | TupleExpr - Parenthesized expressions like `(a: x+x)` and '(x, y, 4)'.  Alsoused to represent the operands to a binary operator.  Note thatexpressions like '(4)' are represented with a ParenExpr. |
 | `mojo.lang.PrefixUnaryExpr` |  | PrefixUnaryExpr - Prefix unary expressions like '!y'. |
-| `mojo.lang.PostfixUnaryExpr` |  | PostfixUnaryExpr - Postfix unary expressions like 'y++'. |
+| `mojo.lang.PostfixUnaryExpr` |  | PostfixUnaryExpr - postfix unary expressions like 'y++'. |
 | `mojo.lang.FunctionCallExpr` |  |  |
 | `mojo.lang.ExplicitMemberExpr` |  | MemberRefExpr - This represents 'a.b' where we are referring to a memberof a type, such as a property or variable. |
 | `mojo.lang.SubscriptExpr` |  | Subscripting expressions like a[i] that refer to an element within acontainer. |

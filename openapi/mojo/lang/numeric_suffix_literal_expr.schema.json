@@ -1,5 +1,5 @@
 {
-    "title": "mojo.lang.StringLiteralUnaryExpr",
+    "title": "mojo.lang.NumericSuffixLiteralExpr",
     "description": "",
     "allOf": [
         {

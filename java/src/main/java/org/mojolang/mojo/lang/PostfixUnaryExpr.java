@@ -86,28 +86,30 @@ private static final long serialVersionUID = 0L;
           }
           case 82: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
-            if (callee_ != null) {
-              subBuilder = callee_.toBuilder();
+            if (calleeCase_ == 10) {
+              subBuilder = ((org.mojolang.mojo.lang.Expression) callee_).toBuilder();
             }
-            callee_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
+            callee_ =
+                input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(callee_);
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.Expression) callee_);
               callee_ = subBuilder.buildPartial();
             }
-
+            calleeCase_ = 10;
             break;
           }
-          case 162: {
+          case 90: {
             org.mojolang.mojo.lang.Operator.Builder subBuilder = null;
-            if (operator_ != null) {
-              subBuilder = operator_.toBuilder();
+            if (calleeCase_ == 11) {
+              subBuilder = ((org.mojolang.mojo.lang.Operator) callee_).toBuilder();
             }
-            operator_ = input.readMessage(org.mojolang.mojo.lang.Operator.parser(), extensionRegistry);
+            callee_ =
+                input.readMessage(org.mojolang.mojo.lang.Operator.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(operator_);
-              operator_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.Operator) callee_);
+              callee_ = subBuilder.buildPartial();
             }
-
+            calleeCase_ = 11;
             break;
           }
           case 170: {
@@ -153,6 +155,47 @@ private static final long serialVersionUID = 0L;
     return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_PostfixUnaryExpr_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             org.mojolang.mojo.lang.PostfixUnaryExpr.class, org.mojolang.mojo.lang.PostfixUnaryExpr.Builder.class);
+  }
+
+  private int calleeCase_ = 0;
+  private java.lang.Object callee_;
+  public enum CalleeCase
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    EXPRESSION(10),
+    OPERATOR(11),
+    CALLEE_NOT_SET(0);
+    private final int value;
+    private CalleeCase(int value) {
+      this.value = value;
+    }
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CalleeCase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static CalleeCase forNumber(int value) {
+      switch (value) {
+        case 10: return EXPRESSION;
+        case 11: return OPERATOR;
+        case 0: return CALLEE_NOT_SET;
+        default: return null;
+      }
+    }
+    public int getNumber() {
+      return this.value;
+    }
+  };
+
+  public CalleeCase
+  getCalleeCase() {
+    return CalleeCase.forNumber(
+        calleeCase_);
   }
 
   public static final int START_POSITION_FIELD_NUMBER = 1;
@@ -229,56 +272,66 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int CALLEE_FIELD_NUMBER = 10;
-  private org.mojolang.mojo.lang.Expression callee_;
+  public static final int EXPRESSION_FIELD_NUMBER = 10;
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return Whether the callee field is set.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return Whether the expression field is set.
    */
   @java.lang.Override
-  public boolean hasCallee() {
-    return callee_ != null;
+  public boolean hasExpression() {
+    return calleeCase_ == 10;
   }
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return The callee.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return The expression.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.Expression getCallee() {
-    return callee_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : callee_;
+  public org.mojolang.mojo.lang.Expression getExpression() {
+    if (calleeCase_ == 10) {
+       return (org.mojolang.mojo.lang.Expression) callee_;
+    }
+    return org.mojolang.mojo.lang.Expression.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
+   * <code>.mojo.lang.Expression expression = 10;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder() {
-    return getCallee();
+  public org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder() {
+    if (calleeCase_ == 10) {
+       return (org.mojolang.mojo.lang.Expression) callee_;
+    }
+    return org.mojolang.mojo.lang.Expression.getDefaultInstance();
   }
 
-  public static final int OPERATOR_FIELD_NUMBER = 20;
-  private org.mojolang.mojo.lang.Operator operator_;
+  public static final int OPERATOR_FIELD_NUMBER = 11;
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return Whether the operator field is set.
    */
   @java.lang.Override
   public boolean hasOperator() {
-    return operator_ != null;
+    return calleeCase_ == 11;
   }
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return The operator.
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Operator getOperator() {
-    return operator_ == null ? org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
+    if (calleeCase_ == 11) {
+       return (org.mojolang.mojo.lang.Operator) callee_;
+    }
+    return org.mojolang.mojo.lang.Operator.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
-    return getOperator();
+    if (calleeCase_ == 11) {
+       return (org.mojolang.mojo.lang.Operator) callee_;
+    }
+    return org.mojolang.mojo.lang.Operator.getDefaultInstance();
   }
 
   public static final int ARGUMENT_FIELD_NUMBER = 21;
@@ -333,11 +386,11 @@ private static final long serialVersionUID = 0L;
     if (implicit_ != false) {
       output.writeBool(5, implicit_);
     }
-    if (callee_ != null) {
-      output.writeMessage(10, getCallee());
+    if (calleeCase_ == 10) {
+      output.writeMessage(10, (org.mojolang.mojo.lang.Expression) callee_);
     }
-    if (operator_ != null) {
-      output.writeMessage(20, getOperator());
+    if (calleeCase_ == 11) {
+      output.writeMessage(11, (org.mojolang.mojo.lang.Operator) callee_);
     }
     if (argument_ != null) {
       output.writeMessage(21, getArgument());
@@ -367,13 +420,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, implicit_);
     }
-    if (callee_ != null) {
+    if (calleeCase_ == 10) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getCallee());
+        .computeMessageSize(10, (org.mojolang.mojo.lang.Expression) callee_);
     }
-    if (operator_ != null) {
+    if (calleeCase_ == 11) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(20, getOperator());
+        .computeMessageSize(11, (org.mojolang.mojo.lang.Operator) callee_);
     }
     if (argument_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -408,20 +461,23 @@ private static final long serialVersionUID = 0L;
         != other.getKind()) return false;
     if (getImplicit()
         != other.getImplicit()) return false;
-    if (hasCallee() != other.hasCallee()) return false;
-    if (hasCallee()) {
-      if (!getCallee()
-          .equals(other.getCallee())) return false;
-    }
-    if (hasOperator() != other.hasOperator()) return false;
-    if (hasOperator()) {
-      if (!getOperator()
-          .equals(other.getOperator())) return false;
-    }
     if (hasArgument() != other.hasArgument()) return false;
     if (hasArgument()) {
       if (!getArgument()
           .equals(other.getArgument())) return false;
+    }
+    if (!getCalleeCase().equals(other.getCalleeCase())) return false;
+    switch (calleeCase_) {
+      case 10:
+        if (!getExpression()
+            .equals(other.getExpression())) return false;
+        break;
+      case 11:
+        if (!getOperator()
+            .equals(other.getOperator())) return false;
+        break;
+      case 0:
+      default:
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -447,17 +503,21 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getImplicit());
-    if (hasCallee()) {
-      hash = (37 * hash) + CALLEE_FIELD_NUMBER;
-      hash = (53 * hash) + getCallee().hashCode();
-    }
-    if (hasOperator()) {
-      hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
-      hash = (53 * hash) + getOperator().hashCode();
-    }
     if (hasArgument()) {
       hash = (37 * hash) + ARGUMENT_FIELD_NUMBER;
       hash = (53 * hash) + getArgument().hashCode();
+    }
+    switch (calleeCase_) {
+      case 10:
+        hash = (37 * hash) + EXPRESSION_FIELD_NUMBER;
+        hash = (53 * hash) + getExpression().hashCode();
+        break;
+      case 11:
+        hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
+        hash = (53 * hash) + getOperator().hashCode();
+        break;
+      case 0:
+      default:
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -608,24 +668,14 @@ private static final long serialVersionUID = 0L;
 
       implicit_ = false;
 
-      if (calleeBuilder_ == null) {
-        callee_ = null;
-      } else {
-        callee_ = null;
-        calleeBuilder_ = null;
-      }
-      if (operatorBuilder_ == null) {
-        operator_ = null;
-      } else {
-        operator_ = null;
-        operatorBuilder_ = null;
-      }
       if (argumentBuilder_ == null) {
         argument_ = null;
       } else {
         argument_ = null;
         argumentBuilder_ = null;
       }
+      calleeCase_ = 0;
+      callee_ = null;
       return this;
     }
 
@@ -664,21 +714,26 @@ private static final long serialVersionUID = 0L;
       }
       result.kind_ = kind_;
       result.implicit_ = implicit_;
-      if (calleeBuilder_ == null) {
-        result.callee_ = callee_;
-      } else {
-        result.callee_ = calleeBuilder_.build();
+      if (calleeCase_ == 10) {
+        if (expressionBuilder_ == null) {
+          result.callee_ = callee_;
+        } else {
+          result.callee_ = expressionBuilder_.build();
+        }
       }
-      if (operatorBuilder_ == null) {
-        result.operator_ = operator_;
-      } else {
-        result.operator_ = operatorBuilder_.build();
+      if (calleeCase_ == 11) {
+        if (operatorBuilder_ == null) {
+          result.callee_ = callee_;
+        } else {
+          result.callee_ = operatorBuilder_.build();
+        }
       }
       if (argumentBuilder_ == null) {
         result.argument_ = argument_;
       } else {
         result.argument_ = argumentBuilder_.build();
       }
+      result.calleeCase_ = calleeCase_;
       onBuilt();
       return result;
     }
@@ -739,14 +794,21 @@ private static final long serialVersionUID = 0L;
       if (other.getImplicit() != false) {
         setImplicit(other.getImplicit());
       }
-      if (other.hasCallee()) {
-        mergeCallee(other.getCallee());
-      }
-      if (other.hasOperator()) {
-        mergeOperator(other.getOperator());
-      }
       if (other.hasArgument()) {
         mergeArgument(other.getArgument());
+      }
+      switch (other.getCalleeCase()) {
+        case EXPRESSION: {
+          mergeExpression(other.getExpression());
+          break;
+        }
+        case OPERATOR: {
+          mergeOperator(other.getOperator());
+          break;
+        }
+        case CALLEE_NOT_SET: {
+          break;
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -776,6 +838,21 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int calleeCase_ = 0;
+    private java.lang.Object callee_;
+    public CalleeCase
+        getCalleeCase() {
+      return CalleeCase.forNumber(
+          calleeCase_);
+    }
+
+    public Builder clearCallee() {
+      calleeCase_ = 0;
+      callee_ = null;
+      onChanged();
+      return this;
+    }
+
 
     private org.mojolang.mojo.lang.Position startPosition_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1077,241 +1154,285 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.lang.Expression callee_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> calleeBuilder_;
+        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> expressionBuilder_;
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
-     * @return Whether the callee field is set.
+     * <code>.mojo.lang.Expression expression = 10;</code>
+     * @return Whether the expression field is set.
      */
-    public boolean hasCallee() {
-      return calleeBuilder_ != null || callee_ != null;
+    @java.lang.Override
+    public boolean hasExpression() {
+      return calleeCase_ == 10;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
-     * @return The callee.
+     * <code>.mojo.lang.Expression expression = 10;</code>
+     * @return The expression.
      */
-    public org.mojolang.mojo.lang.Expression getCallee() {
-      if (calleeBuilder_ == null) {
-        return callee_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : callee_;
+    @java.lang.Override
+    public org.mojolang.mojo.lang.Expression getExpression() {
+      if (expressionBuilder_ == null) {
+        if (calleeCase_ == 10) {
+          return (org.mojolang.mojo.lang.Expression) callee_;
+        }
+        return org.mojolang.mojo.lang.Expression.getDefaultInstance();
       } else {
-        return calleeBuilder_.getMessage();
+        if (calleeCase_ == 10) {
+          return expressionBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.Expression.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder setCallee(org.mojolang.mojo.lang.Expression value) {
-      if (calleeBuilder_ == null) {
+    public Builder setExpression(org.mojolang.mojo.lang.Expression value) {
+      if (expressionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         callee_ = value;
         onChanged();
       } else {
-        calleeBuilder_.setMessage(value);
+        expressionBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder setCallee(
+    public Builder setExpression(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
-      if (calleeBuilder_ == null) {
+      if (expressionBuilder_ == null) {
         callee_ = builderForValue.build();
         onChanged();
       } else {
-        calleeBuilder_.setMessage(builderForValue.build());
+        expressionBuilder_.setMessage(builderForValue.build());
       }
-
+      calleeCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder mergeCallee(org.mojolang.mojo.lang.Expression value) {
-      if (calleeBuilder_ == null) {
-        if (callee_ != null) {
-          callee_ =
-            org.mojolang.mojo.lang.Expression.newBuilder(callee_).mergeFrom(value).buildPartial();
+    public Builder mergeExpression(org.mojolang.mojo.lang.Expression value) {
+      if (expressionBuilder_ == null) {
+        if (calleeCase_ == 10 &&
+            callee_ != org.mojolang.mojo.lang.Expression.getDefaultInstance()) {
+          callee_ = org.mojolang.mojo.lang.Expression.newBuilder((org.mojolang.mojo.lang.Expression) callee_)
+              .mergeFrom(value).buildPartial();
         } else {
           callee_ = value;
         }
         onChanged();
       } else {
-        calleeBuilder_.mergeFrom(value);
+        if (calleeCase_ == 10) {
+          expressionBuilder_.mergeFrom(value);
+        }
+        expressionBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder clearCallee() {
-      if (calleeBuilder_ == null) {
-        callee_ = null;
-        onChanged();
+    public Builder clearExpression() {
+      if (expressionBuilder_ == null) {
+        if (calleeCase_ == 10) {
+          calleeCase_ = 0;
+          callee_ = null;
+          onChanged();
+        }
       } else {
-        callee_ = null;
-        calleeBuilder_ = null;
+        if (calleeCase_ == 10) {
+          calleeCase_ = 0;
+          callee_ = null;
+        }
+        expressionBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public org.mojolang.mojo.lang.Expression.Builder getCalleeBuilder() {
-      
-      onChanged();
-      return getCalleeFieldBuilder().getBuilder();
+    public org.mojolang.mojo.lang.Expression.Builder getExpressionBuilder() {
+      return getExpressionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder() {
-      if (calleeBuilder_ != null) {
-        return calleeBuilder_.getMessageOrBuilder();
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder() {
+      if ((calleeCase_ == 10) && (expressionBuilder_ != null)) {
+        return expressionBuilder_.getMessageOrBuilder();
       } else {
-        return callee_ == null ?
-            org.mojolang.mojo.lang.Expression.getDefaultInstance() : callee_;
+        if (calleeCase_ == 10) {
+          return (org.mojolang.mojo.lang.Expression) callee_;
+        }
+        return org.mojolang.mojo.lang.Expression.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
-        getCalleeFieldBuilder() {
-      if (calleeBuilder_ == null) {
-        calleeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getExpressionFieldBuilder() {
+      if (expressionBuilder_ == null) {
+        if (!(calleeCase_ == 10)) {
+          callee_ = org.mojolang.mojo.lang.Expression.getDefaultInstance();
+        }
+        expressionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder>(
-                getCallee(),
+                (org.mojolang.mojo.lang.Expression) callee_,
                 getParentForChildren(),
                 isClean());
         callee_ = null;
       }
-      return calleeBuilder_;
+      calleeCase_ = 10;
+      onChanged();;
+      return expressionBuilder_;
     }
 
-    private org.mojolang.mojo.lang.Operator operator_;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> operatorBuilder_;
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      * @return Whether the operator field is set.
      */
+    @java.lang.Override
     public boolean hasOperator() {
-      return operatorBuilder_ != null || operator_ != null;
+      return calleeCase_ == 11;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      * @return The operator.
      */
+    @java.lang.Override
     public org.mojolang.mojo.lang.Operator getOperator() {
       if (operatorBuilder_ == null) {
-        return operator_ == null ? org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
+        if (calleeCase_ == 11) {
+          return (org.mojolang.mojo.lang.Operator) callee_;
+        }
+        return org.mojolang.mojo.lang.Operator.getDefaultInstance();
       } else {
-        return operatorBuilder_.getMessage();
+        if (calleeCase_ == 11) {
+          return operatorBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.Operator.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder setOperator(org.mojolang.mojo.lang.Operator value) {
       if (operatorBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        operator_ = value;
+        callee_ = value;
         onChanged();
       } else {
         operatorBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 11;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder setOperator(
         org.mojolang.mojo.lang.Operator.Builder builderForValue) {
       if (operatorBuilder_ == null) {
-        operator_ = builderForValue.build();
+        callee_ = builderForValue.build();
         onChanged();
       } else {
         operatorBuilder_.setMessage(builderForValue.build());
       }
-
+      calleeCase_ = 11;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder mergeOperator(org.mojolang.mojo.lang.Operator value) {
       if (operatorBuilder_ == null) {
-        if (operator_ != null) {
-          operator_ =
-            org.mojolang.mojo.lang.Operator.newBuilder(operator_).mergeFrom(value).buildPartial();
+        if (calleeCase_ == 11 &&
+            callee_ != org.mojolang.mojo.lang.Operator.getDefaultInstance()) {
+          callee_ = org.mojolang.mojo.lang.Operator.newBuilder((org.mojolang.mojo.lang.Operator) callee_)
+              .mergeFrom(value).buildPartial();
         } else {
-          operator_ = value;
+          callee_ = value;
         }
         onChanged();
       } else {
-        operatorBuilder_.mergeFrom(value);
+        if (calleeCase_ == 11) {
+          operatorBuilder_.mergeFrom(value);
+        }
+        operatorBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 11;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder clearOperator() {
       if (operatorBuilder_ == null) {
-        operator_ = null;
-        onChanged();
+        if (calleeCase_ == 11) {
+          calleeCase_ = 0;
+          callee_ = null;
+          onChanged();
+        }
       } else {
-        operator_ = null;
-        operatorBuilder_ = null;
+        if (calleeCase_ == 11) {
+          calleeCase_ = 0;
+          callee_ = null;
+        }
+        operatorBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public org.mojolang.mojo.lang.Operator.Builder getOperatorBuilder() {
-      
-      onChanged();
       return getOperatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
+    @java.lang.Override
     public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
-      if (operatorBuilder_ != null) {
+      if ((calleeCase_ == 11) && (operatorBuilder_ != null)) {
         return operatorBuilder_.getMessageOrBuilder();
       } else {
-        return operator_ == null ?
-            org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
+        if (calleeCase_ == 11) {
+          return (org.mojolang.mojo.lang.Operator) callee_;
+        }
+        return org.mojolang.mojo.lang.Operator.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> 
         getOperatorFieldBuilder() {
       if (operatorBuilder_ == null) {
+        if (!(calleeCase_ == 11)) {
+          callee_ = org.mojolang.mojo.lang.Operator.getDefaultInstance();
+        }
         operatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder>(
-                getOperator(),
+                (org.mojolang.mojo.lang.Operator) callee_,
                 getParentForChildren(),
                 isClean());
-        operator_ = null;
+        callee_ = null;
       }
+      calleeCase_ = 11;
+      onChanged();;
       return operatorBuilder_;
     }
 

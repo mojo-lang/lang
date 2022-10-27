@@ -50,62 +50,64 @@ public interface BinaryExprOrBuilder extends
   boolean getImplicit();
 
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return Whether the callee field is set.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return Whether the expression field is set.
    */
-  boolean hasCallee();
+  boolean hasExpression();
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return The callee.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return The expression.
    */
-  org.mojolang.mojo.lang.Expression getCallee();
+  org.mojolang.mojo.lang.Expression getExpression();
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
+   * <code>.mojo.lang.Expression expression = 10;</code>
    */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
+  org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder();
 
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return Whether the operator field is set.
    */
   boolean hasOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return The operator.
    */
   org.mojolang.mojo.lang.Operator getOperator();
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    */
   org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
-   * @return Whether the leftHandArgument field is set.
+   * <code>.mojo.lang.Expression left_argument = 21;</code>
+   * @return Whether the leftArgument field is set.
    */
-  boolean hasLeftHandArgument();
+  boolean hasLeftArgument();
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
-   * @return The leftHandArgument.
+   * <code>.mojo.lang.Expression left_argument = 21;</code>
+   * @return The leftArgument.
    */
-  org.mojolang.mojo.lang.Expression getLeftHandArgument();
+  org.mojolang.mojo.lang.Expression getLeftArgument();
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+   * <code>.mojo.lang.Expression left_argument = 21;</code>
    */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getLeftHandArgumentOrBuilder();
+  org.mojolang.mojo.lang.ExpressionOrBuilder getLeftArgumentOrBuilder();
 
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
-   * @return Whether the rightHandArgument field is set.
+   * <code>.mojo.lang.Expression right_argument = 22;</code>
+   * @return Whether the rightArgument field is set.
    */
-  boolean hasRightHandArgument();
+  boolean hasRightArgument();
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
-   * @return The rightHandArgument.
+   * <code>.mojo.lang.Expression right_argument = 22;</code>
+   * @return The rightArgument.
    */
-  org.mojolang.mojo.lang.Expression getRightHandArgument();
+  org.mojolang.mojo.lang.Expression getRightArgument();
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+   * <code>.mojo.lang.Expression right_argument = 22;</code>
    */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getRightHandArgumentOrBuilder();
+  org.mojolang.mojo.lang.ExpressionOrBuilder getRightArgumentOrBuilder();
+
+  public org.mojolang.mojo.lang.BinaryExpr.CalleeCase getCalleeCase();
 }

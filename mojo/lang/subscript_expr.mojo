@@ -20,5 +20,5 @@
 /// declaration, which provides a getter and (optionally) a setter that will
 /// be used to perform reads/writes.
 type SubscriptExpr : ApplyExpr {
-    arguments: [Argument] @20
+    arguments: [Argument] @21
 }

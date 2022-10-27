@@ -9,7 +9,7 @@
             "title": "mojo.lang.StructLiteralExpr",
             "type": "object",
             "properties": {
-                "value": {
+                "argument": {
                     "$ref": "#/components/schemas/mojo.lang.ObjectLiteralExpr"
                 }
             }

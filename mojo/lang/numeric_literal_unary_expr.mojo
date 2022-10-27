@@ -1,4 +1,0 @@
-
-
-type NumericLiteralUnaryExpr : UnaryExpr {
-}

@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-type FunctionCallExpr : ApplyExpr {
+type FunctionCallExpr: ApplyExpr {
     ///
-    generic_arguments: [GenericArgument] @15
+    generic_arguments: [GenericArgument] @20
 
     ///
-    arguments: [Argument] @16
+    arguments: [Argument] @21
 }

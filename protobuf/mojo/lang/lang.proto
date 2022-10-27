@@ -41,7 +41,10 @@ message ApplyExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
 }
 
 message Argument {
@@ -64,10 +67,12 @@ message AssignmentExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    Operator operator = 20;
-    Expression left_hand_argument = 21;
-    Expression right_hand_argument = 22;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
+    Expression left_argument = 21;
+    Expression right_argument = 22;
 }
 
 message Attribute {
@@ -134,10 +139,12 @@ message BinaryExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    Operator operator = 20;
-    Expression left_hand_argument = 21;
-    Expression right_hand_argument = 22;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
+    Expression left_argument = 21;
+    Expression right_argument = 22;
 }
 
 message BlockStmt {
@@ -428,7 +435,10 @@ message ExplicitMemberExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
     string member = 20;
 }
 
@@ -451,15 +461,16 @@ message Expression {
         MapLiteralExpr map_literal_expr = 8;
         RangeLiteralExpr range_literal_expr = 9;
         IdentifierExpr identifier_expr = 10;
-        NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;
-        StringLiteralUnaryExpr string_literal_unary_expr = 12;
-        StructLiteralExpr struct_literal_expr = 13;
-        ClosureExpr closure_expr = 14;
-        ParenthesizedExpr parenthesized_expr = 15;
-        ImplicitMemberExpr implicit_member_expr = 16;
-        WildcardExpr wildcard_expr = 17;
-        StructConstructionExpr struct_construction_expr = 18;
-        TupleExpr tuple_expr = 19;
+        NumericSuffixLiteralExpr numeric_suffix_literal_expr = 11;
+        StringPrefixLiteralExpr string_prefix_literal_expr = 12;
+        StringSuffixLiteralExpr string_suffix_literal_expr = 13;
+        StructLiteralExpr struct_literal_expr = 14;
+        ClosureExpr closure_expr = 15;
+        ParenthesizedExpr parenthesized_expr = 16;
+        ImplicitMemberExpr implicit_member_expr = 17;
+        WildcardExpr wildcard_expr = 18;
+        StructConstructionExpr struct_construction_expr = 19;
+        TupleExpr tuple_expr = 20;
         PrefixUnaryExpr prefix_unary_expr = 30;
         PostfixUnaryExpr postfix_unary_expr = 31;
         FunctionCallExpr function_call_expr = 32;
@@ -531,9 +542,12 @@ message FunctionCallExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    repeated NominalType generic_arguments = 15;
-    repeated Argument arguments = 16;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
+    repeated NominalType generic_arguments = 20;
+    repeated Argument arguments = 21;
 }
 
 message FunctionDecl {
@@ -787,13 +801,15 @@ message NumericLiteralExpr {
     bool is_negative = 20;
 }
 
-message NumericLiteralUnaryExpr {
+message NumericSuffixLiteralExpr {
     Position start_position = 1;
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    Operator operator = 20;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
     Expression argument = 21;
 }
 
@@ -896,6 +912,18 @@ message ParenthesizedExpr {
     Expression expression = 10;
 }
 
+message PostfixUnaryExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
+    Expression argument = 21;
+}
+
 message Position {
     string filename = 1;
     int64 offset = 2;
@@ -909,23 +937,15 @@ message PosSpan {
     repeated int64 vals = 1;
 }
 
-message PostfixUnaryExpr {
-    Position start_position = 1;
-    Position end_position = 2;
-    int32 kind = 4;
-    bool implicit = 5;
-    Expression callee = 10;
-    Operator operator = 20;
-    Expression argument = 21;
-}
-
 message PrefixUnaryExpr {
     Position start_position = 1;
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    Operator operator = 20;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
     Expression argument = 21;
 }
 
@@ -1005,13 +1025,27 @@ message StringLiteralExpr {
     string value = 20;
 }
 
-message StringLiteralUnaryExpr {
+message StringPrefixLiteralExpr {
     Position start_position = 1;
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    Operator operator = 20;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
+    Expression argument = 21;
+}
+
+message StringSuffixLiteralExpr {
+    Position start_position = 1;
+    Position end_position = 2;
+    int32 kind = 4;
+    bool implicit = 5;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
     Expression argument = 21;
 }
 
@@ -1050,8 +1084,11 @@ message StructLiteralExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    ObjectLiteralExpr value = 20;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
+    ObjectLiteralExpr argument = 21;
 }
 
 message StructType {
@@ -1068,8 +1105,11 @@ message SubscriptExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    repeated Argument arguments = 20;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
+    repeated Argument arguments = 21;
 }
 
 message TupleExpr {
@@ -1141,8 +1181,10 @@ message UnaryExpr {
     Position end_position = 2;
     int32 kind = 4;
     bool implicit = 5;
-    Expression callee = 10;
-    Operator operator = 20;
+    oneof callee {
+        Expression expression = 10;
+        Operator operator = 11;
+    }
     Expression argument = 21;
 }
 

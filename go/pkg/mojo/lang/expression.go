@@ -62,6 +62,12 @@ func NewArrayLiteralExpression(expr *ArrayLiteralExpr) *Expression {
 	}
 }
 
+func NewArrayLiteralExpressionFrom(exprs ...*Expression) *Expression {
+	return &Expression{
+		Expression: &Expression_ArrayLiteralExpr{ArrayLiteralExpr: &ArrayLiteralExpr{Elements: exprs}},
+	}
+}
+
 func NewMapLiteralExpression(expr *MapLiteralExpr) *Expression {
 	return &Expression{
 		Expression: &Expression_MapLiteralExpr{MapLiteralExpr: expr},
@@ -98,15 +104,33 @@ func NewIdentifierExpression(expr *IdentifierExpr) *Expression {
 	}
 }
 
-func NewStringLiteralUnaryExpression(expr *StringLiteralUnaryExpr) *Expression {
+func NewIdentifierExpressionFrom(names ...string) *Expression {
 	return &Expression{
-		Expression: &Expression_StringLiteralUnaryExpr{StringLiteralUnaryExpr: expr},
+		Expression: &Expression_IdentifierExpr{IdentifierExpr: NewIdentifierExpr(names...)},
 	}
 }
 
-func NewNumericLiteralUnaryExpression(expr *NumericLiteralUnaryExpr) *Expression {
+func NewIdentifierExpressionFromType(nominal *NominalType) *Expression {
 	return &Expression{
-		Expression: &Expression_NumericLiteralUnaryExpr{NumericLiteralUnaryExpr: expr},
+		Expression: &Expression_IdentifierExpr{IdentifierExpr: NewIdentifierExprFromType(nominal)},
+	}
+}
+
+func NewStringPrefixLiteralExpression(expr *StringPrefixLiteralExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_StringPrefixLiteralExpr{StringPrefixLiteralExpr: expr},
+	}
+}
+
+func NewStringSuffixLiteralExpression(expr *StringSuffixLiteralExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_StringSuffixLiteralExpr{StringSuffixLiteralExpr: expr},
+	}
+}
+
+func NewNumericSuffixLiteralExpression(expr *NumericSuffixLiteralExpr) *Expression {
+	return &Expression{
+		Expression: &Expression_NumericSuffixLiteralExpr{NumericSuffixLiteralExpr: expr},
 	}
 }
 

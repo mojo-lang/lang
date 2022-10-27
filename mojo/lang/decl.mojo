@@ -15,10 +15,10 @@
 ///
 ///
 type Decl {
-    /// position of first character belonging to the Expr
+    /// position of first character belonging to the Decl
     start_position: Position @1
 
-    /// position of first character immediately after the Expr
+    /// position of first character immediately after the Decl
     end_position:   Position @2
 
     /// Whether the Decl represents something directly written in source or

@@ -50,41 +50,58 @@ public interface SubscriptExprOrBuilder extends
   boolean getImplicit();
 
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return Whether the callee field is set.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return Whether the expression field is set.
    */
-  boolean hasCallee();
+  boolean hasExpression();
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return The callee.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return The expression.
    */
-  org.mojolang.mojo.lang.Expression getCallee();
+  org.mojolang.mojo.lang.Expression getExpression();
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
+   * <code>.mojo.lang.Expression expression = 10;</code>
    */
-  org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder();
+  org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder();
 
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
+   * @return Whether the operator field is set.
+   */
+  boolean hasOperator();
+  /**
+   * <code>.mojo.lang.Operator operator = 11;</code>
+   * @return The operator.
+   */
+  org.mojolang.mojo.lang.Operator getOperator();
+  /**
+   * <code>.mojo.lang.Operator operator = 11;</code>
+   */
+  org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder();
+
+  /**
+   * <code>repeated .mojo.lang.Argument arguments = 21;</code>
    */
   java.util.List<org.mojolang.mojo.lang.Argument> 
       getArgumentsList();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 20;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 21;</code>
    */
   org.mojolang.mojo.lang.Argument getArguments(int index);
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 20;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 21;</code>
    */
   int getArgumentsCount();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 20;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 21;</code>
    */
   java.util.List<? extends org.mojolang.mojo.lang.ArgumentOrBuilder> 
       getArgumentsOrBuilderList();
   /**
-   * <code>repeated .mojo.lang.Argument arguments = 20;</code>
+   * <code>repeated .mojo.lang.Argument arguments = 21;</code>
    */
   org.mojolang.mojo.lang.ArgumentOrBuilder getArgumentsOrBuilder(
       int index);
+
+  public org.mojolang.mojo.lang.SubscriptExpr.CalleeCase getCalleeCase();
 }

@@ -15,7 +15,8 @@
 /// ApplyExpr - Superclass of various function calls, which apply an argument to
 /// a function to get a result.
 type ApplyExpr : Expr {
-    // 函数名称调用
-    // lambda 匿名调用
-    callee: Expression @10
+    // call by function name
+    // lambda anonymous call
+    // call by operator
+    callee: Expression @10 | Operator @11
 }

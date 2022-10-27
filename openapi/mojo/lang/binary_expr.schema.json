@@ -9,13 +9,10 @@
             "title": "mojo.lang.BinaryExpr",
             "type": "object",
             "properties": {
-                "leftHandArgument": {
+                "leftArgument": {
                     "$ref": "#/components/schemas/mojo.lang.Expression"
                 },
-                "operator": {
-                    "$ref": "#/components/schemas/mojo.lang.Operator"
-                },
-                "rightHandArgument": {
+                "rightArgument": {
                     "$ref": "#/components/schemas/mojo.lang.Expression"
                 }
             }

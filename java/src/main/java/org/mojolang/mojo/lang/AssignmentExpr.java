@@ -86,52 +86,54 @@ private static final long serialVersionUID = 0L;
           }
           case 82: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
-            if (callee_ != null) {
-              subBuilder = callee_.toBuilder();
+            if (calleeCase_ == 10) {
+              subBuilder = ((org.mojolang.mojo.lang.Expression) callee_).toBuilder();
             }
-            callee_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
+            callee_ =
+                input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(callee_);
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.Expression) callee_);
               callee_ = subBuilder.buildPartial();
             }
-
+            calleeCase_ = 10;
             break;
           }
-          case 162: {
+          case 90: {
             org.mojolang.mojo.lang.Operator.Builder subBuilder = null;
-            if (operator_ != null) {
-              subBuilder = operator_.toBuilder();
+            if (calleeCase_ == 11) {
+              subBuilder = ((org.mojolang.mojo.lang.Operator) callee_).toBuilder();
             }
-            operator_ = input.readMessage(org.mojolang.mojo.lang.Operator.parser(), extensionRegistry);
+            callee_ =
+                input.readMessage(org.mojolang.mojo.lang.Operator.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(operator_);
-              operator_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom((org.mojolang.mojo.lang.Operator) callee_);
+              callee_ = subBuilder.buildPartial();
             }
-
+            calleeCase_ = 11;
             break;
           }
           case 170: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
-            if (leftHandArgument_ != null) {
-              subBuilder = leftHandArgument_.toBuilder();
+            if (leftArgument_ != null) {
+              subBuilder = leftArgument_.toBuilder();
             }
-            leftHandArgument_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
+            leftArgument_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(leftHandArgument_);
-              leftHandArgument_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(leftArgument_);
+              leftArgument_ = subBuilder.buildPartial();
             }
 
             break;
           }
           case 178: {
             org.mojolang.mojo.lang.Expression.Builder subBuilder = null;
-            if (rightHandArgument_ != null) {
-              subBuilder = rightHandArgument_.toBuilder();
+            if (rightArgument_ != null) {
+              subBuilder = rightArgument_.toBuilder();
             }
-            rightHandArgument_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
+            rightArgument_ = input.readMessage(org.mojolang.mojo.lang.Expression.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(rightHandArgument_);
-              rightHandArgument_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(rightArgument_);
+              rightArgument_ = subBuilder.buildPartial();
             }
 
             break;
@@ -166,6 +168,47 @@ private static final long serialVersionUID = 0L;
     return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_AssignmentExpr_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             org.mojolang.mojo.lang.AssignmentExpr.class, org.mojolang.mojo.lang.AssignmentExpr.Builder.class);
+  }
+
+  private int calleeCase_ = 0;
+  private java.lang.Object callee_;
+  public enum CalleeCase
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    EXPRESSION(10),
+    OPERATOR(11),
+    CALLEE_NOT_SET(0);
+    private final int value;
+    private CalleeCase(int value) {
+      this.value = value;
+    }
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CalleeCase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static CalleeCase forNumber(int value) {
+      switch (value) {
+        case 10: return EXPRESSION;
+        case 11: return OPERATOR;
+        case 0: return CALLEE_NOT_SET;
+        default: return null;
+      }
+    }
+    public int getNumber() {
+      return this.value;
+    }
+  };
+
+  public CalleeCase
+  getCalleeCase() {
+    return CalleeCase.forNumber(
+        calleeCase_);
   }
 
   public static final int START_POSITION_FIELD_NUMBER = 1;
@@ -242,108 +285,118 @@ private static final long serialVersionUID = 0L;
     return implicit_;
   }
 
-  public static final int CALLEE_FIELD_NUMBER = 10;
-  private org.mojolang.mojo.lang.Expression callee_;
+  public static final int EXPRESSION_FIELD_NUMBER = 10;
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return Whether the callee field is set.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return Whether the expression field is set.
    */
   @java.lang.Override
-  public boolean hasCallee() {
-    return callee_ != null;
+  public boolean hasExpression() {
+    return calleeCase_ == 10;
   }
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
-   * @return The callee.
+   * <code>.mojo.lang.Expression expression = 10;</code>
+   * @return The expression.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.Expression getCallee() {
-    return callee_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : callee_;
+  public org.mojolang.mojo.lang.Expression getExpression() {
+    if (calleeCase_ == 10) {
+       return (org.mojolang.mojo.lang.Expression) callee_;
+    }
+    return org.mojolang.mojo.lang.Expression.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.Expression callee = 10;</code>
+   * <code>.mojo.lang.Expression expression = 10;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder() {
-    return getCallee();
+  public org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder() {
+    if (calleeCase_ == 10) {
+       return (org.mojolang.mojo.lang.Expression) callee_;
+    }
+    return org.mojolang.mojo.lang.Expression.getDefaultInstance();
   }
 
-  public static final int OPERATOR_FIELD_NUMBER = 20;
-  private org.mojolang.mojo.lang.Operator operator_;
+  public static final int OPERATOR_FIELD_NUMBER = 11;
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return Whether the operator field is set.
    */
   @java.lang.Override
   public boolean hasOperator() {
-    return operator_ != null;
+    return calleeCase_ == 11;
   }
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    * @return The operator.
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Operator getOperator() {
-    return operator_ == null ? org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
+    if (calleeCase_ == 11) {
+       return (org.mojolang.mojo.lang.Operator) callee_;
+    }
+    return org.mojolang.mojo.lang.Operator.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.Operator operator = 20;</code>
+   * <code>.mojo.lang.Operator operator = 11;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
-    return getOperator();
+    if (calleeCase_ == 11) {
+       return (org.mojolang.mojo.lang.Operator) callee_;
+    }
+    return org.mojolang.mojo.lang.Operator.getDefaultInstance();
   }
 
-  public static final int LEFT_HAND_ARGUMENT_FIELD_NUMBER = 21;
-  private org.mojolang.mojo.lang.Expression leftHandArgument_;
+  public static final int LEFT_ARGUMENT_FIELD_NUMBER = 21;
+  private org.mojolang.mojo.lang.Expression leftArgument_;
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
-   * @return Whether the leftHandArgument field is set.
+   * <code>.mojo.lang.Expression left_argument = 21;</code>
+   * @return Whether the leftArgument field is set.
    */
   @java.lang.Override
-  public boolean hasLeftHandArgument() {
-    return leftHandArgument_ != null;
+  public boolean hasLeftArgument() {
+    return leftArgument_ != null;
   }
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
-   * @return The leftHandArgument.
+   * <code>.mojo.lang.Expression left_argument = 21;</code>
+   * @return The leftArgument.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.Expression getLeftHandArgument() {
-    return leftHandArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : leftHandArgument_;
+  public org.mojolang.mojo.lang.Expression getLeftArgument() {
+    return leftArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : leftArgument_;
   }
   /**
-   * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+   * <code>.mojo.lang.Expression left_argument = 21;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ExpressionOrBuilder getLeftHandArgumentOrBuilder() {
-    return getLeftHandArgument();
+  public org.mojolang.mojo.lang.ExpressionOrBuilder getLeftArgumentOrBuilder() {
+    return getLeftArgument();
   }
 
-  public static final int RIGHT_HAND_ARGUMENT_FIELD_NUMBER = 22;
-  private org.mojolang.mojo.lang.Expression rightHandArgument_;
+  public static final int RIGHT_ARGUMENT_FIELD_NUMBER = 22;
+  private org.mojolang.mojo.lang.Expression rightArgument_;
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
-   * @return Whether the rightHandArgument field is set.
+   * <code>.mojo.lang.Expression right_argument = 22;</code>
+   * @return Whether the rightArgument field is set.
    */
   @java.lang.Override
-  public boolean hasRightHandArgument() {
-    return rightHandArgument_ != null;
+  public boolean hasRightArgument() {
+    return rightArgument_ != null;
   }
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
-   * @return The rightHandArgument.
+   * <code>.mojo.lang.Expression right_argument = 22;</code>
+   * @return The rightArgument.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.Expression getRightHandArgument() {
-    return rightHandArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : rightHandArgument_;
+  public org.mojolang.mojo.lang.Expression getRightArgument() {
+    return rightArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : rightArgument_;
   }
   /**
-   * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+   * <code>.mojo.lang.Expression right_argument = 22;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.ExpressionOrBuilder getRightHandArgumentOrBuilder() {
-    return getRightHandArgument();
+  public org.mojolang.mojo.lang.ExpressionOrBuilder getRightArgumentOrBuilder() {
+    return getRightArgument();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -372,17 +425,17 @@ private static final long serialVersionUID = 0L;
     if (implicit_ != false) {
       output.writeBool(5, implicit_);
     }
-    if (callee_ != null) {
-      output.writeMessage(10, getCallee());
+    if (calleeCase_ == 10) {
+      output.writeMessage(10, (org.mojolang.mojo.lang.Expression) callee_);
     }
-    if (operator_ != null) {
-      output.writeMessage(20, getOperator());
+    if (calleeCase_ == 11) {
+      output.writeMessage(11, (org.mojolang.mojo.lang.Operator) callee_);
     }
-    if (leftHandArgument_ != null) {
-      output.writeMessage(21, getLeftHandArgument());
+    if (leftArgument_ != null) {
+      output.writeMessage(21, getLeftArgument());
     }
-    if (rightHandArgument_ != null) {
-      output.writeMessage(22, getRightHandArgument());
+    if (rightArgument_ != null) {
+      output.writeMessage(22, getRightArgument());
     }
     unknownFields.writeTo(output);
   }
@@ -409,21 +462,21 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, implicit_);
     }
-    if (callee_ != null) {
+    if (calleeCase_ == 10) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, getCallee());
+        .computeMessageSize(10, (org.mojolang.mojo.lang.Expression) callee_);
     }
-    if (operator_ != null) {
+    if (calleeCase_ == 11) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(20, getOperator());
+        .computeMessageSize(11, (org.mojolang.mojo.lang.Operator) callee_);
     }
-    if (leftHandArgument_ != null) {
+    if (leftArgument_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(21, getLeftHandArgument());
+        .computeMessageSize(21, getLeftArgument());
     }
-    if (rightHandArgument_ != null) {
+    if (rightArgument_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(22, getRightHandArgument());
+        .computeMessageSize(22, getRightArgument());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -454,25 +507,28 @@ private static final long serialVersionUID = 0L;
         != other.getKind()) return false;
     if (getImplicit()
         != other.getImplicit()) return false;
-    if (hasCallee() != other.hasCallee()) return false;
-    if (hasCallee()) {
-      if (!getCallee()
-          .equals(other.getCallee())) return false;
+    if (hasLeftArgument() != other.hasLeftArgument()) return false;
+    if (hasLeftArgument()) {
+      if (!getLeftArgument()
+          .equals(other.getLeftArgument())) return false;
     }
-    if (hasOperator() != other.hasOperator()) return false;
-    if (hasOperator()) {
-      if (!getOperator()
-          .equals(other.getOperator())) return false;
+    if (hasRightArgument() != other.hasRightArgument()) return false;
+    if (hasRightArgument()) {
+      if (!getRightArgument()
+          .equals(other.getRightArgument())) return false;
     }
-    if (hasLeftHandArgument() != other.hasLeftHandArgument()) return false;
-    if (hasLeftHandArgument()) {
-      if (!getLeftHandArgument()
-          .equals(other.getLeftHandArgument())) return false;
-    }
-    if (hasRightHandArgument() != other.hasRightHandArgument()) return false;
-    if (hasRightHandArgument()) {
-      if (!getRightHandArgument()
-          .equals(other.getRightHandArgument())) return false;
+    if (!getCalleeCase().equals(other.getCalleeCase())) return false;
+    switch (calleeCase_) {
+      case 10:
+        if (!getExpression()
+            .equals(other.getExpression())) return false;
+        break;
+      case 11:
+        if (!getOperator()
+            .equals(other.getOperator())) return false;
+        break;
+      case 0:
+      default:
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -498,21 +554,25 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + IMPLICIT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getImplicit());
-    if (hasCallee()) {
-      hash = (37 * hash) + CALLEE_FIELD_NUMBER;
-      hash = (53 * hash) + getCallee().hashCode();
+    if (hasLeftArgument()) {
+      hash = (37 * hash) + LEFT_ARGUMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getLeftArgument().hashCode();
     }
-    if (hasOperator()) {
-      hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
-      hash = (53 * hash) + getOperator().hashCode();
+    if (hasRightArgument()) {
+      hash = (37 * hash) + RIGHT_ARGUMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getRightArgument().hashCode();
     }
-    if (hasLeftHandArgument()) {
-      hash = (37 * hash) + LEFT_HAND_ARGUMENT_FIELD_NUMBER;
-      hash = (53 * hash) + getLeftHandArgument().hashCode();
-    }
-    if (hasRightHandArgument()) {
-      hash = (37 * hash) + RIGHT_HAND_ARGUMENT_FIELD_NUMBER;
-      hash = (53 * hash) + getRightHandArgument().hashCode();
+    switch (calleeCase_) {
+      case 10:
+        hash = (37 * hash) + EXPRESSION_FIELD_NUMBER;
+        hash = (53 * hash) + getExpression().hashCode();
+        break;
+      case 11:
+        hash = (37 * hash) + OPERATOR_FIELD_NUMBER;
+        hash = (53 * hash) + getOperator().hashCode();
+        break;
+      case 0:
+      default:
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -663,30 +723,20 @@ private static final long serialVersionUID = 0L;
 
       implicit_ = false;
 
-      if (calleeBuilder_ == null) {
-        callee_ = null;
+      if (leftArgumentBuilder_ == null) {
+        leftArgument_ = null;
       } else {
-        callee_ = null;
-        calleeBuilder_ = null;
+        leftArgument_ = null;
+        leftArgumentBuilder_ = null;
       }
-      if (operatorBuilder_ == null) {
-        operator_ = null;
+      if (rightArgumentBuilder_ == null) {
+        rightArgument_ = null;
       } else {
-        operator_ = null;
-        operatorBuilder_ = null;
+        rightArgument_ = null;
+        rightArgumentBuilder_ = null;
       }
-      if (leftHandArgumentBuilder_ == null) {
-        leftHandArgument_ = null;
-      } else {
-        leftHandArgument_ = null;
-        leftHandArgumentBuilder_ = null;
-      }
-      if (rightHandArgumentBuilder_ == null) {
-        rightHandArgument_ = null;
-      } else {
-        rightHandArgument_ = null;
-        rightHandArgumentBuilder_ = null;
-      }
+      calleeCase_ = 0;
+      callee_ = null;
       return this;
     }
 
@@ -725,26 +775,31 @@ private static final long serialVersionUID = 0L;
       }
       result.kind_ = kind_;
       result.implicit_ = implicit_;
-      if (calleeBuilder_ == null) {
-        result.callee_ = callee_;
-      } else {
-        result.callee_ = calleeBuilder_.build();
+      if (calleeCase_ == 10) {
+        if (expressionBuilder_ == null) {
+          result.callee_ = callee_;
+        } else {
+          result.callee_ = expressionBuilder_.build();
+        }
       }
-      if (operatorBuilder_ == null) {
-        result.operator_ = operator_;
-      } else {
-        result.operator_ = operatorBuilder_.build();
+      if (calleeCase_ == 11) {
+        if (operatorBuilder_ == null) {
+          result.callee_ = callee_;
+        } else {
+          result.callee_ = operatorBuilder_.build();
+        }
       }
-      if (leftHandArgumentBuilder_ == null) {
-        result.leftHandArgument_ = leftHandArgument_;
+      if (leftArgumentBuilder_ == null) {
+        result.leftArgument_ = leftArgument_;
       } else {
-        result.leftHandArgument_ = leftHandArgumentBuilder_.build();
+        result.leftArgument_ = leftArgumentBuilder_.build();
       }
-      if (rightHandArgumentBuilder_ == null) {
-        result.rightHandArgument_ = rightHandArgument_;
+      if (rightArgumentBuilder_ == null) {
+        result.rightArgument_ = rightArgument_;
       } else {
-        result.rightHandArgument_ = rightHandArgumentBuilder_.build();
+        result.rightArgument_ = rightArgumentBuilder_.build();
       }
+      result.calleeCase_ = calleeCase_;
       onBuilt();
       return result;
     }
@@ -805,17 +860,24 @@ private static final long serialVersionUID = 0L;
       if (other.getImplicit() != false) {
         setImplicit(other.getImplicit());
       }
-      if (other.hasCallee()) {
-        mergeCallee(other.getCallee());
+      if (other.hasLeftArgument()) {
+        mergeLeftArgument(other.getLeftArgument());
       }
-      if (other.hasOperator()) {
-        mergeOperator(other.getOperator());
+      if (other.hasRightArgument()) {
+        mergeRightArgument(other.getRightArgument());
       }
-      if (other.hasLeftHandArgument()) {
-        mergeLeftHandArgument(other.getLeftHandArgument());
-      }
-      if (other.hasRightHandArgument()) {
-        mergeRightHandArgument(other.getRightHandArgument());
+      switch (other.getCalleeCase()) {
+        case EXPRESSION: {
+          mergeExpression(other.getExpression());
+          break;
+        }
+        case OPERATOR: {
+          mergeOperator(other.getOperator());
+          break;
+        }
+        case CALLEE_NOT_SET: {
+          break;
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -845,6 +907,21 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int calleeCase_ = 0;
+    private java.lang.Object callee_;
+    public CalleeCase
+        getCalleeCase() {
+      return CalleeCase.forNumber(
+          calleeCase_);
+    }
+
+    public Builder clearCallee() {
+      calleeCase_ = 0;
+      callee_ = null;
+      onChanged();
+      return this;
+    }
+
 
     private org.mojolang.mojo.lang.Position startPosition_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1146,480 +1223,524 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.mojolang.mojo.lang.Expression callee_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> calleeBuilder_;
+        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> expressionBuilder_;
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
-     * @return Whether the callee field is set.
+     * <code>.mojo.lang.Expression expression = 10;</code>
+     * @return Whether the expression field is set.
      */
-    public boolean hasCallee() {
-      return calleeBuilder_ != null || callee_ != null;
+    @java.lang.Override
+    public boolean hasExpression() {
+      return calleeCase_ == 10;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
-     * @return The callee.
+     * <code>.mojo.lang.Expression expression = 10;</code>
+     * @return The expression.
      */
-    public org.mojolang.mojo.lang.Expression getCallee() {
-      if (calleeBuilder_ == null) {
-        return callee_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : callee_;
+    @java.lang.Override
+    public org.mojolang.mojo.lang.Expression getExpression() {
+      if (expressionBuilder_ == null) {
+        if (calleeCase_ == 10) {
+          return (org.mojolang.mojo.lang.Expression) callee_;
+        }
+        return org.mojolang.mojo.lang.Expression.getDefaultInstance();
       } else {
-        return calleeBuilder_.getMessage();
+        if (calleeCase_ == 10) {
+          return expressionBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.Expression.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder setCallee(org.mojolang.mojo.lang.Expression value) {
-      if (calleeBuilder_ == null) {
+    public Builder setExpression(org.mojolang.mojo.lang.Expression value) {
+      if (expressionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         callee_ = value;
         onChanged();
       } else {
-        calleeBuilder_.setMessage(value);
+        expressionBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder setCallee(
+    public Builder setExpression(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
-      if (calleeBuilder_ == null) {
+      if (expressionBuilder_ == null) {
         callee_ = builderForValue.build();
         onChanged();
       } else {
-        calleeBuilder_.setMessage(builderForValue.build());
+        expressionBuilder_.setMessage(builderForValue.build());
       }
-
+      calleeCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder mergeCallee(org.mojolang.mojo.lang.Expression value) {
-      if (calleeBuilder_ == null) {
-        if (callee_ != null) {
-          callee_ =
-            org.mojolang.mojo.lang.Expression.newBuilder(callee_).mergeFrom(value).buildPartial();
+    public Builder mergeExpression(org.mojolang.mojo.lang.Expression value) {
+      if (expressionBuilder_ == null) {
+        if (calleeCase_ == 10 &&
+            callee_ != org.mojolang.mojo.lang.Expression.getDefaultInstance()) {
+          callee_ = org.mojolang.mojo.lang.Expression.newBuilder((org.mojolang.mojo.lang.Expression) callee_)
+              .mergeFrom(value).buildPartial();
         } else {
           callee_ = value;
         }
         onChanged();
       } else {
-        calleeBuilder_.mergeFrom(value);
+        if (calleeCase_ == 10) {
+          expressionBuilder_.mergeFrom(value);
+        }
+        expressionBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 10;
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public Builder clearCallee() {
-      if (calleeBuilder_ == null) {
-        callee_ = null;
-        onChanged();
+    public Builder clearExpression() {
+      if (expressionBuilder_ == null) {
+        if (calleeCase_ == 10) {
+          calleeCase_ = 0;
+          callee_ = null;
+          onChanged();
+        }
       } else {
-        callee_ = null;
-        calleeBuilder_ = null;
+        if (calleeCase_ == 10) {
+          calleeCase_ = 0;
+          callee_ = null;
+        }
+        expressionBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public org.mojolang.mojo.lang.Expression.Builder getCalleeBuilder() {
-      
-      onChanged();
-      return getCalleeFieldBuilder().getBuilder();
+    public org.mojolang.mojo.lang.Expression.Builder getExpressionBuilder() {
+      return getExpressionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
-    public org.mojolang.mojo.lang.ExpressionOrBuilder getCalleeOrBuilder() {
-      if (calleeBuilder_ != null) {
-        return calleeBuilder_.getMessageOrBuilder();
+    @java.lang.Override
+    public org.mojolang.mojo.lang.ExpressionOrBuilder getExpressionOrBuilder() {
+      if ((calleeCase_ == 10) && (expressionBuilder_ != null)) {
+        return expressionBuilder_.getMessageOrBuilder();
       } else {
-        return callee_ == null ?
-            org.mojolang.mojo.lang.Expression.getDefaultInstance() : callee_;
+        if (calleeCase_ == 10) {
+          return (org.mojolang.mojo.lang.Expression) callee_;
+        }
+        return org.mojolang.mojo.lang.Expression.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Expression callee = 10;</code>
+     * <code>.mojo.lang.Expression expression = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
-        getCalleeFieldBuilder() {
-      if (calleeBuilder_ == null) {
-        calleeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getExpressionFieldBuilder() {
+      if (expressionBuilder_ == null) {
+        if (!(calleeCase_ == 10)) {
+          callee_ = org.mojolang.mojo.lang.Expression.getDefaultInstance();
+        }
+        expressionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder>(
-                getCallee(),
+                (org.mojolang.mojo.lang.Expression) callee_,
                 getParentForChildren(),
                 isClean());
         callee_ = null;
       }
-      return calleeBuilder_;
+      calleeCase_ = 10;
+      onChanged();;
+      return expressionBuilder_;
     }
 
-    private org.mojolang.mojo.lang.Operator operator_;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> operatorBuilder_;
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      * @return Whether the operator field is set.
      */
+    @java.lang.Override
     public boolean hasOperator() {
-      return operatorBuilder_ != null || operator_ != null;
+      return calleeCase_ == 11;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      * @return The operator.
      */
+    @java.lang.Override
     public org.mojolang.mojo.lang.Operator getOperator() {
       if (operatorBuilder_ == null) {
-        return operator_ == null ? org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
+        if (calleeCase_ == 11) {
+          return (org.mojolang.mojo.lang.Operator) callee_;
+        }
+        return org.mojolang.mojo.lang.Operator.getDefaultInstance();
       } else {
-        return operatorBuilder_.getMessage();
+        if (calleeCase_ == 11) {
+          return operatorBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.Operator.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder setOperator(org.mojolang.mojo.lang.Operator value) {
       if (operatorBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        operator_ = value;
+        callee_ = value;
         onChanged();
       } else {
         operatorBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 11;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder setOperator(
         org.mojolang.mojo.lang.Operator.Builder builderForValue) {
       if (operatorBuilder_ == null) {
-        operator_ = builderForValue.build();
+        callee_ = builderForValue.build();
         onChanged();
       } else {
         operatorBuilder_.setMessage(builderForValue.build());
       }
-
+      calleeCase_ = 11;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder mergeOperator(org.mojolang.mojo.lang.Operator value) {
       if (operatorBuilder_ == null) {
-        if (operator_ != null) {
-          operator_ =
-            org.mojolang.mojo.lang.Operator.newBuilder(operator_).mergeFrom(value).buildPartial();
+        if (calleeCase_ == 11 &&
+            callee_ != org.mojolang.mojo.lang.Operator.getDefaultInstance()) {
+          callee_ = org.mojolang.mojo.lang.Operator.newBuilder((org.mojolang.mojo.lang.Operator) callee_)
+              .mergeFrom(value).buildPartial();
         } else {
-          operator_ = value;
+          callee_ = value;
         }
         onChanged();
       } else {
-        operatorBuilder_.mergeFrom(value);
+        if (calleeCase_ == 11) {
+          operatorBuilder_.mergeFrom(value);
+        }
+        operatorBuilder_.setMessage(value);
       }
-
+      calleeCase_ = 11;
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public Builder clearOperator() {
       if (operatorBuilder_ == null) {
-        operator_ = null;
-        onChanged();
+        if (calleeCase_ == 11) {
+          calleeCase_ = 0;
+          callee_ = null;
+          onChanged();
+        }
       } else {
-        operator_ = null;
-        operatorBuilder_ = null;
+        if (calleeCase_ == 11) {
+          calleeCase_ = 0;
+          callee_ = null;
+        }
+        operatorBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     public org.mojolang.mojo.lang.Operator.Builder getOperatorBuilder() {
-      
-      onChanged();
       return getOperatorFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
+    @java.lang.Override
     public org.mojolang.mojo.lang.OperatorOrBuilder getOperatorOrBuilder() {
-      if (operatorBuilder_ != null) {
+      if ((calleeCase_ == 11) && (operatorBuilder_ != null)) {
         return operatorBuilder_.getMessageOrBuilder();
       } else {
-        return operator_ == null ?
-            org.mojolang.mojo.lang.Operator.getDefaultInstance() : operator_;
+        if (calleeCase_ == 11) {
+          return (org.mojolang.mojo.lang.Operator) callee_;
+        }
+        return org.mojolang.mojo.lang.Operator.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Operator operator = 20;</code>
+     * <code>.mojo.lang.Operator operator = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder> 
         getOperatorFieldBuilder() {
       if (operatorBuilder_ == null) {
+        if (!(calleeCase_ == 11)) {
+          callee_ = org.mojolang.mojo.lang.Operator.getDefaultInstance();
+        }
         operatorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Operator, org.mojolang.mojo.lang.Operator.Builder, org.mojolang.mojo.lang.OperatorOrBuilder>(
-                getOperator(),
+                (org.mojolang.mojo.lang.Operator) callee_,
                 getParentForChildren(),
                 isClean());
-        operator_ = null;
+        callee_ = null;
       }
+      calleeCase_ = 11;
+      onChanged();;
       return operatorBuilder_;
     }
 
-    private org.mojolang.mojo.lang.Expression leftHandArgument_;
+    private org.mojolang.mojo.lang.Expression leftArgument_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> leftHandArgumentBuilder_;
+        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> leftArgumentBuilder_;
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
-     * @return Whether the leftHandArgument field is set.
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
+     * @return Whether the leftArgument field is set.
      */
-    public boolean hasLeftHandArgument() {
-      return leftHandArgumentBuilder_ != null || leftHandArgument_ != null;
+    public boolean hasLeftArgument() {
+      return leftArgumentBuilder_ != null || leftArgument_ != null;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
-     * @return The leftHandArgument.
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
+     * @return The leftArgument.
      */
-    public org.mojolang.mojo.lang.Expression getLeftHandArgument() {
-      if (leftHandArgumentBuilder_ == null) {
-        return leftHandArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : leftHandArgument_;
+    public org.mojolang.mojo.lang.Expression getLeftArgument() {
+      if (leftArgumentBuilder_ == null) {
+        return leftArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : leftArgument_;
       } else {
-        return leftHandArgumentBuilder_.getMessage();
+        return leftArgumentBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
      */
-    public Builder setLeftHandArgument(org.mojolang.mojo.lang.Expression value) {
-      if (leftHandArgumentBuilder_ == null) {
+    public Builder setLeftArgument(org.mojolang.mojo.lang.Expression value) {
+      if (leftArgumentBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        leftHandArgument_ = value;
+        leftArgument_ = value;
         onChanged();
       } else {
-        leftHandArgumentBuilder_.setMessage(value);
+        leftArgumentBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
      */
-    public Builder setLeftHandArgument(
+    public Builder setLeftArgument(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
-      if (leftHandArgumentBuilder_ == null) {
-        leftHandArgument_ = builderForValue.build();
+      if (leftArgumentBuilder_ == null) {
+        leftArgument_ = builderForValue.build();
         onChanged();
       } else {
-        leftHandArgumentBuilder_.setMessage(builderForValue.build());
+        leftArgumentBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
      */
-    public Builder mergeLeftHandArgument(org.mojolang.mojo.lang.Expression value) {
-      if (leftHandArgumentBuilder_ == null) {
-        if (leftHandArgument_ != null) {
-          leftHandArgument_ =
-            org.mojolang.mojo.lang.Expression.newBuilder(leftHandArgument_).mergeFrom(value).buildPartial();
+    public Builder mergeLeftArgument(org.mojolang.mojo.lang.Expression value) {
+      if (leftArgumentBuilder_ == null) {
+        if (leftArgument_ != null) {
+          leftArgument_ =
+            org.mojolang.mojo.lang.Expression.newBuilder(leftArgument_).mergeFrom(value).buildPartial();
         } else {
-          leftHandArgument_ = value;
+          leftArgument_ = value;
         }
         onChanged();
       } else {
-        leftHandArgumentBuilder_.mergeFrom(value);
+        leftArgumentBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
      */
-    public Builder clearLeftHandArgument() {
-      if (leftHandArgumentBuilder_ == null) {
-        leftHandArgument_ = null;
+    public Builder clearLeftArgument() {
+      if (leftArgumentBuilder_ == null) {
+        leftArgument_ = null;
         onChanged();
       } else {
-        leftHandArgument_ = null;
-        leftHandArgumentBuilder_ = null;
+        leftArgument_ = null;
+        leftArgumentBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
      */
-    public org.mojolang.mojo.lang.Expression.Builder getLeftHandArgumentBuilder() {
+    public org.mojolang.mojo.lang.Expression.Builder getLeftArgumentBuilder() {
       
       onChanged();
-      return getLeftHandArgumentFieldBuilder().getBuilder();
+      return getLeftArgumentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
      */
-    public org.mojolang.mojo.lang.ExpressionOrBuilder getLeftHandArgumentOrBuilder() {
-      if (leftHandArgumentBuilder_ != null) {
-        return leftHandArgumentBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.lang.ExpressionOrBuilder getLeftArgumentOrBuilder() {
+      if (leftArgumentBuilder_ != null) {
+        return leftArgumentBuilder_.getMessageOrBuilder();
       } else {
-        return leftHandArgument_ == null ?
-            org.mojolang.mojo.lang.Expression.getDefaultInstance() : leftHandArgument_;
+        return leftArgument_ == null ?
+            org.mojolang.mojo.lang.Expression.getDefaultInstance() : leftArgument_;
       }
     }
     /**
-     * <code>.mojo.lang.Expression left_hand_argument = 21;</code>
+     * <code>.mojo.lang.Expression left_argument = 21;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
-        getLeftHandArgumentFieldBuilder() {
-      if (leftHandArgumentBuilder_ == null) {
-        leftHandArgumentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getLeftArgumentFieldBuilder() {
+      if (leftArgumentBuilder_ == null) {
+        leftArgumentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder>(
-                getLeftHandArgument(),
+                getLeftArgument(),
                 getParentForChildren(),
                 isClean());
-        leftHandArgument_ = null;
+        leftArgument_ = null;
       }
-      return leftHandArgumentBuilder_;
+      return leftArgumentBuilder_;
     }
 
-    private org.mojolang.mojo.lang.Expression rightHandArgument_;
+    private org.mojolang.mojo.lang.Expression rightArgument_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> rightHandArgumentBuilder_;
+        org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> rightArgumentBuilder_;
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
-     * @return Whether the rightHandArgument field is set.
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
+     * @return Whether the rightArgument field is set.
      */
-    public boolean hasRightHandArgument() {
-      return rightHandArgumentBuilder_ != null || rightHandArgument_ != null;
+    public boolean hasRightArgument() {
+      return rightArgumentBuilder_ != null || rightArgument_ != null;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
-     * @return The rightHandArgument.
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
+     * @return The rightArgument.
      */
-    public org.mojolang.mojo.lang.Expression getRightHandArgument() {
-      if (rightHandArgumentBuilder_ == null) {
-        return rightHandArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : rightHandArgument_;
+    public org.mojolang.mojo.lang.Expression getRightArgument() {
+      if (rightArgumentBuilder_ == null) {
+        return rightArgument_ == null ? org.mojolang.mojo.lang.Expression.getDefaultInstance() : rightArgument_;
       } else {
-        return rightHandArgumentBuilder_.getMessage();
+        return rightArgumentBuilder_.getMessage();
       }
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
      */
-    public Builder setRightHandArgument(org.mojolang.mojo.lang.Expression value) {
-      if (rightHandArgumentBuilder_ == null) {
+    public Builder setRightArgument(org.mojolang.mojo.lang.Expression value) {
+      if (rightArgumentBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        rightHandArgument_ = value;
+        rightArgument_ = value;
         onChanged();
       } else {
-        rightHandArgumentBuilder_.setMessage(value);
+        rightArgumentBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
      */
-    public Builder setRightHandArgument(
+    public Builder setRightArgument(
         org.mojolang.mojo.lang.Expression.Builder builderForValue) {
-      if (rightHandArgumentBuilder_ == null) {
-        rightHandArgument_ = builderForValue.build();
+      if (rightArgumentBuilder_ == null) {
+        rightArgument_ = builderForValue.build();
         onChanged();
       } else {
-        rightHandArgumentBuilder_.setMessage(builderForValue.build());
+        rightArgumentBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
      */
-    public Builder mergeRightHandArgument(org.mojolang.mojo.lang.Expression value) {
-      if (rightHandArgumentBuilder_ == null) {
-        if (rightHandArgument_ != null) {
-          rightHandArgument_ =
-            org.mojolang.mojo.lang.Expression.newBuilder(rightHandArgument_).mergeFrom(value).buildPartial();
+    public Builder mergeRightArgument(org.mojolang.mojo.lang.Expression value) {
+      if (rightArgumentBuilder_ == null) {
+        if (rightArgument_ != null) {
+          rightArgument_ =
+            org.mojolang.mojo.lang.Expression.newBuilder(rightArgument_).mergeFrom(value).buildPartial();
         } else {
-          rightHandArgument_ = value;
+          rightArgument_ = value;
         }
         onChanged();
       } else {
-        rightHandArgumentBuilder_.mergeFrom(value);
+        rightArgumentBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
      */
-    public Builder clearRightHandArgument() {
-      if (rightHandArgumentBuilder_ == null) {
-        rightHandArgument_ = null;
+    public Builder clearRightArgument() {
+      if (rightArgumentBuilder_ == null) {
+        rightArgument_ = null;
         onChanged();
       } else {
-        rightHandArgument_ = null;
-        rightHandArgumentBuilder_ = null;
+        rightArgument_ = null;
+        rightArgumentBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
      */
-    public org.mojolang.mojo.lang.Expression.Builder getRightHandArgumentBuilder() {
+    public org.mojolang.mojo.lang.Expression.Builder getRightArgumentBuilder() {
       
       onChanged();
-      return getRightHandArgumentFieldBuilder().getBuilder();
+      return getRightArgumentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
      */
-    public org.mojolang.mojo.lang.ExpressionOrBuilder getRightHandArgumentOrBuilder() {
-      if (rightHandArgumentBuilder_ != null) {
-        return rightHandArgumentBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.lang.ExpressionOrBuilder getRightArgumentOrBuilder() {
+      if (rightArgumentBuilder_ != null) {
+        return rightArgumentBuilder_.getMessageOrBuilder();
       } else {
-        return rightHandArgument_ == null ?
-            org.mojolang.mojo.lang.Expression.getDefaultInstance() : rightHandArgument_;
+        return rightArgument_ == null ?
+            org.mojolang.mojo.lang.Expression.getDefaultInstance() : rightArgument_;
       }
     }
     /**
-     * <code>.mojo.lang.Expression right_hand_argument = 22;</code>
+     * <code>.mojo.lang.Expression right_argument = 22;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder> 
-        getRightHandArgumentFieldBuilder() {
-      if (rightHandArgumentBuilder_ == null) {
-        rightHandArgumentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getRightArgumentFieldBuilder() {
+      if (rightArgumentBuilder_ == null) {
+        rightArgumentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             org.mojolang.mojo.lang.Expression, org.mojolang.mojo.lang.Expression.Builder, org.mojolang.mojo.lang.ExpressionOrBuilder>(
-                getRightHandArgument(),
+                getRightArgument(),
                 getParentForChildren(),
                 isClean());
-        rightHandArgument_ = null;
+        rightArgument_ = null;
       }
-      return rightHandArgumentBuilder_;
+      return rightArgumentBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

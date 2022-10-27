@@ -23,21 +23,22 @@ type Expression = NullLiteralExpr    @1
                 | StringLiteralExpr  @5
                 | ObjectLiteralExpr  @6
                 | ArrayLiteralExpr   @7
-                | MapLiteralExpr @8
-                | RangeLiteralExpr @9
-                | IdentifierExpr @10
-                | NumericLiteralUnaryExpr       @11
-                | StringLiteralUnaryExpr @12
-                | StructLiteralExpr @13
-                | ClosureExpr @14
-                | ParenthesizedExpr @15
-                | ImplicitMemberExpr @16
-                | WildcardExpr @17
-                | StructConstructionExpr @18
-                | TupleExpr @19
-                | PrefixUnaryExpr       @30
-                | PostfixUnaryExpr @31
-                | FunctionCallExpr @32
+                | MapLiteralExpr     @8
+                | RangeLiteralExpr   @9
+                | IdentifierExpr     @10
+                | NumericSuffixLiteralExpr @11
+                | StringPrefixLiteralExpr  @12
+                | StringSuffixLiteralExpr  @13
+                | StructLiteralExpr  @14
+                | ClosureExpr        @15
+                | ParenthesizedExpr  @16
+                | ImplicitMemberExpr @17
+                | WildcardExpr       @18
+                | StructConstructionExpr @19
+                | TupleExpr @20
+                | PrefixUnaryExpr    @30
+                | PostfixUnaryExpr   @31
+                | FunctionCallExpr   @32
                 | ExplicitMemberExpr @33
                 | SubscriptExpr @34
                 | BinaryExpr @40

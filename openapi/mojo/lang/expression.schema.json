@@ -32,10 +32,13 @@
             "$ref": "#/components/schemas/mojo.lang.IdentifierExpr"
         },
         {
-            "$ref": "#/components/schemas/mojo.lang.NumericLiteralUnaryExpr"
+            "$ref": "#/components/schemas/mojo.lang.NumericSuffixLiteralExpr"
         },
         {
-            "$ref": "#/components/schemas/mojo.lang.StringLiteralUnaryExpr"
+            "$ref": "#/components/schemas/mojo.lang.StringPrefixLiteralExpr"
+        },
+        {
+            "$ref": "#/components/schemas/mojo.lang.StringSuffixLiteralExpr"
         },
         {
             "$ref": "#/components/schemas/mojo.lang.StructLiteralExpr"

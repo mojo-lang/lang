@@ -1,3 +1,3 @@
 | field | type | format | required | default | description |
 |---|---|---|---|---|---|
-| `value` | `mojo.lang.ObjectLiteralExpr` |  | N |  |  |
+| `argument` | `mojo.lang.ObjectLiteralExpr` |  | N |  |  |

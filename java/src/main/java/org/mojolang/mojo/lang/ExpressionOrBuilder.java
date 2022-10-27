@@ -158,137 +158,152 @@ public interface ExpressionOrBuilder extends
   org.mojolang.mojo.lang.IdentifierExprOrBuilder getIdentifierExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
-   * @return Whether the numericLiteralUnaryExpr field is set.
+   * <code>.mojo.lang.NumericSuffixLiteralExpr numeric_suffix_literal_expr = 11;</code>
+   * @return Whether the numericSuffixLiteralExpr field is set.
    */
-  boolean hasNumericLiteralUnaryExpr();
+  boolean hasNumericSuffixLiteralExpr();
   /**
-   * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
-   * @return The numericLiteralUnaryExpr.
+   * <code>.mojo.lang.NumericSuffixLiteralExpr numeric_suffix_literal_expr = 11;</code>
+   * @return The numericSuffixLiteralExpr.
    */
-  org.mojolang.mojo.lang.NumericLiteralUnaryExpr getNumericLiteralUnaryExpr();
+  org.mojolang.mojo.lang.NumericSuffixLiteralExpr getNumericSuffixLiteralExpr();
   /**
-   * <code>.mojo.lang.NumericLiteralUnaryExpr numeric_literal_unary_expr = 11;</code>
+   * <code>.mojo.lang.NumericSuffixLiteralExpr numeric_suffix_literal_expr = 11;</code>
    */
-  org.mojolang.mojo.lang.NumericLiteralUnaryExprOrBuilder getNumericLiteralUnaryExprOrBuilder();
+  org.mojolang.mojo.lang.NumericSuffixLiteralExprOrBuilder getNumericSuffixLiteralExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
-   * @return Whether the stringLiteralUnaryExpr field is set.
+   * <code>.mojo.lang.StringPrefixLiteralExpr string_prefix_literal_expr = 12;</code>
+   * @return Whether the stringPrefixLiteralExpr field is set.
    */
-  boolean hasStringLiteralUnaryExpr();
+  boolean hasStringPrefixLiteralExpr();
   /**
-   * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
-   * @return The stringLiteralUnaryExpr.
+   * <code>.mojo.lang.StringPrefixLiteralExpr string_prefix_literal_expr = 12;</code>
+   * @return The stringPrefixLiteralExpr.
    */
-  org.mojolang.mojo.lang.StringLiteralUnaryExpr getStringLiteralUnaryExpr();
+  org.mojolang.mojo.lang.StringPrefixLiteralExpr getStringPrefixLiteralExpr();
   /**
-   * <code>.mojo.lang.StringLiteralUnaryExpr string_literal_unary_expr = 12;</code>
+   * <code>.mojo.lang.StringPrefixLiteralExpr string_prefix_literal_expr = 12;</code>
    */
-  org.mojolang.mojo.lang.StringLiteralUnaryExprOrBuilder getStringLiteralUnaryExprOrBuilder();
+  org.mojolang.mojo.lang.StringPrefixLiteralExprOrBuilder getStringPrefixLiteralExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+   * <code>.mojo.lang.StringSuffixLiteralExpr string_suffix_literal_expr = 13;</code>
+   * @return Whether the stringSuffixLiteralExpr field is set.
+   */
+  boolean hasStringSuffixLiteralExpr();
+  /**
+   * <code>.mojo.lang.StringSuffixLiteralExpr string_suffix_literal_expr = 13;</code>
+   * @return The stringSuffixLiteralExpr.
+   */
+  org.mojolang.mojo.lang.StringSuffixLiteralExpr getStringSuffixLiteralExpr();
+  /**
+   * <code>.mojo.lang.StringSuffixLiteralExpr string_suffix_literal_expr = 13;</code>
+   */
+  org.mojolang.mojo.lang.StringSuffixLiteralExprOrBuilder getStringSuffixLiteralExprOrBuilder();
+
+  /**
+   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 14;</code>
    * @return Whether the structLiteralExpr field is set.
    */
   boolean hasStructLiteralExpr();
   /**
-   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 14;</code>
    * @return The structLiteralExpr.
    */
   org.mojolang.mojo.lang.StructLiteralExpr getStructLiteralExpr();
   /**
-   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 13;</code>
+   * <code>.mojo.lang.StructLiteralExpr struct_literal_expr = 14;</code>
    */
   org.mojolang.mojo.lang.StructLiteralExprOrBuilder getStructLiteralExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+   * <code>.mojo.lang.ClosureExpr closure_expr = 15;</code>
    * @return Whether the closureExpr field is set.
    */
   boolean hasClosureExpr();
   /**
-   * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+   * <code>.mojo.lang.ClosureExpr closure_expr = 15;</code>
    * @return The closureExpr.
    */
   org.mojolang.mojo.lang.ClosureExpr getClosureExpr();
   /**
-   * <code>.mojo.lang.ClosureExpr closure_expr = 14;</code>
+   * <code>.mojo.lang.ClosureExpr closure_expr = 15;</code>
    */
   org.mojolang.mojo.lang.ClosureExprOrBuilder getClosureExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 16;</code>
    * @return Whether the parenthesizedExpr field is set.
    */
   boolean hasParenthesizedExpr();
   /**
-   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 16;</code>
    * @return The parenthesizedExpr.
    */
   org.mojolang.mojo.lang.ParenthesizedExpr getParenthesizedExpr();
   /**
-   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 15;</code>
+   * <code>.mojo.lang.ParenthesizedExpr parenthesized_expr = 16;</code>
    */
   org.mojolang.mojo.lang.ParenthesizedExprOrBuilder getParenthesizedExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 17;</code>
    * @return Whether the implicitMemberExpr field is set.
    */
   boolean hasImplicitMemberExpr();
   /**
-   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 17;</code>
    * @return The implicitMemberExpr.
    */
   org.mojolang.mojo.lang.ImplicitMemberExpr getImplicitMemberExpr();
   /**
-   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 16;</code>
+   * <code>.mojo.lang.ImplicitMemberExpr implicit_member_expr = 17;</code>
    */
   org.mojolang.mojo.lang.ImplicitMemberExprOrBuilder getImplicitMemberExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+   * <code>.mojo.lang.WildcardExpr wildcard_expr = 18;</code>
    * @return Whether the wildcardExpr field is set.
    */
   boolean hasWildcardExpr();
   /**
-   * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+   * <code>.mojo.lang.WildcardExpr wildcard_expr = 18;</code>
    * @return The wildcardExpr.
    */
   org.mojolang.mojo.lang.WildcardExpr getWildcardExpr();
   /**
-   * <code>.mojo.lang.WildcardExpr wildcard_expr = 17;</code>
+   * <code>.mojo.lang.WildcardExpr wildcard_expr = 18;</code>
    */
   org.mojolang.mojo.lang.WildcardExprOrBuilder getWildcardExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 19;</code>
    * @return Whether the structConstructionExpr field is set.
    */
   boolean hasStructConstructionExpr();
   /**
-   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 19;</code>
    * @return The structConstructionExpr.
    */
   org.mojolang.mojo.lang.StructConstructionExpr getStructConstructionExpr();
   /**
-   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 18;</code>
+   * <code>.mojo.lang.StructConstructionExpr struct_construction_expr = 19;</code>
    */
   org.mojolang.mojo.lang.StructConstructionExprOrBuilder getStructConstructionExprOrBuilder();
 
   /**
-   * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+   * <code>.mojo.lang.TupleExpr tuple_expr = 20;</code>
    * @return Whether the tupleExpr field is set.
    */
   boolean hasTupleExpr();
   /**
-   * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+   * <code>.mojo.lang.TupleExpr tuple_expr = 20;</code>
    * @return The tupleExpr.
    */
   org.mojolang.mojo.lang.TupleExpr getTupleExpr();
   /**
-   * <code>.mojo.lang.TupleExpr tuple_expr = 19;</code>
+   * <code>.mojo.lang.TupleExpr tuple_expr = 20;</code>
    */
   org.mojolang.mojo.lang.TupleExprOrBuilder getTupleExprOrBuilder();
 

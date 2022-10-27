@@ -36,6 +36,6 @@ type TypeDecl : Decl {
     ///
     unresolved_identifiers:  [Identifier] @17 //< unresolved identifiers in this file
 
-    /// 
+    /// the start position for name part
     name_position: Position @19 @ignore
 }
