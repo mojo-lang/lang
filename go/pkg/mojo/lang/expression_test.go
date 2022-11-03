@@ -1,9 +1,10 @@
 package lang
 
 import (
+	"testing"
+
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestNewNullLiteralExpressionFrom(t *testing.T) {

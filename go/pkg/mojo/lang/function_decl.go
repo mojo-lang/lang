@@ -87,7 +87,7 @@ func (x *FunctionDecl) GetBoolAttribute(name string) (bool, error) {
 	if argument != nil {
 		return argument.GetBool()
 	} else {
-		//TODO using the default value of the attribute declaration
+		// TODO using the default value of the attribute declaration
 		return true, nil
 	}
 }
@@ -114,7 +114,7 @@ func (x *FunctionDecl) GetIntegerAttribute(name string) (int64, error) {
 		if argument != nil {
 			return argument.GetInteger()
 		} else {
-			//TODO using the default value of the attribute declaration
+			// TODO using the default value of the attribute declaration
 			return 0, nil
 		}
 	}
@@ -170,7 +170,7 @@ func (x *FunctionDecl) RemoveAttribute(name string) {
 
 func (x *FunctionDecl) GetResource() string {
 	if x != nil {
-		//if x.GetStringAttribute()
+		// if x.GetStringAttribute()
 	}
 	return ""
 }

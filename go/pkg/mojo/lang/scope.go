@@ -83,10 +83,10 @@ func (x *Scope) Declare(declaration *Declaration) *Identifier {
 		x.Identifiers[identifier.Name] = identifier
 		return identifier
 	case *Declaration_ImportDecl:
-		//err := c.compileImport(c.Context, decl.GetImportDecl())
-		//if err != nil {
+		// err := c.compileImport(c.Context, decl.GetImportDecl())
+		// if err != nil {
 		//	return err
-		//}
+		// }
 		return nil
 	case *Declaration_GenericParameter:
 		parameter := declaration.GetGenericParameter()

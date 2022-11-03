@@ -2,8 +2,9 @@ package lang
 
 import (
 	"errors"
-	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 func NewBoolAttribute(pkg string, name string) *Attribute {

@@ -157,7 +157,7 @@ func GetIntegerAttribute(attributes []*Attribute, name string) (int64, error) {
 	if argument != nil {
 		return argument.GetInteger()
 	} else {
-		//TODO using the default value of the attribute declaration
+		// TODO using the default value of the attribute declaration
 		return 0, nil
 	}
 }

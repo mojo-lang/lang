@@ -1,54 +1,55 @@
 package lang
 
 import (
-    "bytes"
-    "github.com/mojo-lang/core/go/pkg/logs"
-    "github.com/mojo-lang/document/go/pkg/markdown"
+	"bytes"
+
+	"github.com/mojo-lang/core/go/pkg/logs"
+	"github.com/mojo-lang/document/go/pkg/markdown"
 )
 
 type DocumentGetter interface {
-    GetDocument() *Document
+	GetDocument() *Document
 }
 
 func (x *Document) SetStartPosition(position *Position) {
-    if x != nil {
-        x.StartPosition = PatchPosition(x.StartPosition, position)
-    }
+	if x != nil {
+		x.StartPosition = PatchPosition(x.StartPosition, position)
+	}
 }
 
 func (x *Document) SetEndPosition(position *Position) {
-    if x != nil {
-        x.EndPosition = PatchPosition(x.EndPosition, position)
-    }
+	if x != nil {
+		x.EndPosition = PatchPosition(x.EndPosition, position)
+	}
 }
 
 func (x *Document) GetContent() string {
-    if x != nil {
-        content := bytes.Buffer{}
-        for i, line := range x.Lines {
-            if content.Len() == 0 && len(line.Text) == 0 {
-                continue
-            }
-            content.WriteString(line.Text)
+	if x != nil {
+		content := bytes.Buffer{}
+		for i, line := range x.Lines {
+			if content.Len() == 0 && len(line.Text) == 0 {
+				continue
+			}
+			content.WriteString(line.Text)
 
-            if i < len(x.Lines)-1 {
-                content.WriteString("\n")
-            }
-        }
-        return content.String()
-    }
-    return ""
+			if i < len(x.Lines)-1 {
+				content.WriteString("\n")
+			}
+		}
+		return content.String()
+	}
+	return ""
 }
 
 func (x *Document) Parse() *Document {
-    if x != nil {
-        mk := markdown.New()
-        doc, err := mk.Parse(x.GetContent())
-        if err != nil {
-            logs.Warnw("failed to parse the document to markdown")
-        } else {
-            x.Structured = doc
-        }
-    }
-    return x
+	if x != nil {
+		mk := markdown.New()
+		doc, err := mk.Parse(x.GetContent())
+		if err != nil {
+			logs.Warnw("failed to parse the document to markdown")
+		} else {
+			x.Structured = doc
+		}
+	}
+	return x
 }

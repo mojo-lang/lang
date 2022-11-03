@@ -85,7 +85,7 @@ func (x *NominalType) GetTerms() []interface{} {
 	if x != nil {
 		var terms []interface{}
 
-		//terms = append(terms, NewSymbolTerm(x.StartPosition, TermTypeName, x.Name))
+		// terms = append(terms, NewSymbolTerm(x.StartPosition, TermTypeName, x.Name))
 
 		for _, attribute := range x.Attributes {
 			terms = append(terms, attribute)
@@ -450,7 +450,7 @@ func (x *NominalType) GetBoolAttribute(name string) (bool, error) {
 	if argument != nil {
 		return argument.GetBool()
 	} else {
-		//TODO using the default value of the attribute declaration
+		// TODO using the default value of the attribute declaration
 		return true, nil
 	}
 }
@@ -477,7 +477,7 @@ func (x *NominalType) GetIntegerAttribute(name string) (int64, error) {
 		if argument != nil {
 			return argument.GetInteger()
 		} else {
-			//TODO using the default value of the attribute declaration
+			// TODO using the default value of the attribute declaration
 			return 0, nil
 		}
 	}

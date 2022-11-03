@@ -2,8 +2,9 @@ package lang
 
 import (
 	"errors"
-	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"reflect"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 func NewNullLiteralExpression(expr *NullLiteralExpr) *Expression {

@@ -1,8 +1,9 @@
 package lang
 
 import (
-	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"strings"
+
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
 
 func NewPackageRequirementVersion(str string) *Package_Requirement_Version {

@@ -122,7 +122,7 @@ func (x *ValueDecl) GetBoolAttribute(name string) (bool, error) {
 	if argument != nil {
 		return argument.GetBool()
 	} else {
-		//TODO using the default value of the attribute declaration
+		// TODO using the default value of the attribute declaration
 		return true, nil
 	}
 }
@@ -149,7 +149,7 @@ func (x *ValueDecl) GetIntegerAttribute(name string) (int64, error) {
 		if argument != nil {
 			return argument.GetInteger()
 		} else {
-			//TODO using the default value of the attribute declaration
+			// TODO using the default value of the attribute declaration
 			return 0, nil
 		}
 	}

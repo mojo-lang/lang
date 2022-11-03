@@ -1,20 +1,21 @@
 package lang
 
 import (
+	"testing"
+
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestNewPackageRequirementVersionOfCaret(t *testing.T) {
-	//^1.2.3  :=  >=1.2.3, <2.0.0
-	//^1.2    :=  >=1.2.0, <2.0.0
-	//^1      :=  >=1.0.0, <2.0.0
-	//^0.2.3  :=  >=0.2.3, <0.3.0
-	//^0.2    :=  >=0.2.0, <0.3.0
-	//^0.0.3  :=  >=0.0.3, <0.0.4
-	//^0.0    :=  >=0.0.0, <0.1.0
-	//^0      :=  >=0.0.0, <1.0.0
+	// ^1.2.3  :=  >=1.2.3, <2.0.0
+	// ^1.2    :=  >=1.2.0, <2.0.0
+	// ^1      :=  >=1.0.0, <2.0.0
+	// ^0.2.3  :=  >=0.2.3, <0.3.0
+	// ^0.2    :=  >=0.2.0, <0.3.0
+	// ^0.0.3  :=  >=0.0.3, <0.0.4
+	// ^0.0    :=  >=0.0.0, <0.1.0
+	// ^0      :=  >=0.0.0, <1.0.0
 
 	test := func(t *testing.T, input string, min *core.Version, max *core.Version) {
 		v := NewPackageRequirementVersion(input)

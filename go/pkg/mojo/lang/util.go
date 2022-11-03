@@ -93,7 +93,7 @@ func GetEnclosingIdentifier(t *NominalType) *Identifier {
 	return ident
 }
 
-//GetEnclosingNames get enclosing names from enclosing type in `NominalType` or `Declaration`
+// GetEnclosingNames get enclosing names from enclosing type in `NominalType` or `Declaration`
 func GetEnclosingNames(t *NominalType) []string {
 	var enclosingNames []string
 	enclosing := t
