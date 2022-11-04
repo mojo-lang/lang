@@ -12,15 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// InterpolatedStringLiteral - An interpolated string literal.
+/// TemplateStringLiteral - A template string literal.
 ///
-/// An interpolated string literal mixes expressions (which are evaluated and
+/// An template string literal mixes expressions (which are evaluated and
 /// converted into string form) within a string literal.
 ///
-/// \code
-/// "[\(min)..\(max)]"
-/// \endcode
-type InterpolatedStringLiteralExpr : LiteralExpr {
-    segments: [Expr] @20
-    semantic_expr: Expr @21
+/// ```
+/// "[$min..$max]"
+/// ```
+type TemplateStringLiteralExpr : LiteralExpr {
+    value: TemplateString @20
 }
