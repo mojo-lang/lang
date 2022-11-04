@@ -60,4 +60,22 @@ public interface FloatLiteralExprOrBuilder extends
    * @return The value.
    */
   double getValue();
+
+  /**
+   * <code>int64 integral_part = 35;</code>
+   * @return The integralPart.
+   */
+  long getIntegralPart();
+
+  /**
+   * <code>int64 fractional_part = 36;</code>
+   * @return The fractionalPart.
+   */
+  long getFractionalPart();
+
+  /**
+   * <code>int64 exponent_part = 37;</code>
+   * @return The exponentPart.
+   */
+  long getExponentPart();
 }

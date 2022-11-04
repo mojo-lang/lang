@@ -525,6 +525,9 @@ message FloatLiteralExpr {
     bool implicit = 5;
     bool is_negative = 20;
     double value = 30;
+    int64 integral_part = 35;
+    int64 fractional_part = 36;
+    int64 exponent_part = 37;
 }
 
 message ForStmt {

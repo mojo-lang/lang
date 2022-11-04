@@ -94,6 +94,21 @@ private static final long serialVersionUID = 0L;
             value_ = input.readDouble();
             break;
           }
+          case 280: {
+
+            integralPart_ = input.readInt64();
+            break;
+          }
+          case 288: {
+
+            fractionalPart_ = input.readInt64();
+            break;
+          }
+          case 296: {
+
+            exponentPart_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -222,6 +237,39 @@ private static final long serialVersionUID = 0L;
     return value_;
   }
 
+  public static final int INTEGRAL_PART_FIELD_NUMBER = 35;
+  private long integralPart_;
+  /**
+   * <code>int64 integral_part = 35;</code>
+   * @return The integralPart.
+   */
+  @java.lang.Override
+  public long getIntegralPart() {
+    return integralPart_;
+  }
+
+  public static final int FRACTIONAL_PART_FIELD_NUMBER = 36;
+  private long fractionalPart_;
+  /**
+   * <code>int64 fractional_part = 36;</code>
+   * @return The fractionalPart.
+   */
+  @java.lang.Override
+  public long getFractionalPart() {
+    return fractionalPart_;
+  }
+
+  public static final int EXPONENT_PART_FIELD_NUMBER = 37;
+  private long exponentPart_;
+  /**
+   * <code>int64 exponent_part = 37;</code>
+   * @return The exponentPart.
+   */
+  @java.lang.Override
+  public long getExponentPart() {
+    return exponentPart_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -253,6 +301,15 @@ private static final long serialVersionUID = 0L;
     }
     if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
       output.writeDouble(30, value_);
+    }
+    if (integralPart_ != 0L) {
+      output.writeInt64(35, integralPart_);
+    }
+    if (fractionalPart_ != 0L) {
+      output.writeInt64(36, fractionalPart_);
+    }
+    if (exponentPart_ != 0L) {
+      output.writeInt64(37, exponentPart_);
     }
     unknownFields.writeTo(output);
   }
@@ -286,6 +343,18 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(30, value_);
+    }
+    if (integralPart_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(35, integralPart_);
+    }
+    if (fractionalPart_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(36, fractionalPart_);
+    }
+    if (exponentPart_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(37, exponentPart_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -321,6 +390,12 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getValue())
         != java.lang.Double.doubleToLongBits(
             other.getValue())) return false;
+    if (getIntegralPart()
+        != other.getIntegralPart()) return false;
+    if (getFractionalPart()
+        != other.getFractionalPart()) return false;
+    if (getExponentPart()
+        != other.getExponentPart()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -351,6 +426,15 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALUE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getValue()));
+    hash = (37 * hash) + INTEGRAL_PART_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getIntegralPart());
+    hash = (37 * hash) + FRACTIONAL_PART_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getFractionalPart());
+    hash = (37 * hash) + EXPONENT_PART_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getExponentPart());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -504,6 +588,12 @@ private static final long serialVersionUID = 0L;
 
       value_ = 0D;
 
+      integralPart_ = 0L;
+
+      fractionalPart_ = 0L;
+
+      exponentPart_ = 0L;
+
       return this;
     }
 
@@ -544,6 +634,9 @@ private static final long serialVersionUID = 0L;
       result.implicit_ = implicit_;
       result.isNegative_ = isNegative_;
       result.value_ = value_;
+      result.integralPart_ = integralPart_;
+      result.fractionalPart_ = fractionalPart_;
+      result.exponentPart_ = exponentPart_;
       onBuilt();
       return result;
     }
@@ -609,6 +702,15 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getValue() != 0D) {
         setValue(other.getValue());
+      }
+      if (other.getIntegralPart() != 0L) {
+        setIntegralPart(other.getIntegralPart());
+      }
+      if (other.getFractionalPart() != 0L) {
+        setFractionalPart(other.getFractionalPart());
+      }
+      if (other.getExponentPart() != 0L) {
+        setExponentPart(other.getExponentPart());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -997,6 +1099,99 @@ private static final long serialVersionUID = 0L;
     public Builder clearValue() {
       
       value_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private long integralPart_ ;
+    /**
+     * <code>int64 integral_part = 35;</code>
+     * @return The integralPart.
+     */
+    @java.lang.Override
+    public long getIntegralPart() {
+      return integralPart_;
+    }
+    /**
+     * <code>int64 integral_part = 35;</code>
+     * @param value The integralPart to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIntegralPart(long value) {
+      
+      integralPart_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 integral_part = 35;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIntegralPart() {
+      
+      integralPart_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long fractionalPart_ ;
+    /**
+     * <code>int64 fractional_part = 36;</code>
+     * @return The fractionalPart.
+     */
+    @java.lang.Override
+    public long getFractionalPart() {
+      return fractionalPart_;
+    }
+    /**
+     * <code>int64 fractional_part = 36;</code>
+     * @param value The fractionalPart to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFractionalPart(long value) {
+      
+      fractionalPart_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 fractional_part = 36;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFractionalPart() {
+      
+      fractionalPart_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long exponentPart_ ;
+    /**
+     * <code>int64 exponent_part = 37;</code>
+     * @return The exponentPart.
+     */
+    @java.lang.Override
+    public long getExponentPart() {
+      return exponentPart_;
+    }
+    /**
+     * <code>int64 exponent_part = 37;</code>
+     * @param value The exponentPart to set.
+     * @return This builder for chaining.
+     */
+    public Builder setExponentPart(long value) {
+      
+      exponentPart_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 exponent_part = 37;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearExponentPart() {
+      
+      exponentPart_ = 0L;
       onChanged();
       return this;
     }

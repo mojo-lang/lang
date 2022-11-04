@@ -17,4 +17,8 @@
 /// BuiltinFloatingPointType.
 type FloatLiteralExpr : NumericLiteralExpr {
     value: Float64 @30
+
+    integral_part: Int64  @35 //< the integer part of the floating number
+    fractional_part: Int64 @36 //< the fraction part of the floating number
+    exponent_part: Int64 @37 //< the exponent part of the floating number
 }
