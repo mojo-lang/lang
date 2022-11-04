@@ -14,7 +14,7 @@
                 },
                 "executeAtLeastOnce": {
                     "title": "mojo.core.Bool",
-                    "description": "A statement that is executed at least once and is re-executed each time the condition evaluates to true.\nequals to `repeate { statements } while( condition )` ",
+                    "description": "A statement that is executed at least once and is re-executed each time the condition evaluates to true.\nequals to `repeat { statements } while( condition )`",
                     "type": "boolean"
                 }
             }
