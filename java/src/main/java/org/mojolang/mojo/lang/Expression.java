@@ -30,463 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Expression(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            org.mojolang.mojo.lang.NullLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 1) {
-              subBuilder = ((org.mojolang.mojo.lang.NullLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.NullLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.NullLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 1;
-            break;
-          }
-          case 18: {
-            org.mojolang.mojo.lang.IntegerLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 2) {
-              subBuilder = ((org.mojolang.mojo.lang.IntegerLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.IntegerLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.IntegerLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 2;
-            break;
-          }
-          case 26: {
-            org.mojolang.mojo.lang.FloatLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 3) {
-              subBuilder = ((org.mojolang.mojo.lang.FloatLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.FloatLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.FloatLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 3;
-            break;
-          }
-          case 34: {
-            org.mojolang.mojo.lang.BoolLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 4) {
-              subBuilder = ((org.mojolang.mojo.lang.BoolLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.BoolLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.BoolLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 4;
-            break;
-          }
-          case 42: {
-            org.mojolang.mojo.lang.StringLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 5) {
-              subBuilder = ((org.mojolang.mojo.lang.StringLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.StringLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.StringLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 5;
-            break;
-          }
-          case 50: {
-            org.mojolang.mojo.lang.ObjectLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 6) {
-              subBuilder = ((org.mojolang.mojo.lang.ObjectLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ObjectLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ObjectLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 6;
-            break;
-          }
-          case 58: {
-            org.mojolang.mojo.lang.ArrayLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 7) {
-              subBuilder = ((org.mojolang.mojo.lang.ArrayLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ArrayLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ArrayLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 7;
-            break;
-          }
-          case 66: {
-            org.mojolang.mojo.lang.MapLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 8) {
-              subBuilder = ((org.mojolang.mojo.lang.MapLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.MapLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.MapLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 8;
-            break;
-          }
-          case 74: {
-            org.mojolang.mojo.lang.RangeLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 9) {
-              subBuilder = ((org.mojolang.mojo.lang.RangeLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.RangeLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.RangeLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 9;
-            break;
-          }
-          case 82: {
-            org.mojolang.mojo.lang.IdentifierExpr.Builder subBuilder = null;
-            if (expressionCase_ == 10) {
-              subBuilder = ((org.mojolang.mojo.lang.IdentifierExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.IdentifierExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.IdentifierExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 10;
-            break;
-          }
-          case 90: {
-            org.mojolang.mojo.lang.NumericSuffixLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 11) {
-              subBuilder = ((org.mojolang.mojo.lang.NumericSuffixLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.NumericSuffixLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.NumericSuffixLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 11;
-            break;
-          }
-          case 98: {
-            org.mojolang.mojo.lang.StringPrefixLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 12) {
-              subBuilder = ((org.mojolang.mojo.lang.StringPrefixLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.StringPrefixLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.StringPrefixLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 12;
-            break;
-          }
-          case 106: {
-            org.mojolang.mojo.lang.StringSuffixLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 13) {
-              subBuilder = ((org.mojolang.mojo.lang.StringSuffixLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.StringSuffixLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.StringSuffixLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 13;
-            break;
-          }
-          case 114: {
-            org.mojolang.mojo.lang.StructLiteralExpr.Builder subBuilder = null;
-            if (expressionCase_ == 14) {
-              subBuilder = ((org.mojolang.mojo.lang.StructLiteralExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.StructLiteralExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.StructLiteralExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 14;
-            break;
-          }
-          case 122: {
-            org.mojolang.mojo.lang.ClosureExpr.Builder subBuilder = null;
-            if (expressionCase_ == 15) {
-              subBuilder = ((org.mojolang.mojo.lang.ClosureExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ClosureExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ClosureExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 15;
-            break;
-          }
-          case 130: {
-            org.mojolang.mojo.lang.ParenthesizedExpr.Builder subBuilder = null;
-            if (expressionCase_ == 16) {
-              subBuilder = ((org.mojolang.mojo.lang.ParenthesizedExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ParenthesizedExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ParenthesizedExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 16;
-            break;
-          }
-          case 138: {
-            org.mojolang.mojo.lang.ImplicitMemberExpr.Builder subBuilder = null;
-            if (expressionCase_ == 17) {
-              subBuilder = ((org.mojolang.mojo.lang.ImplicitMemberExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ImplicitMemberExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ImplicitMemberExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 17;
-            break;
-          }
-          case 146: {
-            org.mojolang.mojo.lang.WildcardExpr.Builder subBuilder = null;
-            if (expressionCase_ == 18) {
-              subBuilder = ((org.mojolang.mojo.lang.WildcardExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.WildcardExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.WildcardExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 18;
-            break;
-          }
-          case 154: {
-            org.mojolang.mojo.lang.StructConstructionExpr.Builder subBuilder = null;
-            if (expressionCase_ == 19) {
-              subBuilder = ((org.mojolang.mojo.lang.StructConstructionExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.StructConstructionExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.StructConstructionExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 19;
-            break;
-          }
-          case 162: {
-            org.mojolang.mojo.lang.TupleExpr.Builder subBuilder = null;
-            if (expressionCase_ == 20) {
-              subBuilder = ((org.mojolang.mojo.lang.TupleExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.TupleExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.TupleExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 20;
-            break;
-          }
-          case 242: {
-            org.mojolang.mojo.lang.PrefixUnaryExpr.Builder subBuilder = null;
-            if (expressionCase_ == 30) {
-              subBuilder = ((org.mojolang.mojo.lang.PrefixUnaryExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.PrefixUnaryExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.PrefixUnaryExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 30;
-            break;
-          }
-          case 250: {
-            org.mojolang.mojo.lang.PostfixUnaryExpr.Builder subBuilder = null;
-            if (expressionCase_ == 31) {
-              subBuilder = ((org.mojolang.mojo.lang.PostfixUnaryExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.PostfixUnaryExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.PostfixUnaryExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 31;
-            break;
-          }
-          case 258: {
-            org.mojolang.mojo.lang.FunctionCallExpr.Builder subBuilder = null;
-            if (expressionCase_ == 32) {
-              subBuilder = ((org.mojolang.mojo.lang.FunctionCallExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.FunctionCallExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.FunctionCallExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 32;
-            break;
-          }
-          case 266: {
-            org.mojolang.mojo.lang.ExplicitMemberExpr.Builder subBuilder = null;
-            if (expressionCase_ == 33) {
-              subBuilder = ((org.mojolang.mojo.lang.ExplicitMemberExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ExplicitMemberExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ExplicitMemberExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 33;
-            break;
-          }
-          case 274: {
-            org.mojolang.mojo.lang.SubscriptExpr.Builder subBuilder = null;
-            if (expressionCase_ == 34) {
-              subBuilder = ((org.mojolang.mojo.lang.SubscriptExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.SubscriptExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.SubscriptExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 34;
-            break;
-          }
-          case 322: {
-            org.mojolang.mojo.lang.BinaryExpr.Builder subBuilder = null;
-            if (expressionCase_ == 40) {
-              subBuilder = ((org.mojolang.mojo.lang.BinaryExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.BinaryExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.BinaryExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 40;
-            break;
-          }
-          case 330: {
-            org.mojolang.mojo.lang.ConditionalExpr.Builder subBuilder = null;
-            if (expressionCase_ == 41) {
-              subBuilder = ((org.mojolang.mojo.lang.ConditionalExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ConditionalExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ConditionalExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 41;
-            break;
-          }
-          case 338: {
-            org.mojolang.mojo.lang.TypeCastingExpr.Builder subBuilder = null;
-            if (expressionCase_ == 42) {
-              subBuilder = ((org.mojolang.mojo.lang.TypeCastingExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.TypeCastingExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.TypeCastingExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 42;
-            break;
-          }
-          case 346: {
-            org.mojolang.mojo.lang.AssignmentExpr.Builder subBuilder = null;
-            if (expressionCase_ == 43) {
-              subBuilder = ((org.mojolang.mojo.lang.AssignmentExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.AssignmentExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.AssignmentExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 43;
-            break;
-          }
-          case 482: {
-            org.mojolang.mojo.lang.ErrorExpr.Builder subBuilder = null;
-            if (expressionCase_ == 60) {
-              subBuilder = ((org.mojolang.mojo.lang.ErrorExpr) expression_).toBuilder();
-            }
-            expression_ =
-                input.readMessage(org.mojolang.mojo.lang.ErrorExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.ErrorExpr) expression_);
-              expression_ = subBuilder.buildPartial();
-            }
-            expressionCase_ = 60;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_Expression_descriptor;
@@ -1631,7 +1174,7 @@ private static final long serialVersionUID = 0L;
     if (expressionCase_ == 60) {
       output.writeMessage(60, (org.mojolang.mojo.lang.ErrorExpr) expression_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1760,7 +1303,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(60, (org.mojolang.mojo.lang.ErrorExpr) expression_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1900,7 +1443,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2035,7 +1578,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2152,22 +1695,108 @@ private static final long serialVersionUID = 0L;
 
     // Construct using org.mojolang.mojo.lang.Expression.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (nullLiteralExprBuilder_ != null) {
+        nullLiteralExprBuilder_.clear();
+      }
+      if (integerLiteralExprBuilder_ != null) {
+        integerLiteralExprBuilder_.clear();
+      }
+      if (floatLiteralExprBuilder_ != null) {
+        floatLiteralExprBuilder_.clear();
+      }
+      if (boolLiteralExprBuilder_ != null) {
+        boolLiteralExprBuilder_.clear();
+      }
+      if (stringLiteralExprBuilder_ != null) {
+        stringLiteralExprBuilder_.clear();
+      }
+      if (objectLiteralExprBuilder_ != null) {
+        objectLiteralExprBuilder_.clear();
+      }
+      if (arrayLiteralExprBuilder_ != null) {
+        arrayLiteralExprBuilder_.clear();
+      }
+      if (mapLiteralExprBuilder_ != null) {
+        mapLiteralExprBuilder_.clear();
+      }
+      if (rangeLiteralExprBuilder_ != null) {
+        rangeLiteralExprBuilder_.clear();
+      }
+      if (identifierExprBuilder_ != null) {
+        identifierExprBuilder_.clear();
+      }
+      if (numericSuffixLiteralExprBuilder_ != null) {
+        numericSuffixLiteralExprBuilder_.clear();
+      }
+      if (stringPrefixLiteralExprBuilder_ != null) {
+        stringPrefixLiteralExprBuilder_.clear();
+      }
+      if (stringSuffixLiteralExprBuilder_ != null) {
+        stringSuffixLiteralExprBuilder_.clear();
+      }
+      if (structLiteralExprBuilder_ != null) {
+        structLiteralExprBuilder_.clear();
+      }
+      if (closureExprBuilder_ != null) {
+        closureExprBuilder_.clear();
+      }
+      if (parenthesizedExprBuilder_ != null) {
+        parenthesizedExprBuilder_.clear();
+      }
+      if (implicitMemberExprBuilder_ != null) {
+        implicitMemberExprBuilder_.clear();
+      }
+      if (wildcardExprBuilder_ != null) {
+        wildcardExprBuilder_.clear();
+      }
+      if (structConstructionExprBuilder_ != null) {
+        structConstructionExprBuilder_.clear();
+      }
+      if (tupleExprBuilder_ != null) {
+        tupleExprBuilder_.clear();
+      }
+      if (prefixUnaryExprBuilder_ != null) {
+        prefixUnaryExprBuilder_.clear();
+      }
+      if (postfixUnaryExprBuilder_ != null) {
+        postfixUnaryExprBuilder_.clear();
+      }
+      if (functionCallExprBuilder_ != null) {
+        functionCallExprBuilder_.clear();
+      }
+      if (explicitMemberExprBuilder_ != null) {
+        explicitMemberExprBuilder_.clear();
+      }
+      if (subscriptExprBuilder_ != null) {
+        subscriptExprBuilder_.clear();
+      }
+      if (binaryExprBuilder_ != null) {
+        binaryExprBuilder_.clear();
+      }
+      if (conditionalExprBuilder_ != null) {
+        conditionalExprBuilder_.clear();
+      }
+      if (typeCastingExprBuilder_ != null) {
+        typeCastingExprBuilder_.clear();
+      }
+      if (assignmentExprBuilder_ != null) {
+        assignmentExprBuilder_.clear();
+      }
+      if (errorExprBuilder_ != null) {
+        errorExprBuilder_.clear();
+      }
       expressionCase_ = 0;
       expression_ = null;
       return this;
@@ -2196,219 +1825,139 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.lang.Expression buildPartial() {
       org.mojolang.mojo.lang.Expression result = new org.mojolang.mojo.lang.Expression(this);
-      if (expressionCase_ == 1) {
-        if (nullLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = nullLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 2) {
-        if (integerLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = integerLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 3) {
-        if (floatLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = floatLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 4) {
-        if (boolLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = boolLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 5) {
-        if (stringLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = stringLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 6) {
-        if (objectLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = objectLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 7) {
-        if (arrayLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = arrayLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 8) {
-        if (mapLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = mapLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 9) {
-        if (rangeLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = rangeLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 10) {
-        if (identifierExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = identifierExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 11) {
-        if (numericSuffixLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = numericSuffixLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 12) {
-        if (stringPrefixLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = stringPrefixLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 13) {
-        if (stringSuffixLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = stringSuffixLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 14) {
-        if (structLiteralExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = structLiteralExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 15) {
-        if (closureExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = closureExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 16) {
-        if (parenthesizedExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = parenthesizedExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 17) {
-        if (implicitMemberExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = implicitMemberExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 18) {
-        if (wildcardExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = wildcardExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 19) {
-        if (structConstructionExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = structConstructionExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 20) {
-        if (tupleExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = tupleExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 30) {
-        if (prefixUnaryExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = prefixUnaryExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 31) {
-        if (postfixUnaryExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = postfixUnaryExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 32) {
-        if (functionCallExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = functionCallExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 33) {
-        if (explicitMemberExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = explicitMemberExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 34) {
-        if (subscriptExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = subscriptExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 40) {
-        if (binaryExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = binaryExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 41) {
-        if (conditionalExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = conditionalExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 42) {
-        if (typeCastingExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = typeCastingExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 43) {
-        if (assignmentExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = assignmentExprBuilder_.build();
-        }
-      }
-      if (expressionCase_ == 60) {
-        if (errorExprBuilder_ == null) {
-          result.expression_ = expression_;
-        } else {
-          result.expression_ = errorExprBuilder_.build();
-        }
-      }
-      result.expressionCase_ = expressionCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(org.mojolang.mojo.lang.Expression result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(org.mojolang.mojo.lang.Expression result) {
+      result.expressionCase_ = expressionCase_;
+      result.expression_ = this.expression_;
+      if (expressionCase_ == 1 &&
+          nullLiteralExprBuilder_ != null) {
+        result.expression_ = nullLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 2 &&
+          integerLiteralExprBuilder_ != null) {
+        result.expression_ = integerLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 3 &&
+          floatLiteralExprBuilder_ != null) {
+        result.expression_ = floatLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 4 &&
+          boolLiteralExprBuilder_ != null) {
+        result.expression_ = boolLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 5 &&
+          stringLiteralExprBuilder_ != null) {
+        result.expression_ = stringLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 6 &&
+          objectLiteralExprBuilder_ != null) {
+        result.expression_ = objectLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 7 &&
+          arrayLiteralExprBuilder_ != null) {
+        result.expression_ = arrayLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 8 &&
+          mapLiteralExprBuilder_ != null) {
+        result.expression_ = mapLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 9 &&
+          rangeLiteralExprBuilder_ != null) {
+        result.expression_ = rangeLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 10 &&
+          identifierExprBuilder_ != null) {
+        result.expression_ = identifierExprBuilder_.build();
+      }
+      if (expressionCase_ == 11 &&
+          numericSuffixLiteralExprBuilder_ != null) {
+        result.expression_ = numericSuffixLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 12 &&
+          stringPrefixLiteralExprBuilder_ != null) {
+        result.expression_ = stringPrefixLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 13 &&
+          stringSuffixLiteralExprBuilder_ != null) {
+        result.expression_ = stringSuffixLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 14 &&
+          structLiteralExprBuilder_ != null) {
+        result.expression_ = structLiteralExprBuilder_.build();
+      }
+      if (expressionCase_ == 15 &&
+          closureExprBuilder_ != null) {
+        result.expression_ = closureExprBuilder_.build();
+      }
+      if (expressionCase_ == 16 &&
+          parenthesizedExprBuilder_ != null) {
+        result.expression_ = parenthesizedExprBuilder_.build();
+      }
+      if (expressionCase_ == 17 &&
+          implicitMemberExprBuilder_ != null) {
+        result.expression_ = implicitMemberExprBuilder_.build();
+      }
+      if (expressionCase_ == 18 &&
+          wildcardExprBuilder_ != null) {
+        result.expression_ = wildcardExprBuilder_.build();
+      }
+      if (expressionCase_ == 19 &&
+          structConstructionExprBuilder_ != null) {
+        result.expression_ = structConstructionExprBuilder_.build();
+      }
+      if (expressionCase_ == 20 &&
+          tupleExprBuilder_ != null) {
+        result.expression_ = tupleExprBuilder_.build();
+      }
+      if (expressionCase_ == 30 &&
+          prefixUnaryExprBuilder_ != null) {
+        result.expression_ = prefixUnaryExprBuilder_.build();
+      }
+      if (expressionCase_ == 31 &&
+          postfixUnaryExprBuilder_ != null) {
+        result.expression_ = postfixUnaryExprBuilder_.build();
+      }
+      if (expressionCase_ == 32 &&
+          functionCallExprBuilder_ != null) {
+        result.expression_ = functionCallExprBuilder_.build();
+      }
+      if (expressionCase_ == 33 &&
+          explicitMemberExprBuilder_ != null) {
+        result.expression_ = explicitMemberExprBuilder_.build();
+      }
+      if (expressionCase_ == 34 &&
+          subscriptExprBuilder_ != null) {
+        result.expression_ = subscriptExprBuilder_.build();
+      }
+      if (expressionCase_ == 40 &&
+          binaryExprBuilder_ != null) {
+        result.expression_ = binaryExprBuilder_.build();
+      }
+      if (expressionCase_ == 41 &&
+          conditionalExprBuilder_ != null) {
+        result.expression_ = conditionalExprBuilder_.build();
+      }
+      if (expressionCase_ == 42 &&
+          typeCastingExprBuilder_ != null) {
+        result.expression_ = typeCastingExprBuilder_.build();
+      }
+      if (expressionCase_ == 43 &&
+          assignmentExprBuilder_ != null) {
+        result.expression_ = assignmentExprBuilder_.build();
+      }
+      if (expressionCase_ == 60 &&
+          errorExprBuilder_ != null) {
+        result.expression_ = errorExprBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2580,7 +2129,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2595,17 +2144,240 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.lang.Expression parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNullLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIntegerLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFloatLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getBoolLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getStringLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getObjectLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getArrayLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getMapLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getRangeLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getIdentifierExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getNumericSuffixLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getStringPrefixLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getStringSuffixLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getStructLiteralExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 14;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getClosureExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getParenthesizedExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 16;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getImplicitMemberExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 17;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getWildcardExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 18;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getStructConstructionExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 19;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getTupleExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 20;
+              break;
+            } // case 162
+            case 242: {
+              input.readMessage(
+                  getPrefixUnaryExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 30;
+              break;
+            } // case 242
+            case 250: {
+              input.readMessage(
+                  getPostfixUnaryExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 31;
+              break;
+            } // case 250
+            case 258: {
+              input.readMessage(
+                  getFunctionCallExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 32;
+              break;
+            } // case 258
+            case 266: {
+              input.readMessage(
+                  getExplicitMemberExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 33;
+              break;
+            } // case 266
+            case 274: {
+              input.readMessage(
+                  getSubscriptExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 34;
+              break;
+            } // case 274
+            case 322: {
+              input.readMessage(
+                  getBinaryExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 40;
+              break;
+            } // case 322
+            case 330: {
+              input.readMessage(
+                  getConditionalExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 41;
+              break;
+            } // case 330
+            case 338: {
+              input.readMessage(
+                  getTypeCastingExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 42;
+              break;
+            } // case 338
+            case 346: {
+              input.readMessage(
+                  getAssignmentExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 43;
+              break;
+            } // case 346
+            case 482: {
+              input.readMessage(
+                  getErrorExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expressionCase_ = 60;
+              break;
+            } // case 482
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.lang.Expression) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int expressionCase_ = 0;
@@ -2623,6 +2395,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.NullLiteralExpr, org.mojolang.mojo.lang.NullLiteralExpr.Builder, org.mojolang.mojo.lang.NullLiteralExprOrBuilder> nullLiteralExprBuilder_;
@@ -2698,8 +2471,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 1) {
           nullLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          nullLiteralExprBuilder_.setMessage(value);
         }
-        nullLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 1;
       return this;
@@ -2761,7 +2535,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 1;
-      onChanged();;
+      onChanged();
       return nullLiteralExprBuilder_;
     }
 
@@ -2839,8 +2613,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 2) {
           integerLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          integerLiteralExprBuilder_.setMessage(value);
         }
-        integerLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 2;
       return this;
@@ -2902,7 +2677,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 2;
-      onChanged();;
+      onChanged();
       return integerLiteralExprBuilder_;
     }
 
@@ -2980,8 +2755,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 3) {
           floatLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          floatLiteralExprBuilder_.setMessage(value);
         }
-        floatLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 3;
       return this;
@@ -3043,7 +2819,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 3;
-      onChanged();;
+      onChanged();
       return floatLiteralExprBuilder_;
     }
 
@@ -3121,8 +2897,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 4) {
           boolLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          boolLiteralExprBuilder_.setMessage(value);
         }
-        boolLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 4;
       return this;
@@ -3184,7 +2961,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 4;
-      onChanged();;
+      onChanged();
       return boolLiteralExprBuilder_;
     }
 
@@ -3262,8 +3039,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 5) {
           stringLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          stringLiteralExprBuilder_.setMessage(value);
         }
-        stringLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 5;
       return this;
@@ -3325,7 +3103,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 5;
-      onChanged();;
+      onChanged();
       return stringLiteralExprBuilder_;
     }
 
@@ -3403,8 +3181,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 6) {
           objectLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          objectLiteralExprBuilder_.setMessage(value);
         }
-        objectLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 6;
       return this;
@@ -3466,7 +3245,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 6;
-      onChanged();;
+      onChanged();
       return objectLiteralExprBuilder_;
     }
 
@@ -3544,8 +3323,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 7) {
           arrayLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          arrayLiteralExprBuilder_.setMessage(value);
         }
-        arrayLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 7;
       return this;
@@ -3607,7 +3387,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 7;
-      onChanged();;
+      onChanged();
       return arrayLiteralExprBuilder_;
     }
 
@@ -3685,8 +3465,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 8) {
           mapLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          mapLiteralExprBuilder_.setMessage(value);
         }
-        mapLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 8;
       return this;
@@ -3748,7 +3529,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 8;
-      onChanged();;
+      onChanged();
       return mapLiteralExprBuilder_;
     }
 
@@ -3826,8 +3607,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 9) {
           rangeLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          rangeLiteralExprBuilder_.setMessage(value);
         }
-        rangeLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 9;
       return this;
@@ -3889,7 +3671,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 9;
-      onChanged();;
+      onChanged();
       return rangeLiteralExprBuilder_;
     }
 
@@ -3967,8 +3749,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 10) {
           identifierExprBuilder_.mergeFrom(value);
+        } else {
+          identifierExprBuilder_.setMessage(value);
         }
-        identifierExprBuilder_.setMessage(value);
       }
       expressionCase_ = 10;
       return this;
@@ -4030,7 +3813,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 10;
-      onChanged();;
+      onChanged();
       return identifierExprBuilder_;
     }
 
@@ -4108,8 +3891,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 11) {
           numericSuffixLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          numericSuffixLiteralExprBuilder_.setMessage(value);
         }
-        numericSuffixLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 11;
       return this;
@@ -4171,7 +3955,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 11;
-      onChanged();;
+      onChanged();
       return numericSuffixLiteralExprBuilder_;
     }
 
@@ -4249,8 +4033,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 12) {
           stringPrefixLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          stringPrefixLiteralExprBuilder_.setMessage(value);
         }
-        stringPrefixLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 12;
       return this;
@@ -4312,7 +4097,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 12;
-      onChanged();;
+      onChanged();
       return stringPrefixLiteralExprBuilder_;
     }
 
@@ -4390,8 +4175,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 13) {
           stringSuffixLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          stringSuffixLiteralExprBuilder_.setMessage(value);
         }
-        stringSuffixLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 13;
       return this;
@@ -4453,7 +4239,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 13;
-      onChanged();;
+      onChanged();
       return stringSuffixLiteralExprBuilder_;
     }
 
@@ -4531,8 +4317,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 14) {
           structLiteralExprBuilder_.mergeFrom(value);
+        } else {
+          structLiteralExprBuilder_.setMessage(value);
         }
-        structLiteralExprBuilder_.setMessage(value);
       }
       expressionCase_ = 14;
       return this;
@@ -4594,7 +4381,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 14;
-      onChanged();;
+      onChanged();
       return structLiteralExprBuilder_;
     }
 
@@ -4672,8 +4459,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 15) {
           closureExprBuilder_.mergeFrom(value);
+        } else {
+          closureExprBuilder_.setMessage(value);
         }
-        closureExprBuilder_.setMessage(value);
       }
       expressionCase_ = 15;
       return this;
@@ -4735,7 +4523,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 15;
-      onChanged();;
+      onChanged();
       return closureExprBuilder_;
     }
 
@@ -4813,8 +4601,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 16) {
           parenthesizedExprBuilder_.mergeFrom(value);
+        } else {
+          parenthesizedExprBuilder_.setMessage(value);
         }
-        parenthesizedExprBuilder_.setMessage(value);
       }
       expressionCase_ = 16;
       return this;
@@ -4876,7 +4665,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 16;
-      onChanged();;
+      onChanged();
       return parenthesizedExprBuilder_;
     }
 
@@ -4954,8 +4743,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 17) {
           implicitMemberExprBuilder_.mergeFrom(value);
+        } else {
+          implicitMemberExprBuilder_.setMessage(value);
         }
-        implicitMemberExprBuilder_.setMessage(value);
       }
       expressionCase_ = 17;
       return this;
@@ -5017,7 +4807,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 17;
-      onChanged();;
+      onChanged();
       return implicitMemberExprBuilder_;
     }
 
@@ -5095,8 +4885,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 18) {
           wildcardExprBuilder_.mergeFrom(value);
+        } else {
+          wildcardExprBuilder_.setMessage(value);
         }
-        wildcardExprBuilder_.setMessage(value);
       }
       expressionCase_ = 18;
       return this;
@@ -5158,7 +4949,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 18;
-      onChanged();;
+      onChanged();
       return wildcardExprBuilder_;
     }
 
@@ -5236,8 +5027,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 19) {
           structConstructionExprBuilder_.mergeFrom(value);
+        } else {
+          structConstructionExprBuilder_.setMessage(value);
         }
-        structConstructionExprBuilder_.setMessage(value);
       }
       expressionCase_ = 19;
       return this;
@@ -5299,7 +5091,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 19;
-      onChanged();;
+      onChanged();
       return structConstructionExprBuilder_;
     }
 
@@ -5377,8 +5169,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 20) {
           tupleExprBuilder_.mergeFrom(value);
+        } else {
+          tupleExprBuilder_.setMessage(value);
         }
-        tupleExprBuilder_.setMessage(value);
       }
       expressionCase_ = 20;
       return this;
@@ -5440,7 +5233,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 20;
-      onChanged();;
+      onChanged();
       return tupleExprBuilder_;
     }
 
@@ -5518,8 +5311,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 30) {
           prefixUnaryExprBuilder_.mergeFrom(value);
+        } else {
+          prefixUnaryExprBuilder_.setMessage(value);
         }
-        prefixUnaryExprBuilder_.setMessage(value);
       }
       expressionCase_ = 30;
       return this;
@@ -5581,7 +5375,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 30;
-      onChanged();;
+      onChanged();
       return prefixUnaryExprBuilder_;
     }
 
@@ -5659,8 +5453,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 31) {
           postfixUnaryExprBuilder_.mergeFrom(value);
+        } else {
+          postfixUnaryExprBuilder_.setMessage(value);
         }
-        postfixUnaryExprBuilder_.setMessage(value);
       }
       expressionCase_ = 31;
       return this;
@@ -5722,7 +5517,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 31;
-      onChanged();;
+      onChanged();
       return postfixUnaryExprBuilder_;
     }
 
@@ -5800,8 +5595,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 32) {
           functionCallExprBuilder_.mergeFrom(value);
+        } else {
+          functionCallExprBuilder_.setMessage(value);
         }
-        functionCallExprBuilder_.setMessage(value);
       }
       expressionCase_ = 32;
       return this;
@@ -5863,7 +5659,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 32;
-      onChanged();;
+      onChanged();
       return functionCallExprBuilder_;
     }
 
@@ -5941,8 +5737,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 33) {
           explicitMemberExprBuilder_.mergeFrom(value);
+        } else {
+          explicitMemberExprBuilder_.setMessage(value);
         }
-        explicitMemberExprBuilder_.setMessage(value);
       }
       expressionCase_ = 33;
       return this;
@@ -6004,7 +5801,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 33;
-      onChanged();;
+      onChanged();
       return explicitMemberExprBuilder_;
     }
 
@@ -6082,8 +5879,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 34) {
           subscriptExprBuilder_.mergeFrom(value);
+        } else {
+          subscriptExprBuilder_.setMessage(value);
         }
-        subscriptExprBuilder_.setMessage(value);
       }
       expressionCase_ = 34;
       return this;
@@ -6145,7 +5943,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 34;
-      onChanged();;
+      onChanged();
       return subscriptExprBuilder_;
     }
 
@@ -6223,8 +6021,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 40) {
           binaryExprBuilder_.mergeFrom(value);
+        } else {
+          binaryExprBuilder_.setMessage(value);
         }
-        binaryExprBuilder_.setMessage(value);
       }
       expressionCase_ = 40;
       return this;
@@ -6286,7 +6085,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 40;
-      onChanged();;
+      onChanged();
       return binaryExprBuilder_;
     }
 
@@ -6364,8 +6163,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 41) {
           conditionalExprBuilder_.mergeFrom(value);
+        } else {
+          conditionalExprBuilder_.setMessage(value);
         }
-        conditionalExprBuilder_.setMessage(value);
       }
       expressionCase_ = 41;
       return this;
@@ -6427,7 +6227,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 41;
-      onChanged();;
+      onChanged();
       return conditionalExprBuilder_;
     }
 
@@ -6505,8 +6305,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 42) {
           typeCastingExprBuilder_.mergeFrom(value);
+        } else {
+          typeCastingExprBuilder_.setMessage(value);
         }
-        typeCastingExprBuilder_.setMessage(value);
       }
       expressionCase_ = 42;
       return this;
@@ -6568,7 +6369,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 42;
-      onChanged();;
+      onChanged();
       return typeCastingExprBuilder_;
     }
 
@@ -6646,8 +6447,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 43) {
           assignmentExprBuilder_.mergeFrom(value);
+        } else {
+          assignmentExprBuilder_.setMessage(value);
         }
-        assignmentExprBuilder_.setMessage(value);
       }
       expressionCase_ = 43;
       return this;
@@ -6709,7 +6511,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 43;
-      onChanged();;
+      onChanged();
       return assignmentExprBuilder_;
     }
 
@@ -6787,8 +6589,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (expressionCase_ == 60) {
           errorExprBuilder_.mergeFrom(value);
+        } else {
+          errorExprBuilder_.setMessage(value);
         }
-        errorExprBuilder_.setMessage(value);
       }
       expressionCase_ = 60;
       return this;
@@ -6850,7 +6653,7 @@ private static final long serialVersionUID = 0L;
         expression_ = null;
       }
       expressionCase_ = 60;
-      onChanged();;
+      onChanged();
       return errorExprBuilder_;
     }
     @java.lang.Override
@@ -6886,7 +6689,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Expression(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -283,14 +283,14 @@ public interface PackageOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.Package.Requirement&gt; dependencies = 30;</code>
    */
-
-  org.mojolang.mojo.lang.Package.Requirement getDependenciesOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.Package.Requirement getDependenciesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.Package.Requirement defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.Package.Requirement defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.Package.Requirement&gt; dependencies = 30;</code>
    */
-
   org.mojolang.mojo.lang.Package.Requirement getDependenciesOrThrow(
       java.lang.String key);
 
@@ -317,14 +317,14 @@ public interface PackageOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.Package&gt; resolved_dependencies = 31;</code>
    */
-
-  org.mojolang.mojo.lang.Package getResolvedDependenciesOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.Package getResolvedDependenciesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.Package defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.Package defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.Package&gt; resolved_dependencies = 31;</code>
    */
-
   org.mojolang.mojo.lang.Package getResolvedDependenciesOrThrow(
       java.lang.String key);
 }

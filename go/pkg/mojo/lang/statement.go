@@ -103,12 +103,36 @@ func NewFunctionDeclStatement(decl *FunctionDecl) *Statement {
 	}
 }
 
+func NewConstructorDeclStatement(decl *ConstructorDecl) *Statement {
+	return &Statement{
+		Statement: &Statement_Declaration{
+			Declaration: &Declaration{
+				Declaration: &Declaration_ConstructorDecl{
+					ConstructorDecl: decl,
+				},
+			},
+		},
+	}
+}
+
 func NewVariableDeclStatement(decl *VariableDecl) *Statement {
 	return &Statement{
 		Statement: &Statement_Declaration{
 			Declaration: &Declaration{
 				Declaration: &Declaration_VariableDecl{
 					VariableDecl: decl,
+				},
+			},
+		},
+	}
+}
+
+func NewConstantDeclStatement(decl *ConstantDecl) *Statement {
+	return &Statement{
+		Statement: &Statement_Declaration{
+			Declaration: &Declaration{
+				Declaration: &Declaration_ConstantDecl{
+					ConstantDecl: decl,
 				},
 			},
 		},

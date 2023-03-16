@@ -71,6 +71,12 @@ public interface SourceFileOrBuilder extends
       int index);
 
   /**
+   * <code>bool implicit = 5;</code>
+   * @return The implicit.
+   */
+  boolean getImplicit();
+
+  /**
    * <code>string package_name = 7;</code>
    * @return The packageName.
    */

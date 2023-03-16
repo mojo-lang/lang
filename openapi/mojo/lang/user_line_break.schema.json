@@ -1,5 +1,5 @@
 {
-    "title": "mojo.lang.LineBreakComment",
+    "title": "mojo.lang.UserLineBreak",
     "description": "user line break before a ValueDecl in struct or enum scope, or statement in function/lamda scope",
     "type": "object",
     "properties": {

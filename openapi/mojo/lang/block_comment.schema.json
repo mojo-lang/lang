@@ -3,10 +3,15 @@
     "description": "",
     "type": "object",
     "properties": {
+        "content": {
+            "title": "mojo.core.String",
+            "description": "the content of the block comment",
+            "type": "string"
+        },
         "endPosition": {
             "$ref": "#/components/schemas/mojo.lang.Position"
         },
-        "headEmbeded": {
+        "headEmbedded": {
             "title": "mojo.core.Bool",
             "description": "the head /* is after some code in the same line",
             "type": "boolean"
@@ -14,15 +19,10 @@
         "startPosition": {
             "$ref": "#/components/schemas/mojo.lang.Position"
         },
-        "tailEmbeded": {
+        "tailEmbedded": {
             "title": "mojo.core.Bool",
             "description": "the tail */ is before some code in the same line",
             "type": "boolean"
-        },
-        "text": {
-            "title": "mojo.core.String",
-            "description": "the content of the block comment",
-            "type": "string"
         }
     }
 }

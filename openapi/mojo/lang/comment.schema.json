@@ -5,10 +5,13 @@
             "$ref": "#/components/schemas/mojo.lang.BlockComment"
         },
         {
+            "$ref": "#/components/schemas/mojo.lang.LineComment"
+        },
+        {
             "$ref": "#/components/schemas/mojo.lang.MultiLineComment"
         },
         {
-            "$ref": "#/components/schemas/mojo.lang.LineBreakComment"
+            "$ref": "#/components/schemas/mojo.lang.UserLineBreak"
         },
         {
             "$ref": "#/components/schemas/mojo.lang.Document"

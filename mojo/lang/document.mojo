@@ -27,7 +27,7 @@ type Document {
         private: Bool @4
 
         /// the content of the line comment, remove the prefix and the EOL
-        text: String @10
+        content: String @10
     }
 
     /// position of first character belonging to the Document

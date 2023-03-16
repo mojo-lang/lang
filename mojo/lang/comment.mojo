@@ -15,9 +15,10 @@
 @discriminator('@type')
 @label_format('{}')
 type Comment = BlockComment @1 //< block comment using /**/
-             | MultiLineComment @2 //< continuous multi-line comment
-             | LineBreakComment @3 //< user line break comment
-             | Document @4 //< free floating document
+             | LineComment  @2 //< single line comment
+             | MultiLineComment @3 //< continuous multi-line comment
+             | UserLineBreak @4 //< user line break
+             | Document @5 //< free floating document
 
 type BlockComment {
     /// position of first character belonging to the Document
@@ -27,13 +28,13 @@ type BlockComment {
     end_position: Position @2
 
     /// the content of the block comment
-    text: String @10
+    content: String @10
 
     /// the head /* is after some code in the same line
-    head_embeded: Bool @13
+    head_embedded: Bool @13
 
     /// the tail */ is before some code in the same line
-    tail_embeded: Bool @14
+    tail_embedded: Bool @14
 }
 
 type LineComment {
@@ -43,9 +44,11 @@ type LineComment {
     /// position of first character immediately after the LineComment
     end_position: Position @2
 
+    /// following after the decl, but not at the beginning of the line
     following: Bool @3
 
-    text: String @10
+    /// the content of the line comment
+    content: String @10
 }
 
 type MultiLineComment {
@@ -59,10 +62,10 @@ type MultiLineComment {
 }
 
 /// user line break before a ValueDecl in struct or enum scope, or statement in function/lamda scope
-type LineBreakComment {
-    /// position of first character belonging to the LineBreakComment
+type UserLineBreak {
+    /// position of first character belonging to the UserLineBreak
     start_position: Position @1
 
-    /// position of first character immediately after the LineBreakComment
+    /// position of first character immediately after the UserLineBreak
     end_position: Position @2
 }

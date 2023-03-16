@@ -3,8 +3,8 @@
 
 package org.mojolang.mojo.lang;
 
-public interface LineCommentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:mojo.lang.LineComment)
+public interface UserLineBreakOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:mojo.lang.UserLineBreak)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -36,22 +36,4 @@ public interface LineCommentOrBuilder extends
    * <code>.mojo.lang.Position end_position = 2;</code>
    */
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
-
-  /**
-   * <code>bool following = 3;</code>
-   * @return The following.
-   */
-  boolean getFollowing();
-
-  /**
-   * <code>string content = 10;</code>
-   * @return The content.
-   */
-  java.lang.String getContent();
-  /**
-   * <code>string content = 10;</code>
-   * @return The bytes for content.
-   */
-  com.google.protobuf.ByteString
-      getContentBytes();
 }

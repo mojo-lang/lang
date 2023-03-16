@@ -38,26 +38,26 @@ public interface BlockCommentOrBuilder extends
   org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder();
 
   /**
-   * <code>string text = 10;</code>
-   * @return The text.
+   * <code>string content = 10;</code>
+   * @return The content.
    */
-  java.lang.String getText();
+  java.lang.String getContent();
   /**
-   * <code>string text = 10;</code>
-   * @return The bytes for text.
+   * <code>string content = 10;</code>
+   * @return The bytes for content.
    */
   com.google.protobuf.ByteString
-      getTextBytes();
+      getContentBytes();
 
   /**
-   * <code>bool head_embeded = 13;</code>
-   * @return The headEmbeded.
+   * <code>bool head_embedded = 13;</code>
+   * @return The headEmbedded.
    */
-  boolean getHeadEmbeded();
+  boolean getHeadEmbedded();
 
   /**
-   * <code>bool tail_embeded = 14;</code>
-   * @return The tailEmbeded.
+   * <code>bool tail_embedded = 14;</code>
+   * @return The tailEmbedded.
    */
-  boolean getTailEmbeded();
+  boolean getTailEmbedded();
 }

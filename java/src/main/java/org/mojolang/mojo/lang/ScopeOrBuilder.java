@@ -30,14 +30,14 @@ public interface ScopeOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.Identifier&gt; identifiers = 1;</code>
    */
-
-  org.mojolang.mojo.lang.Identifier getIdentifiersOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.Identifier getIdentifiersOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.Identifier defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.Identifier defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.Identifier&gt; identifiers = 1;</code>
    */
-
   org.mojolang.mojo.lang.Identifier getIdentifiersOrThrow(
       java.lang.String key);
 

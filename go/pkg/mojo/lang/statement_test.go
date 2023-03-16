@@ -77,3 +77,13 @@ func TestStatement_SetEndPosition(t *testing.T) {
 	assert.Equal(t, int64(3), decl.EndPosition.Column)
 	assert.NotEmpty(t, decl.EndPosition.LeadingComments)
 }
+
+func TestNewConstructorDeclStatement(t *testing.T) {
+	stmt := NewConstructorDeclStatement(&ConstructorDecl{Name: "Foo"})
+	assert.Equal(t, "Foo", stmt.GetDeclaration().GetConstructorDecl().GetName())
+}
+
+func TestNewDeclarationStatement(t *testing.T) {
+	stmt := NewDeclarationStatement(NewStructDeclaration(&StructDecl{Name: "Foo"}))
+	assert.Equal(t, "Foo", stmt.GetDeclaration().GetStructDecl().GetName())
+}

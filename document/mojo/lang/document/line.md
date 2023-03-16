@@ -4,4 +4,4 @@
 | `endPosition` | `mojo.lang.Position` |  | N |  | position of first character immediately after the LineDocument |
 | `following` | `boolean` |  | N |  | following after the decl, but not at the beginning of the line |
 | `private` | `boolean` |  | N |  | private or inner document, which will not to publish to public |
-| `text` | `string` |  | N |  | the content of the line comment, remove the prefix and the EOL |
+| `content` | `string` |  | N |  | the content of the line comment, remove the prefix and the EOL |

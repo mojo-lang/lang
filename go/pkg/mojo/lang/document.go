@@ -27,10 +27,10 @@ func (x *Document) GetContent() string {
 	if x != nil {
 		content := bytes.Buffer{}
 		for i, line := range x.Lines {
-			if content.Len() == 0 && len(line.Text) == 0 {
+			if content.Len() == 0 && len(line.Content) == 0 {
 				continue
 			}
-			content.WriteString(line.Text)
+			content.WriteString(line.Content)
 
 			if i < len(x.Lines)-1 {
 				content.WriteString("\n")

@@ -30,99 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Comment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            org.mojolang.mojo.lang.BlockComment.Builder subBuilder = null;
-            if (commentCase_ == 1) {
-              subBuilder = ((org.mojolang.mojo.lang.BlockComment) comment_).toBuilder();
-            }
-            comment_ =
-                input.readMessage(org.mojolang.mojo.lang.BlockComment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.BlockComment) comment_);
-              comment_ = subBuilder.buildPartial();
-            }
-            commentCase_ = 1;
-            break;
-          }
-          case 18: {
-            org.mojolang.mojo.lang.MultiLineComment.Builder subBuilder = null;
-            if (commentCase_ == 2) {
-              subBuilder = ((org.mojolang.mojo.lang.MultiLineComment) comment_).toBuilder();
-            }
-            comment_ =
-                input.readMessage(org.mojolang.mojo.lang.MultiLineComment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.MultiLineComment) comment_);
-              comment_ = subBuilder.buildPartial();
-            }
-            commentCase_ = 2;
-            break;
-          }
-          case 26: {
-            org.mojolang.mojo.lang.LineBreakComment.Builder subBuilder = null;
-            if (commentCase_ == 3) {
-              subBuilder = ((org.mojolang.mojo.lang.LineBreakComment) comment_).toBuilder();
-            }
-            comment_ =
-                input.readMessage(org.mojolang.mojo.lang.LineBreakComment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.LineBreakComment) comment_);
-              comment_ = subBuilder.buildPartial();
-            }
-            commentCase_ = 3;
-            break;
-          }
-          case 34: {
-            org.mojolang.mojo.lang.Document.Builder subBuilder = null;
-            if (commentCase_ == 4) {
-              subBuilder = ((org.mojolang.mojo.lang.Document) comment_).toBuilder();
-            }
-            comment_ =
-                input.readMessage(org.mojolang.mojo.lang.Document.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((org.mojolang.mojo.lang.Document) comment_);
-              comment_ = subBuilder.buildPartial();
-            }
-            commentCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_Comment_descriptor;
@@ -142,9 +49,10 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     BLOCK_COMMENT(1),
-    MULTI_LINE_COMMENT(2),
-    LINE_BREAK_COMMENT(3),
-    DOCUMENT(4),
+    LINE_COMMENT(2),
+    MULTI_LINE_COMMENT(3),
+    USER_LINE_BREAK(4),
+    DOCUMENT(5),
     COMMENT_NOT_SET(0);
     private final int value;
     private CommentCase(int value) {
@@ -163,9 +71,10 @@ private static final long serialVersionUID = 0L;
     public static CommentCase forNumber(int value) {
       switch (value) {
         case 1: return BLOCK_COMMENT;
-        case 2: return MULTI_LINE_COMMENT;
-        case 3: return LINE_BREAK_COMMENT;
-        case 4: return DOCUMENT;
+        case 2: return LINE_COMMENT;
+        case 3: return MULTI_LINE_COMMENT;
+        case 4: return USER_LINE_BREAK;
+        case 5: return DOCUMENT;
         case 0: return COMMENT_NOT_SET;
         default: return null;
       }
@@ -212,94 +121,125 @@ private static final long serialVersionUID = 0L;
     return org.mojolang.mojo.lang.BlockComment.getDefaultInstance();
   }
 
-  public static final int MULTI_LINE_COMMENT_FIELD_NUMBER = 2;
+  public static final int LINE_COMMENT_FIELD_NUMBER = 2;
   /**
-   * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+   * <code>.mojo.lang.LineComment line_comment = 2;</code>
+   * @return Whether the lineComment field is set.
+   */
+  @java.lang.Override
+  public boolean hasLineComment() {
+    return commentCase_ == 2;
+  }
+  /**
+   * <code>.mojo.lang.LineComment line_comment = 2;</code>
+   * @return The lineComment.
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.LineComment getLineComment() {
+    if (commentCase_ == 2) {
+       return (org.mojolang.mojo.lang.LineComment) comment_;
+    }
+    return org.mojolang.mojo.lang.LineComment.getDefaultInstance();
+  }
+  /**
+   * <code>.mojo.lang.LineComment line_comment = 2;</code>
+   */
+  @java.lang.Override
+  public org.mojolang.mojo.lang.LineCommentOrBuilder getLineCommentOrBuilder() {
+    if (commentCase_ == 2) {
+       return (org.mojolang.mojo.lang.LineComment) comment_;
+    }
+    return org.mojolang.mojo.lang.LineComment.getDefaultInstance();
+  }
+
+  public static final int MULTI_LINE_COMMENT_FIELD_NUMBER = 3;
+  /**
+   * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
    * @return Whether the multiLineComment field is set.
    */
   @java.lang.Override
   public boolean hasMultiLineComment() {
-    return commentCase_ == 2;
+    return commentCase_ == 3;
   }
   /**
-   * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+   * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
    * @return The multiLineComment.
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.MultiLineComment getMultiLineComment() {
-    if (commentCase_ == 2) {
+    if (commentCase_ == 3) {
        return (org.mojolang.mojo.lang.MultiLineComment) comment_;
     }
     return org.mojolang.mojo.lang.MultiLineComment.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+   * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.MultiLineCommentOrBuilder getMultiLineCommentOrBuilder() {
-    if (commentCase_ == 2) {
+    if (commentCase_ == 3) {
        return (org.mojolang.mojo.lang.MultiLineComment) comment_;
     }
     return org.mojolang.mojo.lang.MultiLineComment.getDefaultInstance();
   }
 
-  public static final int LINE_BREAK_COMMENT_FIELD_NUMBER = 3;
+  public static final int USER_LINE_BREAK_FIELD_NUMBER = 4;
   /**
-   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
-   * @return Whether the lineBreakComment field is set.
+   * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
+   * @return Whether the userLineBreak field is set.
    */
   @java.lang.Override
-  public boolean hasLineBreakComment() {
-    return commentCase_ == 3;
+  public boolean hasUserLineBreak() {
+    return commentCase_ == 4;
   }
   /**
-   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
-   * @return The lineBreakComment.
+   * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
+   * @return The userLineBreak.
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.LineBreakComment getLineBreakComment() {
-    if (commentCase_ == 3) {
-       return (org.mojolang.mojo.lang.LineBreakComment) comment_;
+  public org.mojolang.mojo.lang.UserLineBreak getUserLineBreak() {
+    if (commentCase_ == 4) {
+       return (org.mojolang.mojo.lang.UserLineBreak) comment_;
     }
-    return org.mojolang.mojo.lang.LineBreakComment.getDefaultInstance();
+    return org.mojolang.mojo.lang.UserLineBreak.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+   * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
    */
   @java.lang.Override
-  public org.mojolang.mojo.lang.LineBreakCommentOrBuilder getLineBreakCommentOrBuilder() {
-    if (commentCase_ == 3) {
-       return (org.mojolang.mojo.lang.LineBreakComment) comment_;
+  public org.mojolang.mojo.lang.UserLineBreakOrBuilder getUserLineBreakOrBuilder() {
+    if (commentCase_ == 4) {
+       return (org.mojolang.mojo.lang.UserLineBreak) comment_;
     }
-    return org.mojolang.mojo.lang.LineBreakComment.getDefaultInstance();
+    return org.mojolang.mojo.lang.UserLineBreak.getDefaultInstance();
   }
 
-  public static final int DOCUMENT_FIELD_NUMBER = 4;
+  public static final int DOCUMENT_FIELD_NUMBER = 5;
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 5;</code>
    * @return Whether the document field is set.
    */
   @java.lang.Override
   public boolean hasDocument() {
-    return commentCase_ == 4;
+    return commentCase_ == 5;
   }
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 5;</code>
    * @return The document.
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.Document getDocument() {
-    if (commentCase_ == 4) {
+    if (commentCase_ == 5) {
        return (org.mojolang.mojo.lang.Document) comment_;
     }
     return org.mojolang.mojo.lang.Document.getDefaultInstance();
   }
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 5;</code>
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder() {
-    if (commentCase_ == 4) {
+    if (commentCase_ == 5) {
        return (org.mojolang.mojo.lang.Document) comment_;
     }
     return org.mojolang.mojo.lang.Document.getDefaultInstance();
@@ -323,15 +263,18 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(1, (org.mojolang.mojo.lang.BlockComment) comment_);
     }
     if (commentCase_ == 2) {
-      output.writeMessage(2, (org.mojolang.mojo.lang.MultiLineComment) comment_);
+      output.writeMessage(2, (org.mojolang.mojo.lang.LineComment) comment_);
     }
     if (commentCase_ == 3) {
-      output.writeMessage(3, (org.mojolang.mojo.lang.LineBreakComment) comment_);
+      output.writeMessage(3, (org.mojolang.mojo.lang.MultiLineComment) comment_);
     }
     if (commentCase_ == 4) {
-      output.writeMessage(4, (org.mojolang.mojo.lang.Document) comment_);
+      output.writeMessage(4, (org.mojolang.mojo.lang.UserLineBreak) comment_);
     }
-    unknownFields.writeTo(output);
+    if (commentCase_ == 5) {
+      output.writeMessage(5, (org.mojolang.mojo.lang.Document) comment_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -346,17 +289,21 @@ private static final long serialVersionUID = 0L;
     }
     if (commentCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, (org.mojolang.mojo.lang.MultiLineComment) comment_);
+        .computeMessageSize(2, (org.mojolang.mojo.lang.LineComment) comment_);
     }
     if (commentCase_ == 3) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, (org.mojolang.mojo.lang.LineBreakComment) comment_);
+        .computeMessageSize(3, (org.mojolang.mojo.lang.MultiLineComment) comment_);
     }
     if (commentCase_ == 4) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, (org.mojolang.mojo.lang.Document) comment_);
+        .computeMessageSize(4, (org.mojolang.mojo.lang.UserLineBreak) comment_);
     }
-    size += unknownFields.getSerializedSize();
+    if (commentCase_ == 5) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, (org.mojolang.mojo.lang.Document) comment_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -378,21 +325,25 @@ private static final long serialVersionUID = 0L;
             .equals(other.getBlockComment())) return false;
         break;
       case 2:
+        if (!getLineComment()
+            .equals(other.getLineComment())) return false;
+        break;
+      case 3:
         if (!getMultiLineComment()
             .equals(other.getMultiLineComment())) return false;
         break;
-      case 3:
-        if (!getLineBreakComment()
-            .equals(other.getLineBreakComment())) return false;
-        break;
       case 4:
+        if (!getUserLineBreak()
+            .equals(other.getUserLineBreak())) return false;
+        break;
+      case 5:
         if (!getDocument()
             .equals(other.getDocument())) return false;
         break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -409,21 +360,25 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getBlockComment().hashCode();
         break;
       case 2:
+        hash = (37 * hash) + LINE_COMMENT_FIELD_NUMBER;
+        hash = (53 * hash) + getLineComment().hashCode();
+        break;
+      case 3:
         hash = (37 * hash) + MULTI_LINE_COMMENT_FIELD_NUMBER;
         hash = (53 * hash) + getMultiLineComment().hashCode();
         break;
-      case 3:
-        hash = (37 * hash) + LINE_BREAK_COMMENT_FIELD_NUMBER;
-        hash = (53 * hash) + getLineBreakComment().hashCode();
-        break;
       case 4:
+        hash = (37 * hash) + USER_LINE_BREAK_FIELD_NUMBER;
+        hash = (53 * hash) + getUserLineBreak().hashCode();
+        break;
+      case 5:
         hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
         hash = (53 * hash) + getDocument().hashCode();
         break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -540,22 +495,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using org.mojolang.mojo.lang.Comment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (blockCommentBuilder_ != null) {
+        blockCommentBuilder_.clear();
+      }
+      if (lineCommentBuilder_ != null) {
+        lineCommentBuilder_.clear();
+      }
+      if (multiLineCommentBuilder_ != null) {
+        multiLineCommentBuilder_.clear();
+      }
+      if (userLineBreakBuilder_ != null) {
+        userLineBreakBuilder_.clear();
+      }
+      if (documentBuilder_ != null) {
+        documentBuilder_.clear();
+      }
       commentCase_ = 0;
       comment_ = null;
       return this;
@@ -584,37 +550,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.lang.Comment buildPartial() {
       org.mojolang.mojo.lang.Comment result = new org.mojolang.mojo.lang.Comment(this);
-      if (commentCase_ == 1) {
-        if (blockCommentBuilder_ == null) {
-          result.comment_ = comment_;
-        } else {
-          result.comment_ = blockCommentBuilder_.build();
-        }
-      }
-      if (commentCase_ == 2) {
-        if (multiLineCommentBuilder_ == null) {
-          result.comment_ = comment_;
-        } else {
-          result.comment_ = multiLineCommentBuilder_.build();
-        }
-      }
-      if (commentCase_ == 3) {
-        if (lineBreakCommentBuilder_ == null) {
-          result.comment_ = comment_;
-        } else {
-          result.comment_ = lineBreakCommentBuilder_.build();
-        }
-      }
-      if (commentCase_ == 4) {
-        if (documentBuilder_ == null) {
-          result.comment_ = comment_;
-        } else {
-          result.comment_ = documentBuilder_.build();
-        }
-      }
-      result.commentCase_ = commentCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(org.mojolang.mojo.lang.Comment result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(org.mojolang.mojo.lang.Comment result) {
+      result.commentCase_ = commentCase_;
+      result.comment_ = this.comment_;
+      if (commentCase_ == 1 &&
+          blockCommentBuilder_ != null) {
+        result.comment_ = blockCommentBuilder_.build();
+      }
+      if (commentCase_ == 2 &&
+          lineCommentBuilder_ != null) {
+        result.comment_ = lineCommentBuilder_.build();
+      }
+      if (commentCase_ == 3 &&
+          multiLineCommentBuilder_ != null) {
+        result.comment_ = multiLineCommentBuilder_.build();
+      }
+      if (commentCase_ == 4 &&
+          userLineBreakBuilder_ != null) {
+        result.comment_ = userLineBreakBuilder_.build();
+      }
+      if (commentCase_ == 5 &&
+          documentBuilder_ != null) {
+        result.comment_ = documentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -666,12 +634,16 @@ private static final long serialVersionUID = 0L;
           mergeBlockComment(other.getBlockComment());
           break;
         }
+        case LINE_COMMENT: {
+          mergeLineComment(other.getLineComment());
+          break;
+        }
         case MULTI_LINE_COMMENT: {
           mergeMultiLineComment(other.getMultiLineComment());
           break;
         }
-        case LINE_BREAK_COMMENT: {
-          mergeLineBreakComment(other.getLineBreakComment());
+        case USER_LINE_BREAK: {
+          mergeUserLineBreak(other.getUserLineBreak());
           break;
         }
         case DOCUMENT: {
@@ -682,7 +654,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -697,17 +669,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.lang.Comment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getBlockCommentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              commentCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getLineCommentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              commentCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMultiLineCommentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              commentCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUserLineBreakFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              commentCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDocumentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              commentCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.lang.Comment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int commentCase_ = 0;
@@ -725,6 +745,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.BlockComment, org.mojolang.mojo.lang.BlockComment.Builder, org.mojolang.mojo.lang.BlockCommentOrBuilder> blockCommentBuilder_;
@@ -800,8 +821,9 @@ private static final long serialVersionUID = 0L;
       } else {
         if (commentCase_ == 1) {
           blockCommentBuilder_.mergeFrom(value);
+        } else {
+          blockCommentBuilder_.setMessage(value);
         }
-        blockCommentBuilder_.setMessage(value);
       }
       commentCase_ = 1;
       return this;
@@ -863,40 +885,182 @@ private static final long serialVersionUID = 0L;
         comment_ = null;
       }
       commentCase_ = 1;
-      onChanged();;
+      onChanged();
       return blockCommentBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.LineComment, org.mojolang.mojo.lang.LineComment.Builder, org.mojolang.mojo.lang.LineCommentOrBuilder> lineCommentBuilder_;
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     * @return Whether the lineComment field is set.
+     */
+    @java.lang.Override
+    public boolean hasLineComment() {
+      return commentCase_ == 2;
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     * @return The lineComment.
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.LineComment getLineComment() {
+      if (lineCommentBuilder_ == null) {
+        if (commentCase_ == 2) {
+          return (org.mojolang.mojo.lang.LineComment) comment_;
+        }
+        return org.mojolang.mojo.lang.LineComment.getDefaultInstance();
+      } else {
+        if (commentCase_ == 2) {
+          return lineCommentBuilder_.getMessage();
+        }
+        return org.mojolang.mojo.lang.LineComment.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     */
+    public Builder setLineComment(org.mojolang.mojo.lang.LineComment value) {
+      if (lineCommentBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        comment_ = value;
+        onChanged();
+      } else {
+        lineCommentBuilder_.setMessage(value);
+      }
+      commentCase_ = 2;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     */
+    public Builder setLineComment(
+        org.mojolang.mojo.lang.LineComment.Builder builderForValue) {
+      if (lineCommentBuilder_ == null) {
+        comment_ = builderForValue.build();
+        onChanged();
+      } else {
+        lineCommentBuilder_.setMessage(builderForValue.build());
+      }
+      commentCase_ = 2;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     */
+    public Builder mergeLineComment(org.mojolang.mojo.lang.LineComment value) {
+      if (lineCommentBuilder_ == null) {
+        if (commentCase_ == 2 &&
+            comment_ != org.mojolang.mojo.lang.LineComment.getDefaultInstance()) {
+          comment_ = org.mojolang.mojo.lang.LineComment.newBuilder((org.mojolang.mojo.lang.LineComment) comment_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          comment_ = value;
+        }
+        onChanged();
+      } else {
+        if (commentCase_ == 2) {
+          lineCommentBuilder_.mergeFrom(value);
+        } else {
+          lineCommentBuilder_.setMessage(value);
+        }
+      }
+      commentCase_ = 2;
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     */
+    public Builder clearLineComment() {
+      if (lineCommentBuilder_ == null) {
+        if (commentCase_ == 2) {
+          commentCase_ = 0;
+          comment_ = null;
+          onChanged();
+        }
+      } else {
+        if (commentCase_ == 2) {
+          commentCase_ = 0;
+          comment_ = null;
+        }
+        lineCommentBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     */
+    public org.mojolang.mojo.lang.LineComment.Builder getLineCommentBuilder() {
+      return getLineCommentFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     */
+    @java.lang.Override
+    public org.mojolang.mojo.lang.LineCommentOrBuilder getLineCommentOrBuilder() {
+      if ((commentCase_ == 2) && (lineCommentBuilder_ != null)) {
+        return lineCommentBuilder_.getMessageOrBuilder();
+      } else {
+        if (commentCase_ == 2) {
+          return (org.mojolang.mojo.lang.LineComment) comment_;
+        }
+        return org.mojolang.mojo.lang.LineComment.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.mojo.lang.LineComment line_comment = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        org.mojolang.mojo.lang.LineComment, org.mojolang.mojo.lang.LineComment.Builder, org.mojolang.mojo.lang.LineCommentOrBuilder> 
+        getLineCommentFieldBuilder() {
+      if (lineCommentBuilder_ == null) {
+        if (!(commentCase_ == 2)) {
+          comment_ = org.mojolang.mojo.lang.LineComment.getDefaultInstance();
+        }
+        lineCommentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.LineComment, org.mojolang.mojo.lang.LineComment.Builder, org.mojolang.mojo.lang.LineCommentOrBuilder>(
+                (org.mojolang.mojo.lang.LineComment) comment_,
+                getParentForChildren(),
+                isClean());
+        comment_ = null;
+      }
+      commentCase_ = 2;
+      onChanged();
+      return lineCommentBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.MultiLineComment, org.mojolang.mojo.lang.MultiLineComment.Builder, org.mojolang.mojo.lang.MultiLineCommentOrBuilder> multiLineCommentBuilder_;
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      * @return Whether the multiLineComment field is set.
      */
     @java.lang.Override
     public boolean hasMultiLineComment() {
-      return commentCase_ == 2;
+      return commentCase_ == 3;
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      * @return The multiLineComment.
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.MultiLineComment getMultiLineComment() {
       if (multiLineCommentBuilder_ == null) {
-        if (commentCase_ == 2) {
+        if (commentCase_ == 3) {
           return (org.mojolang.mojo.lang.MultiLineComment) comment_;
         }
         return org.mojolang.mojo.lang.MultiLineComment.getDefaultInstance();
       } else {
-        if (commentCase_ == 2) {
+        if (commentCase_ == 3) {
           return multiLineCommentBuilder_.getMessage();
         }
         return org.mojolang.mojo.lang.MultiLineComment.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      */
     public Builder setMultiLineComment(org.mojolang.mojo.lang.MultiLineComment value) {
       if (multiLineCommentBuilder_ == null) {
@@ -908,11 +1072,11 @@ private static final long serialVersionUID = 0L;
       } else {
         multiLineCommentBuilder_.setMessage(value);
       }
-      commentCase_ = 2;
+      commentCase_ = 3;
       return this;
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      */
     public Builder setMultiLineComment(
         org.mojolang.mojo.lang.MultiLineComment.Builder builderForValue) {
@@ -922,15 +1086,15 @@ private static final long serialVersionUID = 0L;
       } else {
         multiLineCommentBuilder_.setMessage(builderForValue.build());
       }
-      commentCase_ = 2;
+      commentCase_ = 3;
       return this;
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      */
     public Builder mergeMultiLineComment(org.mojolang.mojo.lang.MultiLineComment value) {
       if (multiLineCommentBuilder_ == null) {
-        if (commentCase_ == 2 &&
+        if (commentCase_ == 3 &&
             comment_ != org.mojolang.mojo.lang.MultiLineComment.getDefaultInstance()) {
           comment_ = org.mojolang.mojo.lang.MultiLineComment.newBuilder((org.mojolang.mojo.lang.MultiLineComment) comment_)
               .mergeFrom(value).buildPartial();
@@ -939,26 +1103,27 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (commentCase_ == 2) {
+        if (commentCase_ == 3) {
           multiLineCommentBuilder_.mergeFrom(value);
+        } else {
+          multiLineCommentBuilder_.setMessage(value);
         }
-        multiLineCommentBuilder_.setMessage(value);
       }
-      commentCase_ = 2;
+      commentCase_ = 3;
       return this;
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      */
     public Builder clearMultiLineComment() {
       if (multiLineCommentBuilder_ == null) {
-        if (commentCase_ == 2) {
+        if (commentCase_ == 3) {
           commentCase_ = 0;
           comment_ = null;
           onChanged();
         }
       } else {
-        if (commentCase_ == 2) {
+        if (commentCase_ == 3) {
           commentCase_ = 0;
           comment_ = null;
         }
@@ -967,33 +1132,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      */
     public org.mojolang.mojo.lang.MultiLineComment.Builder getMultiLineCommentBuilder() {
       return getMultiLineCommentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.MultiLineCommentOrBuilder getMultiLineCommentOrBuilder() {
-      if ((commentCase_ == 2) && (multiLineCommentBuilder_ != null)) {
+      if ((commentCase_ == 3) && (multiLineCommentBuilder_ != null)) {
         return multiLineCommentBuilder_.getMessageOrBuilder();
       } else {
-        if (commentCase_ == 2) {
+        if (commentCase_ == 3) {
           return (org.mojolang.mojo.lang.MultiLineComment) comment_;
         }
         return org.mojolang.mojo.lang.MultiLineComment.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+     * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.MultiLineComment, org.mojolang.mojo.lang.MultiLineComment.Builder, org.mojolang.mojo.lang.MultiLineCommentOrBuilder> 
         getMultiLineCommentFieldBuilder() {
       if (multiLineCommentBuilder_ == null) {
-        if (!(commentCase_ == 2)) {
+        if (!(commentCase_ == 3)) {
           comment_ = org.mojolang.mojo.lang.MultiLineComment.getDefaultInstance();
         }
         multiLineCommentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1003,182 +1168,183 @@ private static final long serialVersionUID = 0L;
                 isClean());
         comment_ = null;
       }
-      commentCase_ = 2;
-      onChanged();;
+      commentCase_ = 3;
+      onChanged();
       return multiLineCommentBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.LineBreakComment, org.mojolang.mojo.lang.LineBreakComment.Builder, org.mojolang.mojo.lang.LineBreakCommentOrBuilder> lineBreakCommentBuilder_;
+        org.mojolang.mojo.lang.UserLineBreak, org.mojolang.mojo.lang.UserLineBreak.Builder, org.mojolang.mojo.lang.UserLineBreakOrBuilder> userLineBreakBuilder_;
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
-     * @return Whether the lineBreakComment field is set.
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
+     * @return Whether the userLineBreak field is set.
      */
     @java.lang.Override
-    public boolean hasLineBreakComment() {
-      return commentCase_ == 3;
+    public boolean hasUserLineBreak() {
+      return commentCase_ == 4;
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
-     * @return The lineBreakComment.
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
+     * @return The userLineBreak.
      */
     @java.lang.Override
-    public org.mojolang.mojo.lang.LineBreakComment getLineBreakComment() {
-      if (lineBreakCommentBuilder_ == null) {
-        if (commentCase_ == 3) {
-          return (org.mojolang.mojo.lang.LineBreakComment) comment_;
+    public org.mojolang.mojo.lang.UserLineBreak getUserLineBreak() {
+      if (userLineBreakBuilder_ == null) {
+        if (commentCase_ == 4) {
+          return (org.mojolang.mojo.lang.UserLineBreak) comment_;
         }
-        return org.mojolang.mojo.lang.LineBreakComment.getDefaultInstance();
+        return org.mojolang.mojo.lang.UserLineBreak.getDefaultInstance();
       } else {
-        if (commentCase_ == 3) {
-          return lineBreakCommentBuilder_.getMessage();
+        if (commentCase_ == 4) {
+          return userLineBreakBuilder_.getMessage();
         }
-        return org.mojolang.mojo.lang.LineBreakComment.getDefaultInstance();
+        return org.mojolang.mojo.lang.UserLineBreak.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
      */
-    public Builder setLineBreakComment(org.mojolang.mojo.lang.LineBreakComment value) {
-      if (lineBreakCommentBuilder_ == null) {
+    public Builder setUserLineBreak(org.mojolang.mojo.lang.UserLineBreak value) {
+      if (userLineBreakBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         comment_ = value;
         onChanged();
       } else {
-        lineBreakCommentBuilder_.setMessage(value);
+        userLineBreakBuilder_.setMessage(value);
       }
-      commentCase_ = 3;
+      commentCase_ = 4;
       return this;
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
      */
-    public Builder setLineBreakComment(
-        org.mojolang.mojo.lang.LineBreakComment.Builder builderForValue) {
-      if (lineBreakCommentBuilder_ == null) {
+    public Builder setUserLineBreak(
+        org.mojolang.mojo.lang.UserLineBreak.Builder builderForValue) {
+      if (userLineBreakBuilder_ == null) {
         comment_ = builderForValue.build();
         onChanged();
       } else {
-        lineBreakCommentBuilder_.setMessage(builderForValue.build());
+        userLineBreakBuilder_.setMessage(builderForValue.build());
       }
-      commentCase_ = 3;
+      commentCase_ = 4;
       return this;
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
      */
-    public Builder mergeLineBreakComment(org.mojolang.mojo.lang.LineBreakComment value) {
-      if (lineBreakCommentBuilder_ == null) {
-        if (commentCase_ == 3 &&
-            comment_ != org.mojolang.mojo.lang.LineBreakComment.getDefaultInstance()) {
-          comment_ = org.mojolang.mojo.lang.LineBreakComment.newBuilder((org.mojolang.mojo.lang.LineBreakComment) comment_)
+    public Builder mergeUserLineBreak(org.mojolang.mojo.lang.UserLineBreak value) {
+      if (userLineBreakBuilder_ == null) {
+        if (commentCase_ == 4 &&
+            comment_ != org.mojolang.mojo.lang.UserLineBreak.getDefaultInstance()) {
+          comment_ = org.mojolang.mojo.lang.UserLineBreak.newBuilder((org.mojolang.mojo.lang.UserLineBreak) comment_)
               .mergeFrom(value).buildPartial();
         } else {
           comment_ = value;
         }
         onChanged();
       } else {
-        if (commentCase_ == 3) {
-          lineBreakCommentBuilder_.mergeFrom(value);
+        if (commentCase_ == 4) {
+          userLineBreakBuilder_.mergeFrom(value);
+        } else {
+          userLineBreakBuilder_.setMessage(value);
         }
-        lineBreakCommentBuilder_.setMessage(value);
       }
-      commentCase_ = 3;
+      commentCase_ = 4;
       return this;
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
      */
-    public Builder clearLineBreakComment() {
-      if (lineBreakCommentBuilder_ == null) {
-        if (commentCase_ == 3) {
+    public Builder clearUserLineBreak() {
+      if (userLineBreakBuilder_ == null) {
+        if (commentCase_ == 4) {
           commentCase_ = 0;
           comment_ = null;
           onChanged();
         }
       } else {
-        if (commentCase_ == 3) {
+        if (commentCase_ == 4) {
           commentCase_ = 0;
           comment_ = null;
         }
-        lineBreakCommentBuilder_.clear();
+        userLineBreakBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
      */
-    public org.mojolang.mojo.lang.LineBreakComment.Builder getLineBreakCommentBuilder() {
-      return getLineBreakCommentFieldBuilder().getBuilder();
+    public org.mojolang.mojo.lang.UserLineBreak.Builder getUserLineBreakBuilder() {
+      return getUserLineBreakFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
      */
     @java.lang.Override
-    public org.mojolang.mojo.lang.LineBreakCommentOrBuilder getLineBreakCommentOrBuilder() {
-      if ((commentCase_ == 3) && (lineBreakCommentBuilder_ != null)) {
-        return lineBreakCommentBuilder_.getMessageOrBuilder();
+    public org.mojolang.mojo.lang.UserLineBreakOrBuilder getUserLineBreakOrBuilder() {
+      if ((commentCase_ == 4) && (userLineBreakBuilder_ != null)) {
+        return userLineBreakBuilder_.getMessageOrBuilder();
       } else {
-        if (commentCase_ == 3) {
-          return (org.mojolang.mojo.lang.LineBreakComment) comment_;
+        if (commentCase_ == 4) {
+          return (org.mojolang.mojo.lang.UserLineBreak) comment_;
         }
-        return org.mojolang.mojo.lang.LineBreakComment.getDefaultInstance();
+        return org.mojolang.mojo.lang.UserLineBreak.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+     * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        org.mojolang.mojo.lang.LineBreakComment, org.mojolang.mojo.lang.LineBreakComment.Builder, org.mojolang.mojo.lang.LineBreakCommentOrBuilder> 
-        getLineBreakCommentFieldBuilder() {
-      if (lineBreakCommentBuilder_ == null) {
-        if (!(commentCase_ == 3)) {
-          comment_ = org.mojolang.mojo.lang.LineBreakComment.getDefaultInstance();
+        org.mojolang.mojo.lang.UserLineBreak, org.mojolang.mojo.lang.UserLineBreak.Builder, org.mojolang.mojo.lang.UserLineBreakOrBuilder> 
+        getUserLineBreakFieldBuilder() {
+      if (userLineBreakBuilder_ == null) {
+        if (!(commentCase_ == 4)) {
+          comment_ = org.mojolang.mojo.lang.UserLineBreak.getDefaultInstance();
         }
-        lineBreakCommentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.mojolang.mojo.lang.LineBreakComment, org.mojolang.mojo.lang.LineBreakComment.Builder, org.mojolang.mojo.lang.LineBreakCommentOrBuilder>(
-                (org.mojolang.mojo.lang.LineBreakComment) comment_,
+        userLineBreakBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            org.mojolang.mojo.lang.UserLineBreak, org.mojolang.mojo.lang.UserLineBreak.Builder, org.mojolang.mojo.lang.UserLineBreakOrBuilder>(
+                (org.mojolang.mojo.lang.UserLineBreak) comment_,
                 getParentForChildren(),
                 isClean());
         comment_ = null;
       }
-      commentCase_ = 3;
-      onChanged();;
-      return lineBreakCommentBuilder_;
+      commentCase_ = 4;
+      onChanged();
+      return userLineBreakBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Document, org.mojolang.mojo.lang.Document.Builder, org.mojolang.mojo.lang.DocumentOrBuilder> documentBuilder_;
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      * @return Whether the document field is set.
      */
     @java.lang.Override
     public boolean hasDocument() {
-      return commentCase_ == 4;
+      return commentCase_ == 5;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      * @return The document.
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.Document getDocument() {
       if (documentBuilder_ == null) {
-        if (commentCase_ == 4) {
+        if (commentCase_ == 5) {
           return (org.mojolang.mojo.lang.Document) comment_;
         }
         return org.mojolang.mojo.lang.Document.getDefaultInstance();
       } else {
-        if (commentCase_ == 4) {
+        if (commentCase_ == 5) {
           return documentBuilder_.getMessage();
         }
         return org.mojolang.mojo.lang.Document.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      */
     public Builder setDocument(org.mojolang.mojo.lang.Document value) {
       if (documentBuilder_ == null) {
@@ -1190,11 +1356,11 @@ private static final long serialVersionUID = 0L;
       } else {
         documentBuilder_.setMessage(value);
       }
-      commentCase_ = 4;
+      commentCase_ = 5;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      */
     public Builder setDocument(
         org.mojolang.mojo.lang.Document.Builder builderForValue) {
@@ -1204,15 +1370,15 @@ private static final long serialVersionUID = 0L;
       } else {
         documentBuilder_.setMessage(builderForValue.build());
       }
-      commentCase_ = 4;
+      commentCase_ = 5;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      */
     public Builder mergeDocument(org.mojolang.mojo.lang.Document value) {
       if (documentBuilder_ == null) {
-        if (commentCase_ == 4 &&
+        if (commentCase_ == 5 &&
             comment_ != org.mojolang.mojo.lang.Document.getDefaultInstance()) {
           comment_ = org.mojolang.mojo.lang.Document.newBuilder((org.mojolang.mojo.lang.Document) comment_)
               .mergeFrom(value).buildPartial();
@@ -1221,26 +1387,27 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (commentCase_ == 4) {
+        if (commentCase_ == 5) {
           documentBuilder_.mergeFrom(value);
+        } else {
+          documentBuilder_.setMessage(value);
         }
-        documentBuilder_.setMessage(value);
       }
-      commentCase_ = 4;
+      commentCase_ = 5;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      */
     public Builder clearDocument() {
       if (documentBuilder_ == null) {
-        if (commentCase_ == 4) {
+        if (commentCase_ == 5) {
           commentCase_ = 0;
           comment_ = null;
           onChanged();
         }
       } else {
-        if (commentCase_ == 4) {
+        if (commentCase_ == 5) {
           commentCase_ = 0;
           comment_ = null;
         }
@@ -1249,33 +1416,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      */
     public org.mojolang.mojo.lang.Document.Builder getDocumentBuilder() {
       return getDocumentFieldBuilder().getBuilder();
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      */
     @java.lang.Override
     public org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder() {
-      if ((commentCase_ == 4) && (documentBuilder_ != null)) {
+      if ((commentCase_ == 5) && (documentBuilder_ != null)) {
         return documentBuilder_.getMessageOrBuilder();
       } else {
-        if (commentCase_ == 4) {
+        if (commentCase_ == 5) {
           return (org.mojolang.mojo.lang.Document) comment_;
         }
         return org.mojolang.mojo.lang.Document.getDefaultInstance();
       }
     }
     /**
-     * <code>.mojo.lang.Document document = 4;</code>
+     * <code>.mojo.lang.Document document = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.mojolang.mojo.lang.Document, org.mojolang.mojo.lang.Document.Builder, org.mojolang.mojo.lang.DocumentOrBuilder> 
         getDocumentFieldBuilder() {
       if (documentBuilder_ == null) {
-        if (!(commentCase_ == 4)) {
+        if (!(commentCase_ == 5)) {
           comment_ = org.mojolang.mojo.lang.Document.getDefaultInstance();
         }
         documentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1285,8 +1452,8 @@ private static final long serialVersionUID = 0L;
                 isClean());
         comment_ = null;
       }
-      commentCase_ = 4;
-      onChanged();;
+      commentCase_ = 5;
+      onChanged();
       return documentBuilder_;
     }
     @java.lang.Override
@@ -1322,7 +1489,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Comment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -32,107 +32,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InterfaceType(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
-            if (startPosition_ != null) {
-              subBuilder = startPosition_.toBuilder();
-            }
-            startPosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startPosition_);
-              startPosition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
-            if (endPosition_ != null) {
-              subBuilder = endPosition_.toBuilder();
-            }
-            endPosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endPosition_);
-              endPosition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              methods_ = new java.util.ArrayList<org.mojolang.mojo.lang.FunctionDecl>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            methods_.add(
-                input.readMessage(org.mojolang.mojo.lang.FunctionDecl.parser(), extensionRegistry));
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              inherits_ = new java.util.ArrayList<org.mojolang.mojo.lang.NominalType>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            inherits_.add(
-                input.readMessage(org.mojolang.mojo.lang.NominalType.parser(), extensionRegistry));
-            break;
-          }
-          case 154: {
-            org.mojolang.mojo.lang.Position.Builder subBuilder = null;
-            if (inheritePosition_ != null) {
-              subBuilder = inheritePosition_.toBuilder();
-            }
-            inheritePosition_ = input.readMessage(org.mojolang.mojo.lang.Position.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inheritePosition_);
-              inheritePosition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        methods_ = java.util.Collections.unmodifiableList(methods_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        inherits_ = java.util.Collections.unmodifiableList(inherits_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_InterfaceType_descriptor;
@@ -169,7 +68,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.PositionOrBuilder getStartPositionOrBuilder() {
-    return getStartPosition();
+    return startPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : startPosition_;
   }
 
   public static final int END_POSITION_FIELD_NUMBER = 2;
@@ -195,10 +94,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.PositionOrBuilder getEndPositionOrBuilder() {
-    return getEndPosition();
+    return endPosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : endPosition_;
   }
 
   public static final int METHODS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.lang.FunctionDecl> methods_;
   /**
    * <code>repeated .mojo.lang.FunctionDecl methods = 10;</code>
@@ -239,6 +139,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INHERITS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<org.mojolang.mojo.lang.NominalType> inherits_;
   /**
    * <code>repeated .mojo.lang.NominalType inherits = 11;</code>
@@ -301,7 +202,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public org.mojolang.mojo.lang.PositionOrBuilder getInheritePositionOrBuilder() {
-    return getInheritePosition();
+    return inheritePosition_ == null ? org.mojolang.mojo.lang.Position.getDefaultInstance() : inheritePosition_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -333,7 +234,7 @@ private static final long serialVersionUID = 0L;
     if (inheritePosition_ != null) {
       output.writeMessage(19, getInheritePosition());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -362,7 +263,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getInheritePosition());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -396,7 +297,7 @@ private static final long serialVersionUID = 0L;
       if (!getInheritePosition()
           .equals(other.getInheritePosition())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -427,7 +328,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INHERITE_POSITION_FIELD_NUMBER;
       hash = (53 * hash) + getInheritePosition().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -544,52 +445,45 @@ private static final long serialVersionUID = 0L;
 
     // Construct using org.mojolang.mojo.lang.InterfaceType.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMethodsFieldBuilder();
-        getInheritsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (startPositionBuilder_ == null) {
-        startPosition_ = null;
-      } else {
-        startPosition_ = null;
+      bitField0_ = 0;
+      startPosition_ = null;
+      if (startPositionBuilder_ != null) {
+        startPositionBuilder_.dispose();
         startPositionBuilder_ = null;
       }
-      if (endPositionBuilder_ == null) {
-        endPosition_ = null;
-      } else {
-        endPosition_ = null;
+      endPosition_ = null;
+      if (endPositionBuilder_ != null) {
+        endPositionBuilder_.dispose();
         endPositionBuilder_ = null;
       }
       if (methodsBuilder_ == null) {
         methods_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        methods_ = null;
         methodsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (inheritsBuilder_ == null) {
         inherits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        inherits_ = null;
         inheritsBuilder_.clear();
       }
-      if (inheritePositionBuilder_ == null) {
-        inheritePosition_ = null;
-      } else {
-        inheritePosition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      inheritePosition_ = null;
+      if (inheritePositionBuilder_ != null) {
+        inheritePositionBuilder_.dispose();
         inheritePositionBuilder_ = null;
       }
       return this;
@@ -618,42 +512,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.lang.InterfaceType buildPartial() {
       org.mojolang.mojo.lang.InterfaceType result = new org.mojolang.mojo.lang.InterfaceType(this);
-      int from_bitField0_ = bitField0_;
-      if (startPositionBuilder_ == null) {
-        result.startPosition_ = startPosition_;
-      } else {
-        result.startPosition_ = startPositionBuilder_.build();
-      }
-      if (endPositionBuilder_ == null) {
-        result.endPosition_ = endPosition_;
-      } else {
-        result.endPosition_ = endPositionBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(org.mojolang.mojo.lang.InterfaceType result) {
       if (methodsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           methods_ = java.util.Collections.unmodifiableList(methods_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.methods_ = methods_;
       } else {
         result.methods_ = methodsBuilder_.build();
       }
       if (inheritsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           inherits_ = java.util.Collections.unmodifiableList(inherits_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.inherits_ = inherits_;
       } else {
         result.inherits_ = inheritsBuilder_.build();
       }
-      if (inheritePositionBuilder_ == null) {
-        result.inheritePosition_ = inheritePosition_;
-      } else {
-        result.inheritePosition_ = inheritePositionBuilder_.build();
+    }
+
+    private void buildPartial0(org.mojolang.mojo.lang.InterfaceType result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.startPosition_ = startPositionBuilder_ == null
+            ? startPosition_
+            : startPositionBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endPosition_ = endPositionBuilder_ == null
+            ? endPosition_
+            : endPositionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.inheritePosition_ = inheritePositionBuilder_ == null
+            ? inheritePosition_
+            : inheritePositionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -710,7 +612,7 @@ private static final long serialVersionUID = 0L;
         if (!other.methods_.isEmpty()) {
           if (methods_.isEmpty()) {
             methods_ = other.methods_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureMethodsIsMutable();
             methods_.addAll(other.methods_);
@@ -723,7 +625,7 @@ private static final long serialVersionUID = 0L;
             methodsBuilder_.dispose();
             methodsBuilder_ = null;
             methods_ = other.methods_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             methodsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMethodsFieldBuilder() : null;
@@ -736,7 +638,7 @@ private static final long serialVersionUID = 0L;
         if (!other.inherits_.isEmpty()) {
           if (inherits_.isEmpty()) {
             inherits_ = other.inherits_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureInheritsIsMutable();
             inherits_.addAll(other.inherits_);
@@ -749,7 +651,7 @@ private static final long serialVersionUID = 0L;
             inheritsBuilder_.dispose();
             inheritsBuilder_ = null;
             inherits_ = other.inherits_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             inheritsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getInheritsFieldBuilder() : null;
@@ -761,7 +663,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasInheritePosition()) {
         mergeInheritePosition(other.getInheritePosition());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -776,17 +678,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.lang.InterfaceType parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStartPositionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEndPositionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 82: {
+              org.mojolang.mojo.lang.FunctionDecl m =
+                  input.readMessage(
+                      org.mojolang.mojo.lang.FunctionDecl.parser(),
+                      extensionRegistry);
+              if (methodsBuilder_ == null) {
+                ensureMethodsIsMutable();
+                methods_.add(m);
+              } else {
+                methodsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 90: {
+              org.mojolang.mojo.lang.NominalType m =
+                  input.readMessage(
+                      org.mojolang.mojo.lang.NominalType.parser(),
+                      extensionRegistry);
+              if (inheritsBuilder_ == null) {
+                ensureInheritsIsMutable();
+                inherits_.add(m);
+              } else {
+                inheritsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 154: {
+              input.readMessage(
+                  getInheritePositionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 154
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.lang.InterfaceType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -799,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startPosition field is set.
      */
     public boolean hasStartPosition() {
-      return startPositionBuilder_ != null || startPosition_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.mojo.lang.Position start_position = 1;</code>
@@ -821,11 +783,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startPosition_ = value;
-        onChanged();
       } else {
         startPositionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -835,11 +797,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Position.Builder builderForValue) {
       if (startPositionBuilder_ == null) {
         startPosition_ = builderForValue.build();
-        onChanged();
       } else {
         startPositionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -847,38 +809,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartPosition(org.mojolang.mojo.lang.Position value) {
       if (startPositionBuilder_ == null) {
-        if (startPosition_ != null) {
-          startPosition_ =
-            org.mojolang.mojo.lang.Position.newBuilder(startPosition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          startPosition_ != null &&
+          startPosition_ != org.mojolang.mojo.lang.Position.getDefaultInstance()) {
+          getStartPositionBuilder().mergeFrom(value);
         } else {
           startPosition_ = value;
         }
-        onChanged();
       } else {
         startPositionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.lang.Position start_position = 1;</code>
      */
     public Builder clearStartPosition() {
-      if (startPositionBuilder_ == null) {
-        startPosition_ = null;
-        onChanged();
-      } else {
-        startPosition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      startPosition_ = null;
+      if (startPositionBuilder_ != null) {
+        startPositionBuilder_.dispose();
         startPositionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.lang.Position start_position = 1;</code>
      */
     public org.mojolang.mojo.lang.Position.Builder getStartPositionBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getStartPositionFieldBuilder().getBuilder();
     }
@@ -918,7 +880,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endPosition field is set.
      */
     public boolean hasEndPosition() {
-      return endPositionBuilder_ != null || endPosition_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.mojo.lang.Position end_position = 2;</code>
@@ -940,11 +902,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endPosition_ = value;
-        onChanged();
       } else {
         endPositionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -954,11 +916,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Position.Builder builderForValue) {
       if (endPositionBuilder_ == null) {
         endPosition_ = builderForValue.build();
-        onChanged();
       } else {
         endPositionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -966,38 +928,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndPosition(org.mojolang.mojo.lang.Position value) {
       if (endPositionBuilder_ == null) {
-        if (endPosition_ != null) {
-          endPosition_ =
-            org.mojolang.mojo.lang.Position.newBuilder(endPosition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          endPosition_ != null &&
+          endPosition_ != org.mojolang.mojo.lang.Position.getDefaultInstance()) {
+          getEndPositionBuilder().mergeFrom(value);
         } else {
           endPosition_ = value;
         }
-        onChanged();
       } else {
         endPositionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.lang.Position end_position = 2;</code>
      */
     public Builder clearEndPosition() {
-      if (endPositionBuilder_ == null) {
-        endPosition_ = null;
-        onChanged();
-      } else {
-        endPosition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      endPosition_ = null;
+      if (endPositionBuilder_ != null) {
+        endPositionBuilder_.dispose();
         endPositionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.lang.Position end_position = 2;</code>
      */
     public org.mojolang.mojo.lang.Position.Builder getEndPositionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEndPositionFieldBuilder().getBuilder();
     }
@@ -1032,9 +994,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<org.mojolang.mojo.lang.FunctionDecl> methods_ =
       java.util.Collections.emptyList();
     private void ensureMethodsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         methods_ = new java.util.ArrayList<org.mojolang.mojo.lang.FunctionDecl>(methods_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1184,7 +1146,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMethods() {
       if (methodsBuilder_ == null) {
         methods_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         methodsBuilder_.clear();
@@ -1261,7 +1223,7 @@ private static final long serialVersionUID = 0L;
         methodsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.mojolang.mojo.lang.FunctionDecl, org.mojolang.mojo.lang.FunctionDecl.Builder, org.mojolang.mojo.lang.FunctionDeclOrBuilder>(
                 methods_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         methods_ = null;
@@ -1272,9 +1234,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<org.mojolang.mojo.lang.NominalType> inherits_ =
       java.util.Collections.emptyList();
     private void ensureInheritsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         inherits_ = new java.util.ArrayList<org.mojolang.mojo.lang.NominalType>(inherits_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1424,7 +1386,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearInherits() {
       if (inheritsBuilder_ == null) {
         inherits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         inheritsBuilder_.clear();
@@ -1501,7 +1463,7 @@ private static final long serialVersionUID = 0L;
         inheritsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.mojolang.mojo.lang.NominalType, org.mojolang.mojo.lang.NominalType.Builder, org.mojolang.mojo.lang.NominalTypeOrBuilder>(
                 inherits_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         inherits_ = null;
@@ -1517,7 +1479,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inheritePosition field is set.
      */
     public boolean hasInheritePosition() {
-      return inheritePositionBuilder_ != null || inheritePosition_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>.mojo.lang.Position inherite_position = 19;</code>
@@ -1539,11 +1501,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inheritePosition_ = value;
-        onChanged();
       } else {
         inheritePositionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1553,11 +1515,11 @@ private static final long serialVersionUID = 0L;
         org.mojolang.mojo.lang.Position.Builder builderForValue) {
       if (inheritePositionBuilder_ == null) {
         inheritePosition_ = builderForValue.build();
-        onChanged();
       } else {
         inheritePositionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1565,38 +1527,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInheritePosition(org.mojolang.mojo.lang.Position value) {
       if (inheritePositionBuilder_ == null) {
-        if (inheritePosition_ != null) {
-          inheritePosition_ =
-            org.mojolang.mojo.lang.Position.newBuilder(inheritePosition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          inheritePosition_ != null &&
+          inheritePosition_ != org.mojolang.mojo.lang.Position.getDefaultInstance()) {
+          getInheritePositionBuilder().mergeFrom(value);
         } else {
           inheritePosition_ = value;
         }
-        onChanged();
       } else {
         inheritePositionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.lang.Position inherite_position = 19;</code>
      */
     public Builder clearInheritePosition() {
-      if (inheritePositionBuilder_ == null) {
-        inheritePosition_ = null;
-        onChanged();
-      } else {
-        inheritePosition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      inheritePosition_ = null;
+      if (inheritePositionBuilder_ != null) {
+        inheritePositionBuilder_.dispose();
         inheritePositionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.mojo.lang.Position inherite_position = 19;</code>
      */
     public org.mojolang.mojo.lang.Position.Builder getInheritePositionBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getInheritePositionFieldBuilder().getBuilder();
     }
@@ -1660,7 +1622,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InterfaceType(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

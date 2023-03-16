@@ -23,47 +23,62 @@ public interface CommentOrBuilder extends
   org.mojolang.mojo.lang.BlockCommentOrBuilder getBlockCommentOrBuilder();
 
   /**
-   * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+   * <code>.mojo.lang.LineComment line_comment = 2;</code>
+   * @return Whether the lineComment field is set.
+   */
+  boolean hasLineComment();
+  /**
+   * <code>.mojo.lang.LineComment line_comment = 2;</code>
+   * @return The lineComment.
+   */
+  org.mojolang.mojo.lang.LineComment getLineComment();
+  /**
+   * <code>.mojo.lang.LineComment line_comment = 2;</code>
+   */
+  org.mojolang.mojo.lang.LineCommentOrBuilder getLineCommentOrBuilder();
+
+  /**
+   * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
    * @return Whether the multiLineComment field is set.
    */
   boolean hasMultiLineComment();
   /**
-   * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+   * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
    * @return The multiLineComment.
    */
   org.mojolang.mojo.lang.MultiLineComment getMultiLineComment();
   /**
-   * <code>.mojo.lang.MultiLineComment multi_line_comment = 2;</code>
+   * <code>.mojo.lang.MultiLineComment multi_line_comment = 3;</code>
    */
   org.mojolang.mojo.lang.MultiLineCommentOrBuilder getMultiLineCommentOrBuilder();
 
   /**
-   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
-   * @return Whether the lineBreakComment field is set.
+   * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
+   * @return Whether the userLineBreak field is set.
    */
-  boolean hasLineBreakComment();
+  boolean hasUserLineBreak();
   /**
-   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
-   * @return The lineBreakComment.
+   * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
+   * @return The userLineBreak.
    */
-  org.mojolang.mojo.lang.LineBreakComment getLineBreakComment();
+  org.mojolang.mojo.lang.UserLineBreak getUserLineBreak();
   /**
-   * <code>.mojo.lang.LineBreakComment line_break_comment = 3;</code>
+   * <code>.mojo.lang.UserLineBreak user_line_break = 4;</code>
    */
-  org.mojolang.mojo.lang.LineBreakCommentOrBuilder getLineBreakCommentOrBuilder();
+  org.mojolang.mojo.lang.UserLineBreakOrBuilder getUserLineBreakOrBuilder();
 
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 5;</code>
    * @return Whether the document field is set.
    */
   boolean hasDocument();
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 5;</code>
    * @return The document.
    */
   org.mojolang.mojo.lang.Document getDocument();
   /**
-   * <code>.mojo.lang.Document document = 4;</code>
+   * <code>.mojo.lang.Document document = 5;</code>
    */
   org.mojolang.mojo.lang.DocumentOrBuilder getDocumentOrBuilder();
 

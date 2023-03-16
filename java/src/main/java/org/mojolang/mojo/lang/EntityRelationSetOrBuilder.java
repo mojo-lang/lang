@@ -30,14 +30,14 @@ public interface EntityRelationSetOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
    */
-
-  org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityNode defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.EntityNode defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
    */
-
   org.mojolang.mojo.lang.EntityNode getNodesOrThrow(
       java.lang.String key);
 
@@ -64,14 +64,14 @@ public interface EntityRelationSetOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
    */
-
-  org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityEdge defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.EntityEdge defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
    */
-
   org.mojolang.mojo.lang.EntityEdge getEdgesOrThrow(
       java.lang.String key);
 
@@ -98,14 +98,14 @@ public interface EntityRelationSetOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
-
-  org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityRelation defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.EntityRelation defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
-
   org.mojolang.mojo.lang.EntityRelation getRelationsOrThrow(
       java.lang.String key);
 
@@ -132,14 +132,14 @@ public interface EntityRelationSetOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
-
-  org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityEdges defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.EntityEdges defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
-
   org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrThrow(
       java.lang.String key);
 
@@ -166,14 +166,14 @@ public interface EntityRelationSetOrBuilder extends
   /**
    * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
    */
-
-  org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
+  /* nullable */
+org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityRelations defaultValue);
+      /* nullable */
+org.mojolang.mojo.lang.EntityRelations defaultValue);
   /**
    * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
    */
-
   org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrThrow(
       java.lang.String key);
 }

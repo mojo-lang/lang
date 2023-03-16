@@ -11,7 +11,7 @@ func TestVariableDecl_ToValueDecl(t *testing.T) {
 		Implicit: true,
 		Document: &Document{
 			Private: true,
-			Lines:   []*Document_Line{{Text: "document"}},
+			Lines:   []*Document_Line{{Content: "document"}},
 		},
 		PackageName:    "foo",
 		SourceFileName: "bar.mojo",
@@ -24,7 +24,7 @@ func TestVariableDecl_ToValueDecl(t *testing.T) {
 
 	assert.Equal(t, variable.Implicit, value.Implicit)
 	assert.Equal(t, variable.Document.Private, value.Document.Private)
-	assert.Equal(t, variable.Document.Lines[0].Text, value.Document.Lines[0].Text)
+	assert.Equal(t, variable.Document.Lines[0].Content, value.Document.Lines[0].Content)
 	assert.Equal(t, variable.PackageName, value.PackageName)
 	assert.Equal(t, variable.SourceFileName, value.SourceFileName)
 	assert.Equal(t, variable.Name, value.Name)

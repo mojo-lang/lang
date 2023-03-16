@@ -30,109 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EntityRelationSet(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nodes_ = com.google.protobuf.MapField.newMapField(
-                  NodesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityNode>
-            nodes__ = input.readMessage(
-                NodesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            nodes_.getMutableMap().put(
-                nodes__.getKey(), nodes__.getValue());
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              edges_ = com.google.protobuf.MapField.newMapField(
-                  EdgesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdge>
-            edges__ = input.readMessage(
-                EdgesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            edges_.getMutableMap().put(
-                edges__.getKey(), edges__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              relations_ = com.google.protobuf.MapField.newMapField(
-                  RelationsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
-            relations__ = input.readMessage(
-                RelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            relations_.getMutableMap().put(
-                relations__.getKey(), relations__.getValue());
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              nodeEdges_ = com.google.protobuf.MapField.newMapField(
-                  NodeEdgesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-            nodeEdges__ = input.readMessage(
-                NodeEdgesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            nodeEdges_.getMutableMap().put(
-                nodeEdges__.getKey(), nodeEdges__.getValue());
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              nodeRelations_ = com.google.protobuf.MapField.newMapField(
-                  NodeRelationsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000010;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
-            nodeRelations__ = input.readMessage(
-                NodeRelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            nodeRelations_.getMutableMap().put(
-                nodeRelations__.getKey(), nodeRelations__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return org.mojolang.mojo.lang.LangProto.internal_static_mojo_lang_EntityRelationSet_descriptor;
@@ -178,6 +75,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.lang.EntityNode.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, org.mojolang.mojo.lang.EntityNode> nodes_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityNode>
@@ -188,14 +86,12 @@ private static final long serialVersionUID = 0L;
     }
     return nodes_;
   }
-
   public int getNodesCount() {
     return internalGetNodes().getMap().size();
   }
   /**
    * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsNodes(
       java.lang.String key) {
@@ -214,7 +110,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> getNodesMap() {
     return internalGetNodes().getMap();
   }
@@ -222,10 +117,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
    */
   @java.lang.Override
-
-  public org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
+  public /* nullable */
+org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityNode defaultValue) {
+      /* nullable */
+org.mojolang.mojo.lang.EntityNode defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> map =
         internalGetNodes().getMap();
@@ -235,7 +131,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
    */
   @java.lang.Override
-
   public org.mojolang.mojo.lang.EntityNode getNodesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -259,6 +154,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.lang.EntityEdge.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, org.mojolang.mojo.lang.EntityEdge> edges_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdge>
@@ -269,14 +165,12 @@ private static final long serialVersionUID = 0L;
     }
     return edges_;
   }
-
   public int getEdgesCount() {
     return internalGetEdges().getMap().size();
   }
   /**
    * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsEdges(
       java.lang.String key) {
@@ -295,7 +189,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> getEdgesMap() {
     return internalGetEdges().getMap();
   }
@@ -303,10 +196,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
    */
   @java.lang.Override
-
-  public org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
+  public /* nullable */
+org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityEdge defaultValue) {
+      /* nullable */
+org.mojolang.mojo.lang.EntityEdge defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> map =
         internalGetEdges().getMap();
@@ -316,7 +210,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
    */
   @java.lang.Override
-
   public org.mojolang.mojo.lang.EntityEdge getEdgesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -340,6 +233,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.lang.EntityRelation.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, org.mojolang.mojo.lang.EntityRelation> relations_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
@@ -350,14 +244,12 @@ private static final long serialVersionUID = 0L;
     }
     return relations_;
   }
-
   public int getRelationsCount() {
     return internalGetRelations().getMap().size();
   }
   /**
    * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsRelations(
       java.lang.String key) {
@@ -376,7 +268,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> getRelationsMap() {
     return internalGetRelations().getMap();
   }
@@ -384,10 +275,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
   @java.lang.Override
-
-  public org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
+  public /* nullable */
+org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityRelation defaultValue) {
+      /* nullable */
+org.mojolang.mojo.lang.EntityRelation defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
         internalGetRelations().getMap();
@@ -397,7 +289,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
    */
   @java.lang.Override
-
   public org.mojolang.mojo.lang.EntityRelation getRelationsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -421,6 +312,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.lang.EntityEdges.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeEdges_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
@@ -431,14 +323,12 @@ private static final long serialVersionUID = 0L;
     }
     return nodeEdges_;
   }
-
   public int getNodeEdgesCount() {
     return internalGetNodeEdges().getMap().size();
   }
   /**
    * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
-
   @java.lang.Override
   public boolean containsNodeEdges(
       java.lang.String key) {
@@ -457,7 +347,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeEdgesMap() {
     return internalGetNodeEdges().getMap();
   }
@@ -465,10 +354,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
   @java.lang.Override
-
-  public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
+  public /* nullable */
+org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityEdges defaultValue) {
+      /* nullable */
+org.mojolang.mojo.lang.EntityEdges defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
         internalGetNodeEdges().getMap();
@@ -478,7 +368,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
    */
   @java.lang.Override
-
   public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -502,6 +391,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 org.mojolang.mojo.lang.EntityRelations.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, org.mojolang.mojo.lang.EntityRelations> nodeRelations_;
   private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
@@ -512,14 +402,12 @@ private static final long serialVersionUID = 0L;
     }
     return nodeRelations_;
   }
-
   public int getNodeRelationsCount() {
     return internalGetNodeRelations().getMap().size();
   }
   /**
    * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
    */
-
   @java.lang.Override
   public boolean containsNodeRelations(
       java.lang.String key) {
@@ -538,7 +426,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> getNodeRelationsMap() {
     return internalGetNodeRelations().getMap();
   }
@@ -546,10 +433,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
    */
   @java.lang.Override
-
-  public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
+  public /* nullable */
+org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
       java.lang.String key,
-      org.mojolang.mojo.lang.EntityRelations defaultValue) {
+      /* nullable */
+org.mojolang.mojo.lang.EntityRelations defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
         internalGetNodeRelations().getMap();
@@ -559,7 +447,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
    */
   @java.lang.Override
-
   public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -615,7 +502,7 @@ private static final long serialVersionUID = 0L;
         internalGetNodeRelations(),
         NodeRelationsDefaultEntryHolder.defaultEntry,
         15);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -674,7 +561,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, nodeRelations__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -699,7 +586,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetNodeEdges())) return false;
     if (!internalGetNodeRelations().equals(
         other.internalGetNodeRelations())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -730,7 +617,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NODE_RELATIONS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetNodeRelations().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -885,22 +772,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using org.mojolang.mojo.lang.EntityRelationSet.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableNodes().clear();
       internalGetMutableEdges().clear();
       internalGetMutableRelations().clear();
@@ -932,19 +815,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.mojolang.mojo.lang.EntityRelationSet buildPartial() {
       org.mojolang.mojo.lang.EntityRelationSet result = new org.mojolang.mojo.lang.EntityRelationSet(this);
-      int from_bitField0_ = bitField0_;
-      result.nodes_ = internalGetNodes();
-      result.nodes_.makeImmutable();
-      result.edges_ = internalGetEdges();
-      result.edges_.makeImmutable();
-      result.relations_ = internalGetRelations();
-      result.relations_.makeImmutable();
-      result.nodeEdges_ = internalGetNodeEdges();
-      result.nodeEdges_.makeImmutable();
-      result.nodeRelations_ = internalGetNodeRelations();
-      result.nodeRelations_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(org.mojolang.mojo.lang.EntityRelationSet result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.nodes_ = internalGetNodes();
+        result.nodes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.edges_ = internalGetEdges();
+        result.edges_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.relations_ = internalGetRelations();
+        result.relations_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.nodeEdges_ = internalGetNodeEdges();
+        result.nodeEdges_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.nodeRelations_ = internalGetNodeRelations();
+        result.nodeRelations_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -993,15 +890,20 @@ private static final long serialVersionUID = 0L;
       if (other == org.mojolang.mojo.lang.EntityRelationSet.getDefaultInstance()) return this;
       internalGetMutableNodes().mergeFrom(
           other.internalGetNodes());
+      bitField0_ |= 0x00000001;
       internalGetMutableEdges().mergeFrom(
           other.internalGetEdges());
+      bitField0_ |= 0x00000002;
       internalGetMutableRelations().mergeFrom(
           other.internalGetRelations());
+      bitField0_ |= 0x00000004;
       internalGetMutableNodeEdges().mergeFrom(
           other.internalGetNodeEdges());
+      bitField0_ |= 0x00000008;
       internalGetMutableNodeRelations().mergeFrom(
           other.internalGetNodeRelations());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1016,17 +918,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.mojolang.mojo.lang.EntityRelationSet parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityNode>
+              nodes__ = input.readMessage(
+                  NodesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableNodes().getMutableMap().put(
+                  nodes__.getKey(), nodes__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdge>
+              edges__ = input.readMessage(
+                  EdgesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEdges().getMutableMap().put(
+                  edges__.getKey(), edges__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
+              relations__ = input.readMessage(
+                  RelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableRelations().getMutableMap().put(
+                  relations__.getKey(), relations__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
+              nodeEdges__ = input.readMessage(
+                  NodeEdgesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableNodeEdges().getMutableMap().put(
+                  nodeEdges__.getKey(), nodeEdges__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 114
+            case 122: {
+              com.google.protobuf.MapEntry<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
+              nodeRelations__ = input.readMessage(
+                  NodeRelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableNodeRelations().getMutableMap().put(
+                  nodeRelations__.getKey(), nodeRelations__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.mojolang.mojo.lang.EntityRelationSet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1034,7 +994,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.lang.EntityNode> nodes_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityNode>
-    internalGetNodes() {
+        internalGetNodes() {
       if (nodes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             NodesDefaultEntryHolder.defaultEntry);
@@ -1042,8 +1002,7 @@ private static final long serialVersionUID = 0L;
       return nodes_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityNode>
-    internalGetMutableNodes() {
-      onChanged();;
+        internalGetMutableNodes() {
       if (nodes_ == null) {
         nodes_ = com.google.protobuf.MapField.newMapField(
             NodesDefaultEntryHolder.defaultEntry);
@@ -1051,16 +1010,16 @@ private static final long serialVersionUID = 0L;
       if (!nodes_.isMutable()) {
         nodes_ = nodes_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return nodes_;
     }
-
     public int getNodesCount() {
       return internalGetNodes().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsNodes(
         java.lang.String key) {
@@ -1079,7 +1038,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> getNodesMap() {
       return internalGetNodes().getMap();
     }
@@ -1087,10 +1045,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
      */
     @java.lang.Override
-
-    public org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
+    public /* nullable */
+org.mojolang.mojo.lang.EntityNode getNodesOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.lang.EntityNode defaultValue) {
+        /* nullable */
+org.mojolang.mojo.lang.EntityNode defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> map =
           internalGetNodes().getMap();
@@ -1100,7 +1059,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
      */
     @java.lang.Override
-
     public org.mojolang.mojo.lang.EntityNode getNodesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1111,8 +1069,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearNodes() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableNodes().getMutableMap()
           .clear();
       return this;
@@ -1120,7 +1078,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
      */
-
     public Builder removeNodes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1133,7 +1090,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode>
-    getMutableNodes() {
+        getMutableNodes() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableNodes().getMutableMap();
     }
     /**
@@ -1143,29 +1101,27 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         org.mojolang.mojo.lang.EntityNode value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableNodes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityNode&gt; nodes = 1;</code>
      */
-
     public Builder putAllNodes(
         java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityNode> values) {
       internalGetMutableNodes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.lang.EntityEdge> edges_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdge>
-    internalGetEdges() {
+        internalGetEdges() {
       if (edges_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EdgesDefaultEntryHolder.defaultEntry);
@@ -1173,8 +1129,7 @@ private static final long serialVersionUID = 0L;
       return edges_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdge>
-    internalGetMutableEdges() {
-      onChanged();;
+        internalGetMutableEdges() {
       if (edges_ == null) {
         edges_ = com.google.protobuf.MapField.newMapField(
             EdgesDefaultEntryHolder.defaultEntry);
@@ -1182,16 +1137,16 @@ private static final long serialVersionUID = 0L;
       if (!edges_.isMutable()) {
         edges_ = edges_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return edges_;
     }
-
     public int getEdgesCount() {
       return internalGetEdges().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsEdges(
         java.lang.String key) {
@@ -1210,7 +1165,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> getEdgesMap() {
       return internalGetEdges().getMap();
     }
@@ -1218,10 +1172,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
      */
     @java.lang.Override
-
-    public org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
+    public /* nullable */
+org.mojolang.mojo.lang.EntityEdge getEdgesOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.lang.EntityEdge defaultValue) {
+        /* nullable */
+org.mojolang.mojo.lang.EntityEdge defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> map =
           internalGetEdges().getMap();
@@ -1231,7 +1186,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
      */
     @java.lang.Override
-
     public org.mojolang.mojo.lang.EntityEdge getEdgesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1242,8 +1196,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearEdges() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableEdges().getMutableMap()
           .clear();
       return this;
@@ -1251,7 +1205,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
      */
-
     public Builder removeEdges(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1264,7 +1217,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge>
-    getMutableEdges() {
+        getMutableEdges() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableEdges().getMutableMap();
     }
     /**
@@ -1274,29 +1228,27 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdge value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEdges().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityEdge&gt; edges = 2;</code>
      */
-
     public Builder putAllEdges(
         java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdge> values) {
       internalGetMutableEdges().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.lang.EntityRelation> relations_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
-    internalGetRelations() {
+        internalGetRelations() {
       if (relations_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             RelationsDefaultEntryHolder.defaultEntry);
@@ -1304,8 +1256,7 @@ private static final long serialVersionUID = 0L;
       return relations_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
-    internalGetMutableRelations() {
-      onChanged();;
+        internalGetMutableRelations() {
       if (relations_ == null) {
         relations_ = com.google.protobuf.MapField.newMapField(
             RelationsDefaultEntryHolder.defaultEntry);
@@ -1313,16 +1264,16 @@ private static final long serialVersionUID = 0L;
       if (!relations_.isMutable()) {
         relations_ = relations_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return relations_;
     }
-
     public int getRelationsCount() {
       return internalGetRelations().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsRelations(
         java.lang.String key) {
@@ -1341,7 +1292,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> getRelationsMap() {
       return internalGetRelations().getMap();
     }
@@ -1349,10 +1299,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
     @java.lang.Override
-
-    public org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
+    public /* nullable */
+org.mojolang.mojo.lang.EntityRelation getRelationsOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.lang.EntityRelation defaultValue) {
+        /* nullable */
+org.mojolang.mojo.lang.EntityRelation defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> map =
           internalGetRelations().getMap();
@@ -1362,7 +1313,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
     @java.lang.Override
-
     public org.mojolang.mojo.lang.EntityRelation getRelationsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1373,8 +1323,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearRelations() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableRelations().getMutableMap()
           .clear();
       return this;
@@ -1382,7 +1332,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
-
     public Builder removeRelations(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1395,7 +1344,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation>
-    getMutableRelations() {
+        getMutableRelations() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableRelations().getMutableMap();
     }
     /**
@@ -1405,29 +1355,27 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         org.mojolang.mojo.lang.EntityRelation value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableRelations().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityRelation&gt; relations = 5;</code>
      */
-
     public Builder putAllRelations(
         java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelation> values) {
       internalGetMutableRelations().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.lang.EntityEdges> nodeEdges_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    internalGetNodeEdges() {
+        internalGetNodeEdges() {
       if (nodeEdges_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             NodeEdgesDefaultEntryHolder.defaultEntry);
@@ -1435,8 +1383,7 @@ private static final long serialVersionUID = 0L;
       return nodeEdges_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    internalGetMutableNodeEdges() {
-      onChanged();;
+        internalGetMutableNodeEdges() {
       if (nodeEdges_ == null) {
         nodeEdges_ = com.google.protobuf.MapField.newMapField(
             NodeEdgesDefaultEntryHolder.defaultEntry);
@@ -1444,16 +1391,16 @@ private static final long serialVersionUID = 0L;
       if (!nodeEdges_.isMutable()) {
         nodeEdges_ = nodeEdges_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return nodeEdges_;
     }
-
     public int getNodeEdgesCount() {
       return internalGetNodeEdges().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
-
     @java.lang.Override
     public boolean containsNodeEdges(
         java.lang.String key) {
@@ -1472,7 +1419,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> getNodeEdgesMap() {
       return internalGetNodeEdges().getMap();
     }
@@ -1480,10 +1426,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
     @java.lang.Override
-
-    public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
+    public /* nullable */
+org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.lang.EntityEdges defaultValue) {
+        /* nullable */
+org.mojolang.mojo.lang.EntityEdges defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> map =
           internalGetNodeEdges().getMap();
@@ -1493,7 +1440,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
     @java.lang.Override
-
     public org.mojolang.mojo.lang.EntityEdges getNodeEdgesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1504,8 +1450,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearNodeEdges() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableNodeEdges().getMutableMap()
           .clear();
       return this;
@@ -1513,7 +1459,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
-
     public Builder removeNodeEdges(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1526,7 +1471,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges>
-    getMutableNodeEdges() {
+        getMutableNodeEdges() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableNodeEdges().getMutableMap();
     }
     /**
@@ -1536,29 +1482,27 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         org.mojolang.mojo.lang.EntityEdges value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableNodeEdges().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityEdges&gt; node_edges = 14;</code>
      */
-
     public Builder putAllNodeEdges(
         java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityEdges> values) {
       internalGetMutableNodeEdges().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, org.mojolang.mojo.lang.EntityRelations> nodeRelations_;
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
-    internalGetNodeRelations() {
+        internalGetNodeRelations() {
       if (nodeRelations_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             NodeRelationsDefaultEntryHolder.defaultEntry);
@@ -1566,8 +1510,7 @@ private static final long serialVersionUID = 0L;
       return nodeRelations_;
     }
     private com.google.protobuf.MapField<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
-    internalGetMutableNodeRelations() {
-      onChanged();;
+        internalGetMutableNodeRelations() {
       if (nodeRelations_ == null) {
         nodeRelations_ = com.google.protobuf.MapField.newMapField(
             NodeRelationsDefaultEntryHolder.defaultEntry);
@@ -1575,16 +1518,16 @@ private static final long serialVersionUID = 0L;
       if (!nodeRelations_.isMutable()) {
         nodeRelations_ = nodeRelations_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return nodeRelations_;
     }
-
     public int getNodeRelationsCount() {
       return internalGetNodeRelations().getMap().size();
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
      */
-
     @java.lang.Override
     public boolean containsNodeRelations(
         java.lang.String key) {
@@ -1603,7 +1546,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> getNodeRelationsMap() {
       return internalGetNodeRelations().getMap();
     }
@@ -1611,10 +1553,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
      */
     @java.lang.Override
-
-    public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
+    public /* nullable */
+org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrDefault(
         java.lang.String key,
-        org.mojolang.mojo.lang.EntityRelations defaultValue) {
+        /* nullable */
+org.mojolang.mojo.lang.EntityRelations defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> map =
           internalGetNodeRelations().getMap();
@@ -1624,7 +1567,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
      */
     @java.lang.Override
-
     public org.mojolang.mojo.lang.EntityRelations getNodeRelationsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1635,8 +1577,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearNodeRelations() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableNodeRelations().getMutableMap()
           .clear();
       return this;
@@ -1644,7 +1586,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
      */
-
     public Builder removeNodeRelations(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1657,7 +1598,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations>
-    getMutableNodeRelations() {
+        getMutableNodeRelations() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableNodeRelations().getMutableMap();
     }
     /**
@@ -1667,22 +1609,20 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         org.mojolang.mojo.lang.EntityRelations value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableNodeRelations().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
      * <code>map&lt;string, .mojo.lang.EntityRelations&gt; node_relations = 15;</code>
      */
-
     public Builder putAllNodeRelations(
         java.util.Map<java.lang.String, org.mojolang.mojo.lang.EntityRelations> values) {
       internalGetMutableNodeRelations().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1718,7 +1658,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EntityRelationSet(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
