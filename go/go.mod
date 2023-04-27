@@ -6,10 +6,10 @@ require (
 	github.com/gertd/go-pluralize v0.1.7
 	github.com/json-iterator/go v1.1.12
 	github.com/modern-go/reflect2 v1.0.2
-	github.com/mojo-lang/core/go v0.0.0-20230427064200-170c9301cda8
-	github.com/mojo-lang/document/go v0.0.0-20230427064907-2dde12374672
+	github.com/mojo-lang/core/go v0.0.0-20230427070306-34ab6ed73f1c
+	github.com/mojo-lang/document/go v0.0.0-20230427070517-a007d4b8d5e5
 	github.com/stretchr/testify v1.8.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/protobuf v1.30.0
 )
 
 require (
