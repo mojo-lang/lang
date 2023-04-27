@@ -43,7 +43,7 @@ func (x *Term) Reset() {
 	}
 }
 
-func (x *Term) String() string {
+func (x *Term) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

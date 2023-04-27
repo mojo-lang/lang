@@ -41,7 +41,7 @@ func (x *CachedDocument) Reset() {
 	}
 }
 
-func (x *CachedDocument) String() string {
+func (x *CachedDocument) ToText() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
