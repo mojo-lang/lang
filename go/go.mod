@@ -6,8 +6,8 @@ require (
 	github.com/gertd/go-pluralize v0.1.7
 	github.com/json-iterator/go v1.1.12
 	github.com/modern-go/reflect2 v1.0.2
-	github.com/mojo-lang/core/go v0.0.0-20230427070306-34ab6ed73f1c
-	github.com/mojo-lang/document/go v0.0.0-20230427070517-a007d4b8d5e5
+	github.com/mojo-lang/core/go v0.0.0-20230427095043-961105c650c8
+	github.com/mojo-lang/document/go v0.0.0-20230427095224-881190052073
 	github.com/stretchr/testify v1.8.0
 	google.golang.org/protobuf v1.30.0
 )
@@ -22,7 +22,7 @@ require (
 	github.com/go-swiss/fonts v0.0.0-20210417170609-5d357d615b8f // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/jinzhu/now v1.1.4 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
 	github.com/phpdave11/gofpdf v1.4.2 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
@@ -33,5 +33,5 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gorm.io/gorm v1.23.4 // indirect
+	gorm.io/gorm v1.25.0 // indirect
 )
