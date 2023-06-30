@@ -1,4 +1,4 @@
 
 
-type StringPrefixLiteralExpr: UnaryExpr @field(argument.is<StringLiteralExpr>) {
+type StringPrefixLiteralExpr: UnaryExpr @field(argument: is<StringLiteralExpr>) {
 }
