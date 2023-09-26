@@ -1,6 +1,9 @@
 package lang
 
-import "github.com/mojo-lang/core/go/pkg/mojo/core"
+import (
+	"github.com/mojo-lang/core/go/pkg/logs"
+	"github.com/mojo-lang/core/go/pkg/mojo/core"
+)
 
 type FieldNamOption int32
 
@@ -102,4 +105,30 @@ func (x *StructType) EachField(iter func(decl *ValueDecl) error) error {
 		}
 	}
 	return nil
+}
+
+func MergeFields(fields []*ValueDecl, merged []*ValueDecl) []*ValueDecl {
+	index := make(map[string]*ValueDecl)
+	for _, field := range fields {
+		index[field.Name] = field
+	}
+
+	for _, field := range merged {
+		if f, ok := index[field.Name]; !ok {
+			fields = append(fields, field)
+		} else if f.Type.GetFullName() != field.Type.GetFullName() {
+			logs.Warnw("merge fields with same name but without same type, will skip it",
+				"name", field.Name,
+				"srcType", f.Type.GetFullName(),
+				"mergedType", field.Type.GetFullName())
+		}
+	}
+	return fields
+}
+
+func (x *StructType) MergeFields(merged []*ValueDecl) *StructType {
+	if x != nil {
+		x.Fields = MergeFields(x.Fields, merged)
+	}
+	return x
 }
