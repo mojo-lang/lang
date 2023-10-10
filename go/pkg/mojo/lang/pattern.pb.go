@@ -39,7 +39,7 @@ func (x *Pattern) Reset() {
 	}
 }
 
-func (x *Pattern) ToText() string {
+func (x *Pattern) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

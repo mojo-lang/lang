@@ -42,7 +42,7 @@ func (x *IsExpr) Reset() {
 	}
 }
 
-func (x *IsExpr) ToText() string {
+func (x *IsExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -113,7 +113,7 @@ func (x *CheckedCastExpr) Reset() {
 	}
 }
 
-func (x *CheckedCastExpr) ToText() string {
+func (x *CheckedCastExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

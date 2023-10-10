@@ -69,3 +69,10 @@ type UserLineBreak {
     /// position of first character immediately after the UserLineBreak
     end_position: Position @2
 }
+
+//type StructuredComment {
+//}
+//type Copyright {
+//}
+//type TaskComment {
+//}

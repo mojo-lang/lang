@@ -42,7 +42,7 @@ func (x *ErrorStmt) Reset() {
 	}
 }
 
-func (x *ErrorStmt) ToText() string {
+func (x *ErrorStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

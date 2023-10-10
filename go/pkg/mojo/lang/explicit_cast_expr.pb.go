@@ -42,7 +42,7 @@ func (x *ExplicitCastExpr) Reset() {
 	}
 }
 
-func (x *ExplicitCastExpr) ToText() string {
+func (x *ExplicitCastExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

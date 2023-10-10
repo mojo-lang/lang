@@ -42,7 +42,7 @@ func (x *LambdaExpr) Reset() {
 	}
 }
 
-func (x *LambdaExpr) ToText() string {
+func (x *LambdaExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

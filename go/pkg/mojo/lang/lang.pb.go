@@ -80,7 +80,7 @@ func (x RelationType) Enum() *RelationType {
 	return p
 }
 
-func (x RelationType) ToText() string {
+func (x RelationType) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -156,7 +156,7 @@ func (x Identifier_Kind) Enum() *Identifier_Kind {
 	return p
 }
 
-func (x Identifier_Kind) ToText() string {
+func (x Identifier_Kind) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -208,7 +208,7 @@ func (x Package_Requirement_Version_Type) Enum() *Package_Requirement_Version_Ty
 	return p
 }
 
-func (x Package_Requirement_Version_Type) ToText() string {
+func (x Package_Requirement_Version_Type) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
@@ -253,7 +253,7 @@ func (x *ApplyExpr) Reset() {
 	}
 }
 
-func (x *ApplyExpr) ToText() string {
+func (x *ApplyExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -361,7 +361,7 @@ func (x *Argument) Reset() {
 	}
 }
 
-func (x *Argument) ToText() string {
+func (x *Argument) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -433,7 +433,7 @@ func (x *ArrayLiteralExpr) Reset() {
 	}
 }
 
-func (x *ArrayLiteralExpr) ToText() string {
+func (x *ArrayLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -517,7 +517,7 @@ func (x *AssignmentExpr) Reset() {
 	}
 }
 
-func (x *AssignmentExpr) ToText() string {
+func (x *AssignmentExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -647,7 +647,7 @@ func (x *Attribute) Reset() {
 	}
 }
 
-func (x *Attribute) ToText() string {
+func (x *Attribute) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -787,7 +787,7 @@ func (x *AttributeAliasDecl) Reset() {
 	}
 }
 
-func (x *AttributeAliasDecl) ToText() string {
+func (x *AttributeAliasDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -966,7 +966,7 @@ func (x *AttributeDecl) Reset() {
 	}
 }
 
-func (x *AttributeDecl) ToText() string {
+func (x *AttributeDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1171,7 +1171,7 @@ func (x *BinaryExpr) Reset() {
 	}
 }
 
-func (x *BinaryExpr) ToText() string {
+func (x *BinaryExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1294,7 +1294,7 @@ func (x *BlockStmt) Reset() {
 	}
 }
 
-func (x *BlockStmt) ToText() string {
+func (x *BlockStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1373,7 +1373,7 @@ func (x *BoolLiteralExpr) Reset() {
 	}
 }
 
-func (x *BoolLiteralExpr) ToText() string {
+func (x *BoolLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1451,7 +1451,7 @@ func (x *BranchStmt) Reset() {
 	}
 }
 
-func (x *BranchStmt) ToText() string {
+func (x *BranchStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1522,7 +1522,7 @@ func (x *BreakStmt) Reset() {
 	}
 }
 
-func (x *BreakStmt) ToText() string {
+func (x *BreakStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1608,7 +1608,7 @@ func (x *ClosureExpr) Reset() {
 	}
 }
 
-func (x *ClosureExpr) ToText() string {
+func (x *ClosureExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1787,7 +1787,7 @@ func (x *Comment) Reset() {
 	}
 }
 
-func (x *Comment) ToText() string {
+func (x *Comment) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1907,7 +1907,7 @@ func (x *BlockComment) Reset() {
 	}
 }
 
-func (x *BlockComment) ToText() string {
+func (x *BlockComment) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -1985,7 +1985,7 @@ func (x *LineComment) Reset() {
 	}
 }
 
-func (x *LineComment) ToText() string {
+func (x *LineComment) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2055,7 +2055,7 @@ func (x *MultiLineComment) Reset() {
 	}
 }
 
-func (x *MultiLineComment) ToText() string {
+func (x *MultiLineComment) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2117,7 +2117,7 @@ func (x *UserLineBreak) Reset() {
 	}
 }
 
-func (x *UserLineBreak) ToText() string {
+func (x *UserLineBreak) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2177,7 +2177,7 @@ func (x *ConditionalExpr) Reset() {
 	}
 }
 
-func (x *ConditionalExpr) ToText() string {
+func (x *ConditionalExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2278,7 +2278,7 @@ func (x *ConstantDecl) Reset() {
 	}
 }
 
-func (x *ConstantDecl) ToText() string {
+func (x *ConstantDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2423,7 +2423,7 @@ func (x *ConstructorDecl) Reset() {
 	}
 }
 
-func (x *ConstructorDecl) ToText() string {
+func (x *ConstructorDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2571,7 +2571,7 @@ func (x *ContinueStmt) Reset() {
 	}
 }
 
-func (x *ContinueStmt) ToText() string {
+func (x *ContinueStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2642,7 +2642,7 @@ func (x *ControlTransferStmt) Reset() {
 	}
 }
 
-func (x *ControlTransferStmt) ToText() string {
+func (x *ControlTransferStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2716,7 +2716,7 @@ func (x *Decl) Reset() {
 	}
 }
 
-func (x *Decl) ToText() string {
+func (x *Decl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -2820,7 +2820,7 @@ func (x *Declaration) Reset() {
 	}
 }
 
-func (x *Declaration) ToText() string {
+func (x *Declaration) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3057,7 +3057,7 @@ func (x *MapLiteralExpr) Reset() {
 	}
 }
 
-func (x *MapLiteralExpr) ToText() string {
+func (x *MapLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3137,7 +3137,7 @@ func (x *Document) Reset() {
 	}
 }
 
-func (x *Document) ToText() string {
+func (x *Document) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3228,7 +3228,7 @@ func (x *EntityEdge) Reset() {
 	}
 }
 
-func (x *EntityEdge) ToText() string {
+func (x *EntityEdge) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3338,7 +3338,7 @@ func (x *EntityEdges) Reset() {
 	}
 }
 
-func (x *EntityEdges) ToText() string {
+func (x *EntityEdges) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3387,7 +3387,7 @@ func (x *EntityNode) Reset() {
 	}
 }
 
-func (x *EntityNode) ToText() string {
+func (x *EntityNode) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3452,7 +3452,7 @@ func (x *EntityRelation) Reset() {
 	}
 }
 
-func (x *EntityRelation) ToText() string {
+func (x *EntityRelation) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3527,7 +3527,7 @@ func (x *EntityRelations) Reset() {
 	}
 }
 
-func (x *EntityRelations) ToText() string {
+func (x *EntityRelations) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3578,7 +3578,7 @@ func (x *EntityRelationSet) Reset() {
 	}
 }
 
-func (x *EntityRelationSet) ToText() string {
+func (x *EntityRelationSet) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3669,7 +3669,7 @@ func (x *EnumDecl) Reset() {
 	}
 }
 
-func (x *EnumDecl) ToText() string {
+func (x *EnumDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3832,7 +3832,7 @@ func (x *EnumType) Reset() {
 	}
 }
 
-func (x *EnumType) ToText() string {
+func (x *EnumType) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3910,7 +3910,7 @@ func (x *ErrorExpr) Reset() {
 	}
 }
 
-func (x *ErrorExpr) ToText() string {
+func (x *ErrorExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -3986,7 +3986,7 @@ func (x *ExplicitMemberExpr) Reset() {
 	}
 }
 
-func (x *ExplicitMemberExpr) ToText() string {
+func (x *ExplicitMemberExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4101,7 +4101,7 @@ func (x *Expr) Reset() {
 	}
 }
 
-func (x *Expr) ToText() string {
+func (x *Expr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4200,7 +4200,7 @@ func (x *Expression) Reset() {
 	}
 }
 
-func (x *Expression) ToText() string {
+func (x *Expression) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4644,7 +4644,7 @@ func (x *DynamicLookupExpr) Reset() {
 	}
 }
 
-func (x *DynamicLookupExpr) ToText() string {
+func (x *DynamicLookupExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4710,7 +4710,7 @@ func (x *UnresolvedMemberExpr) Reset() {
 	}
 }
 
-func (x *UnresolvedMemberExpr) ToText() string {
+func (x *UnresolvedMemberExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4753,7 +4753,7 @@ func (x *IdentityExpr) Reset() {
 	}
 }
 
-func (x *IdentityExpr) ToText() string {
+func (x *IdentityExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4824,7 +4824,7 @@ func (x *KeyPathApplicationExpr) Reset() {
 	}
 }
 
-func (x *KeyPathApplicationExpr) ToText() string {
+func (x *KeyPathApplicationExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4895,7 +4895,7 @@ func (x *TupleElementExpr) Reset() {
 	}
 }
 
-func (x *TupleElementExpr) ToText() string {
+func (x *TupleElementExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -4961,7 +4961,7 @@ func (x *KeyPathExpr) Reset() {
 	}
 }
 
-func (x *KeyPathExpr) ToText() string {
+func (x *KeyPathExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5009,7 +5009,7 @@ func (x *FloatLiteralExpr) Reset() {
 	}
 }
 
-func (x *FloatLiteralExpr) ToText() string {
+func (x *FloatLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5118,7 +5118,7 @@ func (x *ForStmt) Reset() {
 	}
 }
 
-func (x *ForStmt) ToText() string {
+func (x *ForStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5216,7 +5216,7 @@ func (x *FunctionCallExpr) Reset() {
 	}
 }
 
-func (x *FunctionCallExpr) ToText() string {
+func (x *FunctionCallExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5352,7 +5352,7 @@ func (x *FunctionDecl) Reset() {
 	}
 }
 
-func (x *FunctionDecl) ToText() string {
+func (x *FunctionDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5521,7 +5521,7 @@ func (x *FunctionSignature) Reset() {
 	}
 }
 
-func (x *FunctionSignature) ToText() string {
+func (x *FunctionSignature) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5604,7 +5604,7 @@ func (x *GenericParameter) Reset() {
 	}
 }
 
-func (x *GenericParameter) ToText() string {
+func (x *GenericParameter) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5766,7 +5766,7 @@ func (x *GroupDecl) Reset() {
 	}
 }
 
-func (x *GroupDecl) ToText() string {
+func (x *GroupDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -5894,7 +5894,7 @@ func (x *Identifier) Reset() {
 	}
 }
 
-func (x *Identifier) ToText() string {
+func (x *Identifier) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6023,7 +6023,7 @@ func (x *IdentifierExpr) Reset() {
 	}
 }
 
-func (x *IdentifierExpr) ToText() string {
+func (x *IdentifierExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6114,7 +6114,7 @@ func (x *IfStmt) Reset() {
 	}
 }
 
-func (x *IfStmt) ToText() string {
+func (x *IfStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6236,7 +6236,7 @@ func (x *ImplicitMemberExpr) Reset() {
 	}
 }
 
-func (x *ImplicitMemberExpr) ToText() string {
+func (x *ImplicitMemberExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6316,7 +6316,7 @@ func (x *ImportDecl) Reset() {
 	}
 }
 
-func (x *ImportDecl) ToText() string {
+func (x *ImportDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6452,7 +6452,7 @@ func (x *IntegerLiteralExpr) Reset() {
 	}
 }
 
-func (x *IntegerLiteralExpr) ToText() string {
+func (x *IntegerLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6551,7 +6551,7 @@ func (x *InterfaceDecl) Reset() {
 	}
 }
 
-func (x *InterfaceDecl) ToText() string {
+func (x *InterfaceDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6721,7 +6721,7 @@ func (x *InterfaceType) Reset() {
 	}
 }
 
-func (x *InterfaceType) ToText() string {
+func (x *InterfaceType) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6799,7 +6799,7 @@ func (x *LiteralExpr) Reset() {
 	}
 }
 
-func (x *LiteralExpr) ToText() string {
+func (x *LiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6871,7 +6871,7 @@ func (x *LoopStmt) Reset() {
 	}
 }
 
-func (x *LoopStmt) ToText() string {
+func (x *LoopStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -6954,7 +6954,7 @@ func (x *MatchCase) Reset() {
 	}
 }
 
-func (x *MatchCase) ToText() string {
+func (x *MatchCase) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7071,7 +7071,7 @@ func (x *MatchStmt) Reset() {
 	}
 }
 
-func (x *MatchStmt) ToText() string {
+func (x *MatchStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7162,7 +7162,7 @@ func (x *NominalType) Reset() {
 	}
 }
 
-func (x *NominalType) ToText() string {
+func (x *NominalType) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7275,7 +7275,7 @@ func (x *NullLiteralExpr) Reset() {
 	}
 }
 
-func (x *NullLiteralExpr) ToText() string {
+func (x *NullLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7347,7 +7347,7 @@ func (x *NumericLiteralExpr) Reset() {
 	}
 }
 
-func (x *NumericLiteralExpr) ToText() string {
+func (x *NumericLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7430,7 +7430,7 @@ func (x *NumericSuffixLiteralExpr) Reset() {
 	}
 }
 
-func (x *NumericSuffixLiteralExpr) ToText() string {
+func (x *NumericSuffixLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7546,7 +7546,7 @@ func (x *ObjectLiteralExpr) Reset() {
 	}
 }
 
-func (x *ObjectLiteralExpr) ToText() string {
+func (x *ObjectLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7626,7 +7626,7 @@ func (x *Operator) Reset() {
 	}
 }
 
-func (x *Operator) ToText() string {
+func (x *Operator) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7725,7 +7725,7 @@ func (x *Package) Reset() {
 	}
 }
 
-func (x *Package) ToText() string {
+func (x *Package) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -7901,7 +7901,7 @@ func (x *PackageDecl) Reset() {
 	}
 }
 
-func (x *PackageDecl) ToText() string {
+func (x *PackageDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8022,7 +8022,7 @@ func (x *ParenthesizedExpr) Reset() {
 	}
 }
 
-func (x *ParenthesizedExpr) ToText() string {
+func (x *ParenthesizedExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8105,7 +8105,7 @@ func (x *PostfixUnaryExpr) Reset() {
 	}
 }
 
-func (x *PostfixUnaryExpr) ToText() string {
+func (x *PostfixUnaryExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8222,7 +8222,7 @@ func (x *Position) Reset() {
 	}
 }
 
-func (x *Position) ToText() string {
+func (x *Position) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8304,7 +8304,7 @@ func (x *PosSpan) Reset() {
 	}
 }
 
-func (x *PosSpan) ToText() string {
+func (x *PosSpan) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8359,7 +8359,7 @@ func (x *PrefixUnaryExpr) Reset() {
 	}
 }
 
-func (x *PrefixUnaryExpr) ToText() string {
+func (x *PrefixUnaryExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8475,7 +8475,7 @@ func (x *RangeLiteralExpr) Reset() {
 	}
 }
 
-func (x *RangeLiteralExpr) ToText() string {
+func (x *RangeLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8555,7 +8555,7 @@ func (x *RepeatStmt) Reset() {
 	}
 }
 
-func (x *RepeatStmt) ToText() string {
+func (x *RepeatStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8641,7 +8641,7 @@ func (x *ReturnStmt) Reset() {
 	}
 }
 
-func (x *ReturnStmt) ToText() string {
+func (x *ReturnStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8717,7 +8717,7 @@ func (x *Scope) Reset() {
 	}
 }
 
-func (x *Scope) ToText() string {
+func (x *Scope) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8783,7 +8783,7 @@ func (x *SourceFile) Reset() {
 	}
 }
 
-func (x *SourceFile) ToText() string {
+func (x *SourceFile) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -8926,7 +8926,7 @@ func (x *Statement) Reset() {
 	}
 }
 
-func (x *Statement) ToText() string {
+func (x *Statement) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9123,7 +9123,7 @@ func (x *Stmt) Reset() {
 	}
 }
 
-func (x *Stmt) ToText() string {
+func (x *Stmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9195,7 +9195,7 @@ func (x *StringLiteralExpr) Reset() {
 	}
 }
 
-func (x *StringLiteralExpr) ToText() string {
+func (x *StringLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9278,7 +9278,7 @@ func (x *StringPrefixLiteralExpr) Reset() {
 	}
 }
 
-func (x *StringPrefixLiteralExpr) ToText() string {
+func (x *StringPrefixLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9398,7 +9398,7 @@ func (x *StringSuffixLiteralExpr) Reset() {
 	}
 }
 
-func (x *StringSuffixLiteralExpr) ToText() string {
+func (x *StringSuffixLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9513,7 +9513,7 @@ func (x *StructConstructionExpr) Reset() {
 	}
 }
 
-func (x *StructConstructionExpr) ToText() string {
+func (x *StructConstructionExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9600,7 +9600,7 @@ func (x *StructDecl) Reset() {
 	}
 }
 
-func (x *StructDecl) ToText() string {
+func (x *StructDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9788,7 +9788,7 @@ func (x *StructLiteralExpr) Reset() {
 	}
 }
 
-func (x *StructLiteralExpr) ToText() string {
+func (x *StructLiteralExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9905,7 +9905,7 @@ func (x *StructType) Reset() {
 	}
 }
 
-func (x *StructType) ToText() string {
+func (x *StructType) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -9995,7 +9995,7 @@ func (x *SubscriptExpr) Reset() {
 	}
 }
 
-func (x *SubscriptExpr) ToText() string {
+func (x *SubscriptExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10112,7 +10112,7 @@ func (x *TupleExpr) Reset() {
 	}
 }
 
-func (x *TupleExpr) ToText() string {
+func (x *TupleExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10210,7 +10210,7 @@ func (x *TypeAliasDecl) Reset() {
 	}
 }
 
-func (x *TypeAliasDecl) ToText() string {
+func (x *TypeAliasDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10372,7 +10372,7 @@ func (x *TypeCastingExpr) Reset() {
 	}
 }
 
-func (x *TypeCastingExpr) ToText() string {
+func (x *TypeCastingExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10454,7 +10454,7 @@ func (x *TypeDecl) Reset() {
 	}
 }
 
-func (x *TypeDecl) ToText() string {
+func (x *TypeDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10605,7 +10605,7 @@ func (x *TypeDeclaration) Reset() {
 	}
 }
 
-func (x *TypeDeclaration) ToText() string {
+func (x *TypeDeclaration) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10729,7 +10729,7 @@ func (x *UnaryExpr) Reset() {
 	}
 }
 
-func (x *UnaryExpr) ToText() string {
+func (x *UnaryExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10853,7 +10853,7 @@ func (x *ValueDecl) Reset() {
 	}
 }
 
-func (x *ValueDecl) ToText() string {
+func (x *ValueDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -10986,7 +10986,7 @@ func (x *Initializer) Reset() {
 	}
 }
 
-func (x *Initializer) ToText() string {
+func (x *Initializer) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11059,7 +11059,7 @@ func (x *VariableDecl) Reset() {
 	}
 }
 
-func (x *VariableDecl) ToText() string {
+func (x *VariableDecl) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11196,7 +11196,7 @@ func (x *WhileStmt) Reset() {
 	}
 }
 
-func (x *WhileStmt) ToText() string {
+func (x *WhileStmt) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11288,7 +11288,7 @@ func (x *WildcardExpr) Reset() {
 	}
 }
 
-func (x *WildcardExpr) ToText() string {
+func (x *WildcardExpr) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11358,7 +11358,7 @@ func (x *MapLiteralExpr_Entry) Reset() {
 	}
 }
 
-func (x *MapLiteralExpr_Entry) ToText() string {
+func (x *MapLiteralExpr_Entry) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11423,7 +11423,7 @@ func (x *Document_Line) Reset() {
 	}
 }
 
-func (x *Document_Line) ToText() string {
+func (x *Document_Line) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11500,7 +11500,7 @@ func (x *FunctionSignature_Parameter) Reset() {
 	}
 }
 
-func (x *FunctionSignature_Parameter) ToText() string {
+func (x *FunctionSignature_Parameter) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11564,7 +11564,7 @@ func (x *FunctionSignature_Result) Reset() {
 	}
 }
 
-func (x *FunctionSignature_Result) ToText() string {
+func (x *FunctionSignature_Result) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11635,7 +11635,7 @@ func (x *ObjectLiteralExpr_Field) Reset() {
 	}
 }
 
-func (x *ObjectLiteralExpr_Field) ToText() string {
+func (x *ObjectLiteralExpr_Field) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11708,7 +11708,7 @@ func (x *Package_Requirement) Reset() {
 	}
 }
 
-func (x *Package_Requirement) ToText() string {
+func (x *Package_Requirement) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11792,7 +11792,7 @@ func (x *Package_Author) Reset() {
 	}
 }
 
-func (x *Package_Author) ToText() string {
+func (x *Package_Author) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11854,7 +11854,7 @@ func (x *Package_Requirement_Version) Reset() {
 	}
 }
 
-func (x *Package_Requirement_Version) ToText() string {
+func (x *Package_Requirement_Version) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
@@ -11909,7 +11909,7 @@ func (x *Package_Requirement_Commit) Reset() {
 	}
 }
 
-func (x *Package_Requirement_Commit) ToText() string {
+func (x *Package_Requirement_Commit) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 

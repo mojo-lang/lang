@@ -40,7 +40,7 @@ func (x *Import) Reset() {
 	}
 }
 
-func (x *Import) ToText() string {
+func (x *Import) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
