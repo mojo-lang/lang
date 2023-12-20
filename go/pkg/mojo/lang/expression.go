@@ -4,8 +4,79 @@ import (
 	"errors"
 	"reflect"
 
+	jsoniter "github.com/json-iterator/go"
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
 )
+
+const (
+	NullLiteralExprName          = "NullLiteralExpr"
+	IntegerLiteralExprName       = "IntegerLiteralExpr"
+	FloatLiteralExprName         = "FloatLiteralExpr"
+	BoolLiteralExprName          = "BoolLiteralExpr"
+	StringLiteralExprName        = "StringLiteralExpr"
+	ObjectLiteralExprName        = "ObjectLiteralExpr"
+	ArrayLiteralExprName         = "ArrayLiteralExpr"
+	MapLiteralExprName           = "MapLiteralExpr"
+	RangeLiteralExprName         = "RangeLiteralExpr"
+	IdentifierExprName           = "IdentifierExpr"
+	NumericSuffixLiteralExprName = "NumericSuffixLiteralExpr"
+	StringPrefixLiteralExprName  = "StringPrefixLiteralExpr"
+	StringSuffixLiteralExprName  = "StringSuffixLiteralExpr"
+	StructLiteralExprName        = "StructLiteralExpr"
+	ClosureExprName              = "ClosureExpr"
+	ParenthesizedExprName        = "ParenthesizedExpr"
+	ImplicitMemberExprName       = "ImplicitMemberExpr"
+	WildcardExprName             = "WildcardExpr"
+	StructConstructionExprName   = "StructConstructionExpr"
+	TupleExprName                = "TupleExpr"
+	PrefixUnaryExprName          = "PrefixUnaryExpr"
+	PostfixUnaryExprName         = "PostfixUnaryExpr"
+	FunctionCallExprName         = "FunctionCallExpr"
+	ExplicitMemberExprName       = "ExplicitMemberExpr"
+	SubscriptExprName            = "SubscriptExpr"
+	BinaryExprName               = "BinaryExpr"
+	ConditionalExprName          = "ConditionalExpr"
+	TypeCastingExprName          = "TypeCastingExpr"
+	AssignmentExprName           = "AssignmentExpr"
+	ErrorExprName                = "ErrorExpr"
+)
+
+var exprInfos map[reflect.Type]StructJsonInfo
+
+func init() {
+	exprInfos = GetStructJsonInfos(jsoniter.Config{},
+		NullLiteralExpr{},
+		IntegerLiteralExpr{},
+		FloatLiteralExpr{},
+		BoolLiteralExpr{},
+		StringLiteralExpr{},
+		ObjectLiteralExpr{},
+		ArrayLiteralExpr{},
+		MapLiteralExpr{},
+		RangeLiteralExpr{},
+		IdentifierExpr{},
+		NumericSuffixLiteralExpr{},
+		StringPrefixLiteralExpr{},
+		StringSuffixLiteralExpr{},
+		StructLiteralExpr{},
+		ClosureExpr{},
+		ParenthesizedExpr{},
+		ImplicitMemberExpr{},
+		WildcardExpr{},
+		StructConstructionExpr{},
+		TupleExpr{},
+		PrefixUnaryExpr{},
+		PostfixUnaryExpr{},
+		FunctionCallExpr{},
+		ExplicitMemberExpr{},
+		SubscriptExpr{},
+		BinaryExpr{},
+		ConditionalExpr{},
+		TypeCastingExpr{},
+		AssignmentExpr{},
+		ErrorExpr{},
+	)
+}
 
 func NewNullLiteralExpression(expr *NullLiteralExpr) *Expression {
 	return &Expression{
