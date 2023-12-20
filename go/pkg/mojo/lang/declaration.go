@@ -10,9 +10,19 @@ import (
 )
 
 const (
-	EnumDeclName      = "EnumDecl"
-	StructDeclName    = "StructDecl"
-	InterfaceDeclName = "InterfaceDecl"
+	PackageDeclName        = "PackageDecl"
+	ImportDeclName         = "ImportDecl"
+	EnumDeclName           = "EnumDecl"
+	StructDeclName         = "StructDecl"
+	InterfaceDeclName      = "InterfaceDecl"
+	TypeAliasDeclName      = "TypeAliasDecl"
+	ConstantDeclName       = "ConstantDecl"
+	VariableDeclName       = "VariableDecl"
+	AttributeDeclName      = "AttributeDecl"
+	AttributeAliasDeclName = "AttributeAliasDecl"
+	FunctionDeclName       = "FunctionDecl"
+	ConstructorDeclName    = "ConstructorDecl"
+	GenericParameterName   = "GenericParameter"
 )
 
 var declInfos map[reflect.Type]StructJsonInfo
@@ -21,11 +31,17 @@ func init() {
 	declInfos = GetStructJsonInfos(jsoniter.Config{},
 		PackageDecl{},
 		ImportDecl{},
-		ConstantDecl{},
 		EnumDecl{},
 		StructDecl{},
 		InterfaceDecl{},
+		TypeAliasDecl{},
+		ConstantDecl{},
+		VariableDecl{},
+		AttributeDecl{},
+		AttributeAliasDecl{},
 		FunctionDecl{},
+		ConstructorDecl{},
+		GenericParameter{},
 	)
 }
 
@@ -125,7 +141,7 @@ func NewImportDeclaration(decl *ImportDecl) *Declaration {
 	}
 }
 
-func NewGenericConstructorDeclaration(decl *ConstructorDecl) *Declaration {
+func NewConstructorDeclaration(decl *ConstructorDecl) *Declaration {
 	return &Declaration{
 		Declaration: &Declaration_ConstructorDecl{
 			ConstructorDecl: decl,
