@@ -5,6 +5,18 @@ import (
 	"reflect"
 )
 
+const (
+	ReturnStmtName   = "ReturnStmt"
+	BreakStmtName    = "BreakStmt"
+	ContinueStmtName = "ContinueStmt"
+	MatchStmtName    = "MatchStmt"
+	IfStmtName       = "IfStmt"
+	ForStmtName      = "ForStmt"
+	WhileStmtName    = "WhileStmt"
+	RepeatStmtName   = "RepeatStmt"
+	BlockStmtName    = "BlockStmt"
+)
+
 func NewExpressionStatement(expression *Expression) *Statement {
 	return &Statement{
 		Statement: &Statement_Expression{Expression: expression},
