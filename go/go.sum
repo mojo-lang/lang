@@ -176,6 +176,10 @@ github.com/modern-go/reflect2 v1.0.2 h1:xBagoLtFs94CBntxluKeaWgTMpvLxC4ur3nMaC9G
 github.com/modern-go/reflect2 v1.0.2/go.mod h1:yWuevngMOJpCy52FWWMvUC8ws7m/LJsjYzDa0/r8luk=
 github.com/mojo-lang/core/go v0.0.0-20231009061615-f75fad8ff39f h1:JxNrAHzYQxVo9nLSXwrwdsglO6WOFY+xJX6IXFNg0yI=
 github.com/mojo-lang/core/go v0.0.0-20231009061615-f75fad8ff39f/go.mod h1:2M6i+RgL+qBMsCPWNDTk6GIqqCuT2Q80u0LeGhuaAuo=
+github.com/mojo-lang/core/go v0.0.0-20231031025332-d772921211c7 h1:AM+MbxWKRqZGvZ310NyWRSpBoTfgF9cHCwnrDODtc7o=
+github.com/mojo-lang/core/go v0.0.0-20231031025332-d772921211c7/go.mod h1:2M6i+RgL+qBMsCPWNDTk6GIqqCuT2Q80u0LeGhuaAuo=
+github.com/mojo-lang/core/go v0.0.0-20231220010621-d5541d691b2a h1:s1R4NkXB7c09lWKXj6Mn5tZlzKr4kfm5hSFxgNMSGlI=
+github.com/mojo-lang/core/go v0.0.0-20231220010621-d5541d691b2a/go.mod h1:2M6i+RgL+qBMsCPWNDTk6GIqqCuT2Q80u0LeGhuaAuo=
 github.com/mojo-lang/document/go v0.0.0-20231009062124-1063661ebfdd h1:GJqOnNVSTxjfXVJJLsfMaaDtfwPrtDJ1QM/BRL2OCBo=
 github.com/mojo-lang/document/go v0.0.0-20231009062124-1063661ebfdd/go.mod h1:4t20RlblbupiUN/BvsoUJ+N6kR2M1rVyuSdXZOrz05A=
 github.com/pascaldekloe/name v0.0.0-20180628100202-0fd16699aae1/go.mod h1:eD5JxqMiuNYyFNmyY9rkJ/slN8y59oEu4Ei7F8OoKWQ=
