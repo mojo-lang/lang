@@ -2,6 +2,7 @@ package lang
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/mojo-lang/core/go/pkg/mojo/core"
@@ -82,6 +83,15 @@ func (x *Package) IsGlobal() bool {
 // Global Package is also a padding package
 func (x *Package) IsPadding() bool {
 	return x.Implicit && len(x.SourceFiles) == 0
+}
+
+var versionTag = regexp.MustCompile(`^(v[0-9]+)|(alpha[0-9]*)|(beta[0-9]*)`)
+
+func (x *Package) IsVersionTag() bool {
+	if x != nil && versionTag.MatchString(x.Name) {
+		return true
+	}
+	return false
 }
 
 func (x *Package) SetScope(scope *Scope) {
@@ -283,6 +293,34 @@ func (x *Package) GetResolvedIdentifier(fullName string) *Identifier {
 		return x.GetIdentifier(fullName)
 	}
 	return nil
+}
+
+func (x *Package) DirectlyContainsService() bool {
+	if x != nil {
+		if len(x.Children) > 0 {
+			for _, pkg := range x.Children {
+				if pkg.IsVersionTag() && pkg.directlyContainsService() {
+					return true
+				}
+			}
+		}
+
+		return x.directlyContainsService()
+	}
+	return false
+}
+
+func (x *Package) directlyContainsService() bool {
+	if x != nil {
+		for _, file := range x.SourceFiles {
+			for _, statement := range file.Statements {
+				if i := statement.GetDeclaration().GetInterfaceDecl(); i != nil {
+					return true
+				}
+			}
+		}
+	}
+	return false
 }
 
 func (x *Package) GetEntityNode(name string) *EntityNode {
